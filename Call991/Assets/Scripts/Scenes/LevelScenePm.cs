@@ -1,5 +1,6 @@
 using System;
 using UniRx;
+using UnityEngine;
 
 public class LevelScenePm : IDisposable
 {
@@ -16,6 +17,8 @@ public class LevelScenePm : IDisposable
         _ctx = ctx;
 
         CreateObjects();
+        
+        Debug.Log($"[{this}] constructor finished");
     }
 
     private void CreateObjects()

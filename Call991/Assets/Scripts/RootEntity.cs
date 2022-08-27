@@ -1,6 +1,7 @@
 ﻿using System;
 using UniRx;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class RootEntity : IDisposable
 {
@@ -17,14 +18,14 @@ public class RootEntity : IDisposable
         _ctx = ctx;
         _diposables = new CompositeDisposable();
         
+        var startApplicationSceneName = SceneManager.GetActiveScene().name;
         var onSwitchScene = new ReactiveCommand<GameScenes>();
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
+            startApplicationSceneName = startApplicationSceneName,
             onSwitchScene = onSwitchScene,
-        });
-
-        onSwitchScene.Execute(GameScenes.Menu);
+        }).AddTo(_diposables);
     }
 
     public void Dispose()
