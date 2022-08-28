@@ -9,6 +9,7 @@ public class LevelSceneEntity : IGameScene
     public struct Ctx
     {
         public Container<Task> constructorTask;
+        public ReactiveCommand<GameScenes> onSwitchScene;
     }
 
     private Ctx _ctx;
@@ -18,7 +19,7 @@ public class LevelSceneEntity : IGameScene
     public LevelSceneEntity(Ctx ctx)
     {
         _ctx = ctx;
-        _disposables = new ();
+        _disposables = new CompositeDisposable();
 
         AsyncConstructor();
     }
@@ -43,13 +44,18 @@ public class LevelSceneEntity : IGameScene
         _ui = UnityEngine.GameObject.FindObjectOfType<UiLevelScene>();
         var uiPool = new Pool(new GameObject("uiPool").transform);
 
+        var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
+        
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
+            onSwitchScene = _ctx.onSwitchScene,
+            onClickMenuButton = onClickMenuButton,
         }).AddTo(_disposables);
 
 
         _ui.SetCtx(new UiLevelScene.Ctx
         {
+            onClickMenuButton = onClickMenuButton,
             gameSet = gameSet,
             pool = uiPool,
         });

@@ -3,7 +3,6 @@ using UnityEngine;
 public class EntryRoot : MonoBehaviour
 {
     private static EntryRoot _instance;
-    private static RootEntity _rootEntityInstance; 
 
     private void Awake()
     {
@@ -12,15 +11,10 @@ public class EntryRoot : MonoBehaviour
         else
         {
             Destroy(gameObject);
-            return;
-        }
-        
-        if (_rootEntityInstance != null)
-        {
             Destroy(this);
             return;
         }
-            
+
         DontDestroyOnLoad(this.gameObject);
         
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
@@ -35,7 +29,7 @@ public class EntryRoot : MonoBehaviour
 
     private void CreateRootEntity()
     {
-        _rootEntityInstance = new RootEntity(new RootEntity.Ctx
+        var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             
         });
