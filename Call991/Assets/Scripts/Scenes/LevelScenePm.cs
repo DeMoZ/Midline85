@@ -13,8 +13,10 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<string> onPhraseEvent;
-        public ReactiveCommand<Phrase> onPhrase;
-        
+        public ReactiveCommand<Phrase> onShowPhrase;
+        public ReactiveCommand<Phrase> onHidePhrase;
+
+
         public Dialogues dialogues;
         public PlayerProfile profile;
     }
@@ -38,20 +40,20 @@ public class LevelScenePm : IDisposable
     private async void StartScene()
     {
         await Task.Yield();
-        
+
         RunDialogue();
     }
-    
+
     private void RunDialogue()
     {
         // float timer = 0;
         // float mSeconds = 1;
 
-        if (string.IsNullOrWhiteSpace(_ctx.profile.lastPhraseId))
-            _ctx.profile.lastPhraseId = _ctx.dialogues.phrases[0].phraseId;
+        if (string.IsNullOrWhiteSpace(_ctx.profile.Data.lastPhraseId))
+            _ctx.profile.Data.lastPhraseId = _ctx.dialogues.phrases[0].phraseId;
 
-        _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.lastPhraseId);
-        
+        _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.Data.lastPhraseId);
+
         Observable.FromCoroutine(PhraseRoutine).Subscribe(_ =>
         {
             Debug.Log($"[{this}] Coroutine end");
@@ -59,39 +61,50 @@ public class LevelScenePm : IDisposable
             switch (_currentPhrase.nextIs)
             {
                 case NextIs.Phrase:
-                    if (string.IsNullOrWhiteSpace(_currentPhrase.nextId))
-                    {
-                        Debug.LogWarning($"[{this}] nextId not set up for phrase {_currentPhrase.phraseId}");
-                        return;
-                    }
+                    NextPhrase();
+                    break;
 
-                    _ctx.profile.lastPhraseId = _currentPhrase.nextId;
-                    RunDialogue();
-                    break;
-                
                 case NextIs.Choices:
-                    if (_currentPhrase.choices.Count == 0)
-                    {
-                        Debug.LogWarning($"[{this}] no choices set up for phrase {_currentPhrase.phraseId}");
-                        return;
-                    }
-                    
-                    Debug.LogWarning($"[{this}] SHOW choices ... in progress");
+                    NextChoices();
                     break;
-                
+
                 default:
                     throw new ArgumentOutOfRangeException();
             }
-            
-            //     RunDialogue();
         }).AddTo(_disposables);
+    }
+
+    private void NextChoices()
+    {
+        if (_currentPhrase.choices.Count == 0)
+        {
+            Debug.LogWarning($"[{this}] no choices set up for phrase {_currentPhrase.phraseId}");
+            return;
+        }
+
+        Debug.LogWarning($"[{this}] SHOW choices ... in progress");
+    }
+
+    private void NextPhrase()
+    {
+        if (string.IsNullOrWhiteSpace(_currentPhrase.nextId))
+        {
+            Debug.LogWarning($"[{this}] nextId not set up for phrase {_currentPhrase.phraseId}");
+            return;
+        }
+
+        if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
+            _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
+
+        _ctx.profile.Data.lastPhraseId = _currentPhrase.nextId;
+        RunDialogue();
     }
 
     private IEnumerator PhraseRoutine()
     {
         if (_currentPhrase == null)
         {
-            Debug.LogError($"[{this}] No phrase found for id {_ctx.profile.lastPhraseId}");
+            Debug.LogError($"[{this}] No phrase found for id {_ctx.profile.Data.lastPhraseId}");
             yield break;
         }
 
@@ -102,7 +115,7 @@ public class LevelScenePm : IDisposable
             pEvents.AddRange(_currentPhrase.dialogueEvents);
 
         Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}");
-        _ctx.onPhrase.Execute(_currentPhrase);
+        _ctx.onShowPhrase.Execute(_currentPhrase);
 
         while (timer <= _currentPhrase.duration)
         {
@@ -115,11 +128,10 @@ public class LevelScenePm : IDisposable
                     _ctx.onPhraseEvent.Execute(pEvent.eventId); // todo should be event class executed
             }
 
-            timer+= deltaTime;
+            timer += deltaTime;
         }
-
     }
-    
+
     public void Dispose()
     {
         _disposables.Dispose();

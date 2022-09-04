@@ -83,6 +83,7 @@ public class ScenesHandler : IDisposable
         {
             scene = GameScenes.Menu,
             onSwitchScene = _ctx.onSwitchScene,
+            profile = _ctx.profile,
         });
     }
 

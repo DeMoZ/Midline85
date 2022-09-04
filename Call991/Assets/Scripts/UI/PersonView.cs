@@ -1,8 +1,7 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public class DialogPlace : MonoBehaviour
+public class PersonView : MonoBehaviour
 {
     [SerializeField] private ScreenPlace screenPlace = default;
     [SerializeField] private TextMeshProUGUI personName = default;
@@ -10,13 +9,22 @@ public class DialogPlace : MonoBehaviour
 
     public ScreenPlace ScreenPlace => screenPlace;
 
-    public void Set(string name, string text, TextAppear appear, float appearDelay, float durationAfter, List<DialogueEvent> events)
+    public void ShowPhrase(Phrase phrase)
     {
-        
+        description.text = "";
+
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
+
+        personName.text = phrase.GetPersonName();
+        description.text = phrase.description;
     }
-    
+
     // public void PersonName(string name) => personName.text = name;
     // public void Description(string text) => description.text = name;
+
+    public void HidePhrase() =>
+        description.gameObject.SetActive(false);
 
     public void RunText()
     {

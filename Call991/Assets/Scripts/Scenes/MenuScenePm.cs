@@ -7,9 +7,11 @@ public class MenuScenePm : IDisposable
 {
     public struct Ctx
     {
-        // public ReactiveCommand onClickPlay;
-        // public ReactiveCommand onClickNewGame;
-        // public ReactiveCommand onClickSettings;
+        public ReactiveCommand onClickPlayGame;
+        public ReactiveCommand onClickNewGame;
+        public ReactiveCommand onClickSettings;
+        public ReactiveCommand<GameScenes> onSwitchScene;
+        public PlayerProfile profile;
     }
 
     private Ctx _ctx;
@@ -18,19 +20,22 @@ public class MenuScenePm : IDisposable
     {
         _ctx = ctx;
 
-        // _ctx.onClickPlay.Subscribe(_ => OnClickPlay());
-        // _ctx.onClickNewGame.Subscribe(_ => OnClickNewGame());
-        // _ctx.onClickSettings.Subscribe(_ => OnClickSettings());
+        _ctx.onClickPlayGame.Subscribe(_ => OnClickPlayGame());
+        _ctx.onClickNewGame.Subscribe(_ => OnClickNewGame());
+        _ctx.onClickSettings.Subscribe(_ => OnClickSettings());
     }
 
-    private void OnClickPlay()
+    private void OnClickPlayGame()
     {
         Debug.Log("[MenuScenePm] OnClickPlay");
+        _ctx.onSwitchScene.Execute(GameScenes.Level1);
     }
 
     private void OnClickNewGame()
     {
         Debug.Log("[MenuScenePm] OnClickNewGame");
+        _ctx.profile.Clear();
+        _ctx.onSwitchScene.Execute(GameScenes.Level1);
     }
 
     private void OnClickSettings()

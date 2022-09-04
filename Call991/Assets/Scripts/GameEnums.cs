@@ -1,27 +1,31 @@
-public enum SwipeStates
-{
-    None = 0,
-    Start = 1,
-    Change = 2,
-    End = 3
-}
-
-public enum SwipeDirections
-{
-    None = 0,
-    ToRight = 1,
-    ToLeft = 2,
-    ToUp = 3,
-    ToDown = 4,
-    Thrust = 5, // Lunge // колящий удар
-}
-
-public enum FightStates
+public enum ScreenPlace
 {
     None,
-    Idle,
-    StartPosition,
-    Hold,
-    Hit,
-    End
+    TopLeft,
+    MiddleLeft,
+    BottomLeft,
+    TopRight,
+    MiddleRight,
+    BottomRight
+}
+
+public enum Person
+{
+    None,
+    Emma,
+    Andreas,
+}
+
+public enum TextAppear
+{
+    Pop,
+    Letters,
+    Word,
+    Fade,
+}
+
+public enum NextIs
+{
+    Phrase,
+    Choices,
 }

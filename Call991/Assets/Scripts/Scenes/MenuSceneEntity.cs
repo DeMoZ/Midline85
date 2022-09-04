@@ -7,11 +7,13 @@ public class MenuSceneEntity : IGameScene
     {
         public GameScenes scene;
         public ReactiveCommand<GameScenes> onSwitchScene;
+        public PlayerProfile profile;
     }
 
     private Ctx _ctx;
     private UiMenuScene _ui;
 
+    private ReactiveCommand _onClickPlayGame;
     private ReactiveCommand _onClickNewGame;
     private ReactiveCommand _onClickSettings;
 
@@ -19,17 +21,20 @@ public class MenuSceneEntity : IGameScene
     {
         _ctx = ctx;
 
-        _onClickNewGame = new();
-        _onClickSettings = new();
+        _onClickPlayGame = new ReactiveCommand();
+        _onClickNewGame = new ReactiveCommand();
+        _onClickSettings = new ReactiveCommand();
     }
 
     public void Enter()
     {
         var menuScenePm = new MenuScenePm(new MenuScenePm.Ctx
         {
-            // onClickPlay = _ctx.onClickPlay,
-            // onClickNewGame = _onClickNewGame,
-            // onClickSettings = _onClickSettings,
+            onClickPlayGame = _onClickPlayGame,
+            onClickNewGame = _onClickNewGame,
+            onClickSettings = _onClickSettings,
+            onSwitchScene = _ctx.onSwitchScene,
+            profile = _ctx.profile,
         });
         
         // Find UI or instantiate from Addressable
@@ -38,7 +43,7 @@ public class MenuSceneEntity : IGameScene
         
         _ui.SetCtx(new UiMenuScene.Ctx
         {
-            onSwitchScene = _ctx.onSwitchScene,
+            onClickPlayGame = _onClickPlayGame,
             onClickNewGame = _onClickNewGame,
             onClickSettings = _onClickSettings,
         });

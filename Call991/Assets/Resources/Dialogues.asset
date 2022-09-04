@@ -14,26 +14,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phrases:
   - phraseId: d1
-    person: 2
+    person: 1
     screenPlace: 2
+    hidePersonOnEnd: 0
     description: Hi
     duration: 2
     textAppear: 3
     appearDuration: 0
-    hideOnNext: 1
+    hidePhraseOnEnd: 1
     nextIs: 0
     nextId: d2
     choices: []
     addEvent: 0
     dialogueEvents: []
   - phraseId: d2
-    person: 1
+    person: 2
     screenPlace: 5
+    hidePersonOnEnd: 0
     description: Hello
     duration: 2
     textAppear: 0
     appearDuration: 0
-    hideOnNext: 1
+    hidePhraseOnEnd: 1
     nextIs: 1
     nextId: 
     choices:
@@ -59,11 +61,12 @@ MonoBehaviour:
   - phraseId: d3
     person: 1
     screenPlace: 2
+    hidePersonOnEnd: 0
     description: this is d3
     duration: 2
     textAppear: 0
     appearDuration: 0
-    hideOnNext: 1
+    hidePhraseOnEnd: 1
     nextIs: 0
     nextId: 
     choices: []
@@ -72,11 +75,12 @@ MonoBehaviour:
   - phraseId: d4
     person: 1
     screenPlace: 2
+    hidePersonOnEnd: 0
     description: this is d4
     duration: 2
     textAppear: 0
     appearDuration: 0
-    hideOnNext: 1
+    hidePhraseOnEnd: 1
     nextIs: 0
     nextId: 
     choices: []
@@ -84,12 +88,13 @@ MonoBehaviour:
     dialogueEvents: []
   - phraseId: d5
     person: 2
-    screenPlace: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
     description: this is d5
     duration: 2
     textAppear: 0
     appearDuration: 0
-    hideOnNext: 1
+    hidePhraseOnEnd: 1
     nextIs: 0
     nextId: 
     choices: []

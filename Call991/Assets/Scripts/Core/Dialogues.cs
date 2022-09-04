@@ -3,38 +3,6 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public enum ScreenPlace
-{
-    None,
-    TopLeft,
-    MiddleLeft,
-    BottomLeft,
-    TopRight,
-    MiddleRight,
-    BottomRight
-}
-
-public enum Person
-{
-    None,
-    Emma,
-    Andreas,
-}
-
-public enum TextAppear
-{
-    Pop,
-    Letters,
-    Word,
-    Fade,
-}
-
-public enum NextIs
-{
-    Phrase,
-    Choices,
-}
-
 [CreateAssetMenu]
 public class Dialogues : ScriptableObject
 {
@@ -69,6 +37,9 @@ public class Phrase
     public Person person;
     [VerticalGroup("Person")]
     public ScreenPlace screenPlace = ScreenPlace.MiddleLeft;
+    [Tooltip("Person will hide on end phrase")]
+    [VerticalGroup("Person")]
+    public bool hidePersonOnEnd = false;
     
     [VerticalGroup("Dialog")]
     public string description;
@@ -80,9 +51,10 @@ public class Phrase
     [Tooltip("Dialog will appear during that time (slow or fast)")]
     [VerticalGroup("Dialog")]
     [ShowIf("ShowAppearDuration")] public float appearDuration;
-    
+
+    [Tooltip("Dialog will hide on end phrase")]
     [VerticalGroup("Dialog")]
-    public bool hideOnNext = true; // next is choices of phrase
+    public bool hidePhraseOnEnd= true; // next is choices of phrase
     
     [VerticalGroup("Next")]
     public NextIs nextIs;
@@ -98,6 +70,9 @@ public class Phrase
     [VerticalGroup("Event")] [ShowIf("addEvent")] public List<DialogueEvent> dialogueEvents;
     private bool ShowAppearDuration() =>
         textAppear != TextAppear.Pop;
+
+    public string GetPersonName() => 
+        person.ToString();
 }
 
 [Serializable]

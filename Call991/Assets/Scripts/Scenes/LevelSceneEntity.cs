@@ -50,7 +50,8 @@ public class LevelSceneEntity : IGameScene
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
         var onPhraseEvent = new ReactiveCommand<string>().AddTo(_disposables);
-        var onPhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
+        var onShowPhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
+        var onHidePhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
 
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
@@ -59,7 +60,8 @@ public class LevelSceneEntity : IGameScene
             onSwitchScene = _ctx.onSwitchScene,
             onClickMenuButton = onClickMenuButton,
             onPhraseEvent = onPhraseEvent,
-            onPhrase = onPhrase,
+            onShowPhrase = onShowPhrase,
+            onHidePhrase = onHidePhrase,
         }).AddTo(_disposables);
 
 
@@ -67,7 +69,8 @@ public class LevelSceneEntity : IGameScene
         {
             onClickMenuButton = onClickMenuButton,
             onPhraseEvent = onPhraseEvent,
-            onPhrase = onPhrase,
+            onShowPhrase = onShowPhrase,
+            onHidePhrase = onHidePhrase,
             gameSet = gameSet,
             pool = uiPool,
         });
