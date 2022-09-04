@@ -13,6 +13,9 @@ namespace UI
         public struct Ctx
         {
             public ReactiveCommand onClickMenuButton;
+            public ReactiveCommand<string> onPhraseEvent;
+            public ReactiveCommand<Phrase> onPhrase;
+            
             public GameSet gameSet;
             public Pool pool;
         }

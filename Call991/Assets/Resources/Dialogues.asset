@@ -17,37 +17,81 @@ MonoBehaviour:
     person: 2
     screenPlace: 2
     description: Hi
-    durationAfterAppear: 1
+    duration: 2
     textAppear: 3
-    appearDelay: 0.1
+    appearDuration: 0
     hideOnNext: 1
-    nextIs: 1
-    nextId: 
-    choices:
-    - choiceId: 
-      description: 
-      nextPhraseId: 
-      ifSelected: 0
-      choices: []
-    - choiceId: 
-      description: 
-      nextPhraseId: 
-      ifSelected: 0
-      choices: []
+    nextIs: 0
+    nextId: d2
+    choices: []
     addEvent: 0
     dialogueEvents: []
   - phraseId: d2
     person: 1
     screenPlace: 5
-    description: 
-    durationAfterAppear: 2
+    description: Hello
+    duration: 2
     textAppear: 0
-    appearDelay: 0
+    appearDuration: 0
     hideOnNext: 1
-    nextIs: 0
+    nextIs: 1
     nextId: 
-    choices: []
+    choices:
+    - choiceId: c1
+      description: to d3
+      nextPhraseId: d3
+      ifSelected: 0
+      choices: []
+    - choiceId: c2
+      description: to d4
+      nextPhraseId: d4
+      ifSelected: 0
+      choices: []
+    - choiceId: c3
+      description: to d5
+      nextPhraseId: d5
+      ifSelected: 0
+      choices: []
     addEvent: 1
     dialogueEvents:
     - eventId: 
       delay: 0
+  - phraseId: d3
+    person: 1
+    screenPlace: 2
+    description: this is d3
+    duration: 2
+    textAppear: 0
+    appearDuration: 0
+    hideOnNext: 1
+    nextIs: 0
+    nextId: 
+    choices: []
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: d4
+    person: 1
+    screenPlace: 2
+    description: this is d4
+    duration: 2
+    textAppear: 0
+    appearDuration: 0
+    hideOnNext: 1
+    nextIs: 0
+    nextId: 
+    choices: []
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: d5
+    person: 2
+    screenPlace: 2
+    description: this is d5
+    duration: 2
+    textAppear: 0
+    appearDuration: 0
+    hideOnNext: 1
+    nextIs: 0
+    nextId: 
+    choices: []
+    addEvent: 0
+    dialogueEvents: []

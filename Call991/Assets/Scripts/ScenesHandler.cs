@@ -9,6 +9,7 @@ public class ScenesHandler : IDisposable
         public string startApplicationSceneName;
         public ReactiveCommand onStartApplicationSwitchScene;
         public ReactiveCommand<GameScenes> onSwitchScene;
+        public PlayerProfile profile;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -87,10 +88,14 @@ public class ScenesHandler : IDisposable
 
     private async Task<IGameScene> LoadLevel1()
     {
+        var dialogues = await ResourcesLoader.LoadAsync<Dialogues>("Dialogues");
+        
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
         {
             constructorTask = constructorTask,
+            profile = _ctx.profile,
+            dialogues = dialogues,
             onSwitchScene = _ctx.onSwitchScene,
         });
 

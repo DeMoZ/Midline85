@@ -1,6 +1,8 @@
 ﻿using System;
+using Newtonsoft.Json;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Profiling;
 using UnityEngine.SceneManagement;
 
 public class RootEntity : IDisposable
@@ -18,6 +20,11 @@ public class RootEntity : IDisposable
         _ctx = ctx;
         _diposables = new CompositeDisposable();
 
+        var savedProfile = PlayerPrefs.GetString("Profile", null);
+        var profile = string.IsNullOrWhiteSpace(savedProfile)
+            ? new PlayerProfile()
+            : JsonConvert.DeserializeObject<PlayerProfile>(savedProfile);
+
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
         var onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_diposables);
@@ -27,6 +34,7 @@ public class RootEntity : IDisposable
             startApplicationSceneName = startApplicationSceneName,
             onStartApplicationSwitchScene = onStartApplicationSwitchScene,
             onSwitchScene = onSwitchScene,
+            profile = profile,
         }).AddTo(_diposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

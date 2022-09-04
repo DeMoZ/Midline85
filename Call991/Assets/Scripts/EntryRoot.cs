@@ -1,3 +1,4 @@
+using System.Globalization;
 using UnityEngine;
 
 public class EntryRoot : MonoBehaviour
@@ -25,6 +26,9 @@ public class EntryRoot : MonoBehaviour
 
     private void CreateAppSettings()
     {
+        Application.targetFrameRate = 60;
+        // CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
+        // Screen.sleepTimeout = SleepTimeout.NeverSleep;
     }
 
     private void CreateRootEntity()

@@ -50,8 +50,10 @@ public class Dialogues : ScriptableObject
             else
                 phrase.nextId = null;
 
-            phrase.appearDelay =
-                phrase.textAppear == TextAppear.Pop ? phrase.appearDelay = 0 : phrase.appearDelay = 0.1f;
+            if (phrase.textAppear == TextAppear.Pop)
+                phrase.appearDuration = 0;
+
+            phrase.appearDuration = Mathf.Clamp(phrase.appearDuration, 0, phrase.duration);
         }
     }
 }
@@ -71,12 +73,13 @@ public class Phrase
     [VerticalGroup("Dialog")]
     public string description;
     [VerticalGroup("Dialog")]
-    public float durationAfterAppear = 2;
+    public float duration = 2;
     [VerticalGroup("Dialog")]
     public TextAppear textAppear;
 
+    [Tooltip("Dialog will appear during that time (slow or fast)")]
     [VerticalGroup("Dialog")]
-    [ShowIf("ShowAppearDelay")] public float appearDelay;
+    [ShowIf("ShowAppearDuration")] public float appearDuration;
     
     [VerticalGroup("Dialog")]
     public bool hideOnNext = true; // next is choices of phrase
@@ -93,7 +96,7 @@ public class Phrase
     [VerticalGroup("Event")]
     public bool addEvent;
     [VerticalGroup("Event")] [ShowIf("addEvent")] public List<DialogueEvent> dialogueEvents;
-    private bool ShowAppearDelay() =>
+    private bool ShowAppearDuration() =>
         textAppear != TextAppear.Pop;
 }
 
