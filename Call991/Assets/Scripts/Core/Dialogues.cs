@@ -92,7 +92,7 @@ public class Choice
     [Tooltip("If some previous choices")]
     public bool ifSelected;
     [ShowIf("ifSelected")]
-    public List<string> choices;
+    public List<string> requiredChoices;
 }
 
 /*

@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Configs;
+using UI;
 using UniRx;
 using UnityEngine;
 
@@ -16,14 +18,18 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<Phrase> onShowPhrase;
         public ReactiveCommand<Phrase> onHidePhrase;
 
-
         public Dialogues dialogues;
         public PlayerProfile profile;
+        public List<ChoiceButtonView> buttons;
+
+        public ReactiveCommand onAfterEnter;
+        public GameSet gameSet;
     }
 
     private Ctx _ctx;
     private CompositeDisposable _disposables;
     private Phrase _currentPhrase;
+    private ReactiveCommand<int> _onClickChoiceButton;
 
     public LevelScenePm(Ctx ctx)
     {
@@ -32,16 +38,11 @@ public class LevelScenePm : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
 
+        _onClickChoiceButton = new ReactiveCommand<int>().AddTo(_disposables);
+        _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
+
         _ctx.onClickMenuButton.Subscribe(_ => { _ctx.onSwitchScene.Execute(GameScenes.Menu); }).AddTo(_disposables);
-
-        StartScene();
-    }
-
-    private async void StartScene()
-    {
-        await Task.Yield();
-
-        RunDialogue();
+        _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
     private void RunDialogue()
@@ -74,7 +75,7 @@ public class LevelScenePm : IDisposable
         }).AddTo(_disposables);
     }
 
-    private void NextChoices()
+    private async void NextChoices()
     {
         if (_currentPhrase.choices.Count == 0)
         {
@@ -82,7 +83,10 @@ public class LevelScenePm : IDisposable
             return;
         }
 
-        Debug.LogWarning($"[{this}] SHOW choices ... in progress");
+        for (int i = 0; i < _currentPhrase.choices.Count; i++)
+            _ctx.buttons[i].Show(_currentPhrase.choices[i].description);
+
+        await Task.Delay((int) (_ctx.gameSet.fastButtonFadeDuration * 1000));
     }
 
     private void NextPhrase()
@@ -130,6 +134,33 @@ public class LevelScenePm : IDisposable
 
             timer += deltaTime;
         }
+    }
+
+    private void OnAfterEnter()
+    {
+        InitButtons();
+        RunDialogue();
+    }
+
+    private void InitButtons()
+    {
+        for (int i = 0; i < _ctx.buttons.Count; i++)
+        {
+            _ctx.buttons[i].SetCtx(new ChoiceButtonView.Ctx
+            {
+                index = i,
+                onClickChoiceButton = _onClickChoiceButton,
+                fastButtonFadeDuration = _ctx.gameSet.fastButtonFadeDuration,
+                slowButtonFadeDuration = _ctx.gameSet.slowButtonFadeDuration,
+            });
+        }
+    }
+
+    private void OnClickChoiceButton(int index)
+    {
+        _ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
+        _ctx.profile.Data.lastPhraseId = _currentPhrase.choices[index].nextPhraseId;
+        RunDialogue();
     }
 
     public void Dispose()

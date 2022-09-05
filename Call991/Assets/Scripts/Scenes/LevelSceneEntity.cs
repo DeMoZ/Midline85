@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Configs;
 using UI;
@@ -52,7 +53,10 @@ public class LevelSceneEntity : IGameScene
         var onPhraseEvent = new ReactiveCommand<string>().AddTo(_disposables);
         var onShowPhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
         var onHidePhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
-
+        
+        var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
+        var buttons = new List<ChoiceButtonView>();
+        
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             profile = _ctx.profile,
@@ -62,8 +66,10 @@ public class LevelSceneEntity : IGameScene
             onPhraseEvent = onPhraseEvent,
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
+            onAfterEnter = onAfterEnter,
+            gameSet = gameSet,
+            buttons = buttons,
         }).AddTo(_disposables);
-
 
         _ui.SetCtx(new UiLevelScene.Ctx
         {
@@ -73,7 +79,10 @@ public class LevelSceneEntity : IGameScene
             onHidePhrase = onHidePhrase,
             gameSet = gameSet,
             pool = uiPool,
+            buttons = buttons,
         });
+
+        onAfterEnter.Execute();
     }
 
     public void Exit()
@@ -82,6 +91,7 @@ public class LevelSceneEntity : IGameScene
 
     public void Dispose()
     {
+        Resources.UnloadUnusedAssets();
         _disposables.Dispose();
     }
 }

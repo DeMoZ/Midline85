@@ -17,6 +17,9 @@ namespace UI
             public ReactiveCommand<string> onPhraseEvent;
             public ReactiveCommand<Phrase> onShowPhrase;
             public ReactiveCommand<Phrase> onHidePhrase;
+            
+            //public List<PersonView> persons;
+            public List<ChoiceButtonView> buttons;
 
             public GameSet gameSet;
             public Pool pool;
@@ -37,6 +40,9 @@ namespace UI
             _ctx = ctx;
             _disposables = new CompositeDisposable();
 
+            //_ctx.persons.AddRange(persons);
+            _ctx.buttons.AddRange(buttons); 
+            
             menuButton.onClick.AddListener(() => { _ctx.onClickMenuButton.Execute(); });
 
             _ctx.onPhraseEvent.Subscribe(OnPhraseEvent).AddTo(_disposables);
@@ -45,7 +51,7 @@ namespace UI
 
             foreach (var person in persons) 
                 person.gameObject.SetActive(false);
-            
+
             foreach (var button in buttons) 
                 button.gameObject.SetActive(false);
         }
@@ -83,83 +89,8 @@ namespace UI
                 personView.gameObject.SetActive(false);
         }
 
-        private async void OnShowDialog(Phrase phrase)
-        {
-            await Task.Yield();
-            // show name
-            var place = persons.First(d => d.ScreenPlace == phrase.screenPlace);
-            place.gameObject.SetActive(true);
-            //place.PersonName(phrase.person.ToString());// TODO Get Name
-
-            // show text with effect Pop|letter|words
-        }
-
-        private async void OnHideDialog()
-        {
-            await Task.Yield();
-        }
-
-        private async void OnShowChoices()
-        {
-            await Task.Yield();
-        }
-
         public void Dispose()
         {
         }
     }
 }
-
-/*// private async void OnShowButtons()
-// {
-//     if (_currentOperations.Count > 0)
-//         await HideOperations();
-//     
-//     ShowOperations();
-// }
-//
-// private void ShowOperations()
-// {
-//     // _interactionBtnsCanvasGroup.alpha = 0;
-//     // _interactionBtnsCanvasGroup.DOFade(1, FADE_TIME);
-// }
-//
-// private async Task HideOperations()
-// {
-//     // _interactionBtnsCanvasGroup.DOFade(0, FADE_TIME);
-//
-//     await Task.Delay((int) (FADE_TIME * 1000));
-//
-//     foreach (var btn in _currentOperations)
-//     {
-//         _ctx.pool.Return(btn.gameObject);
-//         btn.onClick.RemoveAllListeners();
-//     }
-//
-//     _currentOperations.Clear();
-// }*/
-
-
-/*
- From Test
- public class Dialogue
-{
-    public Piece leftPerson;
-    public Piece rightPerson;
-    public float dialogueDuration;
-    public float decisionDuration;
-    public List<Decision> decisions;
-}
-
-public class Decision
-{
-    public int index;
-    public string description;
-}
-
-public class Piece
-{
-    public string name;
-    public string text;
-    public DialogAppearType appearType;
-}*/
