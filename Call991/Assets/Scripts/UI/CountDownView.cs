@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
@@ -16,9 +15,8 @@ namespace UI
         [SerializeField] private RectTransform frontLine = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
-        private bool _isRunning;
-        private float _time;
         private Ctx _ctx;
+        private Tween _scaleTween;
 
         public void SetCtx(Ctx ctx)
         {
@@ -27,35 +25,25 @@ namespace UI
 
         public void Stop(float fadeTime)
         {
-            _isRunning = false;
+            _scaleTween.Kill();
             canvasGroup.DOFade(0, fadeTime);
         }
 
         public async void Show(float time)
         {
-            _time = time;
-            _isRunning = true;
-            
-            frontLine. sizeDelta = backLine.sizeDelta;
+            frontLine.sizeDelta = backLine.sizeDelta;
             canvasGroup.alpha = 1;
             gameObject.SetActive(true);
             canvasGroup.DOFade(1, _ctx.buttonsAppearDuration);
             await Task.Delay((int) (_ctx.buttonsAppearDuration * 1000));
-            StartCoroutine(TimerRoutine());
+            _scaleTween = frontLine.DOSizeDelta(Vector2.up, time).OnUpdate(
+                () => { } //OnTweenUpdate
+            );
         }
 
-        private IEnumerator TimerRoutine()
+        private void OnTweenUpdate()
         {
-            var time = _time;
-            var sizeDelta = backLine.sizeDelta;
-
-            while (_isRunning)
-            {
-                yield return null;
-                time -= Time.deltaTime;
-                sizeDelta.x = backLine.sizeDelta.x * (time / _time);
-                frontLine.sizeDelta = sizeDelta;
-            }
+            Debug.Log($"{_scaleTween.Elapsed()}");
         }
     }
 }

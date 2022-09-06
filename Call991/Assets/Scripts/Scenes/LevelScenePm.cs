@@ -28,7 +28,6 @@ public class LevelScenePm : IDisposable
         public GameSet gameSet;
     }
 
-    private const float DeltaTime = 0.01f;
     private Ctx _ctx;
     private CompositeDisposable _disposables;
     private Phrase _currentPhrase;
@@ -95,8 +94,6 @@ public class LevelScenePm : IDisposable
 
         for (int i = 0; i < _currentPhrase.choices.Count; i++)
             _ctx.buttons[i].Show(_currentPhrase.choices[i].text);
-
-        await Task.Delay((int) (_ctx.gameSet.buttonsAppearDuration * 1000));
         
         Observable.FromCoroutine(ChoiceRoutine).Subscribe( _ =>
         {
@@ -106,23 +103,25 @@ public class LevelScenePm : IDisposable
     
     private IEnumerator ChoiceRoutine()
     {
+        var timer = 0f;
+
         var time = _currentPhrase.overrideChoicesDuration
             ? _currentPhrase.choicesDuration
             : _ctx.gameSet.choicesDuration;
-        var timer = 0f;
         
         _ctx.countDown.Show(time);
-
-        while (timer <= _currentPhrase.duration)
+        
+        yield return new WaitForSeconds(_ctx.gameSet.buttonsAppearDuration);
+        while (timer <= time)
         {
-            yield return new WaitForSeconds(DeltaTime);
-            timer += DeltaTime;
+            yield return null;
+            timer += Time.deltaTime;
             
             if(_choiceDone)
                 yield break;
         }
         
-        Debug.LogWarning($"[{this}] ch0ice time up!");
+        Debug.LogWarning($"[{this}] choice time up!");
         OnClickChoiceButton(Random.Range(0, _currentPhrase.choices.Count));
     }
 
@@ -157,7 +156,7 @@ public class LevelScenePm : IDisposable
 
         while (timer <= _currentPhrase.duration)
         {
-            yield return new WaitForSeconds(DeltaTime);
+            yield return null;
 
             for (var i = pEvents.Count - 1; i >= 0; i--)
             {
@@ -166,7 +165,7 @@ public class LevelScenePm : IDisposable
                     _ctx.onPhraseEvent.Execute(pEvent.eventId); // todo should be event class executed
             }
 
-            timer += DeltaTime;
+            timer += Time.deltaTime;
         }
     }
 
