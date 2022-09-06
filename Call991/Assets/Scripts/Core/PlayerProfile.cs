@@ -8,24 +8,14 @@ public class PlayerProfile
 {
     private const string ProfileKey = "Profile";
     private Data _data;
-
-    public Data Data => _data;
-
+    
     public PlayerProfile()
     {
         var savedProfile = PlayerPrefs.GetString(ProfileKey, null);
-        _data = string.IsNullOrWhiteSpace(savedProfile) ? 
-            new Data() 
+        _data = string.IsNullOrWhiteSpace(savedProfile)
+            ? new Data()
             : JsonConvert.DeserializeObject<Data>(savedProfile);
     }
-    
-    // public void Load()
-    // {
-    //     var savedProfile = PlayerPrefs.GetString(ProfileKey, null);
-    //     _data = string.IsNullOrWhiteSpace(savedProfile) ? 
-    //         new Data() 
-    //         : JsonConvert.DeserializeObject<Data>(savedProfile);
-    // }
 
     public void Clear()
     {
@@ -33,12 +23,16 @@ public class PlayerProfile
         _data = new Data();
     }
 
-    public void SetLastPhrase(string phraseId)
+    public string LastPhrase
     {
-        _data.lastPhraseId = phraseId;
-        SaveToPrefs();
+        get => _data.lastPhraseId;
+        set
+        {
+            _data.lastPhraseId = value;
+            SaveToPrefs();
+        }
     }
-    
+
     public void AddPhrase(string phraseId)
     {
         _data.phrases.Add(phraseId);
@@ -51,7 +45,7 @@ public class PlayerProfile
         SaveToPrefs();
     }
 
-    private void SaveToPrefs() => 
+    private void SaveToPrefs() =>
         PlayerPrefs.SetString(ProfileKey, JsonConvert.SerializeObject(_data));
 }
 

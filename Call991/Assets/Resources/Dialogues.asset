@@ -17,7 +17,7 @@ MonoBehaviour:
     person: 1
     screenPlace: 2
     hidePersonOnEnd: 0
-    description: Hi
+    description: this is d1
     duration: 2
     textAppear: 3
     appearDuration: 0
@@ -25,13 +25,15 @@ MonoBehaviour:
     nextIs: 0
     nextId: d2
     choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
     addEvent: 0
     dialogueEvents: []
   - phraseId: d2
     person: 2
     screenPlace: 5
     hidePersonOnEnd: 0
-    description: Hello
+    description: this is d2
     duration: 2
     textAppear: 0
     appearDuration: 0
@@ -43,18 +45,20 @@ MonoBehaviour:
       description: to d3
       nextPhraseId: d3
       ifSelected: 0
-      choices: []
+      requiredChoices: []
     - choiceId: c2
       description: to d4
       nextPhraseId: d4
       ifSelected: 0
-      choices: []
+      requiredChoices: []
     - choiceId: c3
       description: to d5
       nextPhraseId: d5
       ifSelected: 0
-      choices: []
-    addEvent: 1
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
     dialogueEvents:
     - eventId: 
       delay: 0
@@ -68,8 +72,10 @@ MonoBehaviour:
     appearDuration: 0
     hidePhraseOnEnd: 1
     nextIs: 0
-    nextId: 
+    nextId: d6
     choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
     addEvent: 0
     dialogueEvents: []
   - phraseId: d4
@@ -82,8 +88,10 @@ MonoBehaviour:
     appearDuration: 0
     hidePhraseOnEnd: 1
     nextIs: 0
-    nextId: 
+    nextId: d7
     choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
     addEvent: 0
     dialogueEvents: []
   - phraseId: d5
@@ -96,7 +104,9 @@ MonoBehaviour:
     appearDuration: 0
     hidePhraseOnEnd: 1
     nextIs: 0
-    nextId: 
+    nextId: d8
     choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
     addEvent: 0
     dialogueEvents: []

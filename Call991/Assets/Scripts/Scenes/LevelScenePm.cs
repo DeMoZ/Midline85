@@ -52,15 +52,20 @@ public class LevelScenePm : IDisposable
 
     private void RunDialogue()
     {
-        if (string.IsNullOrWhiteSpace(_ctx.profile.Data.lastPhraseId))
-            _ctx.profile.SetLastPhrase(_ctx.dialogues.phrases[0].phraseId);
-
-        _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.Data.lastPhraseId);
-
+        _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.LastPhrase);
+        if (_currentPhrase == null)
+        {
+            Debug.LogError($"[{this}] _ctx.profile.LastPhrase: {_ctx.profile.LastPhrase}. Not found in phrases.");
+            return;
+        }
+        
         Observable.FromCoroutine(PhraseRoutine).Subscribe( _ =>
         {
             Debug.Log($"[{this}] Coroutine end");
 
+            if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
+                _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
+            
             switch (_currentPhrase.nextIs)
             {
                 case NextIs.Phrase:
@@ -120,28 +125,7 @@ public class LevelScenePm : IDisposable
         Debug.LogWarning($"[{this}] ch0ice time up!");
         OnClickChoiceButton(Random.Range(0, _currentPhrase.choices.Count));
     }
-    
-     private async void ShowCountDown() // todo make coroutine ???
-     {
-         var time = _currentPhrase.overrideChoicesDuration
-             ? _currentPhrase.choicesDuration
-             : _ctx.gameSet.choicesDuration;
-         
-         var countTime = 0f;
-         _ctx.countDown.Show(time);
 
-         while (!_choiceDone)
-         {
-             await Task.Delay((int) (DeltaTime * 1000));
-             countTime += DeltaTime;
-             if (countTime >= time)
-             {
-                 Debug.LogWarning($"{countTime}; {time}");
-                 OnClickChoiceButton(Random.Range(0, _currentPhrase.choices.Count));
-             }
-         }
-     }
-    
     private void NextPhrase()
     {
         if (string.IsNullOrWhiteSpace(_currentPhrase.nextId))
@@ -149,11 +133,8 @@ public class LevelScenePm : IDisposable
             Debug.LogWarning($"[{this}] nextId not set up for phrase {_currentPhrase.phraseId}");
             return;
         }
-
-        if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
-            _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
-
-        _ctx.profile.SetLastPhrase(_currentPhrase.nextId);
+        
+        _ctx.profile.LastPhrase = _currentPhrase.nextId;
         RunDialogue();
     }
 
@@ -161,7 +142,7 @@ public class LevelScenePm : IDisposable
     {
         if (_currentPhrase == null)
         {
-            Debug.LogError($"[{this}] No phrase found for id {_ctx.profile.Data.lastPhraseId}");
+            Debug.LogError($"[{this}] No phrase found for id {_ctx.profile.LastPhrase}");
             yield break;
         }
 
@@ -192,6 +173,10 @@ public class LevelScenePm : IDisposable
     private void OnAfterEnter()
     {
         InitButtons();
+        
+        if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
+            _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
+        
         RunDialogue();
     }
 
@@ -222,7 +207,7 @@ public class LevelScenePm : IDisposable
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
         _choiceDone = true;
         _ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
-        _ctx.profile.SetLastPhrase(_currentPhrase.choices[index].nextPhraseId);
+        _ctx.profile.LastPhrase = _currentPhrase.choices[index].nextPhraseId;
 
         for (var i = 0; i < _ctx.buttons.Count; i++)
         {

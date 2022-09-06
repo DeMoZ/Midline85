@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Configs;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;

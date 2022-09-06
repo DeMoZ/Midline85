@@ -41,9 +41,6 @@ namespace UI
             if (_isClicked) return;
 
             _isClicked = true;
-            // clickedImage.gameObject.SetActive(true);
-            // button.gameObject.SetActive(false);
-            
             _ctx.onClickChoiceButton.Execute(_ctx.index);
         }
 
