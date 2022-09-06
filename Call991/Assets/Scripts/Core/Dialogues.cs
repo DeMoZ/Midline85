@@ -6,17 +6,24 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Dialogues : ScriptableObject
 {
-    [TableList]//[FoldoutGroup("1")]
+    [TableList(NumberOfItemsPerPage = 10,ShowIndexLabels = true)]
     public List<Phrase> phrases;
 
     private void OnValidate()
     {
-        foreach (var phrase in phrases)
+        for (var i = 0; i < phrases.Count; i++)
         {
+            var phrase = phrases[i];
+            
             if (phrase.nextIs == NextIs.Phrase)
+            {
                 phrase.choices = new List<Choice>();
+                phrase.overrideChoicesDuration = false;
+            }
             else
+            {
                 phrase.nextId = null;
+            }
 
             if (phrase.textAppear == TextAppear.Pop)
                 phrase.appearDuration = 0;
@@ -29,19 +36,18 @@ public class Dialogues : ScriptableObject
 [Serializable]
 public class Phrase
 {
-    //[FoldoutGroup("Phrase")]
-    [VerticalGroup("phraseId")]
+    [VerticalGroup("phraseId")][TableColumnWidth(90, false)][HideLabel]
     public string phraseId;
     
-    [VerticalGroup("Person")]
+    [VerticalGroup("Person")][TableColumnWidth(150, false)]
     public Person person;
-    [VerticalGroup("Person")]
+    [VerticalGroup("Person")][Tooltip("Place on screen")]
     public ScreenPlace screenPlace = ScreenPlace.MiddleLeft;
     [Tooltip("Person will hide on end phrase")]
     [VerticalGroup("Person")]
     public bool hidePersonOnEnd = false;
     
-    [VerticalGroup("Dialog")]
+    [VerticalGroup("Dialog")][TableColumnWidth(220, false)]
     public string description;
     [VerticalGroup("Dialog")]
     public float duration = 2;
@@ -56,7 +62,7 @@ public class Phrase
     [VerticalGroup("Dialog")]
     public bool hidePhraseOnEnd= true; // next is choices of phrase
     
-    [VerticalGroup("Next")]
+    [VerticalGroup("Next")] [TableColumnWidth(260, false)]
     public NextIs nextIs;
 
     [VerticalGroup("Next")]
@@ -65,6 +71,12 @@ public class Phrase
     [VerticalGroup("Next")]
     [ShowIf("nextIs", NextIs.Choices)] public List<Choice> choices;
 
+    [VerticalGroup("Next")]
+    [ShowIf("nextIs", NextIs.Choices)] public bool overrideChoicesDuration;
+    [VerticalGroup("Next")]
+    [ShowIf("overrideChoicesDuration", true)] public float choicesDuration;
+    
+    
     [VerticalGroup("Event")]
     public bool addEvent;
     [VerticalGroup("Event")] [ShowIf("addEvent")] public List<DialogueEvent> dialogueEvents;

@@ -19,8 +19,7 @@ public class RootEntity : IDisposable
         _diposables = new CompositeDisposable();
 
         var profile = new PlayerProfile();
-        profile.Load();
-        
+       
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
         var onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_diposables);

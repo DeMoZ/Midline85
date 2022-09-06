@@ -55,7 +55,8 @@ public class LevelSceneEntity : IGameScene
         var onHidePhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
         
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
-        var buttons = new List<ChoiceButtonView>();
+        var buttons = _ui.Buttons;
+        var countDown = _ui.CountDown;
         
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
@@ -69,6 +70,7 @@ public class LevelSceneEntity : IGameScene
             onAfterEnter = onAfterEnter,
             gameSet = gameSet,
             buttons = buttons,
+            countDown = countDown,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
@@ -77,9 +79,7 @@ public class LevelSceneEntity : IGameScene
             onPhraseEvent = onPhraseEvent,
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
-            gameSet = gameSet,
             pool = uiPool,
-            buttons = buttons,
         });
 
         onAfterEnter.Execute();
