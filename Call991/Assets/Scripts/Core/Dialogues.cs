@@ -48,7 +48,7 @@ public class Phrase
     public bool hidePersonOnEnd = false;
     
     [VerticalGroup("Dialog")][TableColumnWidth(220, false)]
-    public string description;
+    public string text;
     [VerticalGroup("Dialog")]
     public float duration = 2;
     [VerticalGroup("Dialog")]
@@ -98,7 +98,7 @@ public class DialogueEvent
 public class Choice
 {
     public string choiceId;
-    public string description;
+    public string text;
     public string nextPhraseId;
     
     [Tooltip("If some previous choices")]

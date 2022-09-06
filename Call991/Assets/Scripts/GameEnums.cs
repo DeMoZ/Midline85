@@ -12,8 +12,8 @@ public enum ScreenPlace
 public enum Person
 {
     None,
-    Emma,
-    Andreas,
+    Elena,
+    Lara,
 }
 
 public enum TextAppear

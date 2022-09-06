@@ -13,27 +13,29 @@ MonoBehaviour:
   m_Name: Dialogues
   m_EditorClassIdentifier: 
   phrases:
-  - phraseId: d1
+  - phraseId: p.elena.001
     person: 1
     screenPlace: 2
     hidePersonOnEnd: 0
-    description: this is d1
+    text: "911, \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440 \u0441\u043B\u0443\u0436\u0431\u044B
+      \u0441\u043F\u0430\u0441\u0435\u043D\u0438\u044F \u0415\u043B\u0435\u043D\u0430.
+      \u0427\u0435\u043C \u043C\u043E\u0433\u0443 \u043F\u043E\u043C\u043E\u0447\u044C?"
     duration: 2
     textAppear: 3
     appearDuration: 0
     hidePhraseOnEnd: 1
     nextIs: 0
-    nextId: d2
+    nextId: p.lara.001
     choices: []
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
     dialogueEvents: []
-  - phraseId: d2
+  - phraseId: p.lara.001
     person: 2
     screenPlace: 5
     hidePersonOnEnd: 0
-    description: this is d2
+    text: "\u0414\u043E\u043C \u043D\u0430\u043F\u0440\u043E\u0442\u0438\u0432!"
     duration: 2
     textAppear: 0
     appearDuration: 0
@@ -41,19 +43,19 @@ MonoBehaviour:
     nextIs: 1
     nextId: 
     choices:
-    - choiceId: c1
-      description: to d3
-      nextPhraseId: d3
+    - choiceId: p.word.001
+      text: "\u0414\u043E\u0433\u0430\u0434\u043A\u0430"
+      nextPhraseId: p.elena.002
       ifSelected: 0
       requiredChoices: []
-    - choiceId: c2
-      description: to d4
-      nextPhraseId: d4
+    - choiceId: p.word.002
+      text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
+      nextPhraseId: p.elena.003
       ifSelected: 0
       requiredChoices: []
-    - choiceId: c3
-      description: to d5
-      nextPhraseId: d5
+    - choiceId: p.word.003
+      text: "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C"
+      nextPhraseId: p.elena.004
       ifSelected: 0
       requiredChoices: []
     overrideChoicesDuration: 0
@@ -62,49 +64,84 @@ MonoBehaviour:
     dialogueEvents:
     - eventId: 
       delay: 0
-  - phraseId: d3
+  - phraseId: p.elena.002
     person: 1
     screenPlace: 2
     hidePersonOnEnd: 0
-    description: this is d3
+    text: "\u041F\u043E\u0436\u0430\u0440?"
     duration: 2
     textAppear: 0
     appearDuration: 0
     hidePhraseOnEnd: 1
     nextIs: 0
-    nextId: d6
+    nextId: p.lara.002
     choices: []
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
     dialogueEvents: []
-  - phraseId: d4
+  - phraseId: p.elena.003
     person: 1
     screenPlace: 2
     hidePersonOnEnd: 0
-    description: this is d4
+    text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435, \u043C\u044D\u043C.
+      \u0427\u0442\u043E \u0441 \u0434\u043E\u043C\u043E\u043C \u043D\u0430\u043F\u0440\u043E\u0442\u0438\u0432?"
     duration: 2
     textAppear: 0
     appearDuration: 0
     hidePhraseOnEnd: 1
     nextIs: 0
-    nextId: d7
+    nextId: p.lara.003
     choices: []
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
     dialogueEvents: []
-  - phraseId: d5
+  - phraseId: p.elena.004
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0427\u0442\u043E \u0441\u043B\u0443\u0447\u0438\u043B\u043E\u0441\u044C,
+      \u043C\u044D\u043C?"
+    duration: 2
+    textAppear: 0
+    appearDuration: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.003
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.002
     person: 2
     screenPlace: 5
     hidePersonOnEnd: 0
-    description: this is d5
+    text: "\u0414\u0430! \u0413\u043E\u0440\u0438\u0442 \u0432\u0435\u0441\u044C
+      \u043F\u0435\u0440\u0432\u044B\u0439 \u044D\u0442\u0430\u0436!"
     duration: 2
     textAppear: 0
     appearDuration: 0
     hidePhraseOnEnd: 1
     nextIs: 0
-    nextId: d8
+    nextId: 
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.003
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u0413\u043E\u0440\u0438\u0442! \u0422\u0430\u043C \u043F\u043E\u0436\u0430\u0440!"
+    duration: 2
+    textAppear: 0
+    appearDuration: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: 
     choices: []
     overrideChoicesDuration: 0
     choicesDuration: 0

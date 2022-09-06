@@ -94,7 +94,7 @@ public class LevelScenePm : IDisposable
         _choiceDone = false;
 
         for (int i = 0; i < _currentPhrase.choices.Count; i++)
-            _ctx.buttons[i].Show(_currentPhrase.choices[i].description);
+            _ctx.buttons[i].Show(_currentPhrase.choices[i].text);
 
         await Task.Delay((int) (_ctx.gameSet.buttonsAppearDuration * 1000));
         

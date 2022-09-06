@@ -17,7 +17,7 @@ public class PersonView : MonoBehaviour
             gameObject.SetActive(true);
 
         personName.text = phrase.GetPersonName();
-        description.text = phrase.description;
+        description.text = phrase.text;
         description.gameObject.SetActive(true);
     }
 
