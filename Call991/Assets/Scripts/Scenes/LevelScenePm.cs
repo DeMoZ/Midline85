@@ -82,7 +82,7 @@ public class LevelScenePm : IDisposable
         }).AddTo(_disposables);
     }
 
-    private async void NextChoices()
+    private void NextChoices()
     {
         if (_currentPhrase.choices.Count == 0)
         {

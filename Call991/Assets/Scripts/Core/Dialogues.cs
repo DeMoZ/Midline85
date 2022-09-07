@@ -77,7 +77,7 @@ public class Phrase
     [ShowIf("overrideChoicesDuration", true)] public float choicesDuration;
     
     
-    [VerticalGroup("Event")]
+    [VerticalGroup("Event")] [TableColumnWidth(200, false)]
     public bool addEvent;
     [VerticalGroup("Event")] [ShowIf("addEvent")] public List<DialogueEvent> dialogueEvents;
     private bool ShowAppearDuration() =>
