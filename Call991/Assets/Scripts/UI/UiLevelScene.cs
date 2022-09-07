@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
@@ -23,7 +22,7 @@ namespace UI
 
         private Ctx _ctx;
 
-        [SerializeField] private Button menuButton = default;
+        [SerializeField] private MenuButtonView menuButton = default;
         [SerializeField] private List<PersonView> persons = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private CountDownView countDown = default;
@@ -37,7 +36,7 @@ namespace UI
             _ctx = ctx;
             _disposables = new CompositeDisposable();
 
-            menuButton.onClick.AddListener(() => { _ctx.onClickMenuButton.Execute(); });
+            menuButton.OnClick += OnClickMenu;
 
             _ctx.onPhraseEvent.Subscribe(OnPhraseEvent).AddTo(_disposables);
             _ctx.onShowPhrase.Subscribe(OnShowPhrase).AddTo(_disposables);
@@ -85,8 +84,12 @@ namespace UI
                 personView.gameObject.SetActive(false);
         }
 
+        private void OnClickMenu() => 
+            _ctx.onClickMenuButton.Execute();
+
         public void Dispose()
         {
+            menuButton.OnClick -= OnClickMenu;
         }
     }
 }
