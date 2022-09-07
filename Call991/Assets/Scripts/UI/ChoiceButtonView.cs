@@ -5,7 +5,6 @@ using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 namespace UI
 {
@@ -30,7 +29,6 @@ namespace UI
         [SerializeField] private Color textClicked = default;
         [SerializeField] private Color textBlocked = default;
         [Space] 
-        //[SerializeField] private Button button = default;
         [SerializeField] private TextMeshProUGUI buttonText = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 

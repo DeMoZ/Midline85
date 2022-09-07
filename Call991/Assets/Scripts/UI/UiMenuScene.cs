@@ -1,10 +1,10 @@
+using System;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
-    public class UiMenuScene: MonoBehaviour
+    public class UiMenuScene : MonoBehaviour, IDisposable
     {
         public struct Ctx
         {
@@ -13,35 +13,51 @@ namespace UI
             public ReactiveCommand onClickSettings;
         }
 
-        [SerializeField] private Button playBtn = default;
-        [SerializeField] private Button newGameBtn = default;
-        [SerializeField] private Button settingsBtn = default;
-       
+        [SerializeField] private MenuButtonView playBtn = default;
+        [SerializeField] private MenuButtonView newGameBtn = default;
+        [SerializeField] private MenuButtonView settingsBtn = default;
+        [SerializeField] private MenuButtonView exitBtn = default;
+
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            playBtn.onClick.AddListener(OnClickPlay);
-            newGameBtn.onClick.AddListener(OnClickNewGame);
-            settingsBtn.onClick.AddListener(OnClickSettings);
+            playBtn.OnClick += OnClickPlay;
+            newGameBtn.OnClick += OnClickNewGame;
+            settingsBtn.OnClick += OnClickSettings;
+            exitBtn.OnClick += OnClickExit;
         }
 
         private void OnClickPlay()
-        { 
+        {
             Debug.Log("[UiMenuScene] OnClickPlay");
             _ctx.onClickPlayGame.Execute();
         }
+
         private void OnClickNewGame()
-        { 
+        {
             Debug.Log("[UiMenuScene] OnClickNewGame");
             _ctx.onClickNewGame.Execute();
         }
+
         private void OnClickSettings()
-        { 
+        {
             Debug.Log("[UiMenuScene] OnClickSettings");
             _ctx.onClickSettings.Execute();
         }
-    }
 
+        private void OnClickExit()
+        {
+            Application.Quit();
+        }
+        
+        public void Dispose()
+        {
+            playBtn.OnClick -= OnClickPlay;
+            newGameBtn.OnClick -= OnClickNewGame;
+            settingsBtn.OnClick -= OnClickSettings;
+            exitBtn.OnClick -= OnClickExit;
+        }
+    }
 }
