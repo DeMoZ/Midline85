@@ -49,6 +49,24 @@ public class LevelScenePm : IDisposable
         _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
+    private async void OnAfterEnter()
+    {
+        InitButtons();
+        
+        if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
+            _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
+
+        await ShowIntro();
+        
+        RunDialogue();
+    }
+
+    private async Task ShowIntro()
+    {
+        // _ctx.showIntro.Execute();
+        // await Task.Delay(introDelay);
+    }
+
     private void RunDialogue()
     {
         _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.LastPhrase);
@@ -73,7 +91,6 @@ public class LevelScenePm : IDisposable
 
                 case NextIs.Choices:
                     NextChoices();
-                    
                     break;
 
                 default:
@@ -93,12 +110,25 @@ public class LevelScenePm : IDisposable
         _choiceDone = false;
 
         for (int i = 0; i < _currentPhrase.choices.Count; i++)
-            _ctx.buttons[i].Show(_currentPhrase.choices[i].text);
+        {
+            var isBlocked = IsBlocked(_currentPhrase.choices[i]);
+            _ctx.buttons[i].Show(_currentPhrase.choices[i].text, isBlocked);
+        }
         
         Observable.FromCoroutine(ChoiceRoutine).Subscribe( _ =>
         {
             Debug.Log($"[{this}] Choice coroutine end");
         }).AddTo(_disposables);
+    }
+
+    private bool IsBlocked(Choice choice)
+    {
+        if (choice.ifSelected)
+        {
+            return !_ctx.profile.ContainsChoice(choice.requiredChoices);
+        }
+
+        return false;
     }
     
     private IEnumerator ChoiceRoutine()
@@ -167,16 +197,6 @@ public class LevelScenePm : IDisposable
 
             timer += Time.deltaTime;
         }
-    }
-
-    private void OnAfterEnter()
-    {
-        InitButtons();
-        
-        if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
-            _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-        
-        RunDialogue();
     }
 
     private void InitButtons()

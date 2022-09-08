@@ -35,9 +35,13 @@ public class LevelSceneEntity : IGameScene
     {
         // await Task.Yield();
         await Task.Delay(1 * 1000);
+        
+        // todo load from addressables black screen above the scene;
+        // scene doesnt exist here
+        // so just load and show on enter. Is it instant?
     }
 
-    public void Enter()
+    public async void Enter()
     {
         Debug.Log($"[{this}] Entered");
 
@@ -45,7 +49,6 @@ public class LevelSceneEntity : IGameScene
 
         // from prefab, or find, or addressable
         _ui = UnityEngine.GameObject.FindObjectOfType<UiLevelScene>();
-        //var camera = _ui.GetCamera();
         var uiPool = new Pool(new GameObject("uiPool").transform);
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
@@ -56,7 +59,7 @@ public class LevelSceneEntity : IGameScene
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
-        
+
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             profile = _ctx.profile,
@@ -81,6 +84,7 @@ public class LevelSceneEntity : IGameScene
             pool = uiPool,
         });
 
+            // await BlackScreenFade();
         onAfterEnter.Execute();
     }
 

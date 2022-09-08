@@ -45,6 +45,22 @@ public class PlayerProfile
         SaveToPrefs();
     }
 
+    public bool ContainsChoice(string choiceId) => 
+        _data.choices.Contains(choiceId);
+
+    public bool ContainsChoice(List<string> choices)
+    {
+        foreach (var required in choices)
+        {
+            if (!ContainsChoice(required)) ;
+                return false;
+        }
+
+        return true;
+    }
+    public bool ContainsPhrase(string phraseId) => 
+        _data.phrases.Contains(phraseId);
+
     private void SaveToPrefs() =>
         PlayerPrefs.SetString(ProfileKey, JsonConvert.SerializeObject(_data));
 }
