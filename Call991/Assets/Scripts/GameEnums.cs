@@ -14,6 +14,7 @@ public enum Person
     None,
     Elena,
     Lara,
+    Jack,
 }
 
 public enum TextAppear
