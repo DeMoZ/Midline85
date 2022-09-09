@@ -15,7 +15,6 @@ public class MenuSceneEntity : IGameScene
 
     private ReactiveCommand _onClickPlayGame;
     private ReactiveCommand _onClickNewGame;
-    private ReactiveCommand _onClickSettings;
 
     public MenuSceneEntity(Ctx ctx)
     {
@@ -23,7 +22,6 @@ public class MenuSceneEntity : IGameScene
 
         _onClickPlayGame = new ReactiveCommand();
         _onClickNewGame = new ReactiveCommand();
-        _onClickSettings = new ReactiveCommand();
     }
 
     public void Enter()
@@ -32,7 +30,6 @@ public class MenuSceneEntity : IGameScene
         {
             onClickPlayGame = _onClickPlayGame,
             onClickNewGame = _onClickNewGame,
-            onClickSettings = _onClickSettings,
             onSwitchScene = _ctx.onSwitchScene,
             profile = _ctx.profile,
         });
@@ -45,7 +42,7 @@ public class MenuSceneEntity : IGameScene
         {
             onClickPlayGame = _onClickPlayGame,
             onClickNewGame = _onClickNewGame,
-            onClickSettings = _onClickSettings,
+            profile = _ctx.profile,
         });
     }
 

@@ -13,4 +13,9 @@ public static class ResourcesLoader
 
         return resource.asset as T;
     }
+
+    public static void UnloadUnused()
+    {
+        Resources.UnloadUnusedAssets();
+    }
 }

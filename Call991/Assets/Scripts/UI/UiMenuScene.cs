@@ -10,54 +10,60 @@ namespace UI
         {
             public ReactiveCommand onClickPlayGame;
             public ReactiveCommand onClickNewGame;
-            public ReactiveCommand onClickSettings;
+            public PlayerProfile profile;
         }
 
-        [SerializeField] private MenuButtonView playBtn = default;
-        [SerializeField] private MenuButtonView newGameBtn = default;
-        [SerializeField] private MenuButtonView settingsBtn = default;
-        [SerializeField] private MenuButtonView exitBtn = default;
+        [SerializeField] private UiMenu menu = default;
+        [SerializeField] private UiCheats cheats = default;
 
         private Ctx _ctx;
+        private CompositeDisposable _disposables;
 
-        public void SetCtx(Ctx ctx)
+        public ReactiveCommand _onClickSettings;
+        public ReactiveCommand _onClickToMenu;
+
+        public async void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            playBtn.OnClick += OnClickPlay;
-            newGameBtn.OnClick += OnClickNewGame;
-            settingsBtn.OnClick += OnClickSettings;
-            exitBtn.OnClick += OnClickExit;
-        }
+            _disposables = new CompositeDisposable();
 
-        private void OnClickPlay()
-        {
-            Debug.Log("[UiMenuScene] OnClickPlay");
-            _ctx.onClickPlayGame.Execute();
-        }
+            _onClickSettings = new ReactiveCommand();
+            _onClickToMenu = new ReactiveCommand();
+            _onClickSettings.Subscribe(_ => OnClickSettings()).AddTo(_disposables);
+            _onClickToMenu.Subscribe(_ => OnClickToMenu()).AddTo(_disposables);
 
-        private void OnClickNewGame()
-        {
-            Debug.Log("[UiMenuScene] OnClickNewGame");
-            _ctx.onClickNewGame.Execute();
+            menu.SetCtx(new UiMenu.Ctx
+            {
+                onClickPlayGame = _ctx.onClickPlayGame,
+                onClickNewGame = _ctx.onClickNewGame,
+                onClickSettings = _onClickSettings
+            });
+
+            cheats.SetCtx(new UiCheats.Ctx
+            {
+                onClickToMenu = _onClickToMenu,
+                profile = _ctx.profile,
+            });
+
+            menu.gameObject.SetActive(true);
+            cheats.gameObject.SetActive(false);
         }
 
         private void OnClickSettings()
         {
-            Debug.Log("[UiMenuScene] OnClickSettings");
-            _ctx.onClickSettings.Execute();
+            menu.gameObject.SetActive(false);
+            cheats.gameObject.SetActive(true);
         }
 
-        private void OnClickExit()
+        private void OnClickToMenu()
         {
-            Application.Quit();
+            menu.gameObject.SetActive(true);
+            cheats.gameObject.SetActive(false);
         }
-        
+
         public void Dispose()
         {
-            playBtn.OnClick -= OnClickPlay;
-            newGameBtn.OnClick -= OnClickNewGame;
-            settingsBtn.OnClick -= OnClickSettings;
-            exitBtn.OnClick -= OnClickExit;
+            _disposables?.Dispose();
         }
     }
 }

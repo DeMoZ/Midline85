@@ -69,17 +69,17 @@ public class ScenesHandler : IDisposable
     {
         IGameScene newScene = scene switch
         {
-            GameScenes.Menu => LoadMenu(),
+            GameScenes.Menu => await LoadMenu(),
             GameScenes.Level1 => await LoadLevel1(),
-            _ => LoadMenu()
+            _ => await LoadMenu()
         };
 
         return newScene;
     }
     
-    private IGameScene LoadMenu()
+    private async Task<IGameScene> LoadMenu()
     {
-        return new MenuSceneEntity(new MenuSceneEntity.Ctx
+       return new MenuSceneEntity(new MenuSceneEntity.Ctx
         {
             scene = GameScenes.Menu,
             onSwitchScene = _ctx.onSwitchScene,
@@ -107,6 +107,7 @@ public class ScenesHandler : IDisposable
     
     public void Dispose()
     {
+        ResourcesLoader.UnloadUnused();
         _disposables.Dispose();
     }
 }

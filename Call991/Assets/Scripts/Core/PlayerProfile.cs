@@ -33,6 +33,16 @@ public class PlayerProfile
         }
     }
 
+    public string CheatPhrase
+    {
+        get => _data.cheatPhraseId;
+        set
+        {
+            _data.cheatPhraseId = value;
+            SaveToPrefs();
+        }
+    }
+
     public void AddPhrase(string phraseId)
     {
         _data.phrases.Add(phraseId);
@@ -68,6 +78,8 @@ public class PlayerProfile
 public class Data
 {
     public string lastPhraseId = null;
+    public string cheatPhraseId = null;
+
     public List<string> choices = new List<string>();
     public List<string> phrases = new List<string>();
 }

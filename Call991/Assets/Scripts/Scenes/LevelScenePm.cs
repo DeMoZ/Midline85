@@ -53,8 +53,15 @@ public class LevelScenePm : IDisposable
     {
         InitButtons();
         
+#if !BUILD_PRODUCTION
+        if (string.IsNullOrWhiteSpace(_ctx.profile.CheatPhrase))
+            _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
+        else
+            _ctx.profile.LastPhrase = _ctx.profile.CheatPhrase;
+#else
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
+#endif
 
         await ShowIntro();
         
@@ -64,7 +71,7 @@ public class LevelScenePm : IDisposable
     private async Task ShowIntro()
     {
         // _ctx.showIntro.Execute();
-        // await Task.Delay(introDelay);
+        //  Task.Delay(introDelay);await
     }
 
     private void RunDialogue()

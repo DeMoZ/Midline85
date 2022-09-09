@@ -9,7 +9,6 @@ public class MenuScenePm : IDisposable
     {
         public ReactiveCommand onClickPlayGame;
         public ReactiveCommand onClickNewGame;
-        public ReactiveCommand onClickSettings;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
     }
@@ -22,7 +21,6 @@ public class MenuScenePm : IDisposable
 
         _ctx.onClickPlayGame.Subscribe(_ => OnClickPlayGame());
         _ctx.onClickNewGame.Subscribe(_ => OnClickNewGame());
-        _ctx.onClickSettings.Subscribe(_ => OnClickSettings());
     }
 
     private void OnClickPlayGame()
