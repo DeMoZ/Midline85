@@ -15,7 +15,7 @@ namespace UI
 
         [SerializeField] private MenuButtonView toMenuBtn = default;
         [SerializeField] private TMP_InputField inputId = default;
-        [SerializeField] private TextMeshProUGUI checkLable = default;
+        [SerializeField] private TextMeshProUGUI inputIdText = default;
 
         private Ctx _ctx;
         private Dialogues _dialogues;
@@ -24,8 +24,6 @@ namespace UI
         {
             _ctx = ctx;
             inputId.text = _ctx.profile.CheatPhrase;
-            checkLable.text = _ctx.profile.CheatPhrase;
-
             toMenuBtn.OnClick += OnClickToMenu;
             inputId.onValueChanged.AddListener(OnInputId);
         }
@@ -41,7 +39,7 @@ namespace UI
 
             var phrase = _dialogues.phrases.FirstOrDefault(p => p.phraseId == value);
 
-            checkLable.text = phrase == null ? "" : phrase.phraseId;
+            inputIdText.color = phrase == null ? Color.red : Color.blue;
             _ctx.profile.CheatPhrase = phrase == null ? null : phrase.phraseId;
         }
 

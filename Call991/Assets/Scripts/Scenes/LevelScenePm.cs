@@ -67,8 +67,7 @@ public class LevelScenePm : IDisposable
         
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-
-
+        
         await ShowIntro();
         
         RunDialogue();
