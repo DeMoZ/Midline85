@@ -54,14 +54,20 @@ public class LevelScenePm : IDisposable
         InitButtons();
         
 #if !BUILD_PRODUCTION
-        if (string.IsNullOrWhiteSpace(_ctx.profile.CheatPhrase))
-            _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-        else
+        
+
+        if (!string.IsNullOrWhiteSpace(_ctx.profile.CheatPhrase))
+        {
+            _ctx.profile.ClearPhrases();
+            _ctx.profile.ClearChoices();
+            
             _ctx.profile.LastPhrase = _ctx.profile.CheatPhrase;
-#else
+        }
+#endif
+        
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-#endif
+
 
         await ShowIntro();
         

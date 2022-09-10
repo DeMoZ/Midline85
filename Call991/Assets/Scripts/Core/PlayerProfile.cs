@@ -23,12 +23,22 @@ public class PlayerProfile
         _data = new Data();
     }
 
+    public void ClearPhrases()
+    {
+        _data.phrases.Clear();
+    }
+    public void ClearChoices()
+    {
+        _data.choices.Clear();
+    }
+    
     public string LastPhrase
     {
         get => _data.lastPhraseId;
         set
         {
             _data.lastPhraseId = value;
+            AddPhrase(value);
             SaveToPrefs();
         }
     }
@@ -45,12 +55,16 @@ public class PlayerProfile
 
     public void AddPhrase(string phraseId)
     {
+        if (_data.phrases.Contains(phraseId)) return;
+        
         _data.phrases.Add(phraseId);
         SaveToPrefs();
     }
 
     public void AddChoice(string choiceId)
     {
+        if (_data.choices.Contains(choiceId)) return;
+        
         _data.choices.Add(choiceId);
         SaveToPrefs();
     }
