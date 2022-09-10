@@ -54,8 +54,6 @@ public class LevelScenePm : IDisposable
         InitButtons();
         
 #if !BUILD_PRODUCTION
-        
-
         if (!string.IsNullOrWhiteSpace(_ctx.profile.CheatPhrase))
         {
             _ctx.profile.ClearPhrases();
@@ -196,7 +194,7 @@ public class LevelScenePm : IDisposable
         Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}");
         _ctx.onShowPhrase.Execute(_currentPhrase);
 
-        while (timer <= _currentPhrase.duration)
+        while (timer <= _currentPhrase.Duration)
         {
             yield return null;
 

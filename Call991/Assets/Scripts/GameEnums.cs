@@ -19,9 +19,9 @@ public enum Person
 
 public enum TextAppear
 {
-    Pop,
-    Letters,
     Word,
+    Letters,
+    Pop,
     Fade,
 }
 

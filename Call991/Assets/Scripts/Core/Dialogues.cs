@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 [CreateAssetMenu]
@@ -25,10 +27,28 @@ public class Dialogues : ScriptableObject
                 phrase.nextId = null;
             }
 
-            if (phrase.textAppear == TextAppear.Pop)
-                phrase.appearDuration = 0;
+            if (phrase.textAppear is TextAppear.Pop or TextAppear.Fade)
+            {
+                phrase.wordTime = null;
+            }
+            else
+            {
+                // phrase.wordTime.Clear();
+                if (phrase.wordTime == null || phrase.wordTime.Count == 0)
+                {
+                    var words = phrase.text.Split(" ");
+                    phrase.wordTime ??= new List<WordTime>();
 
-            phrase.appearDuration = Mathf.Clamp(phrase.appearDuration, 0, phrase.duration);
+                    for (var w = 0; w < words.Length; w++)
+                    {
+                        var word = words[w];
+                        phrase.wordTime.Add(new WordTime {word = word});
+
+                        if (w == words.Length - 1)
+                            phrase.wordTime[^1].time *= 4;
+                    }
+                }
+            }
         }
     }
 }
@@ -50,14 +70,13 @@ public class Phrase
     [VerticalGroup("Dialog")][TableColumnWidth(220, false)]
     public string text;
     [VerticalGroup("Dialog")]
-    public float duration = 2;
-    [VerticalGroup("Dialog")]
     public TextAppear textAppear;
 
     [Tooltip("Dialog will appear during that time (slow or fast)")]
+    [VerticalGroup("Dialog")][TableList(ShowIndexLabels = true)][OdinSerialize]
+    [ShowIf("ShowIfNotPop")] public List<WordTime> wordTime;
     [VerticalGroup("Dialog")]
-    [ShowIf("ShowAppearDuration")] public float appearDuration;
-
+    [ShowIf("ShowIfPopOrFade")][SerializeField] private float duration = 2;
     [Tooltip("Dialog will hide on end phrase")]
     [VerticalGroup("Dialog")]
     public bool hidePhraseOnEnd= true; // next is choices of phrase
@@ -80,8 +99,23 @@ public class Phrase
     [VerticalGroup("Event")] [TableColumnWidth(200, false)]
     public bool addEvent;
     [VerticalGroup("Event")] [ShowIf("addEvent")] public List<DialogueEvent> dialogueEvents;
-    private bool ShowAppearDuration() =>
+
+    public float Duration
+    {
+        get
+        {
+            if (textAppear is TextAppear.Pop or TextAppear.Fade)
+                return duration;
+            
+            return wordTime.Sum(wt => wt.time);
+        }
+    }
+
+    private bool ShowIfNotPop() =>
         textAppear != TextAppear.Pop;
+    
+    private bool ShowIfPopOrFade() =>
+        textAppear is TextAppear.Pop or TextAppear.Fade ;
 
     public string GetPersonName() => 
         person.ToString();
@@ -105,4 +139,13 @@ public class Choice
     public bool ifSelected;
     [ShowIf("ifSelected")]
     public List<string> requiredChoices;
+}
+
+[Serializable]
+public class WordTime
+{
+    [TableColumnWidth(100)]
+    public string word;
+    [TableColumnWidth(50)]
+    public float time = 0.4f;
 }
