@@ -7,37 +7,37 @@ using UnityEngine;
 public class PlayerProfile
 {
     private const string ProfileKey = "Profile";
-    private Data _data;
+    private PlayerData _playerData;
     
     public PlayerProfile()
     {
         var savedProfile = PlayerPrefs.GetString(ProfileKey, null);
-        _data = string.IsNullOrWhiteSpace(savedProfile)
-            ? new Data()
-            : JsonConvert.DeserializeObject<Data>(savedProfile);
+        _playerData = string.IsNullOrWhiteSpace(savedProfile)
+            ? new PlayerData()
+            : JsonConvert.DeserializeObject<PlayerData>(savedProfile);
     }
 
     public void Clear()
     {
         PlayerPrefs.DeleteKey(ProfileKey);
-        _data = new Data();
+        _playerData = new PlayerData();
     }
 
     public void ClearPhrases()
     {
-        _data.phrases.Clear();
+        _playerData.phrases.Clear();
     }
     public void ClearChoices()
     {
-        _data.choices.Clear();
+        _playerData.choices.Clear();
     }
     
     public string LastPhrase
     {
-        get => _data.lastPhraseId;
+        get => _playerData.lastPhraseId;
         set
         {
-            _data.lastPhraseId = value;
+            _playerData.lastPhraseId = value;
             AddPhrase(value);
             SaveToPrefs();
         }
@@ -45,32 +45,32 @@ public class PlayerProfile
 
     public string CheatPhrase
     {
-        get => _data.cheatPhraseId;
+        get => _playerData.cheatPhraseId;
         set
         {
-            _data.cheatPhraseId = value;
+            _playerData.cheatPhraseId = value;
             SaveToPrefs();
         }
     }
 
     public void AddPhrase(string phraseId)
     {
-        if (_data.phrases.Contains(phraseId)) return;
+        if (_playerData.phrases.Contains(phraseId)) return;
         
-        _data.phrases.Add(phraseId);
+        _playerData.phrases.Add(phraseId);
         SaveToPrefs();
     }
 
     public void AddChoice(string choiceId)
     {
-        if (_data.choices.Contains(choiceId)) return;
+        if (_playerData.choices.Contains(choiceId)) return;
         
-        _data.choices.Add(choiceId);
+        _playerData.choices.Add(choiceId);
         SaveToPrefs();
     }
 
     public bool ContainsChoice(string choiceId) => 
-        _data.choices.Contains(choiceId);
+        _playerData.choices.Contains(choiceId);
 
     public bool ContainsChoice(List<string> choices)
     {
@@ -83,13 +83,13 @@ public class PlayerProfile
         return true;
     }
     public bool ContainsPhrase(string phraseId) => 
-        _data.phrases.Contains(phraseId);
+        _playerData.phrases.Contains(phraseId);
 
     private void SaveToPrefs() =>
-        PlayerPrefs.SetString(ProfileKey, JsonConvert.SerializeObject(_data));
+        PlayerPrefs.SetString(ProfileKey, JsonConvert.SerializeObject(_playerData));
 }
 
-public class Data
+public class PlayerData
 {
     public string lastPhraseId = null;
     public string cheatPhraseId = null;

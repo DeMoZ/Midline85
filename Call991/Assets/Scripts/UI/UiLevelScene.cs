@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Video;
 
 namespace UI
 {
@@ -26,10 +27,12 @@ namespace UI
         [SerializeField] private List<PersonView> persons = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private CountDownView countDown = default;
+        [SerializeField] private VideoPlayer videoPlayer = default;
 
         private CompositeDisposable _disposables;
         public List<ChoiceButtonView> Buttons => buttons;
         public CountDownView CountDown => countDown;
+        public VideoPlayer VideoPlayer => videoPlayer;
 
         public void SetCtx(Ctx ctx)
         {

@@ -12,6 +12,7 @@ public class LevelSceneEntity : IGameScene
         public Dialogues dialogues;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
+        public string sceneVideoUrl;
     }
 
     private Ctx _ctx;
@@ -59,6 +60,8 @@ public class LevelSceneEntity : IGameScene
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
+        var videoPlayer = _ui.VideoPlayer;
+        videoPlayer.url = _ctx.sceneVideoUrl;
 
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {

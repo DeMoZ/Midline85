@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Data;
 using UniRx;
 
 public class ScenesHandler : IDisposable
@@ -70,7 +71,7 @@ public class ScenesHandler : IDisposable
         IGameScene newScene = scene switch
         {
             GameScenes.Menu => await LoadMenu(),
-            GameScenes.Level1 => await LoadLevel1(),
+            GameScenes.Level1 => await LoadLevel7(),
             _ => await LoadMenu()
         };
 
@@ -87,10 +88,12 @@ public class ScenesHandler : IDisposable
         });
     }
 
-    private async Task<IGameScene> LoadLevel1()
+    private async Task<IGameScene> LoadLevel7()
     {
         var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>("7_lvl_Total");
         var dialogues = compositeDialogue.Load();
+        var videoPathBuilder = new VideoPathBuilder();
+        var sceneVideoUrl = videoPathBuilder.GetPath("VideoBack.mp4");
         
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
@@ -99,6 +102,7 @@ public class ScenesHandler : IDisposable
             profile = _ctx.profile,
             dialogues = dialogues,
             onSwitchScene = _ctx.onSwitchScene,
+            sceneVideoUrl = sceneVideoUrl,
         });
 
         await constructorTask.Value;
