@@ -1,0 +1,1586 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914adf16d7034216aada47b4b1ca4b8e, type: 3}
+  m_Name: pjack024
+  m_EditorClassIdentifier: 
+  phrases:
+  - phraseId: p.jack.024
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\L\u041E\u043D\u0438 \u0432\u0441\u0451 \u0442\u0430\u043A \u0438 \u043D\u0435
+      \u0437\u0430\u0445\u043E\u0434\u044F\u0442..."
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435..."
+      time: 0.4
+    - word: "\u041F\u043E\u0447\u0435\u043C\u0443"
+      time: 0.4
+    - word: "\u043E\u043D\u0438"
+      time: 0.4
+    - word: "\u043D\u0435"
+      time: 0.4
+    - word: "\u0437\u0430\u0445\u043E\u0434\u044F\u0442?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.042
+      text: "\u041E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C"
+      nextPhraseId: p.elena.052
+      ifSelected: 1
+      requiredChoices:
+      - c.word.001
+      - c.word.005
+      - c.word.006
+    - choiceId: c.word.043
+      text: "\u041F\u0440\u0438\u043A\u0430\u0437\u0430\u0442\u044C \u043E\u0441\u0442\u0430\u0442\u044C\u0441\u044F"
+      nextPhraseId: p.elena.053
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.031
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u041E\u043D\u0438 \u0441\u0431\u0438\u0432\u0430\u044E\u0442 \u043F\u043B\u0430\u043C\u044F,
+      \u0447\u0442\u043E\u0431\u044B \u043E\u043D\u043E \u043D\u0435 \u043F\u0435\u0440\u0435\u0431\u0440\u0430\u043B\u043E\u0441\u044C
+      \u043D\u0430 \u0432\u0442\u043E\u0440\u043E\u0439 \u044D\u0442\u0430\u0436."
+    textAppear: 0
+    wordTime:
+    - word: "\u041E\u043D\u0438"
+      time: 0.4
+    - word: "\u0441\u0431\u0438\u0432\u0430\u044E\u0442"
+      time: 0.4
+    - word: "\u043F\u043B\u0430\u043C\u044F,"
+      time: 0.4
+    - word: "\u0447\u0442\u043E\u0431\u044B"
+      time: 0.4
+    - word: "\u043E\u043D\u043E"
+      time: 0.4
+    - word: "\u043D\u0435"
+      time: 0.4
+    - word: "\u043F\u0435\u0440\u0435\u0431\u0440\u0430\u043B\u043E\u0441\u044C"
+      time: 0.4
+    - word: "\u043D\u0430"
+      time: 0.4
+    - word: "\u0432\u0442\u043E\u0440\u043E\u0439"
+      time: 0.4
+    - word: "\u044D\u0442\u0430\u0436."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.026
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.026
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u041F\u043E\u043D\u044F\u0442\u043D\u043E... \u0411\u043B\u044F\u0442\u044C..."
+    textAppear: 0
+    wordTime:
+    - word: "\L\u041F\u043E\u043D\u044F\u0442\u043D\u043E..."
+      time: 0.4
+    - word: "\u0411\u043B\u044F\u0442\u044C..."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.034
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.053
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435 \u0437\u043D\u0430\u044E\u0442,
+      \u0447\u0442\u043E \u0434\u0435\u043B\u0430\u0442\u044C. \u041E\u0441\u0442\u0430\u0432\u0430\u0439\u0442\u0435\u0441\u044C
+      \u0432 \u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u043C \u043C\u0435\u0441\u0442\u0435."
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u0437\u043D\u0430\u044E\u0442,"
+      time: 0.4
+    - word: "\u0447\u0442\u043E"
+      time: 0.4
+    - word: "\u0434\u0435\u043B\u0430\u0442\u044C."
+      time: 0.4
+    - word: "\u041E\u0441\u0442\u0430\u0432\u0430\u0439\u0442\u0435\u0441\u044C"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u0431\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u043C"
+      time: 0.4
+    - word: "\u043C\u0435\u0441\u0442\u0435."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.027
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.027
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0415\u0441\u043B\u0438 \u043E\u043D\u0438 \u043D\u0435 \u0442\u043E\u0440\u043E\u043F\u044F\u0442\u0441\u044F...
+      \u0417\u043D\u0430\u0447\u0438\u0442 \u044F \u0442\u0443\u0434\u0430 \u043F\u043E\u0439\u0434\u0443!"
+    textAppear: 0
+    wordTime:
+    - word: 
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.044
+      text: "\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0434\u0438\u0442\u044C
+        \u043E\u0431 \u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
+      nextPhraseId: p.elena.054
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.045
+      text: "\u041E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C"
+      nextPhraseId: p.elena.055
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.046
+      text: "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C"
+      nextPhraseId: p.elena.055.1
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.054
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0412\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u043E\u0433\u0438\u0431\u043D\u0443\u0442\u044C!"
+    textAppear: 0
+    wordTime:
+    - word: "\u0412\u044B"
+      time: 0.4
+    - word: "\u043C\u043E\u0436\u0435\u0442\u0435"
+      time: 0.4
+    - word: "\u043F\u043E\u0433\u0438\u0431\u043D\u0443\u0442\u044C!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.030
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.055
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0421\u044D\u0440, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435
+      \u043F\u043E\u043C\u0435\u0448\u0430\u0442\u044C \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u043C."
+    textAppear: 0
+    wordTime:
+    - word: "\u0421\u044D\u0440,"
+      time: 0.4
+    - word: "\u0432\u044B"
+      time: 0.4
+    - word: "\u043C\u043E\u0436\u0435\u0442\u0435"
+      time: 0.4
+    - word: "\u043F\u043E\u043C\u0435\u0448\u0430\u0442\u044C"
+      time: 0.4
+    - word: "\u043F\u043E\u0436\u0430\u0440\u043D\u044B\u043C."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.029
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.055.1
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0423\u0441\u043F\u043E\u043A\u043E\u0439\u0442\u0435\u0441\u044C."
+    textAppear: 0
+    wordTime:
+    - word: "\u0423\u0441\u043F\u043E\u043A\u043E\u0439\u0442\u0435\u0441\u044C."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.028
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.028
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C\u0441\u044F?! \u0422\u0432\u043E\u0438
+      \u0434\u0435\u0442\u0438 \u043D\u0430\u0445\u043E\u0434\u044F\u0442\u0441\u044F
+      \u0432 \u0433\u043E\u0440\u044F\u0449\u0435\u043C \u0437\u0434\u0430\u043D\u0438\u0438?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C\u0441\u044F?!"
+      time: 0.4
+    - word: "\u0422\u0432\u043E\u0438"
+      time: 0.4
+    - word: "\u0434\u0435\u0442\u0438"
+      time: 0.4
+    - word: "\u043D\u0430\u0445\u043E\u0434\u044F\u0442\u0441\u044F"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u0433\u043E\u0440\u044F\u0449\u0435\u043C"
+      time: 0.4
+    - word: "\u0437\u0434\u0430\u043D\u0438\u0438?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.047
+      text: "\u041E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C"
+      nextPhraseId: p.elena.055
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.050
+      text: "\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0434\u0438\u0442\u044C
+        \u043E\u0431 \u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
+      nextPhraseId: p.elena.056
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.029
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u041E\u0431\u0435\u0449\u0430\u0439\u0442\u0435, \u0447\u0442\u043E \u0432\u044B
+      \u0441\u043F\u0430\u0441\u0435\u0442\u0435 \u043C\u043E\u0438\u0445 \u0434\u0435\u0442\u0435\u0439."
+    textAppear: 0
+    wordTime:
+    - word: "\u041E\u0431\u0435\u0449\u0430\u0439\u0442\u0435,"
+      time: 0.4
+    - word: "\u0447\u0442\u043E"
+      time: 0.4
+    - word: "\u0432\u044B"
+      time: 0.4
+    - word: "\u0441\u043F\u0430\u0441\u0435\u0442\u0435"
+      time: 0.4
+    - word: "\u043C\u043E\u0438\u0445"
+      time: 0.4
+    - word: "\u0434\u0435\u0442\u0435\u0439."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.048
+      text: "\u041C\u044B \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u043C
+        \u043C\u0435\u0440\u044B"
+      nextPhraseId: p.elena.057
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.049
+      text: "\u041E\u0431\u0435\u0449\u0430\u044E"
+      nextPhraseId: p.elena.058
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.057
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u041C\u044B \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u043C \u0432\u0441\u0435
+      \u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435 \u043C\u0435\u0440\u044B.
+      \u041E\u0441\u0442\u0430\u0432\u0430\u0439\u0442\u0435\u0441\u044C \u043D\u0430
+      \u043C\u0435\u0441\u0442\u0435."
+    textAppear: 0
+    wordTime:
+    - word: "\u041C\u044B"
+      time: 0.4
+    - word: "\u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u043C"
+      time: 0.4
+    - word: "\u0432\u0441\u0435"
+      time: 0.4
+    - word: "\u043D\u0435\u043E\u0431\u0445\u043E\u0434\u0438\u043C\u044B\u0435"
+      time: 0.4
+    - word: "\u043C\u0435\u0440\u044B."
+      time: 0.4
+    - word: "\u041E\u0441\u0442\u0430\u0432\u0430\u0439\u0442\u0435\u0441\u044C"
+      time: 0.4
+    - word: "\u043D\u0430"
+      time: 0.4
+    - word: "\u043C\u0435\u0441\u0442\u0435."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.031
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.058
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0412\u0441\u0451 \u0431\u0443\u0434\u0435\u0442 \u0432 \u043F\u043E\u0440\u044F\u0434\u043A\u0435.
+      \u041E\u0441\u0442\u0430\u0432\u0430\u0439\u0442\u0435\u0441\u044C \u043D\u0430
+      \u043C\u0435\u0441\u0442\u0435."
+    textAppear: 0
+    wordTime:
+    - word: "\u0412\u0441\u0451"
+      time: 0.4
+    - word: "\u0431\u0443\u0434\u0435\u0442"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u043F\u043E\u0440\u044F\u0434\u043A\u0435."
+      time: 0.4
+    - word: "\u041E\u0441\u0442\u0430\u0432\u0430\u0439\u0442\u0435\u0441\u044C"
+      time: 0.4
+    - word: "\u043D\u0430"
+      time: 0.4
+    - word: "\u043C\u0435\u0441\u0442\u0435."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.032
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.056
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0421\u044D\u0440, \u0435\u0441\u043B\u0438 \u0432\u044B \u043D\u0435
+      \u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043B\u0435\u043D\u044B, \u0432\u044B
+      \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u043E\u0433\u0438\u0431\u043D\u0443\u0442\u044C."
+    textAppear: 0
+    wordTime:
+    - word: "\u0421\u044D\u0440,"
+      time: 0.4
+    - word: "\u0435\u0441\u043B\u0438"
+      time: 0.4
+    - word: "\u0432\u044B"
+      time: 0.4
+    - word: "\u043D\u0435"
+      time: 0.4
+    - word: "\u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u043B\u0435\u043D\u044B,"
+      time: 0.4
+    - word: "\u0432\u044B"
+      time: 0.4
+    - word: "\u043C\u043E\u0436\u0435\u0442\u0435"
+      time: 0.4
+    - word: "\u043F\u043E\u0433\u0438\u0431\u043D\u0443\u0442\u044C."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.030
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.031
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u041D\u0435\u0442... \u041C\u0435\u0440 \u043D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E!"
+    textAppear: 0
+    wordTime:
+    - word: "\u041D\u0435\u0442..."
+      time: 0.4
+    - word: "\u041C\u0435\u0440"
+      time: 0.4
+    - word: "\u043D\u0435\u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.034
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.032
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0412 \u043F\u043E\u0440\u044F\u0434\u043A\u0435... \u0412 \u043F\u043E\u0440\u044F\u0434\u043A\u0435..."
+    textAppear: 0
+    wordTime:
+    - word: "\u0412"
+      time: 0.4
+    - word: "\u043F\u043E\u0440\u044F\u0434\u043A\u0435..."
+      time: 0.4
+    - word: "\u0412"
+      time: 0.4
+    - word: "\u043F\u043E\u0440\u044F\u0434\u043A\u0435..."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.033
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.030
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0418 \u0447\u0442\u043E? \u042F \u043D\u0435 \u043C\u043E\u0433\u0443
+      \u0441\u0438\u0434\u0435\u0442\u044C \u0438 \u0436\u0434\u0430\u0442\u044C,
+      \u043F\u043E\u043A\u0430 \u043C\u043E\u0438 \u0434\u0435\u0442\u0438 \u0433\u043E\u0440\u044F\u0442
+      \u0437\u0430\u0436\u0438\u0432\u043E!"
+    textAppear: 0
+    wordTime:
+    - word: "\u0418"
+      time: 0.4
+    - word: "\u0447\u0442\u043E?"
+      time: 0.4
+    - word: "\u042F"
+      time: 0.4
+    - word: "\u043D\u0435"
+      time: 0.4
+    - word: "\u043C\u043E\u0433\u0443"
+      time: 0.4
+    - word: "\u0441\u0438\u0434\u0435\u0442\u044C"
+      time: 0.4
+    - word: "\u0438"
+      time: 0.4
+    - word: "\u0436\u0434\u0430\u0442\u044C,"
+      time: 0.4
+    - word: "\u043F\u043E\u043A\u0430"
+      time: 0.4
+    - word: "\u043C\u043E\u0438"
+      time: 0.4
+    - word: "\u0434\u0435\u0442\u0438"
+      time: 0.4
+    - word: "\u0433\u043E\u0440\u044F\u0442"
+      time: 0.4
+    - word: "\u0437\u0430\u0436\u0438\u0432\u043E!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.035
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.034
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u041F\u043E\u0441\u0442\u043E\u0439, \u0414\u0436\u0435\u043A!"
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0441\u0442\u043E\u0439,"
+      time: 0.4
+    - word: "\u0414\u0436\u0435\u043A!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.035
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.033
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0414\u0430-\u0434\u0430...  \u041F\u0440\u043E\u043A\u043B\u044F\u0442\u044C\u0435...
+      \u042F \u043E\u0441\u0442\u0430\u044E\u0441\u044C."
+    textAppear: 0
+    wordTime:
+    - word: "\u0414\u0430-\u0434\u0430..."
+      time: 0.4
+    - word: 
+      time: 0.4
+    - word: "\u041F\u0440\u043E\u043A\u043B\u044F\u0442\u044C\u0435..."
+      time: 0.4
+    - word: "\u042F"
+      time: 0.4
+    - word: "\u043E\u0441\u0442\u0430\u044E\u0441\u044C."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.034
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.034
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u042F \u0441\u0438\u0436\u0443 \u0438 \u0441\u043C\u043E\u0442\u0440\u044E...
+      \u0411\u043E\u0436\u0435 \u043C\u043E\u0439."
+    textAppear: 0
+    wordTime:
+    - word: "\u042F"
+      time: 0.4
+    - word: "\u0441\u0438\u0436\u0443"
+      time: 0.4
+    - word: "\u0438"
+      time: 0.4
+    - word: "\u0441\u043C\u043E\u0442\u0440\u044E..."
+      time: 0.4
+    - word: "\u0411\u043E\u0436\u0435"
+      time: 0.4
+    - word: "\u043C\u043E\u0439."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.051
+      text: "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C"
+      nextPhraseId: p.elena.059
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.052
+      text: "\u0427\u0442\u043E \u0432\u0438\u0434\u0438\u0442?"
+      nextPhraseId: p.elena.060
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.053
+      text: "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u043F\u0440\u043E
+        \u0434\u0435\u0442\u0435\u0439"
+      nextPhraseId: p.elena.061
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.059
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0423\u0441\u043F\u043E\u043A\u043E\u0439\u0442\u0435\u0441\u044C."
+    textAppear: 0
+    wordTime:
+    - word: "\u0423\u0441\u043F\u043E\u043A\u043E\u0439\u0442\u0435\u0441\u044C."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.035
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.060
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0427\u0442\u043E \u0432\u044B \u0432\u0438\u0434\u0438\u0442\u0435?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0427\u0442\u043E"
+      time: 0.4
+    - word: "\u0432\u044B"
+      time: 0.4
+    - word: "\u0432\u0438\u0434\u0438\u0442\u0435?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.036
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.035
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u041D\u0435\u0442... \u042F \u043D\u0435 \u043C\u043E\u0433\u0443\u2026
+      \u041D\u0435 \u043C\u043E\u0433\u0443!"
+    textAppear: 0
+    wordTime:
+    - word: "\u041D\u0435\u0442..."
+      time: 0.4
+    - word: "\u042F"
+      time: 0.4
+    - word: "\u043D\u0435"
+      time: 0.4
+    - word: "\u043C\u043E\u0433\u0443\u2026"
+      time: 0.4
+    - word: "\u041D\u0435"
+      time: 0.4
+    - word: "\u043C\u043E\u0433\u0443!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.035
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.036
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435 \u0437\u0430\u0445\u043E\u0434\u044F\u0442
+      \u0432 \u0434\u043E\u043C..."
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u0437\u0430\u0445\u043E\u0434\u044F\u0442..."
+      time: 0.4
+    - word: "\u041D\u0430\u043A\u043E\u043D\u0435\u0446-\u0442\u043E,"
+      time: 0.4
+    - word: "\u0413\u043E\u0441\u043F\u043E\u0434\u0438..."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.038
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.035
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u0410\u043B\u043B\u043E?.. \u041E\u043D \u0431\u0435\u0436\u0438\u0442
+      \u0432 \u0434\u043E\u043C!"
+    textAppear: 0
+    wordTime:
+    - word: "\u0410\u043B\u043B\u043E?.."
+      time: 0.4
+    - word: "\u041E\u043D"
+      time: 0.4
+    - word: "\u0431\u0435\u0436\u0438\u0442"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u0434\u043E\u043C!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.054
+      text: "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C"
+      nextPhraseId: p.elena.062
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.055
+      text: "\u0415\u0433\u043E \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u044F\u0442"
+      nextPhraseId: p.elena.063
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.038
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0427\u0435\u0433\u043E \u044D\u0442\u0438 \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u0435...
+      \u041E\u043D\u0438 \u043D\u0435 \u0432\u044B\u0445\u043E\u0434\u044F\u0442..."
+    textAppear: 0
+    wordTime:
+    - word: "\u0414\u0436\u0435\u043A!"
+      time: 0.4
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u0432\u044B\u043D\u043E\u0441\u044F\u0442"
+      time: 0.4
+    - word: "\u0434\u0435\u0442\u0435\u0439!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.039
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    dialogueEvents:
+    - eventId: p.jack.023
+      delay: 0
+  - phraseId: p.jack.039
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0427\u0442\u043E-\u0442\u043E \u043D\u0435 \u0442\u0430\u043A... \u041E\u043D\u0438
+      \u0431\u044B \u0443\u0436\u0435 \u043D\u0430\u0448\u043B\u0438 \u0438\u0445..."
+    textAppear: 0
+    wordTime:
+    - word: "\u041C\u043E\u0438"
+      time: 0.4
+    - word: "\u043C\u0430\u043B\u044C\u0447\u0438\u043A\u0438!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.040
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.062
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435 \u0435\u0433\u043E!
+      \u042D\u0442\u043E \u0441\u043B\u0438\u0448\u043A\u043E\u043C \u043E\u043F\u0430\u0441\u043D\u043E!"
+    textAppear: 0
+    wordTime:
+    - word: "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435"
+      time: 0.4
+    - word: "\u0435\u0433\u043E!"
+      time: 0.4
+    - word: "\u042D\u0442\u043E"
+      time: 0.4
+    - word: "\u0441\u043B\u0438\u0448\u043A\u043E\u043C"
+      time: 0.4
+    - word: "\u043E\u043F\u0430\u0441\u043D\u043E!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.036
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.063
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435 \u0435\u0433\u043E \u043D\u0435
+      \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u044F\u0442..."
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u0435\u0433\u043E"
+      time: 0.4
+    - word: "\u043D\u0435"
+      time: 0.4
+    - word: "\u043F\u0440\u043E\u043F\u0443\u0441\u0442\u044F\u0442..."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.036
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.036
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u041E\u043D... \u041E\u043D \u043E\u0431\u0431\u0435\u0436\u0430\u043B
+      \u0437\u0434\u0430\u043D\u0438\u0435... \u0425\u043E\u0447\u0435\u0442 \u0437\u0430\u0439\u0442\u0438
+      \u0447\u0435\u0440\u0435\u0437 \u043A\u0443\u0445\u043D\u044E..."
+    textAppear: 0
+    wordTime:
+    - word: "\u041E\u043D..."
+      time: 0.4
+    - word: "\u041E\u043D"
+      time: 0.4
+    - word: "\u043E\u0431\u0431\u0435\u0436\u0430\u043B"
+      time: 0.4
+    - word: "\u0437\u0434\u0430\u043D\u0438\u0435..."
+      time: 0.4
+    - word: "\u0425\u043E\u0447\u0435\u0442"
+      time: 0.4
+    - word: "\u0437\u0430\u0439\u0442\u0438"
+      time: 0.4
+    - word: "\u0447\u0435\u0440\u0435\u0437"
+      time: 0.4
+    - word: "\u043A\u0443\u0445\u043D\u044E..."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.065
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.065
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435 \u043F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u044B.
+      \u0427\u0442\u043E \u0432\u044B \u0432\u0438\u0434\u0438\u0442\u0435?"
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u043F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u044B."
+      time: 0.4
+    - word: "\u0427\u0442\u043E"
+      time: 0.4
+    - word: "\u0432\u044B"
+      time: 0.4
+    - word: "\u0432\u0438\u0434\u0438\u0442\u0435?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.037
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.037
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435 \u0437\u0430\u0445\u043E\u0434\u044F\u0442
+      \u0432 \u0434\u043E\u043C.. \u0414\u0436\u0435\u043A \u0433\u0434\u0435-\u0442\u043E
+      \u0432\u043D\u0443\u0442\u0440\u0438... \u0418\u0438\u0441\u0443\u0441\u0435."
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u0437\u0430\u0445\u043E\u0434\u044F\u0442"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u0434\u043E\u043C.."
+      time: 0.4
+    - word: "\u0414\u0436\u0435\u043A"
+      time: 0.4
+    - word: "\u0433\u0434\u0435-\u0442\u043E"
+      time: 0.4
+    - word: "\u0432\u043D\u0443\u0442\u0440\u0438..."
+      time: 0.4
+    - word: "\u0418\u0438\u0441\u0443\u0441\u0435."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.060
+      text: "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043F\u0440\u043E
+        \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E\u0433\u043E"
+      nextPhraseId: p.elena.068
+      ifSelected: 1
+      requiredChoices:
+      - c.word.007
+    - choiceId: c.word.058
+      text: "\u0427\u0442\u043E \u0432\u0438\u0434\u0438\u0442?"
+      nextPhraseId: p.elena.069
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.059
+      text: "\u041F\u0443\u0441\u0442\u044C \u0433\u043E\u0432\u043E\u0440\u0438\u0442"
+      nextPhraseId: p.elena.070
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.038
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u041D\u0435 \u0437\u043D\u0430\u044E... \u0427\u0435\u043B\u043E\u0432\u0435\u043A...
+      \u0412 \u0431\u0435\u0439\u0441\u0431\u043E\u043B\u043A\u0435 \u0438 \u043E\u0447\u043A\u0430\u0445...
+      \u0425\u043E\u0434\u0438\u043B \u0442\u0443\u0434\u0430-\u0441\u044E\u0434\u0430..."
+    textAppear: 0
+    wordTime:
+    - word: "\u041D\u0435"
+      time: 0.4
+    - word: "\u0437\u043D\u0430\u044E..."
+      time: 0.4
+    - word: "\u0427\u0435\u043B\u043E\u0432\u0435\u043A..."
+      time: 0.4
+    - word: "\u0412"
+      time: 0.4
+    - word: "\u0431\u0435\u0439\u0441\u0431\u043E\u043B\u043A\u0435"
+      time: 0.4
+    - word: "\u0438"
+      time: 0.4
+    - word: "\u043E\u0447\u043A\u0430\u0445..."
+      time: 0.4
+    - word: "\u0425\u043E\u0434\u0438\u043B"
+      time: 0.4
+    - word: "\u0442\u0443\u0434\u0430-\u0441\u044E\u0434\u0430..."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.061
+      text: "\u0421\u043C\u043E\u0442\u0440\u0435\u043B \u0432 \u043E\u043A\u043D\u0430?"
+      nextPhraseId: p.elena.071
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.062
+      text: "\u0418\u0441\u043A\u0430\u043B \u0430\u0434\u0440\u0435\u0441?"
+      nextPhraseId: p.elena.072
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.068
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0412\u044B \u0443\u043F\u043E\u043C\u0438\u043D\u0430\u043B\u0438 \u043A\u043E\u0433\u043E-\u0442\u043E
+      \u043F\u043E\u0441\u0442\u043E\u0440\u043E\u043D\u043D\u0435\u0433\u043E \u0432
+      \u0440\u0430\u0439\u043E\u043D\u0435. \u041A\u0430\u043A \u043E\u043D \u0432\u044B\u0433\u043B\u044F\u0434\u0435\u043B?
+      \u0427\u0442\u043E \u0434\u0435\u043B\u0430\u043B?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0412\u044B"
+      time: 0.4
+    - word: "\u0443\u043F\u043E\u043C\u0438\u043D\u0430\u043B\u0438"
+      time: 0.4
+    - word: "\u043A\u043E\u0433\u043E-\u0442\u043E"
+      time: 0.4
+    - word: "\u043F\u043E\u0441\u0442\u043E\u0440\u043E\u043D\u043D\u0435\u0433\u043E"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u0440\u0430\u0439\u043E\u043D\u0435."
+      time: 0.4
+    - word: "\u041A\u0430\u043A"
+      time: 0.4
+    - word: "\u043E\u043D"
+      time: 0.4
+    - word: "\u0432\u044B\u0433\u043B\u044F\u0434\u0435\u043B?"
+      time: 0.4
+    - word: "\u0427\u0442\u043E"
+      time: 0.4
+    - word: "\u0434\u0435\u043B\u0430\u043B?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.038
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.069
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0427\u0442\u043E \u0432\u044B \u0432\u0438\u0434\u0438\u0442\u0435?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0427\u0442\u043E"
+      time: 0.4
+    - word: "\u0432\u044B"
+      time: 0.4
+    - word: "\u0432\u0438\u0434\u0438\u0442\u0435?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.039
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.070
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439\u0442\u0435 \u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C."
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439\u0442\u0435"
+      time: 0.4
+    - word: "\u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.039
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.039
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u041D\u0438\u0447\u0435\u0433\u043E \u043D\u0435 \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0434\u0438\u0442.
+      \u0422\u043E\u043B\u044C\u043A\u043E \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u0435
+      \u043F\u0435\u0440\u0435\u043A\u0440\u0438\u043A\u0438\u0432\u0430\u044E\u0442\u0441\u044F
+      \u043C\u0435\u0436\u0434\u0443 \u0441\u043E\u0431\u043E\u0439 \u0432\u043D\u0443\u0442\u0440\u0438."
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u0432\u044B\u043D\u043E\u0441\u044F\u0442"
+      time: 0.4
+    - word: "\u0434\u0435\u0442\u0435\u0439!"
+      time: 0.4
+    - word: "\u0417\u0434\u0430\u043D\u0438\u0435"
+      time: 0.4
+    - word: "\u0441\u043B\u043E\u0436\u0438\u043B\u043E\u0441\u044C"
+      time: 0.4
+    - word: "\u043F\u0440\u044F\u043C\u043E"
+      time: 0.4
+    - word: "\u0437\u0430"
+      time: 0.4
+    - word: "\u043D\u0438\u043C\u0438!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.040
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.040
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u0414\u043E\u043C \u043F\u0430\u0434\u0430\u0435\u0442! \u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435
+      \u0432\u044B\u0445\u043E\u0434\u044F\u0442!"
+    textAppear: 0
+    wordTime:
+    - word: "\u041D\u043E"
+      time: 0.4
+    - word: "\u0433\u0434\u0435"
+      time: 0.4
+    - word: "\u0414\u0436\u0435\u043A?.."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.041
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.071
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0421\u043C\u043E\u0442\u0440\u0435\u043B \u0432 \u043E\u043A\u043D\u0430?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0421\u043C\u043E\u0442\u0440\u0435\u043B"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u043E\u043A\u043D\u0430?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.043
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.072
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0418\u0441\u043A\u0430\u043B \u043A\u043E\u043D\u043A\u0440\u0435\u0442\u043D\u044B\u0439
+      \u0430\u0434\u0440\u0435\u0441?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0418\u0441\u043A\u0430\u043B"
+      time: 0.4
+    - word: "\u043A\u043E\u043D\u043A\u0440\u0435\u0442\u043D\u044B\u0439"
+      time: 0.4
+    - word: "\u0430\u0434\u0440\u0435\u0441?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.044
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.043
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u041C\u043E\u0436\u0435\u0442 \u0431\u044B\u0442\u044C! \u0414\u0430,
+      \u0441\u043A\u043E\u0440\u0435\u0435 \u0432\u0441\u0435\u0433\u043E! \u041E
+      \u0431\u043E\u0436\u0435!"
+    textAppear: 0
+    wordTime:
+    - word: "\u041C\u043E\u0436\u0435\u0442"
+      time: 0.4
+    - word: "\u0431\u044B\u0442\u044C!"
+      time: 0.4
+    - word: "\u0414\u0430,"
+      time: 0.4
+    - word: "\u0441\u043A\u043E\u0440\u0435\u0435"
+      time: 0.4
+    - word: "\u0432\u0441\u0435\u0433\u043E!"
+      time: 0.4
+    - word: "\u041E"
+      time: 0.4
+    - word: "\u0431\u043E\u0436\u0435!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.069
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.044
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u041D\u0435\u0442... \u041E \u0431\u043E\u0436\u0435!"
+    textAppear: 0
+    wordTime:
+    - word: "\u041D\u0435\u0442..."
+      time: 0.4
+    - word: "\u041E"
+      time: 0.4
+    - word: "\u0431\u043E\u0436\u0435!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.069
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.025
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u041F\u043E\u0447\u0435\u043C\u0443 \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u0435
+      \u043D\u0435 \u0437\u0430\u0445\u043E\u0434\u044F\u0442 \u0432 \u0434\u043E\u043C?!"
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u043E\u0447\u0435\u043C\u0443"
+      time: 0.4
+    - word: "\u043F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u043D\u0435"
+      time: 0.4
+    - word: "\u0437\u0430\u0445\u043E\u0434\u044F\u0442"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u0434\u043E\u043C?!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.042
+      text: "\u041E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C"
+      nextPhraseId: p.elena.052
+      ifSelected: 1
+      requiredChoices:
+      - c.word.001
+      - c.word.005
+      - c.word.006
+    - choiceId: c.word.043
+      text: "\u041F\u0440\u0438\u043A\u0430\u0437\u0430\u0442\u044C \u043E\u0441\u0442\u0430\u0442\u044C\u0441\u044F"
+      nextPhraseId: p.elena.053
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.061
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0412\u044B \u0443\u0432\u0435\u0440\u0435\u043D\u044B, \u0447\u0442\u043E
+      \u0434\u0435\u0442\u0438 \u0432 \u0432\u0430\u043D\u043D\u043E\u0439?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0412\u044B"
+      time: 0.4
+    - word: "\u0443\u0432\u0435\u0440\u0435\u043D\u044B,"
+      time: 0.4
+    - word: "\u0447\u0442\u043E"
+      time: 0.4
+    - word: "\u0434\u0435\u0442\u0438"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u0432\u0430\u043D\u043D\u043E\u0439?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.037
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.037
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0414\u0430... \u0412 \u043E\u0434\u043D\u043E\u0439 \u0438\u0437 \u0432\u0430\u043D\u043D."
+    textAppear: 0
+    wordTime:
+    - word: "\u0414\u0430..."
+      time: 0.4
+    - word: "\u0412"
+      time: 0.4
+    - word: "\u043E\u0434\u043D\u043E\u0439"
+      time: 0.4
+    - word: "\u0438\u0437"
+      time: 0.4
+    - word: "\u0432\u0430\u043D\u043D."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.056
+      text: "\u0427\u0442\u043E \u0432\u0438\u0434\u0438\u0442?"
+      nextPhraseId: p.elena.060
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.057
+      text: "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0432\u0430\u043D\u043D?"
+      nextPhraseId: p.elena.064
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.064
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0423 \u0432\u0430\u0441 \u0432 \u0434\u043E\u043C\u0435 \u0434\u0432\u0435
+      \u0432\u0430\u043D\u043D\u044B?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0423"
+      time: 0.4
+    - word: "\u0432\u0430\u0441"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u0434\u043E\u043C\u0435"
+      time: 0.4
+    - word: "\u0434\u0432\u0435"
+      time: 0.4
+    - word: "\u0432\u0430\u043D\u043D\u044B?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.042
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.042
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0414\u0430..."
+    textAppear: 0
+    wordTime:
+    - word: "\u0414\u0430..."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.066
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.066
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u041F\u0435\u0440\u0435\u0434\u0430\u043B\u0430 \u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E
+      \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u043C."
+    textAppear: 0
+    wordTime:
+    - word: "\u041F\u0435\u0440\u0435\u0434\u0430\u043B\u0430"
+      time: 0.4
+    - word: "\u0438\u043D\u0444\u043E\u0440\u043C\u0430\u0446\u0438\u044E"
+      time: 0.4
+    - word: "\u043F\u043E\u0436\u0430\u0440\u043D\u044B\u043C."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.043
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.043
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0410 \u044F \u043D\u0435?.. \u0412\u043E\u0442 \u0431\u043B\u044F\u0442\u044C!"
+    textAppear: 0
+    wordTime:
+    - word: "\u0410"
+      time: 0.4
+    - word: "\u044F"
+      time: 0.4
+    - word: "\u043D\u0435?.."
+      time: 0.4
+    - word: "\u0412\u043E\u0442"
+      time: 0.4
+    - word: "\u0431\u043B\u044F\u0442\u044C!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.067
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.elena.067
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0412\u0441\u0451 \u0432 \u043F\u043E\u0440\u044F\u0434\u043A\u0435.
+      \u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435 \u043F\u0440\u043E\u0438\u043D\u0444\u043E\u0440\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u044B.
+      \u0427\u0442\u043E \u0432\u044B \u0432\u0438\u0434\u0438\u0442\u0435?"
+    textAppear: 0
+    wordTime:
+    - word: "\u0412\u0441\u0451"
+      time: 0.4
+    - word: "\u0432"
+      time: 0.4
+    - word: "\u043F\u043E\u0440\u044F\u0434\u043A\u0435."
+      time: 0.4
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u043F\u0440\u043E\u0438\u043D\u0444\u043E\u0440\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u044B."
+      time: 0.4
+    - word: "\u0427\u0442\u043E"
+      time: 0.4
+    - word: "\u0432\u044B"
+      time: 0.4
+    - word: "\u0432\u0438\u0434\u0438\u0442\u0435?"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.022
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.040
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    text: "\u0414\u043E\u043C \u0440\u0443\u0448\u0438\u0442\u0441\u044F... \u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435
+      \u0432\u044B\u0445\u043E\u0434\u044F\u0442... \u0410 \u0433\u0434\u0435?.."
+    textAppear: 0
+    wordTime:
+    - word: "\u0414\u043E\u043C"
+      time: 0.4
+    - word: "\u0440\u0443\u0448\u0438\u0442\u0441\u044F..."
+      time: 0.4
+    - word: "\u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435"
+      time: 0.4
+    - word: "\u0432\u044B\u0445\u043E\u0434\u044F\u0442..."
+      time: 0.4
+    - word: "\u0410"
+      time: 0.4
+    - word: "\u0433\u0434\u0435?.."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.041
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.jack.041
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    text: "\u0413\u0434\u0435... \u0413\u0414\u0415 \u041C\u041E\u0418 \u0414\u0415\u0422\u0418?!"
+    textAppear: 0
+    wordTime:
+    - word: "\u0413\u0434\u0435..."
+      time: 0.4
+    - word: "\u0413\u0414\u0415"
+      time: 0.4
+    - word: "\u041C\u041E\u0418"
+      time: 0.4
+    - word: "\u0414\u0415\u0422\u0418?!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: 
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.041
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u0421 \u043D\u0438\u043C\u0438 \u043D\u0438 \u0414\u0436\u0435\u043A\u0430,
+      \u043D\u0438 \u0434\u0435\u0442\u0435\u0439..."
+    textAppear: 0
+    wordTime:
+    - word: "\L\u0421"
+      time: 0.4
+    - word: "\u043D\u0438\u043C\u0438"
+      time: 0.4
+    - word: "\u043D\u0438"
+      time: 0.4
+    - word: "\u0414\u0436\u0435\u043A\u0430,"
+      time: 0.4
+    - word: "\u043D\u0438"
+      time: 0.4
+    - word: "\u0434\u0435\u0442\u0435\u0439..."
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.042
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
+  - phraseId: p.lara.042
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    text: "\u0411\u043E\u0436\u0435 \u043C\u043E\u0439! \u0411\u043E\u0436\u0435!"
+    textAppear: 0
+    wordTime:
+    - word: "\u0411\u043E\u0436\u0435"
+      time: 0.4
+    - word: "\u043C\u043E\u0439!"
+      time: 0.4
+    - word: "\u0411\u043E\u0436\u0435!"
+      time: 1.6
+    duration: 2
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: 
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    dialogueEvents: []
