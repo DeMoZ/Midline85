@@ -161,8 +161,19 @@ public class LevelScenePm : IDisposable
                 yield break;
         }
         
-        Debug.LogWarning($"[{this}] choice time up!");
-        OnClickChoiceButton(Random.Range(0, _currentPhrase.choices.Count));
+        Debug.LogWarning($"[{this}] choice time up! Random choice!");
+
+        var isBlocked = true;
+        var index = 0;
+        while (isBlocked)
+        {
+            index = Random.Range(0, _currentPhrase.choices.Count);
+            isBlocked = IsBlocked(_currentPhrase.choices[index]);
+            if (isBlocked)
+                yield return null;
+        }
+        
+        OnClickChoiceButton(index);
     }
 
     private void NextPhrase()

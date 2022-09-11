@@ -112,18 +112,23 @@ namespace UI
         public void OnPointerEnter(PointerEventData eventData)
         {
             if(_isClicked) return;
+            if (_currentState == ButtonStates.Blocked) return;
             
             SwitchButtonState(ButtonStates.Hover);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            if (_isClicked) return;
+            if (_currentState == ButtonStates.Blocked) return;
+            
             SwitchButtonState(ButtonStates.Normal, true);
         }
 
         public void OnPointerDown(PointerEventData eventData)
         {
             if (_isClicked) return;
+            if (_currentState == ButtonStates.Blocked) return;
             
             _isClicked = true;
             _ctx.onClickChoiceButton.Execute(_ctx.index);
