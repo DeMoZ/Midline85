@@ -1,11 +1,14 @@
+using System;
 using System.Globalization;
+using System.Threading.Tasks;
+using UI;
 using UnityEngine;
 
 public class EntryRoot : MonoBehaviour
 {
     private static EntryRoot _instance;
 
-    private void Awake()
+    private async void Awake()
     {
         if (_instance == null)
             _instance = this;
@@ -20,15 +23,18 @@ public class EntryRoot : MonoBehaviour
         
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
         
-        CreateAppSettings();
+        await CreateAppSettings();
         CreateRootEntity();
     }
 
-    private void CreateAppSettings()
+    private async Task CreateAppSettings()
     {
         Application.targetFrameRate = 60;
         // CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
         // Screen.sleepTimeout = SleepTimeout.NeverSleep;
+
+        var cursorSettings = await ResourcesLoader.LoadAsync<CursorSet>("CursorSet");
+        cursorSettings.ApplyCursor();
     }
 
     private void CreateRootEntity()
@@ -37,5 +43,10 @@ public class EntryRoot : MonoBehaviour
         {
             
         });
+    }
+
+    private void OnDestroy()
+    {
+        ResourcesLoader.UnloadUnused();
     }
 }
