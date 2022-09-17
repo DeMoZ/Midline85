@@ -76,7 +76,7 @@ public class PlayerProfile
     {
         foreach (var required in choices)
         {
-            if (!ContainsChoice(required)) ;
+            if (!ContainsChoice(required))
                 return false;
         }
 

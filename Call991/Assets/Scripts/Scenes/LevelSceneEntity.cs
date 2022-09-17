@@ -1,5 +1,6 @@
 using System.Threading.Tasks;
 using Configs;
+using Data;
 using UI;
 using UniRx;
 using UnityEngine;
@@ -13,6 +14,7 @@ public class LevelSceneEntity : IGameScene
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
         public string sceneVideoUrl;
+        public string phraseSoundPath;
     }
 
     private Ctx _ctx;
@@ -56,13 +58,19 @@ public class LevelSceneEntity : IGameScene
         var onPhraseEvent = new ReactiveCommand<string>().AddTo(_disposables);
         var onShowPhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
         var onHidePhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
-        
+
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
         var videoPlayer = _ui.VideoPlayer;
         videoPlayer.url = _ctx.sceneVideoUrl;
 
+        var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
+        {
+            path = _ctx.phraseSoundPath,
+            audioSource = _ui.AudioSource,
+        }).AddTo(_disposables);
+        
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             profile = _ctx.profile,
@@ -76,6 +84,7 @@ public class LevelSceneEntity : IGameScene
             gameSet = gameSet,
             buttons = buttons,
             countDown = countDown,
+            phraseSoundPlayer = phraseSoundPm,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx

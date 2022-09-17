@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Configs;
 using Data;
 using UniRx;
 
@@ -94,6 +95,8 @@ public class ScenesHandler : IDisposable
         var dialogues = compositeDialogue.Load();
         var videoPathBuilder = new VideoPathBuilder();
         var sceneVideoUrl = videoPathBuilder.GetPath("VideoBack.mp4");
+
+        var phraseSoundPath = "Sounds/Ru/RU_7_P";
         
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
@@ -103,6 +106,7 @@ public class ScenesHandler : IDisposable
             dialogues = dialogues,
             onSwitchScene = _ctx.onSwitchScene,
             sceneVideoUrl = sceneVideoUrl,
+            phraseSoundPath = phraseSoundPath,
         });
 
         await constructorTask.Value;

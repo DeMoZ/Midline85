@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Configs;
+using Data;
 using UI;
 using UniRx;
 using UnityEngine;
@@ -26,6 +27,8 @@ public class LevelScenePm : IDisposable
 
         public ReactiveCommand onAfterEnter;
         public GameSet gameSet;
+        
+        public PhraseSoundPlayer phraseSoundPlayer;
     }
 
     private Ctx _ctx;
@@ -176,7 +179,7 @@ public class LevelScenePm : IDisposable
         OnClickChoiceButton(index);
     }
 
-    private void NextPhrase()
+    private async Task NextPhrase()
     {
         if (string.IsNullOrWhiteSpace(_currentPhrase.nextId))
         {
@@ -185,6 +188,7 @@ public class LevelScenePm : IDisposable
         }
         
         _ctx.profile.LastPhrase = _currentPhrase.nextId;
+        await _ctx.phraseSoundPlayer.TryLoadDialogue(_ctx.profile.LastPhrase);
         RunDialogue();
     }
 
@@ -204,6 +208,7 @@ public class LevelScenePm : IDisposable
 
         Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}");
         _ctx.onShowPhrase.Execute(_currentPhrase);
+        _ctx.phraseSoundPlayer.TryPlayAudioFile();
 
         while (timer <= _currentPhrase.Duration)
         {
