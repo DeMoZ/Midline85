@@ -11,3 +11,9 @@ public enum DialogAppearType
     Word,
     Fade,
 }
+
+public enum Language
+{
+    EN,
+    RU,
+}
