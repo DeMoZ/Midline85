@@ -56,8 +56,8 @@ public class LevelSceneEntity : IGameScene
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
         var onPhraseEvent = new ReactiveCommand<string>().AddTo(_disposables);
-        var onShowPhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
-        var onHidePhrase = new ReactiveCommand<Phrase>().AddTo(_disposables);
+        var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
+        var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
 
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
         var buttons = _ui.Buttons;

@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using Sirenix.OdinInspector;
 using Sirenix.Serialization;
 using UnityEngine;
@@ -9,7 +8,7 @@ using UnityEngine;
 public class Dialogues : ScriptableObject
 {
     [TableList(NumberOfItemsPerPage = 10,ShowIndexLabels = true)]
-    public List<Phrase> phrases;
+    public List<PhraseSet> phrases;
 
     private void OnValidate()
     {
@@ -27,13 +26,12 @@ public class Dialogues : ScriptableObject
                 phrase.nextId = null;
             }
 
-            if (phrase.textAppear is TextAppear.Pop or TextAppear.Fade)
+            /*if (phrase.textAppear is TextAppear.Pop or TextAppear.Fade)
             {
                 phrase.wordTime = null;
             }
             else
             {
-                // phrase.wordTime.Clear();
                 if (phrase.wordTime == null || phrase.wordTime.Count == 0)
                 {
                     var words = phrase.text.Split(" ");
@@ -48,13 +46,13 @@ public class Dialogues : ScriptableObject
                             phrase.wordTime[^1].time *= 4;
                     }
                 }
-            }
+            }*/
         }
     }
 }
 
 [Serializable]
-public class Phrase
+public class PhraseSet
 {
     [VerticalGroup("phraseId")][TableColumnWidth(90, false)][HideLabel]
     public string phraseId;
@@ -67,16 +65,23 @@ public class Phrase
     [VerticalGroup("Person")]
     public bool hidePersonOnEnd = false;
     
+    //[VerticalGroup("Dialog")][TableColumnWidth(220, false)]
+    //public TextAppear textAppear;
+    //----------------
     [VerticalGroup("Dialog")][TableColumnWidth(220, false)]
     public string text;
     [VerticalGroup("Dialog")]
     public TextAppear textAppear;
-
+    
     [Tooltip("Dialog will appear during that time (slow or fast)")]
     [VerticalGroup("Dialog")][TableList(ShowIndexLabels = true)][OdinSerialize]
     [ShowIf("ShowIfNotPop")] public List<WordTime> wordTime;
+    
+    
     [VerticalGroup("Dialog")]
     [ShowIf("ShowIfPopOrFade")][SerializeField] private float duration = 2;
+    
+    //----------------
     [Tooltip("Dialog will hide on end phrase")]
     [VerticalGroup("Dialog")]
     public bool hidePhraseOnEnd= true; // next is choices of phrase
@@ -100,22 +105,23 @@ public class Phrase
     public bool addEvent;
     [VerticalGroup("Event")] [ShowIf("addEvent")] public List<DialogueEvent> dialogueEvents;
 
-    public float Duration
-    {
-        get
-        {
-            if (textAppear is TextAppear.Pop or TextAppear.Fade)
-                return duration;
-            
-            return wordTime.Sum(wt => wt.time);
-        }
-    }
+    // public float Duration
+    // {
+    //     get
+    //     {
+    //         if (textAppear is TextAppear.Pop or TextAppear.Fade)
+    //             return duration;
+    //         
+    //         return wordTime.Sum(wt => wt.time);
+    //     }
+    // }
 
-    private bool ShowIfNotPop() =>
-        textAppear != TextAppear.Pop;
+     private bool ShowIfNotPop() =>
+         textAppear != TextAppear.Pop;
     
-    private bool ShowIfPopOrFade() =>
-        textAppear is TextAppear.Pop or TextAppear.Fade ;
+     private bool ShowIfPopOrFade() =>
+         textAppear is TextAppear.Pop or TextAppear.Fade ;
+    public Phrase Phrase { get; set; }
 
     public string GetPersonName() => 
         person.ToString();

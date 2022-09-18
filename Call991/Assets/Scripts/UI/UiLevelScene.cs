@@ -13,8 +13,8 @@ namespace UI
         {
             public ReactiveCommand onClickMenuButton;
             public ReactiveCommand<string> onPhraseEvent;
-            public ReactiveCommand<Phrase> onShowPhrase;
-            public ReactiveCommand<Phrase> onHidePhrase;
+            public ReactiveCommand<PhraseSet> onShowPhrase;
+            public ReactiveCommand<PhraseSet> onHidePhrase;
 
             public Pool pool;
         }
@@ -62,7 +62,7 @@ namespace UI
             // todo for extra events on phrase time points 
         }
 
-        private void OnShowPhrase(Phrase phrase)
+        private void OnShowPhrase(PhraseSet phrase)
         {
             var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
             if (personView == null)
@@ -74,7 +74,7 @@ namespace UI
             personView.ShowPhrase(phrase);
         }
 
-        private void OnHidePhrase(Phrase phrase)
+        private void OnHidePhrase(PhraseSet phrase)
         {
             var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
             if (personView == null)

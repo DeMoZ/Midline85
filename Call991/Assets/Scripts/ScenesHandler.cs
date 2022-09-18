@@ -92,7 +92,8 @@ public class ScenesHandler : IDisposable
     private async Task<IGameScene> LoadLevel7()
     {
         var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>("7_lvl_Total");
-        var dialogues = compositeDialogue.Load();
+        var dialogues = await compositeDialogue.LoadDialogues(Language.RU, "7_lvl");
+
         var videoPathBuilder = new VideoPathBuilder();
         var sceneVideoUrl = videoPathBuilder.GetPath("VideoBack.mp4");
 
