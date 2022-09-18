@@ -11,7 +11,7 @@ public enum ScreenPlace
 
 public enum Person
 {
-    None,
+    Unknown,
     Elena,
     Lara,
     Jack,

@@ -80,7 +80,7 @@ public class LevelScenePm : IDisposable
         //  Task.Delay(introDelay);await
     }
 
-    private void RunDialogue()
+    private async Task RunDialogue()
     {
         _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.LastPhrase);
         if (_currentPhrase == null)
@@ -89,6 +89,8 @@ public class LevelScenePm : IDisposable
             return;
         }
         
+        await _ctx.phraseSoundPlayer.TryLoadDialogue(_ctx.profile.LastPhrase);
+
         Observable.FromCoroutine(PhraseRoutine).Subscribe( _ =>
         {
             Debug.Log($"[{this}] Coroutine end");
@@ -188,7 +190,6 @@ public class LevelScenePm : IDisposable
         }
         
         _ctx.profile.LastPhrase = _currentPhrase.nextId;
-        await _ctx.phraseSoundPlayer.TryLoadDialogue(_ctx.profile.LastPhrase);
         RunDialogue();
     }
 
@@ -206,7 +207,7 @@ public class LevelScenePm : IDisposable
         if (_currentPhrase.addEvent)
             pEvents.AddRange(_currentPhrase.dialogueEvents);
 
-        Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}");
+        Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}: {_currentPhrase.text}");
         _ctx.onShowPhrase.Execute(_currentPhrase);
         _ctx.phraseSoundPlayer.TryPlayAudioFile();
 
