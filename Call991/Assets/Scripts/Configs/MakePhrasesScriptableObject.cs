@@ -18,7 +18,7 @@ public class MakePhrasesScriptableObject : ScriptableObject
             {
                 var asset = ScriptableObject.CreateInstance<Phrase>();
                 asset.phraseId = phrase.phraseId;
-                asset.text = phrase.text;
+                //asset.text = phrase.text;
                 asset.SeparatePhrase();
                 //asset.wordTimes = phrase.wordTime;
 

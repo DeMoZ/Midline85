@@ -7,6 +7,7 @@ using UnityEngine;
 public class Phrase : ScriptableObject
 {
     public string phraseId = default;
+    [TextArea]
     public string text = default;
 
     public float popTime = 1.6f;

@@ -27,8 +27,8 @@ public class CompositeDialogue : ScriptableObject
 
     private async Task<Phrase> LoadTextPhrase(string path, string phraseId)
     {
-        
-        var phrase = await ResourcesLoader.LoadAsync<Phrase>(Path.Combine(path, phraseId+".asset"));
+        var file = Path.Combine(path, phraseId);
+        var phrase = await ResourcesLoader.LoadAsync<Phrase>(file);
 
         if (phrase == null)
         {
