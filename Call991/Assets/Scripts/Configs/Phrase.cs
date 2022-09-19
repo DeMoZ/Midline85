@@ -10,7 +10,11 @@ public class Phrase : ScriptableObject
     [TextArea]
     public string text = default;
 
+    [Tooltip("Time await before first work appear")]
+    public float firstWordOffset = 0.01f;
+    [Tooltip("Time for instant text appear")]
     public float popTime = 1.6f;
+
     [TableList] public List<WordTime> wordTimes = default;
 
     private void OnValidate() => 
@@ -37,8 +41,8 @@ public class Phrase : ScriptableObject
     public float Duration(TextAppear textAppear)
     {
         if (textAppear is TextAppear.Pop or TextAppear.Fade)
-            return popTime;
+            return popTime + firstWordOffset;
 
-        return wordTimes.Sum(wt => wt.time);
+        return wordTimes.Sum(wt => wt.time) + firstWordOffset;
     }
 }
