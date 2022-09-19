@@ -12,6 +12,7 @@ public class MakePhrasesScriptableObject : ScriptableObject
     [Button("Make Assets/Resources/[Language]/[Lvl]/")]
     public void CreateMyAsset()
     {
+#if UNITY_EDITOR
         foreach (var dialogue in copyFromDialogues.dialogues)
         {
             foreach (var phrase in dialogue.phrases)
@@ -29,6 +30,8 @@ public class MakePhrasesScriptableObject : ScriptableObject
 
         EditorUtility.FocusProjectWindow();
         //Selection.activeObject = asset;
+        
+#endif
     }
 }
 
