@@ -17,8 +17,8 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<string> onPhraseEvent;
-        public ReactiveCommand<Phrase> onShowPhrase;
-        public ReactiveCommand<Phrase> onHidePhrase;
+        public ReactiveCommand<PhraseSet> onShowPhrase;
+        public ReactiveCommand<PhraseSet> onHidePhrase;
 
         public Dialogues dialogues;
         public PlayerProfile profile;
@@ -33,7 +33,7 @@ public class LevelScenePm : IDisposable
 
     private Ctx _ctx;
     private CompositeDisposable _disposables;
-    private Phrase _currentPhrase;
+    private PhraseSet _currentPhrase;
     private ReactiveCommand<int> _onClickChoiceButton;
 
     private bool _choiceDone;
@@ -80,7 +80,7 @@ public class LevelScenePm : IDisposable
         //  Task.Delay(introDelay);await
     }
 
-    private void RunDialogue()
+    private async Task RunDialogue()
     {
         _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.LastPhrase);
         if (_currentPhrase == null)
@@ -89,6 +89,8 @@ public class LevelScenePm : IDisposable
             return;
         }
         
+        await _ctx.phraseSoundPlayer.TryLoadDialogue(_ctx.profile.LastPhrase);
+
         Observable.FromCoroutine(PhraseRoutine).Subscribe( _ =>
         {
             Debug.Log($"[{this}] Coroutine end");
@@ -188,7 +190,6 @@ public class LevelScenePm : IDisposable
         }
         
         _ctx.profile.LastPhrase = _currentPhrase.nextId;
-        await _ctx.phraseSoundPlayer.TryLoadDialogue(_ctx.profile.LastPhrase);
         RunDialogue();
     }
 
@@ -206,11 +207,11 @@ public class LevelScenePm : IDisposable
         if (_currentPhrase.addEvent)
             pEvents.AddRange(_currentPhrase.dialogueEvents);
 
-        Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}");
+        Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}: {_currentPhrase.Phrase.text}");
         _ctx.onShowPhrase.Execute(_currentPhrase);
         _ctx.phraseSoundPlayer.TryPlayAudioFile();
 
-        while (timer <= _currentPhrase.Duration)
+        while (timer <= _currentPhrase.Phrase.Duration(_currentPhrase.textAppear))
         {
             yield return null;
 

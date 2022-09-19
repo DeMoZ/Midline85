@@ -12,7 +12,7 @@ public class PersonView : MonoBehaviour
 
     public ScreenPlace ScreenPlace => screenPlace;
 
-    public void ShowPhrase(Phrase phrase)
+    public void ShowPhrase(PhraseSet phrase)
     {
         description.text = string.Empty;
 
@@ -24,15 +24,15 @@ public class PersonView : MonoBehaviour
         ShowPhraseText(phrase);
     }
 
-    private void ShowPhraseText(Phrase phrase)
+    private void ShowPhraseText(PhraseSet phraseSet)
     {
-        switch (phrase.textAppear)
+        switch (phraseSet.textAppear)
         {
             case TextAppear.Pop:
-                description.text = phrase.text;
+                description.text = phraseSet.Phrase.text;
                 break;
             case TextAppear.Word:
-                StartCoroutine(ShowWords(phrase));
+                StartCoroutine(ShowWords(phraseSet.Phrase));
                 break;
             case TextAppear.Letters:
                 break;
@@ -47,11 +47,11 @@ public class PersonView : MonoBehaviour
     {
         var text = new StringBuilder();
 
-        for (var i = 0; i < phrase.wordTime.Count; i++)
+        for (var i = 0; i < phrase.wordTimes.Count; i++)
         {
-            var wordTime = phrase.wordTime[i];
+            var wordTime = phrase.wordTimes[i];
             text.Append(wordTime.word);
-            if (i < phrase.wordTime.Count - 1)
+            if (i < phrase.wordTimes.Count - 1)
                 text.Append(" ");
             description.text = text.ToString();
 
