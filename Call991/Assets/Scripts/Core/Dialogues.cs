@@ -104,6 +104,13 @@ public class WordTime
 {
     [TableColumnWidth(100)]
     public string word;
+    //[ShowIf("showTime")]
     [TableColumnWidth(50)]
     public float time = 0.4f;
+    //[ShowIf("showTimeLine")]
+    [TableColumnWidth(50)][ReadOnly]
+    public float timeLine = 0.4f;
+
+    public bool showTime { get; set; } = true;
+    public bool showTimeLine { get; set; } = false;
 }

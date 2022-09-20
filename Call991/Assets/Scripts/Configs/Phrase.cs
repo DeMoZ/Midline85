@@ -7,18 +7,33 @@ using UnityEngine;
 public class Phrase : ScriptableObject
 {
     public string phraseId = default;
-    [TextArea]
-    public string text = default;
+    [TextArea] public string text = default;
 
-    [Tooltip("Time await before first work appear")]
-    public float firstWordOffset = 0.01f;
     [Tooltip("Time for instant text appear")]
     public float popTime = 1.6f;
 
+    //public bool setTimeLine = false;
+
+    //[ShowIf("setTime")] 
+    [Tooltip("Time await before FIRST word appear")]
+    public float firstWordOffset = 0.01f;
+
     [TableList] public List<WordTime> wordTimes = default;
 
-    private void OnValidate() => 
+    //[ShowIf("setTimeLine")][Tooltip("Time await after LAST word appear")] [TableList]
+    //public float lastWordOffset = 1.6f;
+
+    //private bool setTime => !setTimeLine;
+
+    private void OnValidate()
+    {
         SeparatePhrase();
+
+        //if (setTimeLine)
+            SetTimeLine();
+        //else
+        //    SetTime();
+    }
 
     public void SeparatePhrase()
     {
@@ -37,6 +52,20 @@ public class Phrase : ScriptableObject
             }
         }
     }
+
+    private void SetTimeLine()
+    {
+        var prevTime = firstWordOffset;
+        foreach (var word in wordTimes)
+        {
+            word.timeLine = prevTime;
+            prevTime += word.time;
+        }
+    }
+
+    // private void SetTime()
+    // {
+    // }
 
     public float Duration(TextAppear textAppear)
     {
