@@ -47,7 +47,7 @@ public class PersonView : MonoBehaviour
     {
         var text = new StringBuilder();
 
-        yield return new WaitForSeconds(phrase.firstWordOffset);
+        yield return new WaitForSeconds(phrase.beforeFirstWord);
         
         for (var i = 0; i < phrase.wordTimes.Count; i++)
         {

@@ -103,22 +103,3 @@ public class Choice
     [ShowIf("ifSelected")]
     public List<string> requiredChoices;
 }
-
-[Serializable]
-public class WordTime
-{
-    [TableColumnWidth(40, false)] [Tooltip("wipe previous text and place this word")]
-    public bool wipe;
-
-    [TableColumnWidth(100)] public string word;
-
-    //[ShowIf("showTime")]
-    [TableColumnWidth(60, false)] public float time = 0.4f;
-
-    //[ShowIf("showTimeLine")]
-    [TableColumnWidth(60, false)] [ReadOnly]
-    public float timeLine = 0.4f;
-
-    public bool showTime { get; set; } = true;
-    public bool showTimeLine { get; set; } = false;
-}

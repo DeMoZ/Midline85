@@ -36,7 +36,7 @@ public class CompositeDialogue : ScriptableObject
             phrase = ScriptableObject.CreateInstance<Phrase>();
             phrase.phraseId = phraseId;
             phrase.text = $"{phraseId}: No Text found for phrase.";
-            phrase.popTime = 3f;
+            phrase.totalTime = 3f;
             phrase.SeparatePhrase();
         }
         
