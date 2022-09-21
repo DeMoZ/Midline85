@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   phraseId: p.elena.002
   text: "\u041F\u043E\u0436\u0430\u0440?"
-  popTime: 1.6
   wordTimes:
-  - word: "\u041F\u043E\u0436\u0430\u0440?"
+  - wipe: 0
+    word: "\u041F\u043E\u0436\u0430\u0440?"
+    timeLine: 0.1
     time: 1.6
+  beforeFirstWord: 0.1
+  afterLastWord: 1.6
+  totalTime: 1.7
