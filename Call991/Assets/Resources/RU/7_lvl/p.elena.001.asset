@@ -16,22 +16,30 @@ MonoBehaviour:
   text: "911. \u041E\u043F\u0435\u0440\u0430\u0442\u043E\u0440 \u0441\u043B\u0443\u0436\u0431\u044B
     \u0441\u043F\u0430\u0441\u0435\u043D\u0438\u044F, \u0415\u043B\u0435\u043D\u0430.
     \u0427\u0435\u043C \u043C\u043E\u0433\u0443 \u043F\u043E\u043C\u043E\u0447\u044C?"
-  firstWordOffset: 0.01
   popTime: 1.6
+  firstWordOffset: 0.5
   wordTimes:
   - word: 911.
-    time: 0.4
+    time: 0.9
+    timeLine: 0.5
   - word: "\u041E\u043F\u0435\u0440\u0430\u0442\u043E\u0440"
-    time: 0.4
+    time: 0.7
+    timeLine: 1.4
   - word: "\u0441\u043B\u0443\u0436\u0431\u044B"
-    time: 0.4
+    time: 0.2
+    timeLine: 2.1
   - word: "\u0441\u043F\u0430\u0441\u0435\u043D\u0438\u044F,"
-    time: 0.4
+    time: 1.5
+    timeLine: 2.3
   - word: "\u0415\u043B\u0435\u043D\u0430."
     time: 0.4
+    timeLine: 3.8
   - word: "\u0427\u0435\u043C"
     time: 0.4
+    timeLine: 4.2
   - word: "\u043C\u043E\u0433\u0443"
     time: 0.4
+    timeLine: 4.6
   - word: "\u043F\u043E\u043C\u043E\u0447\u044C?"
     time: 1.6
+    timeLine: 5
