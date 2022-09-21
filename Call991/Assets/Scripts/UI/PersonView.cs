@@ -52,9 +52,14 @@ public class PersonView : MonoBehaviour
         for (var i = 0; i < phrase.wordTimes.Count; i++)
         {
             var wordTime = phrase.wordTimes[i];
+            if (phrase.wordTimes[i].wipe)
+                text.Clear();
+            
             text.Append(wordTime.word);
+            
             if (i < phrase.wordTimes.Count - 1)
                 text.Append(" ");
+            
             description.text = text.ToString();
 
             yield return new WaitForSeconds(wordTime.time);

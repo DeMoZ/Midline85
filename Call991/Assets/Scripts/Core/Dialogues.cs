@@ -6,7 +6,7 @@ using UnityEngine;
 [CreateAssetMenu]
 public class Dialogues : ScriptableObject
 {
-    [TableList(NumberOfItemsPerPage = 10,ShowIndexLabels = true)]
+    [TableList(NumberOfItemsPerPage = 10, ShowIndexLabels = true)]
     public List<PhraseSet> phrases;
 
     private void OnValidate()
@@ -14,7 +14,7 @@ public class Dialogues : ScriptableObject
         for (var i = 0; i < phrases.Count; i++)
         {
             var phrase = phrases[i];
-            
+
             if (phrase.nextIs == NextIs.Phrase)
             {
                 phrase.choices = new List<Choice>();
@@ -31,51 +31,56 @@ public class Dialogues : ScriptableObject
 [Serializable]
 public class PhraseSet
 {
-    [VerticalGroup("phraseId")][TableColumnWidth(90, false)][HideLabel]
+    [VerticalGroup("phraseId")] [TableColumnWidth(90, false)] [HideLabel]
     public string phraseId;
-    
-    [VerticalGroup("Person")][TableColumnWidth(150, false)]
+
+    [VerticalGroup("Person")] [TableColumnWidth(150, false)]
     public Person person;
-    [VerticalGroup("Person")][Tooltip("Place on screen")]
+
+    [VerticalGroup("Person")] [Tooltip("Place on screen")]
     public ScreenPlace screenPlace = ScreenPlace.MiddleLeft;
-    [Tooltip("Person will hide on end phrase")]
-    [VerticalGroup("Person")]
+
+    [Tooltip("Person will hide on end phrase")] [VerticalGroup("Person")]
     public bool hidePersonOnEnd = false;
-    
-    [VerticalGroup("Dialog")][TableColumnWidth(220, false)]
+
+    [VerticalGroup("Dialog")] [TableColumnWidth(220, false)]
     public TextAppear textAppear;
-   
-    [Tooltip("Dialog will hide on end phrase")]
-    [VerticalGroup("Dialog")]
-    public bool hidePhraseOnEnd= true; // next is choices of phrase
-    
+
+    [Tooltip("Dialog will hide on end phrase")] [VerticalGroup("Dialog")]
+    public bool hidePhraseOnEnd = true; // next is choices of phrase
+
     [VerticalGroup("Next")] [TableColumnWidth(260, false)]
     public NextIs nextIs;
 
-    [VerticalGroup("Next")]
-    [ShowIf("nextIs", NextIs.Phrase)] public string nextId;
-    // or
-    [VerticalGroup("Next")]
-    [ShowIf("nextIs", NextIs.Choices)] public List<Choice> choices;
+    [VerticalGroup("Next")] [ShowIf("nextIs", NextIs.Phrase)]
+    public string nextId;
 
-    [VerticalGroup("Next")]
-    [ShowIf("nextIs", NextIs.Choices)] public bool overrideChoicesDuration;
-    [VerticalGroup("Next")]
-    [ShowIf("overrideChoicesDuration", true)] public float choicesDuration;
-    
-    
+    // or
+    [VerticalGroup("Next")] [ShowIf("nextIs", NextIs.Choices)]
+    public List<Choice> choices;
+
+    [VerticalGroup("Next")] [ShowIf("nextIs", NextIs.Choices)]
+    public bool overrideChoicesDuration;
+
+    [VerticalGroup("Next")] [ShowIf("overrideChoicesDuration", true)]
+    public float choicesDuration;
+
+
     [VerticalGroup("Event")] [TableColumnWidth(200, false)]
     public bool addEvent;
-    [VerticalGroup("Event")] [ShowIf("addEvent")] public List<DialogueEvent> dialogueEvents;
-    
-     private bool ShowIfNotPop() =>
-         textAppear != TextAppear.Pop;
-    
-     private bool ShowIfPopOrFade() =>
-         textAppear is TextAppear.Pop or TextAppear.Fade ;
+
+    [VerticalGroup("Event")] [ShowIf("addEvent")]
+    public List<DialogueEvent> dialogueEvents;
+
+    private bool ShowIfNotPop() =>
+        textAppear != TextAppear.Pop;
+
+    private bool ShowIfPopOrFade() =>
+        textAppear is TextAppear.Pop or TextAppear.Fade;
+
     public Phrase Phrase { get; set; }
 
-    public string GetPersonName() => 
+    public string GetPersonName() =>
         person.ToString();
 }
 
@@ -102,13 +107,16 @@ public class Choice
 [Serializable]
 public class WordTime
 {
-    [TableColumnWidth(100)]
-    public string word;
+    [TableColumnWidth(40, false)] [Tooltip("wipe previous text and place this word")]
+    public bool wipe;
+
+    [TableColumnWidth(100)] public string word;
+
     //[ShowIf("showTime")]
-    [TableColumnWidth(50)]
-    public float time = 0.4f;
+    [TableColumnWidth(60, false)] public float time = 0.4f;
+
     //[ShowIf("showTimeLine")]
-    [TableColumnWidth(50)][ReadOnly]
+    [TableColumnWidth(60, false)] [ReadOnly]
     public float timeLine = 0.4f;
 
     public bool showTime { get; set; } = true;
