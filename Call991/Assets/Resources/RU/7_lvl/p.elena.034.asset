@@ -13,17 +13,31 @@ MonoBehaviour:
   m_Name: p.elena.034
   m_EditorClassIdentifier: 
   phraseId: p.elena.034
+  overrideSoundName: 0
+  soundFileName: 
   text: "\u0421\u044D\u0440, \u0432\u044B \u043C\u043E\u0436\u0435\u0442\u0435 \u043F\u043E\u043C\u0435\u0448\u0430\u0442\u044C
     \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u043C."
-  popTime: 1.6
   wordTimes:
-  - word: "\u0421\u044D\u0440,"
+  - wipe: 0
+    word: "\u0421\u044D\u0440,"
+    timeLine: 0.1
     time: 0.4
-  - word: "\u0432\u044B"
+  - wipe: 0
+    word: "\u0432\u044B"
+    timeLine: 0.5
     time: 0.4
-  - word: "\u043C\u043E\u0436\u0435\u0442\u0435"
+  - wipe: 0
+    word: "\u043C\u043E\u0436\u0435\u0442\u0435"
+    timeLine: 0.9
     time: 0.4
-  - word: "\u043F\u043E\u043C\u0435\u0448\u0430\u0442\u044C"
+  - wipe: 0
+    word: "\u043F\u043E\u043C\u0435\u0448\u0430\u0442\u044C"
+    timeLine: 1.3
     time: 0.4
-  - word: "\u043F\u043E\u0436\u0430\u0440\u043D\u044B\u043C."
+  - wipe: 0
+    word: "\u043F\u043E\u0436\u0430\u0440\u043D\u044B\u043C."
+    timeLine: 1.6999999
     time: 1.6
+  beforeFirstWord: 0.1
+  afterLastWord: 1.6
+  totalTime: 2

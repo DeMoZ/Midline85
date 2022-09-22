@@ -13,10 +13,18 @@ MonoBehaviour:
   m_Name: p.lara.034
   m_EditorClassIdentifier: 
   phraseId: p.lara.034
+  overrideSoundName: 0
+  soundFileName: 
   text: "\u041F\u043E\u0441\u0442\u043E\u0439, \u0414\u0436\u0435\u043A!"
-  popTime: 1.6
   wordTimes:
-  - word: "\u041F\u043E\u0441\u0442\u043E\u0439,"
+  - wipe: 0
+    word: "\u041F\u043E\u0441\u0442\u043E\u0439,"
+    timeLine: 0.1
     time: 0.4
-  - word: "\u0414\u0436\u0435\u043A!"
+  - wipe: 0
+    word: "\u0414\u0436\u0435\u043A!"
+    timeLine: 0.5
     time: 1.6
+  beforeFirstWord: 0.1
+  afterLastWord: 1.6
+  totalTime: 2

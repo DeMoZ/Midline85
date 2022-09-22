@@ -13,12 +13,22 @@ MonoBehaviour:
   m_Name: p.elena.069
   m_EditorClassIdentifier: 
   phraseId: p.elena.069
+  overrideSoundName: 0
+  soundFileName: 
   text: "\u0427\u0442\u043E \u0432\u044B \u0432\u0438\u0434\u0438\u0442\u0435?"
-  popTime: 1.6
   wordTimes:
-  - word: "\u0427\u0442\u043E"
+  - wipe: 0
+    word: "\u0427\u0442\u043E"
+    timeLine: 0.1
     time: 0.4
-  - word: "\u0432\u044B"
+  - wipe: 0
+    word: "\u0432\u044B"
+    timeLine: 0.5
     time: 0.4
-  - word: "\u0432\u0438\u0434\u0438\u0442\u0435?"
+  - wipe: 0
+    word: "\u0432\u0438\u0434\u0438\u0442\u0435?"
+    timeLine: 0.9
     time: 1.6
+  beforeFirstWord: 0.1
+  afterLastWord: 1.6
+  totalTime: 2

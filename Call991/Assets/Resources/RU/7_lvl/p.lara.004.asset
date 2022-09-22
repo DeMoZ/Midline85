@@ -13,12 +13,18 @@ MonoBehaviour:
   m_Name: p.lara.004
   m_EditorClassIdentifier: 
   phraseId: p.lara.004
-  text: "\u0425\u0430\u043A\u0441\u043B\u0438-\u0441\u0442\u0440\u0438\u0442,  26."
-  popTime: 1.6
+  overrideSoundName: 0
+  soundFileName: 
+  text: "\u0425\u0430\u043A\u0441\u043B\u0438-\u0441\u0442\u0440\u0438\u0442, 26."
   wordTimes:
-  - word: "\u0425\u0430\u043A\u0441\u043B\u0438-\u0441\u0442\u0440\u0438\u0442,"
+  - wipe: 0
+    word: "\u0425\u0430\u043A\u0441\u043B\u0438-\u0441\u0442\u0440\u0438\u0442,"
+    timeLine: 0.1
     time: 0.4
-  - word: 
-    time: 0.4
-  - word: 26.
+  - wipe: 0
+    word: 26.
+    timeLine: 0.5
     time: 1.6
+  beforeFirstWord: 0.1
+  afterLastWord: 1.6
+  totalTime: 2.5

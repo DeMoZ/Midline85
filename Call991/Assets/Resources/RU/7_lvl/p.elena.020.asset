@@ -13,10 +13,18 @@ MonoBehaviour:
   m_Name: p.elena.020
   m_EditorClassIdentifier: 
   phraseId: p.elena.020
+  overrideSoundName: 0
+  soundFileName: 
   text: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435, \u0441\u044D\u0440."
-  popTime: 1.6
   wordTimes:
-  - word: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435,"
+  - wipe: 0
+    word: "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u0435,"
+    timeLine: 0.1
     time: 0.4
-  - word: "\u0441\u044D\u0440."
+  - wipe: 0
+    word: "\u0441\u044D\u0440."
+    timeLine: 0.5
     time: 1.6
+  beforeFirstWord: 0.1
+  afterLastWord: 1.6
+  totalTime: 2

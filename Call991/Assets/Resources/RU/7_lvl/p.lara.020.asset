@@ -13,12 +13,22 @@ MonoBehaviour:
   m_Name: p.lara.020
   m_EditorClassIdentifier: 
   phraseId: p.lara.020
+  overrideSoundName: 0
+  soundFileName: 
   text: "\u041E\u043D \u0438\u0434\u0451\u0442 \u0441\u044E\u0434\u0430!"
-  popTime: 1.6
   wordTimes:
-  - word: "\u041E\u043D"
+  - wipe: 0
+    word: "\u041E\u043D"
+    timeLine: 0.1
     time: 0.4
-  - word: "\u0438\u0434\u0451\u0442"
+  - wipe: 0
+    word: "\u0438\u0434\u0451\u0442"
+    timeLine: 0.5
     time: 0.4
-  - word: "\u0441\u044E\u0434\u0430!"
+  - wipe: 0
+    word: "\u0441\u044E\u0434\u0430!"
+    timeLine: 0.9
     time: 1.6
+  beforeFirstWord: 0.1
+  afterLastWord: 1.6
+  totalTime: 2
