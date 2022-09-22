@@ -127,7 +127,7 @@ public class LevelScenePm : IDisposable
         for (int i = 0; i < _currentPhrase.choices.Count; i++)
         {
             var isBlocked = IsBlocked(_currentPhrase.choices[i]);
-            _ctx.buttons[i].Show(_currentPhrase.choices[i].text, isBlocked);
+            _ctx.buttons[i].Show(_currentPhrase.choices[i].choiceId, isBlocked);
         }
         
         Observable.FromCoroutine(ChoiceRoutine).Subscribe( _ =>

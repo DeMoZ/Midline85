@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using DG.Tweening;
+using I2.Loc;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -36,6 +37,7 @@ namespace UI
         private ButtonStates _currentState;
 
         private static bool _isClicked;
+        private LocalizedString _localize;
 
         public void SetCtx(Ctx ctx)
         {
@@ -80,10 +82,11 @@ namespace UI
             SwitchButtonState(ButtonStates.Clicked);
         }
 
-        public async void Show(string description, bool isBlocked = false)
+        public async void Show(string choiceKey, bool isBlocked = false)
         {
             _isClicked = false;
-            buttonText.text = description;
+            _localize = choiceKey;
+            buttonText.text = _localize;
             SwitchButtonState(ButtonStates.Normal);
 
             if (isBlocked)
