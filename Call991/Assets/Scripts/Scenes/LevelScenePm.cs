@@ -89,7 +89,7 @@ public class LevelScenePm : IDisposable
             return;
         }
         
-        await _ctx.phraseSoundPlayer.TryLoadDialogue(_ctx.profile.LastPhrase);
+        await _ctx.phraseSoundPlayer.TryLoadDialogue(_currentPhrase.Phrase.GetOverridenPhraseId());
 
         Observable.FromCoroutine(PhraseRoutine).Subscribe( _ =>
         {

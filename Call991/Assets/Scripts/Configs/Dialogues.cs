@@ -33,7 +33,7 @@ public class PhraseSet
 {
     [VerticalGroup("phraseId")] [TableColumnWidth(90, false)] [HideLabel]
     public string phraseId;
-
+    
     [VerticalGroup("Person")] [TableColumnWidth(150, false)]
     public Person person;
 
@@ -77,7 +77,7 @@ public class PhraseSet
 
     private bool ShowIfPopOrFade() =>
         textAppear is TextAppear.Pop or TextAppear.Fade;
-
+    
     public Phrase Phrase { get; set; }
 
     public string GetPersonName() =>

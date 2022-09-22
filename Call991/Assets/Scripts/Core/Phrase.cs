@@ -7,18 +7,27 @@ using UnityEngine;
 public class Phrase : ScriptableObject
 {
     public string phraseId = default;
+
+    [HorizontalGroup("SoundName")] public bool overrideSoundName;
+
+    [ShowIf("overrideSoundName")] [HorizontalGroup("SoundName")] [HideLabel]
+    public string soundFileName;
+
     [TextArea] public string text = default;
 
     [TableList] public List<WordTime> wordTimes = default;
 
     [Tooltip("Time await BEFORE FIRST word appear")] [ReadOnly]
     public float beforeFirstWord = 0.01f;
-    
+
     [Tooltip("Time await AFTER LAST word appear")]
     public float afterLastWord = 1.6f;
 
     [Tooltip("Full time text appear")] [ReadOnly]
     public float totalTime = 1.6f;
+
+    public string GetOverridenPhraseId() =>
+        overrideSoundName ? soundFileName : phraseId;
 
     private void OnValidate()
     {
