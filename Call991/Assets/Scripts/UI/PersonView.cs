@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Text;
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 
@@ -12,6 +13,8 @@ public class PersonView : MonoBehaviour
 
     public ScreenPlace ScreenPlace => screenPlace;
 
+    private LocalizedString _localize;
+    
     public void ShowPhrase(PhraseSet phrase)
     {
         description.text = string.Empty;
@@ -19,7 +22,8 @@ public class PersonView : MonoBehaviour
         if (!gameObject.activeSelf)
             gameObject.SetActive(true);
 
-        personName.text = phrase.GetPersonName();
+        _localize = phrase.GetPersonName();
+        personName.text = _localize;
         description.gameObject.SetActive(true);
         ShowPhraseText(phrase);
     }
