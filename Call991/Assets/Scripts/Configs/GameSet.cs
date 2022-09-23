@@ -6,8 +6,8 @@ namespace Configs
     [CreateAssetMenu]
     public class GameSet : ScriptableObject
     {
-        public Language textLanguage = Language.EN;
-        [ReadOnly] public Language audioLanguage = Language.RU;
+        [HideInInspector] public Language textLanguage = Language.EN;
+        [HideInInspector] [ReadOnly] public Language audioLanguage = Language.RU;
 
         [Space] public float choicesDuration = 3f;
         [Space] public float buttonsAppearDuration = 0.2f;
@@ -18,7 +18,7 @@ namespace Configs
         {
 #if UNITY_EDITOR
             var profile = new PlayerProfile();
-            profile.SaveLanguages(textLanguage,audioLanguage);
+            profile.SaveLanguages(textLanguage, audioLanguage);
 #endif
         }
     }
