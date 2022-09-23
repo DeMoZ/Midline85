@@ -99,7 +99,8 @@ public class ScenesHandler : IDisposable
         var videoPathBuilder = new VideoPathBuilder();
         var sceneVideoUrl = videoPathBuilder.GetPath("VideoBack.mp4");
 
-        var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P"; //  "Sounds/Ru/RU_7_P"
+        //var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P";
+        var phraseSoundPath = "Sounds/Ru/RU_7_P";
         
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx

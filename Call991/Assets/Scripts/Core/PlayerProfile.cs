@@ -19,7 +19,8 @@ public class PlayerProfile
         var textLanguage = PlayerPrefs.GetString(TextLanguageKey, Language.EN.ToString());
         Enum.TryParse(textLanguage, out _textLanguage);
         
-        var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.EN.ToString());
+        //var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.EN.ToString());
+        var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.RU.ToString());
         Enum.TryParse(audioLanguage, out _audioLanguage);
         
         var savedProfile = PlayerPrefs.GetString(PlayerDataKey, null);

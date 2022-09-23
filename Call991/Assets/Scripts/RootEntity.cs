@@ -53,17 +53,6 @@ public class RootEntity : IDisposable
         };
 
         LocalizationManager.CurrentLanguage = locLanguage;
-        
-        // var currentLanguage = LocalizationManager.CurrentLanguage;
-        // if (LocalizationManager.Sources.Count == 0) LocalizationManager.UpdateSources();
-        // var languages = LocalizationManager.GetAllLanguages();
-        //
-        // languagesDropdown.ClearOptions();
-        // languagesDropdown.AddOptions(languages);
-        //
-        // languagesDropdown.value = languages.IndexOf(currentLanguage);
-        // languagesDropdown.onValueChanged.RemoveListener(OnLanguageSelected);
-        // languagesDropdown.onValueChanged.AddListener(OnLanguageSelected);
     }
     
     public void Dispose()
