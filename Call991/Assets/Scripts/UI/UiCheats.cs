@@ -1,4 +1,5 @@
 using System.Linq;
+using I2.Loc;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -26,8 +27,66 @@ namespace UI
         {
             _ctx = ctx;
             inputId.text = _ctx.profile.CheatPhrase;
+            SetTextDropdown();
+            SetAudioDropdown();
+
             toMenuBtn.OnClick += OnClickToMenu;
             inputId.onValueChanged.AddListener(OnInputId);
+        }
+
+        private void SetTextDropdown()
+        {
+            var currentLanguage = LocalizationManager.CurrentLanguage;
+            if (LocalizationManager.Sources.Count == 0)
+                LocalizationManager.UpdateSources();
+
+            var languages = LocalizationManager.GetAllLanguages();
+
+            textLanguage.ClearOptions();
+            textLanguage.AddOptions(languages);
+
+            textLanguage.value = languages.IndexOf(currentLanguage);
+            textLanguage.onValueChanged.RemoveListener(OnTextLanguageSelected);
+            textLanguage.onValueChanged.AddListener(OnTextLanguageSelected);
+        }
+
+        private void SetAudioDropdown()
+        {
+            var currentLanguage = LocalizationManager.CurrentLanguage;
+            if (LocalizationManager.Sources.Count == 0)
+                LocalizationManager.UpdateSources();
+
+            var languages = LocalizationManager.GetAllLanguages();
+
+            audioLanguage.ClearOptions();
+            audioLanguage.AddOptions(languages);
+
+            audioLanguage.value = 1; //languages.IndexOf(currentLanguage);
+            audioLanguage.onValueChanged.RemoveListener(OnAudioLanguageSelected);
+            audioLanguage.onValueChanged.AddListener(OnAudioLanguageSelected);
+        }
+
+        private void OnAudioLanguageSelected(int index)
+        {
+        }
+
+        private void OnTextLanguageSelected(int index)
+        {
+            if (index < 0)
+            {
+                index = 0;
+                textLanguage.value = index;
+            }
+
+            var text = textLanguage.options[index].text;
+            LocalizationManager.CurrentLanguage = text;
+
+            _ctx.profile.TextLanguage = text switch
+            {
+                "English" => Language.EN,
+                "Russian" => Language.RU,
+                _ => Language.EN
+            };
         }
 
         private void OnClickToMenu()
