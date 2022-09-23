@@ -91,13 +91,15 @@ public class ScenesHandler : IDisposable
 
     private async Task<IGameScene> LoadLevel7()
     {
+        var tLanguage = _ctx.profile.TextLanguage;
+        var aLanguage = _ctx.profile.AudioLanguage;
+        
         var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>("7_lvl_Total");
-        var dialogues = await compositeDialogue.LoadDialogues(Language.RU, "7_lvl");
-
+        var dialogues = await compositeDialogue.LoadDialogues(tLanguage, "7_lvl");
         var videoPathBuilder = new VideoPathBuilder();
         var sceneVideoUrl = videoPathBuilder.GetPath("VideoBack.mp4");
 
-        var phraseSoundPath = "Sounds/Ru/RU_7_P";
+        var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P"; //  "Sounds/Ru/RU_7_P"
         
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx

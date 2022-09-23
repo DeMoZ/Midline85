@@ -11,10 +11,10 @@ public enum ScreenPlace
 
 public enum Person
 {
-    Unknown,
-    Elena,
-    Lara,
-    Jack,
+    UNKNOWN,
+    ELENA,
+    LARA,
+    JACK,
 }
 
 public enum TextAppear

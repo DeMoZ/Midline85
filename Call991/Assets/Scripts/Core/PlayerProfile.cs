@@ -6,12 +6,23 @@ using UnityEngine;
 [Serializable]
 public class PlayerProfile
 {
-    private const string ProfileKey = "Profile";
+    private const string TextLanguageKey = "TextLanguage";
+    private const string AudioLanguageKey = "AudioLanguage";
+    private const string PlayerDataKey = "PlayerData";
+
+    private Language _textLanguage;
+    private Language _audioLanguage;
     private PlayerData _playerData;
     
     public PlayerProfile()
     {
-        var savedProfile = PlayerPrefs.GetString(ProfileKey, null);
+        var textLanguage = PlayerPrefs.GetString(TextLanguageKey, Language.EN.ToString());
+        Enum.TryParse(textLanguage, out _textLanguage);
+        
+        var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.EN.ToString());
+        Enum.TryParse(audioLanguage, out _audioLanguage);
+        
+        var savedProfile = PlayerPrefs.GetString(PlayerDataKey, null);
         _playerData = string.IsNullOrWhiteSpace(savedProfile)
             ? new PlayerData()
             : JsonConvert.DeserializeObject<PlayerData>(savedProfile);
@@ -19,7 +30,7 @@ public class PlayerProfile
 
     public void Clear()
     {
-        PlayerPrefs.DeleteKey(ProfileKey);
+        PlayerPrefs.DeleteKey(PlayerDataKey);
         _playerData = new PlayerData();
     }
 
@@ -31,7 +42,27 @@ public class PlayerProfile
     {
         _playerData.choices.Clear();
     }
-    
+
+    public Language TextLanguage
+    {
+        get => _textLanguage;
+        set
+        {
+            _textLanguage = value;
+            SaveLanguages();
+        }
+    }
+
+    public Language AudioLanguage
+    {
+        get => _audioLanguage;
+        set
+        {
+            _audioLanguage = value; 
+            SaveLanguages();
+        }
+    }
+
     public string LastPhrase
     {
         get => _playerData.lastPhraseId;
@@ -39,7 +70,7 @@ public class PlayerProfile
         {
             _playerData.lastPhraseId = value;
             AddPhrase(value);
-            SaveToPrefs();
+            SavePlayerData();
         }
     }
 
@@ -49,7 +80,7 @@ public class PlayerProfile
         set
         {
             _playerData.cheatPhraseId = value;
-            SaveToPrefs();
+            SavePlayerData();
         }
     }
 
@@ -58,7 +89,7 @@ public class PlayerProfile
         if (_playerData.phrases.Contains(phraseId)) return;
         
         _playerData.phrases.Add(phraseId);
-        SaveToPrefs();
+        SavePlayerData();
     }
 
     public void AddChoice(string choiceId)
@@ -66,7 +97,7 @@ public class PlayerProfile
         if (_playerData.choices.Contains(choiceId)) return;
         
         _playerData.choices.Add(choiceId);
-        SaveToPrefs();
+        SavePlayerData();
     }
 
     public bool ContainsChoice(string choiceId) => 
@@ -85,8 +116,22 @@ public class PlayerProfile
     public bool ContainsPhrase(string phraseId) => 
         _playerData.phrases.Contains(phraseId);
 
-    private void SaveToPrefs() =>
-        PlayerPrefs.SetString(ProfileKey, JsonConvert.SerializeObject(_playerData));
+    private void SavePlayerData() =>
+        PlayerPrefs.SetString(PlayerDataKey, JsonConvert.SerializeObject(_playerData));
+
+    private void SaveLanguages()
+    {
+        PlayerPrefs.SetString(TextLanguageKey, _textLanguage.ToString());
+        PlayerPrefs.SetString(AudioLanguageKey, _audioLanguage.ToString());
+    }
+    
+    #if UNITY_EDITOR
+    public void SaveLanguages(Language textLanguage, Language audioLanguage)
+    {
+        PlayerPrefs.SetString(TextLanguageKey, textLanguage.ToString());
+        PlayerPrefs.SetString(AudioLanguageKey, audioLanguage.ToString());
+    }
+    #endif
 }
 
 public class PlayerData

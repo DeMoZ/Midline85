@@ -16,6 +16,8 @@ namespace UI
         [SerializeField] private MenuButtonView toMenuBtn = default;
         [SerializeField] private TMP_InputField inputId = default;
         [SerializeField] private TextMeshProUGUI inputIdText = default;
+        [Space] [SerializeField] private TMP_Dropdown textLanguage = default;
+        [SerializeField] private TMP_Dropdown audioLanguage = default;
 
         private Ctx _ctx;
         private Dialogues _dialogues;
@@ -46,7 +48,7 @@ namespace UI
         private async void OnEnable()
         {
             var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>("7_lvl_Total"); // TODO: warning
-            _dialogues = await compositeDialogue.LoadDialogues(Language.RU, "7_lvl" ); // TODO: warning
+            _dialogues = await compositeDialogue.LoadDialogues(Language.RU, "7_lvl"); // TODO: warning
         }
 
         private void OnDisable()
