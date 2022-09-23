@@ -14,7 +14,7 @@ public class PersonView : MonoBehaviour
     public ScreenPlace ScreenPlace => screenPlace;
 
     private LocalizedString _localize;
-    
+
     public void ShowPhrase(PhraseSet phrase)
     {
         description.text = string.Empty;
@@ -52,24 +52,34 @@ public class PersonView : MonoBehaviour
         var text = new StringBuilder();
 
         yield return new WaitForSeconds(phrase.beforeFirstWord);
-        
+
         for (var i = 0; i < phrase.wordTimes.Count; i++)
         {
             var wordTime = phrase.wordTimes[i];
+            var word = wordTime.word;
             if (phrase.wordTimes[i].wipe)
                 text.Clear();
-            
-            text.Append(wordTime.word);
-            
-            if (i < phrase.wordTimes.Count - 1)
-                text.Append(" ");
-            
+
+            if (i > 0)
+            {
+                if (word.Length > 1 && word[0] == '@')
+                {
+                    word = word.Split("@")[1];
+                }
+                else
+                {
+                    text.Append(" ");
+                }
+            }
+
+            text.Append(word);
+
             description.text = text.ToString();
 
             yield return new WaitForSeconds(wordTime.time);
         }
     }
-    
+
     public void HidePhrase()
     {
         description.gameObject.SetActive(false);
