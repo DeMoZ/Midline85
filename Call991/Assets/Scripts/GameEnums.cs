@@ -30,3 +30,10 @@ public enum NextIs
     Phrase,
     Choices,
 }
+
+public enum SoundUiTypes
+{
+    ChoiceButton,
+    MenuButton,
+    Timer
+}

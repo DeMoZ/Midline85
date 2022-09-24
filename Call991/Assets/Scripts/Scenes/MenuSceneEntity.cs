@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UI;
 using UniRx;
 
@@ -5,9 +6,10 @@ public class MenuSceneEntity : IGameScene
 {
     public struct Ctx
     {
-        public GameScenes scene;
+        public Container<Task> constructorTask;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
+        public AudioManager audioManager;
     }
 
     private Ctx _ctx;
@@ -22,6 +24,22 @@ public class MenuSceneEntity : IGameScene
 
         _onClickPlayGame = new ReactiveCommand();
         _onClickNewGame = new ReactiveCommand();
+        AsyncConstructor();
+    }
+
+    private void AsyncConstructor()
+    {
+        _ctx.constructorTask.Value = ConstructorTask();
+    }
+
+    private async Task ConstructorTask()
+    {
+        // await Task.Yield();
+        await Task.Delay(10);
+        await _ctx.audioManager.PlayMusic("Intro");
+        // todo load from addressables black screen above the scene;
+        // scene doesnt exist here
+        // so just load and show on enter. Is it instant?
     }
 
     public void Enter()
@@ -43,6 +61,7 @@ public class MenuSceneEntity : IGameScene
             onClickPlayGame = _onClickPlayGame,
             onClickNewGame = _onClickNewGame,
             profile = _ctx.profile,
+            audioManager = _ctx.audioManager,
         });
     }
 

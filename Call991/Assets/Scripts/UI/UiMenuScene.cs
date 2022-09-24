@@ -11,6 +11,7 @@ namespace UI
             public ReactiveCommand onClickPlayGame;
             public ReactiveCommand onClickNewGame;
             public PlayerProfile profile;
+            public AudioManager audioManager;
         }
 
         [SerializeField] private UiMenu menu = default;
@@ -34,6 +35,7 @@ namespace UI
 
             menu.SetCtx(new UiMenu.Ctx
             {
+                audioManager = _ctx.audioManager,
                 onClickPlayGame = _ctx.onClickPlayGame,
                 onClickNewGame = _ctx.onClickNewGame,
                 onClickSettings = _onClickSettings
@@ -41,6 +43,7 @@ namespace UI
 
             cheats.SetCtx(new UiCheats.Ctx
             {
+                audioManager = _ctx.audioManager,
                 onClickToMenu = _onClickToMenu,
                 profile = _ctx.profile,
             });

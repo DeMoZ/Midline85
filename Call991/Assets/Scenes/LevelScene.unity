@@ -1435,7 +1435,7 @@ MonoBehaviour:
   - {fileID: 1749467238}
   countDown: {fileID: 151886540}
   videoPlayer: {fileID: 568128914}
-  audioSource: {fileID: 1596484670}
+  phraseAudioSource: {fileID: 1596484670}
 --- !u!222 &1445409466
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1532,7 +1532,7 @@ GameObject:
   - component: {fileID: 1596484669}
   - component: {fileID: 1596484670}
   m_Layer: 5
-  m_Name: Audio Source
+  m_Name: PhraseAudio Source
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1567,7 +1567,8 @@ AudioSource:
   m_GameObject: {fileID: 1596484668}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 7759819241110650076, guid: 860d6cf7c2178494ca4bc591fd71a162,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1

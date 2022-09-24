@@ -7,7 +7,7 @@ using UnityEngine;
 public class EntryRoot : MonoBehaviour
 {
     private static EntryRoot _instance;
-
+    [SerializeField] private AudioManager audioManager;
     private async void Awake()
     {
         if (_instance == null)
@@ -41,7 +41,7 @@ public class EntryRoot : MonoBehaviour
     {
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
-            
+            audioManager = audioManager,
         });
     }
 

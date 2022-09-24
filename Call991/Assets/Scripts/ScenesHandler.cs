@@ -12,6 +12,8 @@ public class ScenesHandler : IDisposable
         public ReactiveCommand onStartApplicationSwitchScene;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
+        public AudioManager audioManager;
+        public GameSet gameSet;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -66,7 +68,7 @@ public class ScenesHandler : IDisposable
             _ => throw new ArgumentOutOfRangeException(nameof(scene), scene, null)
         };
     }
-    
+
     public async Task<IGameScene> SceneEntity(GameScenes scene)
     {
         IGameScene newScene = scene switch
@@ -78,22 +80,27 @@ public class ScenesHandler : IDisposable
 
         return newScene;
     }
-    
+
     private async Task<IGameScene> LoadMenu()
     {
-       return new MenuSceneEntity(new MenuSceneEntity.Ctx
+        var constructorTask = new Container<Task>();
+        var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
         {
-            scene = GameScenes.Menu,
             onSwitchScene = _ctx.onSwitchScene,
             profile = _ctx.profile,
+            audioManager = _ctx.audioManager,
+            constructorTask = constructorTask,
         });
+        
+        await constructorTask.Value;
+        return sceneEntity;
     }
 
     private async Task<IGameScene> LoadLevel7()
     {
         var tLanguage = _ctx.profile.TextLanguage;
         var aLanguage = _ctx.profile.AudioLanguage;
-        
+
         var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>("7_lvl_Total");
         var dialogues = await compositeDialogue.LoadDialogues(tLanguage, "7_lvl");
         var videoPathBuilder = new VideoPathBuilder();
@@ -105,18 +112,20 @@ public class ScenesHandler : IDisposable
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
         {
+            gameSet = _ctx.gameSet,
             constructorTask = constructorTask,
             profile = _ctx.profile,
             dialogues = dialogues,
             onSwitchScene = _ctx.onSwitchScene,
             sceneVideoUrl = sceneVideoUrl,
             phraseSoundPath = phraseSoundPath,
+            audioManager = _ctx.audioManager,
         });
 
         await constructorTask.Value;
         return sceneEntity;
     }
-    
+
     public void Dispose()
     {
         ResourcesLoader.UnloadUnused();

@@ -28,14 +28,14 @@ namespace UI
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private VideoPlayer videoPlayer = default;
-        [SerializeField] private AudioSource audioSource = default;
+        [SerializeField] private AudioSource phraseAudioSource = default;
 
         private CompositeDisposable _disposables;
         public List<ChoiceButtonView> Buttons => buttons;
         public CountDownView CountDown => countDown;
         public VideoPlayer VideoPlayer => videoPlayer;
 
-        public AudioSource AudioSource => audioSource;
+        public AudioSource PhraseAudioSource => phraseAudioSource;
 
         public void SetCtx(Ctx ctx)
         {
