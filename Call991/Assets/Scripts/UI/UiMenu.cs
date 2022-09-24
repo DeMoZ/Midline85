@@ -7,6 +7,7 @@ namespace UI
     {
         public struct Ctx
         {
+            public AudioManager audioManager;
             public ReactiveCommand onClickPlayGame;
             public ReactiveCommand onClickNewGame;
             public ReactiveCommand onClickSettings;
@@ -31,18 +32,21 @@ namespace UI
         private void OnClickPlay()
         {
             Debug.Log("[UiMenuScene] OnClickPlay");
+            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickPlayGame.Execute();
         }
 
         private void OnClickNewGame()
         {
             Debug.Log("[UiMenuScene] OnClickNewGame");
+            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickNewGame.Execute();
         }
 
         private void OnClickSettings()
         {
             Debug.Log("[UiMenuScene] OnClickSettings");
+            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickSettings.Execute();
         }
 

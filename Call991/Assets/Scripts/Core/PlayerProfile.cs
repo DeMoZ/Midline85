@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UniRx;
 using UnityEngine;
 
 [Serializable]
@@ -9,18 +10,24 @@ public class PlayerProfile
     private const string TextLanguageKey = "TextLanguage";
     private const string AudioLanguageKey = "AudioLanguage";
     private const string PlayerDataKey = "PlayerData";
-
-    private Language _textLanguage;
-    private Language _audioLanguage;
-    private PlayerData _playerData;
     
-    public PlayerProfile()
+    private Language _textLanguage;
+    private Language _audioLanguage;   
+    
+    private PlayerData _playerData;
+    private ReactiveCommand<Language> _onAudioLanguage;
+
+    public PlayerProfile(ReactiveCommand<Language> onAudioLanguage)
     {
+        _onAudioLanguage = onAudioLanguage;
+            
         var textLanguage = PlayerPrefs.GetString(TextLanguageKey, Language.EN.ToString());
         Enum.TryParse(textLanguage, out _textLanguage);
         
         var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.EN.ToString());
         Enum.TryParse(audioLanguage, out _audioLanguage);
+
+        _onAudioLanguage?.Execute(_audioLanguage);
         
         var savedProfile = PlayerPrefs.GetString(PlayerDataKey, null);
         _playerData = string.IsNullOrWhiteSpace(savedProfile)
@@ -123,6 +130,8 @@ public class PlayerProfile
     {
         PlayerPrefs.SetString(TextLanguageKey, _textLanguage.ToString());
         PlayerPrefs.SetString(AudioLanguageKey, _audioLanguage.ToString());
+
+        _onAudioLanguage?.Execute(_audioLanguage);
     }
     
     #if UNITY_EDITOR

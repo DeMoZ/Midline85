@@ -9,12 +9,14 @@ public class LevelSceneEntity : IGameScene
 {
     public struct Ctx
     {
+        public GameSet gameSet;
         public Container<Task> constructorTask;
         public Dialogues dialogues;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
         public string sceneVideoUrl;
         public string phraseSoundPath;
+        public AudioManager audioManager;
     }
 
     private Ctx _ctx;
@@ -37,8 +39,8 @@ public class LevelSceneEntity : IGameScene
     private async Task ConstructorTask()
     {
         // await Task.Yield();
-        await Task.Delay(1 * 1000);
-        
+        await Task.Delay(10);
+        await _ctx.audioManager.PlayMusic("7_lvl");
         // todo load from addressables black screen above the scene;
         // scene doesnt exist here
         // so just load and show on enter. Is it instant?
@@ -47,9 +49,6 @@ public class LevelSceneEntity : IGameScene
     public async void Enter()
     {
         Debug.Log($"[{this}] Entered");
-
-        var gameSet = Resources.Load<GameSet>("GameSet");
-
         // from prefab, or find, or addressable
         _ui = UnityEngine.GameObject.FindObjectOfType<UiLevelScene>();
         var uiPool = new Pool(new GameObject("uiPool").transform);
@@ -68,7 +67,7 @@ public class LevelSceneEntity : IGameScene
         var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {
             path = _ctx.phraseSoundPath,
-            audioSource = _ui.AudioSource,
+            audioSource = _ui.PhraseAudioSource,
         }).AddTo(_disposables);
         
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
@@ -81,10 +80,11 @@ public class LevelSceneEntity : IGameScene
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onAfterEnter = onAfterEnter,
-            gameSet = gameSet,
+            gameSet = _ctx.gameSet,
             buttons = buttons,
             countDown = countDown,
             phraseSoundPlayer = phraseSoundPm,
+            audioManager = _ctx.audioManager,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx

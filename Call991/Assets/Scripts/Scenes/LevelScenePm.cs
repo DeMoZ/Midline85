@@ -14,6 +14,7 @@ public class LevelScenePm : IDisposable
 {
     public struct Ctx
     {
+        public AudioManager audioManager;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<string> onPhraseEvent;
@@ -48,7 +49,11 @@ public class LevelScenePm : IDisposable
         _onClickChoiceButton = new ReactiveCommand<int>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
 
-        _ctx.onClickMenuButton.Subscribe(_ => { _ctx.onSwitchScene.Execute(GameScenes.Menu); }).AddTo(_disposables);
+        _ctx.onClickMenuButton.Subscribe(_ =>
+        {
+            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
+            _ctx.onSwitchScene.Execute(GameScenes.Menu);
+        }).AddTo(_disposables);
         _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
@@ -155,7 +160,8 @@ public class LevelScenePm : IDisposable
             : _ctx.gameSet.choicesDuration;
         
         _ctx.countDown.Show(time);
-        
+        _ctx.audioManager.PlayUiSound(SoundUiTypes.Timer,true);
+
         yield return new WaitForSeconds(_ctx.gameSet.buttonsAppearDuration);
         while (timer <= time)
         {
@@ -249,6 +255,8 @@ public class LevelScenePm : IDisposable
     private async void OnClickChoiceButton(int index)
     {
         if (_choiceDone) return;
+        
+        _ctx.audioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
         
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
         _choiceDone = true;

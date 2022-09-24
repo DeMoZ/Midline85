@@ -12,6 +12,7 @@ namespace UI
         {
             public ReactiveCommand onClickToMenu;
             public PlayerProfile profile;
+            public AudioManager audioManager;
         }
 
         [SerializeField] private MenuButtonView toMenuBtn = default;
@@ -91,6 +92,7 @@ namespace UI
 
         private void OnClickToMenu()
         {
+            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickToMenu.Execute();
         }
 
