@@ -15,7 +15,8 @@ namespace UI
             public ReactiveCommand<string> onPhraseEvent;
             public ReactiveCommand<PhraseSet> onShowPhrase;
             public ReactiveCommand<PhraseSet> onHidePhrase;
-
+            public ReactiveCommand<bool> onShowIntro;
+            
             public Pool pool;
         }
 
@@ -29,7 +30,8 @@ namespace UI
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private VideoPlayer videoPlayer = default;
         [SerializeField] private AudioSource phraseAudioSource = default;
-
+        [SerializeField] private GameObject showIntro = default;
+        
         private CompositeDisposable _disposables;
         public List<ChoiceButtonView> Buttons => buttons;
         public CountDownView CountDown => countDown;
@@ -47,6 +49,7 @@ namespace UI
             _ctx.onPhraseEvent.Subscribe(OnPhraseEvent).AddTo(_disposables);
             _ctx.onShowPhrase.Subscribe(OnShowPhrase).AddTo(_disposables);
             _ctx.onHidePhrase.Subscribe(OnHidePhrase).AddTo(_disposables);
+            _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
 
             foreach (var person in persons)
                 person.gameObject.SetActive(false);
@@ -57,6 +60,11 @@ namespace UI
             countDown.gameObject.SetActive(false);
         }
 
+        private void OnShowIntro(bool show)
+        {
+            showIntro.SetActive(show);
+        }
+        
         private void OnPhraseEvent(string eventId)
         {
             // todo for extra events on phrase time points 
