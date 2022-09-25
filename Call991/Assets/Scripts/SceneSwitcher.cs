@@ -49,6 +49,7 @@ public class SceneSwitcher : IDisposable
         var switchSceneEntity = new LoadingSceneEntity(new LoadingSceneEntity.Ctx
         {
             onLoadingProcess = onLoadingProcess,
+            toLevelScene = scene== GameScenes.Level1,
         });
 
         Debug.Log($"[{this}][OnSwitchSceneLoaded] Start load scene {scene}");

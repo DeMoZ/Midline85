@@ -6,6 +6,7 @@ public class LoadingSceneEntity : IGameScene
     public struct Ctx
     {
         public ReactiveProperty<string> onLoadingProcess;
+        public bool toLevelScene;
     }
 
     private Ctx _ctx;
@@ -18,6 +19,7 @@ public class LoadingSceneEntity : IGameScene
         ui.SetCtx(new UiSwitchScene.Ctx
         {
             onLoadingProcess = _ctx.onLoadingProcess,
+            toLevelScene = _ctx.toLevelScene,
         });
     }
 
