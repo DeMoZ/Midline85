@@ -15,6 +15,8 @@ namespace Configs
         [Space] public float buttonsAppearDuration = 0.2f;
         public float fastButtonFadeDuration = 0.3f;
         public float slowButtonFadeDuration = 0.6f;
+        [Space] public float levelIntroDelay = 2f;
+        
         [Space]
         public AudioClip menuBtnClip;
         public AudioClip choiceBtnClip;

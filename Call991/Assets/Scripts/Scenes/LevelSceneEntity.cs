@@ -57,6 +57,7 @@ public class LevelSceneEntity : IGameScene
         var onPhraseEvent = new ReactiveCommand<string>().AddTo(_disposables);
         var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
+        var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
 
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
         var buttons = _ui.Buttons;
@@ -85,6 +86,7 @@ public class LevelSceneEntity : IGameScene
             countDown = countDown,
             phraseSoundPlayer = phraseSoundPm,
             audioManager = _ctx.audioManager,
+            onShowIntro = onShowIntro,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
@@ -94,6 +96,7 @@ public class LevelSceneEntity : IGameScene
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             pool = uiPool,
+            onShowIntro = onShowIntro,
         });
 
             // await BlackScreenFade();

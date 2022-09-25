@@ -20,6 +20,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<string> onPhraseEvent;
         public ReactiveCommand<PhraseSet> onShowPhrase;
         public ReactiveCommand<PhraseSet> onHidePhrase;
+        public ReactiveCommand<bool> onShowIntro;
 
         public Dialogues dialogues;
         public PlayerProfile profile;
@@ -81,8 +82,9 @@ public class LevelScenePm : IDisposable
 
     private async Task ShowIntro()
     {
-        // _ctx.showIntro.Execute();
-        //  Task.Delay(introDelay);await
+        _ctx.onShowIntro.Execute(true);
+       await  Task.Delay((int)(_ctx.gameSet.levelIntroDelay*1000));
+       _ctx.onShowIntro.Execute(false);
     }
 
     private async Task RunDialogue()
