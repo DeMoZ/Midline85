@@ -37,3 +37,11 @@ public enum SoundUiTypes
     MenuButton,
     Timer
 }
+
+public enum PhraseEventTypes
+{
+    Sound,
+    Video,
+    SoundEffect,
+    VideoEffect,
+}

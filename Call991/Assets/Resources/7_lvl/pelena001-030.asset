@@ -25,9 +25,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents:
-    - eventId: 
-      delay: 0
+    phraseEvents: []
   - phraseId: p.lara.001
     person: 0
     screenPlace: 5
@@ -55,7 +53,10 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents:
+    - eventId: e.sfx.001
+      eventType: 2
+      delay: 0
   - phraseId: p.elena.002
     person: 1
     screenPlace: 2
@@ -68,7 +69,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.003
     person: 1
     screenPlace: 2
@@ -81,7 +82,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.004
     person: 1
     screenPlace: 2
@@ -94,7 +95,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.002
     person: 0
     screenPlace: 5
@@ -107,7 +108,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.003
     person: 0
     screenPlace: 5
@@ -120,7 +121,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.005
     person: 1
     screenPlace: 2
@@ -133,7 +134,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.004
     person: 0
     screenPlace: 5
@@ -146,7 +147,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.006
     person: 1
     screenPlace: 2
@@ -159,7 +160,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.005
     person: 2
     screenPlace: 5
@@ -187,7 +188,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.006
     person: 2
     screenPlace: 5
@@ -200,7 +201,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.007
     person: 1
     screenPlace: 2
@@ -213,7 +214,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.008
     person: 1
     screenPlace: 2
@@ -226,7 +227,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.009
     person: 1
     screenPlace: 2
@@ -239,7 +240,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.007
     person: 2
     screenPlace: 5
@@ -252,7 +253,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.008
     person: 2
     screenPlace: 5
@@ -265,7 +266,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.010
     person: 1
     screenPlace: 2
@@ -278,7 +279,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.011
     person: 1
     screenPlace: 2
@@ -291,7 +292,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.009
     person: 2
     screenPlace: 5
@@ -304,7 +305,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.010
     person: 2
     screenPlace: 5
@@ -317,7 +318,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.011
     person: 2
     screenPlace: 5
@@ -345,7 +346,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.012
     person: 1
     screenPlace: 2
@@ -358,7 +359,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.013
     person: 1
     screenPlace: 2
@@ -371,7 +372,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.014
     person: 1
     screenPlace: 2
@@ -384,7 +385,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.012
     person: 2
     screenPlace: 5
@@ -397,7 +398,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.013
     person: 2
     screenPlace: 5
@@ -410,7 +411,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.014
     person: 2
     screenPlace: 5
@@ -423,7 +424,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.015
     person: 1
     screenPlace: 2
@@ -436,7 +437,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.016
     person: 1
     screenPlace: 2
@@ -449,7 +450,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.015
     person: 2
     screenPlace: 5
@@ -462,7 +463,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.016
     person: 2
     screenPlace: 5
@@ -475,7 +476,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.017
     person: 2
     screenPlace: 5
@@ -488,7 +489,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.017
     person: 1
     screenPlace: 2
@@ -501,7 +502,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.017.1
     person: 2
     screenPlace: 5
@@ -525,7 +526,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.018
     person: 1
     screenPlace: 2
@@ -538,7 +539,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.019
     person: 1
     screenPlace: 2
@@ -551,7 +552,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.018
     person: 2
     screenPlace: 5
@@ -564,9 +565,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents:
-    - eventId: 
-      delay: 0
+    phraseEvents: []
   - phraseId: p.lara.019
     person: 2
     screenPlace: 5
@@ -579,7 +578,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.020
     person: 2
     screenPlace: 5
@@ -592,7 +591,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.lara.021
     person: 2
     screenPlace: 5
@@ -605,11 +604,11 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.002
     person: 3
     screenPlace: 6
-    hidePersonOnEnd: 0
+    hidePersonOnEnd: 1
     textAppear: 0
     hidePhraseOnEnd: 1
     nextIs: 0
@@ -618,10 +617,10 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.003
     person: 3
-    screenPlace: 6
+    screenPlace: 5
     hidePersonOnEnd: 0
     textAppear: 0
     hidePhraseOnEnd: 1
@@ -641,7 +640,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.020
     person: 1
     screenPlace: 2
@@ -654,7 +653,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.021
     person: 1
     screenPlace: 2
@@ -667,7 +666,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.004
     person: 3
     screenPlace: 5
@@ -680,7 +679,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.005
     person: 3
     screenPlace: 5
@@ -693,7 +692,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.022
     person: 1
     screenPlace: 2
@@ -706,10 +705,10 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.005.1
     person: 3
-    screenPlace: 6
+    screenPlace: 5
     hidePersonOnEnd: 0
     textAppear: 0
     hidePhraseOnEnd: 1
@@ -719,7 +718,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.022.1
     person: 1
     screenPlace: 2
@@ -732,7 +731,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.005.2
     person: 3
     screenPlace: 5
@@ -761,7 +760,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.023
     person: 1
     screenPlace: 2
@@ -774,7 +773,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.024
     person: 1
     screenPlace: 2
@@ -787,7 +786,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.024.1
     person: 1
     screenPlace: 2
@@ -800,7 +799,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.006
     person: 3
     screenPlace: 5
@@ -813,7 +812,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.007
     person: 3
     screenPlace: 5
@@ -826,7 +825,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.007.1
     person: 3
     screenPlace: 5
@@ -854,7 +853,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.025
     person: 1
     screenPlace: 2
@@ -867,7 +866,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.026
     person: 1
     screenPlace: 2
@@ -880,7 +879,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.027
     person: 1
     screenPlace: 2
@@ -893,7 +892,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.008
     person: 3
     screenPlace: 6
@@ -906,7 +905,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.009
     person: 3
     screenPlace: 6
@@ -929,7 +928,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.jack.010
     person: 3
     screenPlace: 6
@@ -942,7 +941,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.029
     person: 1
     screenPlace: 2
@@ -955,7 +954,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.030
     person: 1
     screenPlace: 2
@@ -968,7 +967,7 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []
   - phraseId: p.elena.028
     person: 1
     screenPlace: 2
@@ -981,4 +980,4 @@ MonoBehaviour:
     overrideChoicesDuration: 0
     choicesDuration: 0
     addEvent: 0
-    dialogueEvents: []
+    phraseEvents: []

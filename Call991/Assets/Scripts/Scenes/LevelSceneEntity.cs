@@ -16,6 +16,7 @@ public class LevelSceneEntity : IGameScene
         public PlayerProfile profile;
         public string sceneVideoUrl;
         public string phraseSoundPath;
+        public string phraseEventSoundPath;
         public AudioManager audioManager;
     }
 
@@ -54,7 +55,7 @@ public class LevelSceneEntity : IGameScene
         var uiPool = new Pool(new GameObject("uiPool").transform);
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
-        var onPhraseEvent = new ReactiveCommand<string>().AddTo(_disposables);
+        var onPhraseSoundEvent = new ReactiveCommand<PhraseEvent>().AddTo(_disposables);
         var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
@@ -70,14 +71,22 @@ public class LevelSceneEntity : IGameScene
             path = _ctx.phraseSoundPath,
             audioSource = _ui.PhraseAudioSource,
         }).AddTo(_disposables);
-        
+
+        var phraseEventSoundLoader = new PhraseEventSoundLoader(new PhraseEventSoundLoader.Ctx
+        {
+            eventSoPath = "PhraseSFX",
+            resourcesPath = _ctx.phraseEventSoundPath,
+            audioManager = _ctx.audioManager,
+            streamingPath = "Sounds/EventSounds",
+        }).AddTo(_disposables);
+
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             profile = _ctx.profile,
             dialogues = _ctx.dialogues,
             onSwitchScene = _ctx.onSwitchScene,
             onClickMenuButton = onClickMenuButton,
-            onPhraseEvent = onPhraseEvent,
+            onPhraseSoundEvent = onPhraseSoundEvent,
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onAfterEnter = onAfterEnter,
@@ -85,6 +94,7 @@ public class LevelSceneEntity : IGameScene
             buttons = buttons,
             countDown = countDown,
             phraseSoundPlayer = phraseSoundPm,
+            phraseEventSoundLoader = phraseEventSoundLoader,
             audioManager = _ctx.audioManager,
             onShowIntro = onShowIntro,
         }).AddTo(_disposables);
@@ -92,14 +102,13 @@ public class LevelSceneEntity : IGameScene
         _ui.SetCtx(new UiLevelScene.Ctx
         {
             onClickMenuButton = onClickMenuButton,
-            onPhraseEvent = onPhraseEvent,
+            onPhraseSoundEvent = onPhraseSoundEvent,
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             pool = uiPool,
             onShowIntro = onShowIntro,
         });
 
-            // await BlackScreenFade();
         onAfterEnter.Execute();
     }
 

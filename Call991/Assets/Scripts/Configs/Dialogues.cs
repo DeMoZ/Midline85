@@ -70,7 +70,7 @@ public class PhraseSet
     public bool addEvent;
 
     [VerticalGroup("Event")] [ShowIf("addEvent")]
-    public List<DialogueEvent> dialogueEvents;
+    public List<PhraseEvent> phraseEvents;
 
     private bool ShowIfNotPop() =>
         textAppear != TextAppear.Pop;
@@ -82,13 +82,6 @@ public class PhraseSet
 
     public string GetPersonName() =>
         person.ToString();
-}
-
-[Serializable]
-public class DialogueEvent
-{
-    public string eventId;
-    public float delay;
 }
 
 [Serializable]

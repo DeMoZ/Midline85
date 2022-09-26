@@ -12,7 +12,7 @@ namespace UI
         public struct Ctx
         {
             public ReactiveCommand onClickMenuButton;
-            public ReactiveCommand<string> onPhraseEvent;
+            public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
             public ReactiveCommand<PhraseSet> onShowPhrase;
             public ReactiveCommand<PhraseSet> onHidePhrase;
             public ReactiveCommand<bool> onShowIntro;
@@ -46,7 +46,7 @@ namespace UI
 
             menuButton.OnClick += OnClickMenu;
 
-            _ctx.onPhraseEvent.Subscribe(OnPhraseEvent).AddTo(_disposables);
+            _ctx.onPhraseSoundEvent.Subscribe(OnPhraseSoundEvent).AddTo(_disposables);
             _ctx.onShowPhrase.Subscribe(OnShowPhrase).AddTo(_disposables);
             _ctx.onHidePhrase.Subscribe(OnHidePhrase).AddTo(_disposables);
             _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
@@ -65,9 +65,9 @@ namespace UI
             showIntro.SetActive(show);
         }
         
-        private void OnPhraseEvent(string eventId)
+        private void OnPhraseSoundEvent(PhraseEvent phraseEvent)
         {
-            // todo for extra events on phrase time points 
+            // todo: for extra sound events on phrase time points 
         }
 
         private void OnShowPhrase(PhraseSet phrase)

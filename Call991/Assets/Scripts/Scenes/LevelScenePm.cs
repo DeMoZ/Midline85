@@ -17,7 +17,7 @@ public class LevelScenePm : IDisposable
         public AudioManager audioManager;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
-        public ReactiveCommand<string> onPhraseEvent;
+        public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
         public ReactiveCommand<PhraseSet> onShowPhrase;
         public ReactiveCommand<PhraseSet> onHidePhrase;
         public ReactiveCommand<bool> onShowIntro;
@@ -31,6 +31,7 @@ public class LevelScenePm : IDisposable
         public GameSet gameSet;
         
         public PhraseSoundPlayer phraseSoundPlayer;
+        public PhraseEventSoundLoader phraseEventSoundLoader;
     }
 
     private Ctx _ctx;
@@ -211,9 +212,9 @@ public class LevelScenePm : IDisposable
 
         var timer = 0f;
         
-        var pEvents = new List<DialogueEvent>();
+        var pEvents = new List<PhraseEvent>();
         if (_currentPhrase.addEvent)
-            pEvents.AddRange(_currentPhrase.dialogueEvents);
+            pEvents.AddRange(_currentPhrase.phraseEvents);
 
         Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}: {_currentPhrase.Phrase.text}");
         _ctx.onShowPhrase.Execute(_currentPhrase);
@@ -225,15 +226,38 @@ public class LevelScenePm : IDisposable
 
             for (var i = pEvents.Count - 1; i >= 0; i--)
             {
-                var pEvent = pEvents[i];
-                if (timer >= pEvent.delay)
-                    _ctx.onPhraseEvent.Execute(pEvent.eventId); // todo should be event class executed
+                 var pEvent = pEvents[i];
+                 if (timer >= pEvent.delay)
+                 {
+                     ExecutePhraseEvent(pEvent);
+                     pEvents.RemoveAt(i);
+                 }
             }
 
             timer += Time.deltaTime;
         }
     }
 
+    private void ExecutePhraseEvent(PhraseEvent pEvent)
+    {
+        switch (pEvent.eventType)
+        {
+            case PhraseEventTypes.Sound:
+                
+                break;
+            case PhraseEventTypes.Video:
+                break;
+            case PhraseEventTypes.SoundEffect:
+                _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
+                _ctx.phraseEventSoundLoader.LoadEvent(pEvent.eventId);
+                break;
+            case PhraseEventTypes.VideoEffect:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+    
     private void InitButtons()
     {
         _ctx.countDown.SetCtx(new CountDownView.Ctx

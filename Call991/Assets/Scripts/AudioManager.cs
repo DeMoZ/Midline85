@@ -22,7 +22,8 @@ public class AudioManager : MonoBehaviour
 
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioSource uiAudioSource;
-    
+    [SerializeField] private TempAudioSource tempSoundSourcePrefab;
+
     private string _languagePath;
     private Ctx _ctx;
     private string _currentMusicPath;
@@ -63,7 +64,7 @@ public class AudioManager : MonoBehaviour
         {
             musicClip = await ResourcesLoader.LoadAsync<AudioClip>(filePath);
         }
-        catch(Exception e)
+        catch (Exception e)
         {
             Debug.LogError($"[{this}] Music index not found: {key}:{index}\n{e}");
             return;
@@ -74,7 +75,7 @@ public class AudioManager : MonoBehaviour
             if (merge)
                 MergeMusics();
             else
-                PlayMusicFile(musicAudioSource, musicClip,true);
+                PlayMusicFile(musicAudioSource, musicClip, true);
 
             _currentMusicClip = musicClip;
         }
@@ -94,53 +95,28 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
         audioSource.loop = loop;
     }
-    
+
     public void PlayUiSound(SoundUiTypes type, bool loop = false)
     {
         switch (type)
         {
             case SoundUiTypes.ChoiceButton:
-                PlayMusicFile(uiAudioSource,_ctx.gameSet.choiceBtnClip,false);
+                PlayMusicFile(uiAudioSource, _ctx.gameSet.choiceBtnClip, false);
                 break;
             case SoundUiTypes.MenuButton:
-                PlayMusicFile(uiAudioSource,_ctx.gameSet.menuBtnClip,false);
+                PlayMusicFile(uiAudioSource, _ctx.gameSet.menuBtnClip, false);
                 break;
             case SoundUiTypes.Timer:
-                PlayMusicFile(uiAudioSource,_ctx.gameSet.timerClip,true);
+                PlayMusicFile(uiAudioSource, _ctx.gameSet.timerClip, true);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
     }
-    
-    // var fileName = musics[index] + ".wav";
-    // _currentMusicPath = "file:///" + Path.Combine(Application.streamingAssetsPath, _ctx.musicPath, fileName);
-    // var isLoaded = false;
-    // Observable.FromCoroutine(LoadMusic).Subscribe(_ =>
-    // {
-    //     Debug.Log($"[{this}] Music load routine end: {key}:{index}");
-    //     isLoaded = true;
-    // }).AddTo(_disposables);
-    //
-    // while (!isLoaded)
-    //     await Task.Yield();
 
-    // TryPlayMusicFile(musicAudioSource, _currentMusicClip);
-
-
-    // private IEnumerator LoadMusic()
-    // {
-    //     var request = UnityWebRequestMultimedia.GetAudioClip(_currentMusicPath, AudioType.WAV);
-    //     yield return request.SendWebRequest();
-    //
-    //     if (request.result != UnityWebRequest.Result.Success) //.ConnectionError)
-    //     {
-    //         Debug.LogError($"[{this}] audio wasn't loaded: {_currentMusicPath}\n{request.error}");
-    //         yield break;
-    //     }
-    //     else
-    //     {
-    //         _currentMusicClip = DownloadHandlerAudioClip.GetContent(request);
-    //     }
-    // }
+    public void PlaySFX(AudioClip audioClip)
+    {
+        var source = Instantiate<TempAudioSource>(tempSoundSourcePrefab);
+        source.PlayAndDestroy(audioClip);
+    }
 }
