@@ -180,7 +180,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &6203722773661330763
 RectTransform:
   m_ObjectHideFlags: 0
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 9172628497805255259}
   - component: {fileID: 7773596549754307364}
   m_Layer: 5
-  m_Name: Blocked (1)
+  m_Name: Blocked
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -300,14 +300,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 5fcf39316fa1c1a468e30ab3ea3c4747, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: cc1547db8f80a4a6a8b8165baa6e18fb, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -385,7 +385,7 @@ MonoBehaviour:
   m_text: Choice
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c5b8587a3265480b94f28b8aa0ccc3c, type: 2}
-  m_sharedMaterial: {fileID: -6500441638393240952, guid: 2c5b8587a3265480b94f28b8aa0ccc3c,
+  m_sharedMaterial: {fileID: -6510249646327847663, guid: 2c5b8587a3265480b94f28b8aa0ccc3c,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
