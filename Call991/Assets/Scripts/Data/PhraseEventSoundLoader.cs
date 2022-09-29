@@ -34,7 +34,7 @@ namespace Data
             _streamingPath = "file:///" + Path.Combine(Application.streamingAssetsPath, _ctx.streamingPath);
         }
 
-        public async Task LoadEvent(string soundEventId)
+        public async Task LoadEvent(string soundEventId, bool loop, bool stop)
         {
             // load audio event config from resources
             var soundConfig = await LoadConfig(soundEventId);
@@ -48,7 +48,10 @@ namespace Data
             // then load audio file
             var audioClip = await TryLoadSound(soundConfig.audioName);
             // then run audio manager
-            _ctx.audioManager.PlaySFX(audioClip);
+            if(loop)
+                _ctx.audioManager.PlayLoopSfx(audioClip, stop);
+            else
+                _ctx.audioManager.PlaySfx(audioClip);
         }
 
         private async Task<PhraseSfxEventSo> LoadConfig(string soundEventId)

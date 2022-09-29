@@ -247,11 +247,18 @@ public class LevelScenePm : IDisposable
                 break;
             case PhraseEventTypes.Video:
                 break;
-            case PhraseEventTypes.SoundEffect:
+            case PhraseEventTypes.SoundSfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
-                _ctx.phraseEventSoundLoader.LoadEvent(pEvent.eventId);
+                _ctx.phraseEventSoundLoader.LoadEvent(pEvent.eventId,false, pEvent.stop);
                 break;
-            case PhraseEventTypes.VideoEffect:
+            case PhraseEventTypes.SoundLoopSfx:
+                _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
+                _ctx.phraseEventSoundLoader.LoadEvent(pEvent.eventId, true, pEvent.stop);
+                break;
+            case PhraseEventTypes.VideoSfx:
+                
+                break;
+            case PhraseEventTypes.VideoLoopSfx:
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

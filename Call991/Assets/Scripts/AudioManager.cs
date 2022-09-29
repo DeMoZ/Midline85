@@ -23,11 +23,13 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource musicAudioSource;
     [SerializeField] private AudioSource uiAudioSource;
     [SerializeField] private TempAudioSource tempSoundSourcePrefab;
+    [SerializeField] private LoopAudioSource loopSoundSourcePrefab;
 
     private string _languagePath;
     private Ctx _ctx;
     private string _currentMusicPath;
     private AudioClip _currentMusicClip;
+    private Dictionary<string, LoopAudioSource> _loopSounds;
 
     public void SetCtx(Ctx ctx)
     {
@@ -114,9 +116,51 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    public void PlaySFX(AudioClip audioClip)
+    public void PlaySfx(AudioClip audioClip)
     {
         var source = Instantiate<TempAudioSource>(tempSoundSourcePrefab);
         source.PlayAndDestroy(audioClip);
+    }
+
+    public void PlayLoopSfx(AudioClip audioClip, bool stop)
+    {
+        var audioName = audioClip.name;
+        
+        _loopSounds ??= new Dictionary<string, LoopAudioSource>();
+        _loopSounds.TryGetValue(audioName, out var source);
+
+        if (source)
+        {
+            if (stop)
+            {
+                source.Destroy();
+                _loopSounds.Remove(audioName);
+            }
+        }
+        else
+        {
+            if (stop)
+            {
+            }
+            else
+            {
+                source = Instantiate<LoopAudioSource>(loopSoundSourcePrefab);
+                source.Play(audioClip);
+                _loopSounds.Add(audioName, source);
+            }
+        }
+    }
+
+    public void OnSceneSwitch()
+    {
+        _loopSounds ??= new Dictionary<string, LoopAudioSource>();
+
+        foreach (var loop in _loopSounds)
+        {
+            if(loop.Value!=null)
+                loop.Value.Destroy();
+        }
+        
+        _loopSounds.Clear();
     }
 }
