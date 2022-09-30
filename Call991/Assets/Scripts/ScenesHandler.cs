@@ -110,7 +110,6 @@ public class ScenesHandler : IDisposable
 
         //var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P";
         var phraseSoundPath = "Sounds/Ru/RU_7_P";
-        var phraseEventSoundPath = "Sounds/EventSounds";
         
         _ctx.audioManager.OnSceneSwitch();
         
@@ -124,7 +123,6 @@ public class ScenesHandler : IDisposable
             onSwitchScene = _ctx.onSwitchScene,
             sceneVideoUrl = sceneVideoUrl,
             phraseSoundPath = phraseSoundPath,
-            phraseEventSoundPath = phraseEventSoundPath,
             audioManager = _ctx.audioManager,
         });
 

@@ -10,22 +10,22 @@ namespace Data
 {
     public class PhraseEventSoundLoader : IDisposable
     {
-        private AudioClip _audioClip;
-
-        private string _streamingPath;
-        private string _audioPath;
-
-        private Ctx _ctx;
-        private CompositeDisposable _disposables;
-
         public struct Ctx
         {
             public string eventSoPath;
             public string streamingPath; // *strAssets*/Sounds/EventSounds
-            public string resourcesPath;
+            public string resourcesPath; // *Resources*/Sounds/EventSounds
             public AudioManager audioManager;
         }
 
+        private Ctx _ctx;
+        private AudioClip _audioClip;
+
+        private string _streamingPath;
+        private string _audioPath;
+        private CompositeDisposable _disposables;
+
+        
         public PhraseEventSoundLoader(Ctx ctx)
         {
             _ctx = ctx;
@@ -36,7 +36,7 @@ namespace Data
 
         public async Task LoadEvent(string soundEventId, bool loop, bool stop)
         {
-            // load audio event config from resources
+            // Load audio event config from resources
             var soundConfig = await LoadConfig(soundEventId);
 
             if (soundConfig == null)
@@ -45,13 +45,29 @@ namespace Data
                 return;
             }
 
-            // then load audio file
-            var audioClip = await TryLoadSound(soundConfig.audioName);
-            // then run audio manager
-            if(loop)
-                _ctx.audioManager.PlayLoopSfx(audioClip, stop);
+            // Load audio file
+            AudioClip audioClip;
+            if (soundConfig.clip)
+                audioClip = soundConfig.audioClip;
             else
+                audioClip = await TryLoadStreamingSound(soundConfig.audioName);
+
+            if (audioClip == null)
+            {
+                Debug.LogError($"[{this}] AudioFile {soundConfig.audioName} wasnt loaded ");
+                return;
+            }
+
+            // Run audio manager
+            if (loop)
+            {
+                 _ctx.audioManager.PlayLoopSfx(audioClip, stop);
+                 ResourcesLoader.UnloadUnused();
+            }
+            else
+            {
                 _ctx.audioManager.PlaySfx(audioClip);
+            }
         }
 
         private async Task<PhraseSfxEventSo> LoadConfig(string soundEventId)
@@ -61,7 +77,7 @@ namespace Data
             return conf;
         }
 
-        private async Task<AudioClip> TryLoadSound(string audioName)
+        private async Task<AudioClip> TryLoadStreamingSound(string audioName)
         {
             _audioPath = Path.Combine(_streamingPath, audioName + ".wav");
             var isLoaded = false;
@@ -84,7 +100,7 @@ namespace Data
             var request = UnityWebRequestMultimedia.GetAudioClip(_audioPath, AudioType.WAV);
             yield return request.SendWebRequest();
 
-            if (request.result != UnityWebRequest.Result.Success) //.ConnectionError)
+            if (request.result != UnityWebRequest.Result.Success)
             {
                 Debug.LogError($"[{this}] audio wasn't loaded: {_audioPath}\n{request.error}");
                 yield break;
@@ -94,7 +110,7 @@ namespace Data
                 _audioClip = DownloadHandlerAudioClip.GetContent(request);
             }
         }
-
+        
         public void Dispose()
         {
             _disposables.Dispose();

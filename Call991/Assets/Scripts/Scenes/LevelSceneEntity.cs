@@ -16,7 +16,6 @@ public class LevelSceneEntity : IGameScene
         public PlayerProfile profile;
         public string sceneVideoUrl;
         public string phraseSoundPath;
-        public string phraseEventSoundPath;
         public AudioManager audioManager;
     }
 
@@ -74,10 +73,10 @@ public class LevelSceneEntity : IGameScene
 
         var phraseEventSoundLoader = new PhraseEventSoundLoader(new PhraseEventSoundLoader.Ctx
         {
-            eventSoPath = "PhraseSFX",
-            resourcesPath = _ctx.phraseEventSoundPath,
             audioManager = _ctx.audioManager,
+            eventSoPath = "PhraseSFX",
             streamingPath = "Sounds/EventSounds",
+            resourcesPath = "Sounds/EventSounds",
         }).AddTo(_disposables);
 
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
