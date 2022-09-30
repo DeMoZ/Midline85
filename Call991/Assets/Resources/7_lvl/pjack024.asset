@@ -287,6 +287,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.033
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.jack.033
     person: 3
@@ -303,6 +304,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.031
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.jack.034
     person: 3
@@ -335,6 +337,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.038
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.059
     person: 1
@@ -390,6 +393,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.015
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.035
     person: 2
@@ -442,6 +446,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.046
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.062
     person: 1
@@ -527,6 +532,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.012
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.038
     person: 2
@@ -616,8 +622,9 @@ MonoBehaviour:
     choicesDuration: 0
     addEvent: 1
     phraseEvents:
-    - eventId: e.sfx.043
+    - eventId: e.sfx.055
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.071
     person: 1
@@ -660,6 +667,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.041
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.044
     person: 2
@@ -676,6 +684,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.042
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.jack.025
     person: 3
@@ -815,8 +824,12 @@ MonoBehaviour:
     choices: []
     overrideChoicesDuration: 0
     choicesDuration: 0
-    addEvent: 0
-    phraseEvents: []
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.054
+      eventType: 2
+      stop: 0
+      delay: 0
   - phraseId: p.jack.041
     person: 1
     screenPlace: 2
@@ -832,6 +845,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.006
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.041
     person: 2
@@ -861,4 +875,5 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.007
       eventType: 2
+      stop: 0
       delay: 0

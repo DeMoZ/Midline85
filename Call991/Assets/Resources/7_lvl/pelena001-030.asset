@@ -55,7 +55,8 @@ MonoBehaviour:
     addEvent: 1
     phraseEvents:
     - eventId: e.sfx.026
-      eventType: 2
+      eventType: 4
+      stop: 0
       delay: 0
   - phraseId: p.elena.002
     person: 1
@@ -148,8 +149,9 @@ MonoBehaviour:
     choicesDuration: 0
     addEvent: 1
     phraseEvents:
-    - eventId: e.sfx.027
+    - eventId: e.sfx.050
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.006
     person: 1
@@ -207,6 +209,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.023
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.007
     person: 1
@@ -262,6 +265,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.024
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.008
     person: 2
@@ -278,6 +282,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.025
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.010
     person: 1
@@ -320,6 +325,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.021
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.010
     person: 2
@@ -336,6 +342,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.022
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.011
     person: 2
@@ -380,6 +387,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.009
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.013
     person: 1
@@ -396,6 +404,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.010
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.014
     person: 1
@@ -412,6 +421,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.011
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.012
     person: 2
@@ -480,6 +490,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.016
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.016
     person: 2
@@ -496,6 +507,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.017
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.017
     person: 2
@@ -512,6 +524,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.018
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.017
     person: 1
@@ -552,6 +565,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.019
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.018
     person: 1
@@ -620,6 +634,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.020
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.lara.021
     person: 2
@@ -750,6 +765,7 @@ MonoBehaviour:
     phraseEvents:
     - eventId: e.sfx.028
       eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.elena.022.1
     person: 1
@@ -843,10 +859,15 @@ MonoBehaviour:
     choices: []
     overrideChoicesDuration: 0
     choicesDuration: 0
-    addEvent: 0
+    addEvent: 1
     phraseEvents:
     - eventId: e.sfx.029
       eventType: 2
+      stop: 0
+      delay: 0
+    - eventId: e.sfx.035
+      eventType: 2
+      stop: 0
       delay: 0
   - phraseId: p.jack.007
     person: 3
@@ -859,8 +880,16 @@ MonoBehaviour:
     choices: []
     overrideChoicesDuration: 0
     choicesDuration: 0
-    addEvent: 0
-    phraseEvents: []
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.034
+      eventType: 2
+      stop: 0
+      delay: 0
+    - eventId: e.sfx.036
+      eventType: 2
+      stop: 0
+      delay: 0
   - phraseId: p.jack.007.1
     person: 3
     screenPlace: 6
