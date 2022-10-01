@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Configs;
 using Data;
@@ -58,8 +59,9 @@ public class LevelSceneEntity : IGameScene
         var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
-
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
+        var onLevelEnd = new ReactiveCommand<List<StatisticElement>>().AddTo(_disposables);
+        
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
         var videoPlayer = _ui.VideoPlayer;
@@ -89,6 +91,7 @@ public class LevelSceneEntity : IGameScene
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onAfterEnter = onAfterEnter,
+            onLevelEnd = onLevelEnd,
             gameSet = _ctx.gameSet,
             buttons = buttons,
             countDown = countDown,
@@ -104,8 +107,9 @@ public class LevelSceneEntity : IGameScene
             onPhraseSoundEvent = onPhraseSoundEvent,
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
-            pool = uiPool,
             onShowIntro = onShowIntro,
+            onLevelEnd = onLevelEnd,
+            pool = uiPool,
         });
 
         onAfterEnter.Execute();

@@ -34,7 +34,11 @@ namespace Data
             _streamingPath = "file:///" + Path.Combine(Application.streamingAssetsPath, _ctx.streamingPath);
         }
 
-        public async Task LoadEvent(string soundEventId, bool loop, bool stop)
+        public async Task LoadMusicEvent(string soundEventId)
+        {
+        }
+
+        public async Task LoadSfxEvent(string soundEventId, bool loop, bool stop)
         {
             // Load audio event config from resources
             var soundConfig = await LoadConfig(soundEventId);

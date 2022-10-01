@@ -10,26 +10,26 @@ public class PlayerProfile
     private const string TextLanguageKey = "TextLanguage";
     private const string AudioLanguageKey = "AudioLanguage";
     private const string PlayerDataKey = "PlayerData";
-    
+
     private Language _textLanguage;
-    private Language _audioLanguage;   
-    
+    private Language _audioLanguage;
+
     private PlayerData _playerData;
     private ReactiveCommand<Language> _onAudioLanguage;
 
     public PlayerProfile(ReactiveCommand<Language> onAudioLanguage)
     {
         _onAudioLanguage = onAudioLanguage;
-            
+
         var textLanguage = PlayerPrefs.GetString(TextLanguageKey, Language.EN.ToString());
         Enum.TryParse(textLanguage, out _textLanguage);
-        
+
         //var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.EN.ToString());
         var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.RU.ToString());
         Enum.TryParse(audioLanguage, out _audioLanguage);
 
         _onAudioLanguage?.Execute(_audioLanguage);
-        
+
         var savedProfile = PlayerPrefs.GetString(PlayerDataKey, null);
         _playerData = string.IsNullOrWhiteSpace(savedProfile)
             ? new PlayerData()
@@ -46,6 +46,7 @@ public class PlayerProfile
     {
         _playerData.phrases.Clear();
     }
+
     public void ClearChoices()
     {
         _playerData.choices.Clear();
@@ -66,7 +67,7 @@ public class PlayerProfile
         get => _audioLanguage;
         set
         {
-            _audioLanguage = value; 
+            _audioLanguage = value;
             SaveLanguages();
         }
     }
@@ -95,7 +96,7 @@ public class PlayerProfile
     public void AddPhrase(string phraseId)
     {
         if (_playerData.phrases.Contains(phraseId)) return;
-        
+
         _playerData.phrases.Add(phraseId);
         SavePlayerData();
     }
@@ -103,12 +104,12 @@ public class PlayerProfile
     public void AddChoice(string choiceId)
     {
         if (_playerData.choices.Contains(choiceId)) return;
-        
+
         _playerData.choices.Add(choiceId);
         SavePlayerData();
     }
 
-    public bool ContainsChoice(string choiceId) => 
+    public bool ContainsChoice(string choiceId) =>
         _playerData.choices.Contains(choiceId);
 
     public bool ContainsChoice(List<string> choices)
@@ -121,8 +122,12 @@ public class PlayerProfile
 
         return true;
     }
-    public bool ContainsPhrase(string phraseId) => 
+
+    public bool ContainsPhrase(string phraseId) =>
         _playerData.phrases.Contains(phraseId);
+
+    public PlayerData GetPlayerData() =>
+        _playerData;
 
     private void SavePlayerData() =>
         PlayerPrefs.SetString(PlayerDataKey, JsonConvert.SerializeObject(_playerData));
@@ -134,14 +139,14 @@ public class PlayerProfile
 
         _onAudioLanguage?.Execute(_audioLanguage);
     }
-    
-    #if UNITY_EDITOR
+
+#if UNITY_EDITOR
     public void SaveLanguages(Language textLanguage, Language audioLanguage)
     {
         PlayerPrefs.SetString(TextLanguageKey, textLanguage.ToString());
         PlayerPrefs.SetString(AudioLanguageKey, audioLanguage.ToString());
     }
-    #endif
+#endif
 }
 
 public class PlayerData

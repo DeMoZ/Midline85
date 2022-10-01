@@ -21,6 +21,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<PhraseSet> onShowPhrase;
         public ReactiveCommand<PhraseSet> onHidePhrase;
         public ReactiveCommand<bool> onShowIntro;
+        public ReactiveCommand<List<StatisticElement>> onLevelEnd;
 
         public Dialogues dialogues;
         public PlayerProfile profile;
@@ -29,7 +30,8 @@ public class LevelScenePm : IDisposable
 
         public ReactiveCommand onAfterEnter;
         public GameSet gameSet;
-        
+        public List<Achievement> achievements;
+
         public PhraseSoundPlayer phraseSoundPlayer;
         public PhraseEventSoundLoader phraseEventSoundLoader;
     }
@@ -62,30 +64,30 @@ public class LevelScenePm : IDisposable
     private async void OnAfterEnter()
     {
         InitButtons();
-        
+
 #if !BUILD_PRODUCTION
         if (!string.IsNullOrWhiteSpace(_ctx.profile.CheatPhrase))
         {
             _ctx.profile.ClearPhrases();
             _ctx.profile.ClearChoices();
-            
+
             _ctx.profile.LastPhrase = _ctx.profile.CheatPhrase;
         }
 #endif
-        
+
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-        
+
         await ShowIntro();
-        
+
         RunDialogue();
     }
 
     private async Task ShowIntro()
     {
         _ctx.onShowIntro.Execute(true);
-       await  Task.Delay((int)(_ctx.gameSet.levelIntroDelay*1000));
-       _ctx.onShowIntro.Execute(false);
+        await Task.Delay((int) (_ctx.gameSet.levelIntroDelay * 1000));
+        _ctx.onShowIntro.Execute(false);
     }
 
     private async Task RunDialogue()
@@ -96,26 +98,27 @@ public class LevelScenePm : IDisposable
             Debug.LogError($"[{this}] _ctx.profile.LastPhrase: {_ctx.profile.LastPhrase}. Not found in phrases.");
             return;
         }
-        
+
         await _ctx.phraseSoundPlayer.TryLoadDialogue(_currentPhrase.Phrase.GetOverridenPhraseId());
 
-        Observable.FromCoroutine(PhraseRoutine).Subscribe( _ =>
+        Observable.FromCoroutine(PhraseRoutine).Subscribe(_ =>
         {
             Debug.Log($"[{this}] Coroutine end");
 
             if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
                 _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
-            
+
             switch (_currentPhrase.nextIs)
             {
                 case NextIs.Phrase:
                     NextPhrase();
                     break;
-
                 case NextIs.Choices:
                     NextChoices();
                     break;
-
+                case NextIs.LevelEnd:
+                    LevelEnd();
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -137,11 +140,9 @@ public class LevelScenePm : IDisposable
             var isBlocked = IsBlocked(_currentPhrase.choices[i]);
             _ctx.buttons[i].Show(_currentPhrase.choices[i].choiceId, isBlocked);
         }
-        
-        Observable.FromCoroutine(ChoiceRoutine).Subscribe( _ =>
-        {
-            Debug.Log($"[{this}] Choice coroutine end");
-        }).AddTo(_disposables);
+
+        Observable.FromCoroutine(ChoiceRoutine).Subscribe(_ => { Debug.Log($"[{this}] Choice coroutine end"); })
+            .AddTo(_disposables);
     }
 
     private bool IsBlocked(Choice choice)
@@ -153,7 +154,7 @@ public class LevelScenePm : IDisposable
 
         return false;
     }
-    
+
     private IEnumerator ChoiceRoutine()
     {
         var timer = 0f;
@@ -161,20 +162,20 @@ public class LevelScenePm : IDisposable
         var time = _currentPhrase.overrideChoicesDuration
             ? _currentPhrase.choicesDuration
             : _ctx.gameSet.choicesDuration;
-        
+
         _ctx.countDown.Show(time);
-        _ctx.audioManager.PlayUiSound(SoundUiTypes.Timer,true);
+        _ctx.audioManager.PlayUiSound(SoundUiTypes.Timer, true);
 
         yield return new WaitForSeconds(_ctx.gameSet.buttonsAppearDuration);
         while (timer <= time)
         {
             yield return null;
             timer += Time.deltaTime;
-            
-            if(_choiceDone)
+
+            if (_choiceDone)
                 yield break;
         }
-        
+
         Debug.LogWarning($"[{this}] choice time up! Random choice!");
 
         var isBlocked = true;
@@ -186,7 +187,7 @@ public class LevelScenePm : IDisposable
             if (isBlocked)
                 yield return null;
         }
-        
+
         OnClickChoiceButton(index);
     }
 
@@ -197,9 +198,80 @@ public class LevelScenePm : IDisposable
             Debug.LogWarning($"[{this}] nextId not set up for phrase {_currentPhrase.phraseId}");
             return;
         }
-        
+
         _ctx.profile.LastPhrase = _currentPhrase.nextId;
         RunDialogue();
+    }
+
+    private async Task LevelEnd()
+    {
+        List<StatisticElement> statistics = GetStatistics();
+        _ctx.onLevelEnd?.Execute(statistics);
+    }
+
+    private List<StatisticElement> GetStatistics()
+    {
+        var statisticElements = new List<StatisticElement>();
+        var choices = _ctx.profile.GetPlayerData().choices;
+
+        foreach (var achievement in _ctx.achievements)
+        {
+            var openTop = GetAchievementState(achievement.openTop, choices);
+            var selectTop = GetAchievementState(achievement.selectTop, choices);
+            var openBottom = GetAchievementState(achievement.openBottom, choices);
+            var selectBottom = GetAchievementState(achievement.selectBottom, choices);
+
+            var stateTop = openTop
+                ? selectTop ? DescriptionState.Selected : DescriptionState.Opened
+                : DescriptionState.Closed;
+            var stateBottom = openBottom
+                ? selectBottom ? DescriptionState.Selected : DescriptionState.Opened
+                : DescriptionState.Closed;
+
+            statisticElements.Add(new StatisticElement
+            {
+                sprite = achievement.sprite,
+                descriptionTop = new DescriptionElement
+                {
+                    state = stateTop,
+                    description = achievement.descriptionTopKey,
+                },
+                descriptionBottom = new DescriptionElement
+                {
+                    state = stateBottom,
+                    description = achievement.descriptionTopKey,
+                },
+            });
+        }
+
+        return statisticElements;
+    }
+
+    private bool GetAchievementState(Dictionary<string, bool> achievement, List<string> choices)
+    {
+        var result = true;
+
+        foreach (var pair in achievement)
+        {
+            if (pair.Value)
+            {
+                if (!choices.Contains(pair.Key))
+                {
+                    result = false;
+                    break;
+                }
+            }
+            else
+            {
+                if (choices.Contains(pair.Key))
+                {
+                    result = false;
+                    break;
+                }
+            }
+        }
+
+        return result;
     }
 
     private IEnumerator PhraseRoutine()
@@ -211,7 +283,7 @@ public class LevelScenePm : IDisposable
         }
 
         var timer = 0f;
-        
+
         var pEvents = new List<PhraseEvent>();
         if (_currentPhrase.addEvent)
             pEvents.AddRange(_currentPhrase.phraseEvents);
@@ -226,12 +298,12 @@ public class LevelScenePm : IDisposable
 
             for (var i = pEvents.Count - 1; i >= 0; i--)
             {
-                 var pEvent = pEvents[i];
-                 if (timer >= pEvent.delay)
-                 {
-                     ExecutePhraseEvent(pEvent);
-                     pEvents.RemoveAt(i);
-                 }
+                var pEvent = pEvents[i];
+                if (timer >= pEvent.delay)
+                {
+                    ExecutePhraseEvent(pEvent);
+                    pEvents.RemoveAt(i);
+                }
             }
 
             timer += Time.deltaTime;
@@ -242,21 +314,21 @@ public class LevelScenePm : IDisposable
     {
         switch (pEvent.eventType)
         {
-            case PhraseEventTypes.Sound:
-                
+            case PhraseEventTypes.Music:
+                _ctx.phraseEventSoundLoader.LoadMusicEvent(pEvent.eventId);
                 break;
             case PhraseEventTypes.Video:
                 break;
             case PhraseEventTypes.SoundSfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
-                _ctx.phraseEventSoundLoader.LoadEvent(pEvent.eventId,false, pEvent.stop);
+                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, false, pEvent.stop);
                 break;
             case PhraseEventTypes.SoundLoopSfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
-                _ctx.phraseEventSoundLoader.LoadEvent(pEvent.eventId, true, pEvent.stop);
+                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop);
                 break;
             case PhraseEventTypes.VideoSfx:
-                
+
                 break;
             case PhraseEventTypes.VideoLoopSfx:
                 break;
@@ -264,14 +336,14 @@ public class LevelScenePm : IDisposable
                 throw new ArgumentOutOfRangeException();
         }
     }
-    
+
     private void InitButtons()
     {
         _ctx.countDown.SetCtx(new CountDownView.Ctx
         {
             buttonsAppearDuration = _ctx.gameSet.buttonsAppearDuration,
         });
-        
+
         for (int i = 0; i < _ctx.buttons.Count; i++)
         {
             _ctx.buttons[i].SetCtx(new ChoiceButtonView.Ctx
@@ -288,9 +360,9 @@ public class LevelScenePm : IDisposable
     private async void OnClickChoiceButton(int index)
     {
         if (_choiceDone) return;
-        
+
         _ctx.audioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
-        
+
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
         _choiceDone = true;
         _ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
@@ -303,15 +375,15 @@ public class LevelScenePm : IDisposable
                 _ctx.buttons[i].SetClicked();
                 Debug.Log($"[{this}] pressed button {i}");
             }
-            
+
             _ctx.buttons[i].Hide(i == index);
         }
 
         await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 1000));
-        
-        foreach (var button in _ctx.buttons) 
+
+        foreach (var button in _ctx.buttons)
             button.gameObject.SetActive(false);
-        
+
         RunDialogue();
     }
 

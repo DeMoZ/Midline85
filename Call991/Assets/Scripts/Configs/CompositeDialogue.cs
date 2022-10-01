@@ -1,12 +1,18 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using I2.Loc;
+using Sirenix.OdinInspector;
+using Sirenix.Serialization;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class CompositeDialogue : ScriptableObject
+public class CompositeDialogue : SerializedScriptableObject
 {
     public List<Dialogues> dialogues;
+    [Space]
+    [OdinSerialize] [NonSerialized] public List<Achievement> achievements;
 
     public async Task<Dialogues> LoadDialogues(Language language, string lvl)
     {
@@ -39,7 +45,21 @@ public class CompositeDialogue : ScriptableObject
             phrase.totalTime = 3f;
             phrase.SeparatePhrase();
         }
-        
+
         return phrase;
     }
+}
+
+[Serializable]
+public class Achievement
+{
+    public Sprite sprite;
+    [Space]
+    public LocalizedString descriptionTopKey;
+    public Dictionary<string, bool> openTop;
+    public Dictionary<string, bool> selectTop;
+    [Space]
+    public LocalizedString descriptionBottomKey;
+    public Dictionary<string, bool> openBottom;
+    public Dictionary<string, bool> selectBottom;
 }

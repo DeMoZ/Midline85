@@ -16,7 +16,8 @@ namespace UI
             public ReactiveCommand<PhraseSet> onShowPhrase;
             public ReactiveCommand<PhraseSet> onHidePhrase;
             public ReactiveCommand<bool> onShowIntro;
-            
+            public ReactiveCommand<List<StatisticElement>> onLevelEnd;
+
             public Pool pool;
         }
 

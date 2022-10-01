@@ -29,6 +29,7 @@ public enum NextIs
 {
     Phrase,
     Choices,
+    LevelEnd,
 }
 
 public enum SoundUiTypes
@@ -40,10 +41,17 @@ public enum SoundUiTypes
 
 public enum PhraseEventTypes
 {
-    Sound,
+    Music,
     Video,
     SoundSfx,
     VideoSfx,
     SoundLoopSfx,
     VideoLoopSfx,
+}
+
+public enum DescriptionState
+{
+    Closed,
+    Opened,
+    Selected,
 }
