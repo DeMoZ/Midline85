@@ -1,5 +1,3 @@
-using System;
-using System.Globalization;
 using System.Threading.Tasks;
 using UI;
 using UnityEngine;
@@ -8,6 +6,8 @@ public class EntryRoot : MonoBehaviour
 {
     private static EntryRoot _instance;
     [SerializeField] private AudioManager audioManager;
+    [SerializeField] private VideoManager videoManager;
+    
     private async void Awake()
     {
         if (_instance == null)
@@ -42,6 +42,7 @@ public class EntryRoot : MonoBehaviour
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             audioManager = audioManager,
+            videoManager = videoManager,
         });
     }
 

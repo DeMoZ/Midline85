@@ -21,6 +21,7 @@ public class LevelSceneEntity : IGameScene
         public string phraseSoundPath;
         public string endLevelConfigsPath;
         public AudioManager audioManager;
+        public VideoManager videoManager;
     }
 
     private Ctx _ctx;
@@ -71,8 +72,9 @@ public class LevelSceneEntity : IGameScene
 
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
-        var videoPlayer = _ui.VideoPlayer;
-        videoPlayer.url = _ctx.sceneVideoUrl;
+        //var videoPlayer = _ui.VideoPlayer;
+        _ctx.videoManager.PlayVideo(_ctx.sceneVideoUrl);
+        
 
         var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {

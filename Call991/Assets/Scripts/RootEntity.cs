@@ -11,6 +11,7 @@ public class RootEntity : IDisposable
     public struct Ctx
     {
         public AudioManager audioManager;
+        public VideoManager videoManager;
     }
 
     private Ctx _ctx;
@@ -40,8 +41,13 @@ public class RootEntity : IDisposable
             voiceFolder = voiceFolder,
             levelFolder = levelFolder,
         });
-
         _ctx.audioManager.PlayMusic("Intro");
+
+        _ctx.videoManager.SetCtx(new VideoManager.Ctx
+        {
+            gameSet = gameSet,
+        });
+
         var profile = new PlayerProfile(onAudioLanguage);
         SetLanguage(profile.TextLanguage);
 
@@ -58,6 +64,7 @@ public class RootEntity : IDisposable
             onSwitchScene = onSwitchScene,
             profile = profile,
             audioManager = _ctx.audioManager,
+            videoManager = _ctx.videoManager,
         }).AddTo(_diposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

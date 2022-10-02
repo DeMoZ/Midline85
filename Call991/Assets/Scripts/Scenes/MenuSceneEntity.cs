@@ -10,6 +10,7 @@ public class MenuSceneEntity : IGameScene
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
         public AudioManager audioManager;
+        public VideoManager videoManager;
     }
 
     private Ctx _ctx;

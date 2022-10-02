@@ -14,6 +14,7 @@ public class ScenesHandler : IDisposable
         public PlayerProfile profile;
         public AudioManager audioManager;
         public GameSet gameSet;
+        public VideoManager videoManager;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -91,6 +92,7 @@ public class ScenesHandler : IDisposable
             onSwitchScene = _ctx.onSwitchScene,
             profile = _ctx.profile,
             audioManager = _ctx.audioManager,
+            videoManager = _ctx.videoManager,
             constructorTask = constructorTask,
         });
         
@@ -126,6 +128,7 @@ public class ScenesHandler : IDisposable
             phraseSoundPath = phraseSoundPath,
             endLevelConfigsPath = endLevelConfigsPath,
             audioManager = _ctx.audioManager,
+            videoManager = _ctx.videoManager,
         });
 
         await constructorTask.Value;
