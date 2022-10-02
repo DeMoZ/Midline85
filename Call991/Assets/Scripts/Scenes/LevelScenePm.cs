@@ -21,7 +21,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<PhraseSet> onShowPhrase;
         public ReactiveCommand<PhraseSet> onHidePhrase;
         public ReactiveCommand<bool> onShowIntro;
-        public ReactiveCommand<List<StatisticElement>> onLevelEnd;
+        public ReactiveCommand<string> onPhraseLevelEndEvent;
 
         public Dialogues dialogues;
         public PlayerProfile profile;
@@ -30,8 +30,7 @@ public class LevelScenePm : IDisposable
 
         public ReactiveCommand onAfterEnter;
         public GameSet gameSet;
-        public List<Achievement> achievements;
-
+    
         public PhraseSoundPlayer phraseSoundPlayer;
         public PhraseEventSoundLoader phraseEventSoundLoader;
     }
@@ -117,7 +116,8 @@ public class LevelScenePm : IDisposable
                     NextChoices();
                     break;
                 case NextIs.LevelEnd:
-                    LevelEnd();
+                    //LevelEnd();
+                    Debug.LogWarning($"[{this}] LevelEnd on {_currentPhrase.phraseId}");
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -202,78 +202,7 @@ public class LevelScenePm : IDisposable
         _ctx.profile.LastPhrase = _currentPhrase.nextId;
         RunDialogue();
     }
-
-    private async Task LevelEnd()
-    {
-        List<StatisticElement> statistics = GetStatistics();
-        _ctx.onLevelEnd?.Execute(statistics);
-    }
-
-    private List<StatisticElement> GetStatistics()
-    {
-        var statisticElements = new List<StatisticElement>();
-        var choices = _ctx.profile.GetPlayerData().choices;
-
-        foreach (var achievement in _ctx.achievements)
-        {
-            var openTop = GetAchievementState(achievement.openTop, choices);
-            var selectTop = GetAchievementState(achievement.selectTop, choices);
-            var openBottom = GetAchievementState(achievement.openBottom, choices);
-            var selectBottom = GetAchievementState(achievement.selectBottom, choices);
-
-            var stateTop = openTop
-                ? selectTop ? DescriptionState.Selected : DescriptionState.Opened
-                : DescriptionState.Closed;
-            var stateBottom = openBottom
-                ? selectBottom ? DescriptionState.Selected : DescriptionState.Opened
-                : DescriptionState.Closed;
-
-            statisticElements.Add(new StatisticElement
-            {
-                sprite = achievement.sprite,
-                descriptionTop = new DescriptionElement
-                {
-                    state = stateTop,
-                    description = achievement.descriptionTopKey,
-                },
-                descriptionBottom = new DescriptionElement
-                {
-                    state = stateBottom,
-                    description = achievement.descriptionTopKey,
-                },
-            });
-        }
-
-        return statisticElements;
-    }
-
-    private bool GetAchievementState(Dictionary<string, bool> achievement, List<string> choices)
-    {
-        var result = true;
-
-        foreach (var pair in achievement)
-        {
-            if (pair.Value)
-            {
-                if (!choices.Contains(pair.Key))
-                {
-                    result = false;
-                    break;
-                }
-            }
-            else
-            {
-                if (choices.Contains(pair.Key))
-                {
-                    result = false;
-                    break;
-                }
-            }
-        }
-
-        return result;
-    }
-
+    
     private IEnumerator PhraseRoutine()
     {
         if (_currentPhrase == null)
@@ -331,6 +260,10 @@ public class LevelScenePm : IDisposable
 
                 break;
             case PhraseEventTypes.VideoLoopSfx:
+                break;
+            case PhraseEventTypes.LevelEnd:
+                Debug.LogWarning($"[{this}] PhraseEventTypes.LevelEnd to be execute");
+                _ctx.onPhraseLevelEndEvent.Execute(pEvent.eventId);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

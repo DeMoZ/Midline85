@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UniRx;
 using UnityEngine;
 
 namespace Configs
@@ -16,6 +15,8 @@ namespace Configs
         public float fastButtonFadeDuration = 0.3f;
         public float slowButtonFadeDuration = 0.6f;
         [Space] public float levelIntroDelay = 2f;
+        public float levelEndLevelUiDisappearTime = 3f;
+        public float levelEndStatisticsUiFadeTime = 1f;
         
         [Space]
         public AudioClip menuBtnClip;
