@@ -83,6 +83,18 @@ namespace Core
 
         private bool GetAchievementState(Dictionary<string, bool> achievement, List<string> choices)
         {
+            /*
+            // TODO REMOVE, Test only
+            choices.Clear();
+            choices.AddRange(new List<string>
+            {
+                "c.word.034",
+                "C.word.037",
+                "c.word.055",
+                "c.word.036"
+            });
+            //<-------
+            */
             var result = true;
             if (achievement == null) return false;
             
