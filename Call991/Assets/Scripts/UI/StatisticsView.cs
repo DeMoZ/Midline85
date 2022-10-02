@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using DG.Tweening;
+using I2.Loc;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
@@ -16,7 +17,9 @@ namespace UI
         [SerializeField] private MenuButtonView menuButton = default;
         [SerializeField] private GameObject statisticsObjects = default;
         [SerializeField] private Image fadeImage = default;
-        [SerializeField] private List<StatisticsCellView> cells = default;
+        [Space] [SerializeField] private LocalizedString lockedTextKey = default;
+
+        [Space] [SerializeField] private List<StatisticsCellView> cells = default;
 
         private Ctx _ctx;
         private Color fadeImageColor;
@@ -25,7 +28,7 @@ namespace UI
         {
             gameObject.SetActive(false);
         }
-        
+
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
@@ -34,7 +37,7 @@ namespace UI
             fadeImageColor = fadeImage.color;
         }
 
-        private void OnClickMenu() => 
+        private void OnClickMenu() =>
             _ctx.onClickMenuButton.Execute();
 
         public void PopulateCells(List<StatisticElement> statisticElements)
@@ -45,8 +48,8 @@ namespace UI
                 if (statisticElements.Count > i)
                 {
                     cell.image.sprite = statisticElements[i].sprite;
-                    cell.text.text = statisticElements[i].description;
-                    cell.arrow.SetActive(true);
+                    cell.text.text = statisticElements[i].isReceived ? statisticElements[i].description : lockedTextKey;
+                    cell.arrow.SetActive(statisticElements[i].isReceived);
                     cell.gameObject.SetActive(true);
                 }
                 else
@@ -63,13 +66,13 @@ namespace UI
             fadeImage.color = fadeImageColor;
             gameObject.SetActive(true);
             fadeImage.gameObject.SetActive(true);
-            fadeImage.DOFade(1, time/2).OnComplete(() => OnBlackScreenOn(time));
+            fadeImage.DOFade(1, time / 2).OnComplete(() => OnBlackScreenOn(time));
         }
 
         private void OnBlackScreenOn(float time)
         {
             statisticsObjects.SetActive(true);
-            fadeImage.DOFade(0, time/2).OnComplete(() => OnBlackScreenOff());
+            fadeImage.DOFade(0, time / 2).OnComplete(() => OnBlackScreenOff());
         }
 
         private void OnBlackScreenOff()

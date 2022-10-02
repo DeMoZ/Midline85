@@ -84,7 +84,8 @@ namespace Core
         private bool GetAchievementState(Dictionary<string, bool> achievement, List<string> choices)
         {
             var result = true;
-            return false;
+            if (achievement == null) return false;
+            
             foreach (var pair in achievement)
             {
                 var keys = pair.Key.Split('|');
