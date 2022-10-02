@@ -51,7 +51,7 @@ namespace Core
                 _ctx.phraseEventSoundLoader.LoadMusicEvent(conf.soundEventId);
 
             if(!string.IsNullOrWhiteSpace(conf.videoEventId))
-                _ctx.phraseEventVideoLoader.LoadVideoEvent(conf.soundEventId);
+                _ctx.phraseEventVideoLoader.LoadVideoEvent(conf.videoEventId);
             
             var statistics = GetStatistics();
     

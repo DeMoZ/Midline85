@@ -72,10 +72,8 @@ public class LevelSceneEntity : IGameScene
 
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
-        //var videoPlayer = _ui.VideoPlayer;
         _ctx.videoManager.PlayVideo(_ctx.sceneVideoUrl);
         
-
         var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {
             path = _ctx.phraseSoundPath,
@@ -92,7 +90,7 @@ public class LevelSceneEntity : IGameScene
 
         var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
         {
-
+            videoManager = _ctx.videoManager,
         });
         
         var levelEndPm = new LevelEndPm(new LevelEndPm.Ctx

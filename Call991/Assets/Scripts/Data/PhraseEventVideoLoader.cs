@@ -11,7 +11,7 @@ namespace Data
             public string eventSoPath;
             public string streamingPath; // *strAssets*/Sounds/EventSounds
             public string resourcesPath; // *Resources*/Sounds/EventSounds
-            public VideoManager audioManager;
+            public VideoManager videoManager;
         }
 
         private Ctx _ctx;
