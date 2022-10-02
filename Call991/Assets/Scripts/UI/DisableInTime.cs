@@ -48,7 +48,7 @@ namespace UI
                     }
                 }
             }
-            else
+            /*else
             {
                 if (alpha > alphaStart)
                 {
@@ -59,7 +59,7 @@ namespace UI
                     }
 
                 }
-            }
+            }*/
         }
 
         private void DisableIn()
