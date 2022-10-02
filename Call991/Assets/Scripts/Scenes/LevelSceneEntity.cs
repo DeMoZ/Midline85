@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Configs;
+using Core;
 using Data;
 using UI;
 using UniRx;
@@ -15,8 +16,10 @@ public class LevelSceneEntity : IGameScene
         public Dialogues dialogues;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
+        public AchievementsSo achievementsSo;
         public string sceneVideoUrl;
         public string phraseSoundPath;
+        public string endLevelConfigsPath;
         public AudioManager audioManager;
     }
 
@@ -60,8 +63,12 @@ public class LevelSceneEntity : IGameScene
         var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
-        var onLevelEnd = new ReactiveCommand<List<StatisticElement>>().AddTo(_disposables);
         
+        var onPopulateStatistics = new ReactiveCommand<List<StatisticElement>>();
+        var onPhraseLevelEndEvent = new ReactiveCommand<string>();
+        var onHideLevelUi = new ReactiveCommand<float>();
+        var onShowStatisticUi = new ReactiveCommand<float>();
+
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
         var videoPlayer = _ui.VideoPlayer;
@@ -81,6 +88,25 @@ public class LevelSceneEntity : IGameScene
             resourcesPath = "Sounds/EventSounds",
         }).AddTo(_disposables);
 
+        var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
+        {
+
+        });
+        
+        var levelEndPm = new LevelEndPm(new LevelEndPm.Ctx
+        {
+            gameSet = _ctx.gameSet,
+            onHideLevelUi = onHideLevelUi,
+            achievementsSo = _ctx.achievementsSo,
+            profile = _ctx.profile,
+            onShowStatisticUi = onShowStatisticUi,
+            onPhraseLevelEndEvent = onPhraseLevelEndEvent,
+            endLevelConfigsPath = _ctx.endLevelConfigsPath,
+            phraseEventSoundLoader = phraseEventSoundLoader,
+            phraseEventVideoLoader = phraseEventVideoLoader,
+            onPopulateStatistics = onPopulateStatistics,
+        });
+        
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             profile = _ctx.profile,
@@ -91,7 +117,6 @@ public class LevelSceneEntity : IGameScene
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onAfterEnter = onAfterEnter,
-            onLevelEnd = onLevelEnd,
             gameSet = _ctx.gameSet,
             buttons = buttons,
             countDown = countDown,
@@ -99,6 +124,7 @@ public class LevelSceneEntity : IGameScene
             phraseEventSoundLoader = phraseEventSoundLoader,
             audioManager = _ctx.audioManager,
             onShowIntro = onShowIntro,
+            onPhraseLevelEndEvent = onPhraseLevelEndEvent,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
@@ -108,7 +134,9 @@ public class LevelSceneEntity : IGameScene
             onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onShowIntro = onShowIntro,
-            onLevelEnd = onLevelEnd,
+            onHideLevelUi = onHideLevelUi,
+            onPopulateStatistics = onPopulateStatistics,
+            onShowStatisticUi = onShowStatisticUi,
             pool = uiPool,
         });
 

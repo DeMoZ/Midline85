@@ -47,11 +47,5 @@ public enum PhraseEventTypes
     VideoSfx,
     SoundLoopSfx,
     VideoLoopSfx,
-}
-
-public enum DescriptionState
-{
-    Closed,
-    Opened,
-    Selected,
+    LevelEnd,
 }

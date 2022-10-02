@@ -102,15 +102,15 @@ public class ScenesHandler : IDisposable
     {
         var tLanguage = _ctx.profile.TextLanguage;
         var aLanguage = _ctx.profile.AudioLanguage;
-
-        var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>("7_lvl_Total");
-        var dialogues = await compositeDialogue.LoadDialogues(tLanguage, "7_lvl");
+        var levelSoFolder = "7_lvl";
+        var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>(levelSoFolder + "/7_lvl_Total");
+        var dialogues = await compositeDialogue.LoadDialogues(tLanguage, levelSoFolder);
         var videoPathBuilder = new VideoPathBuilder();
         var sceneVideoUrl = videoPathBuilder.GetPath("VideoBack.mp4");
-
         //var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P";
         var phraseSoundPath = "Sounds/Ru/RU_7_P";
-        
+        var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelSoFolder + "/7_lvl_achievements");
+        var endLevelConfigsPath = levelSoFolder;
         _ctx.audioManager.OnSceneSwitch();
         
         var constructorTask = new Container<Task>();
@@ -121,8 +121,10 @@ public class ScenesHandler : IDisposable
             profile = _ctx.profile,
             dialogues = dialogues,
             onSwitchScene = _ctx.onSwitchScene,
+            achievementsSo = achievementsSo,
             sceneVideoUrl = sceneVideoUrl,
             phraseSoundPath = phraseSoundPath,
+            endLevelConfigsPath = endLevelConfigsPath,
             audioManager = _ctx.audioManager,
         });
 

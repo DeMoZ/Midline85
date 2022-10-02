@@ -108,7 +108,7 @@ namespace UI
 
         private async void OnEnable()
         {
-            var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>("7_lvl_Total"); // TODO: warning
+            var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>("7_lvl/7_lvl_Total"); // TODO: warning
             _dialogues = await compositeDialogue.LoadDialogues(Language.RU, "7_lvl"); // TODO: warning
         }
 
