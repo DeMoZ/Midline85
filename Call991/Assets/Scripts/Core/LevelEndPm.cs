@@ -130,6 +130,7 @@ namespace Core
             _disposables.Dispose();
         }
 
+        // TODO: Refactoring
         public void ShowChoices()
         {
             string s = "";
