@@ -139,6 +139,7 @@ public class LevelScenePm : IDisposable
         {
             var isBlocked = IsBlocked(_currentPhrase.choices[i]);
             _ctx.buttons[i].Show(_currentPhrase.choices[i].choiceId, isBlocked);
+            ShowChoices();
         }
 
         Observable.FromCoroutine(ChoiceRoutine).Subscribe(_ => { Debug.Log($"[{this}] Choice coroutine end"); })
@@ -323,5 +324,15 @@ public class LevelScenePm : IDisposable
     public void Dispose()
     {
         _disposables.Dispose();
+    }
+
+    public void ShowChoices()
+    {
+        string s = "";
+        for (int i = 0; i < _ctx.profile.GetPlayerData().choices.Count; i++)
+        {
+            s = s + ", " + _ctx.profile.GetPlayerData().choices[i];
+        }
+        Debug.Log(s);
     }
 }

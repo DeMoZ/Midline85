@@ -65,7 +65,6 @@ namespace Core
         {
             var statisticElements = new List<StatisticElement>();
             var choices = _ctx.profile.GetPlayerData().choices;
-
             foreach (var achievement in _ctx.achievementsSo.achievements)
             {
                 var isReceived = GetAchievementState(achievement.requirements, choices);
@@ -77,7 +76,6 @@ namespace Core
                     isReceived = isReceived,
                 });
             }
-
             return statisticElements;
         }
 
@@ -120,7 +118,7 @@ namespace Core
                     }
                 }
             }
-
+            ShowChoices();
             return result;
         }
 
@@ -130,6 +128,16 @@ namespace Core
         public void Dispose()
         {
             _disposables.Dispose();
+        }
+
+        public void ShowChoices()
+        {
+            string s = "";
+            for(int i = 0; i < _ctx.profile.GetPlayerData().choices.Count; i++)
+            {
+                s = s + ", " + _ctx.profile.GetPlayerData().choices[i];
+            }
+            Debug.Log(s);
         }
     }
 }
