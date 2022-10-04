@@ -33,6 +33,8 @@ public class LevelScenePm : IDisposable
     
         public PhraseSoundPlayer phraseSoundPlayer;
         public PhraseEventSoundLoader phraseEventSoundLoader;
+        public Sprite newspaperSprite;
+        public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
     }
 
     private Ctx _ctx;
@@ -77,9 +79,17 @@ public class LevelScenePm : IDisposable
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
 
+        await ShowNewsPaper();
         await ShowIntro();
 
         RunDialogue();
+    }
+
+    private async Task ShowNewsPaper()
+    {
+        var container = new Container<Task>();
+        _ctx.onShowNewspaper.Execute((container,_ctx.newspaperSprite));
+        await container.Value;
     }
 
     private async Task ShowIntro()
@@ -116,7 +126,6 @@ public class LevelScenePm : IDisposable
                     NextChoices();
                     break;
                 case NextIs.LevelEnd:
-                    //LevelEnd();
                     Debug.LogWarning($"[{this}] LevelEnd on {_currentPhrase.phraseId}");
                     break;
                 default:
@@ -139,8 +148,9 @@ public class LevelScenePm : IDisposable
         {
             var isBlocked = IsBlocked(_currentPhrase.choices[i]);
             _ctx.buttons[i].Show(_currentPhrase.choices[i].choiceId, isBlocked);
-            ShowChoices();
         }
+
+        PrintChoices();
 
         Observable.FromCoroutine(ChoiceRoutine).Subscribe(_ => { Debug.Log($"[{this}] Choice coroutine end"); })
             .AddTo(_disposables);
@@ -327,7 +337,7 @@ public class LevelScenePm : IDisposable
     }
 
     // TODO: Refactoring
-    public void ShowChoices()
+    public void PrintChoices()
     {
         string s = "";
         for (int i = 0; i < _ctx.profile.GetPlayerData().choices.Count; i++)

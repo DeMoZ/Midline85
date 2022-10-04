@@ -1,15 +1,10 @@
-using System;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 namespace UI
 {
     public class DisableInTime : MonoBehaviour
     {
-
-        //[SerializeField] private float time = 10f;
-
         [SerializeField] private TextMeshProUGUI[] _text;
         [SerializeField] private float speed = 0.005f;
         int actualText;
@@ -19,7 +14,6 @@ namespace UI
 
         private void Start()
         {
-            int actualText = 0;
             alpha = alphaStart;
             for (int i = 0; i < _text.Length; i++)
             {

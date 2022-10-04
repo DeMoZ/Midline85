@@ -1,3 +1,5 @@
+using System;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,22 +7,20 @@ namespace PhotoViewer.Scripts.Photo
 {
     public class PhotoView : AbstractView
     {
+        [SerializeField] private RectTransform _viewTransfrom;
         [SerializeField] private Image _image = null;
-        [SerializeField] private Sprite _defaultImage = null;
-
-        [SerializeField] private PhotoMap _photoMap = null;
-
-        private RectTransform _transform;
-
-        private RectTransform _imageTransform;
-
+        [SerializeField] private RectTransform _imageTransform;
+        [SerializeField] private MenuButtonView _closeBtn = null;
+        
         private Vector2? _defaultImageSize;
+
+        public event Action OnClose;
 
         private Vector2 ViewerSize
         {
             get
             {
-                var rect = _transform.rect;
+                var rect = _viewTransfrom.rect;
                 return new Vector2(rect.width, rect.height);
             }
         }
@@ -42,28 +42,37 @@ namespace PhotoViewer.Scripts.Photo
             }
         }
 
-        protected override void Awake()
-        {
-            _transform = GetComponent<RectTransform>();
-            _imageTransform = _image.GetComponent<RectTransform>();
+        private void OnEnable() =>
+            _closeBtn.OnClick += Close;
 
-            base.Awake();
+        private void OnDisable() =>
+            _closeBtn.OnClick -= Close;
+
+        private void Close()
+        {
+            Clear();
+            OnClose?.Invoke();
         }
 
-        protected override void ShowMap(bool show) =>
-            _photoMap.Show(show);
+        public void ShowImage(Sprite sprite)
+        {
+            var imageData = new ImageData
+            {
+                Sprite = sprite,
+            };
+
+            ShowData(imageData);
+        }
 
         protected override void ShowData(ImageData imageData)
         {
             Clear();
 
             _zoomSlider.onValueChanged.AddListener(Zoom);
-            _btnReset.Show(false);
-            
+
             _image.sprite = imageData.Sprite;
 
             RescalePhoto(imageData.Sprite);
-            _photoMap.SetSize(ImageSize, ViewerSize);
         }
 
         protected override void Zoom(float value)
@@ -74,14 +83,12 @@ namespace PhotoViewer.Scripts.Photo
             OnChange?.Invoke();
 
             _imageTransform.sizeDelta = (Vector2) (_defaultImageSize + _defaultImageSize * value * 10);
-            _photoMap.SetSize(ImageSize, ViewerSize);
         }
 
         public void RotateLeft()
         {
             var euler = _imageTransform.rotation.eulerAngles;
             _imageTransform.rotation = Quaternion.Euler(euler.x, euler.y, euler.z + 90);
-            _photoMap.SetSize(ImageSize, ViewerSize);
 
             OnChange?.Invoke();
         }
@@ -90,7 +97,6 @@ namespace PhotoViewer.Scripts.Photo
         {
             var euler = _imageTransform.rotation.eulerAngles;
             _imageTransform.rotation = Quaternion.Euler(euler.x, euler.y, euler.z - 90);
-            _photoMap.SetSize(ImageSize, ViewerSize);
 
             OnChange?.Invoke();
         }
@@ -126,9 +132,7 @@ namespace PhotoViewer.Scripts.Photo
                 newPosition.y = 0;
 
             _imageTransform.localPosition = (Vector3) newPosition;
-
-            _photoMap.SetPosition(newPosition, ImageSize, ViewerSize);
-
+            
             if (deltaPosition != Vector2.zero)
                 OnChange?.Invoke();
         }
@@ -137,8 +141,6 @@ namespace PhotoViewer.Scripts.Photo
         {
             var euler = _imageTransform.rotation.eulerAngles;
             _imageTransform.rotation = Quaternion.Euler(euler.x, euler.y, 0);
-            _image.sprite = _defaultImage;
-            _photoMap.Clear();
 
             ResetZoom();
         }

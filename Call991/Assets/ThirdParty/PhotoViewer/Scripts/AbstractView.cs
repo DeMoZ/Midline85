@@ -1,5 +1,4 @@
 ﻿using System;
-using PhotoViewer.Scripts.Buttons;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,10 +6,7 @@ namespace PhotoViewer.Scripts
 {
     public abstract class AbstractView : MonoBehaviour
     {
-        [SerializeField] protected Text _name = default;
         [SerializeField] protected Slider _zoomSlider = default;
-        [SerializeField] protected ResetButton _btnReset = default;
-        [SerializeField] protected Text _date = default;
  
         public event Action OnShow;
 
@@ -18,17 +14,10 @@ namespace PhotoViewer.Scripts
         public abstract void ApplyInput(Vector2 deltaPosition);
 
         protected Action OnChange;
-        protected abstract void ShowMap(bool show);
 
         protected abstract void ShowData(ImageData imageData);
 
         protected ImageData _currentData;
-
-        protected virtual void Awake()
-        {
-            OnChange += () => { ShowMap(true); };
-            OnChange += () => { _btnReset.Show(true); };
-        }
 
         public Slider ZoomSlider  { 
             get=>_zoomSlider;
@@ -38,12 +27,7 @@ namespace PhotoViewer.Scripts
         public void Show(ImageData imageData)
         {
             _currentData = imageData;
-            _name.text = imageData.Name;
-            _date.text = imageData.Date;
             ShowData(imageData);
-            ShowMap(false);
-            _btnReset.Show(false);
-            
             OnShow?.Invoke();
         }
 
