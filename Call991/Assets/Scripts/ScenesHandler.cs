@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Configs;
 using Data;
 using UniRx;
+using UnityEngine;
 
 public class ScenesHandler : IDisposable
 {
@@ -113,6 +114,7 @@ public class ScenesHandler : IDisposable
         var phraseSoundPath = "Sounds/Ru/RU_7_P";
         var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelSoFolder + "/7_lvl_achievements");
         var endLevelConfigsPath = levelSoFolder;
+        var newspaperSprite =  await ResourcesLoader.LoadAsync<Sprite>(levelSoFolder + "/newspaper");
         _ctx.audioManager.OnSceneSwitch();
         
         var constructorTask = new Container<Task>();
@@ -129,6 +131,7 @@ public class ScenesHandler : IDisposable
             endLevelConfigsPath = endLevelConfigsPath,
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
+            newspaperSprite = newspaperSprite,
         });
 
         await constructorTask.Value;

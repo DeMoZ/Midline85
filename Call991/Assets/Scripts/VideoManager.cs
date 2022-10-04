@@ -27,5 +27,6 @@ public class VideoManager : MonoBehaviour
     public void PlayVideo(string sceneVideoUrl)
     {
         videoPlayer.url = sceneVideoUrl;
+        videoPlayer.isLooping = true;
     }
 }

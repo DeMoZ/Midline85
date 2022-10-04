@@ -22,6 +22,7 @@ public class LevelSceneEntity : IGameScene
         public string endLevelConfigsPath;
         public AudioManager audioManager;
         public VideoManager videoManager;
+        public Sprite newspaperSprite;
     }
 
     private Ctx _ctx;
@@ -69,6 +70,7 @@ public class LevelSceneEntity : IGameScene
         var onPhraseLevelEndEvent = new ReactiveCommand<string>();
         var onHideLevelUi = new ReactiveCommand<float>();
         var onShowStatisticUi = new ReactiveCommand<float>();
+        var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>();
 
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
@@ -125,6 +127,8 @@ public class LevelSceneEntity : IGameScene
             audioManager = _ctx.audioManager,
             onShowIntro = onShowIntro,
             onPhraseLevelEndEvent = onPhraseLevelEndEvent,
+            newspaperSprite = _ctx.newspaperSprite,
+            onShowNewspaper = onShowNewspaper,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
@@ -137,6 +141,7 @@ public class LevelSceneEntity : IGameScene
             onHideLevelUi = onHideLevelUi,
             onPopulateStatistics = onPopulateStatistics,
             onShowStatisticUi = onShowStatisticUi,
+            onShowNewspaper = onShowNewspaper,
             pool = uiPool,
         });
 
