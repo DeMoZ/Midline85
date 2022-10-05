@@ -146,11 +146,17 @@ public class LevelScenePm : IDisposable
 
         for (int i = 0; i < _currentPhrase.choices.Count; i++)
         {
+            if (_currentPhrase.choices[i].ifSelected)
+            {
+                Debug.Log(_currentPhrase.choices[i].choiceId + " has requirements");
+                PrintArray(_currentPhrase.choices[i].requiredChoices);
+            }
+
             var isBlocked = IsBlocked(_currentPhrase.choices[i]);
             _ctx.buttons[i].Show(_currentPhrase.choices[i].choiceId, isBlocked);
         }
 
-        PrintChoices();
+        PrintArray(_ctx.profile.GetPlayerData().choices);
 
         Observable.FromCoroutine(ChoiceRoutine).Subscribe(_ => { Debug.Log($"[{this}] Choice coroutine end"); })
             .AddTo(_disposables);
@@ -158,10 +164,8 @@ public class LevelScenePm : IDisposable
 
     private bool IsBlocked(Choice choice)
     {
-        if (choice.ifSelected)
-        {
+        if(choice.ifSelected)
             return !_ctx.profile.ContainsChoice(choice.requiredChoices);
-        }
 
         return false;
     }
@@ -336,14 +340,9 @@ public class LevelScenePm : IDisposable
         _disposables.Dispose();
     }
 
-    // TODO: Refactoring
-    public void PrintChoices()
+    private static void PrintArray(List<string> array)
     {
-        string s = "";
-        for (int i = 0; i < _ctx.profile.GetPlayerData().choices.Count; i++)
-        {
-            s = s + ", " + _ctx.profile.GetPlayerData().choices[i];
-        }
+        var s = array.Aggregate("", (current, t) => current + ", " + t);
         Debug.Log(s);
     }
 }

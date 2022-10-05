@@ -116,15 +116,12 @@ public class PlayerProfile
     {
         foreach (var required in choices)
         {
-            if (!ContainsChoice(required))
+            if (!_playerData.choices.Contains(required))
                 return false;
         }
 
         return true;
     }
-
-    public bool ContainsPhrase(string phraseId) =>
-        _playerData.phrases.Contains(phraseId);
 
     public PlayerData GetPlayerData() =>
         _playerData;
