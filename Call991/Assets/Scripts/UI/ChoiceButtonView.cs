@@ -30,7 +30,8 @@ namespace UI
         [SerializeField] private Color textClicked = default;
         [SerializeField] private Color textBlocked = default;
         [Space] 
-        [SerializeField] private TextMeshProUGUI buttonText = default;
+        [SerializeField] private TextMeshProUGUI text = default;
+        [SerializeField] private TextMeshProUGUI textSelected = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
         private Ctx _ctx;
@@ -61,16 +62,16 @@ namespace UI
             switch (state)
             {
                 case ButtonStates.Normal:
-                    buttonText.color = textNormal;
+                    text.color = textNormal;
                     break;
                 case ButtonStates.Hover:
-                    buttonText.color = textHover;
+                    text.color = textHover;
                     break;
                 case ButtonStates.Clicked:
-                    buttonText.color = textClicked;
+                    text.color = textClicked;
                     break;
                 case ButtonStates.Blocked:
-                    buttonText.color = textBlocked;
+                    text.color = textBlocked;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
@@ -79,6 +80,8 @@ namespace UI
 
         public void SetClicked()
         {
+            text.gameObject.SetActive(false);
+            textSelected.gameObject.SetActive(true);
             SwitchButtonState(ButtonStates.Clicked);
         }
 
@@ -86,7 +89,10 @@ namespace UI
         {
             _isClicked = false;
             _localize = choiceKey;
-            buttonText.text = _localize;
+            text.text = _localize;
+            textSelected.text = _localize;
+            text.gameObject.SetActive(true);
+            textSelected.gameObject.SetActive(false);
             SwitchButtonState(ButtonStates.Normal);
 
             if (isBlocked)
