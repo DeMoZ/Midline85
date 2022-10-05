@@ -325,7 +325,7 @@ public class LevelScenePm : IDisposable
             }
         }
 
-        await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 3000));
+        await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 1000));
         _ctx.buttons[index].Hide(true);
         await Task.Delay((int)(_ctx.gameSet.slowButtonFadeDuration * 1000));
 
