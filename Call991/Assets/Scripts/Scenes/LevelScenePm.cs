@@ -319,11 +319,15 @@ public class LevelScenePm : IDisposable
                 _ctx.buttons[i].SetClicked();
                 Debug.Log($"[{this}] pressed button {i}");
             }
-
-            _ctx.buttons[i].Hide(i == index);
+            else
+            {
+                _ctx.buttons[i].Hide(i == index);
+            }
         }
 
-        await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 1000));
+        await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 3000));
+        _ctx.buttons[index].Hide(true);
+        await Task.Delay((int)(_ctx.gameSet.slowButtonFadeDuration * 1000));
 
         foreach (var button in _ctx.buttons)
             button.gameObject.SetActive(false);
