@@ -30,7 +30,7 @@ public class LevelScenePm : IDisposable
 
         public ReactiveCommand onAfterEnter;
         public GameSet gameSet;
-    
+
         public PhraseSoundPlayer phraseSoundPlayer;
         public PhraseEventSoundLoader phraseEventSoundLoader;
         public Sprite newspaperSprite;
@@ -88,7 +88,7 @@ public class LevelScenePm : IDisposable
     private async Task ShowNewsPaper()
     {
         var container = new Container<Task>();
-        _ctx.onShowNewspaper.Execute((container,_ctx.newspaperSprite));
+        _ctx.onShowNewspaper.Execute((container, _ctx.newspaperSprite));
         await container.Value;
     }
 
@@ -148,7 +148,7 @@ public class LevelScenePm : IDisposable
         {
             if (_currentPhrase.choices[i].ifSelected)
             {
-                Debug.Log(_currentPhrase.choices[i].choiceId + " has requirements");
+                Debug.Log($" {_currentPhrase.phraseId} choices {_currentPhrase.choices[i].choiceId} has requirements");
                 PrintArray(_currentPhrase.choices[i].requiredChoices);
             }
 
@@ -164,7 +164,7 @@ public class LevelScenePm : IDisposable
 
     private bool IsBlocked(Choice choice)
     {
-        if(choice.ifSelected)
+        if (choice.ifSelected)
             return !_ctx.profile.ContainsChoice(choice.requiredChoices);
 
         return false;
@@ -217,7 +217,7 @@ public class LevelScenePm : IDisposable
         _ctx.profile.LastPhrase = _currentPhrase.nextId;
         RunDialogue();
     }
-    
+
     private IEnumerator PhraseRoutine()
     {
         if (_currentPhrase == null)
@@ -323,11 +323,11 @@ public class LevelScenePm : IDisposable
                 _ctx.buttons[i].SetClicked();
                 Debug.Log($"[{this}] pressed button {i}");
             }
-            
+
             _ctx.buttons[i].Hide(i == index);
         }
-        
-        await Task.Delay((int)(_ctx.gameSet.slowButtonFadeDuration * 1000));
+
+        await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 1000));
 
         foreach (var button in _ctx.buttons)
             button.gameObject.SetActive(false);

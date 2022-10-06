@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Newtonsoft.Json;
 using UniRx;
 using UnityEngine;
@@ -109,14 +110,13 @@ public class PlayerProfile
         SavePlayerData();
     }
 
-    public bool ContainsChoice(string choiceId) =>
-        _playerData.choices.Contains(choiceId);
-
     public bool ContainsChoice(List<string> choices)
     {
         foreach (var required in choices)
         {
-            if (!_playerData.choices.Contains(required))
+            var orChoices = required.Split('|');
+
+            if (!_playerData.choices.Any(orChoices.Contains))
                 return false;
         }
 
