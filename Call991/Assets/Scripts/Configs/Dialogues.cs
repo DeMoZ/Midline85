@@ -88,7 +88,6 @@ public class PhraseSet
 public class Choice
 {
     public string choiceId;
-    public string text;
     public string nextPhraseId;
     
     [Tooltip("If some previous choices")]
