@@ -117,6 +117,7 @@ namespace Data
         
         public void Dispose()
         {
+            ResourcesLoader.UnloadUnused();
             _disposables.Dispose();
         }
     }

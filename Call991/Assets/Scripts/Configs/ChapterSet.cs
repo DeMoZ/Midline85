@@ -7,10 +7,11 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 
 [CreateAssetMenu]
-public class CompositeDialogue : SerializedScriptableObject
+public class ChapterSet : SerializedScriptableObject
 {
+    public string titleVideoSoName;
     public List<Dialogues> dialogues;
-
+    
     public async Task<Dialogues> LoadDialogues(Language language, string lvl)
     {
         var newDialogues = ScriptableObject.CreateInstance<Dialogues>();

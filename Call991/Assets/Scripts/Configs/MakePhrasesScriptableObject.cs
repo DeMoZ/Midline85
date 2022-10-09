@@ -5,7 +5,7 @@ using UnityEditor;
 [CreateAssetMenu]
 public class MakePhrasesScriptableObject : ScriptableObject
 {
-    public CompositeDialogue copyFromDialogues = default;
+    public ChapterSet copyFromDialogues = default;
     public Language Language = default;
     public string Lvl = "7_lvl";
 

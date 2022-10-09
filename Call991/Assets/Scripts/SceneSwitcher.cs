@@ -46,11 +46,7 @@ public class SceneSwitcher : IDisposable
     private async void OnSwitchSceneLoaded(GameScenes scene)
     {
         var onLoadingProcess = new ReactiveProperty<string>().AddTo(_diposables);
-        var switchSceneEntity = new LoadingSceneEntity(new LoadingSceneEntity.Ctx
-        {
-            onLoadingProcess = onLoadingProcess,
-            toLevelScene = scene== GameScenes.Level1,
-        });
+        var switchSceneEntity = _ctx.scenesHandler.LoadingSceneEntity(onLoadingProcess, scene);
 
         Debug.Log($"[{this}][OnSwitchSceneLoaded] Start load scene {scene}");
 

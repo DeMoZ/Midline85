@@ -11,12 +11,16 @@ namespace Configs
         // [HideInInspector] [ReadOnly] public Language audioLanguage = Language.RU;
 
         [Space] public float choicesDuration = 3f;
+        
         [Space] public float buttonsAppearDuration = 0.2f;
         public float fastButtonFadeDuration = 0.3f;
         public float slowButtonFadeDuration = 0.6f;
+        
         [Space] public float levelIntroDelay = 2f;
         public float levelEndLevelUiDisappearTime = 3f;
         public float levelEndStatisticsUiFadeTime = 1f;
+
+        [Space]public string titleVideoSoName;
         
         [Space]
         public AudioClip menuBtnClip;

@@ -1,3 +1,5 @@
+using Configs;
+using Data;
 using UI;
 using UniRx;
 
@@ -7,6 +9,8 @@ public class LoadingSceneEntity : IGameScene
     {
         public ReactiveProperty<string> onLoadingProcess;
         public bool toLevelScene;
+        public PhraseEventVideoLoader phraseEventVideoLoader;
+        public GameSet gameSet;
     }
 
     private Ctx _ctx;
@@ -20,6 +24,8 @@ public class LoadingSceneEntity : IGameScene
         {
             onLoadingProcess = _ctx.onLoadingProcess,
             toLevelScene = _ctx.toLevelScene,
+            phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
+            gameSet = _ctx.gameSet,
         });
     }
 
