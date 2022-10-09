@@ -70,12 +70,12 @@ namespace Data
             
             if (config.clip)
             {
-                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.Video);
+                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.VideoLoop);
             }
             else
             {
                 _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
-                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.Video);
+                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.VideoLoop);
             }
         }
 
@@ -104,7 +104,7 @@ namespace Data
 
         private async Task<PhraseVfxEventSo> LoadConfig(string eventId)
         {
-            var soFile = Path.Combine(_ctx.streamingPath, eventId);
+            var soFile = Path.Combine(_ctx.eventSoPath, eventId);
             var conf = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(soFile);
             return conf;
         }

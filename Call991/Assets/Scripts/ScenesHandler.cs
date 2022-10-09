@@ -107,10 +107,9 @@ public class ScenesHandler : IDisposable
         var tLanguage = _ctx.profile.TextLanguage;
         var aLanguage = _ctx.profile.AudioLanguage;
         var levelSoFolder = "7_lvl";
-        var compositeDialogue = await ResourcesLoader.LoadAsync<ChapterSet>(levelSoFolder + "/7_lvl_Total");
-        var dialogues = await compositeDialogue.LoadDialogues(tLanguage, levelSoFolder);
+        var chapterSet = await ResourcesLoader.LoadAsync<ChapterSet>(levelSoFolder + "/7_lvl_Total");
+        var dialogues = await chapterSet.LoadDialogues(tLanguage, levelSoFolder);
         var videoPathBuilder = new VideoPathBuilder();
-        var sceneVideoUrl = videoPathBuilder.GetPath("VideoBack.mp4");
         //var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P";
         var phraseSoundPath = "Sounds/Ru/RU_7_P";
         var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelSoFolder + "/7_lvl_achievements");
@@ -121,6 +120,7 @@ public class ScenesHandler : IDisposable
 
         var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
         {
+            eventSoPath = levelSoFolder,
             videoManager = _ctx.videoManager,
             streamingPath = "Videos/EventVideos",
         }).AddTo(_disposables);
@@ -131,10 +131,10 @@ public class ScenesHandler : IDisposable
             gameSet = _ctx.gameSet,
             constructorTask = constructorTask,
             profile = _ctx.profile,
+            chapterSet = chapterSet,
             dialogues = dialogues,
             onSwitchScene = _ctx.onSwitchScene,
             achievementsSo = achievementsSo,
-            sceneVideoUrl = sceneVideoUrl,
             phraseSoundPath = phraseSoundPath,
             endLevelConfigsPath = endLevelConfigsPath,
             audioManager = _ctx.audioManager,

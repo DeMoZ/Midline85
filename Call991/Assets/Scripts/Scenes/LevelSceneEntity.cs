@@ -13,11 +13,11 @@ public class LevelSceneEntity : IGameScene
     {
         public GameSet gameSet;
         public Container<Task> constructorTask;
+        public ChapterSet chapterSet;
         public Dialogues dialogues;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
         public AchievementsSo achievementsSo;
-        public string sceneVideoUrl;
         public string phraseSoundPath;
         public string endLevelConfigsPath;
         public AudioManager audioManager;
@@ -66,7 +66,7 @@ public class LevelSceneEntity : IGameScene
         var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
-        
+
         var onPopulateStatistics = new ReactiveCommand<List<StatisticElement>>();
         var onPhraseLevelEndEvent = new ReactiveCommand<string>();
         var onHideLevelUi = new ReactiveCommand<float>();
@@ -75,8 +75,7 @@ public class LevelSceneEntity : IGameScene
 
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
-        _ctx.videoManager.PlayVideo(_ctx.sceneVideoUrl,PhraseEventTypes.VideoLoop);
-        
+
         var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {
             path = _ctx.phraseSoundPath,
@@ -103,8 +102,8 @@ public class LevelSceneEntity : IGameScene
             phraseEventSoundLoader = phraseEventSoundLoader,
             phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
             onPopulateStatistics = onPopulateStatistics,
-        });
-        
+        }).AddTo(_disposables);
+
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             profile = _ctx.profile,
@@ -125,6 +124,8 @@ public class LevelSceneEntity : IGameScene
             onPhraseLevelEndEvent = onPhraseLevelEndEvent,
             newspaperSprite = _ctx.newspaperSprite,
             onShowNewspaper = onShowNewspaper,
+            chapterSet = _ctx.chapterSet,
+            phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx

@@ -35,6 +35,8 @@ public class LevelScenePm : IDisposable
         public PhraseEventSoundLoader phraseEventSoundLoader;
         public Sprite newspaperSprite;
         public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
+        public ChapterSet chapterSet;
+        public PhraseEventVideoLoader phraseEventVideoLoader;
     }
 
     private Ctx _ctx;
@@ -79,9 +81,10 @@ public class LevelScenePm : IDisposable
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
 
+        await _ctx.phraseEventVideoLoader.LoadVideoEvent(_ctx.chapterSet.titleVideoSoName);
         await ShowNewsPaper();
         await ShowIntro();
-
+        
         RunDialogue();
     }
 
@@ -94,6 +97,7 @@ public class LevelScenePm : IDisposable
 
     private async Task ShowIntro()
     {
+        await _ctx.phraseEventVideoLoader.LoadVideoEvent(_ctx.chapterSet.titleVideoSoName);
         _ctx.onShowIntro.Execute(true);
         await Task.Delay((int) (_ctx.gameSet.levelIntroDelay * 1000));
         _ctx.onShowIntro.Execute(false);
@@ -275,6 +279,8 @@ public class LevelScenePm : IDisposable
 
                 break;
             case PhraseEventTypes.VideoLoop:
+                Debug.LogWarning($"[{this}] PhraseEventTypes.VideoLoop to be execute");
+                _ctx.phraseEventVideoLoader.LoadVideoEvent(pEvent.eventId);
                 break;
             case PhraseEventTypes.LevelEnd:
                 Debug.LogWarning($"[{this}] PhraseEventTypes.LevelEnd to be execute");
