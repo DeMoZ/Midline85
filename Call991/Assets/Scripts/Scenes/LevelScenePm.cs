@@ -271,10 +271,10 @@ public class LevelScenePm : IDisposable
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
                 _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop);
                 break;
-            case PhraseEventTypes.VideoSfx:
+            case PhraseEventTypes.VideoVfx:
 
                 break;
-            case PhraseEventTypes.VideoLoopSfx:
+            case PhraseEventTypes.VideoLoop:
                 break;
             case PhraseEventTypes.LevelEnd:
                 Debug.LogWarning($"[{this}] PhraseEventTypes.LevelEnd to be execute");

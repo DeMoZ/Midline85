@@ -36,7 +36,7 @@ public class EntryRoot : MonoBehaviour
         var cursorSettings = await ResourcesLoader.LoadAsync<CursorSet>("CursorSet");
         cursorSettings.ApplyCursor();
     }
-
+    
     private void CreateRootEntity()
     {
         var rootEntity = new RootEntity(new RootEntity.Ctx

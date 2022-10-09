@@ -10,5 +10,5 @@ public class PhraseEvent
     public float delay;
 
     private bool Loopable() =>
-        eventType is PhraseEventTypes.SoundLoopSfx or PhraseEventTypes.VideoLoopSfx;
+        eventType is PhraseEventTypes.SoundLoopSfx or PhraseEventTypes.VideoLoop;
 }

@@ -86,6 +86,7 @@ public class ScenesHandler : IDisposable
     private async Task<IGameScene> LoadMenu()
     {
         _ctx.audioManager.OnSceneSwitch();
+        _ctx.videoManager.Enable(false);
 
         var constructorTask = new Container<Task>();
         var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
@@ -106,7 +107,7 @@ public class ScenesHandler : IDisposable
         var tLanguage = _ctx.profile.TextLanguage;
         var aLanguage = _ctx.profile.AudioLanguage;
         var levelSoFolder = "7_lvl";
-        var compositeDialogue = await ResourcesLoader.LoadAsync<CompositeDialogue>(levelSoFolder + "/7_lvl_Total");
+        var compositeDialogue = await ResourcesLoader.LoadAsync<ChapterSet>(levelSoFolder + "/7_lvl_Total");
         var dialogues = await compositeDialogue.LoadDialogues(tLanguage, levelSoFolder);
         var videoPathBuilder = new VideoPathBuilder();
         var sceneVideoUrl = videoPathBuilder.GetPath("VideoBack.mp4");
@@ -116,6 +117,13 @@ public class ScenesHandler : IDisposable
         var endLevelConfigsPath = levelSoFolder;
         var newspaperSprite =  await ResourcesLoader.LoadAsync<Sprite>(levelSoFolder + "/newspaper");
         _ctx.audioManager.OnSceneSwitch();
+        _ctx.videoManager.Enable(true);
+
+        var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
+        {
+            videoManager = _ctx.videoManager,
+            streamingPath = "Videos/EventVideos",
+        }).AddTo(_disposables);
         
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
@@ -132,7 +140,8 @@ public class ScenesHandler : IDisposable
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
             newspaperSprite = newspaperSprite,
-        });
+            phraseEventVideoLoader = phraseEventVideoLoader,
+        }).AddTo(_disposables);
 
         await constructorTask.Value;
         return sceneEntity;
@@ -142,5 +151,27 @@ public class ScenesHandler : IDisposable
     {
         ResourcesLoader.UnloadUnused();
         _disposables.Dispose();
+    }
+
+    public IGameScene LoadingSceneEntity(ReactiveProperty<string> onLoadingProcess, GameScenes scene)
+    {
+        var toLevelScene = scene == GameScenes.Level1;
+        _ctx.videoManager.Enable(toLevelScene);
+        
+        var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
+        {
+            videoManager = _ctx.videoManager,
+            streamingPath = "Videos/EventVideos",
+        }).AddTo(_disposables);
+        
+        var switchSceneEntity = new LoadingSceneEntity(new LoadingSceneEntity.Ctx
+        {
+            onLoadingProcess = onLoadingProcess,
+            toLevelScene = toLevelScene,
+            phraseEventVideoLoader = phraseEventVideoLoader,
+            gameSet = _ctx.gameSet,
+        }).AddTo(_disposables);
+
+        return switchSceneEntity;
     }
 }

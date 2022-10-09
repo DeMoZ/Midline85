@@ -23,6 +23,7 @@ public class LevelSceneEntity : IGameScene
         public AudioManager audioManager;
         public VideoManager videoManager;
         public Sprite newspaperSprite;
+        public PhraseEventVideoLoader phraseEventVideoLoader;
     }
 
     private Ctx _ctx;
@@ -74,7 +75,7 @@ public class LevelSceneEntity : IGameScene
 
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
-        _ctx.videoManager.PlayVideo(_ctx.sceneVideoUrl);
+        _ctx.videoManager.PlayVideo(_ctx.sceneVideoUrl,PhraseEventTypes.VideoLoop);
         
         var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {
@@ -90,11 +91,6 @@ public class LevelSceneEntity : IGameScene
             resourcesPath = "Sounds/EventSounds",
         }).AddTo(_disposables);
 
-        var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
-        {
-            videoManager = _ctx.videoManager,
-        });
-        
         var levelEndPm = new LevelEndPm(new LevelEndPm.Ctx
         {
             gameSet = _ctx.gameSet,
@@ -105,7 +101,7 @@ public class LevelSceneEntity : IGameScene
             onPhraseLevelEndEvent = onPhraseLevelEndEvent,
             endLevelConfigsPath = _ctx.endLevelConfigsPath,
             phraseEventSoundLoader = phraseEventSoundLoader,
-            phraseEventVideoLoader = phraseEventVideoLoader,
+            phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
             onPopulateStatistics = onPopulateStatistics,
         });
         
