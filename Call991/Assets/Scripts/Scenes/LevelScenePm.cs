@@ -70,7 +70,7 @@ public class LevelScenePm : IDisposable
     private void OnSkipPhrase()
     {
         if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
-            _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear) - Time.deltaTime;
+            _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear) - Time.deltaTime * 2;
     }
 
     private async void OnAfterEnter()
