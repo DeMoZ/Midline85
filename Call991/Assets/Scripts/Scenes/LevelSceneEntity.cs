@@ -67,12 +67,13 @@ public class LevelSceneEntity : IGameScene
         var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
 
-        var onPopulateStatistics = new ReactiveCommand<List<StatisticElement>>();
-        var onPhraseLevelEndEvent = new ReactiveCommand<string>();
-        var onHideLevelUi = new ReactiveCommand<float>();
-        var onShowStatisticUi = new ReactiveCommand<float>();
-        var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>();
-
+        var onPopulateStatistics = new ReactiveCommand<List<StatisticElement>>().AddTo(_disposables);
+        var onPhraseLevelEndEvent = new ReactiveCommand<string>().AddTo(_disposables);
+        var onHideLevelUi = new ReactiveCommand<float>().AddTo(_disposables);
+        var onShowStatisticUi = new ReactiveCommand<float>().AddTo(_disposables);
+        var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);
+        var onSkipPhrase = new ReactiveCommand().AddTo(_disposables);
+        
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
 
@@ -90,6 +91,8 @@ public class LevelSceneEntity : IGameScene
             resourcesPath = "Sounds/EventSounds",
         }).AddTo(_disposables);
 
+        var phraseSkipper = new PhraseSkipper(onSkipPhrase).AddTo(_disposables);
+        
         var levelEndPm = new LevelEndPm(new LevelEndPm.Ctx
         {
             gameSet = _ctx.gameSet,
@@ -126,6 +129,7 @@ public class LevelSceneEntity : IGameScene
             onShowNewspaper = onShowNewspaper,
             chapterSet = _ctx.chapterSet,
             phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
+            onSkipPhrase = onSkipPhrase,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx

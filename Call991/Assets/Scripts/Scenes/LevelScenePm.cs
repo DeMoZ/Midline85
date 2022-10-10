@@ -37,6 +37,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
         public ChapterSet chapterSet;
         public PhraseEventVideoLoader phraseEventVideoLoader;
+        public ReactiveCommand onSkipPhrase;
     }
 
     private Ctx _ctx;
@@ -45,6 +46,7 @@ public class LevelScenePm : IDisposable
     private ReactiveCommand<int> _onClickChoiceButton;
 
     private bool _choiceDone;
+    private float _phraseTimer;
 
     public LevelScenePm(Ctx ctx)
     {
@@ -55,6 +57,7 @@ public class LevelScenePm : IDisposable
 
         _onClickChoiceButton = new ReactiveCommand<int>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
+        _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
 
         _ctx.onClickMenuButton.Subscribe(_ =>
         {
@@ -62,6 +65,12 @@ public class LevelScenePm : IDisposable
             _ctx.onSwitchScene.Execute(GameScenes.Menu);
         }).AddTo(_disposables);
         _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
+    }
+
+    private void OnSkipPhrase()
+    {
+        if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
+            _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear) - Time.deltaTime;
     }
 
     private async void OnAfterEnter()
@@ -84,7 +93,7 @@ public class LevelScenePm : IDisposable
         await _ctx.phraseEventVideoLoader.LoadVideoEvent(_ctx.chapterSet.titleVideoSoName);
         await ShowNewsPaper();
         await ShowIntro();
-        
+
         RunDialogue();
     }
 
@@ -230,7 +239,7 @@ public class LevelScenePm : IDisposable
             yield break;
         }
 
-        var timer = 0f;
+        _phraseTimer = 0f;
 
         var pEvents = new List<PhraseEvent>();
         if (_currentPhrase.addEvent)
@@ -240,21 +249,21 @@ public class LevelScenePm : IDisposable
         _ctx.onShowPhrase.Execute(_currentPhrase);
         _ctx.phraseSoundPlayer.TryPlayAudioFile();
 
-        while (timer <= _currentPhrase.Phrase.Duration(_currentPhrase.textAppear))
+        while (_phraseTimer <= _currentPhrase.Phrase.Duration(_currentPhrase.textAppear))
         {
             yield return null;
 
             for (var i = pEvents.Count - 1; i >= 0; i--)
             {
                 var pEvent = pEvents[i];
-                if (timer >= pEvent.delay)
+                if (_phraseTimer >= pEvent.delay)
                 {
                     ExecutePhraseEvent(pEvent);
                     pEvents.RemoveAt(i);
                 }
             }
 
-            timer += Time.deltaTime;
+            _phraseTimer += Time.deltaTime;
         }
     }
 
