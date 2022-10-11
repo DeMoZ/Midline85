@@ -9,13 +9,14 @@ namespace UI
     {
         [SerializeField] private Color textHover = default;
         [SerializeField] private TextMeshProUGUI text = default;
-    
-        private Color _testNormal;
+        
+        private Color _textColorNormal;
+        
         public event Action OnClick;
 
         private void Start()
         {
-            _testNormal = text.color;
+            _textColorNormal = text.color;
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -25,7 +26,7 @@ namespace UI
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            text.color = _testNormal;
+            text.color = _textColorNormal;
         }
 
         public void OnPointerClick(PointerEventData eventData)
