@@ -70,7 +70,7 @@ public class LevelScenePm : IDisposable
     private void OnSkipPhrase()
     {
         if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
-            _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear) - Time.deltaTime * 2;
+            _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear);
     }
 
     private async void OnAfterEnter()
@@ -265,6 +265,10 @@ public class LevelScenePm : IDisposable
 
             _phraseTimer += Time.deltaTime;
         }
+        
+        // of somehow an event was skipped, strike it
+        foreach (var pEvent in pEvents) 
+            ExecutePhraseEvent(pEvent);
     }
 
     private void ExecutePhraseEvent(PhraseEvent pEvent)
