@@ -22,6 +22,7 @@ public class ScenesHandler : IDisposable
     private const string SWITCH_SCENE = "2_SwitchScene";
     private const string MENU_SCENE = "MenuScene";
     private const string LEVEL_SCENE = "LevelScene";
+    private const string OPEN_SCENE = "OpenScene";
 
     private Ctx _ctx;
     private CompositeDisposable _disposables;
@@ -30,6 +31,7 @@ public class ScenesHandler : IDisposable
     public string MenuScene => MENU_SCENE;
     public string SwitchScene => SWITCH_SCENE;
     public string LevelScene => LEVEL_SCENE;
+    public string OpenScene => OPEN_SCENE;
 
     public ScenesHandler(Ctx ctx)
     {
@@ -43,15 +45,16 @@ public class ScenesHandler : IDisposable
     {
         switch (_ctx.startApplicationSceneName)
         {
-            // case ROOT_SCENE:
-            //     _ctx.onSwitchScene.Execute(GameScenes.Menu);
-            //     break;
+            case ROOT_SCENE:
+                _ctx.onSwitchScene.Execute(GameScenes.OpenScene);
+                break;
             // case MENU_SCENE:
             //     _ctx.onSwitchScene.Execute(GameScenes.Menu);
             //     break;
             // case SWITCH_SCENE:
             //     _ctx.onSwitchScene.Execute(GameScenes.Menu);
             //     break;
+            
             case LEVEL_SCENE:
                 _ctx.onSwitchScene.Execute(GameScenes.Level1);
                 break;
@@ -65,6 +68,7 @@ public class ScenesHandler : IDisposable
     {
         return scene switch
         {
+            GameScenes.OpenScene => OpenScene,
             GameScenes.Menu => MenuScene,
             GameScenes.Level1 => LevelScene,
             _ => throw new ArgumentOutOfRangeException(nameof(scene), scene, null)
@@ -75,12 +79,24 @@ public class ScenesHandler : IDisposable
     {
         IGameScene newScene = scene switch
         {
+            GameScenes.OpenScene => LoadOpenScene(),
             GameScenes.Menu => await LoadMenu(),
             GameScenes.Level1 => await LoadLevel7(),
             _ => await LoadMenu()
         };
 
         return newScene;
+    }
+
+    private IGameScene LoadOpenScene()
+    {
+        var sceneEntity = new OpenSceneEntity(new OpenSceneEntity.Ctx
+        {
+            gameSet = _ctx.gameSet,
+            onSwitchScene = _ctx.onSwitchScene,
+        }).AddTo(_disposables);
+
+        return sceneEntity;
     }
 
     private async Task<IGameScene> LoadMenu()
@@ -96,7 +112,7 @@ public class ScenesHandler : IDisposable
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
             constructorTask = constructorTask,
-        });
+        }).AddTo(_disposables);
         
         await constructorTask.Value;
         return sceneEntity;

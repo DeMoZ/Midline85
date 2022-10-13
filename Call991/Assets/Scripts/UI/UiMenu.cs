@@ -54,8 +54,8 @@ namespace UI
         {
             Application.Quit();
         }
-        
-        public void Dispose()
+
+        public void OnDestroy()
         {
             playBtn.OnClick -= OnClickPlay;
             newGameBtn.OnClick -= OnClickNewGame;

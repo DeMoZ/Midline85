@@ -16,7 +16,8 @@ public class RootEntity : IDisposable
 
     private Ctx _ctx;
     private CompositeDisposable _diposables;
-    
+    private readonly ReactiveCommand _onStartApplicationSwitchScene;
+
     public RootEntity(Ctx ctx)
     {
         Debug.Log($"[RootEntity][time] Loading scene start.. {Time.realtimeSinceStartup}");
@@ -53,14 +54,14 @@ public class RootEntity : IDisposable
 
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
-        var onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);
+        _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_diposables);
 
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
         {
             gameSet = gameSet,
             startApplicationSceneName = startApplicationSceneName,
-            onStartApplicationSwitchScene = onStartApplicationSwitchScene,
+            onStartApplicationSwitchScene = _onStartApplicationSwitchScene,
             onSwitchScene = onSwitchScene,
             profile = profile,
             audioManager = _ctx.audioManager,
@@ -73,7 +74,7 @@ public class RootEntity : IDisposable
             onSwitchScene = onSwitchScene,
         }).AddTo(_diposables);
 
-        onStartApplicationSwitchScene.Execute();
+        _onStartApplicationSwitchScene.Execute();
     }
 
     private void SetLanguage(Language language)
