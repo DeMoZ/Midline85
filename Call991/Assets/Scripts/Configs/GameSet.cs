@@ -9,6 +9,11 @@ namespace Configs
     {
         // [HideInInspector] public Language textLanguage = Language.EN;
         // [HideInInspector] [ReadOnly] public Language audioLanguage = Language.RU;
+        [Header("Opening")]
+        public float logoHoldTime = 3f;
+        public float logoFadeTime = 2f;
+        public float warningHoldTime = 5f;
+        public float warningFadeTime = 2f;
 
         [Space] public float choicesDuration = 3f;
         
