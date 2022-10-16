@@ -11,6 +11,14 @@ public class LoopAudioSource : MonoBehaviour
         audioSource.Play();
     }
 
+    public void Pause(bool pause)
+    {
+        if (pause)
+            audioSource.Pause();
+        else
+            audioSource.UnPause();
+    }
+
     public void Destroy()
     {
         audioSource.Stop();

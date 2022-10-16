@@ -20,16 +20,18 @@ public class AudioManager : MonoBehaviour
         public string levelFolder;
     }
 
-    [SerializeField] private AudioSource musicAudioSource;
-    [SerializeField] private AudioSource uiAudioSource;
-    [SerializeField] private TempAudioSource tempSoundSourcePrefab;
-    [SerializeField] private LoopAudioSource loopSoundSourcePrefab;
+    [SerializeField] private AudioSource musicAudioSource = default;
+    [SerializeField] private AudioSource uiAudioSource = default;
+    [SerializeField] private AudioSource timerAudioSource = default;
+    [SerializeField] private TempAudioSource tempSoundSourcePrefab = default;
+    [SerializeField] private LoopAudioSource loopSoundSourcePrefab = default;
 
     private string _languagePath;
     private Ctx _ctx;
     private string _currentMusicPath;
     private AudioClip _currentMusicClip;
     private Dictionary<string, LoopAudioSource> _loopSounds;
+    private List<TempAudioSource> _sfxs;
 
     public void SetCtx(Ctx ctx)
     {
@@ -109,7 +111,7 @@ public class AudioManager : MonoBehaviour
                 PlayMusicFile(uiAudioSource, _ctx.gameSet.menuBtnClip, false);
                 break;
             case SoundUiTypes.Timer:
-                PlayMusicFile(uiAudioSource, _ctx.gameSet.timerClip, true);
+                PlayMusicFile(timerAudioSource, _ctx.gameSet.timerClip, true);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
@@ -119,13 +121,16 @@ public class AudioManager : MonoBehaviour
     public void PlaySfx(AudioClip audioClip)
     {
         var source = Instantiate<TempAudioSource>(tempSoundSourcePrefab);
-        source.PlayAndDestroy(audioClip);
+        source.PlayAndDestroy(audioClip, () => { _sfxs.Remove(source); });
+
+        _sfxs ??= new List<TempAudioSource>();
+        _sfxs.Add(source);
     }
 
     public void PlayLoopSfx(AudioClip audioClip, bool stop)
     {
         var audioName = audioClip.name;
-        
+
         _loopSounds ??= new Dictionary<string, LoopAudioSource>();
         _loopSounds.TryGetValue(audioName, out var source);
 
@@ -139,15 +144,11 @@ public class AudioManager : MonoBehaviour
         }
         else
         {
-            if (stop)
-            {
-            }
-            else
-            {
-                source = Instantiate<LoopAudioSource>(loopSoundSourcePrefab);
-                source.Play(audioClip);
-                _loopSounds.Add(audioName, source);
-            }
+            if (stop) return;
+
+            source = Instantiate<LoopAudioSource>(loopSoundSourcePrefab);
+            source.Play(audioClip);
+            _loopSounds.Add(audioName, source);
         }
     }
 
@@ -157,10 +158,33 @@ public class AudioManager : MonoBehaviour
 
         foreach (var loop in _loopSounds)
         {
-            if(loop.Value!=null)
+            if (loop.Value != null)
                 loop.Value.Destroy();
         }
-        
+
         _loopSounds.Clear();
+        timerAudioSource.Stop();
+        timerAudioSource.clip = null;
+    }
+
+    public void Pause(bool pause)
+    {
+        if (pause)
+            timerAudioSource.Pause();
+        else
+            timerAudioSource.UnPause();
+        
+        if(_loopSounds != null)
+            foreach (var source in _loopSounds)
+            {
+                if (source.Value)
+                    source.Value.Pause(pause);
+            }
+
+        if (_sfxs != null)
+            foreach (var source in _sfxs)
+            {
+                source.Pause(pause);
+            }
     }
 }

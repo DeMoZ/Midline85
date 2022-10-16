@@ -38,6 +38,7 @@ public class LevelScenePm : IDisposable
         public ChapterSet chapterSet;
         public PhraseEventVideoLoader phraseEventVideoLoader;
         public ReactiveCommand onSkipPhrase;
+        public ReactiveCommand<bool> onClickPauseButton;
     }
 
     private Ctx _ctx;
@@ -47,6 +48,7 @@ public class LevelScenePm : IDisposable
 
     private bool _choiceDone;
     private float _phraseTimer;
+    private bool _isPaused;
 
     public LevelScenePm(Ctx ctx)
     {
@@ -59,6 +61,14 @@ public class LevelScenePm : IDisposable
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
         _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
 
+        _ctx.onClickPauseButton.Subscribe(pause=>
+        {
+            _isPaused = !_isPaused;
+            Time.timeScale = _isPaused ? 0 : 1;
+            _ctx.phraseSoundPlayer.Pause(_isPaused);
+            _ctx.audioManager.Pause(_isPaused);
+        }).AddTo(_disposables);
+        
         _ctx.onClickMenuButton.Subscribe(_ =>
         {
             _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
@@ -247,7 +257,7 @@ public class LevelScenePm : IDisposable
 
         Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}: {_currentPhrase.Phrase.text}");
         _ctx.onShowPhrase.Execute(_currentPhrase);
-        _ctx.phraseSoundPlayer.TryPlayAudioFile();
+        _ctx.phraseSoundPlayer.TryPlayPhraseFile();
 
         while (_phraseTimer <= _currentPhrase.Phrase.Duration(_currentPhrase.textAppear))
         {

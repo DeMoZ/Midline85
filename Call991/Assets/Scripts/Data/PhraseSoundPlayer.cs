@@ -16,6 +16,7 @@ namespace Data
 
         private Ctx _ctx;
         private CompositeDisposable _disposables;
+
         public struct Ctx
         {
             public string path; // *strAssets*/Sounds/RU/RU_7_P
@@ -26,7 +27,7 @@ namespace Data
         {
             _ctx = ctx;
             _disposables = new CompositeDisposable();
-        
+
             _path = "file:///" + Path.Combine(Application.streamingAssetsPath, _ctx.path);
         }
 
@@ -34,30 +35,30 @@ namespace Data
         {
             _audioPath = Path.Combine(_path, phraseName + ".wav");
             var isLoaded = false;
-            Observable.FromCoroutine(LoadAudio).Subscribe( _ =>
+            Observable.FromCoroutine(LoadAudio).Subscribe(_ =>
             {
                 Debug.Log($"[{this}] Phrase sound load routine end: {_audioPath}");
                 isLoaded = true;
             }).AddTo(_disposables);
 
-            while (!isLoaded) 
+            while (!isLoaded)
                 await Task.Yield();
         }
 
-        public void TryPlayAudioFile()
+        public void TryPlayPhraseFile()
         {
             if (_audioClip == null) return;
-            
+
             Debug.Log($"[{this}] play phrase audio clip {_audioClip}");
             _ctx.audioSource.clip = _audioClip;
             _ctx.audioSource.Play();
             _ctx.audioSource.loop = false;
         }
-        
+
         private IEnumerator LoadAudio()
         {
             _audioClip = null; // todo: set to default audio with noise
-            
+
             var request = UnityWebRequestMultimedia.GetAudioClip(_audioPath, AudioType.WAV);
             yield return request.SendWebRequest();
 
@@ -70,6 +71,14 @@ namespace Data
             {
                 _audioClip = DownloadHandlerAudioClip.GetContent(request);
             }
+        }
+
+        public void Pause(bool pause)
+        {
+            if (pause)
+                _ctx.audioSource.Pause();
+            else
+                _ctx.audioSource.UnPause();
         }
 
         public void Dispose()

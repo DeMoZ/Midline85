@@ -25,7 +25,8 @@ namespace UI
             public ReactiveCommand<List<StatisticElement>> onPopulateStatistics;
 
             public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
-            
+            public ReactiveCommand<bool> onClickPauseButton;
+
             public Pool pool;
         }
 
@@ -33,6 +34,7 @@ namespace UI
 
         private Ctx _ctx;
 
+        [SerializeField] private MenuButtonView pauseButton = default;
         [SerializeField] private MenuButtonView menuButton = default;
         [SerializeField] private List<PersonView> persons = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
@@ -58,9 +60,10 @@ namespace UI
             _ctx = ctx;
             _disposables = new CompositeDisposable();
 
+            pauseButton.OnClick += OnClickPauseButton;
             menuButton.OnClick += OnClickMenu;
             newspaper.OnClose += OnNewspaperClose;
-            
+
             statisticView.SetCtx(new StatisticsView.Ctx
             {
                 onClickMenuButton = _ctx.onClickMenuButton,
@@ -84,6 +87,11 @@ namespace UI
             countDown.gameObject.SetActive(false);
         }
 
+        private void OnClickPauseButton()
+        {
+            _ctx.onClickPauseButton.Execute(true);
+        }
+        
         private void OnNewspaperClose()
         {
             _isNewspaperActive = false;
@@ -174,6 +182,7 @@ namespace UI
 
         public void Dispose()
         {
+            pauseButton.OnClick -= OnClickPauseButton;
             menuButton.OnClick -= OnClickMenu;
             newspaper.OnClose -= null;
         }

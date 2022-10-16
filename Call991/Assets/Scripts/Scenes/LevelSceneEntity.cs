@@ -73,6 +73,7 @@ public class LevelSceneEntity : IGameScene
         var onShowStatisticUi = new ReactiveCommand<float>().AddTo(_disposables);
         var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);
         var onSkipPhrase = new ReactiveCommand().AddTo(_disposables);
+        var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
         
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
@@ -130,6 +131,7 @@ public class LevelSceneEntity : IGameScene
             chapterSet = _ctx.chapterSet,
             phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
             onSkipPhrase = onSkipPhrase,
+            onClickPauseButton = onClickPauseButton,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
@@ -143,6 +145,7 @@ public class LevelSceneEntity : IGameScene
             onPopulateStatistics = onPopulateStatistics,
             onShowStatisticUi = onShowStatisticUi,
             onShowNewspaper = onShowNewspaper,
+            onClickPauseButton = onClickPauseButton,
             pool = uiPool,
         });
 
