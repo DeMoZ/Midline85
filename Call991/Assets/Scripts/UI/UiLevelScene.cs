@@ -35,20 +35,20 @@ namespace UI
         private Ctx _ctx;
 
         [SerializeField] private MenuButtonView pauseButton = default;
-        [SerializeField] private MenuButtonView menuButton = default;
         [SerializeField] private List<PersonView> persons = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private VideoPlayer videoPlayer = default;
         [SerializeField] private AudioSource phraseAudioSource = default;
         [SerializeField] private GameObject showIntro = default;
-        [SerializeField] private CanvasGroup levelUiGroup = default;
+        [Space] [SerializeField] private LevelView levelView = default;
         [SerializeField] private StatisticsView statisticView = default;
         [SerializeField] private PhotoView newspaper = default;
+        [SerializeField] private LevelPauseView levelPauseView = default;
 
         private CompositeDisposable _disposables;
         private bool _isNewspaperActive;
-        
+
         public List<ChoiceButtonView> Buttons => buttons;
         public CountDownView CountDown => countDown;
         public VideoPlayer VideoPlayer => videoPlayer;
@@ -60,13 +60,20 @@ namespace UI
             _ctx = ctx;
             _disposables = new CompositeDisposable();
 
-            pauseButton.OnClick += OnClickPauseButton;
-            menuButton.OnClick += OnClickMenu;
+            pauseButton.OnClick += () => OnClickPauseButton(true);
             newspaper.OnClose += OnNewspaperClose;
+
+            var onClickUnPauseButton = new ReactiveCommand().AddTo(_disposables);
 
             statisticView.SetCtx(new StatisticsView.Ctx
             {
                 onClickMenuButton = _ctx.onClickMenuButton,
+            });
+
+            levelPauseView.SetCtx(new LevelPauseView.Ctx
+            {
+                onClickMenuButton = _ctx.onClickMenuButton,
+                onClickUnPauseButton = onClickUnPauseButton,
             });
 
             _ctx.onPhraseSoundEvent.Subscribe(OnPhraseSoundEvent).AddTo(_disposables);
@@ -78,6 +85,8 @@ namespace UI
             _ctx.onPopulateStatistics.Subscribe(OnPopulateStatistics).AddTo(_disposables);
             _ctx.onShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
 
+            onClickUnPauseButton.Subscribe(_ => OnClickPauseButton(false));
+
             foreach (var person in persons)
                 person.gameObject.SetActive(false);
 
@@ -87,26 +96,30 @@ namespace UI
             countDown.gameObject.SetActive(false);
         }
 
-        private void OnClickPauseButton()
+        private void OnClickPauseButton(bool value)
         {
-            _ctx.onClickPauseButton.Execute(true);
+            _ctx.onClickPauseButton.Execute(value);
+            EnableUi(value ? levelPauseView.GetType() : levelView.GetType());
         }
-        
+
+        private void EnableUi(Type type)
+        {
+            levelView.gameObject.SetActive(levelView.GetType() == type);
+            statisticView.gameObject.SetActive(statisticView.GetType() == type);
+            newspaper.gameObject.SetActive(newspaper.GetType() == type);
+            levelPauseView.gameObject.SetActive(levelPauseView.GetType() == type);
+        }
+
         private void OnNewspaperClose()
         {
             _isNewspaperActive = false;
-            levelUiGroup.gameObject.SetActive(true);
-            statisticView.gameObject.SetActive(false);
-            newspaper.gameObject.SetActive(false);
+            EnableUi(levelView.GetType());
         }
 
         private void OnShowNewspaper((Container<Task> task, Sprite sprite) spriteData)
         {
             newspaper.ShowImage(spriteData.sprite);
-            levelUiGroup.gameObject.SetActive(false);
-            statisticView.gameObject.SetActive(false);
-            newspaper.gameObject.SetActive(true);
-
+            EnableUi(newspaper.GetType());
             spriteData.task.Value = YieldNewspaper();
         }
 
@@ -122,11 +135,7 @@ namespace UI
         {
             Debug.LogWarning($"[{this}] OnHideLevelUi");
 
-            levelUiGroup.DOFade(0, time).OnComplete(() =>
-            {
-                levelUiGroup.gameObject.SetActive(false);
-                statisticView.gameObject.SetActive(true);
-            });
+            levelView.CanvasGroup.DOFade(0, time).OnComplete(() => { EnableUi(statisticView.GetType()); });
         }
 
         private void OnShowStatisticUi(float time)
@@ -177,14 +186,10 @@ namespace UI
                 personView.gameObject.SetActive(false);
         }
 
-        private void OnClickMenu() =>
-            _ctx.onClickMenuButton.Execute();
-
         public void Dispose()
         {
-            pauseButton.OnClick -= OnClickPauseButton;
-            menuButton.OnClick -= OnClickMenu;
-            newspaper.OnClose -= null;
+            // newspaper.OnClose -= null;
+            // pauseButton.OnClick -= null;
         }
     }
 }
