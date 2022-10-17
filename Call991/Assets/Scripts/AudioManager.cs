@@ -117,6 +117,12 @@ public class AudioManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
     }
+    
+    public void StopTimer()
+    {
+        timerAudioSource.Stop();
+        timerAudioSource.clip = null;
+    }
 
     public void PlaySfx(AudioClip audioClip)
     {

@@ -338,6 +338,7 @@ public class LevelScenePm : IDisposable
     {
         if (_choiceDone) return;
 
+        _ctx.audioManager.StopTimer();
         _ctx.audioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
 
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
