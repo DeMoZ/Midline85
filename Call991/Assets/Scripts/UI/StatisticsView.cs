@@ -45,7 +45,7 @@ namespace UI
             for (var i = 0; i < cells.Count; i++)
             {
                 var cell = cells[i];
-                if (statisticElements.Count > i)
+                if (statisticElements.Count > i && statisticElements[i].isReceived)
                 {
                     cell.image.sprite = statisticElements[i].sprite;
                     cell.text.text = statisticElements[i].isReceived ? statisticElements[i].description : lockedTextKey;
