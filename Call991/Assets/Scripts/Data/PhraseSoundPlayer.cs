@@ -76,9 +76,9 @@ namespace Data
         public void Pause(bool pause)
         {
             if (pause)
-                _ctx.audioSource.Pause();
+                _ctx.audioSource?.Pause();
             else
-                _ctx.audioSource.UnPause();
+                _ctx.audioSource?.UnPause();
         }
 
         public void Dispose()

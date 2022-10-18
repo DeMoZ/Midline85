@@ -18,6 +18,12 @@ public class TempAudioSource : MonoBehaviour
 
     public void Pause(bool pause)
     {
+        if (audioSource == null)
+        {
+            Destroy();
+            return;
+        }
+        
         if (pause)
             audioSource.Pause();
         else
@@ -28,5 +34,10 @@ public class TempAudioSource : MonoBehaviour
     {
         _onDestroyCallback?.Invoke();
         Destroy(gameObject);
+    }
+
+    private void OnDestroy()
+    {
+        Destroy();
     }
 }

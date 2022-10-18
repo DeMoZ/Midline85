@@ -176,9 +176,9 @@ public class AudioManager : MonoBehaviour
     public void Pause(bool pause)
     {
         if (pause)
-            timerAudioSource.Pause();
+            timerAudioSource?.Pause();
         else
-            timerAudioSource.UnPause();
+            timerAudioSource?.UnPause();
         
         if(_loopSounds != null)
             foreach (var source in _loopSounds)

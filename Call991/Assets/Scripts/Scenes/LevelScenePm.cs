@@ -48,7 +48,6 @@ public class LevelScenePm : IDisposable
 
     private bool _choiceDone;
     private float _phraseTimer;
-    private bool _isPaused;
 
     public LevelScenePm(Ctx ctx)
     {
@@ -61,13 +60,7 @@ public class LevelScenePm : IDisposable
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
         _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
 
-        _ctx.onClickPauseButton.Subscribe(pause=>
-        {
-            _isPaused = !_isPaused;
-            Time.timeScale = _isPaused ? 0 : 1;
-            _ctx.phraseSoundPlayer.Pause(_isPaused);
-            _ctx.audioManager.Pause(_isPaused);
-        }).AddTo(_disposables);
+        _ctx.onClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
         
         _ctx.onClickMenuButton.Subscribe(_ =>
         {
@@ -75,6 +68,13 @@ public class LevelScenePm : IDisposable
             _ctx.onSwitchScene.Execute(GameScenes.Menu);
         }).AddTo(_disposables);
         _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
+    }
+
+    private void SetPause(bool pause)
+    {
+        Time.timeScale = pause ? 0 : 1;
+        _ctx.phraseSoundPlayer.Pause(pause);
+        _ctx.audioManager.Pause(pause);
     }
 
     private void OnSkipPhrase()

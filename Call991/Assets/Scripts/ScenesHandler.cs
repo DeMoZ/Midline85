@@ -85,6 +85,7 @@ public class ScenesHandler : IDisposable
             _ => await LoadMenu()
         };
 
+        Time.timeScale = 1;
         return newScene;
     }
 
