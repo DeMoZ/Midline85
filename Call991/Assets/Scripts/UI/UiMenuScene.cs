@@ -15,7 +15,7 @@ namespace UI
         }
 
         [SerializeField] private UiMenu menu = default;
-        [SerializeField] private UiCheats cheats = default;
+        [SerializeField] private UiMenuSettings menuSettings = default;
 
         private Ctx _ctx;
         private CompositeDisposable _disposables;
@@ -41,7 +41,7 @@ namespace UI
                 onClickSettings = _onClickSettings
             });
 
-            cheats.SetCtx(new UiCheats.Ctx
+            menuSettings.SetCtx(new UiMenuSettings.Ctx
             {
                 audioManager = _ctx.audioManager,
                 onClickToMenu = _onClickToMenu,
@@ -49,19 +49,19 @@ namespace UI
             });
 
             menu.gameObject.SetActive(true);
-            cheats.gameObject.SetActive(false);
+            menuSettings.gameObject.SetActive(false);
         }
 
         private void OnClickSettings()
         {
             menu.gameObject.SetActive(false);
-            cheats.gameObject.SetActive(true);
+            menuSettings.gameObject.SetActive(true);
         }
 
         private void OnClickToMenu()
         {
             menu.gameObject.SetActive(true);
-            cheats.gameObject.SetActive(false);
+            menuSettings.gameObject.SetActive(false);
         }
 
         public void Dispose()

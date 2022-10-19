@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class UiCheats : MonoBehaviour
+    public class UiMenuSettings : MonoBehaviour
     {
         public struct Ctx
         {
@@ -18,8 +18,9 @@ namespace UI
         [SerializeField] private MenuButtonView toMenuBtn = default;
         [SerializeField] private TMP_InputField inputId = default;
         [SerializeField] private TextMeshProUGUI inputIdText = default;
-        [Space] [SerializeField] private TMP_Dropdown textLanguage = default;
-        [SerializeField] private TMP_Dropdown audioLanguage = default;
+
+        [Space] [SerializeField] private LanguageDropdown textLanguage = default;
+        [SerializeField] private LanguageDropdown audioLanguage = default;
 
         private Ctx _ctx;
         private Dialogues _dialogues;
@@ -46,9 +47,9 @@ namespace UI
             textLanguage.ClearOptions();
             textLanguage.AddOptions(languages);
 
-            textLanguage.value = languages.IndexOf(currentLanguage);
-            textLanguage.onValueChanged.RemoveListener(OnTextLanguageSelected);
-            textLanguage.onValueChanged.AddListener(OnTextLanguageSelected);
+            textLanguage.Value(languages.IndexOf(currentLanguage));
+            textLanguage.OnValueChanged.RemoveListener(OnTextLanguageSelected);
+            textLanguage.OnValueChanged.AddListener(OnTextLanguageSelected);
         }
 
         private void SetAudioDropdown()
@@ -62,9 +63,9 @@ namespace UI
             audioLanguage.ClearOptions();
             audioLanguage.AddOptions(languages);
 
-            audioLanguage.value = 1; //languages.IndexOf(currentLanguage);
-            audioLanguage.onValueChanged.RemoveListener(OnAudioLanguageSelected);
-            audioLanguage.onValueChanged.AddListener(OnAudioLanguageSelected);
+            audioLanguage.Value(1); //languages.IndexOf(currentLanguage);
+            audioLanguage.OnValueChanged.RemoveListener(OnAudioLanguageSelected);
+            audioLanguage.OnValueChanged.AddListener(OnAudioLanguageSelected);
         }
 
         private void OnAudioLanguageSelected(int index)
@@ -76,10 +77,10 @@ namespace UI
             if (index < 0)
             {
                 index = 0;
-                textLanguage.value = index;
+                textLanguage.Value(index);
             }
 
-            var text = textLanguage.options[index].text;
+            var text = textLanguage.Options[index].text;
             LocalizationManager.CurrentLanguage = text;
 
             _ctx.profile.TextLanguage = text switch
