@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4139128977933142385}
   - component: {fileID: 8749999961666562764}
   - component: {fileID: 8470889215273818321}
+  - component: {fileID: 1933992644256146376}
   m_Layer: 5
   m_Name: ATutorialsGroup
   m_TagString: Untagged
@@ -91,3 +92,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84ed281130f84a568d46229733fde6e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  layoutGroup: {fileID: 8749999961666562764}
+  canvasGroup: {fileID: 1933992644256146376}
+--- !u!225 &1933992644256146376
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9103151050827773361}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
