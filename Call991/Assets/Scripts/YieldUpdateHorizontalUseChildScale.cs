@@ -6,12 +6,18 @@ public class YieldUpdateHorizontalUseChildScale : MonoBehaviour
 {
     [SerializeField] private HorizontalLayoutGroup layoutGroup = default;
     [SerializeField] private CanvasGroup canvasGroup = default;
+
     private void Start()
     {
-        StartCoroutine(YieldNullAndForceTransform());
+        YieldNullAndForceTransform();
     }
 
-    private IEnumerator YieldNullAndForceTransform()
+    public void YieldNullAndForceTransform()
+    {
+        StartCoroutine(YieldNullAndForceTransformRoutine());
+    }
+
+    private IEnumerator YieldNullAndForceTransformRoutine()
     {
         canvasGroup.alpha = 0;
         yield return null;

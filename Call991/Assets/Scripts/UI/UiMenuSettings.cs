@@ -16,6 +16,7 @@ namespace UI
         }
 
         [SerializeField] private MenuButtonView toMenuBtn = default;
+        [SerializeField] private MenuButtonView toMenuTutorialBtn = default;
         [SerializeField] private TMP_InputField inputId = default;
         [SerializeField] private TextMeshProUGUI inputIdText = default;
 
@@ -33,6 +34,7 @@ namespace UI
             SetAudioDropdown();
 
             toMenuBtn.OnClick += OnClickToMenu;
+            toMenuTutorialBtn.OnClick += OnClickToMenu;
             inputId.onValueChanged.AddListener(OnInputId);
         }
 
