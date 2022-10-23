@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Configs;
 using Data;
@@ -131,7 +132,8 @@ public class ScenesHandler : IDisposable
         var phraseSoundPath = "Sounds/Ru/RU_7_P";
         var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelSoFolder + "/7_lvl_achievements");
         var endLevelConfigsPath = levelSoFolder;
-        var newspaperSprite =  await ResourcesLoader.LoadAsync<Sprite>(levelSoFolder + "/newspaper");
+        var newspaperPath = Path.Combine(tLanguage.ToString(), levelSoFolder, "newspaper");
+        var newspaperSprite =  await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.audioManager.OnSceneSwitch();
         _ctx.videoManager.Enable(true);
 
