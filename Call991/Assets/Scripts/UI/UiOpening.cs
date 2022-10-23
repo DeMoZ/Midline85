@@ -19,6 +19,7 @@ namespace UI
         [SerializeField] private CanvasGroup openingUi2 = default;
         [SerializeField] private CanvasGroup openingUi3 = default;
         [SerializeField] private MenuButtonView startBtn = default;
+        [SerializeField] private ClickAnyButton anyButton = default;
 
         private Ctx _ctx;
 
@@ -26,6 +27,7 @@ namespace UI
         {
             _ctx = ctx;
             startBtn.OnClick += OnClickStart;
+            anyButton.OnClick += OnClickStart;
 
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(false);
@@ -34,6 +36,11 @@ namespace UI
             OnStateOne();
         }
 
+        public void OnClickStart()
+        {
+            _ctx.onClickStartGame.Execute();
+        }
+        
         private async void OnStateOne()
         {
             openingUi1.alpha = 1;
@@ -64,14 +71,10 @@ namespace UI
             openingUi3.gameObject.SetActive(true);
         }
 
-        private void OnClickStart()
-        {
-            _ctx.onClickStartGame.Execute();
-        }
-
         private void OnDestroy()
         {
             startBtn.OnClick -= OnClickStart;
+            anyButton.OnClick -= OnClickStart;
         }
     }
 }
