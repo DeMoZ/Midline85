@@ -1,53 +1,65 @@
 using System;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace UI
 {
-    public class MenuButtonView : MonoBehaviour, IPointerClickHandler, IPointerExitHandler, IPointerEnterHandler,
-        ISelectHandler, IDeselectHandler
+    public class MenuButtonView : Selectable
     {
+        [SerializeField] private Color textNormal = default;
         [SerializeField] private Color textHover = default;
         [SerializeField] private TextMeshProUGUI text = default;
 
-        private Color _textColorNormal;
-        private bool _isSelectedByEventSystem;
+        private bool _isSelected;
 
         public event Action OnClick;
 
-        private void Start() =>
-            _textColorNormal = text.color;
-
-        public void OnPointerEnter(PointerEventData eventData) =>
-            SetHoverColor(true);
-
-        public void OnPointerExit(PointerEventData eventData) =>
-            SetHoverColor(false);
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            SetHoverColor(false);
-            OnClick?.Invoke();
-        }
-
-        public void OnSelect(BaseEventData eventData)
-        {
-            _isSelectedByEventSystem = true;
-            SetHoverColor(true);
-        }
-
-        public void OnDeselect(BaseEventData eventData)
-        {
-            _isSelectedByEventSystem = false;
-            SetHoverColor(false);
-        }
-
         private void SetHoverColor(bool hover)
         {
-            text.color = hover ? textHover
-                : _isSelectedByEventSystem ? textHover
-                : _textColorNormal;
+            text.color = hover
+                ? textHover
+                : textNormal;
+        }
+
+        protected override void DoStateTransition(SelectionState state, bool instant)
+        {
+            base.DoStateTransition(state, instant);
+
+            _isSelected = false;
+
+            switch (state)
+            {
+                case SelectionState.Normal:
+                    SetHoverColor(false);
+                    break;
+                case SelectionState.Highlighted:
+                    SetHoverColor(true);
+                    break;
+                case SelectionState.Pressed:
+                    // Debug.LogWarning("menu button DoStateTransition Pressed");
+                    SetHoverColor(true);
+                    OnClick?.Invoke();
+                    break;
+                case SelectionState.Selected:
+                    _isSelected = true;
+                    SetHoverColor(true);
+                    break;
+                case SelectionState.Disabled:
+                    SetHoverColor(false);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(state), state, null);
+            }
+        }
+
+        private void Update()
+        {
+            if (Input.GetKey(KeyCode.Return))
+            {
+                if (_isSelected)
+                    OnClick?.Invoke();
+            }
         }
     }
 }
