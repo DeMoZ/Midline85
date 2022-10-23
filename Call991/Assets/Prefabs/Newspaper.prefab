@@ -314,7 +314,6 @@ RectTransform:
   - {fileID: 1758512912239376577}
   - {fileID: 7323290598594689721}
   - {fileID: 8283933371016841652}
-  - {fileID: 7852761516643970155}
   - {fileID: 8324808619812687357}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -378,84 +377,6 @@ MonoBehaviour:
   _view: {fileID: 5132799130726798803}
   _speed: 25
   _dumping: 4
---- !u!1 &3735688496300728580
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7852761516643970155}
-  - component: {fileID: 1979848994374939680}
-  - component: {fileID: 3357122058018779439}
-  m_Layer: 5
-  m_Name: TutorialsPair
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &7852761516643970155
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3735688496300728580}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 4474670242504943722}
-  m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 110}
-  m_SizeDelta: {x: 0, y: 50}
-  m_Pivot: {x: 1, y: 0}
---- !u!114 &1979848994374939680
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3735688496300728580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Padding:
-    m_Left: 0
-    m_Right: 0
-    m_Top: 0
-    m_Bottom: 0
-  m_ChildAlignment: 5
-  m_Spacing: 40
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 1
-  m_ChildControlHeight: 0
-  m_ChildScaleWidth: 0
-  m_ChildScaleHeight: 0
-  m_ReverseArrangement: 0
---- !u!114 &3357122058018779439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3735688496300728580}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_HorizontalFit: 2
-  m_VerticalFit: 0
 --- !u!1 &5373109702442068369
 GameObject:
   m_ObjectHideFlags: 0
@@ -1330,6 +1251,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
+      propertyPath: m_text
+      value: "\u041F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u043A
+        \u0440\u0430\u0431\u043E\u0442\u0435"
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
+        type: 3}
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
@@ -1524,6 +1451,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
+        type: 3}
+      propertyPath: mTerm
+      value: newspaper_start
+      objectReference: {fileID: 0}
+    - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
+        type: 3}
+      propertyPath: mLocalizeTarget
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8858845041019295416, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_Type
@@ -1594,7 +1531,7 @@ PrefabInstance:
     - target: {fileID: 2412147903767214302, guid: 1dee84a941974484c8699ca600825a75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 2412147903767214302, guid: 1dee84a941974484c8699ca600825a75,
         type: 3}
