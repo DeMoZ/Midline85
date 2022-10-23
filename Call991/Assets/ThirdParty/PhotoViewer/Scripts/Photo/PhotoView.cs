@@ -139,8 +139,8 @@ namespace PhotoViewer.Scripts.Photo
 
         public void Clear()
         {
-            var euler = _imageTransform.rotation.eulerAngles;
-            _imageTransform.rotation = Quaternion.Euler(euler.x, euler.y, 0);
+            //var euler = _imageTransform.rotation.eulerAngles;
+            //_imageTransform.rotation = Quaternion.Euler(euler.x, euler.y, 0);
 
             ResetZoom();
         }

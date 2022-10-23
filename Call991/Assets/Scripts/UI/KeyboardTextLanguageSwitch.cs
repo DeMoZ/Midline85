@@ -1,43 +1,34 @@
-using System;
 using UnityEngine;
 using UnityEngine.Events;
-using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class KeyboardTextLanguageSwitch : Selectable
+public class KeyboardTextLanguageSwitch : MonoBehaviour
 {
     public UnityEvent _left;
     public UnityEvent _right;
 
     private bool _isSelected;
 
-    protected override void DoStateTransition(SelectionState state, bool instant)
-    {
-        base.DoStateTransition(state, instant);
-
-        _isSelected = false;
-
-        switch (state)
-        {
-            case SelectionState.Normal:
-                _isSelected = false;
-                break;
-            case SelectionState.Selected:
-                _isSelected = true;
-                break;
-            case SelectionState.Disabled:
-                _isSelected = false;
-                break;
-        }
-    }
-
     void Update()
     {
-        if (!_isSelected) return;
+        if (!Input.anyKeyDown)
+            return;
 
-        if (Input.GetKey(KeyCode.LeftArrow))
+        // Debug.LogWarning(EventSystem.current.currentSelectedGameObject);
+
+        if (EventSystem.current.currentSelectedGameObject != gameObject)
+            return;
+
+        if (Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.A))
+        {
+            Debug.LogWarning("Left");
             _left?.Invoke();
+        }
 
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.D))
+        {
+            Debug.LogWarning("Right");
             _right?.Invoke();
+        }
     }
 }
