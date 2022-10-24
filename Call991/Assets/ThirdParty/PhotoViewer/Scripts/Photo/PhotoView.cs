@@ -70,7 +70,8 @@ namespace PhotoViewer.Scripts.Photo
 
             _zoomSlider.onValueChanged.AddListener(Zoom);
 
-            _image.sprite = imageData.Sprite;
+            if(_image)
+                _image.sprite = imageData.Sprite;
 
             RescalePhoto(imageData.Sprite);
         }

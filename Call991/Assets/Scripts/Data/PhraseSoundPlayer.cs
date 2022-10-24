@@ -49,7 +49,9 @@ namespace Data
 
         public async Task TryLoadDialogue(string phraseName)
         {
+            _ctx.audioSource.clip = null;
             _audioClip = null;
+            ResourcesLoader.UnloadUnused();
             var clip = await ResourcesLoader.LoadAsync<AudioClip>(Path.Combine(_ctx.resourcesPath, phraseName));
             if (clip) _audioClip = clip;
         }

@@ -38,6 +38,8 @@ public class TempAudioSource : MonoBehaviour
 
     private void OnDestroy()
     {
+        audioSource.clip = null;
+        ResourcesLoader.UnloadUnused();
         Destroy();
     }
 }
