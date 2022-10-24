@@ -11,11 +11,13 @@ namespace UI
             public ReactiveCommand onClickPlayGame;
             public ReactiveCommand onClickNewGame;
             public ReactiveCommand onClickSettings;
+            public ReactiveCommand onClickCredits;
         }
 
         [SerializeField] private MenuButtonView playBtn = default;
         [SerializeField] private MenuButtonView newGameBtn = default;
         [SerializeField] private MenuButtonView settingsBtn = default;
+        [SerializeField] private MenuButtonView creditsBtn = default;
         [SerializeField] private MenuButtonView exitBtn = default;
 
         private Ctx _ctx;
@@ -26,6 +28,7 @@ namespace UI
             playBtn.OnClick += OnClickPlay;
             newGameBtn.OnClick += OnClickNewGame;
             settingsBtn.OnClick += OnClickSettings;
+            creditsBtn.OnClick += OnClickCredits;
             exitBtn.OnClick += OnClickExit;
         }
 
@@ -49,6 +52,13 @@ namespace UI
             _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickSettings.Execute();
         }
+        
+        private void OnClickCredits()
+        {
+            Debug.Log("[UiMenuScene] OnClickCredits");
+            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
+            _ctx.onClickCredits.Execute();
+        }
 
         private void OnClickExit()
         {
@@ -60,6 +70,7 @@ namespace UI
             playBtn.OnClick -= OnClickPlay;
             newGameBtn.OnClick -= OnClickNewGame;
             settingsBtn.OnClick -= OnClickSettings;
+            creditsBtn.OnClick -= OnClickCredits;
             exitBtn.OnClick -= OnClickExit;
         }
     }
