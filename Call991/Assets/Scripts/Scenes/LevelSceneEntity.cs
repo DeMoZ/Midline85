@@ -18,7 +18,8 @@ public class LevelSceneEntity : IGameScene
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile profile;
         public AchievementsSo achievementsSo;
-        public string phraseSoundPath;
+        public string phraseSoundStreamingPath;
+        public string phraseSoundResourcesPath;
         public string endLevelConfigsPath;
         public AudioManager audioManager;
         public VideoManager videoManager;
@@ -80,7 +81,8 @@ public class LevelSceneEntity : IGameScene
 
         var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {
-            path = _ctx.phraseSoundPath,
+            streamingPath = _ctx.phraseSoundStreamingPath,
+            resourcesPath = _ctx.phraseSoundResourcesPath,
             audioSource = _ui.PhraseAudioSource,
         }).AddTo(_disposables);
 

@@ -19,7 +19,8 @@ namespace Data
 
         public struct Ctx
         {
-            public string path; // *strAssets*/Sounds/RU/RU_7_P
+            public string streamingPath; // *strAssets*/Sounds/RU/RU_7_P
+            public string resourcesPath;
             public AudioSource audioSource;
         }
 
@@ -28,21 +29,29 @@ namespace Data
             _ctx = ctx;
             _disposables = new CompositeDisposable();
 
-            _path = "file:///" + Path.Combine(Application.streamingAssetsPath, _ctx.path);
+            _path = "file:///" + Path.Combine(Application.streamingAssetsPath, _ctx.streamingPath);
         }
+
+         public async Task TryLoadStreamingDialogue(string phraseName)
+         {
+             _audioPath = Path.Combine(_path, phraseName + ".wav");
+             //_audioPath = Path.Combine(_path, phraseName + ".ogg");
+             var isLoaded = false;
+             Observable.FromCoroutine(LoadAudio).Subscribe(_ =>
+             {
+                 Debug.Log($"[{this}] Phrase sound load routine end: {_audioPath}");
+                 isLoaded = true;
+             }).AddTo(_disposables);
+        
+             while (!isLoaded)
+                 await Task.Yield();
+         }
 
         public async Task TryLoadDialogue(string phraseName)
         {
-            _audioPath = Path.Combine(_path, phraseName + ".wav");
-            var isLoaded = false;
-            Observable.FromCoroutine(LoadAudio).Subscribe(_ =>
-            {
-                Debug.Log($"[{this}] Phrase sound load routine end: {_audioPath}");
-                isLoaded = true;
-            }).AddTo(_disposables);
-
-            while (!isLoaded)
-                await Task.Yield();
+            _audioClip = null;
+            var clip = await ResourcesLoader.LoadAsync<AudioClip>(Path.Combine(_ctx.resourcesPath, phraseName));
+            if (clip) _audioClip = clip;
         }
 
         public void TryPlayPhraseFile()

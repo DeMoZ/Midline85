@@ -124,22 +124,24 @@ public class ScenesHandler : IDisposable
     {
         var tLanguage = _ctx.profile.TextLanguage;
         var aLanguage = _ctx.profile.AudioLanguage;
-        var levelSoFolder = "7_lvl";
-        var chapterSet = await ResourcesLoader.LoadAsync<ChapterSet>(levelSoFolder + "/7_lvl_Total");
-        var dialogues = await chapterSet.LoadDialogues(tLanguage, levelSoFolder);
+        var levelFolder = "7_lvl";
+        var chapterSet = await ResourcesLoader.LoadAsync<ChapterSet>(levelFolder + "/7_lvl_Total");
+        var dialogues = await chapterSet.LoadDialogues(tLanguage, levelFolder);
         var videoPathBuilder = new VideoPathBuilder();
         //var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P";
-        var phraseSoundPath = "Sounds/Ru/RU_7_P";
-        var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelSoFolder + "/7_lvl_achievements");
-        var endLevelConfigsPath = levelSoFolder;
-        var newspaperPath = Path.Combine(tLanguage.ToString(), levelSoFolder, "newspaper");
+        var phraseSoundStreamingPath = "Sounds/Ru/RU_7_P";
+        //var phraseSoundResourcesPath = Path.Combine("Sounds", tLanguage.ToString(), levelFolder);
+        var phraseSoundResourcesPath = Path.Combine("Sounds/Ru", levelFolder);
+        var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelFolder + "/7_lvl_achievements");
+        var endLevelConfigsPath = levelFolder;
+        var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
         var newspaperSprite =  await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.audioManager.OnSceneSwitch();
         _ctx.videoManager.Enable(true);
 
         var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
         {
-            eventSoPath = levelSoFolder,
+            eventSoPath = levelFolder,
             videoManager = _ctx.videoManager,
             streamingPath = "Videos/EventVideos",
         }).AddTo(_disposables);
@@ -154,7 +156,8 @@ public class ScenesHandler : IDisposable
             dialogues = dialogues,
             onSwitchScene = _ctx.onSwitchScene,
             achievementsSo = achievementsSo,
-            phraseSoundPath = phraseSoundPath,
+            phraseSoundStreamingPath = phraseSoundStreamingPath,
+            phraseSoundResourcesPath = phraseSoundResourcesPath,
             endLevelConfigsPath = endLevelConfigsPath,
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
