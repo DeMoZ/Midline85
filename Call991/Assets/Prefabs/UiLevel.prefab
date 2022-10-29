@@ -166,6 +166,7 @@ GameObject:
   - component: {fileID: 20689716856686933}
   - component: {fileID: 20689716856686932}
   - component: {fileID: 797487819344400804}
+  - component: {fileID: 2815539043442750568}
   m_Layer: 5
   m_Name: UiLevel
   m_TagString: Untagged
@@ -260,6 +261,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canvasGroup: {fileID: 20689716856686932}
+--- !u!114 &2815539043442750568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 20689716856686934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371a10e0cb3948b7b462c5a7b0a8aae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  theKey: 1
+  keyCode: 27
+  onlyFirstSelection: 0
+  onAnyButton:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 6129847113273627201}
+        m_TargetAssemblyTypeName: UI.MenuButtonView, Assembly-CSharp
+        m_MethodName: InvokeOnClick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &20689718241885432
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,6 +751,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 45fd24ff884cc4cc3bd848460271f64b, type: 3}
+--- !u!114 &6129847113273627201 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6149689793516317502, guid: 45fd24ff884cc4cc3bd848460271f64b,
+    type: 3}
+  m_PrefabInstance: {fileID: 20689716580088191}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f25c82b82d454e71ad30bd631fd21589, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &6129847113273627202 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
@@ -1621,7 +1664,7 @@ PrefabInstance:
     - target: {fileID: 4874564718808341462, guid: 619e4c4923311446aaa037a328fbe86f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 121.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4874564718808341462, guid: 619e4c4923311446aaa037a328fbe86f,
         type: 3}
@@ -1646,7 +1689,7 @@ PrefabInstance:
     - target: {fileID: 5821712656530962257, guid: 619e4c4923311446aaa037a328fbe86f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 585.35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5821712656530962257, guid: 619e4c4923311446aaa037a328fbe86f,
         type: 3}
@@ -1821,7 +1864,7 @@ PrefabInstance:
     - target: {fileID: 1460262574658673763, guid: b33fb1dff839f4a52b27b61721df460e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1460262574658673763, guid: b33fb1dff839f4a52b27b61721df460e,
         type: 3}
@@ -2121,7 +2164,7 @@ PrefabInstance:
     - target: {fileID: 1460262574658673763, guid: b33fb1dff839f4a52b27b61721df460e,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 65
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1460262574658673763, guid: b33fb1dff839f4a52b27b61721df460e,
         type: 3}
@@ -2271,7 +2314,7 @@ PrefabInstance:
     - target: {fileID: 4874564718808341462, guid: 619e4c4923311446aaa037a328fbe86f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 121.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4874564718808341462, guid: 619e4c4923311446aaa037a328fbe86f,
         type: 3}
@@ -2296,7 +2339,7 @@ PrefabInstance:
     - target: {fileID: 5821712656530962257, guid: 619e4c4923311446aaa037a328fbe86f,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 585.35
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5821712656530962257, guid: 619e4c4923311446aaa037a328fbe86f,
         type: 3}

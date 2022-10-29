@@ -15,6 +15,11 @@ namespace UI
 
         public event Action OnClick;
 
+        public void InvokeOnClick()
+        {
+            OnClick?.Invoke();    
+        }
+        
         private void SetHoverColor(bool hover)
         {
             text.color = hover
