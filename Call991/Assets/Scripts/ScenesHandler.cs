@@ -55,7 +55,7 @@ public class ScenesHandler : IDisposable
             // case SWITCH_SCENE:
             //     _ctx.onSwitchScene.Execute(GameScenes.Menu);
             //     break;
-            
+
             case LEVEL_SCENE:
                 _ctx.onSwitchScene.Execute(GameScenes.Level1);
                 break;
@@ -115,7 +115,7 @@ public class ScenesHandler : IDisposable
             videoManager = _ctx.videoManager,
             constructorTask = constructorTask,
         }).AddTo(_disposables);
-        
+
         await constructorTask.Value;
         return sceneEntity;
     }
@@ -135,7 +135,7 @@ public class ScenesHandler : IDisposable
         var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelFolder + "/7_lvl_achievements");
         var endLevelConfigsPath = levelFolder;
         var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
-        var newspaperSprite =  await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
+        var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.audioManager.OnSceneSwitch();
         _ctx.videoManager.Enable(true);
 
@@ -145,7 +145,7 @@ public class ScenesHandler : IDisposable
             videoManager = _ctx.videoManager,
             streamingPath = "Videos/EventVideos",
         }).AddTo(_disposables);
-        
+
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
         {
@@ -179,17 +179,18 @@ public class ScenesHandler : IDisposable
     {
         var toLevelScene = scene == GameScenes.Level1;
         _ctx.videoManager.Enable(toLevelScene);
-        
+
         var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
         {
             videoManager = _ctx.videoManager,
             streamingPath = "Videos/EventVideos",
         }).AddTo(_disposables);
-        
+
         var switchSceneEntity = new LoadingSceneEntity(new LoadingSceneEntity.Ctx
         {
             onLoadingProcess = onLoadingProcess,
             toLevelScene = toLevelScene,
+            firstLoad = scene == GameScenes.OpenScene,
             phraseEventVideoLoader = phraseEventVideoLoader,
             gameSet = _ctx.gameSet,
         }).AddTo(_disposables);

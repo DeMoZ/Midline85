@@ -13,6 +13,7 @@ namespace UI
         {
             public ReactiveProperty<string> onLoadingProcess;
             public bool toLevelScene;
+            public bool firstLoad;
             public PhraseEventVideoLoader phraseEventVideoLoader;
             public GameSet gameSet;
         }
@@ -20,6 +21,8 @@ namespace UI
         [SerializeField] private TextMeshProUGUI loadingValue = default;
         [SerializeField] private GameObject loadingUi = default;
         [SerializeField] private GameObject loadingTitle = default;
+        [Tooltip("screen image on first app load (black)")]
+        [SerializeField] private GameObject firstLoadBlocker = default;
 
         private Ctx _ctx;
         
@@ -34,6 +37,7 @@ namespace UI
 
             loadingUi.SetActive(!ctx.toLevelScene);
             loadingTitle.SetActive(ctx.toLevelScene);
+            firstLoadBlocker.SetActive(ctx.firstLoad);
         }
 
         private void OnLoadingProcess(string value)

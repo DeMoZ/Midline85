@@ -9,6 +9,7 @@ public class LoadingSceneEntity : IGameScene
     {
         public ReactiveProperty<string> onLoadingProcess;
         public bool toLevelScene;
+        public bool firstLoad;
         public PhraseEventVideoLoader phraseEventVideoLoader;
         public GameSet gameSet;
     }
@@ -24,6 +25,7 @@ public class LoadingSceneEntity : IGameScene
         {
             onLoadingProcess = _ctx.onLoadingProcess,
             toLevelScene = _ctx.toLevelScene,
+            firstLoad = _ctx.firstLoad,
             phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
             gameSet = _ctx.gameSet,
         });
