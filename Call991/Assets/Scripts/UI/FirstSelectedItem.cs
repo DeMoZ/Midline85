@@ -14,9 +14,7 @@ namespace UI
 
         public void SelectFirst()
         {
-            EventSystem.current.firstSelectedGameObject = objectToFirstSelect;
-            EventSystem.current.SetSelectedGameObject(objectToFirstSelect);
-            EventSystem.current.sendNavigationEvents = true;
+            objectToFirstSelect.Select();
         }
     }
 }

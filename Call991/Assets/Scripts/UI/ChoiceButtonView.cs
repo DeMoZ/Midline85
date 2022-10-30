@@ -6,10 +6,11 @@ using TMPro;
 using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 namespace UI
 {
-    public class ChoiceButtonView : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
+    public class ChoiceButtonView : Selectable, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
         public struct Ctx
         {
@@ -20,69 +21,70 @@ namespace UI
             public float slowButtonFadeDuration;
         }
 
-        [SerializeField] private GameObject normal = default;
-        [SerializeField] private GameObject hover = default;
-        [SerializeField] private GameObject clicked = default;
-        [SerializeField] private GameObject blocked = default;
-        [Space]
-        [SerializeField] private Color textNormal = default;
+        [Space] [SerializeField] private GameObject blocked = default;
+        [Space] [SerializeField] private Color textNormal = default;
         [SerializeField] private Color textHover = default;
         [SerializeField] private Color textClicked = default;
         [SerializeField] private Color textBlocked = default;
-        [Space] 
-        [SerializeField] private TextMeshProUGUI text = default;
+        [Space] [SerializeField] private TextMeshProUGUI text = default;
         [SerializeField] private TextMeshProUGUI textSelected = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
         private Ctx _ctx;
-        private ButtonStates _currentState;
 
         private static bool _isClicked;
         private LocalizedString _localize;
+
+        private bool _isSelected;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
         }
 
-        private void SwitchButtonState(ButtonStates state, bool checkClicked = false)
+        protected override void DoStateTransition(SelectionState state, bool instant)
         {
-            if (checkClicked)
-                if (_currentState == ButtonStates.Clicked && state == ButtonStates.Normal)
-                    state = ButtonStates.Clicked;
+            base.DoStateTransition(state, instant);
 
-            if (state != ButtonStates.Hover)
-                _currentState = state;
+            _isSelected = false;
 
-            normal?.SetActive(state is ButtonStates.Normal or ButtonStates.Blocked);
-            hover?.SetActive(state == ButtonStates.Hover);
-            clicked?.SetActive(state == ButtonStates.Clicked);
-            blocked?.SetActive(state == ButtonStates.Blocked);
+            Debug.LogWarning($"choice button {name} {state}");
 
             switch (state)
             {
-                case ButtonStates.Normal:
-                    text.color = textNormal;
+                case SelectionState.Normal:
+                    SetHoverColor(false);
                     break;
-                case ButtonStates.Hover:
-                    text.color = textHover;
+                case SelectionState.Highlighted:
+                    SetHoverColor(true);
                     break;
-                case ButtonStates.Clicked:
-                    text.color = textClicked;
+                case SelectionState.Pressed:
+                    SetHoverColor(true);
+                    _ctx.onClickChoiceButton.Execute(_ctx.index);
                     break;
-                case ButtonStates.Blocked:
-                    text.color = textBlocked;
+                case SelectionState.Selected:
+                    _isSelected = true;
+                    SetHoverColor(true);
+                    break;
+                case SelectionState.Disabled:
+                    SetHoverColor(false);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
             }
         }
 
+        private void SetHoverColor(bool hover)
+        {
+            text.color = hover
+                ? textHover
+                : textNormal;
+        }
+
         public void SetClicked()
         {
             text.gameObject.SetActive(false);
             textSelected.gameObject.SetActive(true);
-            SwitchButtonState(ButtonStates.Clicked);
         }
 
         public async void Show(string choiceKey, bool isBlocked = false)
@@ -93,11 +95,7 @@ namespace UI
             textSelected.text = _localize;
             text.gameObject.SetActive(true);
             textSelected.gameObject.SetActive(false);
-            SwitchButtonState(ButtonStates.Normal);
-
-            if (isBlocked)
-                SwitchButtonState(ButtonStates.Blocked);
-
+            blocked.SetActive(isBlocked);
             gameObject.SetActive(true);
             canvasGroup.DOFade(1, _ctx.buttonsAppearDuration);
             await Task.Delay((int) (_ctx.buttonsAppearDuration * 1000));
@@ -110,37 +108,13 @@ namespace UI
             await Task.Delay((int) (duration * 1000));
         }
 
-        private enum ButtonStates
+        private void Update()
         {
-            Normal,
-            Hover,
-            Clicked,
-            Blocked,
-        }
-
-        public void OnPointerEnter(PointerEventData eventData)
-        {
-            if(_isClicked) return;
-            if (_currentState == ButtonStates.Blocked) return;
-            
-            SwitchButtonState(ButtonStates.Hover);
-        }
-
-        public void OnPointerExit(PointerEventData eventData)
-        {
-            if (_isClicked) return;
-            if (_currentState == ButtonStates.Blocked) return;
-            
-            SwitchButtonState(ButtonStates.Normal, true);
-        }
-
-        public void OnPointerDown(PointerEventData eventData)
-        {
-            if (_isClicked) return;
-            if (_currentState == ButtonStates.Blocked) return;
-            
-            _isClicked = true;
-            _ctx.onClickChoiceButton.Execute(_ctx.index);
+            if (_isSelected && Input.GetKey(KeyCode.Return))
+            {
+                SetHoverColor(true);
+                _ctx.onClickChoiceButton.Execute(_ctx.index);
+            }
         }
     }
 }

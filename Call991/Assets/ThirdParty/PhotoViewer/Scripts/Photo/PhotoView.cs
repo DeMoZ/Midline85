@@ -148,6 +148,8 @@ namespace PhotoViewer.Scripts.Photo
 
         private void RescalePhoto(Sprite sprite)
         {
+            if (_viewTransfrom == null) return;
+            
             var viewerSize = ViewerSize;
             var spriteSize = new Vector2(sprite.rect.width, sprite.rect.height);
 

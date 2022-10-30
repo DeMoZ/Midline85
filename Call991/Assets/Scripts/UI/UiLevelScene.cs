@@ -104,6 +104,8 @@ namespace UI
 
         private void EnableUi(Type type)
         {
+            if (levelView == null) return;
+            
             levelView.gameObject.SetActive(levelView.GetType() == type);
             statisticView.gameObject.SetActive(statisticView.GetType() == type);
             newspaper.gameObject.SetActive(newspaper.GetType() == type);

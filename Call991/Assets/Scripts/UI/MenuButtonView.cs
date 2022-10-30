@@ -60,11 +60,8 @@ namespace UI
 
         private void Update()
         {
-            if (Input.GetKey(KeyCode.Return))
-            {
-                if (_isSelected)
-                    OnClick?.Invoke();
-            }
+            if (_isSelected && Input.GetKey(KeyCode.Return)) 
+                OnClick?.Invoke();
         }
     }
 }

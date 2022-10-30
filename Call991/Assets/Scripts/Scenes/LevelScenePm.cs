@@ -48,6 +48,11 @@ public class LevelScenePm : IDisposable
 
     private bool _choiceDone;
     private float _phraseTimer;
+    
+    /// <summary>
+    /// Choice button selection with keyboard.
+    /// </summary>
+    private bool _selectionPlaced; 
 
     public LevelScenePm(Ctx ctx)
     {
@@ -61,7 +66,7 @@ public class LevelScenePm : IDisposable
         _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
 
         _ctx.onClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
-        
+
         _ctx.onClickMenuButton.Subscribe(_ =>
         {
             _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
@@ -75,6 +80,9 @@ public class LevelScenePm : IDisposable
         Time.timeScale = pause ? 0 : 1;
         _ctx.phraseSoundPlayer.Pause(pause);
         _ctx.audioManager.Pause(pause);
+        
+        if(!pause)
+            _selectionPlaced = false;
     }
 
     private void OnSkipPhrase()
@@ -176,6 +184,7 @@ public class LevelScenePm : IDisposable
             }
 
             var isBlocked = IsBlocked(_currentPhrase.choices[i]);
+            _ctx.buttons[i].interactable = !isBlocked;
             _ctx.buttons[i].Show(_currentPhrase.choices[i].choiceId, isBlocked);
         }
 
@@ -192,7 +201,7 @@ public class LevelScenePm : IDisposable
 
         return false;
     }
-
+    
     private IEnumerator ChoiceRoutine()
     {
         var timer = 0f;
@@ -205,6 +214,9 @@ public class LevelScenePm : IDisposable
         _ctx.audioManager.PlayUiSound(SoundUiTypes.Timer, true);
 
         yield return new WaitForSeconds(_ctx.gameSet.buttonsAppearDuration);
+
+        _selectionPlaced = false;
+        
         while (timer <= time)
         {
             yield return null;
@@ -212,6 +224,8 @@ public class LevelScenePm : IDisposable
 
             if (_choiceDone)
                 yield break;
+
+            CheckForSelectionPlaced();
         }
 
         Debug.LogWarning($"[{this}] choice time up! Random choice!");
@@ -226,7 +240,42 @@ public class LevelScenePm : IDisposable
                 yield return null;
         }
 
+        _ctx.buttons[index].gameObject.Select();
         OnClickChoiceButton(index);
+    }
+
+    private void CheckForSelectionPlaced()
+    {
+        if (!_selectionPlaced && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
+                                 Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+        {
+            // set first selection
+            var eventSystemSelectGameObject = RandomSelectButton(new List<Choice>(_currentPhrase.choices));
+
+            if (eventSystemSelectGameObject != null)
+            {
+                var selectIndex = _currentPhrase.choices.IndexOf(eventSystemSelectGameObject);
+                _ctx.buttons[selectIndex].gameObject.Select();
+            }
+
+            _selectionPlaced = true;
+        }
+    }
+
+    private Choice RandomSelectButton(List<Choice> choices)
+    {
+        if (choices.Count == 0)
+            return null;
+        
+        var rndChoice = choices[Random.Range(0,choices.Count)];
+
+        if (IsBlocked(rndChoice))
+        {
+            choices.Remove(rndChoice);
+            return RandomSelectButton(new List<Choice>(choices));
+        }
+
+        return rndChoice;
     }
 
     private async Task NextPhrase()
@@ -275,9 +324,9 @@ public class LevelScenePm : IDisposable
 
             _phraseTimer += Time.deltaTime;
         }
-        
+
         // of somehow an event was skipped, strike it
-        foreach (var pEvent in pEvents) 
+        foreach (var pEvent in pEvents)
             ExecutePhraseEvent(pEvent);
     }
 
@@ -343,6 +392,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
         _choiceDone = true;
+        GameObjectEventSystemSelectionExtension.NoSelection();
         _ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
         _ctx.profile.LastPhrase = _currentPhrase.choices[index].nextPhraseId;
 
