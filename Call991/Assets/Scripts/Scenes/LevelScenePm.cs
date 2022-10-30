@@ -175,6 +175,8 @@ public class LevelScenePm : IDisposable
 
         _choiceDone = false;
 
+        GameObjectEventSystemSelectionExtension.ClearSelection();
+
         for (int i = 0; i < _currentPhrase.choices.Count; i++)
         {
             if (_currentPhrase.choices[i].ifSelected)
@@ -392,7 +394,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
         _choiceDone = true;
-        GameObjectEventSystemSelectionExtension.NoSelection();
+        GameObjectEventSystemSelectionExtension.StopSelection();
         _ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
         _ctx.profile.LastPhrase = _currentPhrase.choices[index].nextPhraseId;
 

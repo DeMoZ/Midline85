@@ -19,10 +19,16 @@ namespace UI
             EventSystem.current.sendNavigationEvents = true;
         }
 
-        public static void NoSelection()
+        public static void StopSelection()
         {
             EventSystem.current.firstSelectedGameObject = null;
-            //EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.sendNavigationEvents = false;
+        }
+
+        public static void ClearSelection()
+        {
+            EventSystem.current.firstSelectedGameObject = null;
+            EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.sendNavigationEvents = false;
         }
     }
