@@ -48,12 +48,12 @@ namespace Data
 
             if (config.clip)
             {
-                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.VideoVfx);
+                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.Vfx);
             }
             else
             {
                 _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
-                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.VideoVfx);
+                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.Vfx);
             }
         }
 
@@ -70,12 +70,12 @@ namespace Data
             
             if (config.clip)
             {
-                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.VideoLoop);
+                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.LoopVfx);
             }
             else
             {
                 _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
-                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.VideoLoop);
+                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.LoopVfx);
             }
         }
 
@@ -90,15 +90,15 @@ namespace Data
                 return;
             }
 
-            Debug.Log($"[{this}] LoadVideoTitle {config.eventId} {PhraseEventTypes.VideoLoop}");
+            Debug.Log($"[{this}] LoadVideoTitle {config.eventId} {PhraseEventTypes.LoopVfx}");
             if (config.clip)
             {
-                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.VideoLoop);
+                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.LoopVfx);
             }
             else
             {
                 _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
-                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.VideoLoop);
+                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.LoopVfx);
             }
         }
 

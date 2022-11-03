@@ -10,6 +10,7 @@ using UnityEngine;
 public class ChapterSet : SerializedScriptableObject
 {
     public string titleVideoSoName;
+    public string levelVideoSoName;
     public List<Dialogues> dialogues;
     
     public async Task<Dialogues> LoadDialogues(Language language, string lvl)

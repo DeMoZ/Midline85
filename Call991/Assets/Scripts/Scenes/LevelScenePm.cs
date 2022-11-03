@@ -52,8 +52,8 @@ public class LevelScenePm : IDisposable
     /// <summary>
     /// Choice button selection with keyboard.
     /// </summary>
-    private bool _selectionPlaced; 
-
+    private bool _selectionPlaced;
+    
     public LevelScenePm(Ctx ctx)
     {
         Debug.Log($"[{this}] constructor");
@@ -111,7 +111,8 @@ public class LevelScenePm : IDisposable
         await _ctx.phraseEventVideoLoader.LoadVideoEvent(_ctx.chapterSet.titleVideoSoName);
         await ShowNewsPaper();
         await ShowIntro();
-
+        await _ctx.phraseEventVideoLoader.LoadVideoEvent(_ctx.chapterSet.levelVideoSoName);
+        
         RunDialogue();
     }
 
@@ -138,7 +139,7 @@ public class LevelScenePm : IDisposable
             Debug.LogError($"[{this}] _ctx.profile.LastPhrase: {_ctx.profile.LastPhrase}. Not found in phrases.");
             return;
         }
-
+        
         await _ctx.phraseSoundPlayer.TryLoadDialogue(_currentPhrase.Phrase.GetOverridenPhraseId());
 
         Observable.FromCoroutine(PhraseRoutine).Subscribe(_ =>
@@ -341,18 +342,18 @@ public class LevelScenePm : IDisposable
                 break;
             case PhraseEventTypes.Video:
                 break;
-            case PhraseEventTypes.SoundSfx:
+            case PhraseEventTypes.Sfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
                 _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, false, pEvent.stop);
                 break;
-            case PhraseEventTypes.SoundLoopSfx:
+            case PhraseEventTypes.LoopSfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
                 _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop);
                 break;
-            case PhraseEventTypes.VideoVfx:
+            case PhraseEventTypes.Vfx:
 
                 break;
-            case PhraseEventTypes.VideoLoop:
+            case PhraseEventTypes.LoopVfx:
                 Debug.LogWarning($"[{this}] PhraseEventTypes.VideoLoop to be execute");
                 _ctx.phraseEventVideoLoader.LoadVideoEvent(pEvent.eventId);
                 break;

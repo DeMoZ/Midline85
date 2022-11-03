@@ -30,7 +30,7 @@ public class LevelSceneEntity : IGameScene
     private Ctx _ctx;
     private UiLevelScene _ui;
     private CompositeDisposable _disposables;
-
+    
     public LevelSceneEntity(Ctx ctx)
     {
         _ctx = ctx;

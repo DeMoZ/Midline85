@@ -43,9 +43,9 @@ public enum PhraseEventTypes
 {
     Music,
     Video,
-    SoundSfx,
-    VideoVfx,
-    SoundLoopSfx,
-    VideoLoop,
+    Sfx,
+    Vfx,
+    LoopSfx,
+    LoopVfx,
     LevelEnd,
 }

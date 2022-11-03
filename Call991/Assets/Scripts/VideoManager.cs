@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using Configs;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,17 +29,35 @@ public class VideoManager : MonoBehaviour
     {
     }
 
+    public async Task PrepareVideo(string sceneVideoUrl)
+    {
+        videoPlayer.Stop();
+        videoPlayer.url = sceneVideoUrl;
+        videoPlayer.Prepare();
+        
+        while (!videoPlayer.isPrepared)
+            await Task.Yield();
+
+        PlayPreparedVideo();
+    }
+
+    private void PlayPreparedVideo()
+    {
+        videoPlayer.Play();
+        videoPlayer.isLooping = true;
+    }
+    
     public void PlayVideo(string sceneVideoUrl, PhraseEventTypes phraseEventTypes)
     {
         switch (phraseEventTypes)
         {
             case PhraseEventTypes.Video:
                 break;
-            case PhraseEventTypes.VideoVfx:
+            case PhraseEventTypes.Vfx:
                 vfxPlayer.url = sceneVideoUrl;
-                videoPlayer.isLooping = false;
+                vfxPlayer.isLooping = false;
                 break;
-            case PhraseEventTypes.VideoLoop:
+            case PhraseEventTypes.LoopVfx:
                 videoPlayer.url = sceneVideoUrl;
                 videoPlayer.isLooping = true;
                 break;
@@ -53,11 +72,11 @@ public class VideoManager : MonoBehaviour
         {
             case PhraseEventTypes.Video:
                 break;
-            case PhraseEventTypes.VideoVfx:
+            case PhraseEventTypes.Vfx:
                 vfxPlayer.clip = clip;
                 videoPlayer.isLooping = false;
                 break;
-            case PhraseEventTypes.VideoLoop:
+            case PhraseEventTypes.LoopVfx:
                 videoPlayer.clip = clip;
                 videoPlayer.isLooping = true;
                 break;
