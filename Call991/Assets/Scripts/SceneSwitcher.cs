@@ -1,4 +1,7 @@
 using System;
+using System.Threading.Tasks;
+using Configs;
+using Data;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -9,6 +12,10 @@ public class SceneSwitcher : IDisposable
     {
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ScenesHandler scenesHandler;
+        public VideoManager videoManager;
+        public PhraseEventVideoLoader phraseEventVideoLoader;
+        public Blocker blocker;
+        public GameSet gameSet;
     }
 
     private Ctx _ctx;
@@ -22,9 +29,25 @@ public class SceneSwitcher : IDisposable
         _diposables = new CompositeDisposable();
         _ctx.onSwitchScene.Subscribe(OnSwitchScene).AddTo(_diposables);
     }
-    
+
     private void OnSwitchScene(GameScenes scene)
     {
+        // if (toLevelScene)
+        // {
+        //     // Enable blocker
+        //     
+        //     // load video preload
+        //     // Fade disable blocker after video loaded
+        //     
+        //     _ctx.videoManager.EnableVideoBlocker(true);
+        // }
+        // else
+        // {
+        //     // disable video
+        //     // disable blocker
+        // }
+
+
         // load switch scene Additive (with UI over all)
         _diposables.Add(SceneManager.LoadSceneAsync(_ctx.scenesHandler.SwitchScene) // async load scene
             .AsAsyncOperationObservable() // as Observable thread
@@ -33,20 +56,36 @@ public class SceneSwitcher : IDisposable
                 // call during the process
                 Debug.Log($"[{this}][OnSwitchScene] Async load scene {_ctx.scenesHandler.SwitchScene} progress: " +
                           x.progress); // show progress
-            }).Subscribe(_ =>
+            }).Subscribe(async _ =>
             {
                 Debug.Log($"[{this}][OnSwitchScene] Async load scene {_ctx.scenesHandler.SwitchScene} done");
                 _currentScene?.Exit();
                 _currentScene?.Dispose();
-                
-                OnSwitchSceneLoaded(scene);
+                await OnSwitchSceneLoaded(scene);
             }));
     }
 
-    private async void OnSwitchSceneLoaded(GameScenes scene)
+    private async Task OnSwitchSceneLoaded(GameScenes scene)
     {
+        //await _ctx.videoManager.FadeVideoBlocker(true);
+        _ctx.videoManager.EnableVideo(false);
+        _ctx.blocker.EnableVideoBlocker(false, false);
+
         var onLoadingProcess = new ReactiveProperty<string>().AddTo(_diposables);
         var switchSceneEntity = _ctx.scenesHandler.LoadingSceneEntity(onLoadingProcess, scene);
+
+        var toLevelScene = scene == GameScenes.Level1;
+
+        if (toLevelScene)
+        {
+            //await _ctx.phraseEventVideoLoader.LoadVideoTitle(_ctx.gameSet.titleVideoSoName);
+            await _ctx.videoManager.LoadVideoSoToPrepareVideo(_ctx.gameSet.titleVideoSoName);
+            _ctx.blocker.EnableVideoBlocker(true, true);
+            _ctx.videoManager.EnableVideo(true);
+            _ctx.videoManager.PlayPreparedVideo();
+            await _ctx.blocker.FadeVideoBlocker(false);
+            _ctx.blocker.EnableVideoBlocker(false, false);
+        }
 
         Debug.Log($"[{this}][OnSwitchSceneLoaded] Start load scene {scene}");
 

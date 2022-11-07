@@ -1,6 +1,7 @@
 using System.Threading.Tasks;
 using UI;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EntryRoot : MonoBehaviour
 {
@@ -8,10 +9,16 @@ public class EntryRoot : MonoBehaviour
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private VideoManager videoManager;
     
+    [Space] 
+    [SerializeField] private Image videoBlocker;
+    [SerializeField] private Image screenBlocker;
+
     private async void Awake()
     {
         if (_instance == null)
+        {
             _instance = this;
+        }
         else
         {
             Destroy(gameObject);
@@ -20,9 +27,9 @@ public class EntryRoot : MonoBehaviour
         }
 
         DontDestroyOnLoad(this.gameObject);
-        
+
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
-        
+
         await CreateAppSettings();
         CreateRootEntity();
     }
@@ -36,13 +43,16 @@ public class EntryRoot : MonoBehaviour
         var cursorSettings = await ResourcesLoader.LoadAsync<CursorSet>("CursorSet");
         cursorSettings.ApplyCursor();
     }
-    
+
     private void CreateRootEntity()
     {
+        var blocker = new Blocker(screenBlocker, videoBlocker);
+        
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             audioManager = audioManager,
             videoManager = videoManager,
+            blocker = blocker,
         });
     }
 

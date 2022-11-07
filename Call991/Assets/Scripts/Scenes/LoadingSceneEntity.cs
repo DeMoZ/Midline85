@@ -10,8 +10,7 @@ public class LoadingSceneEntity : IGameScene
         public ReactiveProperty<string> onLoadingProcess;
         public bool toLevelScene;
         public bool firstLoad;
-        public PhraseEventVideoLoader phraseEventVideoLoader;
-        public GameSet gameSet;
+        public Blocker blocker;
     }
 
     private Ctx _ctx;
@@ -20,14 +19,13 @@ public class LoadingSceneEntity : IGameScene
     {
         _ctx = ctx;
 
-        var ui = UnityEngine.GameObject.FindObjectOfType<UiSwitchScene>();
+        var ui = UnityEngine.Object.FindObjectOfType<UiSwitchScene>();
         ui.SetCtx(new UiSwitchScene.Ctx
         {
             onLoadingProcess = _ctx.onLoadingProcess,
             toLevelScene = _ctx.toLevelScene,
             firstLoad = _ctx.firstLoad,
-            phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
-            gameSet = _ctx.gameSet,
+            blocker = _ctx.blocker,
         });
     }
 

@@ -39,6 +39,8 @@ public class LevelScenePm : IDisposable
         public PhraseEventVideoLoader phraseEventVideoLoader;
         public ReactiveCommand onSkipPhrase;
         public ReactiveCommand<bool> onClickPauseButton;
+        public VideoManager videoManager;
+        public Blocker blocker;
     }
 
     private Ctx _ctx;
@@ -75,22 +77,6 @@ public class LevelScenePm : IDisposable
         _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
-    private void SetPause(bool pause)
-    {
-        Time.timeScale = pause ? 0 : 1;
-        _ctx.phraseSoundPlayer.Pause(pause);
-        _ctx.audioManager.Pause(pause);
-        
-        if(!pause)
-            _selectionPlaced = false;
-    }
-
-    private void OnSkipPhrase()
-    {
-        if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
-            _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear);
-    }
-
     private async void OnAfterEnter()
     {
         InitButtons();
@@ -107,27 +93,65 @@ public class LevelScenePm : IDisposable
 
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
+        
+        //_ctx.blocker.EnableVideoBlocker(true, false);
+        //await _ctx.blocker.FadeVideoBlocker(true);
 
-        await _ctx.phraseEventVideoLoader.LoadVideoEvent(_ctx.chapterSet.titleVideoSoName);
         await ShowNewsPaper();
         await ShowIntro();
-        await _ctx.phraseEventVideoLoader.LoadVideoEvent(_ctx.chapterSet.levelVideoSoName);
+        
+        await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
+        _ctx.videoManager.PlayPreparedVideo();
+        _ctx.blocker.EnableVideoBlocker(false,false);
+
+        await _ctx.blocker.FadeScreenBlocker(false);
+        _ctx.blocker.EnableScreenBlocker(false,false);
         
         RunDialogue();
     }
 
+    private void SetPause(bool pause)
+    {
+        Time.timeScale = pause ? 0 : 1;
+        _ctx.phraseSoundPlayer.Pause(pause);
+        _ctx.audioManager.Pause(pause);
+        
+        if(!pause)
+            _selectionPlaced = false;
+    }
+
+    private void OnSkipPhrase()
+    {
+        if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
+            _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear);
+    }
+    
     private async Task ShowNewsPaper()
     {
+        _ctx.blocker.EnableScreenBlocker(true, false);
+        await _ctx.blocker.FadeScreenBlocker(true);
+        
         var container = new Container<Task>();
         _ctx.onShowNewspaper.Execute((container, _ctx.newspaperSprite));
+        
+        _ctx.blocker.EnableVideoBlocker(true, true);
+        await _ctx.blocker.FadeScreenBlocker(false);
+        _ctx.blocker.EnableScreenBlocker(false, false);
+
         await container.Value;
     }
 
     private async Task ShowIntro()
     {
-        await _ctx.phraseEventVideoLoader.LoadVideoEvent(_ctx.chapterSet.titleVideoSoName);
+        await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.titleVideoSoName);
+        _ctx.videoManager.PlayPreparedVideo();
+        await _ctx.blocker.FadeVideoBlocker(false);
+        _ctx.blocker.EnableVideoBlocker(false,false);
+        
         _ctx.onShowIntro.Execute(true);
         await Task.Delay((int) (_ctx.gameSet.levelIntroDelay * 1000));
+        _ctx.blocker.EnableScreenBlocker(true,false);
+        await _ctx.blocker.FadeScreenBlocker(true);
         _ctx.onShowIntro.Execute(false);
     }
 

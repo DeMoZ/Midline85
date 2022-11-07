@@ -17,6 +17,7 @@ public class ScenesHandler : IDisposable
         public AudioManager audioManager;
         public GameSet gameSet;
         public VideoManager videoManager;
+        public Blocker blocker;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -96,6 +97,7 @@ public class ScenesHandler : IDisposable
         {
             gameSet = _ctx.gameSet,
             onSwitchScene = _ctx.onSwitchScene,
+            blocker = _ctx.blocker,
         }).AddTo(_disposables);
 
         return sceneEntity;
@@ -104,7 +106,6 @@ public class ScenesHandler : IDisposable
     private async Task<IGameScene> LoadMenu()
     {
         _ctx.audioManager.OnSceneSwitch();
-        _ctx.videoManager.Enable(false);
 
         var constructorTask = new Container<Task>();
         var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
@@ -137,7 +138,6 @@ public class ScenesHandler : IDisposable
         var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
         var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.audioManager.OnSceneSwitch();
-        _ctx.videoManager.Enable(true);
 
         var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
         {
@@ -163,6 +163,7 @@ public class ScenesHandler : IDisposable
             videoManager = _ctx.videoManager,
             newspaperSprite = newspaperSprite,
             phraseEventVideoLoader = phraseEventVideoLoader,
+            blocker = _ctx.blocker,
         }).AddTo(_disposables);
 
         await constructorTask.Value;
@@ -177,8 +178,9 @@ public class ScenesHandler : IDisposable
 
     public IGameScene LoadingSceneEntity(ReactiveProperty<string> onLoadingProcess, GameScenes scene)
     {
+        _ctx.videoManager.EnableVideo(false);
+
         var toLevelScene = scene == GameScenes.Level1;
-        _ctx.videoManager.Enable(toLevelScene);
 
         var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
         {
@@ -191,8 +193,7 @@ public class ScenesHandler : IDisposable
             onLoadingProcess = onLoadingProcess,
             toLevelScene = toLevelScene,
             firstLoad = scene == GameScenes.OpenScene,
-            phraseEventVideoLoader = phraseEventVideoLoader,
-            gameSet = _ctx.gameSet,
+            blocker = _ctx.blocker,
         }).AddTo(_disposables);
 
         return switchSceneEntity;

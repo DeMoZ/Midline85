@@ -12,6 +12,7 @@ public class RootEntity : IDisposable
     {
         public AudioManager audioManager;
         public VideoManager videoManager;
+        public Blocker blocker;
     }
 
     private Ctx _ctx;
@@ -66,12 +67,16 @@ public class RootEntity : IDisposable
             profile = profile,
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
+            blocker = _ctx.blocker,
         }).AddTo(_diposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
             scenesHandler = scenesHandler,
             onSwitchScene = onSwitchScene,
+            videoManager = _ctx.videoManager,
+            gameSet = gameSet,
+            blocker = _ctx.blocker,
         }).AddTo(_diposables);
 
         _onStartApplicationSwitchScene.Execute();

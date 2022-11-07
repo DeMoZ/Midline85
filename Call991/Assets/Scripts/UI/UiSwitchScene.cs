@@ -13,31 +13,26 @@ namespace UI
         {
             public ReactiveProperty<string> onLoadingProcess;
             public bool toLevelScene;
+
             public bool firstLoad;
-            public PhraseEventVideoLoader phraseEventVideoLoader;
-            public GameSet gameSet;
+            public Blocker blocker;
         }
-    
+
         [SerializeField] private TextMeshProUGUI loadingValue = default;
         [SerializeField] private GameObject loadingUi = default;
         [SerializeField] private GameObject loadingTitle = default;
-        [Tooltip("screen image on first app load (black)")]
-        [SerializeField] private GameObject firstLoadBlocker = default;
-
-        private Ctx _ctx;
         
-        public async Task SetCtx(Ctx ctx)
+        private Ctx _ctx;
+
+        public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
             OnLoadingProcess("0");
             _ctx.onLoadingProcess.Subscribe(OnLoadingProcess);
-
-            if (_ctx.toLevelScene) 
-                await _ctx.phraseEventVideoLoader.LoadVideoTitle(_ctx.gameSet.titleVideoSoName);
-
+            
             loadingUi.SetActive(!ctx.toLevelScene);
             loadingTitle.SetActive(ctx.toLevelScene);
-            firstLoadBlocker.SetActive(ctx.firstLoad);
+            _ctx.blocker.EnableScreenBlocker(ctx.firstLoad, ctx.firstLoad);
         }
 
         private void OnLoadingProcess(string value)

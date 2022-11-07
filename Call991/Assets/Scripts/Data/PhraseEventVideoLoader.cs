@@ -18,19 +18,20 @@ namespace Data
         }
 
         private Ctx _ctx;
-       
+
         private CompositeDisposable _disposables;
         private string _streamingPath;
         private string _videoPath;
         private VideoClip _videoClip;
-        
+
         public PhraseEventVideoLoader(Ctx ctx)
         {
             _ctx = ctx;
             _disposables = new CompositeDisposable();
-            
+
             _streamingPath = "file:///" + Path.Combine(Application.streamingAssetsPath, _ctx.streamingPath);
         }
+
         public void Dispose()
         {
             ResourcesLoader.UnloadUnused();
@@ -48,18 +49,17 @@ namespace Data
 
             if (config.clip)
             {
-                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.Vfx);
+                _ctx.videoManager.PlayVideo(config.videoClip, PhraseEventTypes.Vfx);
             }
             else
             {
                 _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
-                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.Vfx);
+                _ctx.videoManager.PlayVideo(_videoPath, PhraseEventTypes.Vfx);
             }
         }
-
+        
         public async Task LoadVideoEvent(string eventId)
         {
-           
             var config = await LoadConfig(eventId);
 
             if (config == null)
@@ -67,15 +67,15 @@ namespace Data
                 Debug.LogError($"[{this}] sound event SO wasn't found: A PATH /{eventId}");
                 return;
             }
-            
+
             if (config.clip)
             {
-                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.LoopVfx);
+                _ctx.videoManager.PlayVideo(config.videoClip, PhraseEventTypes.LoopVfx);
             }
             else
             {
                 _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
-                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.LoopVfx);
+                _ctx.videoManager.PlayVideo(_videoPath, PhraseEventTypes.LoopVfx);
             }
         }
 
@@ -83,7 +83,7 @@ namespace Data
         {
             //var path = Path.Combine(_ctx.streamingPath, titleVideoSoName);
             var config = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(titleVideoSoName);
-            
+
             if (config == null)
             {
                 Debug.LogError($"[{this}] sound event SO wasn't found:  A PATH /{titleVideoSoName}");
@@ -93,12 +93,12 @@ namespace Data
             Debug.Log($"[{this}] LoadVideoTitle {config.eventId} {PhraseEventTypes.LoopVfx}");
             if (config.clip)
             {
-                _ctx.videoManager.PlayVideo(config.videoClip , PhraseEventTypes.LoopVfx);
+                _ctx.videoManager.PlayVideo(config.videoClip, PhraseEventTypes.LoopVfx);
             }
             else
             {
                 _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
-                _ctx.videoManager.PlayVideo(_videoPath,  PhraseEventTypes.LoopVfx);
+                _ctx.videoManager.PlayVideo(_videoPath, PhraseEventTypes.LoopVfx);
             }
         }
 
@@ -107,6 +107,27 @@ namespace Data
             var soFile = Path.Combine(_ctx.eventSoPath, eventId);
             var conf = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(soFile);
             return conf;
+        }
+
+        public async Task LoadVideoSoToPrepareVideo(string eventId)
+        {
+            var config = await LoadConfig(eventId);
+
+            if (config == null)
+            {
+                Debug.LogError($"[{this}] sound event SO wasn't found: A PATH /{eventId}");
+                return;
+            }
+
+            if (config.clip)
+            {
+                _ctx.videoManager.PrepareVideo(config.videoClip);
+            }
+            else
+            {
+                _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
+                _ctx.videoManager.PrepareVideo(_videoPath);
+            }
         }
     }
 }

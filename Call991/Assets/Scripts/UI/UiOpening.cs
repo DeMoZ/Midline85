@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using Configs;
-using DG.Tweening;
 using UniRx;
 using UnityEngine;
 
@@ -11,13 +10,13 @@ namespace UI
         public struct Ctx
         {
             public GameSet gameSet;
-            public AudioManager audioManager;
             public ReactiveCommand onClickStartGame;
+            public Blocker blocker;
         }
 
-        [SerializeField] private CanvasGroup openingUi1 = default;
-        [SerializeField] private CanvasGroup openingUi2 = default;
-        [SerializeField] private CanvasGroup openingUi3 = default;
+        [SerializeField] private GameObject openingUi1 = default;
+        [SerializeField] private GameObject openingUi2 = default;
+        [SerializeField] private GameObject openingUi3 = default;
         [SerializeField] private MenuButtonView startBtn = default;
         [SerializeField] private ClickAnyButton anyButton = default;
 
@@ -43,32 +42,36 @@ namespace UI
         
         private async void OnStateOne()
         {
-            openingUi1.alpha = 1;
             openingUi1.gameObject.SetActive(true);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(false);
-
+            _ctx.blocker.EnableScreenBlocker(true, false);
+            
             await Task.Delay((int) (_ctx.gameSet.logoHoldTime * 1000));
-            openingUi1.DOFade(0, _ctx.gameSet.logoFadeTime).OnComplete(OnStateTwo);
+            await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.logoFadeTime);
+            
+            OnStateTwo();
         }
 
         private async void OnStateTwo()
         {
-            openingUi2.alpha = 1;
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(true);
             openingUi3.gameObject.SetActive(false);
-
+            _ctx.blocker.EnableScreenBlocker(true, false);
+            
             await Task.Delay((int) (_ctx.gameSet.warningHoldTime * 1000));
-            openingUi2.DOFade(0, _ctx.gameSet.warningFadeTime).OnComplete(OnStateThree);
+            await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.warningFadeTime);
+
+            OnStateThree();
         }
 
         private void OnStateThree()
         {
-            openingUi3.alpha = 1;
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(true);
+            _ctx.blocker.EnableScreenBlocker(false, false);
         }
 
         private void OnDestroy()

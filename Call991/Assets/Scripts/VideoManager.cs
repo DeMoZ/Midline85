@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
 using Configs;
 using UnityEngine;
@@ -29,24 +30,60 @@ public class VideoManager : MonoBehaviour
     {
     }
 
-    public async Task PrepareVideo(string sceneVideoUrl)
+    public async Task LoadVideoSoToPrepareVideo(string eventId)
     {
-        videoPlayer.Stop();
-        videoPlayer.url = sceneVideoUrl;
-        videoPlayer.Prepare();
-        
-        while (!videoPlayer.isPrepared)
-            await Task.Yield();
+        var config = await LoadConfig(eventId);
+        if (config == null)
+        {
+            Debug.LogError($"[{this}] sound event SO wasn't found: A PATH /{eventId}");
+            return;
+        }
 
-        PlayPreparedVideo();
+        if (config.clip)
+        {
+            await PrepareVideo(config.videoClip);
+        }
+        else
+        {
+            var streamingPath = "file:///" + Path.Combine(Application.streamingAssetsPath, "Videos/EventVideos");
+            var videoPath = Path.Combine(streamingPath, config.videoName + ".mp4");
+            await PrepareVideo(videoPath);
+        }
     }
 
-    private void PlayPreparedVideo()
+    public async Task PrepareVideo(string url)
+    {
+        videoPlayer.Stop();
+        videoPlayer.clip = null;
+        videoPlayer.url = url;
+
+        await PrepareVideo();
+    }
+
+    public async Task PrepareVideo(VideoClip clip)
+    {
+        videoPlayer.Stop();
+        videoPlayer.url = null;
+        videoPlayer.clip = clip;
+
+        await PrepareVideo();
+    }
+
+    private async Task PrepareVideo()
+    {
+        videoPlayer.Stop();
+        videoPlayer.Prepare();
+
+        while (!videoPlayer.isPrepared)
+            await Task.Yield();
+    }
+
+    public void PlayPreparedVideo()
     {
         videoPlayer.Play();
         videoPlayer.isLooping = true;
     }
-    
+
     public void PlayVideo(string sceneVideoUrl, PhraseEventTypes phraseEventTypes)
     {
         switch (phraseEventTypes)
@@ -85,11 +122,23 @@ public class VideoManager : MonoBehaviour
         }
     }
 
-    public void Enable(bool isActive)
+    public void EnableVideo(bool enable)
+    {
+        videoImage.gameObject.SetActive(enable);
+    }
+
+    public void EnableVideoPlayer(bool isActive)
     {
         videoPlayer.gameObject.SetActive(isActive);
         vfxPlayer.gameObject.SetActive(isActive);
         videoImage.gameObject.SetActive(isActive);
         vfxImage.gameObject.SetActive(isActive);
+    }
+
+    private async Task<PhraseVfxEventSo> LoadConfig(string eventId)
+    {
+        //var soFile = Path.Combine(_ctx.eventSoPath, eventId);
+        var conf = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(eventId);
+        return conf;
     }
 }

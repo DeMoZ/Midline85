@@ -25,6 +25,7 @@ public class LevelSceneEntity : IGameScene
         public VideoManager videoManager;
         public Sprite newspaperSprite;
         public PhraseEventVideoLoader phraseEventVideoLoader;
+        public Blocker blocker;
     }
 
     private Ctx _ctx;
@@ -134,6 +135,8 @@ public class LevelSceneEntity : IGameScene
             phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
             onSkipPhrase = onSkipPhrase,
             onClickPauseButton = onClickPauseButton,
+            videoManager = _ctx.videoManager,
+            blocker = _ctx.blocker,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx

@@ -9,6 +9,7 @@ public class OpenSceneEntity : IGameScene
     {
         public GameSet gameSet;
         public ReactiveCommand<GameScenes> onSwitchScene;
+        public Blocker blocker;
     }
 
     private readonly Ctx _ctx;
@@ -29,7 +30,7 @@ public class OpenSceneEntity : IGameScene
     public void Enter()
     {
         Debug.Log($"[{this}] Entered");
-        _ui = UnityEngine.GameObject.FindObjectOfType<UiOpening>();
+        _ui = Object.FindObjectOfType<UiOpening>();
 
         var onClickStartGame = new ReactiveCommand().AddTo(_disposables);
         onClickStartGame.Subscribe(_=>
@@ -41,6 +42,7 @@ public class OpenSceneEntity : IGameScene
         {
             gameSet = _ctx.gameSet,
             onClickStartGame = onClickStartGame,
+            blocker = _ctx.blocker,
         });
     }
 
