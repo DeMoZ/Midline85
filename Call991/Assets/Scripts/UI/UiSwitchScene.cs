@@ -1,6 +1,3 @@
-using System.Threading.Tasks;
-using Configs;
-using Data;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -32,7 +29,7 @@ namespace UI
             
             loadingUi.SetActive(!ctx.toLevelScene);
             loadingTitle.SetActive(ctx.toLevelScene);
-            _ctx.blocker.EnableScreenBlocker(ctx.firstLoad, ctx.firstLoad);
+            _ctx.blocker.EnableScreenFade(ctx.firstLoad);
         }
 
         private void OnLoadingProcess(string value)

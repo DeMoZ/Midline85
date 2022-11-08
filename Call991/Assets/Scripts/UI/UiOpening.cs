@@ -45,7 +45,7 @@ namespace UI
             openingUi1.gameObject.SetActive(true);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(false);
-            _ctx.blocker.EnableScreenBlocker(true, false);
+            _ctx.blocker.EnableScreenFade(true);
             
             await Task.Delay((int) (_ctx.gameSet.logoHoldTime * 1000));
             await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.logoFadeTime);
@@ -58,7 +58,7 @@ namespace UI
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(true);
             openingUi3.gameObject.SetActive(false);
-            _ctx.blocker.EnableScreenBlocker(true, false);
+            _ctx.blocker.EnableScreenFade(true);
             
             await Task.Delay((int) (_ctx.gameSet.warningHoldTime * 1000));
             await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.warningFadeTime);
@@ -71,7 +71,7 @@ namespace UI
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(true);
-            _ctx.blocker.EnableScreenBlocker(false, false);
+            _ctx.blocker.EnableScreenFade(false);
         }
 
         private void OnDestroy()

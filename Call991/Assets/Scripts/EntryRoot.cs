@@ -10,8 +10,8 @@ public class EntryRoot : MonoBehaviour
     [SerializeField] private VideoManager videoManager;
     
     [Space] 
-    [SerializeField] private Image videoBlocker;
-    [SerializeField] private Image screenBlocker;
+    [SerializeField] private Image videoFade;
+    [SerializeField] private Image screenFade;
 
     private async void Awake()
     {
@@ -26,7 +26,7 @@ public class EntryRoot : MonoBehaviour
             return;
         }
 
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
 
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
 
@@ -46,7 +46,7 @@ public class EntryRoot : MonoBehaviour
 
     private void CreateRootEntity()
     {
-        var blocker = new Blocker(screenBlocker, videoBlocker);
+        var blocker = new Blocker(screenFade, videoFade);
         
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {

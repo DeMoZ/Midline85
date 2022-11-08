@@ -50,8 +50,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioManager: {fileID: 2518282458466313163}
   videoManager: {fileID: 1136197803974806953}
-  videoBlocker: {fileID: 5107530551928372236}
-  screenBlocker: {fileID: 4009228356162583566}
+  videoFade: {fileID: 5107530551928372236}
+  screenFade: {fileID: 4009228356162583566}
 --- !u!1 &1805640796569446716
 GameObject:
   m_ObjectHideFlags: 0
@@ -720,7 +720,7 @@ GameObject:
   - component: {fileID: 8639868755086688039}
   - component: {fileID: 4009228356162583566}
   m_Layer: 0
-  m_Name: ScreenBlocker
+  m_Name: ScreenFade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -897,7 +897,7 @@ GameObject:
   - component: {fileID: 7251852977939606057}
   - component: {fileID: 5107530551928372236}
   m_Layer: 0
-  m_Name: VideoBlocker
+  m_Name: VideoFade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

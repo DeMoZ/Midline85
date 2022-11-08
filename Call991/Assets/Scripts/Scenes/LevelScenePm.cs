@@ -94,20 +94,13 @@ public class LevelScenePm : IDisposable
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
         
-        //_ctx.blocker.EnableVideoBlocker(true, false);
-        //await _ctx.blocker.FadeVideoBlocker(true);
-
         await ShowNewsPaper();
         await ShowIntro();
         
         await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
         _ctx.videoManager.PlayPreparedVideo();
-        _ctx.blocker.EnableVideoBlocker(false,false);
-
-        await _ctx.blocker.FadeScreenBlocker(false);
-        _ctx.blocker.EnableScreenBlocker(false,false);
-        
         RunDialogue();
+        await _ctx.blocker.FadeScreenBlocker(false);
     }
 
     private void SetPause(bool pause)
@@ -128,34 +121,28 @@ public class LevelScenePm : IDisposable
     
     private async Task ShowNewsPaper()
     {
-        _ctx.blocker.EnableScreenBlocker(true, false);
         await _ctx.blocker.FadeScreenBlocker(true);
         
         var container = new Container<Task>();
         _ctx.onShowNewspaper.Execute((container, _ctx.newspaperSprite));
         
-        _ctx.blocker.EnableVideoBlocker(true, true);
         await _ctx.blocker.FadeScreenBlocker(false);
-        _ctx.blocker.EnableScreenBlocker(false, false);
-
         await container.Value;
     }
 
     private async Task ShowIntro()
     {
+        _ctx.blocker.EnableScreenFade(true);
         await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.titleVideoSoName);
         _ctx.videoManager.PlayPreparedVideo();
-        await _ctx.blocker.FadeVideoBlocker(false);
-        _ctx.blocker.EnableVideoBlocker(false,false);
-        
+        await _ctx.blocker.FadeScreenBlocker(false);
         _ctx.onShowIntro.Execute(true);
         await Task.Delay((int) (_ctx.gameSet.levelIntroDelay * 1000));
-        _ctx.blocker.EnableScreenBlocker(true,false);
         await _ctx.blocker.FadeScreenBlocker(true);
         _ctx.onShowIntro.Execute(false);
     }
 
-    private async Task RunDialogue()
+    private async void RunDialogue()
     {
         _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.LastPhrase);
         if (_currentPhrase == null)
@@ -305,7 +292,7 @@ public class LevelScenePm : IDisposable
         return rndChoice;
     }
 
-    private async Task NextPhrase()
+    private void NextPhrase()
     {
         if (string.IsNullOrWhiteSpace(_currentPhrase.nextId))
         {

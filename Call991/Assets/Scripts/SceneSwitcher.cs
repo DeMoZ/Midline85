@@ -67,10 +67,6 @@ public class SceneSwitcher : IDisposable
 
     private async Task OnSwitchSceneLoaded(GameScenes scene)
     {
-        //await _ctx.videoManager.FadeVideoBlocker(true);
-        _ctx.videoManager.EnableVideo(false);
-        _ctx.blocker.EnableVideoBlocker(false, false);
-
         var onLoadingProcess = new ReactiveProperty<string>().AddTo(_diposables);
         var switchSceneEntity = _ctx.scenesHandler.LoadingSceneEntity(onLoadingProcess, scene);
 
@@ -78,13 +74,11 @@ public class SceneSwitcher : IDisposable
 
         if (toLevelScene)
         {
-            //await _ctx.phraseEventVideoLoader.LoadVideoTitle(_ctx.gameSet.titleVideoSoName);
+            _ctx.blocker.EnableScreenFade(true);
             await _ctx.videoManager.LoadVideoSoToPrepareVideo(_ctx.gameSet.titleVideoSoName);
-            _ctx.blocker.EnableVideoBlocker(true, true);
             _ctx.videoManager.EnableVideo(true);
             _ctx.videoManager.PlayPreparedVideo();
-            await _ctx.blocker.FadeVideoBlocker(false);
-            _ctx.blocker.EnableVideoBlocker(false, false);
+            await _ctx.blocker.FadeScreenBlocker(false);
         }
 
         Debug.Log($"[{this}][OnSwitchSceneLoaded] Start load scene {scene}");
