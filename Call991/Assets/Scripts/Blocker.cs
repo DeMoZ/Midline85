@@ -12,7 +12,7 @@ public class Blocker : IDisposable
     private readonly Image _screenFade;
     private readonly Image _videoFade;
     private readonly CompositeDisposable _disposables;
-    
+
     private Color _videoBlockerColor;
     private Color _screenBlockerColor;
 
@@ -32,17 +32,17 @@ public class Blocker : IDisposable
         var toColor = show ? 1 : 0;
         _videoBlockerColor.a = show ? 0 : 1;
         _videoFade.color = _videoBlockerColor;
-        
-        EnableScreenFade(true);
-        
+
+        EnableVideoFade(true, !show);
+
         var seq = _videoFade.DOFade(toColor, FadeTime);
         seq.Play();
 
         while (seq.IsPlaying())
             await Task.Yield();
-        
+
         if (!show)
-            EnableScreenFade(false);
+            EnableVideoFade(false);
     }
 
     public async Task FadeScreenBlocker(bool show, float? fadeTime = null)
@@ -52,28 +52,28 @@ public class Blocker : IDisposable
         _screenBlockerColor.a = show ? 0 : 1;
         _screenFade.color = _screenBlockerColor;
 
-        EnableScreenFade(true);
+        EnableScreenFade(true, !show);
 
         var seq = _screenFade.DOFade(toColor, time);
         seq.Play();
 
         while (seq.IsPlaying())
             await Task.Yield();
-        
+
         if (!show)
             EnableScreenFade(false);
     }
 
-    public void EnableVideoFade(bool enable)
+    public void EnableVideoFade(bool enable, bool show = true)
     {
-        _videoBlockerColor.a = enable ? 1 : 0;
+        _videoBlockerColor.a = show ? 1 : 0;
         _videoFade.color = _videoBlockerColor;
         _videoFade.gameObject.SetActive(enable);
     }
 
-    public void EnableScreenFade(bool enable)
+    public void EnableScreenFade(bool enable, bool show = true)
     {
-        _screenBlockerColor.a = enable ? 1 : 0;
+        _screenBlockerColor.a = show ? 1 : 0;
         _screenFade.color = _screenBlockerColor;
         _screenFade.gameObject.SetActive(enable);
     }
