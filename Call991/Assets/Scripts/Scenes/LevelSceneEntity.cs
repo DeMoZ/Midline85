@@ -47,7 +47,6 @@ public class LevelSceneEntity : IGameScene
 
     private async Task ConstructorTask()
     {
-        // await Task.Yield();
         await Task.Delay(10);
         await _ctx.audioManager.PlayMusic("7_lvl");
         // todo load from addressables black screen above the scene;
@@ -59,7 +58,7 @@ public class LevelSceneEntity : IGameScene
     {
         Debug.Log($"[{this}] Entered");
         // from prefab, or find, or addressable
-        _ui = UnityEngine.GameObject.FindObjectOfType<UiLevelScene>();
+        _ui = Object.FindObjectOfType<UiLevelScene>();
         var uiPool = new Pool(new GameObject("uiPool").transform);
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
@@ -155,6 +154,7 @@ public class LevelSceneEntity : IGameScene
         });
 
         onAfterEnter.Execute();
+        await Task.Yield();
     }
 
     public void Exit()

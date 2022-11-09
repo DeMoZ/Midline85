@@ -36,6 +36,7 @@ namespace Data
 
         public async Task LoadMusicEvent(string soundEventId)
         {
+            await Task.Yield();
         }
 
         public async Task LoadSfxEvent(string soundEventId, bool loop, bool stop)

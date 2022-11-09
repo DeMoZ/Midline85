@@ -24,15 +24,12 @@ namespace UI
         [Space] [SerializeField] private GameObject blocked = default;
         [Space] [SerializeField] private Color textNormal = default;
         [SerializeField] private Color textHover = default;
-        [SerializeField] private Color textClicked = default;
-        [SerializeField] private Color textBlocked = default;
         [Space] [SerializeField] private TextMeshProUGUI text = default;
         [SerializeField] private TextMeshProUGUI textSelected = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
         private Ctx _ctx;
 
-        private static bool _isClicked;
         private LocalizedString _localize;
 
         private bool _isSelected;
@@ -89,7 +86,6 @@ namespace UI
 
         public async void Show(string choiceKey, bool isBlocked = false)
         {
-            _isClicked = false;
             _localize = choiceKey;
             text.text = _localize;
             textSelected.text = _localize;

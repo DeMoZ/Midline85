@@ -1,4 +1,5 @@
 using System;
+using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 
@@ -59,6 +60,7 @@ namespace UI
             });
 
             EnableMenu(menu.GetType());
+            await Task.Yield();
         }
 
         private void OnClickSettings() =>

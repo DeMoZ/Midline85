@@ -58,7 +58,6 @@ namespace Core
             _ctx.onPopulateStatistics.Execute(statistics);
             _ctx.onShowStatisticUi.Execute(_ctx.gameSet.levelEndStatisticsUiFadeTime);
             await Task.Delay((int) (_ctx.gameSet.levelEndStatisticsUiFadeTime * 1000));
-            // _ctx.onLevelEnd?.Execute(statistics);
         }
 
         private List<StatisticElement> GetStatistics()
