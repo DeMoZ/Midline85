@@ -38,7 +38,6 @@ namespace UI
         [SerializeField] private List<PersonView> persons = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private CountDownView countDown = default;
-        [SerializeField] private VideoPlayer videoPlayer = default;
         [SerializeField] private AudioSource phraseAudioSource = default;
         [SerializeField] private GameObject showIntro = default;
         [Space] [SerializeField] private LevelView levelView = default;
@@ -51,8 +50,6 @@ namespace UI
 
         public List<ChoiceButtonView> Buttons => buttons;
         public CountDownView CountDown => countDown;
-        public VideoPlayer VideoPlayer => videoPlayer;
-
         public AudioSource PhraseAudioSource => phraseAudioSource;
 
         public void SetCtx(Ctx ctx)
