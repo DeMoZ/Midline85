@@ -3,6 +3,7 @@ using System.IO;
 using System.Threading.Tasks;
 using Configs;
 using Data;
+using UI;
 using UniRx;
 using UnityEngine;
 
@@ -18,6 +19,7 @@ public class ScenesHandler : IDisposable
         public GameSet gameSet;
         public VideoManager videoManager;
         public Blocker blocker;
+        public CursorSet cursorSettings;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -79,6 +81,8 @@ public class ScenesHandler : IDisposable
 
     public async Task<IGameScene> SceneEntity(GameScenes scene)
     {
+        _ctx.cursorSettings.EnableCursor(false);
+
         IGameScene newScene = scene switch
         {
             GameScenes.OpenScene => LoadOpenScene(),
@@ -99,7 +103,7 @@ public class ScenesHandler : IDisposable
             onSwitchScene = _ctx.onSwitchScene,
             blocker = _ctx.blocker,
         }).AddTo(_disposables);
-
+        
         return sceneEntity;
     }
 
@@ -117,6 +121,7 @@ public class ScenesHandler : IDisposable
             constructorTask = constructorTask,
         }).AddTo(_disposables);
 
+        _ctx.cursorSettings.EnableCursor(true);
         await constructorTask.Value;
         return sceneEntity;
     }
@@ -166,6 +171,7 @@ public class ScenesHandler : IDisposable
             blocker = _ctx.blocker,
         }).AddTo(_disposables);
 
+        _ctx.cursorSettings.EnableCursor(true);
         await constructorTask.Value;
         return sceneEntity;
     }

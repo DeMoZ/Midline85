@@ -39,20 +39,20 @@ public class EntryRoot : MonoBehaviour
         Application.targetFrameRate = 60;
         // CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
         // Screen.sleepTimeout = SleepTimeout.NeverSleep;
-
-        var cursorSettings = await ResourcesLoader.LoadAsync<CursorSet>("CursorSet");
-        cursorSettings.ApplyCursor();
     }
 
-    private void CreateRootEntity()
+    private async void CreateRootEntity()
     {
         var blocker = new Blocker(screenFade, videoFade);
+        var cursorSettings = await ResourcesLoader.LoadAsync<CursorSet>("CursorSet");
+        cursorSettings.ApplyCursor();
         
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             audioManager = audioManager,
             videoManager = videoManager,
             blocker = blocker,
+            cursorSettings = cursorSettings,
         });
     }
 

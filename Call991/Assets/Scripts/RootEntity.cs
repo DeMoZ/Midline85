@@ -1,6 +1,7 @@
 ﻿using System;
 using Configs;
 using I2.Loc;
+using UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -13,6 +14,7 @@ public class RootEntity : IDisposable
         public AudioManager audioManager;
         public VideoManager videoManager;
         public Blocker blocker;
+        public CursorSet cursorSettings;
     }
 
     private Ctx _ctx;
@@ -57,7 +59,7 @@ public class RootEntity : IDisposable
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_diposables);
-
+        
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
         {
             gameSet = gameSet,
@@ -68,6 +70,7 @@ public class RootEntity : IDisposable
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
             blocker = _ctx.blocker,
+            cursorSettings = _ctx.cursorSettings,
         }).AddTo(_diposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
