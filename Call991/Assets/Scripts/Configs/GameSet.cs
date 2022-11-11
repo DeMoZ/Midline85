@@ -9,28 +9,38 @@ namespace Configs
     {
         // [HideInInspector] public Language textLanguage = Language.EN;
         // [HideInInspector] [ReadOnly] public Language audioLanguage = Language.RU;
-        [Header("Opening")]
+        [Header("Opening Logo")]
+        public float logoFadeInTime = 1f;
         public float logoHoldTime = 3f;
-        public float logoFadeTime = 2f;
+        public float logoFadeOutTime = 2f;
+        [Header("Opening Warning")]
+        public float warningFadeInTime = 1f;
         public float warningHoldTime = 5f;
-        public float warningFadeTime = 2f;
+        public float warningFadeOutTime = 2f;
+        [Header("Opening Start Game")]
+        public float startFadeInTime = 1f;
 
-        [Space] public float choicesDuration = 3f;
+        [Header("Level Buttons")]
+        public float choicesDuration = 3f;
         
-        [Space] public float buttonsAppearDuration = 0.2f;
+        [Space]
+        public float buttonsAppearDuration = 0.2f;
         public float fastButtonFadeDuration = 0.3f;
         public float slowButtonFadeDuration = 0.6f;
         
-        [Space] public float levelIntroDelay = 2f;
+        [Header("Level Intro")]
+        public float levelIntroDelay = 2f;
         public float levelEndLevelUiDisappearTime = 3f;
         public float levelEndStatisticsUiFadeTime = 1f;
 
-        [Space]public string titleVideoSoName;
-        
         [Space]
+        public string titleVideoSoName;
+        
+        [Header("Button Sounds")]
         public AudioClip menuBtnClip;
         public AudioClip choiceBtnClip;
         public AudioClip timerClip;
+        
         [Space]
         public Dictionary<string, List<string>> musics;
         

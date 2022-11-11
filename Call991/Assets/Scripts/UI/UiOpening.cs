@@ -45,9 +45,10 @@ namespace UI
             openingUi1.gameObject.SetActive(true);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(false);
-            _ctx.blocker.EnableScreenFade(false);
+            
+            await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.logoFadeInTime);
             await Task.Delay((int) (_ctx.gameSet.logoHoldTime * 1000));
-            await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.logoFadeTime);
+            await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.logoFadeOutTime);
             
             OnStateTwo();
         }
@@ -57,19 +58,20 @@ namespace UI
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(true);
             openingUi3.gameObject.SetActive(false);
-            _ctx.blocker.EnableScreenFade(false);
+
+            await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.warningFadeInTime);
             await Task.Delay((int) (_ctx.gameSet.warningHoldTime * 1000));
-            await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.warningFadeTime);
+            await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.warningFadeOutTime);
 
             OnStateThree();
         }
 
-        private void OnStateThree()
+        private async void OnStateThree()
         {
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(true);
-            _ctx.blocker.EnableScreenFade(false);
+            await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.startFadeInTime);
         }
 
         private void OnDestroy()
