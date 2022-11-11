@@ -167,6 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371a10e0cb3948b7b462c5a7b0a8aae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  theKey: 0
+  keyCode: 0
   onlyFirstSelection: 0
   onAnyButton:
     m_PersistentCalls:
@@ -336,8 +338,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292467161
+  m_fontColor: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -986,7 +988,7 @@ PrefabInstance:
     - target: {fileID: 233862384574543364, guid: c89025fa9d91b423fb17f79c729de692,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 113
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 233862384574543364, guid: c89025fa9d91b423fb17f79c729de692,
         type: 3}
@@ -1001,6 +1003,11 @@ PrefabInstance:
     - target: {fileID: 3078821831864152759, guid: c89025fa9d91b423fb17f79c729de692,
         type: 3}
       propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3078821831864152759, guid: c89025fa9d91b423fb17f79c729de692,
+        type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4625749584089247755, guid: c89025fa9d91b423fb17f79c729de692,
@@ -1091,7 +1098,7 @@ PrefabInstance:
     - target: {fileID: 5039401886858459159, guid: c89025fa9d91b423fb17f79c729de692,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 243.69
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5039401886858459159, guid: c89025fa9d91b423fb17f79c729de692,
         type: 3}
