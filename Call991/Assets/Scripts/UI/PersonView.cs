@@ -14,6 +14,17 @@ public class PersonView : MonoBehaviour
     public ScreenPlace ScreenPlace => screenPlace;
 
     private LocalizedString _localize;
+    private Coroutine _phraseRoutine;
+    private int _wordIndex;
+    private Phrase _phrase;
+
+    private void OnEnable()
+    {
+        if (_phraseRoutine == null) return;
+
+        StopCoroutine(_phraseRoutine);
+        _phraseRoutine = StartCoroutine(ShowWords(_phrase, _wordIndex));
+    }
 
     public void ShowPhrase(PhraseSet phrase)
     {
@@ -36,7 +47,7 @@ public class PersonView : MonoBehaviour
                 description.text = phraseSet.Phrase.text;
                 break;
             case TextAppear.Word:
-                StartCoroutine(ShowWords(phraseSet.Phrase));
+                _phraseRoutine = StartCoroutine(ShowWords(phraseSet.Phrase));
                 break;
             case TextAppear.Letters:
                 break;
@@ -47,14 +58,17 @@ public class PersonView : MonoBehaviour
         }
     }
 
-    private IEnumerator ShowWords(Phrase phrase)
+    private IEnumerator ShowWords(Phrase phrase, int fromWord = 0)
     {
         var text = new StringBuilder();
 
-        yield return new WaitForSeconds(phrase.beforeFirstWord);
+        if (fromWord == 0)
+            yield return new WaitForSeconds(phrase.beforeFirstWord);
 
-        for (var i = 0; i < phrase.wordTimes.Count; i++)
+        for (var i = fromWord; i < phrase.wordTimes.Count; i++)
         {
+            _phrase = phrase;
+            _wordIndex = i;
             var wordTime = phrase.wordTimes[i];
             var word = wordTime.word;
             if (phrase.wordTimes[i].wipe)
@@ -78,6 +92,10 @@ public class PersonView : MonoBehaviour
 
             yield return new WaitForSeconds(wordTime.time);
         }
+
+        _phrase = null;
+        _wordIndex = 0;
+        _phraseRoutine = null;
     }
 
     public void HidePhrase()
@@ -85,12 +103,6 @@ public class PersonView : MonoBehaviour
         description.gameObject.SetActive(false);
         description.text = string.Empty;
     }
-
-    public void RunText()
-    {
-        StartCoroutine("RunTextRoutine");
-    }
-
 
     public void Clear()
     {

@@ -152,12 +152,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08a57a510d6e410dbc2d50275aa40ac7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &100320902 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 304533019945389293, guid: 3f705a1394a9248199ac3c7923b53c78,
-    type: 3}
-  m_PrefabInstance: {fileID: 1913857907}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &151886540 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 20689716470454726, guid: 57ff7c3c644d042ec8e9d335b895d923,
@@ -1079,6 +1073,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 120
   m_TargetDisplay: 0
+--- !u!114 &1440165627 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5917434352428269869, guid: 3f705a1394a9248199ac3c7923b53c78,
+    type: 3}
+  m_PrefabInstance: {fileID: 1913857907}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7d7792771cbf4ee1bf7cd31377877ffa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1448712288
 GameObject:
   m_ObjectHideFlags: 0
@@ -1470,7 +1476,7 @@ MonoBehaviour:
   - {fileID: 1749467238}
   countDown: {fileID: 151886540}
   phraseAudioSource: {fileID: 1596484670}
-  showIntro: {fileID: 100320902}
+  levelTitleView: {fileID: 1440165627}
   levelView: {fileID: 20689716621083403}
   statisticView: {fileID: 491580436}
   newspaper: {fileID: 1406257046}

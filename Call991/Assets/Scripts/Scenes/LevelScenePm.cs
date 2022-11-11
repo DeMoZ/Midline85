@@ -50,12 +50,12 @@ public class LevelScenePm : IDisposable
 
     private bool _choiceDone;
     private float _phraseTimer;
-    
+
     /// <summary>
     /// Choice button selection with keyboard.
     /// </summary>
     private bool _selectionPlaced;
-    
+
     public LevelScenePm(Ctx ctx)
     {
         Debug.Log($"[{this}] constructor");
@@ -93,10 +93,9 @@ public class LevelScenePm : IDisposable
 
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-        
+
         await ShowNewsPaper();
         await ShowIntro();
-        
         await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
         _ctx.videoManager.PlayPreparedVideo();
         RunDialogue();
@@ -108,8 +107,8 @@ public class LevelScenePm : IDisposable
         Time.timeScale = pause ? 0 : 1;
         _ctx.phraseSoundPlayer.Pause(pause);
         _ctx.audioManager.Pause(pause);
-        
-        if(!pause)
+
+        if (!pause) 
             _selectionPlaced = false;
     }
 
@@ -118,14 +117,14 @@ public class LevelScenePm : IDisposable
         if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
             _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear);
     }
-    
+
     private async Task ShowNewsPaper()
     {
         await _ctx.blocker.FadeScreenBlocker(true);
-        
+
         var container = new Container<Task>();
         _ctx.onShowNewspaper.Execute((container, _ctx.newspaperSprite));
-        
+
         await _ctx.blocker.FadeScreenBlocker(false);
         await container.Value;
     }
@@ -135,8 +134,8 @@ public class LevelScenePm : IDisposable
         _ctx.blocker.EnableScreenFade(true);
         await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.titleVideoSoName);
         _ctx.videoManager.PlayPreparedVideo();
-        await _ctx.blocker.FadeScreenBlocker(false);
         _ctx.onShowIntro.Execute(true);
+        await _ctx.blocker.FadeScreenBlocker(false);
         await Task.Delay((int) (_ctx.gameSet.levelIntroDelay * 1000));
         await _ctx.blocker.FadeScreenBlocker(true);
         _ctx.onShowIntro.Execute(false);
@@ -150,7 +149,7 @@ public class LevelScenePm : IDisposable
             Debug.LogError($"[{this}] _ctx.profile.LastPhrase: {_ctx.profile.LastPhrase}. Not found in phrases.");
             return;
         }
-        
+
         await _ctx.phraseSoundPlayer.TryLoadDialogue(_currentPhrase.Phrase.GetOverridenPhraseId());
 
         Observable.FromCoroutine(PhraseRoutine).Subscribe(_ =>
@@ -215,7 +214,7 @@ public class LevelScenePm : IDisposable
 
         return false;
     }
-    
+
     private IEnumerator ChoiceRoutine()
     {
         var timer = 0f;
@@ -230,7 +229,7 @@ public class LevelScenePm : IDisposable
         yield return new WaitForSeconds(_ctx.gameSet.buttonsAppearDuration);
 
         _selectionPlaced = false;
-        
+
         while (timer <= time)
         {
             yield return null;
@@ -261,7 +260,7 @@ public class LevelScenePm : IDisposable
     private void CheckForSelectionPlaced()
     {
         if (!_selectionPlaced && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
-                                 Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+                                  Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
         {
             // set first selection
             var eventSystemSelectGameObject = RandomSelectButton(new List<Choice>(_currentPhrase.choices));
@@ -280,8 +279,8 @@ public class LevelScenePm : IDisposable
     {
         if (choices.Count == 0)
             return null;
-        
-        var rndChoice = choices[Random.Range(0,choices.Count)];
+
+        var rndChoice = choices[Random.Range(0, choices.Count)];
 
         if (IsBlocked(rndChoice))
         {

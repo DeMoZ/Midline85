@@ -6,7 +6,6 @@ using DG.Tweening;
 using PhotoViewer.Scripts.Photo;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Video;
 
 namespace UI
 {
@@ -29,9 +28,7 @@ namespace UI
 
             public Pool pool;
         }
-
-        private const float FADE_TIME = 0.3f;
-
+        
         private Ctx _ctx;
 
         [SerializeField] private MenuButtonView pauseButton = default;
@@ -39,8 +36,9 @@ namespace UI
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private AudioSource phraseAudioSource = default;
-        [SerializeField] private GameObject showIntro = default;
-        [Space] [SerializeField] private LevelView levelView = default;
+        [Space] 
+        [SerializeField] private LevelTitleView levelTitleView = default;
+        [SerializeField] private LevelView levelView = default;
         [SerializeField] private StatisticsView statisticView = default;
         [SerializeField] private PhotoView newspaper = default;
         [SerializeField] private LevelPauseView levelPauseView = default;
@@ -57,7 +55,7 @@ namespace UI
             _ctx = ctx;
             _disposables = new CompositeDisposable();
 
-            pauseButton.OnClick += () => OnClickPauseButton(true);
+            pauseButton.OnClick += OnClickPauseButton;
             newspaper.OnClose += OnNewspaperClose;
 
             var onClickUnPauseButton = new ReactiveCommand().AddTo(_disposables);
@@ -85,13 +83,17 @@ namespace UI
             onClickUnPauseButton.Subscribe(_ => OnClickPauseButton(false));
 
             foreach (var person in persons)
+            {
                 person.gameObject.SetActive(false);
+            }
 
             foreach (var button in Buttons)
                 button.gameObject.SetActive(false);
 
             countDown.gameObject.SetActive(false);
         }
+        
+        private void OnClickPauseButton() => OnClickPauseButton(true);
 
         private void OnClickPauseButton(bool value)
         {
@@ -103,6 +105,7 @@ namespace UI
         {
             if (levelView == null) return;
             
+            levelTitleView.gameObject.SetActive(levelTitleView.GetType() == type);
             levelView.gameObject.SetActive(levelView.GetType() == type);
             statisticView.gameObject.SetActive(statisticView.GetType() == type);
             newspaper.gameObject.SetActive(newspaper.GetType() == type);
@@ -112,12 +115,11 @@ namespace UI
         private void OnNewspaperClose()
         {
             _isNewspaperActive = false;
-            EnableUi(levelView.GetType());
         }
 
         private void OnShowNewspaper((Container<Task> task, Sprite sprite) spriteData)
         {
-            newspaper.ShowImage(spriteData.sprite);
+            newspaper.SetNewspaper(spriteData.sprite);
             EnableUi(newspaper.GetType());
             spriteData.task.Value = YieldNewspaper();
         }
@@ -147,10 +149,8 @@ namespace UI
             statisticView.PopulateCells(statistics);
         }
 
-        private void OnShowIntro(bool show)
-        {
-            showIntro.SetActive(show);
-        }
+        private void OnShowIntro(bool show) => 
+            EnableUi(show ? levelTitleView.GetType() : levelView.GetType());
 
         private void OnPhraseSoundEvent(PhraseEvent phraseEvent)
         {
@@ -187,8 +187,8 @@ namespace UI
 
         public void Dispose()
         {
-            // newspaper.OnClose -= null;
-            // pauseButton.OnClick -= null;
+            newspaper.OnClose -= OnClickPauseButton;
+            pauseButton.OnClick -= OnNewspaperClose;
         }
     }
 }

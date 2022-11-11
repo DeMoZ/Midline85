@@ -75,7 +75,6 @@ public class LevelSceneEntity : IGameScene
         var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);
         var onSkipPhrase = new ReactiveCommand().AddTo(_disposables);
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
-        
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
 

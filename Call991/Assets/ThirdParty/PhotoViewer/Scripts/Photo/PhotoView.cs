@@ -54,7 +54,7 @@ namespace PhotoViewer.Scripts.Photo
             OnClose?.Invoke();
         }
 
-        public void ShowImage(Sprite sprite)
+        public void SetNewspaper(Sprite sprite)
         {
             var imageData = new ImageData
             {
