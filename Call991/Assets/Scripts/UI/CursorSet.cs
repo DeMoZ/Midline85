@@ -10,10 +10,13 @@ namespace UI
         public void ApplyCursor()
         {
             Cursor.SetCursor(cursorTexture, Vector2.one * cursorTexture.height / 2, CursorMode.ForceSoftware);
+            Cursor.lockState = CursorLockMode.None;
             EnableCursor(false);
         }
-
-        public void EnableCursor(bool enable) => 
+        
+        public void EnableCursor(bool enable)
+        {
             Cursor.visible = enable;
+        }
     }
 }

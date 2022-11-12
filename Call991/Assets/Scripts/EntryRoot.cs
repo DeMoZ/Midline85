@@ -44,15 +44,13 @@ public class EntryRoot : MonoBehaviour
     private async void CreateRootEntity()
     {
         var blocker = new Blocker(screenFade, videoFade);
-        var cursorSettings = await ResourcesLoader.LoadAsync<CursorSet>("CursorSet");
-        cursorSettings.ApplyCursor();
+       // 
         
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             audioManager = audioManager,
             videoManager = videoManager,
             blocker = blocker,
-            cursorSettings = cursorSettings,
         });
     }
 

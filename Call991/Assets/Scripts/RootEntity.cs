@@ -14,7 +14,6 @@ public class RootEntity : IDisposable
         public AudioManager audioManager;
         public VideoManager videoManager;
         public Blocker blocker;
-        public CursorSet cursorSettings;
     }
 
     private Ctx _ctx;
@@ -70,7 +69,6 @@ public class RootEntity : IDisposable
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
             blocker = _ctx.blocker,
-            cursorSettings = _ctx.cursorSettings,
         }).AddTo(_diposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
