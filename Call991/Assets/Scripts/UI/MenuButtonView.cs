@@ -10,16 +10,24 @@ namespace UI
         [SerializeField] private Color textNormal = default;
         [SerializeField] private Color textHover = default;
         [SerializeField] private TextMeshProUGUI text = default;
-
+        [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
         private bool _isSelected;
 
         public event Action OnClick;
+        public event Action OnHover;
 
         public void InvokeOnClick()
         {
-            OnClick?.Invoke();    
+            OnClick?.Invoke();
+            buttonAudioSettings.PlayClickSound();
         }
-        
+
+        public void InvokeOnHover()
+        {
+            OnHover?.Invoke();
+            buttonAudioSettings.PlayHoverSound();
+        }
+
         private void SetHoverColor(bool hover)
         {
             text.color = hover
@@ -40,15 +48,16 @@ namespace UI
                     break;
                 case SelectionState.Highlighted:
                     SetHoverColor(true);
+                    InvokeOnHover();
                     break;
                 case SelectionState.Pressed:
-                    // Debug.LogWarning("menu button DoStateTransition Pressed");
                     SetHoverColor(true);
-                    OnClick?.Invoke();
+                    InvokeOnClick();
                     break;
                 case SelectionState.Selected:
                     _isSelected = true;
                     SetHoverColor(true);
+                    InvokeOnHover();
                     break;
                 case SelectionState.Disabled:
                     SetHoverColor(false);
@@ -60,7 +69,7 @@ namespace UI
 
         private void Update()
         {
-            if (_isSelected && Input.GetKey(KeyCode.Return)) 
+            if (_isSelected && Input.GetKey(KeyCode.Return))
                 OnClick?.Invoke();
         }
     }

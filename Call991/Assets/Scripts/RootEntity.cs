@@ -27,6 +27,7 @@ public class RootEntity : IDisposable
         _diposables = new CompositeDisposable();
 
         var gameSet = Resources.Load<GameSet>("GameSet");
+        var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
 
         var onAudioLanguage = new ReactiveCommand<Language>().AddTo(_diposables);
         var soundPath = "Sounds/Ui";
@@ -38,7 +39,7 @@ public class RootEntity : IDisposable
         {
             gameSet = gameSet,
             onAudioLanguage = onAudioLanguage,
-            audioMixer = Resources.Load<AudioMixer>("AudioMixer"),
+            audioMixer = audioMixer,
             soundPath = soundPath,
             musicPath = musicPath,
             voiceFolder = voiceFolder,

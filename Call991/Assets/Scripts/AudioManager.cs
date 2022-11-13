@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using Configs;
+using UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -25,6 +26,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioSource timerAudioSource = default;
     [SerializeField] private TempAudioSource tempSoundSourcePrefab = default;
     [SerializeField] private LoopAudioSource loopSoundSourcePrefab = default;
+    [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
 
     private string _languagePath;
     private Ctx _ctx;
@@ -36,6 +38,12 @@ public class AudioManager : MonoBehaviour
     public void SetCtx(Ctx ctx)
     {
         _ctx = ctx;
+        menuButtonAudioSettings.OnHover += PlayUiSound;
+    }
+
+    private void OnDestroy()
+    {
+        menuButtonAudioSettings.OnHover -= PlayUiSound;
     }
 
     public string LanguagePath
@@ -100,6 +108,11 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = loop;
     }
 
+    private void PlayUiSound(AudioClip clip)
+    {
+        PlayMusicFile(uiAudioSource, clip, false);
+    }
+    
     public void PlayUiSound(SoundUiTypes type, bool loop = false)
     {
         switch (type)
