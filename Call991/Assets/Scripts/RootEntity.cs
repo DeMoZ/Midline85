@@ -58,6 +58,7 @@ public class RootEntity : IDisposable
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_diposables);
+        var cursorSettings = Resources.Load<CursorSet>("CursorSet");
         
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
         {
@@ -69,6 +70,7 @@ public class RootEntity : IDisposable
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
             blocker = _ctx.blocker,
+            cursorSettings = cursorSettings,
         }).AddTo(_diposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

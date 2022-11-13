@@ -19,6 +19,7 @@ public class ScenesHandler : IDisposable
         public GameSet gameSet;
         public VideoManager videoManager;
         public Blocker blocker;
+        public CursorSet cursorSettings;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -26,8 +27,6 @@ public class ScenesHandler : IDisposable
     private const string MENU_SCENE = "MenuScene";
     private const string LEVEL_SCENE = "LevelScene";
     private const string OPEN_SCENE = "OpenScene";
-
-    private readonly CursorSet _cursorSettings;
     
     private Ctx _ctx;
     private CompositeDisposable _disposables;
@@ -43,8 +42,7 @@ public class ScenesHandler : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
         _ctx.onStartApplicationSwitchScene.Subscribe(_ => SelectSceneForStartApplication()).AddTo(_disposables);
-        _cursorSettings = Resources.Load<CursorSet>("CursorSet");
-        _cursorSettings.ApplyCursor();
+        _ctx.cursorSettings.ApplyCursor();
     }
 
 
@@ -84,7 +82,7 @@ public class ScenesHandler : IDisposable
 
     public async Task<IGameScene> SceneEntity(GameScenes scene)
     {
-        _cursorSettings.EnableCursor(false);
+        _ctx.cursorSettings.EnableCursor(false);
 
         IGameScene newScene = scene switch
         {
@@ -105,6 +103,7 @@ public class ScenesHandler : IDisposable
             gameSet = _ctx.gameSet,
             onSwitchScene = _ctx.onSwitchScene,
             blocker = _ctx.blocker,
+            cursorSettings = _ctx.cursorSettings,
         }).AddTo(_disposables);
         
         return sceneEntity;
@@ -124,7 +123,7 @@ public class ScenesHandler : IDisposable
             constructorTask = constructorTask,
         }).AddTo(_disposables);
 
-        _cursorSettings.EnableCursor(true);
+        _ctx.cursorSettings.EnableCursor(true);
         await constructorTask.Value;
         return sceneEntity;
     }
@@ -174,7 +173,7 @@ public class ScenesHandler : IDisposable
             blocker = _ctx.blocker,
         }).AddTo(_disposables);
 
-        _cursorSettings.EnableCursor(true);
+        _ctx.cursorSettings.EnableCursor(true);
         await constructorTask.Value;
         return sceneEntity;
     }

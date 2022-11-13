@@ -12,6 +12,7 @@ namespace UI
             public GameSet gameSet;
             public ReactiveCommand onClickStartGame;
             public Blocker blocker;
+            public CursorSet cursorSettings;
         }
 
         [SerializeField] private GameObject openingUi1 = default;
@@ -72,6 +73,8 @@ namespace UI
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(true);
             await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.startFadeInTime);
+            _ctx.cursorSettings.ApplyCursor();
+            _ctx.cursorSettings.EnableCursor(true);
         }
 
         private void OnDestroy()

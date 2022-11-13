@@ -10,6 +10,7 @@ public class OpenSceneEntity : IGameScene
         public GameSet gameSet;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public Blocker blocker;
+        public CursorSet cursorSettings;
     }
 
     private readonly Ctx _ctx;
@@ -43,6 +44,7 @@ public class OpenSceneEntity : IGameScene
             gameSet = _ctx.gameSet,
             onClickStartGame = onClickStartGame,
             blocker = _ctx.blocker,
+            cursorSettings = _ctx.cursorSettings,
         });
     }
 
