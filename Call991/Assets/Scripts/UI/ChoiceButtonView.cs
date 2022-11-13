@@ -27,16 +27,23 @@ namespace UI
         [Space] [SerializeField] private TextMeshProUGUI text = default;
         [SerializeField] private TextMeshProUGUI textSelected = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
+        [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
 
         private Ctx _ctx;
 
         private LocalizedString _localize;
 
         private bool _isSelected;
+        private bool _isHighlighted;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
+        }
+
+        public void PlayHoverSound()
+        {
+            buttonAudioSettings.PlayHoverSound();
         }
 
         protected override void DoStateTransition(SelectionState state, bool instant)
@@ -45,15 +52,18 @@ namespace UI
 
             _isSelected = false;
 
-            Debug.LogWarning($"choice button {name} {state}");
+            // Debug.LogWarning($"choice button {name} {state}");
 
             switch (state)
             {
                 case SelectionState.Normal:
                     SetHoverColor(false);
+                    _isHighlighted = false;
                     break;
                 case SelectionState.Highlighted:
                     SetHoverColor(true);
+                    PlayHoverSound();
+                    _isHighlighted = true;
                     break;
                 case SelectionState.Pressed:
                     SetHoverColor(true);
@@ -62,6 +72,12 @@ namespace UI
                 case SelectionState.Selected:
                     _isSelected = true;
                     SetHoverColor(true);
+
+                    if (!_isHighlighted)
+                    {
+                        PlayHoverSound();
+                    }
+
                     break;
                 case SelectionState.Disabled:
                     SetHoverColor(false);
@@ -86,6 +102,7 @@ namespace UI
 
         public async void Show(string choiceKey, bool isBlocked = false)
         {
+            _isHighlighted = false;
             _localize = choiceKey;
             text.text = _localize;
             textSelected.text = _localize;
