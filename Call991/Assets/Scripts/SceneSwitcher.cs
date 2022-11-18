@@ -2,6 +2,7 @@ using System;
 using System.Threading.Tasks;
 using Configs;
 using Data;
+using UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -16,6 +17,7 @@ public class SceneSwitcher : IDisposable
         public PhraseEventVideoLoader phraseEventVideoLoader;
         public Blocker blocker;
         public GameSet gameSet;
+        public CursorSet cursorSettings;
     }
 
     private Ctx _ctx;
@@ -46,8 +48,7 @@ public class SceneSwitcher : IDisposable
         //     // disable video
         //     // disable blocker
         // }
-
-
+        
         // load switch scene Additive (with UI over all)
         _diposables.Add(SceneManager.LoadSceneAsync(_ctx.scenesHandler.SwitchScene) // async load scene
             .AsAsyncOperationObservable() // as Observable thread
@@ -67,6 +68,8 @@ public class SceneSwitcher : IDisposable
 
     private async Task OnSwitchSceneLoaded(GameScenes scene)
     {
+        _ctx.cursorSettings.EnableCursor(false);
+
         var onLoadingProcess = new ReactiveProperty<string>().AddTo(_diposables);
         var switchSceneEntity = _ctx.scenesHandler.LoadingSceneEntity(onLoadingProcess, scene);
 

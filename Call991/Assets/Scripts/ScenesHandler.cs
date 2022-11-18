@@ -82,8 +82,6 @@ public class ScenesHandler : IDisposable
 
     public async Task<IGameScene> SceneEntity(GameScenes scene)
     {
-        _ctx.cursorSettings.EnableCursor(false);
-
         IGameScene newScene = scene switch
         {
             GameScenes.OpenScene => LoadOpenScene(),
