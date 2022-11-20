@@ -41,6 +41,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<bool> onClickPauseButton;
         public VideoManager videoManager;
         public Blocker blocker;
+        public CursorSet cursorSettings;
     }
 
     private Ctx _ctx;
@@ -100,6 +101,7 @@ public class LevelScenePm : IDisposable
         _ctx.videoManager.PlayPreparedVideo();
         RunDialogue();
         await _ctx.blocker.FadeScreenBlocker(false);
+        _ctx.cursorSettings.EnableCursor(true);
     }
 
     private void SetPause(bool pause)
@@ -126,7 +128,10 @@ public class LevelScenePm : IDisposable
         _ctx.onShowNewspaper.Execute((container, _ctx.newspaperSprite));
 
         await _ctx.blocker.FadeScreenBlocker(false);
+        _ctx.cursorSettings.EnableCursor(true);
+
         await container.Value;
+        _ctx.cursorSettings.EnableCursor(false);
     }
 
     private async Task ShowIntro()
@@ -369,6 +374,7 @@ public class LevelScenePm : IDisposable
                 break;
             case PhraseEventTypes.LevelEnd:
                 Debug.LogWarning($"[{this}] PhraseEventTypes.LevelEnd to be execute");
+                // _ctx.cursorSettings.EnableCursor(false);
                 _ctx.onPhraseLevelEndEvent.Execute(pEvent.eventId);
                 break;
             default:

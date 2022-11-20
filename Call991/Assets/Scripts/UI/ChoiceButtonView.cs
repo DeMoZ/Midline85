@@ -28,6 +28,7 @@ namespace UI
         [SerializeField] private TextMeshProUGUI textSelected = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
         [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
+        [SerializeField] private CursorSet cursorSettings = default;
 
         private Ctx _ctx;
 
@@ -57,10 +58,12 @@ namespace UI
             switch (state)
             {
                 case SelectionState.Normal:
+                    cursorSettings.ApplyCursor(CursorType.Normal);
                     SetHoverColor(false);
                     _isHighlighted = false;
                     break;
                 case SelectionState.Highlighted:
+                    cursorSettings.ApplyCursor(CursorType.CanClick);
                     SetHoverColor(true);
                     PlayHoverSound();
                     _isHighlighted = true;
@@ -119,6 +122,9 @@ namespace UI
             var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;
             canvasGroup.DOFade(0, duration);
             await Task.Delay((int) (duration * 1000));
+            
+            if (_isHighlighted)
+                cursorSettings.ApplyCursor(CursorType.Normal);
         }
 
         private void Update()

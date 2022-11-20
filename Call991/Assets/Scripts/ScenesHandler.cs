@@ -169,9 +169,9 @@ public class ScenesHandler : IDisposable
             newspaperSprite = newspaperSprite,
             phraseEventVideoLoader = phraseEventVideoLoader,
             blocker = _ctx.blocker,
+            cursorSettings = _ctx.cursorSettings,
         }).AddTo(_disposables);
 
-        _ctx.cursorSettings.EnableCursor(true);
         await constructorTask.Value;
         return sceneEntity;
     }
