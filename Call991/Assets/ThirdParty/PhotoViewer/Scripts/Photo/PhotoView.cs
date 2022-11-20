@@ -5,14 +5,18 @@ using UnityEngine.UI;
 
 namespace PhotoViewer.Scripts.Photo
 {
-    public class PhotoView : AbstractView
+    public class PhotoView : MonoBehaviour
     {
-        [SerializeField] private RectTransform _viewTransfrom;
-        [SerializeField] private Image _image = null;
-        [SerializeField] private RectTransform _imageTransform;
-        [SerializeField] private MenuButtonView _closeBtn = null;
-        
+        [SerializeField] private RectTransform _viewTransfrom = default;
+        [SerializeField] private Image _image = default;
+        [SerializeField] private RectTransform _imageTransform = default;
+        [SerializeField] private MenuButtonView _closeBtn = default;
+        [SerializeField] private NewspaperInput _newspaperInput = default;
+
         private Vector2? _defaultImageSize;
+
+        public Action OnChange;
+        private ImageData _currentData;
 
         public event Action OnClose;
 
@@ -42,15 +46,22 @@ namespace PhotoViewer.Scripts.Photo
             }
         }
 
-        private void OnEnable() =>
+        private void OnEnable()
+        {
+            _newspaperInput.onDrag += ApplyMove;
+            _newspaperInput.onZoom += ApplyZoom;
             _closeBtn.OnClick += Close;
+        }
 
-        private void OnDisable() =>
+        private void OnDisable()
+        {
+            _newspaperInput.onDrag -= ApplyMove;
+            _newspaperInput.onZoom -= ApplyZoom;
             _closeBtn.OnClick -= Close;
+        }
 
         private void Close()
         {
-            Clear();
             OnClose?.Invoke();
         }
 
@@ -64,45 +75,30 @@ namespace PhotoViewer.Scripts.Photo
             ShowData(imageData);
         }
 
-        protected override void ShowData(ImageData imageData)
+        public void Show(ImageData imageData)
         {
-            Clear();
+            _currentData = imageData;
+            ShowData(imageData);
+        }
 
-            _zoomSlider.onValueChanged.AddListener(Zoom);
+        public void Reset() =>
+            Show(_currentData);
 
-            if(_image)
+        private void ShowData(ImageData imageData)
+        {
+            if (_image)
                 _image.sprite = imageData.Sprite;
 
             RescalePhoto(imageData.Sprite);
         }
 
-        protected override void Zoom(float value)
+        private void ApplyZoom(float value)
         {
-            if (_defaultImageSize == null)
-                return;
-
-            OnChange?.Invoke();
-
             _imageTransform.sizeDelta = (Vector2) (_defaultImageSize + _defaultImageSize * value * 10);
+            _defaultImageSize = _imageTransform.sizeDelta;
         }
 
-        public void RotateLeft()
-        {
-            var euler = _imageTransform.rotation.eulerAngles;
-            _imageTransform.rotation = Quaternion.Euler(euler.x, euler.y, euler.z + 90);
-
-            OnChange?.Invoke();
-        }
-
-        public void RotateRight()
-        {
-            var euler = _imageTransform.rotation.eulerAngles;
-            _imageTransform.rotation = Quaternion.Euler(euler.x, euler.y, euler.z - 90);
-
-            OnChange?.Invoke();
-        }
-
-        public override void ApplyInput(Vector2 deltaPosition)
+        private void ApplyMove(Vector2 deltaPosition)
         {
             Vector2 newPosition = _imageTransform.localPosition;
 
@@ -133,23 +129,15 @@ namespace PhotoViewer.Scripts.Photo
                 newPosition.y = 0;
 
             _imageTransform.localPosition = (Vector3) newPosition;
-            
+
             if (deltaPosition != Vector2.zero)
                 OnChange?.Invoke();
-        }
-
-        public void Clear()
-        {
-            //var euler = _imageTransform.rotation.eulerAngles;
-            //_imageTransform.rotation = Quaternion.Euler(euler.x, euler.y, 0);
-
-            ResetZoom();
         }
 
         private void RescalePhoto(Sprite sprite)
         {
             if (_viewTransfrom == null) return;
-            
+
             var viewerSize = ViewerSize;
             var spriteSize = new Vector2(sprite.rect.width, sprite.rect.height);
 
