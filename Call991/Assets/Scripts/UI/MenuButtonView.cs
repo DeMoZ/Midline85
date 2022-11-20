@@ -11,6 +11,8 @@ namespace UI
         [SerializeField] private Color textHover = default;
         [SerializeField] private TextMeshProUGUI text = default;
         [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
+        [SerializeField] private CursorSet cursorSettings = default;
+        
         private bool _isSelected;
         private bool _isHighlighted;
 
@@ -45,10 +47,12 @@ namespace UI
             switch (state)
             {
                 case SelectionState.Normal:
+                    cursorSettings.ApplyCursor(CursorType.Normal);
                     SetHoverColor(false);
                     _isHighlighted = false;
                     break;
                 case SelectionState.Highlighted:
+                    cursorSettings.ApplyCursor(CursorType.CanClick);
                     _isHighlighted = true;
                     SetHoverColor(true);
                     PlayHoverSound();

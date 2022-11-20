@@ -81,6 +81,7 @@ public class RootEntity : IDisposable
             videoManager = _ctx.videoManager,
             gameSet = gameSet,
             blocker = _ctx.blocker,
+            cursorSettings = cursorSettings,
         }).AddTo(_diposables);
 
         _onStartApplicationSwitchScene.Execute();

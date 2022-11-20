@@ -82,8 +82,6 @@ public class ScenesHandler : IDisposable
 
     public async Task<IGameScene> SceneEntity(GameScenes scene)
     {
-        _ctx.cursorSettings.EnableCursor(false);
-
         IGameScene newScene = scene switch
         {
             GameScenes.OpenScene => LoadOpenScene(),
@@ -171,9 +169,9 @@ public class ScenesHandler : IDisposable
             newspaperSprite = newspaperSprite,
             phraseEventVideoLoader = phraseEventVideoLoader,
             blocker = _ctx.blocker,
+            cursorSettings = _ctx.cursorSettings,
         }).AddTo(_disposables);
 
-        _ctx.cursorSettings.EnableCursor(true);
         await constructorTask.Value;
         return sceneEntity;
     }

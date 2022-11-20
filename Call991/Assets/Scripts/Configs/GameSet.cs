@@ -41,7 +41,6 @@ namespace Configs
         public AudioClip menuBtnClip;
         public AudioClip choiceBtnClip;
         public AudioClip timerClip;
-        public ButtonAudioSettings menuButtonAudioSettings;
         
         [Space]
         public Dictionary<string, List<string>> musics;

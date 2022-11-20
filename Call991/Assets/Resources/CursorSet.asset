@@ -12,4 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5e79b2df8681ee54c82829efbb3515db, type: 3}
   m_Name: CursorSet
   m_EditorClassIdentifier: 
-  cursorTexture: {fileID: 2800000, guid: 438ca74d032b80b4f9dbd26cbadd5b76, type: 3}
+  normal:
+    texture: {fileID: 2800000, guid: d46deb7f806614c8aaba1e21fc9f34b7, type: 3}
+    hotPoint: {x: 23, y: 5}
+  canClick:
+    texture: {fileID: 2800000, guid: 5ed2e0b04fca247dc80fc2f24a825a15, type: 3}
+    hotPoint: {x: 23, y: 5}
+  canDrag:
+    texture: {fileID: 2800000, guid: 23680c94cb9b94973bd6c813e085ee91, type: 3}
+    hotPoint: {x: 23, y: 5}
+  drag:
+    texture: {fileID: 2800000, guid: 4bdc46a2a7b354e82b698f3f74ffba46, type: 3}
+    hotPoint: {x: 23, y: 5}
