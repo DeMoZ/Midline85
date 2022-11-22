@@ -12,11 +12,10 @@ namespace PhotoViewer.Scripts.Photo
         [SerializeField] private RectTransform _imageTransform = default;
         [SerializeField] private MenuButtonView _closeBtn = default;
         [SerializeField] private NewspaperInput _newspaperInput = default;
+        private Vector2 _zoomLimit = new(0.8f, 5);
 
-        private Vector2? _defaultImageSize;
-
-        public Action OnChange;
-        private ImageData _currentData;
+        private Vector2 _initialImageSize;
+        private Vector2 _imageSize;
 
         public event Action OnClose;
 
@@ -60,11 +59,6 @@ namespace PhotoViewer.Scripts.Photo
             _closeBtn.OnClick -= Close;
         }
 
-        private void Close()
-        {
-            OnClose?.Invoke();
-        }
-
         public void SetNewspaper(Sprite sprite)
         {
             var imageData = new ImageData
@@ -75,14 +69,10 @@ namespace PhotoViewer.Scripts.Photo
             ShowData(imageData);
         }
 
-        public void Show(ImageData imageData)
+        private void Close()
         {
-            _currentData = imageData;
-            ShowData(imageData);
+            OnClose?.Invoke();
         }
-
-        public void Reset() =>
-            Show(_currentData);
 
         private void ShowData(ImageData imageData)
         {
@@ -91,11 +81,19 @@ namespace PhotoViewer.Scripts.Photo
 
             RescalePhoto(imageData.Sprite);
         }
-
+        
         private void ApplyZoom(float value)
         {
-            _imageTransform.sizeDelta = (Vector2) (_defaultImageSize + _defaultImageSize * value * 10);
-            _defaultImageSize = _imageTransform.sizeDelta;
+            value *= _initialImageSize.y;
+            _imageSize.y += value;
+            var magnitudeRelation = _imageSize.y / _initialImageSize.y;
+            magnitudeRelation = Mathf.Clamp(magnitudeRelation, _zoomLimit.x, _zoomLimit.y);
+
+            var y = _initialImageSize.y * magnitudeRelation;
+            var x = (_initialImageSize.x / _initialImageSize.y) * y;
+
+            _imageSize = new Vector2(x, y);
+            _imageTransform.sizeDelta = _imageSize;
         }
 
         private void ApplyMove(Vector2 deltaPosition)
@@ -129,9 +127,6 @@ namespace PhotoViewer.Scripts.Photo
                 newPosition.y = 0;
 
             _imageTransform.localPosition = (Vector3) newPosition;
-
-            if (deltaPosition != Vector2.zero)
-                OnChange?.Invoke();
         }
 
         private void RescalePhoto(Sprite sprite)
@@ -155,7 +150,8 @@ namespace PhotoViewer.Scripts.Photo
                 _imageTransform.sizeDelta = new Vector2(relate * spriteSize.x, viewerSize.y);
             }
 
-            _defaultImageSize = _imageTransform.sizeDelta;
+            _initialImageSize = _imageTransform.sizeDelta;
+            _imageSize = _initialImageSize;
         }
     }
 }

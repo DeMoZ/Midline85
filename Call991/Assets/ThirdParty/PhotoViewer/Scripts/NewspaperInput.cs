@@ -16,7 +16,7 @@ namespace PhotoViewer.Scripts
         [SerializeField] private CursorSet _cursorSettings = default;
         [SerializeField] private float _moveDumping = 3f;
         [Space]
-        [SerializeField] private float _zoomSpeed = 25f;
+        [SerializeField] private float _zoomSpeed = 50f;
         [SerializeField] private float _zoomDumping = 4f;
 
         private float _moveDelta;
@@ -38,8 +38,8 @@ namespace PhotoViewer.Scripts
 
             onDrag?.Invoke(_deltaPosition);
             
-            var zoomDelta = -Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * _zoomSpeed;
-            zoomDelta = Mathf.Lerp(_zoomDelta, zoomDelta, Time.deltaTime * _zoomDumping);
+            var zoomDelta = Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * _zoomSpeed;
+            //zoomDelta = Mathf.Lerp(_zoomDelta, zoomDelta, Time.deltaTime * _zoomDumping);
             onZoom?.Invoke(zoomDelta);
         }
 
