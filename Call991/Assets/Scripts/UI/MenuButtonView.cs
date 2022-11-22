@@ -22,13 +22,13 @@ namespace UI
         public void PlayClickSound()
         {
             OnClick?.Invoke();
-            buttonAudioSettings.PlayClickSound();
+            buttonAudioSettings?.PlayClickSound();
         }
 
         public void PlayHoverSound()
         {
             OnHover?.Invoke();
-            buttonAudioSettings.PlayHoverSound();
+            buttonAudioSettings?.PlayHoverSound();
         }
 
         private void SetHoverColor(bool hover)

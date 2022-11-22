@@ -72,9 +72,9 @@ namespace UI
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(true);
-            await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.startFadeInTime);
             _ctx.cursorSettings.ApplyCursor();
             _ctx.cursorSettings.EnableCursor(true);
+            await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.startFadeInTime);
         }
 
         private void OnDestroy()
