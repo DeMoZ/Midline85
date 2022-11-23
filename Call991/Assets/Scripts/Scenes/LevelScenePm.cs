@@ -96,9 +96,11 @@ public class LevelScenePm : IDisposable
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
 
         await ShowNewsPaper();
+        await Task.Delay(500);
         await ShowIntro();
         await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
         _ctx.videoManager.PlayPreparedVideo();
+        await Task.Delay(500);
         RunDialogue();
         await _ctx.blocker.FadeScreenBlocker(false);
         _ctx.cursorSettings.EnableCursor(true);
