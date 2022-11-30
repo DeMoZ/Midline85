@@ -108,11 +108,30 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = loop;
     }
 
-    private void PlayUiSound(AudioClip clip)
+    public void ChangeVolume(AudioSources source, float volume)
     {
-        PlayMusicFile(uiAudioSource, clip, false);
+        switch (source)
+        {
+            case AudioSources.Phrases:
+                {
+                    break;
+                }
+            case AudioSources.Effects:
+                {
+                    uiAudioSource.volume = volume;
+                    timerAudioSource.volume = volume;
+                    break;
+                }
+            case AudioSources.Music:
+                {
+                    musicAudioSource.volume = volume;
+                    break;
+                }
+
+        }
+        
     }
-    
+
     public void PlayUiSound(SoundUiTypes type, bool loop = false)
     {
         switch (type)
