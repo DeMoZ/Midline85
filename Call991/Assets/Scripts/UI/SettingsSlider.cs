@@ -7,12 +7,12 @@ using UnityEngine.UI;
 
 public class SettingsSlider : MonoBehaviour
 {
-    [SerializeField] private Slider _slider;
-    [SerializeField] private TextMeshProUGUI _sliderText;
-    [SerializeField] private AudioSourceType _source;
+    [SerializeField] private Slider _slider = default;
+    [SerializeField] private TextMeshProUGUI _sliderText = default;
+    [SerializeField] private AudioSourceType _source = default;
     private AudioManager _audioManager;
 
-    internal void Init(AudioManager audioManager)
+    public void Init(AudioManager audioManager)
     {
         _audioManager = audioManager;
 
