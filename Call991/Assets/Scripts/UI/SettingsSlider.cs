@@ -9,14 +9,8 @@ public class SettingsSlider : MonoBehaviour
 {
     [SerializeField] private Slider _slider;
     [SerializeField] private TextMeshProUGUI _sliderText;
-    [SerializeField] private AudioSources _source;
+    [SerializeField] private AudioSourceType _source;
     private AudioManager _audioManager;
-
-
-    void Start()
-    {
-        
-    }
 
     internal void Init(AudioManager audioManager)
     {

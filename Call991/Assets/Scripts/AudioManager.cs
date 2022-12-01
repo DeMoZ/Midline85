@@ -108,26 +108,19 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = loop;
     }
 
-    public void ChangeVolume(AudioSources source, float volume)
+    public void ChangeVolume(AudioSourceType source, float volume)
     {
         switch (source)
         {
-            case AudioSources.Phrases:
-                {
-                    break;
-                }
-            case AudioSources.Effects:
-                {
-                    uiAudioSource.volume = volume;
-                    timerAudioSource.volume = volume;
-                    break;
-                }
-            case AudioSources.Music:
-                {
-                    musicAudioSource.volume = volume;
-                    break;
-                }
-
+            case AudioSourceType.Phrases:
+                break;
+            case AudioSourceType.Effects:
+                uiAudioSource.volume = volume;
+                timerAudioSource.volume = volume;
+                break;
+            case AudioSourceType.Music:
+                musicAudioSource.volume = volume;
+                break;
         }
         
     }
@@ -149,7 +142,12 @@ public class AudioManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
     }
-    
+
+    private void PlayUiSound(AudioClip clip)
+    {
+        PlayMusicFile(uiAudioSource, clip, false);
+    }
+
     public void StopTimer()
     {
         timerAudioSource.Stop();

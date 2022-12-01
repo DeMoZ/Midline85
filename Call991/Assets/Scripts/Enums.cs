@@ -19,7 +19,7 @@ public enum Language
     RU,
 }
 
-public enum AudioSources
+public enum AudioSourceType
 {
     Phrases,
     Effects,

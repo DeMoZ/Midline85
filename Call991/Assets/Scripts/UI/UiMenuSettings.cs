@@ -39,6 +39,7 @@ namespace UI
             dialogueVolume.Init(_ctx.audioManager);
             effectsVolume.Init(_ctx.audioManager);
             musicVolume.Init(_ctx.audioManager);
+
             toMenuBtn.OnClick += OnClickToMenu;
             toMenuTutorialBtn.OnClick += OnClickToMenu;
             inputId.onValueChanged.AddListener(OnInputId);
