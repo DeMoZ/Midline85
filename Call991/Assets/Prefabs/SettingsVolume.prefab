@@ -196,6 +196,9 @@ MonoBehaviour:
   textNormal: {r: 0.5372549, g: 0.5372549, b: 0.5294118, a: 1}
   textHover: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
   text: {fileID: 1224067182519902964}
+  buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
+    type: 2}
+  cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
 --- !u!1 &1224067182519902474
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,7 +655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _slider: {fileID: 0}
   _sliderText: {fileID: 0}
-  _audioSource: {fileID: 0}
+  _source: 0
 --- !u!1 &4186080322641365146
 GameObject:
   m_ObjectHideFlags: 0
