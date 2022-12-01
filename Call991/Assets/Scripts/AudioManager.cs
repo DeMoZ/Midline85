@@ -108,11 +108,23 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = loop;
     }
 
-    private void PlayUiSound(AudioClip clip)
+    public void ChangeVolume(AudioSourceType source, float volume)
     {
-        PlayMusicFile(uiAudioSource, clip, false);
+        switch (source)
+        {
+            case AudioSourceType.Phrases:
+                break;
+            case AudioSourceType.Effects:
+                uiAudioSource.volume = volume;
+                timerAudioSource.volume = volume;
+                break;
+            case AudioSourceType.Music:
+                musicAudioSource.volume = volume;
+                break;
+        }
+        
     }
-    
+
     public void PlayUiSound(SoundUiTypes type, bool loop = false)
     {
         switch (type)
@@ -130,7 +142,12 @@ public class AudioManager : MonoBehaviour
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
         }
     }
-    
+
+    private void PlayUiSound(AudioClip clip)
+    {
+        PlayMusicFile(uiAudioSource, clip, false);
+    }
+
     public void StopTimer()
     {
         timerAudioSource.Stop();

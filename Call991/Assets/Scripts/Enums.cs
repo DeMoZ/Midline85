@@ -18,3 +18,10 @@ public enum Language
     EN,
     RU,
 }
+
+public enum AudioSourceType
+{
+    Phrases,
+    Effects,
+    Music
+}

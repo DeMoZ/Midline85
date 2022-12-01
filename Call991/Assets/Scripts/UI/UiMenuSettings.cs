@@ -19,6 +19,9 @@ namespace UI
         [SerializeField] private MenuButtonView toMenuTutorialBtn = default;
         [SerializeField] private TMP_InputField inputId = default;
         [SerializeField] private TextMeshProUGUI inputIdText = default;
+        [SerializeField] private SettingsSlider dialogueVolume = default;
+        [SerializeField] private SettingsSlider effectsVolume = default;
+        [SerializeField] private SettingsSlider musicVolume = default;
 
         [Space] [SerializeField] private LanguageDropdown textLanguage = default;
         [SerializeField] private LanguageDropdown audioLanguage = default;
@@ -32,6 +35,10 @@ namespace UI
             inputId.text = _ctx.profile.CheatPhrase;
             SetTextDropdown();
             SetAudioDropdown();
+
+            dialogueVolume.Init(_ctx.audioManager);
+            effectsVolume.Init(_ctx.audioManager);
+            musicVolume.Init(_ctx.audioManager);
 
             toMenuBtn.OnClick += OnClickToMenu;
             toMenuTutorialBtn.OnClick += OnClickToMenu;
