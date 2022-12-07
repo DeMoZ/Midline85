@@ -152,6 +152,8 @@ public class LevelSceneEntity : IGameScene
             onShowNewspaper = onShowNewspaper,
             onClickPauseButton = onClickPauseButton,
             pool = uiPool,
+            audioManager = _ctx.audioManager,
+            profile = _ctx.profile,
         });
 
         onAfterEnter.Execute();
