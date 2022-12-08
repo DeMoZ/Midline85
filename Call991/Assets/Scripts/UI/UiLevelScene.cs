@@ -27,6 +27,8 @@ namespace UI
             public ReactiveCommand<bool> onClickPauseButton;
 
             public Pool pool;
+            public AudioManager audioManager;
+            public PlayerProfile profile;
         }
         
         private Ctx _ctx;
@@ -42,10 +44,12 @@ namespace UI
         [SerializeField] private StatisticsView statisticView = default;
         [SerializeField] private PhotoView newspaper = default;
         [SerializeField] private LevelPauseView levelPauseView = default;
+        [SerializeField] private UiMenuSettings menuSettings = default;
 
         private CompositeDisposable _disposables;
         private bool _isNewspaperActive;
-
+        private ReactiveCommand _onClickToMenu;
+        
         public List<ChoiceButtonView> Buttons => buttons;
         public CountDownView CountDown => countDown;
         public AudioSource PhraseAudioSource => phraseAudioSource;
@@ -54,12 +58,16 @@ namespace UI
         {
             _ctx = ctx;
             _disposables = new CompositeDisposable();
-
+            
+            _onClickToMenu = new ReactiveCommand();
+            _onClickToMenu.Subscribe(_ => OnClickToMenu()).AddTo(_disposables);
+            
             pauseButton.OnClick += OnClickPauseButton;
             newspaper.OnClose += OnNewspaperClose;
 
             var onClickUnPauseButton = new ReactiveCommand().AddTo(_disposables);
-
+            var onClickSettingsButton = new ReactiveCommand().AddTo(_disposables);
+            
             statisticView.SetCtx(new StatisticsView.Ctx
             {
                 onClickMenuButton = _ctx.onClickMenuButton,
@@ -68,7 +76,15 @@ namespace UI
             levelPauseView.SetCtx(new LevelPauseView.Ctx
             {
                 onClickMenuButton = _ctx.onClickMenuButton,
+                onClickSettingsButton = onClickSettingsButton, 
                 onClickUnPauseButton = onClickUnPauseButton,
+            });
+
+            menuSettings.SetCtx(new UiMenuSettings.Ctx
+            {
+                audioManager = _ctx.audioManager,
+                onClickToMenu = _onClickToMenu,
+                profile = _ctx.profile,
             });
 
             _ctx.onPhraseSoundEvent.Subscribe(OnPhraseSoundEvent).AddTo(_disposables);
@@ -81,7 +97,8 @@ namespace UI
             _ctx.onShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
 
             onClickUnPauseButton.Subscribe(_ => OnClickPauseButton(false));
-
+            onClickSettingsButton.Subscribe(_ => EnableUi(menuSettings.GetType()));
+            
             foreach (var person in persons)
             {
                 person.gameObject.SetActive(false);
@@ -92,7 +109,10 @@ namespace UI
 
             countDown.gameObject.SetActive(false);
         }
-        
+
+        private void OnClickToMenu() =>
+            EnableUi(levelPauseView.GetType());
+
         private void OnClickPauseButton() => OnClickPauseButton(true);
 
         private void OnClickPauseButton(bool value)
@@ -105,6 +125,7 @@ namespace UI
         {
             if (levelView == null) return;
             
+            menuSettings.gameObject.SetActive(menuSettings.GetType() == type);
             levelTitleView.gameObject.SetActive(levelTitleView.GetType() == type);
             levelView.gameObject.SetActive(levelView.GetType() == type);
             statisticView.gameObject.SetActive(statisticView.GetType() == type);
