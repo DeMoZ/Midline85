@@ -48,7 +48,7 @@ public class SceneSwitcher : IDisposable
         //     // disable video
         //     // disable blocker
         // }
-        
+
         // load switch scene Additive (with UI over all)
         _diposables.Add(SceneManager.LoadSceneAsync(_ctx.scenesHandler.SwitchScene) // async load scene
             .AsAsyncOperationObservable() // as Observable thread
@@ -82,13 +82,14 @@ public class SceneSwitcher : IDisposable
             _ctx.videoManager.EnableVideo(true);
             _ctx.videoManager.PlayPreparedVideo();
             await _ctx.blocker.FadeScreenBlocker(false);
+            await Task.Delay((int)(_ctx.gameSet.startGameOpeningHoldTime * 1000));
         }
 
         Debug.Log($"[{this}][OnSwitchSceneLoaded] Start load scene {scene}");
 
         _currentScene = await _ctx.scenesHandler.SceneEntity(scene);
-
-        _diposables.Add(SceneManager.LoadSceneAsync(_ctx.scenesHandler.GetSceneName(scene)) // async load scene
+        
+        SceneManager.LoadSceneAsync(_ctx.scenesHandler.GetSceneName(scene)) // async load scene
             .AsAsyncOperationObservable() // as Observable thread
             .Do(x =>
             {
@@ -99,12 +100,11 @@ public class SceneSwitcher : IDisposable
             }).Subscribe(_ =>
             {
                 Debug.Log($"[{this}][OnSwitchSceneLoaded] Async load scene {scene} done");
-
                 switchSceneEntity.Exit();
                 switchSceneEntity.Dispose();
 
                 _currentScene.Enter();
-            }));
+            }).AddTo(_diposables);
     }
 
     public void Dispose()

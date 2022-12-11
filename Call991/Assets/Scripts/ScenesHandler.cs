@@ -200,6 +200,7 @@ public class ScenesHandler : IDisposable
             toLevelScene = toLevelScene,
             firstLoad = scene == GameScenes.OpenScene,
             blocker = _ctx.blocker,
+            gameSet = _ctx.gameSet,
         }).AddTo(_disposables);
 
         return switchSceneEntity;

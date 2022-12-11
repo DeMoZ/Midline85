@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
-using UI;
 using UnityEngine;
 
 namespace Configs
@@ -14,12 +13,18 @@ namespace Configs
         public float logoFadeInTime = 1f;
         public float logoHoldTime = 3f;
         public float logoFadeOutTime = 2f;
+        
         [Header("Opening Warning")]
         public float warningFadeInTime = 1f;
         public float warningHoldTime = 5f;
         public float warningFadeOutTime = 2f;
+        
         [Header("Opening Start Game")]
         public float startFadeInTime = 1f;
+        [Tooltip("appear delay for lines")]
+        public float openingLineAppearTime = 1f;
+        [Tooltip("warning before level load")]
+        public float startGameOpeningHoldTime = 2f;
 
         [Header("Level Buttons")]
         public float choicesDuration = 3f;

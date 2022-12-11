@@ -1,3 +1,4 @@
+using Configs;
 using TMPro;
 using UniRx;
 using UnityEngine;
@@ -10,14 +11,14 @@ namespace UI
         {
             public ReactiveProperty<string> onLoadingProcess;
             public bool toLevelScene;
-
+            public GameSet gameSet;
             public bool firstLoad;
             public Blocker blocker;
         }
 
         [SerializeField] private TextMeshProUGUI loadingValue = default;
         [SerializeField] private GameObject loadingUi = default;
-        [SerializeField] private GameObject loadingTitle = default;
+        [SerializeField] private UiLoadingTitle loadingWarningTitle = default;
         
         private Ctx _ctx;
 
@@ -28,7 +29,8 @@ namespace UI
             _ctx.onLoadingProcess.Subscribe(OnLoadingProcess);
             
             loadingUi.SetActive(!ctx.toLevelScene);
-            loadingTitle.SetActive(ctx.toLevelScene);
+            loadingWarningTitle.SetCtx(_ctx.gameSet.openingLineAppearTime);
+            loadingWarningTitle.gameObject.SetActive(ctx.toLevelScene);
             _ctx.blocker.EnableScreenFade(ctx.firstLoad);
         }
 
