@@ -1,11 +1,11 @@
-﻿using UnityEngine;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Text;
+using UnityEngine;
 using UnityEngine.Networking;
 
 namespace I2.Loc
 {
-	public enum eSpreadsheetUpdateMode { None, Replace, Merge, AddNewTerms };
+	public enum eSpreadsheetUpdateMode { None, Replace, Merge, AddNewTerms }
 
 	public partial class LanguageSourceData
 	{

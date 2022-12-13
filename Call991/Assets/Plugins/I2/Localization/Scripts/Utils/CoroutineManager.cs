@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEditor;
+using UnityEngine;
 
 namespace I2.Loc
 {
@@ -35,13 +36,13 @@ namespace I2.Loc
 				// Special case to allow coroutines to run in the Editor
 				if (!Application.isPlaying)
 				{
-					UnityEditor.EditorApplication.CallbackFunction delg=null;
-					delg = delegate () 
+					EditorApplication.CallbackFunction delg=null;
+					delg = delegate
 					{
 						if (!coroutine.MoveNext())
-							UnityEditor.EditorApplication.update -= delg;
+							EditorApplication.update -= delg;
 					};
-					UnityEditor.EditorApplication.update += delg;
+					EditorApplication.update += delg;
 					return null;
 				}
 			#endif
