@@ -1,8 +1,6 @@
-using System;
-using UnityEngine;
-using System.Linq;
 using System.Collections.Generic;
-using Object = UnityEngine.Object;
+using UnityEditor;
+using UnityEngine;
 
 namespace I2.Loc
 {
@@ -24,11 +22,11 @@ namespace I2.Loc
 
         // TODO: also copy         public string name;   and owner
 
-        public int version = 0;
-        public bool NeverDestroy = false;  	// Keep between scenes (will call DontDestroyOnLoad )
+        public int version;
+        public bool NeverDestroy;  	// Keep between scenes (will call DontDestroyOnLoad )
 
-		public bool UserAgreesToHaveItOnTheScene = false;
-		public bool UserAgreesToHaveItInsideThePluginsFolder = false;
+		public bool UserAgreesToHaveItOnTheScene;
+		public bool UserAgreesToHaveItInsideThePluginsFolder;
         public bool GoogleLiveSyncIsUptoDate = true;
 
         public List<Object> Assets = new List<Object>();	// References to Fonts, Atlasses and other objects the localization may need
@@ -54,7 +52,7 @@ namespace I2.Loc
 
         public List<TermData> mTerms = new List<TermData>();
 
-        public bool CaseInsensitiveTerms = false;
+        public bool CaseInsensitiveTerms;
 
         public LanguageSourceData.MissingTranslationAction OnMissingTranslation = LanguageSourceData.MissingTranslationAction.Fallback;
 
@@ -78,7 +76,7 @@ namespace I2.Loc
         void Awake()
         {
             #if UNITY_EDITOR
-            if (UnityEditor.BuildPipeline.isBuildingPlayer)
+            if (BuildPipeline.isBuildingPlayer)
                 return;
             #endif
    //         NeverDestroy = false;

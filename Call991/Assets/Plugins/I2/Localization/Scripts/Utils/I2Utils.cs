@@ -1,9 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using System;
+using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using UnityEditor;
+using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 namespace I2.Loc
 {
@@ -15,12 +17,29 @@ namespace I2.Loc
 
         public static string ReverseText(string source)
         {
-            var len = source.Length;
-            var output = new char[len];
-            for (var i = 0; i < len; i++)
+            int len = source.Length;
+            char[] output = new char[len];
+
+            char[] separators = { '\r', '\n' };
+            for (int istart = 0; istart<len;)
             {
-                output[(len - 1) - i] = source[i];
+                int iend = source.IndexOfAny(separators, istart);
+                if (iend < 0) iend = len;
+                Reverse(istart, iend-1);
+
+                for (istart = iend; istart < len && (source[istart] == '\r' || source[istart] == '\n'); istart++)
+                {
+                    output[istart] = source[istart];
+                }
             }
+
+            void Reverse(int start, int end)
+            {
+                for (var i = 0; i <= end-start; i++) {
+                    output[end-i] = source[start+i];
+                }
+            }
+
             return new string(output);
         }
 
@@ -40,10 +59,10 @@ namespace I2.Loc
             char[] output = new char[text.Length];
             bool skipped = false;
 
-            foreach (char cc in text.Trim().ToCharArray())
+            foreach (char cc in text.Trim())
             {
                 char c = ' ';
-                if ((allowCategory && (cc == '\\' || cc == '\"' || (cc == '/'))) ||
+                if (allowCategory && (cc == '\\' || cc == '\"' || cc == '/') ||
                      char.IsLetterOrDigit(cc) ||
                      ValidNameSymbols.IndexOf(cc) >= 0)
                 {
@@ -149,7 +168,7 @@ namespace I2.Loc
                 if (c == ']' || c == ')' || c == '}' || c=='>')
                 {
                     if (isArabic) return FindNextTag(line, tagEnd + 1, out tagStart, out tagEnd);
-                    else return true;
+                    return true;
                 }
                 if (c > 255) isArabic = true;
             }
@@ -165,10 +184,10 @@ namespace I2.Loc
 
         public static bool RemoveResourcesPath(ref string sPath)
         {
-            int Ind1 = sPath.IndexOf("\\Resources\\");
-            int Ind2 = sPath.IndexOf("\\Resources/");
-            int Ind3 = sPath.IndexOf("/Resources\\");
-            int Ind4 = sPath.IndexOf("/Resources/");
+            int Ind1 = sPath.IndexOf("\\Resources\\", StringComparison.Ordinal);
+            int Ind2 = sPath.IndexOf("\\Resources/", StringComparison.Ordinal);
+            int Ind3 = sPath.IndexOf("/Resources\\", StringComparison.Ordinal);
+            int Ind4 = sPath.IndexOf("/Resources/", StringComparison.Ordinal);
             int Index = Mathf.Max(Ind1, Ind2, Ind3, Ind4);
             bool IsResource = false;
             if (Index >= 0)
@@ -185,7 +204,7 @@ namespace I2.Loc
                     sPath = sPath.Substring(Index + 1);
             }
 
-            string Extension = System.IO.Path.GetExtension(sPath);
+            string Extension = Path.GetExtension(sPath);
             if (!string.IsNullOrEmpty(Extension))
                 sPath = sPath.Substring(0, sPath.Length - Extension.Length);
 
@@ -197,7 +216,7 @@ namespace I2.Loc
             if (Application.isPlaying)
                 return true;
             #if UNITY_EDITOR
-                return UnityEditor.EditorApplication.isPlayingOrWillChangePlaymode;
+                return EditorApplication.isPlayingOrWillChangePlaymode;
             #else
                 return false;
             #endif
@@ -214,11 +233,11 @@ namespace I2.Loc
 #if UNITY_5_3_OR_NEWER
         public static Transform FindObject(string objectPath)
         {
-            return FindObject(UnityEngine.SceneManagement.SceneManager.GetActiveScene(), objectPath);
+            return FindObject(SceneManager.GetActiveScene(), objectPath);
         }
 
 
-        public static Transform FindObject(UnityEngine.SceneManagement.Scene scene, string objectPath)
+        public static Transform FindObject(Scene scene, string objectPath)
         {
             //var roots = SceneManager.GetActiveScene().GetRootGameObjects();
             var roots = scene.GetRootGameObjects();
@@ -228,7 +247,7 @@ namespace I2.Loc
                 if (root.name == objectPath)
                     return root;
 
-                if (!objectPath.StartsWith(root.name + "/"))
+                if (!objectPath.StartsWith(root.name + "/", StringComparison.Ordinal))
                     continue;
 
                 return FindObject(root, objectPath.Substring(root.name.Length + 1));
@@ -244,7 +263,7 @@ namespace I2.Loc
                 if (child.name == objectPath)
                     return child;
 
-                if (!objectPath.StartsWith(child.name + "/"))
+                if (!objectPath.StartsWith(child.name + "/", StringComparison.Ordinal))
                     continue;
 
                 return FindObject(child, objectPath.Substring(child.name.Length + 1));

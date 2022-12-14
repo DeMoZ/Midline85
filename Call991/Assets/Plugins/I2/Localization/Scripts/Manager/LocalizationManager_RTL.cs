@@ -1,9 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
-using System.Linq;
-using System.Globalization;
-using System.Collections;
 
 namespace I2.Loc
 {
@@ -50,7 +46,7 @@ namespace I2.Loc
             {
                 var len = line.Length;
   
-                for (int j = 0; j < len; ++j)
+                for (int j = 0; j < len-4; ++j)
                 {
                     if (line[j] == '@' && line[j + 1] == '@' && line[j + 2] >= tagBase && line[j + 3] == '@' && line[j + 4] == '@')
                     {
@@ -71,16 +67,15 @@ namespace I2.Loc
 
        
         public static string FixRTL_IfNeeded(string text, int maxCharacters = 0, bool ignoreNumber=false)
-		{
-			if (IsRight2Left)
+        {
+            if (IsRight2Left)
 				return ApplyRTLfix(text, maxCharacters, ignoreNumber);
-			else
-				return text;
-		}
+            return text;
+        }
 
 		public static bool IsRTL(string Code)
 		{
-			return System.Array.IndexOf(LanguagesRTL, Code)>=0;
+			return Array.IndexOf(LanguagesRTL, Code)>=0;
 		}
     }
 
