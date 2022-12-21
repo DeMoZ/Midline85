@@ -18,11 +18,15 @@ public class PersonView : MonoBehaviour
     private int _wordIndex;
     private Phrase _phrase;
 
+    private bool _showPhrase;
+
     private void OnEnable()
     {
-        if (_phraseRoutine == null) return;
+        if (!_showPhrase) return;
 
-        StopCoroutine(_phraseRoutine);
+        if (_phraseRoutine != null)
+            StopCoroutine(_phraseRoutine);
+        
         _phraseRoutine = StartCoroutine(ShowWords(_phrase, _wordIndex));
     }
 
@@ -41,13 +45,18 @@ public class PersonView : MonoBehaviour
 
     private void ShowPhraseText(PhraseSet phraseSet)
     {
+        _phrase = phraseSet.Phrase;
+        _wordIndex = 0;
+        _showPhrase = true;
+        
         switch (phraseSet.textAppear)
         {
             case TextAppear.Pop:
                 description.text = phraseSet.Phrase.text;
                 break;
             case TextAppear.Word:
-                _phraseRoutine = StartCoroutine(ShowWords(phraseSet.Phrase));
+                if (gameObject is {activeInHierarchy: true, activeSelf: true})
+                    _phraseRoutine = StartCoroutine(ShowWords(phraseSet.Phrase, 0));
                 break;
             case TextAppear.Letters:
                 break;
@@ -58,44 +67,58 @@ public class PersonView : MonoBehaviour
         }
     }
 
-    private IEnumerator ShowWords(Phrase phrase, int fromWord = 0)
+    private IEnumerator ShowWords(Phrase phrase, int fromWord)
     {
         var text = new StringBuilder();
 
         if (fromWord == 0)
+        {
             yield return new WaitForSeconds(phrase.beforeFirstWord);
+        }
+        else
+        {
+            for (var i = 0; i < fromWord; i++)
+            {
+                var word = GetWord(phrase, i, text);
+                text.Append(word);
+            }
+        }
 
         for (var i = fromWord; i < phrase.wordTimes.Count; i++)
         {
             _phrase = phrase;
             _wordIndex = i;
-            var wordTime = phrase.wordTimes[i];
-            var word = wordTime.word;
-            if (phrase.wordTimes[i].wipe)
-                text.Clear();
-
-            if (i > 0)
-            {
-                if (word.Length > 1 && word[0] == '@')
-                {
-                    word = word.Split("@")[1];
-                }
-                else
-                {
-                    text.Append(" ");
-                }
-            }
+            var wordTime = phrase.wordTimes[i].time;
+            var word = GetWord(phrase, i, text);
 
             text.Append(word);
 
             description.text = text.ToString();
 
-            yield return new WaitForSeconds(wordTime.time);
+            yield return new WaitForSeconds(wordTime);
         }
 
         _phrase = null;
         _wordIndex = 0;
         _phraseRoutine = null;
+        _showPhrase = false;
+    }
+
+    private static string GetWord(Phrase phrase, int i, StringBuilder text)
+    {
+        var word = phrase.wordTimes[i].word;
+        if (phrase.wordTimes[i].wipe)
+            text.Clear();
+
+        if (i > 0)
+        {
+            if (word.Length > 1 && word[0] == '@')
+                word = word.Split("@")[1];
+            else
+                text.Append(" ");
+        }
+
+        return word;
     }
 
     public void HidePhrase()
