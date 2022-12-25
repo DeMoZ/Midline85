@@ -7,8 +7,8 @@ namespace UI
 {
     public class MenuButtonView : Selectable
     {
-        [SerializeField] private Color textNormal = default;
-        [SerializeField] private Color textHover = default;
+        [SerializeField] protected Color textNormal = default;
+        [SerializeField] protected Color textHover = default;
         [SerializeField] private TextMeshProUGUI text = default;
         [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
         [SerializeField] private CursorSet cursorSettings = default;
@@ -31,7 +31,7 @@ namespace UI
             buttonAudioSettings?.PlayHoverSound();
         }
 
-        private void SetHoverColor(bool hover)
+        protected virtual void SetHoverColor(bool hover)
         {
             text.color = hover
                 ? textHover
