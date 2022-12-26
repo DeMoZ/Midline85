@@ -13,7 +13,7 @@ namespace UI
         [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
         [SerializeField] private CursorSet cursorSettings = default;
         
-        private bool _isSelected;
+        protected bool _isSelected;
         private bool _isHighlighted;
 
         public event Action OnClick;
