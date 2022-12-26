@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &584649991701261184
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1148,7 +1148,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Options
+  m_text: "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6be9a98757774c47a58ef3b0c70a364, type: 2}
   m_sharedMaterial: {fileID: 1742676296454877034, guid: d6be9a98757774c47a58ef3b0c70a364,
@@ -2154,7 +2154,7 @@ PrefabInstance:
     - target: {fileID: 8285009233312321545, guid: c89025fa9d91b423fb17f79c729de692,
         type: 3}
       propertyPath: m_text
-      value: Back
+      value: "\u041D\u0430\u0437\u0430\u0434"
       objectReference: {fileID: 0}
     - target: {fileID: 8285009233312321545, guid: c89025fa9d91b423fb17f79c729de692,
         type: 3}
@@ -2321,6 +2321,11 @@ PrefabInstance:
         type: 3}
       propertyPath: mLocalizeTarget
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1224067182519902964, guid: c3dd8153b22693e46a5e9c6888b5c268,
+        type: 3}
+      propertyPath: m_text
+      value: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0438"
       objectReference: {fileID: 0}
     - target: {fileID: 1730708368516370161, guid: c3dd8153b22693e46a5e9c6888b5c268,
         type: 3}
@@ -2858,7 +2863,7 @@ PrefabInstance:
     - target: {fileID: 9015870715017497645, guid: a0e6330eec1bc4c0fbda23e2a2e95c92,
         type: 3}
       propertyPath: m_text
-      value: Back
+      value: "\u041D\u0430\u0437\u0430\u0434"
       objectReference: {fileID: 0}
     - target: {fileID: 9015870715017497645, guid: a0e6330eec1bc4c0fbda23e2a2e95c92,
         type: 3}
@@ -3140,7 +3145,8 @@ PrefabInstance:
       propertyPath: m_Navigation.m_WrapAround
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2649174419048229509, guid: 9823429d10e1b4fa3ab6270a719d43da, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 9823429d10e1b4fa3ab6270a719d43da, type: 3}
 --- !u!114 &4116021230448333155 stripped
 MonoBehaviour:
@@ -3180,7 +3186,7 @@ PrefabInstance:
     - target: {fileID: 1224067182519902964, guid: c3dd8153b22693e46a5e9c6888b5c268,
         type: 3}
       propertyPath: m_text
-      value: Effects Volume
+      value: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u044D\u0444\u0444\u0435\u043A\u0442\u043E\u0432"
       objectReference: {fileID: 0}
     - target: {fileID: 1730708368516370161, guid: c3dd8153b22693e46a5e9c6888b5c268,
         type: 3}
@@ -3516,7 +3522,7 @@ PrefabInstance:
     - target: {fileID: 1224067182519902964, guid: c3dd8153b22693e46a5e9c6888b5c268,
         type: 3}
       propertyPath: m_text
-      value: Dialogue Volume
+      value: "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u0434\u0438\u0430\u043B\u043E\u0433\u043E\u0432"
       objectReference: {fileID: 0}
     - target: {fileID: 1730708368516370161, guid: c3dd8153b22693e46a5e9c6888b5c268,
         type: 3}
