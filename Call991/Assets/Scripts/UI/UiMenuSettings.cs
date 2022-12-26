@@ -15,13 +15,14 @@ namespace UI
             public AudioManager audioManager;
         }
 
+        [SerializeField] private GameObject developerImage = default;
         [SerializeField] private MenuButtonView toMenuBtn = default;
         [SerializeField] private MenuButtonView toMenuTutorialBtn = default;
         [SerializeField] private TMP_InputField inputId = default;
         [SerializeField] private TextMeshProUGUI inputIdText = default;
-        [SerializeField] private SettingsSlider dialogueVolume = default;
-        [SerializeField] private SettingsSlider effectsVolume = default;
-        [SerializeField] private SettingsSlider musicVolume = default;
+        [SerializeField] private SettingsVolumeView dialogueVolume = default;
+        [SerializeField] private SettingsVolumeView effectsVolume = default;
+        [SerializeField] private SettingsVolumeView musicVolume = default;
 
         [Space] [SerializeField] private LanguageDropdown textLanguage = default;
         [SerializeField] private LanguageDropdown audioLanguage = default;
@@ -43,6 +44,11 @@ namespace UI
             toMenuBtn.OnClick += OnClickToMenu;
             toMenuTutorialBtn.OnClick += OnClickToMenu;
             inputId.onValueChanged.AddListener(OnInputId);
+        }
+
+        private void Awake()
+        {
+            developerImage?.SetActive(false);
         }
 
         private void SetTextDropdown()

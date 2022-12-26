@@ -3,7 +3,7 @@ using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsSliderView : MenuButtonView
+public class SettingsLanguageView : MenuButtonView
 {
     [SerializeField] private Button leftButton = default;
     [SerializeField] private Button rightButton = default;
