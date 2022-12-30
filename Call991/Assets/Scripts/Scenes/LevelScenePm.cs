@@ -25,7 +25,7 @@ public class LevelScenePm : IDisposable
 
         public Dialogues dialogues;
         public PlayerProfile profile;
-        public List<ChoiceButtonView> buttons;
+        public List<AbstractChoiceButtonView> buttons;
         public CountDownView countDown;
 
         public ReactiveCommand onAfterEnter;
@@ -393,7 +393,7 @@ public class LevelScenePm : IDisposable
 
         for (int i = 0; i < _ctx.buttons.Count; i++)
         {
-            _ctx.buttons[i].SetCtx(new ChoiceButtonView.Ctx
+            _ctx.buttons[i].SetCtx(new AbstractChoiceButtonView.Ctx
             {
                 index = i,
                 onClickChoiceButton = _onClickChoiceButton,
@@ -417,21 +417,10 @@ public class LevelScenePm : IDisposable
         _ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
         _ctx.profile.LastPhrase = _currentPhrase.choices[index].nextPhraseId;
 
-        for (var i = 0; i < _ctx.buttons.Count; i++)
-        {
-            if (i == index)
-            {
-                _ctx.buttons[i].SetClicked();
-                Debug.Log($"[{this}] pressed button {i}");
-            }
-
-            _ctx.buttons[i].Hide(i == index);
-        }
-
         await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 1000));
 
         foreach (var button in _ctx.buttons)
-            button.gameObject.SetActive(false);
+            button.gameObject?.SetActive(false);
 
         RunDialogue();
     }

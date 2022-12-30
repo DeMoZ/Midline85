@@ -1,139 +1,138 @@
 using System;
-using System.Threading.Tasks;
+using System.Collections;
 using DG.Tweening;
 using I2.Loc;
 using TMPro;
-using UniRx;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class ChoiceButtonView : Selectable, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
+    public class ChoiceButtonView : AbstractChoiceButtonView
     {
-        public struct Ctx
-        {
-            public int index;
-            public ReactiveCommand<int> onClickChoiceButton;
-            public float buttonsAppearDuration;
-            public float fastButtonFadeDuration;
-            public float slowButtonFadeDuration;
-        }
+        [SerializeField] private Image defaultButton = default;
+        [SerializeField] private Image hoverButton = default;
+        [SerializeField] private Image lockImage = default;
 
-        [Space] [SerializeField] private GameObject blocked = default;
-        [Space] [SerializeField] private Color textNormal = default;
-        [SerializeField] private Color textHover = default;
-        [Space] [SerializeField] private TextMeshProUGUI text = default;
-        [SerializeField] private TextMeshProUGUI textSelected = default;
-        [SerializeField] private CanvasGroup canvasGroup = default;
-        [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
+        [Space] [SerializeField] private Color defaultTextColor = default;
+        [SerializeField] private Color hoverTextColor = default;
+        [SerializeField] private TextMeshProUGUI text = default;
+
+        [Space] [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
         [SerializeField] private CursorSet cursorSettings = default;
-
-        private Ctx _ctx;
 
         private LocalizedString _localize;
 
-        private bool _isSelected;
-        private bool _isHighlighted;
+        private static event Action<ChoiceButtonView> onHoverTransition;
+        private static event Action<ChoiceButtonView> onPressTransition;
 
-        public void SetCtx(Ctx ctx)
+        private void OnEnable()
         {
-            _ctx = ctx;
+            onHoverTransition += OnHoverTransition;
+            onPressTransition += OnPressTransition;
         }
 
-        public void PlayHoverSound()
+        private void OnDisable()
         {
-            buttonAudioSettings.PlayHoverSound();
+            onHoverTransition -= OnHoverTransition;
+            onPressTransition -= OnPressTransition;
+        }
+
+        private void OnHoverTransition(ChoiceButtonView btn)
+        {
+            if (btn == this)
+            {
+                SetButtonState(true);
+                PlayHoverSound();
+            }
+            else
+            {
+                SetButtonState(false);
+            }
+        }
+
+        private void OnPressTransition(ChoiceButtonView btn)
+        {
+            interactable = false;
+            StartCoroutine(Hide(btn == this));
+        }
+
+        public override void Show(string localizationKey, bool isLocked)
+        {
+            interactable = !isLocked;
+            lockImage.gameObject.SetActive(isLocked);
+            SetButtonState(false);
+
+            _localize = localizationKey;
+            text.text = _localize;
+
+            defaultButton.DOFade(1, _ctx.buttonsAppearDuration);
+            hoverButton.DOFade(1, _ctx.buttonsAppearDuration);
+            text.DOFade(1, _ctx.buttonsAppearDuration);
+            lockImage.DOFade(1, _ctx.buttonsAppearDuration);
+
+            gameObject.SetActive(true);
+        }
+
+        private void SetButtonState(bool toHover)
+        {
+            defaultButton.gameObject.SetActive(!toHover);
+            hoverButton.gameObject.SetActive(toHover);
+            text.color = toHover ? hoverTextColor : defaultTextColor;
+        }
+
+        private IEnumerator Hide(bool slow)
+        {
+            var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;
+
+            defaultButton.DOFade(0, duration);
+            hoverButton.DOFade(0, duration);
+            lockImage.DOFade(0, duration);
+
+            if(!slow)
+                text.DOFade(0, duration);
+            
+            yield return new WaitForSeconds(duration/2);
+
+            if(slow)
+                text.DOFade(0, duration);
+            
+            yield return new WaitForSeconds(duration/2);
+
+            if (slow)
+                cursorSettings.ApplyCursor(CursorType.Normal);
         }
 
         protected override void DoStateTransition(SelectionState state, bool instant)
         {
             base.DoStateTransition(state, instant);
 
-            _isSelected = false;
-
-            // Debug.LogWarning($"choice button {name} {state}");
-
             switch (state)
             {
                 case SelectionState.Normal:
-                    cursorSettings.ApplyCursor(CursorType.Normal);
-                    SetHoverColor(false);
-                    _isHighlighted = false;
+                    SetButtonState(false);
                     break;
                 case SelectionState.Highlighted:
-                    cursorSettings.ApplyCursor(CursorType.CanClick);
-                    SetHoverColor(true);
-                    PlayHoverSound();
-                    _isHighlighted = true;
+                    onHoverTransition?.Invoke(this);
                     break;
                 case SelectionState.Pressed:
-                    SetHoverColor(true);
-                    _ctx.onClickChoiceButton.Execute(_ctx.index);
+                    onPressTransition?.Invoke(this);
+                    _ctx.onClickChoiceButton?.Execute(_ctx.index);
                     break;
                 case SelectionState.Selected:
-                    _isSelected = true;
-                    SetHoverColor(true);
-
-                    if (!_isHighlighted)
-                    {
-                        PlayHoverSound();
-                    }
-
+                    onHoverTransition?.Invoke(this);
                     break;
                 case SelectionState.Disabled:
-                    SetHoverColor(false);
+
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
             }
         }
 
-        private void SetHoverColor(bool hover)
+        private void PlayHoverSound()
         {
-            text.color = hover
-                ? textHover
-                : textNormal;
-        }
-
-        public void SetClicked()
-        {
-            text.gameObject.SetActive(false);
-            textSelected.gameObject.SetActive(true);
-        }
-
-        public async void Show(string choiceKey, bool isBlocked = false)
-        {
-            _isHighlighted = false;
-            _localize = choiceKey;
-            text.text = _localize;
-            textSelected.text = _localize;
-            text.gameObject.SetActive(true);
-            textSelected.gameObject.SetActive(false);
-            blocked.SetActive(isBlocked);
-            gameObject.SetActive(true);
-            canvasGroup.DOFade(1, _ctx.buttonsAppearDuration);
-            await Task.Delay((int) (_ctx.buttonsAppearDuration * 1000));
-        }
-
-        public async void Hide(bool slow)
-        {
-            var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;
-            canvasGroup.DOFade(0, duration);
-            await Task.Delay((int) (duration * 1000));
-            
-            if (_isHighlighted)
-                cursorSettings.ApplyCursor(CursorType.Normal);
-        }
-
-        private void Update()
-        {
-            if (_isSelected && Input.GetKey(KeyCode.Return))
-            {
-                SetHoverColor(true);
-                _ctx.onClickChoiceButton.Execute(_ctx.index);
-            }
+            buttonAudioSettings.PlayHoverSound();
         }
     }
 }

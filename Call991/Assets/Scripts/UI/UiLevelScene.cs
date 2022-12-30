@@ -35,7 +35,7 @@ namespace UI
 
         [SerializeField] private MenuButtonView pauseButton = default;
         [SerializeField] private List<PersonView> persons = default;
-        [SerializeField] private List<ChoiceButtonView> buttons = default;
+        [SerializeField] private List<AbstractChoiceButtonView> buttons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private AudioSource phraseAudioSource = default;
         [Space] 
@@ -50,7 +50,7 @@ namespace UI
         private bool _isNewspaperActive;
         private ReactiveCommand _onClickToMenu;
         
-        public List<ChoiceButtonView> Buttons => buttons;
+        public List<AbstractChoiceButtonView> Buttons => buttons;
         public CountDownView CountDown => countDown;
         public AudioSource PhraseAudioSource => phraseAudioSource;
 
