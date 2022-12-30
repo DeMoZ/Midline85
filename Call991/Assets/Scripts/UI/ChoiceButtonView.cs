@@ -37,26 +37,7 @@ namespace UI
             onHoverTransition -= OnHoverTransition;
             onPressTransition -= OnPressTransition;
         }
-
-        private void OnHoverTransition(ChoiceButtonView btn)
-        {
-            if (btn == this)
-            {
-                SetButtonState(true);
-                PlayHoverSound();
-            }
-            else
-            {
-                SetButtonState(false);
-            }
-        }
-
-        private void OnPressTransition(ChoiceButtonView btn)
-        {
-            interactable = false;
-            StartCoroutine(Hide(btn == this));
-        }
-
+        
         public override void Show(string localizationKey, bool isLocked)
         {
             interactable = !isLocked;
@@ -74,33 +55,16 @@ namespace UI
             gameObject.SetActive(true);
         }
 
+        public override void Choose()
+        {
+            onPressTransition.Invoke(this);
+        }
+
         private void SetButtonState(bool toHover)
         {
             defaultButton.gameObject.SetActive(!toHover);
             hoverButton.gameObject.SetActive(toHover);
             text.color = toHover ? hoverTextColor : defaultTextColor;
-        }
-
-        private IEnumerator Hide(bool slow)
-        {
-            var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;
-
-            defaultButton.DOFade(0, duration);
-            hoverButton.DOFade(0, duration);
-            lockImage.DOFade(0, duration);
-
-            if(!slow)
-                text.DOFade(0, duration);
-            
-            yield return new WaitForSeconds(duration/2);
-
-            if(slow)
-                text.DOFade(0, duration);
-            
-            yield return new WaitForSeconds(duration/2);
-
-            if (slow)
-                cursorSettings.ApplyCursor(CursorType.Normal);
         }
 
         protected override void DoStateTransition(SelectionState state, bool instant)
@@ -128,6 +92,47 @@ namespace UI
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
             }
+        }
+
+        private IEnumerator Hide(bool slow)
+        {
+            var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;
+
+            defaultButton.DOFade(0, duration);
+            hoverButton.DOFade(0, duration);
+            lockImage.DOFade(0, duration);
+
+            if(!slow)
+                text.DOFade(0, duration);
+            
+            yield return new WaitForSeconds(duration/2);
+
+            if(slow)
+                text.DOFade(0, duration);
+            
+            yield return new WaitForSeconds(duration/2);
+
+            if (slow)
+                cursorSettings.ApplyCursor(CursorType.Normal);
+        }
+        
+        private void OnHoverTransition(ChoiceButtonView btn)
+        {
+            if (btn == this)
+            {
+                SetButtonState(true);
+                PlayHoverSound();
+            }
+            else
+            {
+                SetButtonState(false);
+            }
+        }
+
+        private void OnPressTransition(ChoiceButtonView btn)
+        {
+            interactable = false;
+            StartCoroutine(Hide(btn == this));
         }
 
         private void PlayHoverSound()

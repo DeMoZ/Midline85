@@ -100,6 +100,11 @@ namespace UI
             await Task.Delay((int) (_ctx.buttonsAppearDuration * 1000));
         }
 
+        public override void Choose()
+        {
+            throw new NotImplementedException();
+        }
+
         public async void Hide(bool slow)
         {
             var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;

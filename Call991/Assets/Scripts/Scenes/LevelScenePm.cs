@@ -261,6 +261,8 @@ public class LevelScenePm : IDisposable
         }
 
         _ctx.buttons[index].gameObject.Select();
+        _ctx.buttons[index].Choose(); 
+        //_ctx.buttons[index].gameObject.Pressed();
         OnClickChoiceButton(index);
     }
 
@@ -413,7 +415,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
         _choiceDone = true;
-        GameObjectEventSystemSelectionExtension.StopSelection();
+        //GameObjectEventSystemSelectionExtension.StopSelection();
         _ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
         _ctx.profile.LastPhrase = _currentPhrase.choices[index].nextPhraseId;
 

@@ -22,5 +22,7 @@ namespace UI
         }
 
         public abstract void Show(string choiceId, bool isBlocked);
+
+        public abstract void Choose();
     }
 }
