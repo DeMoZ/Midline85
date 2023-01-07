@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class UiMenuSettings : MonoBehaviour
+    public class UiMenuSettings : AbstractMultiControlComponentsWindow
     {
         public struct Ctx
         {
@@ -15,7 +15,6 @@ namespace UI
             public AudioManager audioManager;
         }
 
-        [SerializeField] private GameObject developerImage = default;
         [SerializeField] private MenuButtonView toMenuBtn = default;
         [SerializeField] private MenuButtonView toMenuTutorialBtn = default;
         [SerializeField] private TMP_InputField inputId = default;
@@ -46,9 +45,10 @@ namespace UI
             inputId.onValueChanged.AddListener(OnInputId);
         }
 
-        private void Awake()
+        public void OnClickToMenu()
         {
-            developerImage?.SetActive(false);
+            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
+            _ctx.onClickToMenu.Execute();
         }
 
         private void SetTextDropdown()
@@ -106,12 +106,6 @@ namespace UI
             };
         }
 
-        private void OnClickToMenu()
-        {
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
-            _ctx.onClickToMenu.Execute();
-        }
-
         private void OnInputId(string value)
         {
             if (_dialogues == null) return;
@@ -122,14 +116,12 @@ namespace UI
             _ctx.profile.CheatPhrase = phrase == null ? null : phrase.phraseId;
         }
 
-        private async void OnEnable()
+        protected override async void OnEnable()
         {
+            base.OnEnable();
+            
             var compositeDialogue = await ResourcesLoader.LoadAsync<ChapterSet>("7_lvl/7_lvl_Total"); // TODO: warning
             _dialogues = await compositeDialogue.LoadDialogues(Language.RU, "7_lvl"); // TODO: warning
-        }
-
-        private void OnDisable()
-        {
         }
     }
 }

@@ -1,8 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
-using DG.Tweening;
 using PhotoViewer.Scripts.Photo;
 using UniRx;
 using UnityEngine;
@@ -30,16 +28,11 @@ namespace UI
             public AudioManager audioManager;
             public PlayerProfile profile;
         }
-        
+
         private Ctx _ctx;
 
-        [SerializeField] private MenuButtonView pauseButton = default;
-        [SerializeField] private List<PersonView> persons = default;
-        [SerializeField] private List<AbstractChoiceButtonView> buttons = default;
-        [SerializeField] private CountDownView countDown = default;
         [SerializeField] private AudioSource phraseAudioSource = default;
-        [Space] 
-        [SerializeField] private LevelTitleView levelTitleView = default;
+        [Space] [SerializeField] private LevelTitleView levelTitleView = default;
         [SerializeField] private LevelView levelView = default;
         [SerializeField] private StatisticsView statisticView = default;
         [SerializeField] private PhotoView newspaper = default;
@@ -49,34 +42,39 @@ namespace UI
         private CompositeDisposable _disposables;
         private bool _isNewspaperActive;
         private ReactiveCommand _onClickToMenu;
-        
-        public List<AbstractChoiceButtonView> Buttons => buttons;
-        public CountDownView CountDown => countDown;
+
+        public List<ChoiceButtonView> Buttons => levelView.Buttons;
+        public CountDownView CountDown => levelView.CountDown;
         public AudioSource PhraseAudioSource => phraseAudioSource;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
             _disposables = new CompositeDisposable();
-            
+
             _onClickToMenu = new ReactiveCommand();
             _onClickToMenu.Subscribe(_ => OnClickToMenu()).AddTo(_disposables);
-            
-            pauseButton.OnClick += OnClickPauseButton;
+
             newspaper.OnClose += OnNewspaperClose;
 
+            var onClickPauseButton = new ReactiveCommand().AddTo(_disposables);
             var onClickUnPauseButton = new ReactiveCommand().AddTo(_disposables);
             var onClickSettingsButton = new ReactiveCommand().AddTo(_disposables);
-            
+
             statisticView.SetCtx(new StatisticsView.Ctx
             {
                 onClickMenuButton = _ctx.onClickMenuButton,
             });
 
+            levelView.SetCtx(new LevelView.Ctx
+            {
+                onClickPauseButton = onClickPauseButton,
+            });
+
             levelPauseView.SetCtx(new LevelPauseView.Ctx
             {
                 onClickMenuButton = _ctx.onClickMenuButton,
-                onClickSettingsButton = onClickSettingsButton, 
+                onClickSettingsButton = onClickSettingsButton,
                 onClickUnPauseButton = onClickUnPauseButton,
             });
 
@@ -88,32 +86,24 @@ namespace UI
             });
 
             _ctx.onPhraseSoundEvent.Subscribe(OnPhraseSoundEvent).AddTo(_disposables);
-            _ctx.onShowPhrase.Subscribe(OnShowPhrase).AddTo(_disposables);
-            _ctx.onHidePhrase.Subscribe(OnHidePhrase).AddTo(_disposables);
+            _ctx.onShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
+            _ctx.onHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
             _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
-            _ctx.onHideLevelUi.Subscribe(OnHideLevelUi).AddTo(_disposables);
+            _ctx.onHideLevelUi.Subscribe(time =>
+            {
+                levelView.OnHideLevelUi(time, () => { EnableUi(statisticView.GetType()); });
+            }).AddTo(_disposables);
             _ctx.onShowStatisticUi.Subscribe(OnShowStatisticUi).AddTo(_disposables);
             _ctx.onPopulateStatistics.Subscribe(OnPopulateStatistics).AddTo(_disposables);
             _ctx.onShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
 
+            onClickPauseButton.Subscribe(_ => OnClickPauseButton(true));
             onClickUnPauseButton.Subscribe(_ => OnClickPauseButton(false));
             onClickSettingsButton.Subscribe(_ => EnableUi(menuSettings.GetType()));
-            
-            foreach (var person in persons)
-            {
-                person.gameObject.SetActive(false);
-            }
-
-            foreach (var button in Buttons)
-                button.gameObject.SetActive(false);
-
-            countDown.gameObject.SetActive(false);
         }
 
         private void OnClickToMenu() =>
             EnableUi(levelPauseView.GetType());
-
-        private void OnClickPauseButton() => OnClickPauseButton(true);
 
         private void OnClickPauseButton(bool value)
         {
@@ -124,7 +114,7 @@ namespace UI
         private void EnableUi(Type type)
         {
             if (levelView == null) return;
-            
+
             menuSettings.gameObject.SetActive(menuSettings.GetType() == type);
             levelTitleView.gameObject.SetActive(levelTitleView.GetType() == type);
             levelView.gameObject.SetActive(levelView.GetType() == type);
@@ -153,13 +143,6 @@ namespace UI
                 await Task.Delay(10);
         }
 
-        private void OnHideLevelUi(float time)
-        {
-            Debug.LogWarning($"[{this}] OnHideLevelUi");
-
-            levelView.CanvasGroup.DOFade(0, time).OnComplete(() => { EnableUi(statisticView.GetType()); });
-        }
-
         private void OnShowStatisticUi(float time)
         {
             statisticView.Fade(time);
@@ -170,7 +153,7 @@ namespace UI
             statisticView.PopulateCells(statistics);
         }
 
-        private void OnShowIntro(bool show) => 
+        private void OnShowIntro(bool show) =>
             EnableUi(show ? levelTitleView.GetType() : levelView.GetType());
 
         private void OnPhraseSoundEvent(PhraseEvent phraseEvent)
@@ -178,38 +161,16 @@ namespace UI
             // todo: for extra sound events on phrase time points 
         }
 
-        private void OnShowPhrase(PhraseSet phrase)
-        {
-            var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
-            if (personView == null)
-            {
-                Debug.LogError($"[{this}] [OnShowPhrase] no person on side {phrase.screenPlace}");
-                return;
-            }
-
-            personView.ShowPhrase(phrase);
-        }
-
-        private void OnHidePhrase(PhraseSet phrase)
-        {
-            var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
-            if (personView == null)
-            {
-                Debug.LogError($"[{this}] [OnHidePhrase] no person on side {phrase.screenPlace}");
-                return;
-            }
-
-            if (phrase.hidePhraseOnEnd)
-                personView.HidePhrase();
-
-            if (phrase.hidePersonOnEnd)
-                personView.gameObject.SetActive(false);
-        }
-
         public void Dispose()
         {
-            newspaper.OnClose -= OnClickPauseButton;
-            pauseButton.OnClick -= OnNewspaperClose;
+            newspaper.OnClose -= OnNewspaperClose;
+
+            //levelTitleView.Dispose();
+            levelView.Dispose();
+            //statisticView.Dispose();
+            //newspaper.Dispose();
+            levelPauseView.Dispose();
+            //menuSettings.Dispose();
         }
     }
 }

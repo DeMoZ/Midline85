@@ -1,9 +1,10 @@
+using System;
 using UniRx;
 using UnityEngine;
 
 namespace UI
 {
-    public class LevelPauseView : MonoBehaviour
+    public class LevelPauseView : AbstractMultiControlComponentsWindow
     {
         public struct Ctx
         {
@@ -23,7 +24,17 @@ namespace UI
             _ctx = ctx;
             menuButton.OnClick += () => { _ctx.onClickMenuButton.Execute(); };
             settingsButton.OnClick += () => { _ctx.onClickSettingsButton.Execute(); };
-            continueButton.OnClick += () => { _ctx.onClickUnPauseButton.Execute(); };
+            continueButton.OnClick += OnClickContinue;
+        }
+
+        public void OnClickContinue()
+        {
+            _ctx.onClickUnPauseButton.Execute();
+        }
+        
+        public void Dispose()
+        {
+            continueButton.OnClick -= OnClickContinue;
         }
     }
 }

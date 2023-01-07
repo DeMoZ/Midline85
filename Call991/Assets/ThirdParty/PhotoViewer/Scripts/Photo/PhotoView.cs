@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace PhotoViewer.Scripts.Photo
 {
-    public class PhotoView : MonoBehaviour
+    public class PhotoView : AbstractMultiControlComponentsWindow
     {
         [SerializeField] private RectTransform _viewTransfrom = default;
         [SerializeField] private Image _image = default;
@@ -45,15 +45,19 @@ namespace PhotoViewer.Scripts.Photo
             }
         }
 
-        private void OnEnable()
+        protected override void OnEnable()
         {
+            base.OnEnable();
+            
             _newspaperInput.onDrag += ApplyMove;
             _newspaperInput.onZoom += ApplyZoom;
             _closeBtn.OnClick += Close;
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnDisable();
+            
             _newspaperInput.onDrag -= ApplyMove;
             _newspaperInput.onZoom -= ApplyZoom;
             _closeBtn.OnClick -= Close;

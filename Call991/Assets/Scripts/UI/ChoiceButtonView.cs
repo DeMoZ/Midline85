@@ -3,12 +3,13 @@ using System.Collections;
 using DG.Tweening;
 using I2.Loc;
 using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace UI
 {
-    public class ChoiceButtonView : AbstractChoiceButtonView
+    public class ChoiceButtonView : AbstractMySelectable
     {
         [SerializeField] private Image defaultButton = default;
         [SerializeField] private Image hoverButton = default;
@@ -26,19 +27,48 @@ namespace UI
         private static event Action<ChoiceButtonView> onHoverTransition;
         private static event Action<ChoiceButtonView> onPressTransition;
 
-        private void OnEnable()
+        public struct Ctx
         {
+            public int index;
+            public ReactiveCommand<int> onClickChoiceButton;
+            public float buttonsAppearDuration;
+            public float fastButtonFadeDuration;
+            public float slowButtonFadeDuration;
+        }
+
+        protected Ctx _ctx;
+
+        public void SetCtx(Ctx ctx)
+        {
+            _ctx = ctx;
+        }
+
+        protected override void OnEnable()
+        {
+            base.OnEnable();
+
             onHoverTransition += OnHoverTransition;
             onPressTransition += OnPressTransition;
         }
 
-        private void OnDisable()
+        protected override void OnDisable()
         {
+            base.OnEnable();
+
             onHoverTransition -= OnHoverTransition;
             onPressTransition -= OnPressTransition;
         }
-        
-        public override void Show(string localizationKey, bool isLocked)
+
+        protected override void Update()
+        {
+            if (currentSelection == this && Input.GetKey(KeyCode.Return) &&
+                currentSelectionState == SelectionState.Selected)
+            {
+                OnButtonChoose();
+            }
+        }
+
+        public void Show(string localizationKey, bool isLocked)
         {
             interactable = !isLocked;
             lockImage.gameObject.SetActive(isLocked);
@@ -55,15 +85,21 @@ namespace UI
             gameObject.SetActive(true);
         }
 
-        public override void Choose()
+        public void TimeoutChoose()
         {
-            onPressTransition.Invoke(this);
+            onPressTransition?.Invoke(this);
+        }
+
+        private void OnButtonChoose()
+        {
+            onPressTransition?.Invoke(this);
+            _ctx.onClickChoiceButton?.Execute(_ctx.index);
         }
 
         private void SetButtonState(bool toHover)
         {
-            defaultButton.gameObject.SetActive(!toHover);
-            hoverButton.gameObject.SetActive(toHover);
+            defaultButton?.gameObject.SetActive(!toHover);
+            hoverButton?.gameObject.SetActive(toHover);
             text.color = toHover ? hoverTextColor : defaultTextColor;
         }
 
@@ -74,17 +110,20 @@ namespace UI
             switch (state)
             {
                 case SelectionState.Normal:
+                    cursorSettings?.ApplyCursor(CursorType.Normal);
                     SetButtonState(false);
                     break;
                 case SelectionState.Highlighted:
-                    onHoverTransition?.Invoke(this);
+                    if (gameObject.NotSelected())
+                        gameObject.Select();
                     break;
                 case SelectionState.Pressed:
-                    onPressTransition?.Invoke(this);
-                    _ctx.onClickChoiceButton?.Execute(_ctx.index);
+                    OnButtonChoose();
                     break;
                 case SelectionState.Selected:
                     onHoverTransition?.Invoke(this);
+                    currentSelection = this;
+                    PlayHoverSound();
                     break;
                 case SelectionState.Disabled:
 
@@ -93,7 +132,7 @@ namespace UI
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
             }
         }
-
+        
         private IEnumerator Hide(bool slow)
         {
             var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;
@@ -102,31 +141,23 @@ namespace UI
             hoverButton.DOFade(0, duration);
             lockImage.DOFade(0, duration);
 
-            if(!slow)
+            if (!slow)
                 text.DOFade(0, duration);
-            
-            yield return new WaitForSeconds(duration/2);
 
-            if(slow)
+            yield return new WaitForSeconds(duration / 2);
+
+            if (slow)
                 text.DOFade(0, duration);
-            
-            yield return new WaitForSeconds(duration/2);
+
+            yield return new WaitForSeconds(duration / 2);
 
             if (slow)
                 cursorSettings.ApplyCursor(CursorType.Normal);
         }
-        
+
         private void OnHoverTransition(ChoiceButtonView btn)
         {
-            if (btn == this)
-            {
-                SetButtonState(true);
-                PlayHoverSound();
-            }
-            else
-            {
-                SetButtonState(false);
-            }
+            SetButtonState(btn == this);
         }
 
         private void OnPressTransition(ChoiceButtonView btn)
