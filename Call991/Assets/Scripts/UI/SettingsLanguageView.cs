@@ -11,7 +11,7 @@ public class SettingsLanguageView : MenuButtonView
 
     public void Update()
     {
-        if (!_isSelected) return;
+        if (currentSelection != this) return;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {
@@ -25,10 +25,10 @@ public class SettingsLanguageView : MenuButtonView
         }
     }
 
-    protected override void SetHoverColor(bool hover)
+    protected override void SetButtonState(bool toHover)
     {
-        base.SetHoverColor(hover);
-        var color = hover ? textHover : textNormal;
+        base.SetButtonState(toHover);
+        var color = toHover ? textHoverColor : textDefaultColor;
         leftButton.image.color = color;
         rightButton.image.color = color;
         dropdownText.color = color;

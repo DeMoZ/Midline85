@@ -45,7 +45,7 @@ RectTransform:
   - {fileID: 6301412189981366586}
   - {fileID: 3802748467813238612}
   m_Father: {fileID: 3802748466952350057}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -132,8 +132,8 @@ RectTransform:
   m_Children:
   - {fileID: 3802748467157944247}
   - {fileID: 3802748467408963209}
-  - {fileID: 1891019022583201227}
   - {fileID: 3802748466221972667}
+  - {fileID: 1891019022583201227}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -167,8 +167,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 371a10e0cb3948b7b462c5a7b0a8aae6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  theKey: 0
-  keyCode: 0
+  theKey: 1
+  keyCode: 27
   onlyFirstSelection: 0
   onAnyButton:
     m_PersistentCalls:
@@ -328,7 +328,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0422\u0438\u0442\u0440\u044B"
+  m_text: Credits
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d6be9a98757774c47a58ef3b0c70a364, type: 2}
   m_sharedMaterial: {fileID: 1742676296454877034, guid: d6be9a98757774c47a58ef3b0c70a364,
@@ -593,7 +593,7 @@ PrefabInstance:
     - target: {fileID: 5412017717556352384, guid: adf8e96cd47054491a22830ce927b18b,
         type: 3}
       propertyPath: m_text
-      value: ROMAN KOLICHEV
+      value: ROMAN KOLYCHEV
       objectReference: {fileID: 0}
     - target: {fileID: 5412017717556352399, guid: adf8e96cd47054491a22830ce927b18b,
         type: 3}
@@ -1122,6 +1122,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8285009233312321545, guid: c89025fa9d91b423fb17f79c729de692,
         type: 3}
+      propertyPath: m_text
+      value: Back
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285009233312321545, guid: c89025fa9d91b423fb17f79c729de692,
+        type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8285009233312321545, guid: c89025fa9d91b423fb17f79c729de692,
+        type: 3}
       propertyPath: m_fontColor.b
       value: 0.8509804
       objectReference: {fileID: 0}
@@ -1189,8 +1199,10 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
-  textNormal: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
-  textHover: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+  defaultButton: {fileID: 0}
+  hoverButton: {fileID: 0}
+  textDefaultColor: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+  textHoverColor: {r: 1, g: 1, b: 1, a: 1}
   text: {fileID: 7822920142665192586}
   buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
     type: 2}
@@ -1902,7 +1914,7 @@ PrefabInstance:
     - target: {fileID: 2412147903767214302, guid: 1dee84a941974484c8699ca600825a75,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2412147903767214302, guid: 1dee84a941974484c8699ca600825a75,
         type: 3}
@@ -2082,7 +2094,7 @@ PrefabInstance:
     - target: {fileID: 5412017717442048066, guid: adf8e96cd47054491a22830ce927b18b,
         type: 3}
       propertyPath: m_text
-      value: "\u0415\u041B\u0415\u041D\u0410"
+      value: ELENA
       objectReference: {fileID: 0}
     - target: {fileID: 5412017717556352384, guid: adf8e96cd47054491a22830ce927b18b,
         type: 3}
@@ -2542,7 +2554,7 @@ PrefabInstance:
     - target: {fileID: 5412017717442048066, guid: adf8e96cd47054491a22830ce927b18b,
         type: 3}
       propertyPath: m_text
-      value: "\u041B\u0410P\u0410"
+      value: LARA
       objectReference: {fileID: 0}
     - target: {fileID: 5412017717556352384, guid: adf8e96cd47054491a22830ce927b18b,
         type: 3}
@@ -2777,7 +2789,7 @@ PrefabInstance:
     - target: {fileID: 5412017717442048066, guid: adf8e96cd47054491a22830ce927b18b,
         type: 3}
       propertyPath: m_text
-      value: "\u0414\u0416\u0415\u041A"
+      value: JACK
       objectReference: {fileID: 0}
     - target: {fileID: 5412017717556352384, guid: adf8e96cd47054491a22830ce927b18b,
         type: 3}

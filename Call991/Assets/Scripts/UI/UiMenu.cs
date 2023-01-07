@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class UiMenu : MonoBehaviour
+    public class UiMenu : AbstractMultiControlComponentsWindow
     {
         public struct Ctx
         {
@@ -19,7 +19,7 @@ namespace UI
         [SerializeField] private MenuButtonView settingsBtn = default;
         [SerializeField] private MenuButtonView creditsBtn = default;
         [SerializeField] private MenuButtonView exitBtn = default;
-
+        
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
@@ -31,14 +31,14 @@ namespace UI
             creditsBtn.OnClick += OnClickCredits;
             exitBtn.OnClick += OnClickExit;
         }
-
+        
         private void OnClickPlay()
         {
             Debug.Log("[UiMenuScene] OnClickPlay");
             _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickPlayGame.Execute();
         }
-
+        
         private void OnClickNewGame()
         {
             Debug.Log("[UiMenuScene] OnClickNewGame");
@@ -52,7 +52,7 @@ namespace UI
             _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickSettings.Execute();
         }
-        
+
         private void OnClickCredits()
         {
             Debug.Log("[UiMenuScene] OnClickCredits");

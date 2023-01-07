@@ -22,7 +22,7 @@ public class SettingsVolumeView : MenuButtonView
 
     public void Update()
     {
-        if (!_isSelected) return;
+        if (currentSelection != this) return;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             ChangeSliderValue(-step);
@@ -30,10 +30,10 @@ public class SettingsVolumeView : MenuButtonView
             ChangeSliderValue(step);
     }
 
-    protected override void SetHoverColor(bool hover)
+    protected override void SetButtonState(bool hover)
     {
-        base.SetHoverColor(hover);
-        var color = hover ? textHover : textNormal;
+        base.SetButtonState(hover);
+        var color = hover ? textHoverColor : textDefaultColor;
         handleImage.color = color;
         _sliderText.color = color;
     }

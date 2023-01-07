@@ -31,5 +31,12 @@ namespace UI
             EventSystem.current.SetSelectedGameObject(null);
             EventSystem.current.sendNavigationEvents = false;
         }
+
+        public static bool NotSelected(this GameObject gameObject)
+        {
+            return EventSystem.current.firstSelectedGameObject != gameObject &&
+                   EventSystem.current.currentSelectedGameObject != gameObject &&
+                   EventSystem.current.gameObject != gameObject;
+        }
     }
 }

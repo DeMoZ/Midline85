@@ -5,84 +5,80 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class MenuButtonView : Selectable
+    public class MenuButtonView : AbstractMySelectable
     {
-        [SerializeField] protected Color textNormal = default;
-        [SerializeField] protected Color textHover = default;
+        [SerializeField] private Image defaultButton = default;
+        [SerializeField] private Image hoverButton = default;
+        
+        [SerializeField] protected Color textDefaultColor = default;
+        [SerializeField] protected Color textHoverColor = default;
         [SerializeField] private TextMeshProUGUI text = default;
         [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
         [SerializeField] private CursorSet cursorSettings = default;
         
-        protected bool _isSelected;
-        private bool _isHighlighted;
-
-        public event Action OnClick;
-        public event Action OnHover;
-
-        public void PlayClickSound()
+        private static event Action<MenuButtonView> onHoverTransition;
+        
+        protected override void OnEnable()
         {
-            OnClick?.Invoke();
-            buttonAudioSettings?.PlayClickSound();
+            base.OnEnable();
+            
+            onHoverTransition += OnHoverTransition;
         }
 
+        protected override void OnDisable()
+        {
+            base.OnDisable();
+            
+            onHoverTransition -= OnHoverTransition;
+        }
+        
         public void PlayHoverSound()
         {
-            OnHover?.Invoke();
             buttonAudioSettings?.PlayHoverSound();
         }
 
-        protected virtual void SetHoverColor(bool hover)
+        private void OnHoverTransition(MenuButtonView btn)
         {
-            text.color = hover
-                ? textHover
-                : textNormal;
+            SetButtonState(btn == this);
         }
 
+        protected virtual void SetButtonState(bool toHover)
+        {
+            defaultButton?.gameObject.SetActive(!toHover);
+            hoverButton?.gameObject.SetActive(toHover);
+            text.color = toHover ? textHoverColor : textDefaultColor;
+        }
+        
         protected override void DoStateTransition(SelectionState state, bool instant)
         {
             base.DoStateTransition(state, instant);
 
-            _isSelected = false;
-
             switch (state)
             {
                 case SelectionState.Normal:
-                    cursorSettings.ApplyCursor(CursorType.Normal);
-                    SetHoverColor(false);
-                    _isHighlighted = false;
+                    cursorSettings?.ApplyCursor(CursorType.Normal);
+                    SetButtonState(false);
                     break;
                 case SelectionState.Highlighted:
-                    cursorSettings.ApplyCursor(CursorType.CanClick);
-                    _isHighlighted = true;
-                    SetHoverColor(true);
-                    PlayHoverSound();
+                    if(gameObject.NotSelected())
+                        gameObject.Select();
                     break;
                 case SelectionState.Pressed:
-                    SetHoverColor(true);
-                    PlayClickSound();
+                    SetButtonState(true);
+                    buttonAudioSettings?.PlayClickSound();
                     break;
                 case SelectionState.Selected:
-                    _isSelected = true;
-                    SetHoverColor(true);
-                    
-                    if (!_isHighlighted)
-                    {
-                        PlayHoverSound();
-                    }
-                    
+                    onHoverTransition?.Invoke(this);
+                    currentSelection = this;
+                    SetButtonState(true);
+                    PlayHoverSound();
                     break;
                 case SelectionState.Disabled:
-                    SetHoverColor(false);
+                    SetButtonState(false);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(state), state, null);
             }
-        }
-
-        private void Update()
-        {
-            if (_isSelected && Input.GetKey(KeyCode.Return))
-                OnClick?.Invoke();
         }
     }
 }

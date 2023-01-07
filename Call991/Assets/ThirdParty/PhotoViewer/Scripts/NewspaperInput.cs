@@ -17,7 +17,6 @@ namespace PhotoViewer.Scripts
         [SerializeField] private float _moveDumping = 3f;
         [Space]
         [SerializeField] private float _zoomSpeed = 50f;
-        [SerializeField] private float _zoomDumping = 4f;
 
         private float _moveDelta;
         private float _zoomDelta;
