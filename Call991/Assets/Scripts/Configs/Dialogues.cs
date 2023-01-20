@@ -82,6 +82,9 @@ public class PhraseSet
 
     public string GetPersonName() =>
         person.ToString();
+
+    public override string ToString() => 
+        $"phraseId: {phraseId}; person: {person}; screenPlace: {screenPlace}; nextIs: {nextIs}; nextId: {nextId};";
 }
 
 [Serializable]

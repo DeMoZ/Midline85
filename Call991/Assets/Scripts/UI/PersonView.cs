@@ -14,20 +14,19 @@ public class PersonView : MonoBehaviour
     public ScreenPlace ScreenPlace => screenPlace;
 
     private LocalizedString _localize;
-    private Coroutine _phraseRoutine;
     private int _wordIndex;
     private Phrase _phrase;
 
     private bool _showPhrase;
-
+    private float? _yieldTime;
+    private float _wordTime;
+    
     private void OnEnable()
     {
         if (!_showPhrase) return;
-
-        if (_phraseRoutine != null)
-            StopCoroutine(_phraseRoutine);
         
-        _phraseRoutine = StartCoroutine(ShowWords(_phrase, _wordIndex));
+        if(_yieldTime.HasValue)
+            StartCoroutine(YieldTime(_wordTime - _yieldTime.Value));
     }
 
     public void ShowPhrase(PhraseSet phrase)
@@ -56,7 +55,15 @@ public class PersonView : MonoBehaviour
                 break;
             case TextAppear.Word:
                 if (gameObject is {activeInHierarchy: true, activeSelf: true})
-                    _phraseRoutine = StartCoroutine(ShowWords(phraseSet.Phrase, 0));
+                {
+                    StartCoroutine(ShowWords(phraseSet.Phrase, 0));
+                }
+                else
+                {
+                    _yieldTime = 0;
+                    _wordTime = _phrase.wordTimes[0].time;
+                    _wordIndex = -1;
+                }
                 break;
             case TextAppear.Letters:
                 break;
@@ -67,13 +74,28 @@ public class PersonView : MonoBehaviour
         }
     }
 
+    private IEnumerator YieldTime(float yieldTime)
+    {
+        yield return RoutineWaitForSeconds(yieldTime);
+        StartCoroutine(ShowWords(_phrase, _wordIndex + 1));
+    }
+
+    private IEnumerator RoutineWaitForSeconds(float yieldTime)
+    {
+        _wordTime = yieldTime;
+        _yieldTime = Time.time;
+        yield return new WaitForSeconds(yieldTime);
+        _yieldTime = null;
+        _wordTime = 0;
+    }
+
     private IEnumerator ShowWords(Phrase phrase, int fromWord)
     {
         var text = new StringBuilder();
 
         if (fromWord == 0)
         {
-            yield return new WaitForSeconds(phrase.beforeFirstWord);
+            yield return RoutineWaitForSeconds(phrase.beforeFirstWord);
         }
         else
         {
@@ -88,19 +110,16 @@ public class PersonView : MonoBehaviour
         {
             _phrase = phrase;
             _wordIndex = i;
-            var wordTime = phrase.wordTimes[i].time;
+            _wordTime = phrase.wordTimes[i].time;
             var word = GetWord(phrase, i, text);
-
             text.Append(word);
-
             description.text = text.ToString();
-
-            yield return new WaitForSeconds(wordTime);
+            
+            yield return RoutineWaitForSeconds(_wordTime);
         }
 
         _phrase = null;
         _wordIndex = 0;
-        _phraseRoutine = null;
         _showPhrase = false;
     }
 
@@ -131,5 +150,11 @@ public class PersonView : MonoBehaviour
     {
         personName.text = string.Empty;
         description.text = string.Empty;
+    }
+
+    private void OnDisable()
+    {
+        if(_yieldTime.HasValue)
+            _yieldTime = Time.time - _yieldTime;
     }
 }
