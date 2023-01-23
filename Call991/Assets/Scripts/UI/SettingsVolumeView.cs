@@ -14,9 +14,11 @@ public class SettingsVolumeView : MenuButtonView
 
     private AudioManager _audioManager;
 
-    public void Init(AudioManager audioManager)
+    public void Init(AudioManager audioManager, float volume)
     {
         _audioManager = audioManager;
+        _slider.value = volume;
+        SetSliderText(volume);
         _slider.onValueChanged.AddListener(SetSliderValue);
     }
 
@@ -45,10 +47,15 @@ public class SettingsVolumeView : MenuButtonView
 
     private void SetSliderValue(float value)
     {
-        _sliderText.text = ((int) (value * 100)).ToString();
+        SetSliderText(value);
         _audioManager.ChangeVolume(source, value);
     }
 
+    private void SetSliderText(float value)
+    {
+        _sliderText.text = ((int) (value * 100)).ToString();
+    }
+    
     protected override void OnDestroy()
     {
         _slider.onValueChanged.RemoveAllListeners();

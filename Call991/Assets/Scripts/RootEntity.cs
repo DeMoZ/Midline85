@@ -30,6 +30,10 @@ public class RootEntity : IDisposable
         var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
 
         var onAudioLanguage = new ReactiveCommand<Language>().AddTo(_diposables);
+        
+        var profile = new PlayerProfile(onAudioLanguage);
+        SetLanguage(profile.TextLanguage);
+        
         var soundPath = "Sounds/Ui";
         var musicPath = "Sounds/Music";
         var voiceFolder = "RU"; // todo: reactive
@@ -39,6 +43,7 @@ public class RootEntity : IDisposable
         {
             gameSet = gameSet,
             onAudioLanguage = onAudioLanguage,
+            playerProfile = profile,
             audioMixer = audioMixer,
             soundPath = soundPath,
             musicPath = musicPath,
@@ -51,10 +56,7 @@ public class RootEntity : IDisposable
         {
             gameSet = gameSet,
         });
-
-        var profile = new PlayerProfile(onAudioLanguage);
-        SetLanguage(profile.TextLanguage);
-
+        
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);

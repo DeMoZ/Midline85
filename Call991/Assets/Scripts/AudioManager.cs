@@ -15,6 +15,7 @@ public class AudioManager : MonoBehaviour
         public GameSet gameSet;
         public ReactiveCommand<Language> onAudioLanguage;
         public AudioMixer audioMixer;
+        public PlayerProfile playerProfile;
         public string soundPath;
         public string musicPath;
         public string voiceFolder;
@@ -39,6 +40,10 @@ public class AudioManager : MonoBehaviour
     {
         _ctx = ctx;
         menuButtonAudioSettings.OnHover += PlayUiSound;
+        
+        uiAudioSource.volume = _ctx.playerProfile.UiVolume;
+        timerAudioSource.volume = _ctx.playerProfile.TimerVolume;
+        musicAudioSource.volume = _ctx.playerProfile.MusicVolume;
     }
 
     private void OnDestroy()
@@ -117,12 +122,14 @@ public class AudioManager : MonoBehaviour
             case AudioSourceType.Effects:
                 uiAudioSource.volume = volume;
                 timerAudioSource.volume = volume;
+                _ctx.playerProfile.UiVolume = volume;
+                _ctx.playerProfile.TimerVolume = volume;
                 break;
             case AudioSourceType.Music:
                 musicAudioSource.volume = volume;
+                _ctx.playerProfile.MusicVolume = volume;
                 break;
         }
-        
     }
 
     public void PlayUiSound(SoundUiTypes type, bool loop = false)

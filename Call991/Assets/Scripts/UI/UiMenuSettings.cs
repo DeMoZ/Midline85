@@ -36,9 +36,9 @@ namespace UI
             SetTextDropdown();
             SetAudioDropdown();
 
-            dialogueVolume.Init(_ctx.audioManager);
-            effectsVolume.Init(_ctx.audioManager);
-            musicVolume.Init(_ctx.audioManager);
+            dialogueVolume.Init(_ctx.audioManager, _ctx.profile.PhraseVolume);
+            effectsVolume.Init(_ctx.audioManager, _ctx.profile.UiVolume);
+            musicVolume.Init(_ctx.audioManager, _ctx.profile.MusicVolume);
 
             toMenuBtn.OnClick += OnClickToMenu;
             toMenuTutorialBtn.OnClick += OnClickToMenu;
@@ -119,7 +119,7 @@ namespace UI
         protected override async void OnEnable()
         {
             base.OnEnable();
-            
+
             var compositeDialogue = await ResourcesLoader.LoadAsync<ChapterSet>("7_lvl/7_lvl_Total"); // TODO: warning
             _dialogues = await compositeDialogue.LoadDialogues(Language.RU, "7_lvl"); // TODO: warning
         }
