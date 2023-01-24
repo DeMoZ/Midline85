@@ -1,5 +1,6 @@
 using TMPro;
 using UI;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,11 +13,16 @@ public class SettingsVolumeView : MenuButtonView
 
     [SerializeField] [Range(0.01f, 0.5f)] private float step = 0.05f;
 
-    private AudioManager _audioManager;
+    private ReactiveCommand<(AudioSourceType, float)> _onVolumeSet;
 
-    public void Init(AudioManager audioManager, float volume)
+    private CompositeDisposable _disposables;
+
+    public void Init(ReactiveCommand<(AudioSourceType, float)> onVolumeSet, float volume)
     {
-        _audioManager = audioManager;
+        _disposables?.Dispose();
+
+        _disposables = new CompositeDisposable();
+        _onVolumeSet = onVolumeSet;
         _slider.value = volume;
         SetSliderText(volume);
         _slider.onValueChanged.AddListener(SetSliderValue);
@@ -39,7 +45,7 @@ public class SettingsVolumeView : MenuButtonView
         handleImage.color = color;
         _sliderText.color = color;
     }
-    
+
     private void ChangeSliderValue(float change)
     {
         _slider.value = Mathf.Clamp01(_slider.value + change);
@@ -48,16 +54,20 @@ public class SettingsVolumeView : MenuButtonView
     private void SetSliderValue(float value)
     {
         SetSliderText(value);
-        _audioManager.ChangeVolume(source, value);
+        // _audioManager.ChangeVolume(source, value);
+        // _playerPrefs.SetVolume(source, value);
+
+        _onVolumeSet?.Execute((source, value));
     }
 
     private void SetSliderText(float value)
     {
         _sliderText.text = ((int) (value * 100)).ToString();
     }
-    
+
     protected override void OnDestroy()
     {
+        _disposables?.Dispose();
         _slider.onValueChanged.RemoveAllListeners();
         base.OnDestroy();
     }

@@ -36,9 +36,9 @@ namespace UI
             SetTextDropdown();
             SetAudioDropdown();
 
-            dialogueVolume.Init(_ctx.audioManager, _ctx.profile.PhraseVolume);
-            effectsVolume.Init(_ctx.audioManager, _ctx.profile.UiVolume);
-            musicVolume.Init(_ctx.audioManager, _ctx.profile.MusicVolume);
+            dialogueVolume.Init(_ctx.profile.onVolumeSet, _ctx.profile.PhraseVolume);
+            effectsVolume.Init(_ctx.profile.onVolumeSet, _ctx.profile.UiVolume);
+            musicVolume.Init(_ctx.profile.onVolumeSet, _ctx.profile.MusicVolume);
 
             toMenuBtn.OnClick += OnClickToMenu;
             toMenuTutorialBtn.OnClick += OnClickToMenu;

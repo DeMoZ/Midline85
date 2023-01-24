@@ -6,16 +6,12 @@ using UniRx;
 using UnityEngine;
 
 [Serializable]
-public class PlayerProfile
+public class PlayerProfile : IDisposable
 {
     private const string TextLanguageKey = "TextLanguage";
     private const string AudioLanguageKey = "AudioLanguage";
     private const string PlayerDataKey = "PlayerData";
-    private const string PhraseVolumeKey = "PhraseVolume";
-    private const string UiVolumeKey = "UiVolume";
-    private const string TimerVolumeKey = "TimerVolume";
-    private const string MusicVolumeKey = "MusicVolume";
-
+   
     private Language _textLanguage;
     private Language _audioLanguage;
 
@@ -26,9 +22,14 @@ public class PlayerProfile
 
     private PlayerData _playerData;
     private ReactiveCommand<Language> _onAudioLanguage;
+    private CompositeDisposable _disposables;
+
+    public ReactiveCommand<(AudioSourceType type, float volume)> onVolumeSet;
 
     public PlayerProfile(ReactiveCommand<Language> onAudioLanguage)
     {
+        _disposables = new CompositeDisposable();
+        
         _onAudioLanguage = onAudioLanguage;
 
         var textLanguage = PlayerPrefs.GetString(TextLanguageKey, Language.EN.ToString());
@@ -45,15 +46,17 @@ public class PlayerProfile
             ? new PlayerData()
             : JsonConvert.DeserializeObject<PlayerData>(savedProfile);
 
+        onVolumeSet = new ReactiveCommand<(AudioSourceType type, float volume)>();
         LoadVolumes();
+        onVolumeSet.Subscribe(SaveVolume).AddTo(_disposables);
     }
 
     private void LoadVolumes()
     {
-        _phraseVolume = LoadVolume(PhraseVolumeKey);
-        _uiVolume = LoadVolume(UiVolumeKey);
-        _timerVolume = LoadVolume(TimerVolumeKey);
-        _musicVolume = LoadVolume(MusicVolumeKey);
+        _phraseVolume = LoadVolume(AudioSourceType.Phrases);
+        _uiVolume = LoadVolume(AudioSourceType.Effects);
+        _timerVolume = LoadVolume(AudioSourceType.Effects);
+        _musicVolume = LoadVolume(AudioSourceType.Music);
         
         // Debug.LogError($"on load: phrase = {_phraseVolume}; ui = {_uiVolume}; timer = {_timerVolume}; mus = {_musicVolume}");
     }
@@ -97,40 +100,57 @@ public class PlayerProfile
     public float PhraseVolume
     {
         get => _phraseVolume;
-        set
+        private set
         {
             _phraseVolume = value;
-            SaveVolume(PhraseVolumeKey, value);
+            SaveVolume(AudioSourceType.Phrases, value);
         }
     }
 
     public float UiVolume{
         get => _uiVolume;
-        set
+        private set
         {
             _uiVolume = value;
-            SaveVolume(UiVolumeKey, value);
+            SaveVolume(AudioSourceType.Effects, value);
         }
     }
     
     public float TimerVolume {
         get => _timerVolume;
-        set
+        private set
         {
             _timerVolume = value;
-            SaveVolume(TimerVolumeKey, value);
+            SaveVolume(AudioSourceType.Effects, value);
         }
     }
     
     public float MusicVolume {
         get => _musicVolume;
-        set
+        private set
         {
             _musicVolume = value;
-            SaveVolume(MusicVolumeKey, value);
+            SaveVolume(AudioSourceType.Music, value);
         }
     }
 
+    private void SaveVolume((AudioSourceType type, float volume) value)
+    {
+        switch (value.type)
+        {
+            case AudioSourceType.Phrases:
+                PhraseVolume = value.volume;
+                break;
+            case AudioSourceType.Effects:
+                UiVolume = value.volume;
+                TimerVolume = value.volume;
+                break;
+            case AudioSourceType.Music:
+                MusicVolume = value.volume;
+                break;
+        }
+    }
+    
     public string LastPhrase
     {
         get => _playerData.lastPhraseId;
@@ -195,14 +215,14 @@ public class PlayerProfile
         _onAudioLanguage?.Execute(_audioLanguage);
     }
 
-    private void SaveVolume(string parameterKey, float volume)
+    private void SaveVolume(AudioSourceType type, float volume)
     {
-        PlayerPrefs.SetFloat(parameterKey, volume);
-        // Debug.LogError($"On save: {parameterKey} = {volume}");
+        PlayerPrefs.SetFloat(type.ToString(), volume);
+        //onVolumeChanged?.Execute((type, volume)); - if only need additional calculation
     }
 
-    private float LoadVolume(string parameterKey) => 
-        PlayerPrefs.GetFloat(parameterKey, 1);
+    private float LoadVolume(AudioSourceType sourceType) => 
+        PlayerPrefs.GetFloat(sourceType.ToString(), 1);
 
 #if UNITY_EDITOR
     public void SaveLanguages(Language textLanguage, Language audioLanguage)
@@ -211,6 +231,14 @@ public class PlayerProfile
         PlayerPrefs.SetString(AudioLanguageKey, audioLanguage.ToString());
     }
 #endif
+    public void Dispose()
+    {
+        _disposables.Dispose();
+        
+        _onAudioLanguage?.Dispose();
+        onVolumeSet?.Dispose();
+        _disposables?.Dispose();
+    }
 }
 
 public class PlayerData

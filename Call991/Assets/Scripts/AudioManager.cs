@@ -28,6 +28,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private TempAudioSource tempSoundSourcePrefab = default;
     [SerializeField] private LoopAudioSource loopSoundSourcePrefab = default;
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
+    private AudioSource _phraseAudioSource;
 
     private string _languagePath;
     private Ctx _ctx;
@@ -36,19 +37,25 @@ public class AudioManager : MonoBehaviour
     private Dictionary<string, LoopAudioSource> _loopSounds;
     private List<TempAudioSource> _sfxs;
 
+    private CompositeDisposable _disposables;
+
     public void SetCtx(Ctx ctx)
     {
+        _disposables = new CompositeDisposable();
         _ctx = ctx;
         menuButtonAudioSettings.OnHover += PlayUiSound;
-        
+
         uiAudioSource.volume = _ctx.playerProfile.UiVolume;
         timerAudioSource.volume = _ctx.playerProfile.TimerVolume;
         musicAudioSource.volume = _ctx.playerProfile.MusicVolume;
+
+        _ctx.playerProfile.onVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
     }
 
     private void OnDestroy()
     {
         menuButtonAudioSettings.OnHover -= PlayUiSound;
+        _disposables?.Dispose();
     }
 
     public string LanguagePath
@@ -98,6 +105,13 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+
+    public void SetPhraseAudioSource(AudioSource phraseAudioSource)
+    {
+        _phraseAudioSource = phraseAudioSource;
+        SetPhraseVolume();
+    }
+
     private void MergeMusics()
     {
         throw new NotImplementedException();
@@ -113,21 +127,19 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = loop;
     }
 
-    public void ChangeVolume(AudioSourceType source, float volume)
+    private void OnVolumeChanged((AudioSourceType source, float volume) value)
     {
-        switch (source)
+        switch (value.source)
         {
             case AudioSourceType.Phrases:
+                SetPhraseVolume();
                 break;
             case AudioSourceType.Effects:
-                uiAudioSource.volume = volume;
-                timerAudioSource.volume = volume;
-                _ctx.playerProfile.UiVolume = volume;
-                _ctx.playerProfile.TimerVolume = volume;
+                uiAudioSource.volume = value.volume;
+                timerAudioSource.volume = value.volume;
                 break;
             case AudioSourceType.Music:
-                musicAudioSource.volume = volume;
-                _ctx.playerProfile.MusicVolume = volume;
+                musicAudioSource.volume = value.volume;
                 break;
         }
     }
@@ -216,8 +228,8 @@ public class AudioManager : MonoBehaviour
             timerAudioSource?.Pause();
         else
             timerAudioSource?.UnPause();
-        
-        if(_loopSounds != null)
+
+        if (_loopSounds != null)
             foreach (var source in _loopSounds)
             {
                 if (source.Value)
@@ -229,5 +241,11 @@ public class AudioManager : MonoBehaviour
             {
                 source.Pause(pause);
             }
+    }
+
+    private void SetPhraseVolume()
+    {
+        if (_phraseAudioSource != null)
+            _phraseAudioSource.volume = _ctx.playerProfile.PhraseVolume;
     }
 }

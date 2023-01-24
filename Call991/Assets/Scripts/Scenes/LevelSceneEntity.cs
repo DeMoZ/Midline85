@@ -86,6 +86,8 @@ public class LevelSceneEntity : IGameScene
             audioSource = _ui.PhraseAudioSource,
         }).AddTo(_disposables);
 
+        _ctx.audioManager.SetPhraseAudioSource(_ui.PhraseAudioSource);
+
         var phraseEventSoundLoader = new PhraseEventSoundLoader(new PhraseEventSoundLoader.Ctx
         {
             audioManager = _ctx.audioManager,
