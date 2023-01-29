@@ -53,7 +53,7 @@ namespace UI
 
         protected override void OnDisable()
         {
-            base.OnEnable();
+            base.OnDisable();
 
             onHoverTransition -= OnHoverTransition;
             onPressTransition -= OnPressTransition;

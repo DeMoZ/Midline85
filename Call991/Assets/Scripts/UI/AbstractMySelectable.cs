@@ -26,11 +26,14 @@ namespace UI
                     break;
 
                 case SelectionState.Selected:
-                    if (gameObject.NotSelected()) return;
+                    if (AlreadySelected()) 
+                        return;
 
                     OnAnySelect?.Invoke(gameObject);
                     break;
             }
         }
+
+        private bool AlreadySelected() => !gameObject.NotSelected();
     }
 }
