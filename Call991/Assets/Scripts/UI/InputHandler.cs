@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -7,73 +9,63 @@ namespace UI
     {
         [SerializeField] public AaSelectable firstSelected = default;
 
-        private bool mouseEnabled = true;
-        
+        private readonly KeyCode[] _pressKeyCodes = {KeyCode.Space, KeyCode.Return};
+        private readonly KeyCode[] _ignoreKeyCodes = {KeyCode.Escape};
+        private readonly string[] _mouseAxis = {"Mouse X", "Mouse Y"};
+        private readonly int[] _mouseButtons = {0, 1, 2};
+
+        private bool _mouseEnabled = true;
+
         private bool MouseControlled
         {
             set
             {
-                if (mouseEnabled != value)
+                if (_mouseEnabled == value) return;
+
+                Debug.Log("mouse handler");
+
+                _mouseEnabled = value;
+                Cursor.visible = value;
+                Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
+
+                if (!value)
                 {
-                    Debug.Log("mouse handler");
-
-                    // if (!value)
-                    // {
-                    //     _savedMousePosition.x = (int)Input.mousePosition.x;
-                    //     _savedMousePosition.y = (int)Input.mousePosition.y;
-                    // }
-
-                    mouseEnabled = value;
-                    Cursor.visible = value;
-                    Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
-
-                    if (!value)
-                    {
-                        SelectFirstSelected();
-                    }
-
-                    // if (value)
-                    // {
-                    //     SetCursorPos(_savedMousePosition.x, _savedMousePosition.y);
-                    // }
+                    SelectFirstSelected();
                 }
             }
         }
 
         protected virtual void Update()
         {
-            if (IsMouseMoved() || GetMouseButtonDown())
+            if (IsMouseMoved(_mouseAxis) || GetMouseButtonDown(_mouseButtons))
                 MouseControlled = true;
 
             if (IsKeyboardControlled())
                 MouseControlled = false;
 
-            if (GetPressButtons())
+            if (GetPressedButtons(_pressKeyCodes))
                 PressObject();
         }
 
-        private static bool IsKeyboardControlled()
+        private bool IsKeyboardControlled()
         {
-            return Input.anyKeyDown && !GetMouseButtonDown() && !GetPressButtons();
+            return Input.anyKeyDown && !GetMouseButtonDown(_mouseButtons) &&
+                   !GetPressedButtons(_pressKeyCodes) && !GetPressedButtons(_ignoreKeyCodes);
         }
 
-        private static bool GetPressButtons()
+        private static bool GetPressedButtons(IEnumerable<KeyCode> keyCodes)
         {
-            return Input.GetKeyDown(KeyCode.Space) ||
-                   Input.GetKeyDown(KeyCode.Return);
+            return keyCodes.Any(Input.GetKeyDown);
         }
 
-        private static bool GetMouseButtonDown()
+        private static bool GetMouseButtonDown(IEnumerable<int> mouseButtons)
         {
-            return Input.GetMouseButtonDown(0) ||
-                   Input.GetMouseButtonDown(1) ||
-                   Input.GetMouseButtonDown(2);
+            return mouseButtons.Any(Input.GetMouseButtonDown);
         }
 
-        private static bool IsMouseMoved()
+        private static bool IsMouseMoved(IEnumerable<string> mouseAxis)
         {
-            return Input.GetAxis("Mouse X") != 0 ||
-                   Input.GetAxis("Mouse Y") != 0;
+            return mouseAxis.Any(axis => Input.GetAxis(axis) != 0);
         }
 
         private void SelectFirstSelected()
@@ -83,16 +75,9 @@ namespace UI
 
         private void PressObject()
         {
-            if (gameObject.activeInHierarchy)
+            if (gameObject.activeInHierarchy && firstSelected.gameObject.IsSelected())
             {
-                if (firstSelected.gameObject.IsSelected())
-                {
-                   // MouseControlled = true;
-                    
-                    firstSelected.Press();
-                    
-                   // MouseControlled = false;
-                }
+                firstSelected.Press();
             }
         }
     }

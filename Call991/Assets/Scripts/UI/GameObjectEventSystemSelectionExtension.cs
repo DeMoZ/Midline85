@@ -59,5 +59,10 @@ namespace UI
                     $" current [{EventSystem.current.currentSelectedGameObject?.name??""}];" +
                     $" navigation {EventSystem.current.sendNavigationEvents} </color>");
         }
+
+        // public static bool IsPointerOverGameObject(this GameObject obj)
+        // {
+        //     return false;
+        // }
     }
 }

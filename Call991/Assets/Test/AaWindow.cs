@@ -1,4 +1,3 @@
-using System.Linq;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -15,7 +14,6 @@ public class AaWindow : InputHandler
         
         foreach (var selectable in windowSelectables)
         {
-            selectable.OnHighlight += OnHighlight;
             selectable.OnSelect += OnSelect;
             selectable.OnUnSelect += OnUnSelect;
         }
@@ -25,18 +23,9 @@ public class AaWindow : InputHandler
     {
         foreach (var selectable in windowSelectables)
         {
-            selectable.OnHighlight -= OnHighlight;
             selectable.OnSelect -= OnSelect;
             selectable.OnUnSelect -= OnUnSelect;
         }
-    }
-    
-    private void OnHighlight(AaSelectable obj)
-    {
-        Debug.Log($"<color=red>Window</color> to OnHighlight {obj.gameObject.ToStringEventSystem()}");
-
-        firstSelected = obj;
-        EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
     }
     
     private void OnUnSelect(AaSelectable obj)

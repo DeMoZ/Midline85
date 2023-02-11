@@ -1,64 +1,61 @@
 using System;
 using UI;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class AaSelectable : Selectable
 {
+    private bool _instant;
+
     public event Action OnClick;
-    public event Action<AaSelectable> OnHighlight;
     public event Action<AaSelectable> OnSelect;
     public event Action<AaSelectable> OnUnSelect;
 
-    private SelectionState _previousState;
+    public bool IsSelected => currentSelectionState == SelectionState.Selected;
+
+    public override void OnPointerExit(PointerEventData eventData)
+    {
+        base.OnPointerExit(eventData);
+        DoStateTransition(SelectionState.Normal, _instant);
+    }
 
     protected override void DoStateTransition(SelectionState state, bool instant)
     {
-        if (state == SelectionState.Highlighted)
-        {
-            Debug.Log($"2 {_previousState} -> Selected" + gameObject.ToStringEventSystem());
-            base.DoStateTransition(SelectionState.Selected, instant);
-            state = SelectionState.Selected;
-        }
+        _instant = instant;
 
         switch (state)
         {
             case SelectionState.Normal:
+                if (currentSelectionState == SelectionState.Selected)
+                {
+                    OnUnSelect?.Invoke(this);
+                }
                 base.DoStateTransition(state, instant);
                 SetNormal();
                 break;
             case SelectionState.Highlighted:
-                // do nothing
+                Debug.LogError($"To Selected {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
+                DoStateTransition(SelectionState.Selected, instant);
                 break;
             case SelectionState.Pressed:
                 OnClick?.Invoke();
-                Debug.LogWarning($"2 {_previousState} -> Pressed" + gameObject.ToStringEventSystem());
+                Debug.LogWarning($"2 {currentSelectionState} -> Pressed" + gameObject.ToStringEventSystem());
                 break;
             case SelectionState.Selected:
-                // //if (_previousState == SelectionState.Pressed) break;
-                // if (_previousState == SelectionState.Selected)
-                // {
-                //     base.DoStateTransition(SelectionState.Normal, instant);
-                // }
-                // else
-                //{
-                    Debug.Log($"2 {_previousState} -> Selected" + gameObject.ToStringEventSystem());
-                    base.DoStateTransition(state, instant);
-                    SetSelected();
-                    OnSelect?.Invoke(this);
-                //}
-
+                Debug.Log($"2 {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
+                base.DoStateTransition(state, instant);
+                SetSelected();
+                OnSelect?.Invoke(this);
                 break;
             case SelectionState.Disabled:
-                Debug.Log($"2 {_previousState} -> {state}" + gameObject.ToStringEventSystem());
+                Debug.Log($"2 {currentSelectionState} -> {state}" + gameObject.ToStringEventSystem());
                 base.DoStateTransition(state, instant);
                 SetDisabled();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
-
-        _previousState = state;
     }
 
     private void SetDisabled()
