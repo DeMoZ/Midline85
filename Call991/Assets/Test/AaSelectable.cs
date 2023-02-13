@@ -6,6 +6,9 @@ using UnityEngine.UI;
 
 public class AaSelectable : Selectable
 {
+    [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
+    [SerializeField] private CursorSet cursorSettings = default;
+    
     private bool _instant;
 
     public event Action OnClick;
@@ -31,6 +34,7 @@ public class AaSelectable : Selectable
                 {
                     OnUnSelect?.Invoke(this);
                 }
+
                 base.DoStateTransition(state, instant);
                 SetNormal();
                 break;
@@ -46,6 +50,7 @@ public class AaSelectable : Selectable
                 Debug.Log($"2 {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
                 base.DoStateTransition(state, instant);
                 SetSelected();
+                PlayHoverSound();
                 OnSelect?.Invoke(this);
                 break;
             case SelectionState.Disabled:
@@ -58,19 +63,23 @@ public class AaSelectable : Selectable
         }
     }
 
-    private void SetDisabled()
+    protected virtual void SetDisabled()
     {
-        //throw new NotImplementedException();
     }
 
-    private void SetSelected()
+    protected virtual void SetSelected()
     {
-        //throw new NotImplementedException();
+        cursorSettings?.ApplyCursor(CursorType.CanClick);
     }
 
-    private void SetNormal()
+    protected virtual void SetNormal()
     {
-        //throw new NotImplementedException();
+        cursorSettings?.ApplyCursor(CursorType.Normal);
+    }
+
+    protected virtual void PlayHoverSound()
+    {
+        buttonAudioSettings?.PlayHoverSound();
     }
 
     public void Press()

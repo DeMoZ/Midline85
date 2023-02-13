@@ -30,7 +30,8 @@ public class SettingsVolumeView : MenuButtonView
 
     public void Update()
     {
-        if (currentSelection != this) return;
+        return;
+        //if (currentSelection != this) return;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
             ChangeSliderValue(-step);
@@ -54,9 +55,6 @@ public class SettingsVolumeView : MenuButtonView
     private void SetSliderValue(float value)
     {
         SetSliderText(value);
-        // _audioManager.ChangeVolume(source, value);
-        // _playerPrefs.SetVolume(source, value);
-
         _onVolumeSet?.Execute((source, value));
     }
 

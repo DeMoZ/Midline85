@@ -7,7 +7,7 @@ namespace UI
 {
     public abstract class InputHandler : MonoBehaviour
     {
-        [SerializeField] public AaSelectable firstSelected = default;
+        [SerializeField] protected AaSelectable firstSelected = default;
 
         private readonly KeyCode[] _pressKeyCodes = {KeyCode.Space, KeyCode.Return};
         private readonly KeyCode[] _ignoreKeyCodes = {KeyCode.Escape};
@@ -22,7 +22,7 @@ namespace UI
             {
                 if (_mouseEnabled == value) return;
 
-                Debug.Log("mouse handler");
+                Debug.Log("[InputHandler] mouse handler");
 
                 _mouseEnabled = value;
                 Cursor.visible = value;
@@ -35,6 +35,12 @@ namespace UI
             }
         }
 
+        protected virtual void OnEnable()
+        {
+            // if (!_mouseEnabled)
+            //     SelectFirstSelected();
+        }
+        
         protected virtual void Update()
         {
             if (IsMouseMoved(_mouseAxis) || GetMouseButtonDown(_mouseButtons))
@@ -70,6 +76,7 @@ namespace UI
 
         private void SelectFirstSelected()
         {
+            Debug.Log($"[InputHandler] SelectFirstSelected, firstSelected = {firstSelected}");
             EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
         }
 

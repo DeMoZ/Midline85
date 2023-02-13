@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class UiMenu : AbstractMultiControlComponentsWindow
+    public class UiMenu : AaWindow
     {
         public struct Ctx
         {

@@ -11,7 +11,8 @@ public class SettingsLanguageView : MenuButtonView
 
     public void Update()
     {
-        if (currentSelection != this) return;
+        return;
+        //if (currentSelection != this) return;
 
         if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
         {

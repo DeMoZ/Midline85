@@ -11,19 +11,21 @@ namespace UI
 
         protected virtual void OnEnable()
         {
-            StartCoroutine(YieldForClick());
+            //StartCoroutine(YieldForClick());
 
             foreach (var selectable in windowSelectables)
             {
-                selectable.OnAnySelect += OnAnySelect;
+                if(selectable!=null)
+                    selectable.OnAnySelect += OnAnySelect;
             }
         }
 
         protected virtual void OnDisable()
         {
             foreach (var selectable in windowSelectables)
-            {
-                selectable.OnAnySelect -= OnAnySelect;
+            { 
+                if(selectable!=null)
+                    selectable.OnAnySelect -= OnAnySelect;
             }
         }
 
