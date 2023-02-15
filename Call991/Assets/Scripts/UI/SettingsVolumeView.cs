@@ -30,12 +30,10 @@ public class SettingsVolumeView : MenuButtonView
 
     public void Update()
     {
-        return;
-        //if (currentSelection != this) return;
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (InputHandler.GetPressLeft(gameObject)) 
             ChangeSliderValue(-step);
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+
+        if (InputHandler.GetPressRight(gameObject)) 
             ChangeSliderValue(step);
     }
 

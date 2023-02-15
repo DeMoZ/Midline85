@@ -11,15 +11,13 @@ public class SettingsLanguageView : MenuButtonView
 
     public void Update()
     {
-        return;
-        //if (currentSelection != this) return;
-
-        if (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.A))
+        if (InputHandler.GetPressLeft(gameObject))
         {
             if (leftButton.isActiveAndEnabled)
                 leftButton.onClick?.Invoke();
         }
-        else if (Input.GetKeyDown(KeyCode.RightArrow) || Input.GetKeyDown(KeyCode.D))
+
+        if (InputHandler.GetPressRight(gameObject))
         {
             if (rightButton.isActiveAndEnabled)
                 rightButton.onClick?.Invoke();

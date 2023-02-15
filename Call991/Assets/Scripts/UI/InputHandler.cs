@@ -9,12 +9,16 @@ namespace UI
     {
         [SerializeField] protected AaSelectable firstSelected = default;
 
-        private readonly KeyCode[] _pressKeyCodes = {KeyCode.Space, KeyCode.Return};
-        private readonly KeyCode[] _ignoreKeyCodes = {KeyCode.Escape};
-        private readonly string[] _mouseAxis = {"Mouse X", "Mouse Y"};
-        private readonly int[] _mouseButtons = {0, 1, 2};
+        private static readonly KeyCode[] _leftKeyCodes = {KeyCode.LeftArrow, KeyCode.A};
+        private static readonly KeyCode[] _rightKeyCodes = {KeyCode.RightArrow, KeyCode.D};
+        
+        private static readonly KeyCode[] _pressKeyCodes = {KeyCode.Space, KeyCode.Return};
+        private static readonly KeyCode[] _ignoreKeyCodes = {KeyCode.Escape};
+        private static readonly string[] _mouseAxis = {"Mouse X", "Mouse Y"};
+        private static readonly int[] _mouseButtons = {0, 1, 2};
 
-        private bool _mouseEnabled = true;
+        private bool? _mouseEnabled = true;
+        private bool _mouseVisible = true;
 
         private bool MouseControlled
         {
@@ -24,6 +28,7 @@ namespace UI
 
                 Debug.Log("[InputHandler] mouse handler");
 
+                _mouseVisible = value;
                 _mouseEnabled = value;
                 Cursor.visible = value;
                 Cursor.lockState = value ? CursorLockMode.None : CursorLockMode.Locked;
@@ -37,10 +42,10 @@ namespace UI
 
         protected virtual void OnEnable()
         {
-            // if (!_mouseEnabled)
-            //     SelectFirstSelected();
+            _mouseEnabled = null;
+            Cursor.visible = _mouseVisible;
         }
-        
+
         protected virtual void Update()
         {
             if (IsMouseMoved(_mouseAxis) || GetMouseButtonDown(_mouseButtons))
@@ -51,28 +56,36 @@ namespace UI
 
             if (GetPressedButtons(_pressKeyCodes))
                 PressObject();
+
+            if (firstSelected.gameObject == EventSystem.current.currentSelectedGameObject)
+            {
+                if (GetPressedButtons(_leftKeyCodes))
+                    OnLeftButtonPress(firstSelected);
+
+                if (GetPressedButtons(_rightKeyCodes))
+                    OnRightButtonPress(firstSelected);
+            }
         }
 
-        private bool IsKeyboardControlled()
-        {
-            return Input.anyKeyDown && !GetMouseButtonDown(_mouseButtons) &&
-                   !GetPressedButtons(_pressKeyCodes) && !GetPressedButtons(_ignoreKeyCodes);
-        }
+        public static bool GetPressLeft(GameObject gobject) => 
+            gobject.gameObject == EventSystem.current?.currentSelectedGameObject && GetPressedButtons(_leftKeyCodes);
 
-        private static bool GetPressedButtons(IEnumerable<KeyCode> keyCodes)
-        {
-            return keyCodes.Any(Input.GetKeyDown);
-        }
+        public static bool GetPressRight(GameObject gobject) => 
+            gobject.gameObject == EventSystem.current?.currentSelectedGameObject && GetPressedButtons(_rightKeyCodes);
 
-        private static bool GetMouseButtonDown(IEnumerable<int> mouseButtons)
-        {
-            return mouseButtons.Any(Input.GetMouseButtonDown);
-        }
+        private bool IsKeyboardControlled() =>
+            Input.anyKeyDown &&
+            !GetMouseButtonDown(_mouseButtons) &&
+            !GetPressedButtons(_pressKeyCodes) && !GetPressedButtons(_ignoreKeyCodes);
 
-        private static bool IsMouseMoved(IEnumerable<string> mouseAxis)
-        {
-            return mouseAxis.Any(axis => Input.GetAxis(axis) != 0);
-        }
+        private static bool GetPressedButtons(IEnumerable<KeyCode> keyCodes) =>
+            keyCodes.Any(Input.GetKeyDown);
+
+        private static bool GetMouseButtonDown(IEnumerable<int> mouseButtons) =>
+            mouseButtons.Any(Input.GetMouseButtonDown);
+
+        private static bool IsMouseMoved(IEnumerable<string> mouseAxis) =>
+            mouseAxis.Any(axis => Input.GetAxis(axis) != 0);
 
         private void SelectFirstSelected()
         {
@@ -86,6 +99,14 @@ namespace UI
             {
                 firstSelected.Press();
             }
+        }
+
+        protected virtual void OnLeftButtonPress(AaSelectable aaSelectable)
+        {
+        }
+
+        protected virtual void OnRightButtonPress(AaSelectable aaSelectable)
+        {
         }
     }
 }

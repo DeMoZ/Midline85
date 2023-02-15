@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class UiMenuSettings : AbstractMultiControlComponentsWindow
+    public class UiMenuSettings : AaWindow
     {
         public struct Ctx
         {
@@ -28,7 +28,7 @@ namespace UI
 
         private Ctx _ctx;
         private Dialogues _dialogues;
-
+        
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
