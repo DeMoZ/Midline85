@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class UiOpening : MonoBehaviour
+    public class UiOpening : AaWindow
     {
         public struct Ctx
         {
