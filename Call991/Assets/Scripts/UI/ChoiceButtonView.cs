@@ -21,6 +21,10 @@ namespace UI
 
         private LocalizedString _localize;
 
+        private Tween _scalingTween;
+        private float _scaledSize = 1.2f;
+        private float _scaleDuration = 0.35f;
+
         private static event Action<ChoiceButtonView> OnChoiceDone;
 
         public struct Ctx
@@ -55,7 +59,7 @@ namespace UI
 
             gameObject.SetActive(true);
         }
-        
+
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -66,6 +70,7 @@ namespace UI
         {
             base.OnDisable();
             OnChoiceDone -= ChoiceDoneForAllButtons;
+            _scalingTween?.Kill();
         }
 
         protected override void SetPressed()
@@ -90,13 +95,22 @@ namespace UI
         {
             base.SetSelected();
             SetButtonState(true);
+            _scalingTween = hoverButton.rectTransform.DOScale(_scaledSize, _scaleDuration).SetEase(Ease.OutBounce);
         }
 
         private void SetButtonState(bool toHover)
         {
-            defaultButton?.gameObject.SetActive(!toHover);
-            hoverButton?.gameObject.SetActive(toHover);
+            if (defaultButton)
+                defaultButton.gameObject.SetActive(!toHover);
+
+            if (hoverButton)
+                hoverButton.gameObject.SetActive(toHover);
+
             text.color = toHover ? hoverTextColor : defaultTextColor;
+            _scalingTween?.Kill();
+
+            if (hoverButton && !toHover)
+                hoverButton.rectTransform.localScale = Vector3.one;
         }
 
         private void ChoiceDoneForAllButtons(ChoiceButtonView btn)
@@ -109,7 +123,7 @@ namespace UI
             interactable = false;
             StartCoroutine(Hide(btn == this));
         }
-        
+
         private IEnumerator Hide(bool slow)
         {
             var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;
