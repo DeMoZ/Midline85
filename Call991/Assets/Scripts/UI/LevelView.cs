@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace UI
 {
-    public class LevelView : AbstractMultiControlComponentsWindow
+    public class LevelView : AaWindow
     {
         public struct Ctx
         {

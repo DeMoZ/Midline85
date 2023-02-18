@@ -16,6 +16,7 @@ public class AaSelectable : Selectable
     public event Action<AaSelectable> OnUnSelect;
 
     public bool IsSelected => currentSelectionState == SelectionState.Selected;
+    public bool IsPressed => IsPressed();
 
     public override void OnPointerExit(PointerEventData eventData)
     {
@@ -23,6 +24,11 @@ public class AaSelectable : Selectable
         DoStateTransition(SelectionState.Normal, _instant);
     }
 
+    protected void DoStateTransitionNormal()
+    {
+        DoStateTransition(SelectionState.Normal, _instant);    
+    }
+    
     protected override void DoStateTransition(SelectionState state, bool instant)
     {
         _instant = instant;
@@ -39,22 +45,24 @@ public class AaSelectable : Selectable
                 SetNormal();
                 break;
             case SelectionState.Highlighted:
-                Debug.LogError($"To Selected {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
+                Debug.LogWarning($"[AaSelectable] To Selected {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
                 DoStateTransition(SelectionState.Selected, instant);
                 break;
             case SelectionState.Pressed:
-                OnClick?.Invoke();
-                Debug.LogWarning($"2 {currentSelectionState} -> Pressed" + gameObject.ToStringEventSystem());
+                SetPressed();
                 break;
             case SelectionState.Selected:
-                Debug.Log($"2 {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
+                
+                //if (IsPressed) return;
+                
+                Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
                 base.DoStateTransition(state, instant);
                 SetSelected();
                 PlayHoverSound();
                 OnSelect?.Invoke(this);
                 break;
             case SelectionState.Disabled:
-                Debug.Log($"2 {currentSelectionState} -> {state}" + gameObject.ToStringEventSystem());
+                Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> {state}" + gameObject.ToStringEventSystem());
                 base.DoStateTransition(state, instant);
                 SetDisabled();
                 break;
@@ -82,8 +90,20 @@ public class AaSelectable : Selectable
         buttonAudioSettings?.PlayHoverSound();
     }
 
+    /// <summary>
+    /// For keyboard and timeout press -> SetPressed
+    /// </summary>
     public void Press()
     {
         DoStateTransition(SelectionState.Pressed, true);
+    }
+
+    /// <summary>
+    /// Nomal button behaviour
+    /// </summary>
+    protected virtual void SetPressed()
+    {
+        OnClick?.Invoke();
+        Debug.LogWarning($"[AaSelectable] 2 {currentSelectionState} -> Pressed" + gameObject.ToStringEventSystem());
     }
 }
