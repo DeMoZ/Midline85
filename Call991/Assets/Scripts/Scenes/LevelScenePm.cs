@@ -261,7 +261,7 @@ public class LevelScenePm : IDisposable
         }
 
         _ctx.buttons[index].gameObject.Select();
-        _ctx.buttons[index].TimeoutChoose(); 
+        _ctx.buttons[index].Press(); 
         OnClickChoiceButton(index);
     }
 
@@ -421,7 +421,7 @@ public class LevelScenePm : IDisposable
         await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 1000));
 
         foreach (var button in _ctx.buttons)
-            button.gameObject?.SetActive(false);
+            button?.gameObject?.SetActive(false);
 
         RunDialogue();
     }

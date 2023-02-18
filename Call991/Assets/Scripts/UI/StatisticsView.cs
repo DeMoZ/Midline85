@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class StatisticsView : AbstractMultiControlComponentsWindow
+    public class StatisticsView : AaWindow
     {
         public struct Ctx
         {

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace PhotoViewer.Scripts.Photo
 {
-    public class PhotoView : AbstractMultiControlComponentsWindow
+    public class PhotoView : AaWindow
     {
         [SerializeField] private RectTransform _viewTransfrom = default;
         [SerializeField] private Image _image = default;
