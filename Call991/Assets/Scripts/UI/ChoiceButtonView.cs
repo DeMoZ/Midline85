@@ -32,13 +32,30 @@ namespace UI
             public float slowButtonFadeDuration;
         }
 
-        protected Ctx _ctx;
+        private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
         }
 
+        public void Show(string localizationKey, bool isLocked)
+        {
+            interactable = !isLocked;
+            lockImage.gameObject.SetActive(isLocked);
+            SetButtonState(false);
+
+            _localize = localizationKey;
+            text.text = _localize;
+
+            defaultButton.DOFade(1, _ctx.buttonsAppearDuration);
+            hoverButton.DOFade(1, _ctx.buttonsAppearDuration);
+            text.DOFade(1, _ctx.buttonsAppearDuration);
+            lockImage.DOFade(1, _ctx.buttonsAppearDuration);
+
+            gameObject.SetActive(true);
+        }
+        
         protected override void OnEnable()
         {
             base.OnEnable();
@@ -55,17 +72,6 @@ namespace UI
         {
             base.SetPressed();
             OnChoiceDone?.Invoke(this);
-        }
-
-        private void ChoiceDoneForAllButtons(ChoiceButtonView btn)
-        {
-            if (btn == this)
-                _ctx.onClickChoiceButton?.Execute(_ctx.index);
-            else
-                DoStateTransitionNormal();
-
-            interactable = false;
-            StartCoroutine(Hide(btn == this));
         }
 
         protected override void SetDisabled()
@@ -86,23 +92,6 @@ namespace UI
             SetButtonState(true);
         }
 
-        public void Show(string localizationKey, bool isLocked)
-        {
-            interactable = !isLocked;
-            lockImage.gameObject.SetActive(isLocked);
-            SetButtonState(false);
-
-            _localize = localizationKey;
-            text.text = _localize;
-
-            defaultButton.DOFade(1, _ctx.buttonsAppearDuration);
-            hoverButton.DOFade(1, _ctx.buttonsAppearDuration);
-            text.DOFade(1, _ctx.buttonsAppearDuration);
-            lockImage.DOFade(1, _ctx.buttonsAppearDuration);
-
-            gameObject.SetActive(true);
-        }
-
         private void SetButtonState(bool toHover)
         {
             defaultButton?.gameObject.SetActive(!toHover);
@@ -110,6 +99,17 @@ namespace UI
             text.color = toHover ? hoverTextColor : defaultTextColor;
         }
 
+        private void ChoiceDoneForAllButtons(ChoiceButtonView btn)
+        {
+            if (btn == this)
+                _ctx.onClickChoiceButton?.Execute(_ctx.index);
+            else
+                DoStateTransitionNormal();
+
+            interactable = false;
+            StartCoroutine(Hide(btn == this));
+        }
+        
         private IEnumerator Hide(bool slow)
         {
             var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;

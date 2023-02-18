@@ -45,24 +45,21 @@ public class AaSelectable : Selectable
                 SetNormal();
                 break;
             case SelectionState.Highlighted:
-                Debug.LogWarning($"[AaSelectable] To Selected {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
+                //Debug.LogWarning($"[AaSelectable] To Selected {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
                 DoStateTransition(SelectionState.Selected, instant);
                 break;
             case SelectionState.Pressed:
                 SetPressed();
                 break;
             case SelectionState.Selected:
-                
-                //if (IsPressed) return;
-                
-                Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
+                //Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
                 base.DoStateTransition(state, instant);
                 SetSelected();
                 PlayHoverSound();
                 OnSelect?.Invoke(this);
                 break;
             case SelectionState.Disabled:
-                Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> {state}" + gameObject.ToStringEventSystem());
+                //Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> {state}" + gameObject.ToStringEventSystem());
                 base.DoStateTransition(state, instant);
                 SetDisabled();
                 break;
@@ -104,6 +101,6 @@ public class AaSelectable : Selectable
     protected virtual void SetPressed()
     {
         OnClick?.Invoke();
-        Debug.LogWarning($"[AaSelectable] 2 {currentSelectionState} -> Pressed" + gameObject.ToStringEventSystem());
+        //Debug.LogWarning($"[AaSelectable] 2 {currentSelectionState} -> Pressed" + gameObject.ToStringEventSystem());
     }
 }
