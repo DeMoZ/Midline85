@@ -1,4 +1,3 @@
-using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -27,8 +26,20 @@ namespace UI
         [SerializeField] private Data canDrag = default;
         [SerializeField] private Data drag = default;
 
+        [Space]
+        [SerializeField] private Data clickPoint = default;
+        
         private Texture2D _currentSprite;
 
+        public Sprite ClickPointSprite => TextureToSprite();
+        public Vector2 ClickPointOffset => clickPoint.hotPoint;
+
+        private Sprite TextureToSprite()
+        {
+            return Sprite.Create(clickPoint.texture, 
+                new Rect(0, 0, clickPoint.texture.width, clickPoint.texture.height), new Vector2(0.5f, 0.5f));
+        }
+        
         private void OnEnable()
         {
             ApplyCursor(CursorType.Normal);

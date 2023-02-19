@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,9 @@ public class EntryRoot : MonoBehaviour
     [Space] 
     [SerializeField] private Image videoFade;
     [SerializeField] private Image screenFade;
+
+    [Space]
+    [SerializeField] private Transform clicksParent;
 
     private async void Awake()
     {
@@ -43,7 +47,9 @@ public class EntryRoot : MonoBehaviour
     private async void CreateRootEntity()
     {
         var blocker = new Blocker(screenFade, videoFade);
-       // 
+       
+        var clickImage = Resources.Load<GameObject>("ClickPointImage");
+        var clickPointHandler = new ClickPointHandler(clickImage, clicksParent);
         
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {

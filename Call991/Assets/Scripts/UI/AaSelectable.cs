@@ -10,10 +10,12 @@ public class AaSelectable : Selectable
     [SerializeField] private CursorSet cursorSettings = default;
     
     private bool _instant;
+    private bool _noPointerPress;
 
     public event Action OnClick;
     public event Action<AaSelectable> OnSelect;
     public event Action<AaSelectable> OnUnSelect;
+    public static event Action<Vector2, Sprite> OnMouseClickSelectable;
 
     public bool IsSelected => currentSelectionState == SelectionState.Selected;
     public bool IsPressed => IsPressed();
@@ -92,6 +94,7 @@ public class AaSelectable : Selectable
     /// </summary>
     public void Press()
     {
+        _noPointerPress = true;
         DoStateTransition(SelectionState.Pressed, true);
     }
 
@@ -100,7 +103,12 @@ public class AaSelectable : Selectable
     /// </summary>
     protected virtual void SetPressed()
     {
-        OnClick?.Invoke();
         //Debug.LogWarning($"[AaSelectable] 2 {currentSelectionState} -> Pressed" + gameObject.ToStringEventSystem());
+        OnClick?.Invoke();
+        
+        if (!_noPointerPress && cursorSettings.ClickPointSprite)
+            OnMouseClickSelectable?.Invoke((Vector2)Input.mousePosition + cursorSettings.ClickPointOffset, cursorSettings.ClickPointSprite);
+
+        _noPointerPress = false;
     }
 }
