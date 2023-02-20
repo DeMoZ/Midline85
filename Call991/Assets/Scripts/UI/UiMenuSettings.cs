@@ -101,7 +101,7 @@ namespace UI
             _ctx.profile.TextLanguage = text switch
             {
                 "English" => Language.EN,
-                "Russian" => Language.RU,
+                "Русский" => Language.RU,
                 _ => Language.EN
             };
         }
