@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 namespace PhotoViewer.Scripts
 {
     public class NewspaperInput : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPointerExitHandler,
-        IBeginDragHandler, IEndDragHandler
+        IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
     {
 #if UNITY_IOS || UNITY_ANDROID
         private float _moveSpeed = 5;
@@ -54,20 +54,27 @@ namespace PhotoViewer.Scripts
             _cursorSettings.ApplyCursor(CursorType.Normal);
         }
 
-        public void OnBeginDrag(PointerEventData eventData)
-        {
+        public void OnBeginDrag(PointerEventData eventData) => 
             _cursorSettings.ApplyCursor(CursorType.Drag);
-        }
 
-        public void OnDrag(PointerEventData eventData)
-        {
+        public void OnDrag(PointerEventData eventData) => 
             _deltaPosition = eventData.delta * Time.deltaTime * _moveSpeed;
-        }
 
-        public void OnEndDrag(PointerEventData eventData)
+        public void OnEndDrag(PointerEventData eventData) => 
+            EndInteraction();
+
+        public void OnPointerDown(PointerEventData eventData) => 
+            _cursorSettings.ApplyCursor(CursorType.Drag);
+
+        public void OnPointerUp(PointerEventData eventData) => 
+            EndInteraction();
+
+        private void EndInteraction()
         {
             if (_hover)
                 _cursorSettings.ApplyCursor(CursorType.CanDrag);
+            else
+                _cursorSettings.ApplyCursor(CursorType.Normal);
         }
     }
 }
