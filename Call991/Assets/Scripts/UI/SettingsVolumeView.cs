@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UI;
 using UniRx;
@@ -12,7 +13,7 @@ public class SettingsVolumeView : MenuButtonView
     [SerializeField] private AudioSourceType source = default;
 
     [SerializeField] [Range(0.01f, 0.5f)] private float step = 0.05f;
-
+    private decimal _stepD;
     private ReactiveCommand<(AudioSourceType, float)> _onVolumeSet;
 
     private CompositeDisposable _disposables;
@@ -22,6 +23,7 @@ public class SettingsVolumeView : MenuButtonView
         _disposables?.Dispose();
 
         _disposables = new CompositeDisposable();
+        _stepD = new decimal(step);
         _onVolumeSet = onVolumeSet;
         _slider.value = volume;
         SetSliderText(volume);
@@ -30,10 +32,10 @@ public class SettingsVolumeView : MenuButtonView
 
     public void Update()
     {
-        if (InputHandler.GetPressLeft(gameObject)) 
+        if (InputHandler.GetPressLeft(gameObject))
             ChangeSliderValue(-step);
 
-        if (InputHandler.GetPressRight(gameObject)) 
+        if (InputHandler.GetPressRight(gameObject))
             ChangeSliderValue(step);
     }
 
@@ -52,6 +54,8 @@ public class SettingsVolumeView : MenuButtonView
 
     private void SetSliderValue(float value)
     {
+        // rounding the value to the nearest step
+        value = (float) (Math.Round(new decimal(value) / _stepD) * _stepD);
         SetSliderText(value);
         _onVolumeSet?.Execute((source, value));
     }
