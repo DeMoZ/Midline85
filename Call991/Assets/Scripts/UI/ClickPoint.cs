@@ -1,12 +1,13 @@
 using DG.Tweening;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class ClickPoint : MonoBehaviour
 {
-    private const float ScaledSize = 1.05f;
-    private const float ScaleDuration = 0.35f;
-    private const float FadeDuration = 0.3f;
+    [SerializeField] private ScaleSet scaleSet;
+    [SerializeField] private float fadeDuration = 0.3f;
+    [SerializeField] private float fadeDelay = 0.05f;
 
     private RectTransform _rectTransform;
     private Image _image;
@@ -26,12 +27,13 @@ public class ClickPoint : MonoBehaviour
         color.a = 1;
         _image.color = color;
 
-        _rectTransform.localScale = Vector3.one * 0.1f;
+        _rectTransform.localScale = Vector3.one;
 
         _sequence?.Kill();
         _sequence = DOTween.Sequence();
-        _sequence.Append(_rectTransform.DOScale(ScaledSize, ScaleDuration).SetEase(Ease.OutBounce));
-        _sequence.Append(_image.DOFade(0,FadeDuration)).AppendInterval(0.05f);
+        _sequence.Append(_rectTransform.DOScale(scaleSet.Size, scaleSet.Duration).
+            SetEase(scaleSet.Ease));
+        _sequence.Append(_image.DOFade(0,fadeDuration)).AppendInterval(fadeDelay);
         _sequence.Play();
         _sequence.OnComplete(() => gameObject.SetActive(false));
     }

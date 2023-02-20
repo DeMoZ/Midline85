@@ -11,6 +11,9 @@ namespace UI
 {
     public class ChoiceButtonView : AaSelectable
     {
+        [SerializeField] private ScaleSet scaleSet;
+        
+        [Space]
         [SerializeField] private Image defaultButton = default;
         [SerializeField] private Image hoverButton = default;
         [SerializeField] private Image lockImage = default;
@@ -20,10 +23,7 @@ namespace UI
         [SerializeField] private TextMeshProUGUI text = default;
 
         private LocalizedString _localize;
-
         private Tween _scalingTween;
-        private float _scaledSize = 1.2f;
-        private float _scaleDuration = 0.35f;
 
         private static event Action<ChoiceButtonView> OnChoiceDone;
 
@@ -95,7 +95,8 @@ namespace UI
         {
             base.SetSelected();
             SetButtonState(true);
-            _scalingTween = hoverButton.rectTransform.DOScale(_scaledSize, _scaleDuration).SetEase(Ease.OutBounce);
+            _scalingTween = hoverButton.rectTransform.DOScale(scaleSet.Size, scaleSet.Duration).
+                SetEase(scaleSet.Ease);
         }
 
         private void SetButtonState(bool toHover)
