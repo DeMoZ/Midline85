@@ -46,14 +46,14 @@ namespace Test.Dialogues
             fileNameTextField.MarkDirtyRepaint();
             fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
             toolbar.Add(fileNameTextField);
-
-            toolbar.Add(new Label(" | "));
-
+            
             var saveDataButton = new Button(() => SaveData())
             {
                 text = "Save Data"
             }; 
             toolbar.Add(saveDataButton);
+
+            toolbar.Add(new Label(" | "));
 
             var loadDataButton = new Button(() => LoadData())
             {
@@ -93,7 +93,7 @@ namespace Test.Dialogues
             }
             
             var saveUtility = GraphSaveUtility.GetInstance(_graphView);
-            saveUtility.LoadGraph(_fileName);
+            saveUtility.LoadGraph();
         }
 
         private void OnDisable()

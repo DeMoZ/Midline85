@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Test.Dialogues
 {
@@ -14,7 +15,7 @@ namespace Test.Dialogues
         private DialogueContainer _containerCash;
 
         private List<Edge> Edges => _targetGraphView.edges.ToList();
-        private List<DialogueNode> Nodes => _targetGraphView.nodes.ToList().Cast<DialogueNode>().ToList();
+        private List<PhraseNode> Nodes => _targetGraphView.nodes.ToList().Cast<PhraseNode>().ToList();
 
         public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView)
         {
@@ -29,12 +30,14 @@ namespace Test.Dialogues
             if (!Edges.Any()) return;
 
             var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
+            dialogueContainer.Languages = Nodes.First(n => n.EntryPoint).Languages;
+            
             var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
 
             foreach (var port in connectedPorts)
             {
-                var inputNode = port.input.node as DialogueNode;
-                var outputNode = port.output.node as DialogueNode;
+                var inputNode = port.input.node as PhraseNode;
+                var outputNode = port.output.node as PhraseNode;
 
                 dialogueContainer.NodeLinks.Add(new NodeLinkData
                 {
@@ -51,6 +54,7 @@ namespace Test.Dialogues
                     Guid = dialogueNode.Guid,
                     DialogueText = dialogueNode.DialogueText,
                     Position = dialogueNode.GetPosition().position,
+                    Size = dialogueNode.GetPosition().size,
                 });
             }
 
@@ -59,7 +63,7 @@ namespace Test.Dialogues
             AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
             AssetDatabase.SaveAssets();
 
-            Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved");
+            Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
         }
 
         private void CreateFolders(string fileName)
@@ -80,29 +84,44 @@ namespace Test.Dialogues
             }
         }
 
-        public void LoadGraph(string fileName)
+        public void LoadGraph()
         {
+            var fileName = EditorUtility.OpenFilePanel("Dialogue Graph", "Assets/Resources/", "asset");
+            
+            if (string.IsNullOrEmpty(fileName))
+            {
+                return;
+            }
+
+            var path = Path.GetRelativePath("Assets", fileName);
+            path = Path.Combine("Assets", path);
+            fileName = Path.GetFileName(fileName);
+            path = fileName.Replace(fileName, "");
+            fileName = Path.GetFileNameWithoutExtension(fileName);
+            fileName = Path.Combine(path, fileName);
+             
             _containerCash = Resources.Load<DialogueContainer>(fileName);
 
             if (!_containerCash)
             {
-                EditorUtility.DisplayDialog("File not found",
-                    $"Target dialogue <color=yellow>{fileName}</color> doesn't exist", "OK");
-
+                EditorUtility.DisplayDialog("File not found", $"Target dialogue {fileName} doesn't exist", "OK");
                 return;
             }
 
             ClearGraph();
             CreateNodes();
-            //ConnectNodes();
+            ConnectNodes();
         }
-
+        
         private void ClearGraph()
         {
-            Nodes.Find(x => x.EntryPoint).Guid = _containerCash.NodeLinks[0].BaseNodeGuid;
             foreach (var node in Nodes)
             {
-                if (node.EntryPoint) return;
+                if (node.EntryPoint)
+                {
+                    node.Guid = _containerCash.NodeLinks[0].BaseNodeGuid;
+                    continue;
+                }
 
                 Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
                 _targetGraphView.RemoveElement(node);
@@ -113,14 +132,43 @@ namespace Test.Dialogues
         {
             foreach (var node in _containerCash.DialogueNodeData)
             {
-                var tmpNode = _targetGraphView.CreateDialogueNode(node.DialogueText);
+                var tmpNode = _targetGraphView.CreatePhraseNode(node.DialogueText);
                 tmpNode.Guid = node.Guid;
+                tmpNode.SetPosition(new Rect(node.Position, node.Size));
 
                 _targetGraphView.AddElement(tmpNode);
 
                 var ports = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == node.Guid).ToList();
                 ports.ForEach(x => _targetGraphView.AddChoicePort(tmpNode, x.PortName));
             }
+        }
+
+        private void ConnectNodes()
+        {
+            for (var i = 0; i < Nodes.Count; i++)
+            {
+                var connections = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == Nodes[i].Guid).ToList();
+
+                for (var j = 0; j < connections.Count; j++)
+                {
+                    var targetNodeGuid = connections[j].TargetNodeGuid;
+                    var targetNode = Nodes.First(x => x.Guid == targetNodeGuid);
+                    LinkNodes(Nodes[i].outputContainer[j].Q<Port>(), (Port) targetNode.inputContainer[0]);
+                }
+            }
+        }
+
+        private void LinkNodes(Port output, Port input)
+        {
+            var tempEdge = new Edge
+            {
+                output = output,
+                input = input,
+            };
+            
+            tempEdge.input?.Connect(tempEdge);
+            tempEdge.output?.Connect(tempEdge);
+            _targetGraphView.Add(tempEdge);
         }
     }
 }

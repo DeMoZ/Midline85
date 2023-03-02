@@ -8,5 +8,6 @@ namespace Test.Dialogues
         public string Guid;
         public string DialogueText;
         public Vector2 Position;
+        public Vector2 Size;
     }
 }
