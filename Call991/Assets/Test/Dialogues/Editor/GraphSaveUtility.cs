@@ -32,7 +32,7 @@ namespace Test.Dialogues
 
             var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
             dialogueContainer.Languages = Nodes.First(n => n.EntryPoint).Languages;
-            
+
             var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
 
             foreach (var port in connectedPorts)
@@ -88,17 +88,18 @@ namespace Test.Dialogues
         public string LoadGraph()
         {
             var fileName = EditorUtility.OpenFilePanel("Dialogue Graph", "Assets/Resources/", "asset");
-            
+
             if (string.IsNullOrEmpty(fileName))
             {
                 return NoGraphName;
             }
 
             var path = Path.GetDirectoryName(fileName);
-            var relativePath = path.Split("Resources/")[1];
             var onlyFileName = Path.GetFileNameWithoutExtension(fileName);
             
-            path = Path.Combine(relativePath, onlyFileName);
+            var split = path.Split("Resources/");
+            path = split.Length > 1 ? Path.Combine(split[1], onlyFileName) : onlyFileName;
+
             _containerCash = Resources.Load<DialogueContainer>(path);
 
             if (!_containerCash)
@@ -113,7 +114,7 @@ namespace Test.Dialogues
 
             return path;
         }
-        
+
         private void ClearGraph()
         {
             foreach (var node in Nodes)
@@ -166,7 +167,7 @@ namespace Test.Dialogues
                 output = output,
                 input = input,
             };
-            
+
             tempEdge.input?.Connect(tempEdge);
             tempEdge.output?.Connect(tempEdge);
             _targetGraphView.Add(tempEdge);

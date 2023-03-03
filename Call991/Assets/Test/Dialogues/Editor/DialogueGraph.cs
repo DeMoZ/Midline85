@@ -87,15 +87,9 @@ namespace Test.Dialogues
 
         private void LoadData()
         {
-            if (string.IsNullOrEmpty(_fileName))
-            {
-                EditorUtility.DisplayDialog("Invalid filename for Load", "Please, input valid filename", "ok");
-                return;
-            }
-            
             var saveUtility = GraphSaveUtility.GetInstance(_graphView);
-            var pathFileName = saveUtility.LoadGraph();
-            _fileNameTextField.SetValueWithoutNotify(pathFileName);
+            _fileName = saveUtility.LoadGraph();
+            _fileNameTextField.SetValueWithoutNotify(_fileName);
             _fileNameTextField.MarkDirtyRepaint();
         }
 
