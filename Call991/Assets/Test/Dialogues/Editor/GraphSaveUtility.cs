@@ -11,6 +11,7 @@ namespace Test.Dialogues
 {
     public class GraphSaveUtility
     {
+        private const string NoGraphName = "NoGraph";
         private DialogueGraphView _targetGraphView;
         private DialogueContainer _containerCash;
 
@@ -84,33 +85,33 @@ namespace Test.Dialogues
             }
         }
 
-        public void LoadGraph()
+        public string LoadGraph()
         {
             var fileName = EditorUtility.OpenFilePanel("Dialogue Graph", "Assets/Resources/", "asset");
             
             if (string.IsNullOrEmpty(fileName))
             {
-                return;
+                return NoGraphName;
             }
 
-            var path = Path.GetRelativePath("Assets", fileName);
-            path = Path.Combine("Assets", path);
-            fileName = Path.GetFileName(fileName);
-            path = fileName.Replace(fileName, "");
-            fileName = Path.GetFileNameWithoutExtension(fileName);
-            fileName = Path.Combine(path, fileName);
-             
-            _containerCash = Resources.Load<DialogueContainer>(fileName);
+            var path = Path.GetDirectoryName(fileName);
+            var relativePath = path.Split("Resources/")[1];
+            var onlyFileName = Path.GetFileNameWithoutExtension(fileName);
+            
+            path = Path.Combine(relativePath, onlyFileName);
+            _containerCash = Resources.Load<DialogueContainer>(path);
 
             if (!_containerCash)
             {
-                EditorUtility.DisplayDialog("File not found", $"Target dialogue {fileName} doesn't exist", "OK");
-                return;
+                EditorUtility.DisplayDialog("File not found", $"Target dialogue {path} doesn't exist", "OK");
+                return NoGraphName;
             }
 
             ClearGraph();
             CreateNodes();
             ConnectNodes();
+
+            return path;
         }
         
         private void ClearGraph()

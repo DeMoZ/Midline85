@@ -10,6 +10,7 @@ namespace Test.Dialogues
         private string _fileName = "NewDialogue";
 
         private DialogueGraphView _graphView;
+        private TextField _fileNameTextField;
 
         [MenuItem("Aa/Dialogue Graph")]
         public static void OpenDialogueGraphWindow()
@@ -41,11 +42,11 @@ namespace Test.Dialogues
 
             toolbar.Add(new Label("| FileName:"));
 
-            var fileNameTextField = new TextField(/*"FileName"*/);
-            fileNameTextField.SetValueWithoutNotify(_fileName);
-            fileNameTextField.MarkDirtyRepaint();
-            fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
-            toolbar.Add(fileNameTextField);
+            _fileNameTextField = new TextField(/*"FileName"*/);
+            _fileNameTextField.SetValueWithoutNotify(_fileName);
+            _fileNameTextField.MarkDirtyRepaint();
+            _fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
+            toolbar.Add(_fileNameTextField);
             
             var saveDataButton = new Button(() => SaveData())
             {
@@ -93,7 +94,9 @@ namespace Test.Dialogues
             }
             
             var saveUtility = GraphSaveUtility.GetInstance(_graphView);
-            saveUtility.LoadGraph();
+            var pathFileName = saveUtility.LoadGraph();
+            _fileNameTextField.SetValueWithoutNotify(pathFileName);
+            _fileNameTextField.MarkDirtyRepaint();
         }
 
         private void OnDisable()
