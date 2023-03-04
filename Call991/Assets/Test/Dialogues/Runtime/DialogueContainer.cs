@@ -7,7 +7,7 @@ namespace Test.Dialogues
     public class DialogueContainer : ScriptableObject
     {
         public List<string> Languages = new();
-        public List<DialogueNodeData> DialogueNodeData = new();
+        public List<PhraseNodeData> DialogueNodeData = new();
         public List<NodeLinkData> NodeLinks = new();
     }
 }

@@ -88,7 +88,13 @@ namespace Test.Dialogues
         private void LoadData()
         {
             var saveUtility = GraphSaveUtility.GetInstance(_graphView);
-            _fileName = saveUtility.LoadGraph();
+
+            if (!saveUtility.LoadGraph(ref _fileName))
+            {
+                Debug.LogError("Some error while loading graph");
+                return;
+            }
+
             _fileNameTextField.SetValueWithoutNotify(_fileName);
             _fileNameTextField.MarkDirtyRepaint();
         }

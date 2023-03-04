@@ -31,7 +31,10 @@ namespace Test.Dialogues
             if (!Edges.Any()) return;
 
             var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
-            dialogueContainer.Languages = Nodes.First(n => n.EntryPoint).Languages;
+
+            var entryContainer = Nodes.First(n => n.EntryPoint).contentContainer;
+            var languageFields = entryContainer.Query<LanguageField>();
+            languageFields.ForEach(lf => dialogueContainer.Languages.Add(lf.Language));
 
             var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
 
@@ -48,14 +51,17 @@ namespace Test.Dialogues
                 });
             }
 
-            foreach (var dialogueNode in Nodes.Where(node => !node.EntryPoint))
+            foreach (var phraseNode in Nodes.Where(node => !node.EntryPoint))
             {
-                dialogueContainer.DialogueNodeData.Add(new DialogueNodeData
+                var phrases = phraseNode.GetPhrases();
+                    
+                dialogueContainer.DialogueNodeData.Add(new PhraseNodeData
                 {
-                    Guid = dialogueNode.Guid,
-                    DialogueText = dialogueNode.DialogueText,
-                    Position = dialogueNode.GetPosition().position,
-                    Size = dialogueNode.GetPosition().size,
+                    Guid = phraseNode.Guid,
+                    DialogueText = phraseNode.DialogueText,
+                    Position = phraseNode.GetPosition().position,
+                    Size = phraseNode.GetPosition().size,
+                    Phrases = phrases,
                 });
             }
 
@@ -63,7 +69,8 @@ namespace Test.Dialogues
 
             AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
             AssetDatabase.SaveAssets();
-
+            AssetDatabase.Refresh();
+            
             Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
         }
 
@@ -85,18 +92,19 @@ namespace Test.Dialogues
             }
         }
 
-        public string LoadGraph()
+        public bool LoadGraph(ref string path)
         {
             var fileName = EditorUtility.OpenFilePanel("Dialogue Graph", "Assets/Resources/", "asset");
 
             if (string.IsNullOrEmpty(fileName))
             {
-                return NoGraphName;
+                path = NoGraphName;
+                return false;
             }
 
-            var path = Path.GetDirectoryName(fileName);
+            path = Path.GetDirectoryName(fileName);
             var onlyFileName = Path.GetFileNameWithoutExtension(fileName);
-            
+
             var split = path.Split("Resources/");
             path = split.Length > 1 ? Path.Combine(split[1], onlyFileName) : onlyFileName;
 
@@ -105,25 +113,27 @@ namespace Test.Dialogues
             if (!_containerCash)
             {
                 EditorUtility.DisplayDialog("File not found", $"Target dialogue {path} doesn't exist", "OK");
-                return NoGraphName;
+                path = NoGraphName;
+                return false;
             }
 
             ClearGraph();
+            CreateEntryPoint();
             CreateNodes();
             ConnectNodes();
 
-            return path;
+            return true;
         }
 
         private void ClearGraph()
         {
             foreach (var node in Nodes)
             {
-                if (node.EntryPoint)
-                {
-                    node.Guid = _containerCash.NodeLinks[0].BaseNodeGuid;
-                    continue;
-                }
+                // if (node.EntryPoint)
+                // {
+                //     node.Guid = _containerCash.NodeLinks[0].BaseNodeGuid;
+                //     continue;
+                // }
 
                 Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
                 _targetGraphView.RemoveElement(node);
@@ -134,7 +144,7 @@ namespace Test.Dialogues
         {
             foreach (var node in _containerCash.DialogueNodeData)
             {
-                var tmpNode = _targetGraphView.CreatePhraseNode(node.DialogueText);
+                var tmpNode = _targetGraphView.CreatePhraseNode(node.DialogueText, _containerCash.Languages ,node.Phrases);
                 tmpNode.Guid = node.Guid;
                 tmpNode.SetPosition(new Rect(node.Position, node.Size));
 
@@ -142,6 +152,22 @@ namespace Test.Dialogues
 
                 var ports = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == node.Guid).ToList();
                 ports.ForEach(x => _targetGraphView.AddChoicePort(tmpNode, x.PortName));
+            }
+        }
+
+        private void CreateEntryPoint()
+        {
+            var entryNode = new EntryPointNode();
+            //entryNode.style.width = 200;
+            
+            _targetGraphView.AddElement(entryNode);
+
+            foreach (var language in _containerCash.Languages)
+            {
+                var languageField = new LanguageField(language,
+                    onDelete: obj => { entryNode.contentContainer.Remove(obj); });
+
+                entryNode.contentContainer.Add(languageField);
             }
         }
 
