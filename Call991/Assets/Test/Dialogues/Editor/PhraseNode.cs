@@ -24,8 +24,9 @@ namespace Test.Dialogues
 
         public PhraseVisual GetPhraseVisual() => contentContainer.Query<PhraseVisual>().First();
 
-        public void GetEventVisual()
+        public List<EventVisual> GetEventsVisual()
         {
+            return contentContainer.Query<EventVisual>().ToList();
         }
         
     }

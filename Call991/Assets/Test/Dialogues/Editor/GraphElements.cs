@@ -6,6 +6,8 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Button = UnityEngine.UIElements.Button;
+using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace Test.Dialogues
 {
@@ -115,6 +117,150 @@ namespace Test.Dialogues
         }
     }
 
+    public class PersonVisual : VisualElement
+    {
+        public PersonVisual(PersonVisualData data = null)
+        {
+            var personOptions = Enum.GetValues(typeof(Person)).Cast<Person>().ToList();
+            var personPopup = new PopupField<Person>("", personOptions, data?.Person ?? personOptions[0]);
+
+            var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
+            var positionPopup =
+                new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
+            var onEndToggle = new Toggle
+            {
+                text = "HideOnEnd",
+                value = data?.HideOnEnd ?? false,
+            };
+
+            contentContainer.Add(personPopup);
+            contentContainer.Add(positionPopup);
+            contentContainer.Add(onEndToggle);
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+        }
+
+        public PersonVisualData GetData()
+        {
+            return new PersonVisualData
+            {
+                Person = contentContainer.Query<PopupField<Person>>().First().value,
+                ScreenPlace = contentContainer.Query<PopupField<ScreenPlace>>().First().value,
+                HideOnEnd = contentContainer.Query<Toggle>().First().value,
+            };
+        }
+    }
+
+    public class PhraseVisual : VisualElement
+    {
+        public PhraseVisual(PhraseVisualData data)
+        {
+            var appearOptions = Enum.GetValues(typeof(TextAppear)).Cast<TextAppear>().ToList();
+            var appearPopup = new PopupField<TextAppear>("", appearOptions, data?.TextAppear ?? appearOptions[0]);
+            var onEndToggle = new Toggle
+            {
+                text = "HideOnEnd",
+                value = data?.HideOnEnd ?? false,
+            };
+
+            contentContainer.Add(appearPopup);
+            contentContainer.Add(onEndToggle);
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+        }
+
+        public PhraseVisualData GetData()
+        {
+            return new PhraseVisualData
+            {
+                TextAppear = contentContainer.Query<PopupField<TextAppear>>().First().value,
+                HideOnEnd = contentContainer.Query<Toggle>().First().value,
+            };
+        }
+    }
+
+    #region PhraseEvents
+
+    public class PhraseEvents : VisualElement
+    {
+        public PhraseEvents(List<EventVisualData> data)
+        {
+            var addEventAssetButton = new Button(() =>
+            {
+                contentContainer.Add(new EventVisual(new EventVisualData(), OnDeleteEvent));
+            });
+            addEventAssetButton.text = "Event Asset";
+            contentContainer.Add(addEventAssetButton);
+
+            data?.ForEach(item => contentContainer.Add(new EventVisual(item, OnDeleteEvent)));
+        }
+
+        private void OnDeleteEvent(EventVisual eventVisual)
+        {
+            contentContainer.Remove(eventVisual);
+        }
+
+        public List<EventVisual> GetEvents()
+        {
+            return contentContainer.Query<EventVisual>().ToList();
+        }
+    }
+
+    public class EventVisual : VisualElement
+    {
+        public EventVisual(EventVisualData data, Action<EventVisual> onDelete)
+        {
+            contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
+            {
+                text = "X",
+            });
+
+            var containerColumn = new VisualElement();
+            contentContainer.Add(containerColumn);
+
+            var containerRow1 = new VisualElement();
+            containerRow1.style.flexDirection = FlexDirection.Row;
+            containerColumn.Add(containerRow1);
+
+            containerRow1.Add(new EventAssetField(data.PhraseEventSo));
+
+            var containerRow2 = new VisualElement();
+            containerRow2.style.flexDirection = FlexDirection.Row;
+            containerColumn.Add(containerRow2);
+
+            var typeOptions = Enum.GetValues(typeof(PhraseEventTypes)).Cast<PhraseEventTypes>().ToList();
+            var typePopup = new PopupField<PhraseEventTypes>("", typeOptions, data?.EventType ?? typeOptions[2]);
+            containerRow2.Add(typePopup);
+
+            var toggle = new Toggle
+            {
+                text = "Stop",
+                value = data?.Stop ?? false,
+            };
+            containerRow2.Add(toggle);
+
+            containerRow2.Add(new Label {text = "Delay"});
+            var delay = new FloatField
+            {
+                value = data?.Delay ?? 0,
+            };
+            containerRow2.Add(delay);
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+        }
+
+        public EventVisualData GetData()
+        {
+            return new EventVisualData
+            {
+                PhraseEventSo = contentContainer.Query<EventAssetField>().First().GetPhrase(),
+                EventType = contentContainer.Query<PopupField<PhraseEventTypes>>().First().value,
+                Stop = contentContainer.Query<Toggle>().First().value,
+                Delay = contentContainer.Query<FloatField>().First().value,
+            };
+        }
+    }
+
     public class EventAssetField : VisualElement
     {
         private ObjectField _objectField;
@@ -137,68 +283,9 @@ namespace Test.Dialogues
         }
     }
 
+    #endregion
+
     public class ElementId : VisualElement
-    {
-    }
-
-    public class PersonVisual : VisualElement
-    {
-        public PersonVisual()
-        {
-            var personOptions = Enum.GetValues(typeof(Person)).Cast<Person>().ToList();
-            var personPopup = new PopupField<Person>("", personOptions, personOptions[0]);
-
-            var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
-            var positionPopup = new PopupField<ScreenPlace>("", positionOptions, positionOptions[1]);
-
-            var behaviourOptions = Enum.GetValues(typeof(OnPhraseEnd)).Cast<OnPhraseEnd>().ToList();
-            var behaviourPopup = new PopupField<OnPhraseEnd>("", behaviourOptions, behaviourOptions[0]);
-
-            contentContainer.Add(personPopup);
-            contentContainer.Add(positionPopup);
-            contentContainer.Add(behaviourPopup);
-
-            contentContainer.style.flexDirection = FlexDirection.Row;
-        }
-
-        public PersonVisualData GetData()
-        {
-            return new PersonVisualData
-            {
-                Person = contentContainer.Query<PopupField<Person>>().First().value,
-                ScreenPlace = contentContainer.Query<PopupField<ScreenPlace>>().First().value,
-                OnPhraseEnd = contentContainer.Query<PopupField<OnPhraseEnd>>().First().value,
-            };
-        }
-    }
-
-    public class PhraseVisual : VisualElement
-    {
-        public PhraseVisual()
-        {
-            var appearOptions = Enum.GetValues(typeof(TextAppear)).Cast<TextAppear>().ToList();
-            var appearPopup = new PopupField<TextAppear>("", appearOptions, appearOptions[0]);
-
-            var behaviourOptions = Enum.GetValues(typeof(OnPhraseEnd)).Cast<OnPhraseEnd>().ToList();
-            var behaviourPopup = new PopupField<OnPhraseEnd>("", behaviourOptions, behaviourOptions[0]);
-
-            contentContainer.Add(appearPopup);
-            contentContainer.Add(behaviourPopup);
-
-            contentContainer.style.flexDirection = FlexDirection.Row;
-        }
-
-        public PhraseVisualData GetData()
-        {
-            return new PhraseVisualData
-            {
-                TextAppear = contentContainer.Query<PopupField<TextAppear>>().First().value,
-                OnPhraseEnd = contentContainer.Query<PopupField<OnPhraseEnd>>().First().value,
-            };
-        }
-    }
-
-    public class EventVisual : VisualElement
     {
     }
 }

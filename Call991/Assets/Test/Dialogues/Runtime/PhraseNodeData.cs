@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Configs;
 using UnityEngine;
 
 namespace Test.Dialogues
@@ -13,6 +14,7 @@ namespace Test.Dialogues
         public Vector2 Size;
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
+        public List<EventVisualData> EventVisualData;
         public List<Phrase> Phrases;
     }
 
@@ -21,13 +23,26 @@ namespace Test.Dialogues
     {
         public Person Person;
         public ScreenPlace ScreenPlace;
-        public OnPhraseEnd OnPhraseEnd;
+        public bool HideOnEnd;
     }
 
     [Serializable]
     public class PhraseVisualData
     {
         public TextAppear TextAppear;
-        public OnPhraseEnd OnPhraseEnd;
+        public bool HideOnEnd;
+    }
+    
+    [Serializable]
+    public class EventVisualData
+    {
+        public PhraseEventSo PhraseEventSo;
+        public PhraseEventTypes EventType = PhraseEventTypes.Sfx;
+        [Tooltip("If need to shop the same event started in different phrase node")]
+        public bool Stop;
+        public float Delay;
+
+        private bool Loopable() =>
+            EventType is PhraseEventTypes.LoopSfx or PhraseEventTypes.LoopVfx;
     }
 }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
@@ -46,8 +45,8 @@ namespace Test.Dialogues
         public void CreatePhraseNode(string nodeName)
         {
             var languages = contentContainer.Query<EntryPointNode>().First().GetLanguages() ?? new List<string>();
-            
-            AddElement(CreatePhraseNode(nodeName, languages));
+            var nodeData = new PhraseNodeData {DialogueText = "Phrase"};
+            AddElement(CreatePhraseNode(nodeData, languages));
         }
         
         public void CreateChoiceNode(string nodeName)
@@ -55,35 +54,32 @@ namespace Test.Dialogues
             //AddElement(CreateChoiceNode(nodeName));
         }
 
-        public PhraseNode CreatePhraseNode(string nodeName, List<string> languages, List<Phrase> phrases = null)
+        public PhraseNode CreatePhraseNode(PhraseNodeData nodeData, List<string> languages)
         {
             var node = new PhraseNode
             {
-                title = nodeName,
-                DialogueText = nodeName,
+                title = nodeData.DialogueText,
+                DialogueText = nodeData.DialogueText,
                 Guid = Guid.NewGuid().ToString(),
             };
 
             var line0 = new Label("   Person");
             node.contentContainer.Add(line0);
             
-            var personVisual = new PersonVisual();
+            var personVisual = new PersonVisual(nodeData.PersonVisualData);
             node.contentContainer.Add(personVisual);
 
             var line1 = new Label("   Phrase");
             node.contentContainer.Add(line1);
 
-            var phraseVisual = new PhraseVisual();
+            var phraseVisual = new PhraseVisual(nodeData.PhraseVisualData);
             node.contentContainer.Add(phraseVisual);
             
             var line2 = new Label(" ");
             node.contentContainer.Add(line2);
 
-            var eventContainer = new VisualElement();
-            var addEventAssetButton = new Button(() => { eventContainer.contentContainer.Add(new EventAssetField()); });
-            addEventAssetButton.text = "Event Asset";
-            eventContainer.contentContainer.Add(addEventAssetButton);
-            node.contentContainer.Add(eventContainer);
+            var phraseEvents = new PhraseEvents(nodeData.EventVisualData);
+            node.contentContainer.Add(phraseEvents);
             
             var line3 = new Label(" ");
             node.contentContainer.Add(line3);
@@ -94,7 +90,7 @@ namespace Test.Dialogues
 
             for (var i = 0; i < languages.Count; i++)
             {
-                var phrase = phrases.Count > i ? phrases[i] : null;
+                var phrase = nodeData.Phrases.Count > i ? nodeData.Phrases[i] : null;
                 node.contentContainer.Add(new PhraseAssetField(phrase));
             }
 
