@@ -64,11 +64,17 @@ namespace Test.Dialogues
 
             toolbar.Add(new Label(" | "));
             
-            var nodeCreateButton = new Button(() => _graphView.CreateNode("Dialogue Node"))
+            var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode("New Phrase"))
             {
-                text = "Create Node"
+                text = "New Phrase"
             };
-            toolbar.Add(nodeCreateButton);
+            toolbar.Add(phraseCreateButton);
+            
+            var choiceCreateButton = new Button(() => _graphView.CreateChoiceNode("New Choice"))
+            {
+                text = "New Choice"
+            };
+            toolbar.Add(choiceCreateButton);
 
             rootVisualElement.Add(toolbar);
         }

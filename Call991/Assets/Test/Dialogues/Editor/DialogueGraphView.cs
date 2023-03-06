@@ -43,14 +43,19 @@ namespace Test.Dialogues
             return compatiblePorts;
         }
 
-        public void CreateNode(string nodeName)
+        public void CreatePhraseNode(string nodeName)
         {
             var languages = contentContainer.Query<EntryPointNode>().First().GetLanguages() ?? new List<string>();
-            ;
-            AddElement(CreatePhraseNode(nodeName, languages, new List<Phrase>()));
+            
+            AddElement(CreatePhraseNode(nodeName, languages));
+        }
+        
+        public void CreateChoiceNode(string nodeName)
+        {
+            //AddElement(CreateChoiceNode(nodeName));
         }
 
-        public PhraseNode CreatePhraseNode(string nodeName, List<string> languages, List<Phrase> phrases)
+        public PhraseNode CreatePhraseNode(string nodeName, List<string> languages, List<Phrase> phrases = null)
         {
             var node = new PhraseNode
             {
@@ -59,16 +64,32 @@ namespace Test.Dialogues
                 Guid = Guid.NewGuid().ToString(),
             };
 
-            var inputPort = GraphElements.GeneratePort(node, Direction.Input, Port.Capacity.Multi);
-            inputPort.portName = "input";
-            node.inputContainer.Add(inputPort);
+            var line0 = new Label("   Person");
+            node.contentContainer.Add(line0);
+            
+            var personVisual = new PersonVisual();
+            node.contentContainer.Add(personVisual);
 
-            var addChoiceButton = new Button(() => { AddChoicePort(node); });
-            addChoiceButton.text = "+";
-            node.outputContainer.Add(addChoiceButton);
+            var line1 = new Label("   Phrase");
+            node.contentContainer.Add(line1);
+
+            var phraseVisual = new PhraseVisual();
+            node.contentContainer.Add(phraseVisual);
+            
+            var line2 = new Label(" ");
+            node.contentContainer.Add(line2);
+
+            var eventContainer = new VisualElement();
+            var addEventAssetButton = new Button(() => { eventContainer.contentContainer.Add(new EventAssetField()); });
+            addEventAssetButton.text = "Event Asset";
+            eventContainer.contentContainer.Add(addEventAssetButton);
+            node.contentContainer.Add(eventContainer);
+            
+            var line3 = new Label(" ");
+            node.contentContainer.Add(line3);
 
             var addPhraseAssetButton = new Button(() => { node.contentContainer.Add(new PhraseAssetField()); });
-            addPhraseAssetButton.text = "phraseAsset";
+            addPhraseAssetButton.text = "Phrase Asset";
             node.contentContainer.Add(addPhraseAssetButton);
 
             for (var i = 0; i < languages.Count; i++)
@@ -77,6 +98,14 @@ namespace Test.Dialogues
                 node.contentContainer.Add(new PhraseAssetField(phrase));
             }
 
+            var inputPort = GraphElements.GeneratePort(node, Direction.Input, Port.Capacity.Multi);
+            inputPort.portName = "input";
+            node.inputContainer.Add(inputPort);
+
+            var addChoiceButton = new Button(() => { AddChoicePort(node); });
+            addChoiceButton.text = "+";
+            node.outputContainer.Add(addChoiceButton);
+            
             node.RefreshExpandedState();
             node.RefreshPorts();
             node.SetPosition(new Rect(Vector2.zero, _defaultNodeSize));

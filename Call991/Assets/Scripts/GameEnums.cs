@@ -17,6 +17,12 @@ public enum Person
     JACK,
 }
 
+public enum OnPhraseEnd
+{
+    Nothing = 0,
+    HideOnEnd = 1,
+}
+
 public enum TextAppear
 {
     Word,

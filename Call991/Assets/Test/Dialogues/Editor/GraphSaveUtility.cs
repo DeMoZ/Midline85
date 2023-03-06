@@ -28,12 +28,10 @@ namespace Test.Dialogues
 
         public void SaveGraph(string fileName)
         {
-            if (!Edges.Any()) return;
-
             var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
 
             var entryContainer = Nodes.First(n => n.EntryPoint).contentContainer;
-            var languageFields = entryContainer.Query<LanguageField>();
+            var languageFields = entryContainer.Query<LanguageField>().ToList();
             languageFields.ForEach(lf => dialogueContainer.Languages.Add(lf.Language));
 
             var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
@@ -53,14 +51,18 @@ namespace Test.Dialogues
 
             foreach (var phraseNode in Nodes.Where(node => !node.EntryPoint))
             {
+                var personVisualData = phraseNode.GetPersonVisual().GetData();
+                var phraseVisualData = phraseNode.GetPhraseVisual().GetData();
                 var phrases = phraseNode.GetPhrases();
-                    
+                
                 dialogueContainer.DialogueNodeData.Add(new PhraseNodeData
                 {
                     Guid = phraseNode.Guid,
                     DialogueText = phraseNode.DialogueText,
                     Position = phraseNode.GetPosition().position,
                     Size = phraseNode.GetPosition().size,
+                    PersonVisualData = personVisualData,
+                    PhraseVisualData = phraseVisualData,
                     Phrases = phrases,
                 });
             }

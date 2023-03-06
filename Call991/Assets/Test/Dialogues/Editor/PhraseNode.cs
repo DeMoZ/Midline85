@@ -15,6 +15,19 @@ namespace Test.Dialogues
         {
             return contentContainer.Query<PhraseAssetField>().ToList().Select(f=>f.GetPhrase()).ToList();
         }
+        
+        public void GetElementId()
+        {
+        }
+    
+        public PersonVisual GetPersonVisual() => contentContainer.Query<PersonVisual>().First();
+
+        public PhraseVisual GetPhraseVisual() => contentContainer.Query<PhraseVisual>().First();
+
+        public void GetEventVisual()
+        {
+        }
+        
     }
 
     public class ChoiceNode : Node
