@@ -41,7 +41,7 @@ namespace Test.Dialogues
 
             return true;
         }
-        
+
         private void ClearGraph()
         {
             foreach (var node in Nodes)
@@ -56,12 +56,12 @@ namespace Test.Dialogues
                 _targetGraphView.RemoveElement(node);
             }
         }
-        
+
         private void CreateEntryPoint()
         {
             var entryNode = new EntryPointNode();
             //entryNode.style.width = 200;
-            
+
             _targetGraphView.AddElement(entryNode);
 
             foreach (var language in _containerCash.Languages)
@@ -72,12 +72,12 @@ namespace Test.Dialogues
                 entryNode.contentContainer.Add(languageField);
             }
         }
-        
+
         private void CreateNodes()
         {
             foreach (var nodeData in _containerCash.DialogueNodeData)
             {
-                var tmpNode = _targetGraphView.CreatePhraseNode(nodeData, _containerCash.Languages );//nodeData.DialogueText, _containerCash.Languages ,nodeData.Phrases);
+                var tmpNode = _targetGraphView.CreatePhraseNode(nodeData, _containerCash.Languages);
                 tmpNode.Guid = nodeData.Guid;
                 tmpNode.SetPosition(new Rect(nodeData.Position, nodeData.Size));
 

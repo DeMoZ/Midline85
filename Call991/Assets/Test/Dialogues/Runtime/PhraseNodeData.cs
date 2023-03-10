@@ -15,6 +15,7 @@ namespace Test.Dialogues
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
         public List<EventVisualData> EventVisualData;
+        public List<AudioClip> PhraseSounds;
         public List<Phrase> Phrases;
     }
 
@@ -32,16 +33,17 @@ namespace Test.Dialogues
         public TextAppear TextAppear;
         public bool HideOnEnd;
     }
-    
+
     [Serializable]
     public class EventVisualData
     {
         public PhraseEventSo PhraseEventSo;
         public PhraseEventTypes EventType = PhraseEventTypes.Sfx;
-        [Tooltip("If need to shop the same event started in different phrase node")]
+
+        [Tooltip("If need to stop the same event started in different phrase node")]
         public bool Stop;
         public float Delay;
-
+        
         private bool Loopable() =>
             EventType is PhraseEventTypes.LoopSfx or PhraseEventTypes.LoopVfx;
     }

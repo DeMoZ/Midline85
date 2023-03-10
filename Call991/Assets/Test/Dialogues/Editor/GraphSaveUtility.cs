@@ -54,6 +54,7 @@ namespace Test.Dialogues
                 var personVisualData = phraseNode.GetPersonVisual().GetData();
                 var phraseVisualData = phraseNode.GetPhraseVisual().GetData();
                 var eventsVisualData = phraseNode.GetEventsVisual().Select(evt => evt.GetData()).ToList();
+                var phraseSounds = phraseNode.GetPhraseSounds();
                 var phrases = phraseNode.GetPhrases();
                 
                 dialogueContainer.DialogueNodeData.Add(new PhraseNodeData
@@ -65,6 +66,7 @@ namespace Test.Dialogues
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
+                    PhraseSounds = phraseSounds,
                     Phrases = phrases,
                 });
             }

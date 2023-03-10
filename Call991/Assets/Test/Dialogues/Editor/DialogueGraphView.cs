@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
@@ -48,7 +49,7 @@ namespace Test.Dialogues
             var nodeData = new PhraseNodeData {DialogueText = "Phrase"};
             AddElement(CreatePhraseNode(nodeData, languages));
         }
-        
+
         public void CreateChoiceNode(string nodeName)
         {
             //AddElement(CreateChoiceNode(nodeName));
@@ -65,7 +66,7 @@ namespace Test.Dialogues
 
             var line0 = new Label("   Person");
             node.contentContainer.Add(line0);
-            
+
             var personVisual = new PersonVisual(nodeData.PersonVisualData);
             node.contentContainer.Add(personVisual);
 
@@ -74,25 +75,40 @@ namespace Test.Dialogues
 
             var phraseVisual = new PhraseVisual(nodeData.PhraseVisualData);
             node.contentContainer.Add(phraseVisual);
-            
+
             var line2 = new Label(" ");
             node.contentContainer.Add(line2);
 
             var phraseEvents = new PhraseEvents(nodeData.EventVisualData);
             node.contentContainer.Add(phraseEvents);
-            
+
             var line3 = new Label(" ");
             node.contentContainer.Add(line3);
 
-            var addPhraseAssetButton = new Button(() => { node.contentContainer.Add(new PhraseAssetField()); });
-            addPhraseAssetButton.text = "Phrase Asset";
-            node.contentContainer.Add(addPhraseAssetButton);
+            var phraseContainer = new VisualElement();
 
+            // var addPhraseAssetButton = new Button(() =>
+            // {
+            //     var phraseRow = new VisualElement();
+            //     phraseRow.contentContainer.Add(new PhraseElementsField());
+            //     phraseContainer.Add(phraseRow);
+            // });
+            // addPhraseAssetButton.text = "Phrase Asset";
+            // phraseContainer.Add(addPhraseAssetButton);
+
+            phraseContainer.Add(new Label("Phrase Assets"));
+            
             for (var i = 0; i < languages.Count; i++)
             {
-                var phrase = nodeData.Phrases.Count > i ? nodeData.Phrases[i] : null;
-                node.contentContainer.Add(new PhraseAssetField(phrase));
+                var phraseRow = new VisualElement();
+                
+                var clip = nodeData.PhraseSounds != null && nodeData.PhraseSounds.Count > i ? nodeData.PhraseSounds[i] : null;
+                var phrase = nodeData.Phrases != null && nodeData.Phrases.Count > i ? nodeData.Phrases[i] : null;
+                phraseRow.contentContainer.Add(new PhraseElementsField(languages[i], clip, phrase ));
+                phraseContainer.Add(phraseRow);
             }
+
+            node.contentContainer.Add(phraseContainer);
 
             var inputPort = GraphElements.GeneratePort(node, Direction.Input, Port.Capacity.Multi);
             inputPort.portName = "input";
@@ -101,7 +117,7 @@ namespace Test.Dialogues
             var addChoiceButton = new Button(() => { AddChoicePort(node); });
             addChoiceButton.text = "+";
             node.outputContainer.Add(addChoiceButton);
-            
+
             node.RefreshExpandedState();
             node.RefreshPorts();
             node.SetPosition(new Rect(Vector2.zero, _defaultNodeSize));
@@ -123,7 +139,7 @@ namespace Test.Dialogues
 
             var textField = new TextField
             {
-                name = String.Empty,
+                name = string.Empty,
                 value = choicePortName,
             };
             textField.RegisterValueChangedCallback(evt => port.portName = evt.newValue);

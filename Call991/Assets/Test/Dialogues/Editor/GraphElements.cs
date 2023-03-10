@@ -7,6 +7,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
+using Object = UnityEngine.Object;
 using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace Test.Dialogues
@@ -38,7 +39,6 @@ namespace Test.Dialogues
                 var languageField = new LanguageField(onDelete: obj => { contentContainer.Remove(obj); });
                 contentContainer.Add(languageField);
             });
-
             addLanguageButton.text = "Add Language";
             contentContainer.Add(addLanguageButton);
 
@@ -95,11 +95,44 @@ namespace Test.Dialogues
         }
     }
 
+    public class PhraseElementsField : VisualElement
+    {
+        public PhraseElementsField(string language, Object clip = null, Phrase phrase = null)
+        {
+            contentContainer.Add(new Label(language));
+            contentContainer.Add(new PhraseSoundField(clip));
+            contentContainer.Add(new PhraseAssetField(phrase));
+            contentContainer.style.flexDirection = FlexDirection.Row;
+        }
+    }
+    
+    public class PhraseSoundField : VisualElement
+    {
+        private ObjectField _objectField;
+
+        public PhraseSoundField(Object clip = null)
+        {
+            _objectField = new ObjectField
+            {
+                objectType = typeof(AudioClip),
+                allowSceneObjects = false,
+                value = clip,
+            };
+
+            contentContainer.Add(_objectField);
+        }
+
+        public AudioClip GetPhraseSound()
+        {
+            return _objectField.value as AudioClip;
+        }
+    }
+    
     public class PhraseAssetField : VisualElement
     {
         private ObjectField _objectField;
 
-        public PhraseAssetField(Phrase phraseAsset = null)
+        public PhraseAssetField(Object phraseAsset = null)
         {
             _objectField = new ObjectField
             {

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Test.Dialogues
@@ -11,6 +12,11 @@ namespace Test.Dialogues
         public string DialogueText;
         public bool EntryPoint = false;
 
+        public List<AudioClip> GetPhraseSounds()
+        {
+            return contentContainer.Query<PhraseSoundField>().ToList().Select(f=>f.GetPhraseSound()).ToList();
+        }
+        
         public List<Phrase> GetPhrases()
         {
             return contentContainer.Query<PhraseAssetField>().ToList().Select(f=>f.GetPhrase()).ToList();
