@@ -59,16 +59,12 @@ namespace Test.Dialogues
 
         private void CreateEntryPoint()
         {
-            var entryNode = new EntryPointNode();
-            //entryNode.style.width = 200;
-
+            var entryNode = new EntryPointNode(_languageOperation);
             _targetGraphView.AddElement(entryNode);
 
             foreach (var language in _containerCash.Languages)
             {
-                var languageField = new LanguageField(language,
-                    onDelete: obj => { entryNode.contentContainer.Remove(obj); });
-
+                var languageField = new LanguageField(language, _languageOperation); //obj => { entryNode.contentContainer.Remove(obj); });
                 entryNode.contentContainer.Add(languageField);
             }
         }

@@ -12,6 +12,25 @@ using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace Test.Dialogues
 {
+    public enum LanguageOperationType
+    {
+        Add,
+        Change,
+        Remove,
+    }
+
+    public static class AaGraphConstants
+    {
+        public const string NewLanguageName = "new";
+    }
+    
+    public class LanguageOperation
+    {
+        public LanguageOperationType Type;
+        public string Value;
+        public VisualElement Element;
+    }
+
     public static class GraphElements
     {
         public static Port GeneratePort(PhraseNode node, Direction portDirection,
@@ -23,7 +42,7 @@ namespace Test.Dialogues
 
     public class EntryPointNode : PhraseNode
     {
-        public EntryPointNode()
+        public EntryPointNode(AaReactive<LanguageOperation> onLanguageChange)
         {
             title = "Start";
             DialogueText = "Entry Point";
@@ -36,8 +55,14 @@ namespace Test.Dialogues
 
             var addLanguageButton = new Button(() =>
             {
-                var languageField = new LanguageField(onDelete: obj => { contentContainer.Remove(obj); });
+                var languageField = new LanguageField(AaGraphConstants.NewLanguageName, onLanguageChange);
                 contentContainer.Add(languageField);
+                
+                onLanguageChange.Value = new LanguageOperation
+                {
+                    Type = LanguageOperationType.Add,
+                    Value = AaGraphConstants.NewLanguageName
+                };
             });
             addLanguageButton.text = "Add Language";
             contentContainer.Add(addLanguageButton);
@@ -62,9 +87,9 @@ namespace Test.Dialogues
     {
         public string Language;
 
-        public LanguageField(string language = null, Action<VisualElement> onDelete = null)
+        public LanguageField(string language, AaReactive<LanguageOperation> onLanguage)
         {
-            language ??= "new";
+            language ??= AaGraphConstants.NewLanguageName;
             Language = language;
 
             var languageLabel = new Label(language);
@@ -81,9 +106,23 @@ namespace Test.Dialogues
                 textField.name = evt.newValue;
                 languageLabel.text = evt.newValue;
                 Language = evt.newValue;
+                
+                onLanguage.Value = new LanguageOperation
+                {
+                    Type = LanguageOperationType.Change,
+                    Value = evt.newValue,
+                    Element = this
+                };
             });
 
-            var deleteLanguageButton = new Button(() => { onDelete?.Invoke(this); })
+            var deleteLanguageButton = new Button(() =>
+            {
+                onLanguage.Value = new LanguageOperation
+                {
+                    Type = LanguageOperationType.Remove,
+                    Element = this
+                };
+            })
             {
                 text = "X",
             };
@@ -95,9 +134,15 @@ namespace Test.Dialogues
         }
     }
 
-    public class PhraseElementsField : VisualElement
+    /// <summary>
+    /// Helper element to be able to find contaniter with phrases
+    /// </summary>
+    public class PhraseElementsTable : VisualElement
     {
-        public PhraseElementsField(string language, Object clip = null, Phrase phrase = null)
+    }
+    public class PhraseElementsRowField : VisualElement
+    {
+        public PhraseElementsRowField(string language, Object clip = null, Phrase phrase = null)
         {
             contentContainer.Add(new Label(language));
             contentContainer.Add(new PhraseSoundField(clip));
@@ -105,7 +150,7 @@ namespace Test.Dialogues
             contentContainer.style.flexDirection = FlexDirection.Row;
         }
     }
-    
+
     public class PhraseSoundField : VisualElement
     {
         private ObjectField _objectField;
@@ -127,7 +172,7 @@ namespace Test.Dialogues
             return _objectField.value as AudioClip;
         }
     }
-    
+
     public class PhraseAssetField : VisualElement
     {
         private ObjectField _objectField;

@@ -13,7 +13,7 @@ namespace Test.Dialogues
     {
         private readonly Vector2 _defaultNodeSize = new(150, 200);
 
-        public DialogueGraphView()
+        public DialogueGraphView(AaReactive<LanguageOperation> languageOperation)
         {
             styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraphBackground"));
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
@@ -26,7 +26,8 @@ namespace Test.Dialogues
             Insert(0, gridBackground);
             gridBackground.StretchToParentSize();
 
-            AddElement(new EntryPointNode());
+            languageOperation.Subscribe(OnLanguageChange);
+            AddElement(new EntryPointNode(languageOperation));
         }
 
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -85,27 +86,16 @@ namespace Test.Dialogues
             var line3 = new Label(" ");
             node.contentContainer.Add(line3);
 
-            var phraseContainer = new VisualElement();
-
-            // var addPhraseAssetButton = new Button(() =>
-            // {
-            //     var phraseRow = new VisualElement();
-            //     phraseRow.contentContainer.Add(new PhraseElementsField());
-            //     phraseContainer.Add(phraseRow);
-            // });
-            // addPhraseAssetButton.text = "Phrase Asset";
-            // phraseContainer.Add(addPhraseAssetButton);
-
+            var phraseContainer = new PhraseElementsTable() ;
             phraseContainer.Add(new Label("Phrase Assets"));
-            
+
             for (var i = 0; i < languages.Count; i++)
             {
-                var phraseRow = new VisualElement();
-                
-                var clip = nodeData.PhraseSounds != null && nodeData.PhraseSounds.Count > i ? nodeData.PhraseSounds[i] : null;
+                var clip = nodeData.PhraseSounds != null && nodeData.PhraseSounds.Count > i
+                    ? nodeData.PhraseSounds[i]
+                    : null;
                 var phrase = nodeData.Phrases != null && nodeData.Phrases.Count > i ? nodeData.Phrases[i] : null;
-                phraseRow.contentContainer.Add(new PhraseElementsField(languages[i], clip, phrase ));
-                phraseContainer.Add(phraseRow);
+                phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase));
             }
 
             node.contentContainer.Add(phraseContainer);
@@ -123,6 +113,59 @@ namespace Test.Dialogues
             node.SetPosition(new Rect(Vector2.zero, _defaultNodeSize));
 
             return node;
+        }
+
+        /// <summary>
+        /// On Entry Node add/change/remove language process the operations
+        /// </summary>
+        private void OnLanguageChange(LanguageOperation languageOperation)
+        {
+            var phraseNodes = contentContainer.Query<PhraseNode>().ToList();
+            
+            var entryNode = contentContainer.Query<EntryPointNode>().First();
+            var languageFields = entryNode.Query<LanguageField>().ToList();
+            var index = languageFields.IndexOf(languageOperation.Element as LanguageField);
+            
+            switch (languageOperation.Type)
+            {
+                case LanguageOperationType.Add:
+                    foreach (var node in phraseNodes)
+                    {
+                        if (node.EntryPoint) continue;
+
+                        var phraseContainer = node.Query<PhraseElementsTable>().First();
+                        phraseContainer?.Add(new PhraseElementsRowField(AaGraphConstants.NewLanguageName));
+                    }
+                    break;
+                case LanguageOperationType.Change:
+                    foreach (var node in phraseNodes)
+                    {
+                        if (node.EntryPoint) continue;
+                        
+                        var rows = node.Query<PhraseElementsRowField>().ToList();
+                        var row = rows[index]; 
+                        var label  = row.Query<Label>().First();
+                        label.text = languageOperation.Value;
+                    }
+                    break;
+                
+                case LanguageOperationType.Remove:
+                    foreach (var node in phraseNodes)
+                    {
+                        if (node.EntryPoint) continue;
+
+                        var rows = node.Query<PhraseElementsRowField>().ToList();
+                        var row = rows[index]; 
+                        var phraseContainer = node.Query<PhraseElementsTable>().First();
+                        phraseContainer.Remove(row);
+                    }
+                    
+                    entryNode.Remove(languageOperation.Element);
+                    break;
+                
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         public void AddChoicePort(PhraseNode node, string overwriteName = null)

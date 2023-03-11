@@ -15,14 +15,18 @@ namespace Test.Dialogues
         private DialogueGraphView _targetGraphView;
         private DialogueContainer _containerCash;
 
+        private AaReactive<LanguageOperation> _languageOperation;
+        
         private List<Edge> Edges => _targetGraphView.edges.ToList();
         private List<PhraseNode> Nodes => _targetGraphView.nodes.ToList().Cast<PhraseNode>().ToList();
 
-        public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView)
+        public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView,
+            AaReactive<LanguageOperation> languageOperation)
         {
             return new GraphSaveUtility
             {
                 _targetGraphView = targetGraphView,
+                _languageOperation = languageOperation,
             };
         }
 

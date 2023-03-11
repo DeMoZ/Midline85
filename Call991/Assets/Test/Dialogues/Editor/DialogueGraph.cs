@@ -11,6 +11,7 @@ namespace Test.Dialogues
 
         private DialogueGraphView _graphView;
         private TextField _fileNameTextField;
+        private AaReactive<LanguageOperation> _languageOperation;
 
         [MenuItem("Aa/Dialogue Graph")]
         public static void OpenDialogueGraphWindow()
@@ -27,7 +28,9 @@ namespace Test.Dialogues
 
         private void ConstructGraph()
         {
-            _graphView = new DialogueGraphView
+            _languageOperation = new ();
+
+            _graphView = new DialogueGraphView(_languageOperation)
             {
                 name = "Dialogue Graph",
             };
@@ -87,13 +90,13 @@ namespace Test.Dialogues
                 return;
             }
 
-            var saveUtility = GraphSaveUtility.GetInstance(_graphView);
+            var saveUtility = GraphSaveUtility.GetInstance(_graphView, _languageOperation);
             saveUtility.SaveGraph(_fileName);
         }
 
         private void LoadData()
         {
-            var saveUtility = GraphSaveUtility.GetInstance(_graphView);
+            var saveUtility = GraphSaveUtility.GetInstance(_graphView, _languageOperation);
 
             if (!saveUtility.LoadGraph(ref _fileName))
             {
