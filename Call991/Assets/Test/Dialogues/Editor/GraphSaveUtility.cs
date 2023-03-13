@@ -53,6 +53,8 @@ namespace Test.Dialogues
                 });
             }
 
+            dialogueContainer.EntryGuid = Nodes.First(node => node.EntryPoint).Guid;
+            
             foreach (var phraseNode in Nodes.Where(node => !node.EntryPoint))
             {
                 var personVisualData = phraseNode.GetPersonVisual().GetData();

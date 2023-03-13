@@ -38,6 +38,7 @@ namespace Test.Dialogues
             CreateEntryPoint();
             CreateNodes();
             ConnectNodes();
+            SetPositions();
 
             return true;
         }
@@ -62,9 +63,13 @@ namespace Test.Dialogues
             var entryNode = new EntryPointNode(_languageOperation);
             _targetGraphView.AddElement(entryNode);
 
+            entryNode.Guid = _containerCash.EntryGuid;
+
             foreach (var language in _containerCash.Languages)
             {
-                var languageField = new LanguageField(language, _languageOperation); //obj => { entryNode.contentContainer.Remove(obj); });
+                var languageField =
+                    new LanguageField(language,
+                        _languageOperation); //obj => { entryNode.contentContainer.Remove(obj); });
                 entryNode.contentContainer.Add(languageField);
             }
         }
@@ -75,8 +80,6 @@ namespace Test.Dialogues
             {
                 var tmpNode = _targetGraphView.CreatePhraseNode(nodeData, _containerCash.Languages);
                 tmpNode.Guid = nodeData.Guid;
-                tmpNode.SetPosition(new Rect(nodeData.Position, nodeData.Size));
-
                 _targetGraphView.AddElement(tmpNode);
 
                 var ports = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == nodeData.Guid).ToList();
@@ -86,15 +89,20 @@ namespace Test.Dialogues
 
         private void ConnectNodes()
         {
-            for (var i = 0; i < Nodes.Count; i++)
+            foreach (var node in Nodes)
             {
-                var connections = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == Nodes[i].Guid).ToList();
+                var nodeLinkData = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == node.Guid).ToList();
+                var portsOut = node.outputContainer.Query<Port>().ToList();
 
-                for (var j = 0; j < connections.Count; j++)
+                for (var j = 0; j < nodeLinkData.Count; j++)
                 {
-                    var targetNodeGuid = connections[j].TargetNodeGuid;
+                    var targetNodeGuid = nodeLinkData[j].TargetNodeGuid;
                     var targetNode = Nodes.First(x => x.Guid == targetNodeGuid);
-                    LinkNodes(Nodes[i].outputContainer[j].Q<Port>(), (Port) targetNode.inputContainer[0]);
+                    var portOut = portsOut[j];//node.outputContainer[j].Q<Port>();
+                    var portIn = (Port) targetNode.inputContainer[0];
+
+                    // link
+                    LinkNodes(portOut, portIn);
                 }
             }
         }
@@ -110,6 +118,17 @@ namespace Test.Dialogues
             tempEdge.input?.Connect(tempEdge);
             tempEdge.output?.Connect(tempEdge);
             _targetGraphView.Add(tempEdge);
+        }
+
+        private void SetPositions()
+        {
+            foreach (var node in Nodes)
+            {
+                if (node.EntryPoint) continue;
+
+                var cashNode = _containerCash.DialogueNodeData.First(n => n.Guid == node.Guid);
+                node.SetPosition(new Rect(cashNode.Position, cashNode.Size));
+            }
         }
     }
 }
