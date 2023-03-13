@@ -18,7 +18,7 @@ namespace Test.Dialogues
         private AaReactive<LanguageOperation> _languageOperation;
         
         private List<Edge> Edges => _targetGraphView.edges.ToList();
-        private List<PhraseNode> Nodes => _targetGraphView.nodes.ToList().Cast<PhraseNode>().ToList();
+        private List<PhraseNode> PhraseNodes => _targetGraphView.Query<PhraseNode>().ToList().ToList();
 
         public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView,
             AaReactive<LanguageOperation> languageOperation)
@@ -34,7 +34,7 @@ namespace Test.Dialogues
         {
             var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
 
-            var entryContainer = Nodes.First(n => n.EntryPoint).contentContainer;
+            var entryContainer = PhraseNodes.First(n => n.EntryPoint).contentContainer;
             var languageFields = entryContainer.Query<LanguageField>().ToList();
             languageFields.ForEach(lf => dialogueContainer.Languages.Add(lf.Language));
 
@@ -53,9 +53,9 @@ namespace Test.Dialogues
                 });
             }
 
-            dialogueContainer.EntryGuid = Nodes.First(node => node.EntryPoint).Guid;
+            dialogueContainer.EntryGuid = PhraseNodes.First(node => node.EntryPoint).Guid;
             
-            foreach (var phraseNode in Nodes.Where(node => !node.EntryPoint))
+            foreach (var phraseNode in PhraseNodes.Where(node => !node.EntryPoint))
             {
                 var personVisualData = phraseNode.GetPersonVisual().GetData();
                 var phraseVisualData = phraseNode.GetPhraseVisual().GetData();

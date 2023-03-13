@@ -6,12 +6,10 @@ using UnityEngine;
 namespace Test.Dialogues
 {
     [Serializable]
-    public class PhraseNodeData
+    public class PhraseNodeData : AaNodeData
     {
-        public string Guid;
         public string DialogueText;
-        public Vector2 Position;
-        public Vector2 Size;
+        
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
         public List<EventVisualData> EventVisualData;

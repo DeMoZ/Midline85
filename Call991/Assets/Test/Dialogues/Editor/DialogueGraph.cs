@@ -7,7 +7,7 @@ namespace Test.Dialogues
 {
     public class DialogueGraph : EditorWindow
     {
-        private string _fileName = "NewDialogue";
+        private string _fileName = AaGraphConstants.DefaultFileName;
 
         private DialogueGraphView _graphView;
         private TextField _fileNameTextField;
@@ -17,7 +17,7 @@ namespace Test.Dialogues
         public static void OpenDialogueGraphWindow()
         {
             var window = GetWindow<DialogueGraph>();
-            window.titleContent = new GUIContent("Dialogue Graph");
+            window.titleContent = new GUIContent(AaGraphConstants.DialogueGraph);
         }
 
         private void OnEnable()
@@ -28,11 +28,11 @@ namespace Test.Dialogues
 
         private void ConstructGraph()
         {
-            _languageOperation = new ();
+            _languageOperation = new();
 
             _graphView = new DialogueGraphView(_languageOperation)
             {
-                name = "Dialogue Graph",
+                name = AaGraphConstants.DialogueGraph,
             };
 
             _graphView.StretchToParentSize();
@@ -45,37 +45,37 @@ namespace Test.Dialogues
 
             toolbar.Add(new Label("| FileName:"));
 
-            _fileNameTextField = new TextField(/*"FileName"*/);
+            _fileNameTextField = new TextField();
             _fileNameTextField.SetValueWithoutNotify(_fileName);
             _fileNameTextField.MarkDirtyRepaint();
             _fileNameTextField.RegisterValueChangedCallback(evt => _fileName = evt.newValue);
             toolbar.Add(_fileNameTextField);
-            
+
             var saveDataButton = new Button(() => SaveData())
             {
-                text = "Save Data"
-            }; 
+                text = AaGraphConstants.SaveData,
+            };
             toolbar.Add(saveDataButton);
 
-            toolbar.Add(new Label(" | "));
+            toolbar.Add(new Label(AaGraphConstants.LineSpace));
 
             var loadDataButton = new Button(() => LoadData())
             {
-                text = "Load Data"
-            }; 
+                text = AaGraphConstants.LoadData,
+            };
             toolbar.Add(loadDataButton);
 
-            toolbar.Add(new Label(" | "));
-            
+            toolbar.Add(new Label(AaGraphConstants.LineSpace));
+
             var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode("New Phrase"))
             {
-                text = "New Phrase"
+                text = AaGraphConstants.NewPhraseNode,
             };
             toolbar.Add(phraseCreateButton);
-            
+
             var choiceCreateButton = new Button(() => _graphView.CreateChoiceNode("New Choice"))
             {
-                text = "New Choice"
+                text = AaGraphConstants.NewChoiceNode,
             };
             toolbar.Add(choiceCreateButton);
 

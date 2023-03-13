@@ -45,7 +45,7 @@ namespace Test.Dialogues
 
         private void ClearGraph()
         {
-            foreach (var node in Nodes)
+            foreach (var node in PhraseNodes)
             {
                 // if (node.EntryPoint)
                 // {
@@ -89,7 +89,7 @@ namespace Test.Dialogues
 
         private void ConnectNodes()
         {
-            foreach (var node in Nodes)
+            foreach (var node in PhraseNodes)
             {
                 var nodeLinkData = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == node.Guid).ToList();
                 var portsOut = node.outputContainer.Query<Port>().ToList();
@@ -97,7 +97,7 @@ namespace Test.Dialogues
                 for (var j = 0; j < nodeLinkData.Count; j++)
                 {
                     var targetNodeGuid = nodeLinkData[j].TargetNodeGuid;
-                    var targetNode = Nodes.First(x => x.Guid == targetNodeGuid);
+                    var targetNode = PhraseNodes.First(x => x.Guid == targetNodeGuid);
                     var portOut = portsOut[j];//node.outputContainer[j].Q<Port>();
                     var portIn = (Port) targetNode.inputContainer[0];
 
@@ -122,7 +122,7 @@ namespace Test.Dialogues
 
         private void SetPositions()
         {
-            foreach (var node in Nodes)
+            foreach (var node in PhraseNodes)
             {
                 if (node.EntryPoint) continue;
 

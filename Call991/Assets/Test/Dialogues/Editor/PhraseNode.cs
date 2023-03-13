@@ -1,43 +1,27 @@
 using System.Collections.Generic;
 using System.Linq;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace Test.Dialogues
 {
-    public class PhraseNode : Node
+    public class PhraseNode : AaNode
     {
-        public string Guid;
         public string DialogueText;
-        public bool EntryPoint = false;
 
-        public List<AudioClip> GetPhraseSounds()
-        {
-            return contentContainer.Query<PhraseSoundField>().ToList().Select(f=>f.GetPhraseSound()).ToList();
-        }
-        
-        public List<Phrase> GetPhrases()
-        {
-            return contentContainer.Query<PhraseAssetField>().ToList().Select(f=>f.GetPhrase()).ToList();
-        }
-        
-        public void GetElementId()
-        {
-        }
-    
-        public PersonVisual GetPersonVisual() => contentContainer.Query<PersonVisual>().First();
+        public List<AudioClip> GetPhraseSounds() => 
+            contentContainer.Query<PhraseSoundField>().ToList().Select(field=>field.GetPhraseSound()).ToList();
 
-        public PhraseVisual GetPhraseVisual() => contentContainer.Query<PhraseVisual>().First();
+        public List<Phrase> GetPhrases() => 
+            contentContainer.Query<PhraseAssetField>().ToList().Select(field=>field.GetPhrase()).ToList();
 
-        public List<EventVisual> GetEventsVisual()
-        {
-            return contentContainer.Query<EventVisual>().ToList();
-        }
-        
-    }
+        public PersonVisual GetPersonVisual() => 
+            contentContainer.Query<PersonVisual>().First();
 
-    public class ChoiceNode : Node
-    {
+        public PhraseVisual GetPhraseVisual() => 
+            contentContainer.Query<PhraseVisual>().First();
+
+        public List<EventVisual> GetEventsVisual() => 
+            contentContainer.Query<EventVisual>().ToList();
     }
 }

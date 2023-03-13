@@ -12,6 +12,14 @@ using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace Test.Dialogues
 {
+    public enum AaNodeType
+    {
+        Phrase,
+        EntryPoint,
+        ChoiceNode,
+        MultiPhrase,
+    }
+    
     public enum LanguageOperationType
     {
         Add,
@@ -21,7 +29,22 @@ namespace Test.Dialogues
 
     public static class AaGraphConstants
     {
+        public const string DefaultFileName = "NewDialogue";
         public const string NewLanguageName = "new";
+        
+        public const string DialogueGraph = "Dialogue Graph";
+        public const string NewChoiceNode = "Choices Node";
+        public const string NewPhraseNode = "Phrase Node";
+        
+        public const string SaveData = "Save Data";
+        public const string LoadData = "Load Data";
+        
+        public const string LineSpace = " | ";
+        public const string InPortName = "in";
+        public const string OutPortName = "out";
+        
+        public const string NoData = "NO DATA";
+        
     }
     
     public class LanguageOperation
@@ -33,7 +56,7 @@ namespace Test.Dialogues
 
     public static class GraphElements
     {
-        public static Port GeneratePort(PhraseNode node, Direction portDirection,
+        public static Port GeneratePort(AaNode node, Direction portDirection,
             Port.Capacity capacity = Port.Capacity.Single)
         {
             return node.InstantiatePort(Orientation.Horizontal, portDirection, capacity, typeof(float));
@@ -47,7 +70,7 @@ namespace Test.Dialogues
             title = "Start";
             DialogueText = "Entry Point";
             Guid = System.Guid.NewGuid().ToString();
-            EntryPoint = true;
+            NodeType = AaNodeType.EntryPoint;
 
             var port = GraphElements.GeneratePort(this, Direction.Output);
             port.portName = "Next";
@@ -363,7 +386,12 @@ namespace Test.Dialogues
 
     #endregion
 
-    public class ElementId : VisualElement
+    public class ChoiceTable : VisualElement
     {
+    }
+
+    public class ChoicePort : VisualElement
+    {
+        
     }
 }

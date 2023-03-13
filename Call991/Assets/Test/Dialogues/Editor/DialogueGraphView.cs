@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEditor.Experimental.GraphView;
-using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Button = UnityEngine.UIElements.Button;
@@ -53,7 +52,7 @@ namespace Test.Dialogues
 
         public void CreateChoiceNode(string nodeName)
         {
-            //AddElement(CreateChoiceNode(nodeName));
+            AddElement(new ChoiceNode());
         }
 
         public PhraseNode CreatePhraseNode(PhraseNodeData nodeData, List<string> languages)
