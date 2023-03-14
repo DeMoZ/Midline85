@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using I2.Loc;
 using UnityEditor.Experimental.GraphView;
-using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace Test.Dialogues
@@ -26,11 +25,7 @@ namespace Test.Dialogues
         public ChoiceNode(List<ChoiceData> choices = null)
         {
             NodeType = AaNodeType.ChoiceNode;
-            title = "Choice";
-
-            var keysPopup = new PopupField<string>("", ChoiceKeys, ChoiceKeys?[0] ?? AaGraphConstants.NoData,
-                KeyToTextTitle());
-            titleContainer.Add(keysPopup);
+            titleContainer.Add(new ChoicePopupField(ChoiceKeys));
 
             var inPort = GraphElements.GeneratePort(this, Direction.Input, Port.Capacity.Multi);
             inPort.portName = AaGraphConstants.InPortName;
@@ -40,38 +35,44 @@ namespace Test.Dialogues
             outPort.portName = AaGraphConstants.OutPortName;
             outputContainer.Add(outPort);
 
+            var foldout = new Foldout();
+            foldout.value = false;
+            UpdateCasesCount(foldout);
+
             var buttonsContainer = new VisualElement();
             buttonsContainer.style.flexDirection = FlexDirection.Row;
 
-            buttonsContainer.Add(new Label("Case"));
-            
-            var addAndCase = new Button(() => { contentContainer.Add(new AndChoiceCase("and", RemoveElement)); });
+            var addAndCase = new Button(() =>
+            {
+                foldout.Add(new AndChoiceCase("and", element => RemoveElement(element, foldout)));
+                UpdateCasesCount(foldout);
+            });
             addAndCase.text = "+And";
             buttonsContainer.Add(addAndCase);
 
-            var addNoCase = new Button(() => { contentContainer.Add(new NoChoiceCase("no", RemoveElement)); });
+            var addNoCase = new Button(() =>
+            {
+                foldout.Add(new NoChoiceCase("no", element => RemoveElement(element, foldout)));
+                UpdateCasesCount(foldout);
+            });
             addNoCase.text = "+No";
             buttonsContainer.Add(addNoCase);
 
-            contentContainer.Add(buttonsContainer);
+            foldout.Add(buttonsContainer);
+            contentContainer.Add(foldout);
         }
 
-        private void RemoveElement(VisualElement element)
+        private void UpdateCasesCount(Foldout foldout)
+        {
+            var cnt = foldout.Query<ChoiceCase>().ToList().Count;
+            foldout.text = $"Cases {cnt}";
+        }
+
+        private void RemoveElement(VisualElement element, Foldout foldout)
         {
             contentContainer.Remove(element);
+            UpdateCasesCount(foldout);
         }
-
-        private Func<string, string> KeyToTextTitle()
-        {
-            return val =>
-            {
-                string textValue = new LocalizedString(val);
-                textValue = textValue.Split(" ")[0];
-                title = textValue;
-                return val;
-            };
-        }
-
 
         public abstract class ChoiceCase : VisualElement
         {
@@ -85,16 +86,39 @@ namespace Test.Dialogues
                 });
                 contentContainer.Add(new Label(caseName));
 
-                var keysPopup = new PopupField<string>("", ChoiceKeys, ChoiceKeys?[0] ?? AaGraphConstants.NoData);
-                contentContainer.Add(keysPopup);
+                contentContainer.Add(new ChoicePopupField(ChoiceKeys));
 
-                contentContainer.Add(new Button(() => { })
+                contentContainer.Add(new Button(AddCaseField)
                 {
                     text = "or",
                 });
             }
+
+            private void AddCaseField() =>
+                contentContainer.Add(new ChoicePopupField(ChoiceKeys));
         }
 
+        public class ChoicePopupField : VisualElement
+        {
+            public ChoicePopupField(List<string> keys)
+            {
+                var label = new Label();
+
+                contentContainer.Add(new NoEnumPopup(ChoiceKeys, val => label.text = KeyToTextTitle(val)));
+                contentContainer.Add(label);
+            }
+
+            private static string KeyToTextTitle(string val)
+            {
+                string textValue = new LocalizedString(val);
+                textValue = textValue.Split(" ")[0];
+                return textValue;
+            }
+        }
+
+        /// <summary>
+        /// To easily find data for save/load
+        /// </summary>
         public class AndChoiceCase : ChoiceCase
         {
             public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete) : base(caseName, onDelete)
@@ -102,6 +126,9 @@ namespace Test.Dialogues
             }
         }
 
+        /// <summary>
+        /// To easily find data for save/load
+        /// </summary>
         public class NoChoiceCase : ChoiceCase
         {
             public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete) : base(caseName, onDelete)

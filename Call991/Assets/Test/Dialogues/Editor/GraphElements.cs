@@ -386,12 +386,15 @@ namespace Test.Dialogues
 
     #endregion
 
-    public class ChoiceTable : VisualElement
+    public class NoEnumPopup : VisualElement
     {
-    }
-
-    public class ChoicePort : VisualElement
-    {
-        
+        public NoEnumPopup(List<string> keys, Action<string> onChange)
+        {
+            contentContainer.Add(new PopupField<string>("", keys, keys?[0] ?? AaGraphConstants.NoData, val=>
+            {
+                onChange?.Invoke(val);
+                return val;
+            }));
+        }
     }
 }
