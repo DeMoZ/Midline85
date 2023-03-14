@@ -63,13 +63,12 @@ namespace Test.Dialogues
         }
     }
 
-    public class EntryPointNode : PhraseNode
+    public class EntryPointNode : AaNode
     {
-        public EntryPointNode(AaReactive<LanguageOperation> onLanguageChange)
+        public EntryPointNode(AaReactive<LanguageOperation> onLanguageChange, string guid = null)
         {
             title = "Start";
-            DialogueText = "Entry Point";
-            Guid = System.Guid.NewGuid().ToString();
+            Guid = guid ?? System.Guid.NewGuid().ToString();
             NodeType = AaNodeType.EntryPoint;
 
             var port = GraphElements.GeneratePort(this, Direction.Output);

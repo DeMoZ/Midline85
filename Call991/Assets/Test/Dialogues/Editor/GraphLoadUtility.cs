@@ -47,12 +47,6 @@ namespace Test.Dialogues
         {
             foreach (var node in PhraseNodes)
             {
-                // if (node.EntryPoint)
-                // {
-                //     node.Guid = _containerCash.NodeLinks[0].BaseNodeGuid;
-                //     continue;
-                // }
-
                 Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
                 _targetGraphView.RemoveElement(node);
             }
@@ -60,17 +54,12 @@ namespace Test.Dialogues
 
         private void CreateEntryPoint()
         {
-            var entryNode = new EntryPointNode(_languageOperation);
+            var entryNode = new EntryPointNode(_languageOperation, _containerCash.EntryGuid);
             _targetGraphView.AddElement(entryNode);
-
-            entryNode.Guid = _containerCash.EntryGuid;
 
             foreach (var language in _containerCash.Languages)
             {
-                var languageField =
-                    new LanguageField(language,
-                        _languageOperation); //obj => { entryNode.contentContainer.Remove(obj); });
-                entryNode.contentContainer.Add(languageField);
+                entryNode.contentContainer.Add(new LanguageField(language, _languageOperation));
             }
         }
 
@@ -78,12 +67,8 @@ namespace Test.Dialogues
         {
             foreach (var nodeData in _containerCash.DialogueNodeData)
             {
-                var tmpNode = _targetGraphView.CreatePhraseNode(nodeData, _containerCash.Languages);
-                tmpNode.Guid = nodeData.Guid;
+                var tmpNode = new PhraseNode(nodeData, _containerCash.Languages, nodeData.Guid);
                 _targetGraphView.AddElement(tmpNode);
-
-                var ports = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == nodeData.Guid).ToList();
-                ports.ForEach(x => _targetGraphView.AddChoicePort(tmpNode, x.PortName));
             }
         }
 
@@ -92,13 +77,16 @@ namespace Test.Dialogues
             foreach (var node in PhraseNodes)
             {
                 var nodeLinkData = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == node.Guid).ToList();
-                var portsOut = node.outputContainer.Query<Port>().ToList();
+                var outPort = node.outputContainer.Q<Port>();
 
                 for (var j = 0; j < nodeLinkData.Count; j++)
                 {
                     var targetNodeGuid = nodeLinkData[j].TargetNodeGuid;
-                    var targetNode = PhraseNodes.First(x => x.Guid == targetNodeGuid);
-                    var portOut = portsOut[j];//node.outputContainer[j].Q<Port>();
+                    var targetNode = PhraseNodes.FirstOrDefault(x => x.Guid == targetNodeGuid);
+                    
+                    if (targetNode == null) continue;
+                    
+                    var portOut = outPort;
                     var portIn = (Port) targetNode.inputContainer[0];
 
                     // link

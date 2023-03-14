@@ -67,7 +67,7 @@ namespace Test.Dialogues
 
             toolbar.Add(new Label(AaGraphConstants.LineSpace));
 
-            var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode("New Phrase"))
+            var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode())
             {
                 text = AaGraphConstants.NewPhraseNode,
             };

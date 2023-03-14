@@ -18,7 +18,7 @@ namespace Test.Dialogues
         private AaReactive<LanguageOperation> _languageOperation;
         
         private List<Edge> Edges => _targetGraphView.edges.ToList();
-        private List<PhraseNode> PhraseNodes => _targetGraphView.Query<PhraseNode>().ToList().ToList();
+        private List<AaNode> PhraseNodes => _targetGraphView.Query<AaNode>().ToList();
 
         public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView,
             AaReactive<LanguageOperation> languageOperation)
@@ -42,8 +42,8 @@ namespace Test.Dialogues
 
             foreach (var port in connectedPorts)
             {
-                var inputNode = port.input.node as PhraseNode;
-                var outputNode = port.output.node as PhraseNode;
+                var inputNode = port.input.node as AaNode;
+                var outputNode = port.output.node as AaNode;
 
                 dialogueContainer.NodeLinks.Add(new NodeLinkData
                 {
@@ -55,8 +55,12 @@ namespace Test.Dialogues
 
             dialogueContainer.EntryGuid = PhraseNodes.First(node => node.EntryPoint).Guid;
             
-            foreach (var phraseNode in PhraseNodes.Where(node => !node.EntryPoint))
+            foreach (var node in PhraseNodes.Where(node => !node.EntryPoint))
             {
+                var phraseNode = node as PhraseNode;
+                
+                if (phraseNode == null) continue;
+                
                 var personVisualData = phraseNode.GetPersonVisual().GetData();
                 var phraseVisualData = phraseNode.GetPhraseVisual().GetData();
                 var eventsVisualData = phraseNode.GetEventsVisual().Select(evt => evt.GetData()).ToList();
