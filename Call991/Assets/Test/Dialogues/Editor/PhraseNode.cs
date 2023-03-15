@@ -12,32 +12,50 @@ namespace Test.Dialogues
 
         public string DialogueText;
 
+        private string _personTxt;
+        private string _phraseSketchTxt;
+        
         public PhraseNode(PhraseNodeData nodeData, List<string> languages, string guid = null)
         {
             title = nodeData.DialogueText;
             DialogueText = nodeData.DialogueText;
             Guid = guid ?? System.Guid.NewGuid().ToString();
 
+            var contentFolder = new Foldout();
+            contentFolder.value = false;
+            contentContainer.Add(contentFolder);
+            
+            var titleTextField = new PhraseSketchField(val =>
+            {
+                _phraseSketchTxt = val;
+                title = GetTitle(_personTxt, _phraseSketchTxt);
+            });
+            contentFolder.Add(titleTextField);   
+            
             var line0 = new Label("   Person");
-            contentContainer.Add(line0);
+            contentFolder.Add(line0);
 
-            var personVisual = new PersonVisual(nodeData.PersonVisualData);
-            contentContainer.Add(personVisual);
+            var personVisual = new PersonVisual(nodeData.PersonVisualData, val =>
+            {
+                _personTxt = val;
+                title = GetTitle(_personTxt, _phraseSketchTxt);
+            });
+            contentFolder.Add(personVisual);
 
             var line1 = new Label("   Phrase");
-            contentContainer.Add(line1);
+            contentFolder.Add(line1);
 
             var phraseVisual = new PhraseVisual(nodeData.PhraseVisualData);
-            contentContainer.Add(phraseVisual);
+            contentFolder.Add(phraseVisual);
 
             var line2 = new Label(" ");
-            contentContainer.Add(line2);
+            contentFolder.Add(line2);
 
             var phraseEvents = new PhraseEvents(nodeData.EventVisualData);
-            contentContainer.Add(phraseEvents);
+            contentFolder.Add(phraseEvents);
 
             var line3 = new Label(" ");
-            contentContainer.Add(line3);
+            contentFolder.Add(line3);
 
             var phraseContainer = new PhraseElementsTable();
             phraseContainer.Add(new Label("Phrase Assets"));
@@ -51,7 +69,7 @@ namespace Test.Dialogues
                 phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase));
             }
 
-            contentContainer.Add(phraseContainer);
+            contentFolder.Add(phraseContainer);
 
             var inPort = GraphElements.GeneratePort(this, Direction.Input, Port.Capacity.Multi);
             inPort.portName = AaGraphConstants.InPortName;
@@ -66,6 +84,11 @@ namespace Test.Dialogues
             SetPosition(new Rect(Vector2.zero, _defaultNodeSize));
         }
 
+        private string GetTitle(string person, string text)
+        {
+            return $"{person}\n{text}";
+        }
+        
         public List<AudioClip> GetPhraseSounds() =>
             contentContainer.Query<PhraseSoundField>().ToList().Select(field => field.GetPhraseSound()).ToList();
 

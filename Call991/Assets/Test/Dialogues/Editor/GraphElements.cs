@@ -19,7 +19,7 @@ namespace Test.Dialogues
         ChoiceNode,
         MultiPhrase,
     }
-    
+
     public enum LanguageOperationType
     {
         Add,
@@ -31,22 +31,21 @@ namespace Test.Dialogues
     {
         public const string DefaultFileName = "NewDialogue";
         public const string NewLanguageName = "new";
-        
+
         public const string DialogueGraph = "Dialogue Graph";
         public const string NewChoiceNode = "Choices Node";
         public const string NewPhraseNode = "Phrase Node";
-        
+
         public const string SaveData = "Save Data";
         public const string LoadData = "Load Data";
-        
+
         public const string LineSpace = " | ";
         public const string InPortName = "in";
         public const string OutPortName = "out";
-        
+
         public const string NoData = "NO DATA";
-        
     }
-    
+
     public class LanguageOperation
     {
         public LanguageOperationType Type;
@@ -79,7 +78,7 @@ namespace Test.Dialogues
             {
                 var languageField = new LanguageField(AaGraphConstants.NewLanguageName, onLanguageChange);
                 contentContainer.Add(languageField);
-                
+
                 onLanguageChange.Value = new LanguageOperation
                 {
                     Type = LanguageOperationType.Add,
@@ -128,7 +127,7 @@ namespace Test.Dialogues
                 textField.name = evt.newValue;
                 languageLabel.text = evt.newValue;
                 Language = evt.newValue;
-                
+
                 onLanguage.Value = new LanguageOperation
                 {
                     Type = LanguageOperationType.Change,
@@ -162,6 +161,7 @@ namespace Test.Dialogues
     public class PhraseElementsTable : VisualElement
     {
     }
+
     public class PhraseElementsRowField : VisualElement
     {
         public PhraseElementsRowField(string language, Object clip = null, Phrase phrase = null)
@@ -219,14 +219,15 @@ namespace Test.Dialogues
 
     public class PersonVisual : VisualElement
     {
-        public PersonVisual(PersonVisualData data = null)
+        public PersonVisual(PersonVisualData data = null, Action<string> onPersonChange = null)
         {
             var personOptions = Enum.GetValues(typeof(Person)).Cast<Person>().ToList();
-            var personPopup = new PopupField<Person>("", personOptions, data?.Person ?? personOptions[0]);
+            var personPopup = new PopupField<Person>("", personOptions, data?.Person ?? personOptions[0],
+                (val) => OnPersonChange(val, onPersonChange));
 
             var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
-            var positionPopup =
-                new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
+            var positionPopup = new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
+          
             var onEndToggle = new Toggle
             {
                 text = "HideOnEnd",
@@ -238,6 +239,12 @@ namespace Test.Dialogues
             contentContainer.Add(onEndToggle);
 
             contentContainer.style.flexDirection = FlexDirection.Row;
+        }
+
+        private string OnPersonChange(Person val, Action<string> onPersonChange = null)
+        {
+            onPersonChange?.Invoke(val.ToString());
+            return val.ToString();
         }
 
         public PersonVisualData GetData()
@@ -389,11 +396,27 @@ namespace Test.Dialogues
     {
         public NoEnumPopup(List<string> keys, Action<string> onChange)
         {
-            contentContainer.Add(new PopupField<string>("", keys, keys?[0] ?? AaGraphConstants.NoData, val=>
+            contentContainer.Add(new PopupField<string>("", keys, keys?[0] ?? AaGraphConstants.NoData, val =>
             {
                 onChange?.Invoke(val);
                 return val;
             }));
+        }
+    }
+
+    public class PhraseSketchField : VisualElement
+    {
+        public string Value { get; set; }
+
+        public PhraseSketchField(Action<string> onTextChange)
+        {
+            var titleTextField = new TextField();
+            titleTextField.RegisterValueChangedCallback(evt =>
+            {
+                Value = evt.newValue;
+                onTextChange?.Invoke(Value);
+            });
+            contentContainer.Add(titleTextField);   
         }
     }
 }

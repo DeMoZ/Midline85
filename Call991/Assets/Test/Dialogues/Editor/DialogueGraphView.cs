@@ -35,7 +35,7 @@ namespace Test.Dialogues
                     compatiblePorts.Add(port);
                 }
             });
-
+            
             return compatiblePorts;
         }
 
@@ -50,7 +50,7 @@ namespace Test.Dialogues
         {
             AddElement(new ChoiceNode());
         }
-        
+
         /// <summary>
         /// On Entry Node add/change/remove language process the operations
         /// </summary>
