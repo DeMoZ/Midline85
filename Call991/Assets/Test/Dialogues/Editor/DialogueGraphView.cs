@@ -70,7 +70,8 @@ namespace Test.Dialogues
                         if (node.EntryPoint) continue;
 
                         var phraseContainer = node.Q<PhraseElementsTable>();
-                        phraseContainer?.Add(new PhraseElementsRowField(AaGraphConstants.NewLanguageName));
+                        phraseContainer?.Add(new PhraseElementsRowField(AaGraphConstants.NewLanguageName, onChange: node.CheckNodeContent));
+                        node.CheckNodeContent();
                     }
 
                     break;
@@ -96,6 +97,7 @@ namespace Test.Dialogues
                         var row = rows[index];
                         var phraseContainer = node.Q<PhraseElementsTable>();
                         phraseContainer.Remove(row);
+                        node.CheckNodeContent();
                     }
 
                     entryNode.Remove(languageOperation.Element);

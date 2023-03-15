@@ -48,7 +48,6 @@ namespace Test.Dialogues
                 dialogueContainer.NodeLinks.Add(new NodeLinkData
                 {
                     BaseNodeGuid = outputNode!.Guid,
-                    PortName = port.output.portName,
                     TargetNodeGuid = inputNode!.Guid,
                 });
             }

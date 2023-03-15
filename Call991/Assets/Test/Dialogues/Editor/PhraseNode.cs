@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -8,8 +9,6 @@ namespace Test.Dialogues
 {
     public class PhraseNode : AaNode
     {
-        private readonly Vector2 _defaultNodeSize = new(150, 200);
-
         private string _personTxt;
         private string _phraseSketchTxt;
 
@@ -19,6 +18,8 @@ namespace Test.Dialogues
         {
             Guid = guid ?? System.Guid.NewGuid().ToString();
 
+            titleContainer.Add(new NodeTitleErrorField());
+            
             var contentFolder = new Foldout();
             contentFolder.value = false;
             contentContainer.Add(contentFolder);
@@ -49,7 +50,7 @@ namespace Test.Dialogues
             var line2 = new Label(" ");
             contentFolder.Add(line2);
 
-            var phraseEvents = new PhraseEvents(nodeData.EventVisualData);
+            var phraseEvents = new PhraseEvents(nodeData.EventVisualData, CheckNodeContent);
             contentFolder.Add(phraseEvents);
 
             var line3 = new Label(" ");
@@ -64,7 +65,7 @@ namespace Test.Dialogues
                     ? nodeData.PhraseSounds[i]
                     : null;
                 var phrase = nodeData.Phrases != null && nodeData.Phrases.Count > i ? nodeData.Phrases[i] : null;
-                phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase));
+                phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase, CheckNodeContent));
             }
 
             contentFolder.Add(phraseContainer);
@@ -79,12 +80,33 @@ namespace Test.Dialogues
 
             RefreshExpandedState();
             RefreshPorts();
-            SetPosition(new Rect(Vector2.zero, _defaultNodeSize));
+            CheckNodeContent();
         }
-
-        private string GetTitle(string person, string text)
+        
+        public void CheckNodeContent()
         {
-            return $"{person}\n{text}";
+            var phrases = contentContainer.Query<PhraseAssetField>().ToList();
+            var sounds = contentContainer.Query<PhraseSoundField>().ToList();
+            var events = contentContainer.Query<EventAssetField>().ToList();
+
+            var errorFields = new StringBuilder();
+
+            if (phrases.Any(p => p.GetPhrase() == null)) 
+                errorFields.Append("p.");
+
+            if (sounds.Any(s => s.GetPhraseSound() == null)) 
+                errorFields.Append("s.");
+            
+            if (events.Any(evt => evt.GetEvent() == null))
+                errorFields.Append("e.");
+
+            if (errorFields.Length > 0)
+            {
+                errorFields.Insert(0,"<color=red>");
+                errorFields.Append("</color>");
+            }
+
+            titleContainer.Q<NodeTitleErrorField>().Label.text = errorFields.ToString();
         }
         
         public List<AudioClip> GetPhraseSounds() =>
@@ -101,5 +123,10 @@ namespace Test.Dialogues
 
         public List<EventVisual> GetEventsVisual() =>
             contentContainer.Query<EventVisual>().ToList();
+        
+        private string GetTitle(string person, string text)
+        {
+            return $"{person}\n{text}";
+        }
     }
 }

@@ -164,11 +164,11 @@ namespace Test.Dialogues
 
     public class PhraseElementsRowField : VisualElement
     {
-        public PhraseElementsRowField(string language, Object clip = null, Phrase phrase = null)
+        public PhraseElementsRowField(string language, Object clip = null, Phrase phrase = null, Action onChange = null)
         {
             contentContainer.Add(new Label(language));
-            contentContainer.Add(new PhraseSoundField(clip));
-            contentContainer.Add(new PhraseAssetField(phrase));
+            contentContainer.Add(new PhraseSoundField(clip, onChange));
+            contentContainer.Add(new PhraseAssetField(phrase, onChange));
             contentContainer.style.flexDirection = FlexDirection.Row;
         }
     }
@@ -177,7 +177,7 @@ namespace Test.Dialogues
     {
         private ObjectField _objectField;
 
-        public PhraseSoundField(Object clip = null)
+        public PhraseSoundField(Object clip = null, Action onChange = null)
         {
             _objectField = new ObjectField
             {
@@ -185,6 +185,8 @@ namespace Test.Dialogues
                 allowSceneObjects = false,
                 value = clip,
             };
+
+            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
 
             contentContainer.Add(_objectField);
         }
@@ -199,7 +201,7 @@ namespace Test.Dialogues
     {
         private ObjectField _objectField;
 
-        public PhraseAssetField(Object phraseAsset = null)
+        public PhraseAssetField(Object phraseAsset = null, Action onChange = null)
         {
             _objectField = new ObjectField
             {
@@ -207,6 +209,8 @@ namespace Test.Dialogues
                 allowSceneObjects = false,
                 value = phraseAsset,
             };
+            
+            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
 
             contentContainer.Add(_objectField);
         }
@@ -226,8 +230,9 @@ namespace Test.Dialogues
                 (val) => OnPersonChange(val, onPersonChange));
 
             var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
-            var positionPopup = new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
-          
+            var positionPopup =
+                new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
+
             var onEndToggle = new Toggle
             {
                 text = "HideOnEnd",
@@ -290,21 +295,27 @@ namespace Test.Dialogues
 
     public class PhraseEvents : VisualElement
     {
-        public PhraseEvents(List<EventVisualData> data)
+        private Action _onChange;
+
+        public PhraseEvents(List<EventVisualData> data, Action onChange)
         {
+            _onChange = onChange;
+
             var addEventAssetButton = new Button(() =>
             {
-                contentContainer.Add(new EventVisual(new EventVisualData(), OnDeleteEvent));
+                contentContainer.Add(new EventVisual(new EventVisualData(), OnDeleteEvent, _onChange));
+                _onChange?.Invoke();
             });
             addEventAssetButton.text = "Event Asset";
             contentContainer.Add(addEventAssetButton);
 
-            data?.ForEach(item => contentContainer.Add(new EventVisual(item, OnDeleteEvent)));
+            data?.ForEach(item => contentContainer.Add(new EventVisual(item, OnDeleteEvent, _onChange)));
         }
 
         private void OnDeleteEvent(EventVisual eventVisual)
         {
             contentContainer.Remove(eventVisual);
+            _onChange?.Invoke();
         }
 
         public List<EventVisual> GetEvents()
@@ -315,7 +326,7 @@ namespace Test.Dialogues
 
     public class EventVisual : VisualElement
     {
-        public EventVisual(EventVisualData data, Action<EventVisual> onDelete)
+        public EventVisual(EventVisualData data, Action<EventVisual> onDelete, Action onChange)
         {
             contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
             {
@@ -336,7 +347,11 @@ namespace Test.Dialogues
             containerColumn.Add(containerRow2);
 
             var typeOptions = Enum.GetValues(typeof(PhraseEventTypes)).Cast<PhraseEventTypes>().ToList();
-            var typePopup = new PopupField<PhraseEventTypes>("", typeOptions, data?.EventType ?? typeOptions[2]);
+            var typePopup = new PopupField<PhraseEventTypes>("", typeOptions, data?.EventType ?? typeOptions[2], val =>
+            {
+                onChange?.Invoke();
+                return val.ToString();
+            });
             containerRow2.Add(typePopup);
 
             var toggle = new Toggle
@@ -360,7 +375,7 @@ namespace Test.Dialogues
         {
             return new EventVisualData
             {
-                PhraseEventSo = contentContainer.Query<EventAssetField>().First().GetPhrase(),
+                PhraseEventSo = contentContainer.Query<EventAssetField>().First().GetEvent(),
                 EventType = contentContainer.Query<PopupField<PhraseEventTypes>>().First().value,
                 Stop = contentContainer.Query<Toggle>().First().value,
                 Delay = contentContainer.Query<FloatField>().First().value,
@@ -384,7 +399,7 @@ namespace Test.Dialogues
             contentContainer.Add(_objectField);
         }
 
-        public PhraseEventSo GetPhrase()
+        public PhraseEventSo GetEvent()
         {
             return _objectField.value as PhraseEventSo;
         }
@@ -414,15 +429,26 @@ namespace Test.Dialogues
             {
                 value = value
             };
-            
+
             titleTextField.RegisterValueChangedCallback(evt =>
             {
                 Value = evt.newValue;
                 onTextChange?.Invoke(Value);
             });
             contentContainer.Add(titleTextField);
-            
+
             onTextChange?.Invoke(value);
+        }
+    }
+
+    public class NodeTitleErrorField : VisualElement
+    {
+        public Label Label { get; }
+
+        public NodeTitleErrorField()
+        {
+            Label = new Label();
+            contentContainer.Add(Label);
         }
     }
 }
