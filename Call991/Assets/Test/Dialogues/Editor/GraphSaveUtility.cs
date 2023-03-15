@@ -70,7 +70,7 @@ namespace Test.Dialogues
                 dialogueContainer.DialogueNodeData.Add(new PhraseNodeData
                 {
                     Guid = phraseNode.Guid,
-                    DialogueText = phraseNode.DialogueText,
+                    PhraseSketchText = phraseNode.PhraseSketchText,
                     Position = phraseNode.GetPosition().position,
                     Size = phraseNode.GetPosition().size,
                     PersonVisualData = personVisualData,

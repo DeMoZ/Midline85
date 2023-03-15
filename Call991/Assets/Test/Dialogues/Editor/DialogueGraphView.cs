@@ -42,7 +42,7 @@ namespace Test.Dialogues
         public void CreatePhraseNode()
         {
             var languages = contentContainer.Query<EntryPointNode>().First().GetLanguages() ?? new List<string>();
-            var nodeData = new PhraseNodeData {DialogueText = "Phrase"};
+            var nodeData = new PhraseNodeData ();
             AddElement(new PhraseNode(nodeData, languages));
         }
 

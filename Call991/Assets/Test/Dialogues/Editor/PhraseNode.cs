@@ -10,22 +10,20 @@ namespace Test.Dialogues
     {
         private readonly Vector2 _defaultNodeSize = new(150, 200);
 
-        public string DialogueText;
-
         private string _personTxt;
         private string _phraseSketchTxt;
+
+        public string PhraseSketchText => _phraseSketchTxt;
         
         public PhraseNode(PhraseNodeData nodeData, List<string> languages, string guid = null)
         {
-            title = nodeData.DialogueText;
-            DialogueText = nodeData.DialogueText;
             Guid = guid ?? System.Guid.NewGuid().ToString();
 
             var contentFolder = new Foldout();
             contentFolder.value = false;
             contentContainer.Add(contentFolder);
             
-            var titleTextField = new PhraseSketchField(val =>
+            var titleTextField = new PhraseSketchField(nodeData.PhraseSketchText, val =>
             {
                 _phraseSketchTxt = val;
                 title = GetTitle(_personTxt, _phraseSketchTxt);

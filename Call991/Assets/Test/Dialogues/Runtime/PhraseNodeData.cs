@@ -8,7 +8,7 @@ namespace Test.Dialogues
     [Serializable]
     public class PhraseNodeData : AaNodeData
     {
-        public string DialogueText;
+        public string PhraseSketchText;
         
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;

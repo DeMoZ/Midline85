@@ -408,15 +408,21 @@ namespace Test.Dialogues
     {
         public string Value { get; set; }
 
-        public PhraseSketchField(Action<string> onTextChange)
+        public PhraseSketchField(string value = null, Action<string> onTextChange = null)
         {
-            var titleTextField = new TextField();
+            var titleTextField = new TextField
+            {
+                value = value
+            };
+            
             titleTextField.RegisterValueChangedCallback(evt =>
             {
                 Value = evt.newValue;
                 onTextChange?.Invoke(Value);
             });
-            contentContainer.Add(titleTextField);   
+            contentContainer.Add(titleTextField);
+            
+            onTextChange?.Invoke(value);
         }
     }
 }
