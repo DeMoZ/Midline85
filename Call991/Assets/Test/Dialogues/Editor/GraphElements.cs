@@ -340,7 +340,7 @@ namespace Test.Dialogues
             containerRow1.style.flexDirection = FlexDirection.Row;
             containerColumn.Add(containerRow1);
 
-            containerRow1.Add(new EventAssetField(data.PhraseEventSo));
+            containerRow1.Add(new EventAssetField(data.PhraseEventSo, onChange));
 
             var containerRow2 = new VisualElement();
             containerRow2.style.flexDirection = FlexDirection.Row;
@@ -387,7 +387,7 @@ namespace Test.Dialogues
     {
         private ObjectField _objectField;
 
-        public EventAssetField(PhraseEventSo eventAsset = null)
+        public EventAssetField(PhraseEventSo eventAsset = null, Action onChange = null)
         {
             _objectField = new ObjectField
             {
@@ -395,6 +395,8 @@ namespace Test.Dialogues
                 allowSceneObjects = false,
                 value = eventAsset,
             };
+
+            _objectField.RegisterValueChangedCallback(_ => onChange?.Invoke());
 
             contentContainer.Add(_objectField);
         }
