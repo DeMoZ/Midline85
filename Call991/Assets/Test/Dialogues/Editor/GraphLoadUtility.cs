@@ -45,7 +45,7 @@ namespace Test.Dialogues
 
         private void ClearGraph()
         {
-            foreach (var node in PhraseNodes)
+            foreach (var node in AaNodes)
             {
                 Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
                 _targetGraphView.RemoveElement(node);
@@ -74,7 +74,7 @@ namespace Test.Dialogues
 
         private void ConnectNodes()
         {
-            foreach (var node in PhraseNodes)
+            foreach (var node in AaNodes)
             {
                 var nodeLinkData = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == node.Guid).ToList();
                 var outPort = node.outputContainer.Q<Port>();
@@ -82,7 +82,7 @@ namespace Test.Dialogues
                 for (var j = 0; j < nodeLinkData.Count; j++)
                 {
                     var targetNodeGuid = nodeLinkData[j].TargetNodeGuid;
-                    var targetNode = PhraseNodes.FirstOrDefault(x => x.Guid == targetNodeGuid);
+                    var targetNode = AaNodes.FirstOrDefault(x => x.Guid == targetNodeGuid);
                     
                     if (targetNode == null) continue;
                     
@@ -110,7 +110,7 @@ namespace Test.Dialogues
 
         private void SetPositions()
         {
-            foreach (var node in PhraseNodes)
+            foreach (var node in AaNodes)
             {
                 if (node.EntryPoint) continue;
 

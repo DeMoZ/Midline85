@@ -22,7 +22,7 @@ namespace Test.Dialogues
             }
         }
 
-        public ChoiceNode(List<ChoiceData> choices = null)
+        public ChoiceNode(List<ChoiceCaseData> choices = null)
         {
             NodeType = AaNodeType.ChoiceNode;
             titleContainer.Add(new ChoicePopupField(ChoiceKeys));
@@ -100,6 +100,8 @@ namespace Test.Dialogues
 
         public class ChoicePopupField : VisualElement
         {
+            public string Value { get; private set; }
+
             public ChoicePopupField(List<string> keys)
             {
                 var label = new Label();
@@ -108,8 +110,9 @@ namespace Test.Dialogues
                 contentContainer.Add(label);
             }
 
-            private static string KeyToTextTitle(string val)
+            private string KeyToTextTitle(string val)
             {
+                Value = val;
                 string textValue = new LocalizedString(val);
                 textValue = textValue.Split(" ")[0];
                 return textValue;

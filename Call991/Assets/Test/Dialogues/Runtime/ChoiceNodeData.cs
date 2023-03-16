@@ -6,13 +6,14 @@ namespace Test.Dialogues
     [Serializable]
     public class ChoiceNodeData : AaNodeData
     {
-        public List<ChoiceData> Choices;
+        public string Choice;
+        public List<ChoiceCaseData> Cases;
     }
 
     [Serializable]
-    public class ChoiceData
+    public class ChoiceCaseData
     {
-        public string KeyCode;
+        public bool And;
         public List<string> Cases;
     }
 }

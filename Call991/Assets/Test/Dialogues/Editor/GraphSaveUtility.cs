@@ -16,9 +16,9 @@ namespace Test.Dialogues
         private DialogueContainer _containerCash;
 
         private AaReactive<LanguageOperation> _languageOperation;
-        
+
         private List<Edge> Edges => _targetGraphView.edges.ToList();
-        private List<AaNode> PhraseNodes => _targetGraphView.Query<AaNode>().ToList();
+        private List<AaNode> AaNodes => _targetGraphView.Query<AaNode>().ToList();
 
         public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView,
             AaReactive<LanguageOperation> languageOperation)
@@ -34,7 +34,7 @@ namespace Test.Dialogues
         {
             var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
 
-            var entryContainer = PhraseNodes.First(n => n.EntryPoint).contentContainer;
+            var entryContainer = AaNodes.First(n => n.EntryPoint).contentContainer;
             var languageFields = entryContainer.Query<LanguageField>().ToList();
             languageFields.ForEach(lf => dialogueContainer.Languages.Add(lf.Language));
 
@@ -52,26 +52,40 @@ namespace Test.Dialogues
                 });
             }
 
-            dialogueContainer.EntryGuid = PhraseNodes.First(node => node.EntryPoint).Guid;
-            
-            foreach (var node in PhraseNodes.Where(node => !node.EntryPoint))
+            dialogueContainer.EntryGuid = AaNodes.First(node => node.EntryPoint).Guid;
+
+            var phraseNodes = AaNodes.OfType<PhraseNode>().ToList();
+            dialogueContainer.DialogueNodeData.AddRange(PhraseNodesToData(phraseNodes));
+
+            var choiceNodes = AaNodes.OfType<ChoiceNode>().ToList();
+            dialogueContainer.ChoiceNodeData.AddRange(ChoiceNodesToData(choiceNodes));
+
+            CreateFolders(fileName);
+
+            AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+
+            Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
+        }
+
+        private List<PhraseNodeData> PhraseNodesToData(List<PhraseNode> nodes)
+        {
+            var data = new List<PhraseNodeData>();
+            foreach (var node in nodes)
             {
-                var phraseNode = node as PhraseNode;
-                
-                if (phraseNode == null) continue;
-                
-                var personVisualData = phraseNode.GetPersonVisual().GetData();
-                var phraseVisualData = phraseNode.GetPhraseVisual().GetData();
-                var eventsVisualData = phraseNode.GetEventsVisual().Select(evt => evt.GetData()).ToList();
-                var phraseSounds = phraseNode.GetPhraseSounds();
-                var phrases = phraseNode.GetPhrases();
-                
-                dialogueContainer.DialogueNodeData.Add(new PhraseNodeData
+                var personVisualData = node.GetPersonVisual().GetData();
+                var phraseVisualData = node.GetPhraseVisual().GetData();
+                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
+                var phraseSounds = node.GetPhraseSounds();
+                var phrases = node.GetPhrases();
+
+                data.Add(new PhraseNodeData
                 {
-                    Guid = phraseNode.Guid,
-                    PhraseSketchText = phraseNode.PhraseSketchText,
-                    Position = phraseNode.GetPosition().position,
-                    Size = phraseNode.GetPosition().size,
+                    Guid = node.Guid,
+                    PhraseSketchText = node.PhraseSketchText,
+                    Position = node.GetPosition().position,
+                    Size = node.GetPosition().size,
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
@@ -80,13 +94,22 @@ namespace Test.Dialogues
                 });
             }
 
-            CreateFolders(fileName);
+            return data;
+        }
 
-            AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-            
-            Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
+        private List<ChoiceNodeData> ChoiceNodesToData(List<ChoiceNode> nodes)
+        {
+            var data = new List<ChoiceNodeData>();
+            foreach (var node in nodes)
+            {
+                data.Add(new ChoiceNodeData
+                {
+                    Choice = node.Q<ChoiceNode.ChoicePopupField>().Value,
+                    Cases = ,
+                });
+            }
+
+            return data;
         }
 
         private void CreateFolders(string fileName)
