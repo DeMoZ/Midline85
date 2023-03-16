@@ -83,9 +83,9 @@ namespace Test.Dialogues
                 data.Add(new PhraseNodeData
                 {
                     Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    
                     PhraseSketchText = node.PhraseSketchText,
-                    Position = node.GetPosition().position,
-                    Size = node.GetPosition().size,
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
@@ -102,10 +102,36 @@ namespace Test.Dialogues
             var data = new List<ChoiceNodeData>();
             foreach (var node in nodes)
             {
+                var andCases = node.Query<AndChoiceCase>().ToList();
+                var noCases = node.Query<NoChoiceCase>().ToList();
+
+                var caseData = new List<ChoiceCaseData>();
+                
+                foreach (var andCase in andCases)
+                {
+                    caseData.Add(new ChoiceCaseData
+                    {
+                        And = true,
+                        Cases = andCase.GetOrCases(),
+                    });
+                }
+                
+                foreach (var noCase in noCases)
+                {
+                    caseData.Add(new ChoiceCaseData
+                    {
+                        And = false,
+                        Cases = noCase.GetOrCases(),
+                    });
+                }
+                
                 data.Add(new ChoiceNodeData
                 {
-                    Choice = node.Q<ChoiceNode.ChoicePopupField>().Value,
-                    Cases = ,
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    
+                    Choice = node.Q<ChoicePopupField>().Value,
+                    Cases = caseData,
                 });
             }
 

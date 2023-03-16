@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Configs;
+using I2.Loc;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -209,7 +210,7 @@ namespace Test.Dialogues
                 allowSceneObjects = false,
                 value = phraseAsset,
             };
-            
+
             _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
 
             contentContainer.Add(_objectField);
@@ -453,4 +454,90 @@ namespace Test.Dialogues
             contentContainer.Add(Label);
         }
     }
+
+    #region Choce Cases
+
+    public class ChoicePopupField : VisualElement
+    {
+        public string Value { get; private set; }
+
+        public ChoicePopupField(List<string> keys)
+        {
+            var label = new Label();
+
+            contentContainer.Add(new NoEnumPopup(keys, val => label.text = KeyToTextTitle(val)));
+            contentContainer.Add(label);
+        }
+
+        private string KeyToTextTitle(string val)
+        {
+            Value = val;
+            string textValue = new LocalizedString(val);
+            textValue = textValue.Split(" ")[0];
+            return textValue;
+        }
+    }
+
+    public abstract class ChoiceCase : VisualElement
+    {
+        protected List<string> _choiceKeys;
+
+        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys)
+        {
+            _choiceKeys = choiceKeys;
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+
+            contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
+            {
+                text = "x",
+            });
+            contentContainer.Add(new Label(caseName));
+
+            contentContainer.Add(new ChoicePopupField(_choiceKeys));
+
+            contentContainer.Add(new Button(AddCaseField)
+            {
+                text = "or",
+            });
+        }
+
+        /// <summary>
+        /// Return list of cases that can be one of a case 
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetOrCases()
+        {
+            var popups = contentContainer.Query<ChoicePopupField>().ToList();
+            var cases = popups.Select(c => c.Value).ToList();
+            return cases;
+        }
+        
+        private void AddCaseField() =>
+            contentContainer.Add(new ChoicePopupField(_choiceKeys));
+    }
+
+    /// <summary>
+    /// To easily find data for save/load
+    /// </summary>
+    public class AndChoiceCase : ChoiceCase
+    {
+        public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys) : base(caseName,
+            onDelete, choiceKeys)
+        {
+        }
+    }
+
+    /// <summary>
+    /// To easily find data for save/load
+    /// </summary>
+    public class NoChoiceCase : ChoiceCase
+    {
+        public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys) : base(caseName,
+            onDelete, choiceKeys)
+        {
+        }
+    }
+
+    #endregion
 }

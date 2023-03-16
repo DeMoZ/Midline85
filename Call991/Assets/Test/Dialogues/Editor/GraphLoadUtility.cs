@@ -115,7 +115,7 @@ namespace Test.Dialogues
                 if (node.EntryPoint) continue;
 
                 var cashNode = _containerCash.DialogueNodeData.First(n => n.Guid == node.Guid);
-                node.SetPosition(new Rect(cashNode.Position, cashNode.Size));
+                node.SetPosition(cashNode.Rect);
             }
         }
     }

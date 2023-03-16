@@ -22,8 +22,10 @@ namespace Test.Dialogues
             }
         }
 
-        public ChoiceNode(List<ChoiceCaseData> choices = null)
+        public ChoiceNode(List<ChoiceCaseData> choices, string guid = null)
         {
+            Guid = guid ?? System.Guid.NewGuid().ToString();
+
             NodeType = AaNodeType.ChoiceNode;
             titleContainer.Add(new ChoicePopupField(ChoiceKeys));
 
@@ -44,7 +46,7 @@ namespace Test.Dialogues
 
             var addAndCase = new Button(() =>
             {
-                foldout.Add(new AndChoiceCase("and", element => RemoveElement(element, foldout)));
+                foldout.Add(new AndChoiceCase("and", element => RemoveElement(element, foldout), ChoiceKeys));
                 UpdateCasesCount(foldout);
             });
             addAndCase.text = "+And";
@@ -52,7 +54,7 @@ namespace Test.Dialogues
 
             var addNoCase = new Button(() =>
             {
-                foldout.Add(new NoChoiceCase("no", element => RemoveElement(element, foldout)));
+                foldout.Add(new NoChoiceCase("no", element => RemoveElement(element, foldout), ChoiceKeys));
                 UpdateCasesCount(foldout);
             });
             addNoCase.text = "+No";
@@ -72,71 +74,6 @@ namespace Test.Dialogues
         {
             contentContainer.Remove(element);
             UpdateCasesCount(foldout);
-        }
-
-        public abstract class ChoiceCase : VisualElement
-        {
-            public ChoiceCase(string caseName, Action<ChoiceCase> onDelete)
-            {
-                contentContainer.style.flexDirection = FlexDirection.Row;
-
-                contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
-                {
-                    text = "x",
-                });
-                contentContainer.Add(new Label(caseName));
-
-                contentContainer.Add(new ChoicePopupField(ChoiceKeys));
-
-                contentContainer.Add(new Button(AddCaseField)
-                {
-                    text = "or",
-                });
-            }
-
-            private void AddCaseField() =>
-                contentContainer.Add(new ChoicePopupField(ChoiceKeys));
-        }
-
-        public class ChoicePopupField : VisualElement
-        {
-            public string Value { get; private set; }
-
-            public ChoicePopupField(List<string> keys)
-            {
-                var label = new Label();
-
-                contentContainer.Add(new NoEnumPopup(ChoiceKeys, val => label.text = KeyToTextTitle(val)));
-                contentContainer.Add(label);
-            }
-
-            private string KeyToTextTitle(string val)
-            {
-                Value = val;
-                string textValue = new LocalizedString(val);
-                textValue = textValue.Split(" ")[0];
-                return textValue;
-            }
-        }
-
-        /// <summary>
-        /// To easily find data for save/load
-        /// </summary>
-        public class AndChoiceCase : ChoiceCase
-        {
-            public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete) : base(caseName, onDelete)
-            {
-            }
-        }
-
-        /// <summary>
-        /// To easily find data for save/load
-        /// </summary>
-        public class NoChoiceCase : ChoiceCase
-        {
-            public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete) : base(caseName, onDelete)
-            {
-            }
         }
     }
 }

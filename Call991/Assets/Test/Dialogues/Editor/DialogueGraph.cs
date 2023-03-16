@@ -73,7 +73,7 @@ namespace Test.Dialogues
             };
             toolbar.Add(phraseCreateButton);
 
-            var choiceCreateButton = new Button(() => _graphView.CreateChoiceNode("New Choice"))
+            var choiceCreateButton = new Button(() => _graphView.CreateChoiceNode())
             {
                 text = AaGraphConstants.NewChoiceNode,
             };

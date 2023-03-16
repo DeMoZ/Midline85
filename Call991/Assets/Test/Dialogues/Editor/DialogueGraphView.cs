@@ -46,9 +46,10 @@ namespace Test.Dialogues
             AddElement(new PhraseNode(nodeData, languages));
         }
 
-        public void CreateChoiceNode(string nodeName)
+        public void CreateChoiceNode()
         {
-            AddElement(new ChoiceNode());
+            var nodeData = new List<ChoiceCaseData>();
+            AddElement(new ChoiceNode(nodeData));
         }
 
         /// <summary>
