@@ -14,9 +14,9 @@ namespace Test.Dialogues
 
         public string PhraseSketchText => _phraseSketchTxt;
         
-        public PhraseNode(PhraseNodeData nodeData, List<string> languages, string guid = null)
+        public PhraseNode(PhraseNodeData data, List<string> languages, string guid)
         {
-            Guid = guid ?? System.Guid.NewGuid().ToString();
+            Guid = guid;
 
             titleContainer.Add(new NodeTitleErrorField());
             
@@ -24,7 +24,7 @@ namespace Test.Dialogues
             contentFolder.value = false;
             contentContainer.Add(contentFolder);
             
-            var titleTextField = new PhraseSketchField(nodeData.PhraseSketchText, val =>
+            var titleTextField = new PhraseSketchField(data.PhraseSketchText, val =>
             {
                 _phraseSketchTxt = val;
                 title = GetTitle(_personTxt, _phraseSketchTxt);
@@ -34,7 +34,7 @@ namespace Test.Dialogues
             var line0 = new Label("   Person");
             contentFolder.Add(line0);
 
-            var personVisual = new PersonVisual(nodeData.PersonVisualData, val =>
+            var personVisual = new PersonVisual(data.PersonVisualData, val =>
             {
                 _personTxt = val;
                 title = GetTitle(_personTxt, _phraseSketchTxt);
@@ -44,13 +44,13 @@ namespace Test.Dialogues
             var line1 = new Label("   Phrase");
             contentFolder.Add(line1);
 
-            var phraseVisual = new PhraseVisual(nodeData.PhraseVisualData);
+            var phraseVisual = new PhraseVisual(data.PhraseVisualData);
             contentFolder.Add(phraseVisual);
 
             var line2 = new Label(" ");
             contentFolder.Add(line2);
 
-            var phraseEvents = new PhraseEvents(nodeData.EventVisualData, CheckNodeContent);
+            var phraseEvents = new PhraseEvents(data.EventVisualData, CheckNodeContent);
             contentFolder.Add(phraseEvents);
 
             var line3 = new Label(" ");
@@ -61,10 +61,10 @@ namespace Test.Dialogues
 
             for (var i = 0; i < languages.Count; i++)
             {
-                var clip = nodeData.PhraseSounds != null && nodeData.PhraseSounds.Count > i
-                    ? nodeData.PhraseSounds[i]
+                var clip = data.PhraseSounds != null && data.PhraseSounds.Count > i
+                    ? data.PhraseSounds[i]
                     : null;
-                var phrase = nodeData.Phrases != null && nodeData.Phrases.Count > i ? nodeData.Phrases[i] : null;
+                var phrase = data.Phrases != null && data.Phrases.Count > i ? data.Phrases[i] : null;
                 phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase, CheckNodeContent));
             }
 

@@ -52,10 +52,16 @@ namespace Test.Dialogues
                 });
             }
 
-            dialogueContainer.EntryGuid = AaNodes.First(node => node.EntryPoint).Guid;
+            var entryNode = AaNodes.Select(n => n as EntryPointNode).ToList();
+            if (entryNode.Any())
+            {
+                var node = entryNode.First(n => n != null);
+                dialogueContainer.EntryGuid = node.Guid;
+                dialogueContainer.EntryRect = node.GetPosition();
+            }
 
             var phraseNodes = AaNodes.OfType<PhraseNode>().ToList();
-            dialogueContainer.DialogueNodeData.AddRange(PhraseNodesToData(phraseNodes));
+            dialogueContainer.PhraseNodeData.AddRange(PhraseNodesToData(phraseNodes));
 
             var choiceNodes = AaNodes.OfType<ChoiceNode>().ToList();
             dialogueContainer.ChoiceNodeData.AddRange(ChoiceNodesToData(choiceNodes));
@@ -84,7 +90,7 @@ namespace Test.Dialogues
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
-                    
+
                     PhraseSketchText = node.PhraseSketchText,
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
@@ -106,7 +112,7 @@ namespace Test.Dialogues
                 var noCases = node.Query<NoChoiceCase>().ToList();
 
                 var caseData = new List<ChoiceCaseData>();
-                
+
                 foreach (var andCase in andCases)
                 {
                     caseData.Add(new ChoiceCaseData
@@ -115,7 +121,7 @@ namespace Test.Dialogues
                         Cases = andCase.GetOrCases(),
                     });
                 }
-                
+
                 foreach (var noCase in noCases)
                 {
                     caseData.Add(new ChoiceCaseData
@@ -124,12 +130,12 @@ namespace Test.Dialogues
                         Cases = noCase.GetOrCases(),
                     });
                 }
-                
+
                 data.Add(new ChoiceNodeData
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
-                    
+
                     Choice = node.Q<ChoicePopupField>().Value,
                     Cases = caseData,
                 });

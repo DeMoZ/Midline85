@@ -36,7 +36,8 @@ namespace Test.Dialogues
 
             ClearGraph();
             CreateEntryPoint();
-            CreateNodes();
+            CreatePhraseNodes();
+            CreateChoiceNodes();
             ConnectNodes();
             SetPositions();
 
@@ -63,12 +64,22 @@ namespace Test.Dialogues
             }
         }
 
-        private void CreateNodes()
+        private void CreatePhraseNodes()
         {
-            foreach (var nodeData in _containerCash.DialogueNodeData)
+            foreach (var data in _containerCash.PhraseNodeData)
             {
-                var tmpNode = new PhraseNode(nodeData, _containerCash.Languages, nodeData.Guid);
-                _targetGraphView.AddElement(tmpNode);
+                var node = new PhraseNode(data, _containerCash.Languages, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
+
+        private void CreateChoiceNodes()
+        {
+            foreach (var data in _containerCash.ChoiceNodeData)
+            {
+                var dt = data;
+                var node = new ChoiceNode(data, data.Guid);
+                _targetGraphView.AddElement(node);
             }
         }
 
@@ -83,9 +94,9 @@ namespace Test.Dialogues
                 {
                     var targetNodeGuid = nodeLinkData[j].TargetNodeGuid;
                     var targetNode = AaNodes.FirstOrDefault(x => x.Guid == targetNodeGuid);
-                    
+
                     if (targetNode == null) continue;
-                    
+
                     var portOut = outPort;
                     var portIn = (Port) targetNode.inputContainer[0];
 
@@ -112,10 +123,24 @@ namespace Test.Dialogues
         {
             foreach (var node in AaNodes)
             {
-                if (node.EntryPoint) continue;
+                switch (node)
+                {
+                    case EntryPointNode:
+                        node.SetPosition(_containerCash.EntryRect);
+                        break;
 
-                var cashNode = _containerCash.DialogueNodeData.First(n => n.Guid == node.Guid);
-                node.SetPosition(cashNode.Rect);
+                    case PhraseNode:
+                        var phraseData = _containerCash.PhraseNodeData.FirstOrDefault(n => n.Guid == node.Guid);
+                        if (phraseData != null) node.SetPosition(phraseData.Rect);
+                        break;
+
+                    case ChoiceNode:
+                    {
+                        var choiceData = _containerCash.ChoiceNodeData.FirstOrDefault(n => n.Guid == node.Guid);
+                        if (choiceData != null) node.SetPosition(choiceData.Rect);
+                        break;
+                    }
+                }
             }
         }
     }

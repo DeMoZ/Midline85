@@ -10,7 +10,6 @@ namespace Test.Dialogues
     public class ChoiceNode : AaNode
     {
         private static List<string> _choiceKeys = new();
-
         private static List<string> ChoiceKeys
         {
             get
@@ -22,9 +21,9 @@ namespace Test.Dialogues
             }
         }
 
-        public ChoiceNode(List<ChoiceCaseData> choices, string guid = null)
+        public ChoiceNode(ChoiceNodeData choices, string guid)
         {
-            Guid = guid ?? System.Guid.NewGuid().ToString();
+            Guid = guid;
 
             NodeType = AaNodeType.ChoiceNode;
             titleContainer.Add(new ChoicePopupField(ChoiceKeys));

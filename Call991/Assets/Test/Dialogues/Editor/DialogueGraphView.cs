@@ -43,13 +43,13 @@ namespace Test.Dialogues
         {
             var languages = contentContainer.Query<EntryPointNode>().First().GetLanguages() ?? new List<string>();
             var nodeData = new PhraseNodeData ();
-            AddElement(new PhraseNode(nodeData, languages));
+            AddElement(new PhraseNode(nodeData, languages, Guid.NewGuid().ToString()));
         }
 
         public void CreateChoiceNode()
         {
-            var nodeData = new List<ChoiceCaseData>();
-            AddElement(new ChoiceNode(nodeData));
+            var nodeData = new ChoiceNodeData();
+            AddElement(new ChoiceNode(nodeData, Guid.NewGuid().ToString()));
         }
 
         /// <summary>
