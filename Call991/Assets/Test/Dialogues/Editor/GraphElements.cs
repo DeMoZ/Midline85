@@ -412,13 +412,14 @@ namespace Test.Dialogues
 
     public class NoEnumPopup : VisualElement
     {
-        public NoEnumPopup(List<string> keys, Action<string> onChange)
+        public NoEnumPopup(List<string> keys, string currentChoice = null, Action<string> onChange = null)
         {
-            contentContainer.Add(new PopupField<string>("", keys, keys?[0] ?? AaGraphConstants.NoData, val =>
-            {
-                onChange?.Invoke(val);
-                return val;
-            }));
+            contentContainer.Add(new PopupField<string>("", keys, 
+                currentChoice ?? keys?[0], val =>
+                {
+                    onChange?.Invoke(val);
+                    return val;
+                }));
         }
     }
 
@@ -461,11 +462,11 @@ namespace Test.Dialogues
     {
         public string Value { get; private set; }
 
-        public ChoicePopupField(List<string> keys)
+        public ChoicePopupField(List<string> keys, string currentChoice = null)
         {
             var label = new Label();
-
-            contentContainer.Add(new NoEnumPopup(keys, val => label.text = KeyToTextTitle(val)));
+            
+            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = KeyToTextTitle(val)));
             contentContainer.Add(label);
         }
 
@@ -482,7 +483,7 @@ namespace Test.Dialogues
     {
         protected List<string> _choiceKeys;
 
-        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys)
+        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys, string currentOption)
         {
             _choiceKeys = choiceKeys;
 
@@ -494,9 +495,9 @@ namespace Test.Dialogues
             });
             contentContainer.Add(new Label(caseName));
 
-            contentContainer.Add(new ChoicePopupField(_choiceKeys));
+            contentContainer.Add(new ChoicePopupField(_choiceKeys, currentOption));
 
-            contentContainer.Add(new Button(AddCaseField)
+            contentContainer.Add(new Button(() => AddCaseField(null))
             {
                 text = "or",
             });
@@ -512,9 +513,9 @@ namespace Test.Dialogues
             var cases = popups.Select(c => c.Value).ToList();
             return cases;
         }
-        
-        private void AddCaseField() =>
-            contentContainer.Add(new ChoicePopupField(_choiceKeys));
+
+        public void AddCaseField(string currentChoice) =>
+            contentContainer.Add(new ChoicePopupField(_choiceKeys, currentChoice));
     }
 
     /// <summary>
@@ -522,8 +523,9 @@ namespace Test.Dialogues
     /// </summary>
     public class AndChoiceCase : ChoiceCase
     {
-        public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys) : base(caseName,
-            onDelete, choiceKeys)
+        public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
+            string currentOption) : base(caseName,
+            onDelete, choiceKeys, currentOption)
         {
         }
     }
@@ -533,8 +535,9 @@ namespace Test.Dialogues
     /// </summary>
     public class NoChoiceCase : ChoiceCase
     {
-        public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys) : base(caseName,
-            onDelete, choiceKeys)
+        public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
+            string currentOption) : base(caseName,
+            onDelete, choiceKeys, currentOption)
         {
         }
     }

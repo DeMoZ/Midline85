@@ -10,6 +10,7 @@ namespace Test.Dialogues
     public class ChoiceNode : AaNode
     {
         private static List<string> _choiceKeys = new();
+
         private static List<string> ChoiceKeys
         {
             get
@@ -21,12 +22,12 @@ namespace Test.Dialogues
             }
         }
 
-        public ChoiceNode(ChoiceNodeData choices, string guid)
+        public ChoiceNode(ChoiceNodeData data, string guid)
         {
             Guid = guid;
 
             NodeType = AaNodeType.ChoiceNode;
-            titleContainer.Add(new ChoicePopupField(ChoiceKeys));
+            titleContainer.Add(new ChoicePopupField(ChoiceKeys, data.Choice));
 
             var inPort = GraphElements.GeneratePort(this, Direction.Input, Port.Capacity.Multi);
             inPort.portName = AaGraphConstants.InPortName;
@@ -45,7 +46,7 @@ namespace Test.Dialogues
 
             var addAndCase = new Button(() =>
             {
-                foldout.Add(new AndChoiceCase("and", element => RemoveElement(element, foldout), ChoiceKeys));
+                foldout.Add(new AndChoiceCase("and", element => RemoveElement(element, foldout), ChoiceKeys, null));
                 UpdateCasesCount(foldout);
             });
             addAndCase.text = "+And";
@@ -53,14 +54,48 @@ namespace Test.Dialogues
 
             var addNoCase = new Button(() =>
             {
-                foldout.Add(new NoChoiceCase("no", element => RemoveElement(element, foldout), ChoiceKeys));
+                foldout.Add(new NoChoiceCase("no", element => RemoveElement(element, foldout), ChoiceKeys, null));
                 UpdateCasesCount(foldout);
             });
             addNoCase.text = "+No";
             buttonsContainer.Add(addNoCase);
 
             foldout.Add(buttonsContainer);
+
+            CreateCases(foldout, data.Cases);
+
+            UpdateCasesCount(foldout);
+
             contentContainer.Add(foldout);
+        }
+
+        private void CreateCases(Foldout foldout, List<ChoiceCaseData> data)
+        {
+            if (data == null || data.Count <1 ) return;
+                
+            foreach (var caseData in data)
+            {
+                if (caseData?.Cases == null || caseData.Cases.Count < 1) continue;
+
+                ChoiceCase aCase;
+                if (caseData.And)
+                {
+                    aCase = new AndChoiceCase("and", element =>
+                        RemoveElement(element, foldout), ChoiceKeys, caseData.Cases[0]);
+                }
+                else
+                {
+                    aCase = new NoChoiceCase("no", element =>
+                        RemoveElement(element, foldout), ChoiceKeys, caseData.Cases[0]);
+                }
+
+                for (var i = 1; i < caseData.Cases.Count; i++)
+                {
+                    aCase.AddCaseField(caseData.Cases[i]);
+                }
+
+                foldout.Add(aCase);
+            }
         }
 
         private void UpdateCasesCount(Foldout foldout)
