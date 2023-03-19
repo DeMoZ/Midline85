@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph
 {
     [System.Serializable]
     public class DialogueContainer : ScriptableObject

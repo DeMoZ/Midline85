@@ -7,7 +7,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public partial class GraphSaveUtility
     {
@@ -20,10 +20,10 @@ namespace Test.Dialogues
         private List<Edge> Edges => _targetGraphView.edges.ToList();
         private List<AaNode> AaNodes => _targetGraphView.Query<AaNode>().ToList();
 
-        public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView,
+        public static AaDialogueGraph.Editor.GraphSaveUtility GetInstance(DialogueGraphView targetGraphView,
             AaReactive<LanguageOperation> languageOperation)
         {
-            return new GraphSaveUtility
+            return new AaDialogueGraph.Editor.GraphSaveUtility
             {
                 _targetGraphView = targetGraphView,
                 _languageOperation = languageOperation,

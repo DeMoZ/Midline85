@@ -3,7 +3,7 @@ using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public class DialogueGraph : EditorWindow
     {
@@ -110,7 +110,8 @@ namespace Test.Dialogues
 
         private void OnDisable()
         {
-            rootVisualElement.Remove(_graphView);
+            if (_graphView != null)
+                rootVisualElement.Remove(_graphView);
         }
     }
 }

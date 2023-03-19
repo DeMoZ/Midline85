@@ -1,4 +1,4 @@
-namespace Test.Dialogues
+namespace AaDialogueGraph
 {
     [System.Serializable]
     public class NodeLinkData

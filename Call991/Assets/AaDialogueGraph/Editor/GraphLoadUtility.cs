@@ -5,7 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public partial class GraphSaveUtility
     {
@@ -15,7 +15,7 @@ namespace Test.Dialogues
 
             if (string.IsNullOrEmpty(fileName))
             {
-                path = NoGraphName;
+                path = GraphSaveUtility.NoGraphName;
                 return false;
             }
 
@@ -30,7 +30,7 @@ namespace Test.Dialogues
             if (!_containerCash)
             {
                 EditorUtility.DisplayDialog("File not found", $"Target dialogue {path} doesn't exist", "OK");
-                path = NoGraphName;
+                path = GraphSaveUtility.NoGraphName;
                 return false;
             }
 
@@ -48,7 +48,7 @@ namespace Test.Dialogues
         {
             foreach (var node in AaNodes)
             {
-                Edges.Where(x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
+                Enumerable.Where<Edge>(Edges, x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
                 _targetGraphView.RemoveElement(node);
             }
         }
@@ -87,13 +87,13 @@ namespace Test.Dialogues
         {
             foreach (var node in AaNodes)
             {
-                var nodeLinkData = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == node.Guid).ToList();
-                var outPort = node.outputContainer.Q<Port>();
+                var nodeLinkData = Enumerable.Where<NodeLinkData>(_containerCash.NodeLinks, x => x.BaseNodeGuid == node.Guid).ToList();
+                var outPort = UQueryExtensions.Q<Port>(node.outputContainer);
 
                 for (var j = 0; j < nodeLinkData.Count; j++)
                 {
                     var targetNodeGuid = nodeLinkData[j].TargetNodeGuid;
-                    var targetNode = AaNodes.FirstOrDefault(x => x.Guid == targetNodeGuid);
+                    var targetNode = Enumerable.FirstOrDefault<AaNode>(AaNodes, x => x.Guid == targetNodeGuid);
 
                     if (targetNode == null) continue;
 
@@ -130,13 +130,13 @@ namespace Test.Dialogues
                         break;
 
                     case PhraseNode:
-                        var phraseData = _containerCash.PhraseNodeData.FirstOrDefault(n => n.Guid == node.Guid);
+                        var phraseData = Enumerable.FirstOrDefault<PhraseNodeData>(_containerCash.PhraseNodeData, n => n.Guid == node.Guid);
                         if (phraseData != null) node.SetPosition(phraseData.Rect);
                         break;
 
                     case ChoiceNode:
                     {
-                        var choiceData = _containerCash.ChoiceNodeData.FirstOrDefault(n => n.Guid == node.Guid);
+                        var choiceData = Enumerable.FirstOrDefault<ChoiceNodeData>(_containerCash.ChoiceNodeData, n => n.Guid == node.Guid);
                         if (choiceData != null) node.SetPosition(choiceData.Rect);
                         break;
                     }

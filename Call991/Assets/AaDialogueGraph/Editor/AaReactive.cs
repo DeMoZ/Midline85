@@ -1,6 +1,6 @@
 using System;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public class AaReactive<T> : IDisposable
     {

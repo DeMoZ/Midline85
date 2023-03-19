@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph
 {
     [Serializable]
     public class ChoiceNodeData : AaNodeData

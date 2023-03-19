@@ -1,11 +1,10 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
 using I2.Loc;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public class ChoiceNode : AaNode
     {
@@ -24,6 +23,8 @@ namespace Test.Dialogues
 
         public ChoiceNode(ChoiceNodeData data, string guid)
         {
+            titleContainer.Remove(titleButtonContainer);
+
             Guid = guid;
 
             NodeType = AaNodeType.ChoiceNode;
@@ -46,7 +47,7 @@ namespace Test.Dialogues
 
             var addAndCase = new Button(() =>
             {
-                foldout.Add(new AndChoiceCase("and", element => RemoveElement(element, foldout), ChoiceKeys, null));
+                foldout.Add(new AndChoiceCase("and", element => RemoveElement(element, foldout), ChoiceKeys));
                 UpdateCasesCount(foldout);
             });
             addAndCase.text = "+And";
@@ -54,7 +55,7 @@ namespace Test.Dialogues
 
             var addNoCase = new Button(() =>
             {
-                foldout.Add(new NoChoiceCase("no", element => RemoveElement(element, foldout), ChoiceKeys, null));
+                foldout.Add(new NoChoiceCase("no", element => RemoveElement(element, foldout), ChoiceKeys));
                 UpdateCasesCount(foldout);
             });
             addNoCase.text = "+No";

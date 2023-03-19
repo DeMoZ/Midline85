@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Configs;
 using UnityEngine;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph
 {
     [Serializable]
     public class PhraseNodeData : AaNodeData

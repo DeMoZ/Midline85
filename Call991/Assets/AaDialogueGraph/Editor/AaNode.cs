@@ -1,6 +1,6 @@
 using UnityEditor.Experimental.GraphView;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public abstract class AaNode : Node
     {

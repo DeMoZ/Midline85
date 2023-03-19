@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph
 {
     public abstract class AaNodeData
     {

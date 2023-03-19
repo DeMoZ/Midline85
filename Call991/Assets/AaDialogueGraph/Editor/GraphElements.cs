@@ -11,7 +11,7 @@ using Button = UnityEngine.UIElements.Button;
 using Object = UnityEngine.Object;
 using Toggle = UnityEngine.UIElements.Toggle;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public enum AaNodeType
     {
@@ -43,6 +43,8 @@ namespace Test.Dialogues
         public const string LineSpace = " | ";
         public const string InPortName = "in";
         public const string OutPortName = "out";
+
+        public const string HideOnEnd = "HideOnEnd";
 
         public const string NoData = "NO DATA";
     }
@@ -167,7 +169,9 @@ namespace Test.Dialogues
     {
         public PhraseElementsRowField(string language, Object clip = null, Phrase phrase = null, Action onChange = null)
         {
-            contentContainer.Add(new Label(language));
+            var label = new Label(language);
+            label.AddToClassList("aa-BlackText");
+            contentContainer.Add(label);
             contentContainer.Add(new PhraseSoundField(clip, onChange));
             contentContainer.Add(new PhraseAssetField(phrase, onChange));
             contentContainer.style.flexDirection = FlexDirection.Row;
@@ -226,25 +230,35 @@ namespace Test.Dialogues
     {
         public PersonVisual(PersonVisualData data = null, Action<string> onPersonChange = null)
         {
+            var label = new Label("   Person");
+            label.AddToClassList("aa-BlackText");
+            contentContainer.Add(label);
+
+            var personContainer = new VisualElement();
+            contentContainer.Add(personContainer);
+
             var personOptions = Enum.GetValues(typeof(Person)).Cast<Person>().ToList();
             var personPopup = new PopupField<Person>("", personOptions, data?.Person ?? personOptions[0],
                 (val) => OnPersonChange(val, onPersonChange));
-
+            personContainer.Add(personPopup);
+            
             var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
-            var positionPopup =
-                new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
+            var positionPopup = new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
+            personContainer.Add(positionPopup);
 
+            var toggleContainer = new VisualElement();
             var onEndToggle = new Toggle
             {
-                text = "HideOnEnd",
+                text = AaGraphConstants.HideOnEnd,
                 value = data?.HideOnEnd ?? false,
             };
+            toggleContainer.Add(onEndToggle);
+            toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
+            personContainer.contentContainer.Add(toggleContainer);
 
-            contentContainer.Add(personPopup);
-            contentContainer.Add(positionPopup);
-            contentContainer.Add(onEndToggle);
+            personContainer.style.flexDirection = FlexDirection.Row;
 
-            contentContainer.style.flexDirection = FlexDirection.Row;
+            contentContainer.AddToClassList("aa-PersonVisual_content-container");
         }
 
         private string OnPersonChange(Person val, Action<string> onPersonChange = null)
@@ -268,18 +282,30 @@ namespace Test.Dialogues
     {
         public PhraseVisual(PhraseVisualData data)
         {
+            var label = new Label("   Phrase");
+            label.AddToClassList("aa-BlackText");
+            contentContainer.Add(label);
+
+            var phraseContainer = new VisualElement();
+            contentContainer.Add(phraseContainer);
+
             var appearOptions = Enum.GetValues(typeof(TextAppear)).Cast<TextAppear>().ToList();
             var appearPopup = new PopupField<TextAppear>("", appearOptions, data?.TextAppear ?? appearOptions[0]);
+            phraseContainer.Add(appearPopup);
+
+            var toggleContainer = new VisualElement();
             var onEndToggle = new Toggle
             {
-                text = "HideOnEnd",
+                text = AaGraphConstants.HideOnEnd,
                 value = data?.HideOnEnd ?? false,
             };
+            toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
+            phraseContainer.contentContainer.Add(toggleContainer);
 
-            contentContainer.Add(appearPopup);
-            contentContainer.Add(onEndToggle);
+            toggleContainer.Add(onEndToggle);
 
-            contentContainer.style.flexDirection = FlexDirection.Row;
+            phraseContainer.style.flexDirection = FlexDirection.Row;
+            contentContainer.AddToClassList("aa-PhraseVisual_content-container");
         }
 
         public PhraseVisualData GetData()
@@ -355,21 +381,29 @@ namespace Test.Dialogues
             });
             containerRow2.Add(typePopup);
 
+            var stopContainer = new VisualElement();
+            stopContainer.AddToClassList("aa-Toggle_content-container");
+            containerRow2.Add(stopContainer);
             var toggle = new Toggle
             {
                 text = "Stop",
                 value = data?.Stop ?? false,
             };
-            containerRow2.Add(toggle);
+            stopContainer.Add(toggle);
 
-            containerRow2.Add(new Label {text = "Delay"});
+            var delayContainer = new VisualElement();
+            delayContainer.AddToClassList("aa-Toggle_content-container");
+            delayContainer.style.flexDirection = FlexDirection.Row;
+            containerRow2.Add(delayContainer);
+            delayContainer.Add(new Label {text = "Delay"});
             var delay = new FloatField
             {
                 value = data?.Delay ?? 0,
             };
-            containerRow2.Add(delay);
+            delayContainer.Add(delay);
 
             contentContainer.style.flexDirection = FlexDirection.Row;
+            contentContainer.AddToClassList("aa-EventAsset_content-container");
         }
 
         public EventVisualData GetData()
@@ -414,7 +448,7 @@ namespace Test.Dialogues
     {
         public NoEnumPopup(List<string> keys, string currentChoice = null, Action<string> onChange = null)
         {
-            contentContainer.Add(new PopupField<string>("", keys, 
+            contentContainer.Add(new PopupField<string>("", keys,
                 currentChoice ?? keys?[0], val =>
                 {
                     onChange?.Invoke(val);
@@ -465,7 +499,7 @@ namespace Test.Dialogues
         public ChoicePopupField(List<string> keys, string currentChoice = null)
         {
             var label = new Label();
-            
+
             contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = KeyToTextTitle(val)));
             contentContainer.Add(label);
         }
@@ -483,7 +517,8 @@ namespace Test.Dialogues
     {
         protected List<string> _choiceKeys;
 
-        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys, string currentOption)
+        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
+            string currentOption = null)
         {
             _choiceKeys = choiceKeys;
 
@@ -497,7 +532,7 @@ namespace Test.Dialogues
 
             contentContainer.Add(new ChoicePopupField(_choiceKeys, currentOption));
 
-            contentContainer.Add(new Button(() => AddCaseField(null))
+            contentContainer.Add(new Button(() => AddCaseField())
             {
                 text = "or",
             });
@@ -514,7 +549,7 @@ namespace Test.Dialogues
             return cases;
         }
 
-        public void AddCaseField(string currentChoice) =>
+        public void AddCaseField(string currentChoice = null) =>
             contentContainer.Add(new ChoicePopupField(_choiceKeys, currentChoice));
     }
 
@@ -524,8 +559,7 @@ namespace Test.Dialogues
     public class AndChoiceCase : ChoiceCase
     {
         public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            string currentOption) : base(caseName,
-            onDelete, choiceKeys, currentOption)
+            string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
         {
         }
     }
@@ -536,8 +570,7 @@ namespace Test.Dialogues
     public class NoChoiceCase : ChoiceCase
     {
         public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            string currentOption) : base(caseName,
-            onDelete, choiceKeys, currentOption)
+            string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
         {
         }
     }

@@ -5,7 +5,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public class PhraseNode : AaNode
     {
@@ -16,23 +16,23 @@ namespace Test.Dialogues
         
         public PhraseNode(PhraseNodeData data, List<string> languages, string guid)
         {
+            titleContainer.Remove(titleButtonContainer);
+
             Guid = guid;
 
             titleContainer.Add(new NodeTitleErrorField());
             
             var contentFolder = new Foldout();
             contentFolder.value = false;
-            contentContainer.Add(contentFolder);
+            extensionContainer.Add(contentFolder);
+            extensionContainer.AddToClassList("aa-PhraseNode_extension-container");
             
             var titleTextField = new PhraseSketchField(data.PhraseSketchText, val =>
             {
                 _phraseSketchTxt = val;
                 title = GetTitle(_personTxt, _phraseSketchTxt);
             });
-            contentFolder.Add(titleTextField);   
-            
-            var line0 = new Label("   Person");
-            contentFolder.Add(line0);
+            contentFolder.Add(titleTextField);
 
             var personVisual = new PersonVisual(data.PersonVisualData, val =>
             {
@@ -41,23 +41,16 @@ namespace Test.Dialogues
             });
             contentFolder.Add(personVisual);
 
-            var line1 = new Label("   Phrase");
-            contentFolder.Add(line1);
-
             var phraseVisual = new PhraseVisual(data.PhraseVisualData);
             contentFolder.Add(phraseVisual);
 
-            var line2 = new Label(" ");
-            contentFolder.Add(line2);
-
             var phraseEvents = new PhraseEvents(data.EventVisualData, CheckNodeContent);
             contentFolder.Add(phraseEvents);
-
-            var line3 = new Label(" ");
-            contentFolder.Add(line3);
-
+            
             var phraseContainer = new PhraseElementsTable();
-            phraseContainer.Add(new Label("Phrase Assets"));
+            var phraseAssetsLabel = new Label("Phrase Assets");
+            phraseAssetsLabel.AddToClassList("aa-BlackText");
+            phraseContainer.Add(phraseAssetsLabel);
 
             for (var i = 0; i < languages.Count; i++)
             {
@@ -67,6 +60,8 @@ namespace Test.Dialogues
                 var phrase = data.Phrases != null && data.Phrases.Count > i ? data.Phrases[i] : null;
                 phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase, CheckNodeContent));
             }
+            //phraseContainer.AddToClassList("aa-PhraseAsset_content-container");
+            phraseContainer.contentContainer.AddToClassList("aa-PhraseAsset_content-container");
 
             contentFolder.Add(phraseContainer);
 

@@ -1,18 +1,25 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
-using UnityEngine;
 using UnityEngine.UIElements;
 
-namespace Test.Dialogues
+namespace AaDialogueGraph.Editor
 {
     public class DialogueGraphView : GraphView
     {
         public DialogueGraphView(AaReactive<LanguageOperation> languageOperation)
         {
-            styleSheets.Add(Resources.Load<StyleSheet>("DialogueGraphBackground"));
-            SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
+            var backgroundStyle = (StyleSheet) EditorGUIUtility.Load("AaDialogueGraph/Styles/GraphViewStyle.uss");
+            if (backgroundStyle)
+                styleSheets.Add(backgroundStyle);
 
+            var styleSheet = (StyleSheet) EditorGUIUtility.Load("AaDialogueGraph/Styles/PhraseNodeStyle.uss");
+            if (styleSheet)
+                styleSheets.Add(styleSheet);
+
+            SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
+ 
             this.AddManipulator(new ContentDragger());
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
@@ -35,14 +42,14 @@ namespace Test.Dialogues
                     compatiblePorts.Add(port);
                 }
             });
-            
+
             return compatiblePorts;
         }
 
         public void CreatePhraseNode()
         {
             var languages = contentContainer.Query<EntryPointNode>().First().GetLanguages() ?? new List<string>();
-            var nodeData = new PhraseNodeData ();
+            var nodeData = new PhraseNodeData();
             AddElement(new PhraseNode(nodeData, languages, Guid.NewGuid().ToString()));
         }
 
@@ -71,7 +78,8 @@ namespace Test.Dialogues
                         if (node.EntryPoint) continue;
 
                         var phraseContainer = node.Q<PhraseElementsTable>();
-                        phraseContainer?.Add(new PhraseElementsRowField(AaGraphConstants.NewLanguageName, onChange: node.CheckNodeContent));
+                        phraseContainer?.Add(new PhraseElementsRowField(AaGraphConstants.NewLanguageName,
+                            onChange: node.CheckNodeContent));
                         node.CheckNodeContent();
                     }
 
