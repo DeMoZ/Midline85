@@ -23,8 +23,6 @@ namespace AaDialogueGraph.Editor
 
         public ChoiceNode(ChoiceNodeData data, string guid)
         {
-            titleContainer.Remove(titleButtonContainer);
-
             Guid = guid;
 
             NodeType = AaNodeType.ChoiceNode;
@@ -37,7 +35,7 @@ namespace AaDialogueGraph.Editor
             var outPort = GraphElements.GeneratePort(this, Direction.Output, Port.Capacity.Multi);
             outPort.portName = AaGraphConstants.OutPortName;
             outputContainer.Add(outPort);
-
+            
             var foldout = new Foldout();
             foldout.value = false;
             UpdateCasesCount(foldout);
@@ -68,6 +66,7 @@ namespace AaDialogueGraph.Editor
             UpdateCasesCount(foldout);
 
             contentContainer.Add(foldout);
+            foldout.AddToClassList("aa-ChoiceNode_extension-container");
         }
 
         private void CreateCases(Foldout foldout, List<ChoiceCaseData> data)
@@ -107,7 +106,7 @@ namespace AaDialogueGraph.Editor
 
         private void RemoveElement(VisualElement element, Foldout foldout)
         {
-            contentContainer.Remove(element);
+            foldout.Remove(element);
             UpdateCasesCount(foldout);
         }
     }

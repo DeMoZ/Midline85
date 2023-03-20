@@ -41,7 +41,7 @@ namespace AaDialogueGraph
         [Tooltip("If need to stop the same event started in different phrase node")]
         public bool Stop;
         public float Delay;
-        
+
         private bool Loopable() =>
             EventType is PhraseEventTypes.LoopSfx or PhraseEventTypes.LoopVfx;
     }

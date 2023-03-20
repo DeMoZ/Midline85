@@ -1,6 +1,10 @@
 /* Containers */
 .aa-PhraseNode_extension-container {
-    background-color: rgba(58, 58, 58, 0.8);
+    background-color: rgba(19, 65, 17, 0.85);
+}
+
+.aa-ChoiceNode_extension-container {
+    background-color: rgba(20, 17, 65, 0.85);
 }
 
 .aa-PersonVisual_content-container {
@@ -13,6 +17,14 @@
 
 .aa-PhraseVisual_content-container {
     background-color: #374D37;
+    padding: 4px;
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-right: 4px;
+}
+
+.aa-EventAsset_content-container {
+    background-color: rgba(8, 49, 15, 1);
     padding: 4px;
     margin-top: 3px;
     margin-left: 3px;
@@ -35,20 +47,22 @@
     margin-right: 4px;
 }
 
-.aa-EventAsset_content-container {
-    background-color: #374D37;
+.aa-ChoiceAsset_content-container-green {
+    background-color: rgba(25, 65, 92, 1);
     padding: 4px;
     margin-top: 3px;
     margin-left: 3px;
     margin-right: 4px;
 }
 
-.aa-ChoiceNode_extension-container {
-    background-color: #1D1D1E;
-    padding: 8px;
-    margin-top: 2px;
-}
 
+.aa-ChoiceAsset_content-container-red {
+    background-color: rgba(68, 25, 91, 1);
+    padding: 4px;
+    margin-top: 3px;
+    margin-left: 3px;
+    margin-right: 4px;
+}
 
 /*SMALL ELEMENTS*/
 

@@ -336,6 +336,8 @@ namespace AaDialogueGraph.Editor
             addEventAssetButton.text = "Event Asset";
             contentContainer.Add(addEventAssetButton);
 
+            contentContainer.AddToClassList("aa-EventAsset_content-container");
+                
             data?.ForEach(item => contentContainer.Add(new EventVisual(item, OnDeleteEvent, _onChange)));
         }
 
@@ -403,7 +405,7 @@ namespace AaDialogueGraph.Editor
             delayContainer.Add(delay);
 
             contentContainer.style.flexDirection = FlexDirection.Row;
-            contentContainer.AddToClassList("aa-EventAsset_content-container");
+            contentContainer.AddToClassList("aa-EventVisual_content-container");
         }
 
         public EventVisualData GetData()
@@ -561,6 +563,7 @@ namespace AaDialogueGraph.Editor
         public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
             string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
         {
+            contentContainer.AddToClassList("aa-ChoiceAsset_content-container-green");
         }
     }
 
@@ -572,6 +575,7 @@ namespace AaDialogueGraph.Editor
         public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
             string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
         {
+            contentContainer.AddToClassList("aa-ChoiceAsset_content-container-red");
         }
     }
 

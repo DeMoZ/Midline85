@@ -16,8 +16,6 @@ namespace AaDialogueGraph.Editor
         
         public PhraseNode(PhraseNodeData data, List<string> languages, string guid)
         {
-            titleContainer.Remove(titleButtonContainer);
-
             Guid = guid;
 
             titleContainer.Add(new NodeTitleErrorField());
@@ -25,7 +23,7 @@ namespace AaDialogueGraph.Editor
             var contentFolder = new Foldout();
             contentFolder.value = false;
             extensionContainer.Add(contentFolder);
-            extensionContainer.AddToClassList("aa-PhraseNode_extension-container");
+            contentFolder.AddToClassList("aa-PhraseNode_extension-container");
             
             var titleTextField = new PhraseSketchField(data.PhraseSketchText, val =>
             {
