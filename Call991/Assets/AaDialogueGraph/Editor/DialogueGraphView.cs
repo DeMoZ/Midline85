@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace AaDialogueGraph.Editor
@@ -19,7 +20,7 @@ namespace AaDialogueGraph.Editor
                 styleSheets.Add(styleSheet);
 
             SetupZoom(ContentZoomer.DefaultMinScale, ContentZoomer.DefaultMaxScale);
- 
+
             this.AddManipulator(new ContentDragger());
             this.AddManipulator(new SelectionDragger());
             this.AddManipulator(new RectangleSelector());
@@ -30,6 +31,8 @@ namespace AaDialogueGraph.Editor
 
             languageOperation.Subscribe(OnLanguageChange);
             AddElement(new EntryPointNode(languageOperation));
+
+            CreateMinimap();
         }
 
         public override List<Port> GetCompatiblePorts(Port startPort, NodeAdapter nodeAdapter)
@@ -50,13 +53,31 @@ namespace AaDialogueGraph.Editor
         {
             var languages = contentContainer.Query<EntryPointNode>().First().GetLanguages() ?? new List<string>();
             var nodeData = new PhraseNodeData();
-            AddElement(new PhraseNode(nodeData, languages, Guid.NewGuid().ToString()));
+            var phraseNode = new PhraseNode(nodeData, languages, Guid.NewGuid().ToString());
+            phraseNode.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+
+            AddElement(phraseNode);
         }
 
         public void CreateChoiceNode()
         {
             var nodeData = new ChoiceNodeData();
-            AddElement(new ChoiceNode(nodeData, Guid.NewGuid().ToString()));
+            var choiceNode = new ChoiceNode(nodeData, Guid.NewGuid().ToString());
+            choiceNode.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+            AddElement(choiceNode);
+        }
+
+        private Vector2 GetNewNodePosition()
+        {
+            var worldPosition = Event.current.mousePosition + Vector2.up * 100;
+            return contentViewContainer.WorldToLocal(worldPosition);
+        }
+
+        private void CreateMinimap()
+        {
+            var miniMap = new MiniMap {anchored = false};
+            miniMap.SetPosition(new Rect(10, 30, 200, 100));
+            Add(miniMap);
         }
 
         /// <summary>

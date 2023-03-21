@@ -66,7 +66,7 @@ namespace AaDialogueGraph.Editor
             toolbar.Add(loadDataButton);
 
             toolbar.Add(new Label(AaGraphConstants.LineSpace));
-
+            
             var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode())
             {
                 text = AaGraphConstants.NewPhraseNode,
