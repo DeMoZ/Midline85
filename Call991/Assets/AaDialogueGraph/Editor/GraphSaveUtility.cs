@@ -6,6 +6,7 @@ using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Object = UnityEngine.Object;
 
 namespace AaDialogueGraph.Editor
 {
@@ -83,8 +84,8 @@ namespace AaDialogueGraph.Editor
                 var personVisualData = node.GetPersonVisual().GetData();
                 var phraseVisualData = node.GetPhraseVisual().GetData();
                 var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
-                var phraseSounds = node.GetPhraseSounds();
-                var phrases = node.GetPhrases();
+                var phraseSounds = node.GetPhraseSounds().Cast<Object>().ToList();
+                var phrases = node.GetPhrases().Cast<Object>().ToList();
 
                 data.Add(new PhraseNodeData
                 {
@@ -95,8 +96,8 @@ namespace AaDialogueGraph.Editor
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
-                    PhraseSounds = phraseSounds,
-                    Phrases = phrases,
+                    PhraseSounds = NodeUtils.GetObjectPath(phraseSounds),
+                    Phrases = NodeUtils.GetObjectPath(phrases),
                 });
             }
 

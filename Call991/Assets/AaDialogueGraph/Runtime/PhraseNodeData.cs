@@ -9,12 +9,11 @@ namespace AaDialogueGraph
     public class PhraseNodeData : AaNodeData
     {
         public string PhraseSketchText;
-        
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
         public List<EventVisualData> EventVisualData;
-        public List<AudioClip> PhraseSounds;
-        public List<Phrase> Phrases;
+        public List<string> PhraseSounds;
+        public List<string> Phrases;
     }
 
     [Serializable]

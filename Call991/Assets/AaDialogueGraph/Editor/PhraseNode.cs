@@ -13,18 +13,18 @@ namespace AaDialogueGraph.Editor
         private string _phraseSketchTxt;
 
         public string PhraseSketchText => _phraseSketchTxt;
-        
+
         public PhraseNode(PhraseNodeData data, List<string> languages, string guid)
         {
             Guid = guid;
 
             titleContainer.Add(new NodeTitleErrorField());
-            
+
             var contentFolder = new Foldout();
             contentFolder.value = false;
             extensionContainer.Add(contentFolder);
             contentFolder.AddToClassList("aa-PhraseNode_extension-container");
-            
+
             var titleTextField = new PhraseSketchField(data.PhraseSketchText, val =>
             {
                 _phraseSketchTxt = val;
@@ -44,7 +44,7 @@ namespace AaDialogueGraph.Editor
 
             var phraseEvents = new PhraseEvents(data.EventVisualData, CheckNodeContent);
             contentFolder.Add(phraseEvents);
-            
+
             var phraseContainer = new PhraseElementsTable();
             var phraseAssetsLabel = new Label("Phrase Assets");
             phraseAssetsLabel.AddToClassList("aa-BlackText");
@@ -52,13 +52,15 @@ namespace AaDialogueGraph.Editor
 
             for (var i = 0; i < languages.Count; i++)
             {
-                var clip = data.PhraseSounds != null && data.PhraseSounds.Count > i
-                    ? data.PhraseSounds[i]
+                var clips = data.PhraseSounds;
+                var clip = clips != null && clips.Count > i
+                    ? NodeUtils.GetObjectByPath<AudioClip>(clips[i])
                     : null;
-                var phrase = data.Phrases != null && data.Phrases.Count > i ? data.Phrases[i] : null;
+
+                var phrase = NodeUtils.GetObjectByPath<Phrase>(data.Phrases[i]);
                 phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase, CheckNodeContent));
             }
-            //phraseContainer.AddToClassList("aa-PhraseAsset_content-container");
+
             phraseContainer.contentContainer.AddToClassList("aa-PhraseAsset_content-container");
 
             contentFolder.Add(phraseContainer);
@@ -75,7 +77,7 @@ namespace AaDialogueGraph.Editor
             RefreshPorts();
             CheckNodeContent();
         }
-        
+
         public void CheckNodeContent()
         {
             var phrases = contentContainer.Query<PhraseAssetField>().ToList();
@@ -84,24 +86,24 @@ namespace AaDialogueGraph.Editor
 
             var errorFields = new StringBuilder();
 
-            if (phrases.Any(p => p.GetPhrase() == null)) 
+            if (phrases.Any(p => p.GetPhrase() == null))
                 errorFields.Append("p.");
 
-            if (sounds.Any(s => s.GetPhraseSound() == null)) 
+            if (sounds.Any(s => s.GetPhraseSound() == null))
                 errorFields.Append("s.");
-            
+
             if (events.Any(evt => evt.GetEvent() == null))
                 errorFields.Append("e.");
 
             if (errorFields.Length > 0)
             {
-                errorFields.Insert(0,"<color=red>");
+                errorFields.Insert(0, "<color=red>");
                 errorFields.Append("</color>");
             }
 
             titleContainer.Q<NodeTitleErrorField>().Label.text = errorFields.ToString();
         }
-        
+
         public List<AudioClip> GetPhraseSounds() =>
             contentContainer.Query<PhraseSoundField>().ToList().Select(field => field.GetPhraseSound()).ToList();
 
@@ -116,7 +118,7 @@ namespace AaDialogueGraph.Editor
 
         public List<EventVisual> GetEventsVisual() =>
             contentContainer.Query<EventVisual>().ToList();
-        
+
         private string GetTitle(string person, string text)
         {
             return $"{person}\n{text}";
