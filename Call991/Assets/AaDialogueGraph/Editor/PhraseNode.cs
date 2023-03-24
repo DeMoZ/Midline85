@@ -57,7 +57,10 @@ namespace AaDialogueGraph.Editor
                     ? NodeUtils.GetObjectByPath<AudioClip>(clips[i])
                     : null;
 
-                var phrase = NodeUtils.GetObjectByPath<Phrase>(data.Phrases[i]);
+                var phrase = data.Phrases != null && data.Phrases.Count > i
+                    ? NodeUtils.GetObjectByPath<Phrase>(data.Phrases[i])
+                    : null;
+                
                 phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase, CheckNodeContent));
             }
 

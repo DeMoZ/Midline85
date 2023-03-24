@@ -7,27 +7,13 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
+using UnityEngine.Video;
 using Button = UnityEngine.UIElements.Button;
 using Object = UnityEngine.Object;
 using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace AaDialogueGraph.Editor
 {
-    public enum AaNodeType
-    {
-        Phrase,
-        EntryPoint,
-        ChoiceNode,
-        MultiPhrase,
-    }
-
-    public enum LanguageOperationType
-    {
-        Add,
-        Change,
-        Remove,
-    }
-
     public static class AaGraphConstants
     {
         public const string DefaultFileName = "NewDialogue";
@@ -46,7 +32,8 @@ namespace AaDialogueGraph.Editor
 
         public const string HideOnEnd = "HideOnEnd";
 
-        public const string NoData = "NO DATA";
+        public const string LoopToggleName = "Loop";
+        public const string StopToggleName = "Stop";
     }
 
     public class LanguageOperation
@@ -241,9 +228,10 @@ namespace AaDialogueGraph.Editor
             var personPopup = new PopupField<Person>("", personOptions, data?.Person ?? personOptions[0],
                 (val) => OnPersonChange(val, onPersonChange));
             personContainer.Add(personPopup);
-            
+
             var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
-            var positionPopup = new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
+            var positionPopup =
+                new PopupField<ScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
             personContainer.Add(positionPopup);
 
             var toggleContainer = new VisualElement();
@@ -252,6 +240,7 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.HideOnEnd,
                 value = data?.HideOnEnd ?? false,
             };
+            onEndToggle.tooltip = "Person will be hidden after the phrase end";
             toggleContainer.Add(onEndToggle);
             toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
             personContainer.contentContainer.Add(toggleContainer);
@@ -299,6 +288,7 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.HideOnEnd,
                 value = data?.HideOnEnd ?? false,
             };
+            onEndToggle.tooltip = "Phrase will be hidden after the phrase end";
             toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
             phraseContainer.contentContainer.Add(toggleContainer);
 
@@ -327,17 +317,46 @@ namespace AaDialogueGraph.Editor
         public PhraseEvents(List<EventVisualData> data, Action onChange)
         {
             _onChange = onChange;
+            var headerContent = new VisualElement();
+            headerContent.style.flexDirection = FlexDirection.Row;
+            contentContainer.Add(headerContent);
 
-            var addEventAssetButton = new Button(() =>
+            var label = new Label(text: "Events");
+            //label.AddToClassList("aa-BlackText");
+            headerContent.Add(label);
+
+            var addSoundEventAssetButton = new Button(() =>
             {
-                contentContainer.Add(new EventVisual(new EventVisualData(), OnDeleteEvent, _onChange));
+                // add sound
+                //contentContainer.Add(new EventVisual(new EventVisualData(), OnDeleteEvent, _onChange));
+                var eventVisualData = new EventVisualData {Type = PhraseEventType.AudioClip,};
+                contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
                 _onChange?.Invoke();
             });
-            addEventAssetButton.text = "Event Asset";
-            contentContainer.Add(addEventAssetButton);
+            addSoundEventAssetButton.text = "Sound";
+            headerContent.Add(addSoundEventAssetButton);
+
+            var addVideoEventAssetButton = new Button(() =>
+            {
+                // add video
+                var eventVisualData = new EventVisualData {Type = PhraseEventType.VideoClip,};
+                contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
+                _onChange?.Invoke();
+            });
+            addVideoEventAssetButton.text = "Video";
+            headerContent.Add(addVideoEventAssetButton);
+
+            var addObjectEventAssetButton = new Button(() =>
+            {
+                var eventVisualData = new EventVisualData {Type = PhraseEventType.GameObject,};
+                contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
+                _onChange?.Invoke();
+            });
+            addObjectEventAssetButton.text = "Object";
+            headerContent.Add(addObjectEventAssetButton);
 
             contentContainer.AddToClassList("aa-EventAsset_content-container");
-                
+
             data?.ForEach(item => contentContainer.Add(new EventVisual(item, OnDeleteEvent, _onChange)));
         }
 
@@ -369,35 +388,54 @@ namespace AaDialogueGraph.Editor
             containerRow1.style.flexDirection = FlexDirection.Row;
             containerColumn.Add(containerRow1);
 
-            containerRow1.Add(new EventAssetField(data.PhraseEventSo, onChange));
+            var layerOptions = Enum.GetValues(typeof(PhraseEventLayer)).Cast<PhraseEventLayer>().ToList();
+            var layerPopup = new PopupField<PhraseEventLayer>("", layerOptions, data?.Layer ?? layerOptions[0],
+                val =>
+                {
+                    onChange?.Invoke();
+                    return val.ToString();
+                });
+            containerRow1.Add(layerPopup);
+
+            containerRow1.Add(new EventAssetField(data, onChange));
 
             var containerRow2 = new VisualElement();
             containerRow2.style.flexDirection = FlexDirection.Row;
             containerColumn.Add(containerRow2);
 
-            var typeOptions = Enum.GetValues(typeof(PhraseEventTypes)).Cast<PhraseEventTypes>().ToList();
-            var typePopup = new PopupField<PhraseEventTypes>("", typeOptions, data?.EventType ?? typeOptions[2], val =>
+            var loopContainer = new VisualElement();
+            loopContainer.AddToClassList("aa-Toggle_content-container");
+            containerRow2.Add(loopContainer);
+
+            var loopToggle = new Toggle
             {
-                onChange?.Invoke();
-                return val.ToString();
-            });
-            containerRow2.Add(typePopup);
+                name = AaGraphConstants.LoopToggleName,
+                text = AaGraphConstants.LoopToggleName,
+                value = data?.Stop ?? false,
+                //tooltip = "If "
+            };
+            loopContainer.Add(loopToggle);
 
             var stopContainer = new VisualElement();
             stopContainer.AddToClassList("aa-Toggle_content-container");
             containerRow2.Add(stopContainer);
-            var toggle = new Toggle
+            var stopToggle = new Toggle
             {
-                text = "Stop",
+                name = AaGraphConstants.StopToggleName,
+                text = AaGraphConstants.StopToggleName,
                 value = data?.Stop ?? false,
+                tooltip = "If need to stop the same event started in different phrase node"
             };
-            stopContainer.Add(toggle);
+            stopContainer.Add(stopToggle);
 
             var delayContainer = new VisualElement();
             delayContainer.AddToClassList("aa-Toggle_content-container");
             delayContainer.style.flexDirection = FlexDirection.Row;
             containerRow2.Add(delayContainer);
-            delayContainer.Add(new Label {text = "Delay"});
+            var delayLabel = new Label {text = "Delay"};
+            delayLabel.tooltip = "Time in seconds before the event happen";
+            delayContainer.Add(delayLabel);
+
             var delay = new FloatField
             {
                 value = data?.Delay ?? 0,
@@ -410,12 +448,15 @@ namespace AaDialogueGraph.Editor
 
         public EventVisualData GetData()
         {
+            var eventAssetField = contentContainer.Q<EventAssetField>();
             return new EventVisualData
             {
-                PhraseEventSo = contentContainer.Query<EventAssetField>().First().GetEvent(),
-                EventType = contentContainer.Query<PopupField<PhraseEventTypes>>().First().value,
-                Stop = contentContainer.Query<Toggle>().First().value,
-                Delay = contentContainer.Query<FloatField>().First().value,
+                PhraseEvent = eventAssetField.GetEvent(),
+                Type = eventAssetField.Type,
+                Layer = contentContainer.Q<PopupField<PhraseEventLayer>>().value,
+                Loop = contentContainer.Q<Toggle>(name:AaGraphConstants.LoopToggleName).value,
+                Stop = contentContainer.Q<Toggle>(name:AaGraphConstants.StopToggleName).value,
+                Delay = contentContainer.Q<FloatField>().value,
             };
         }
     }
@@ -423,12 +464,65 @@ namespace AaDialogueGraph.Editor
     public class EventAssetField : VisualElement
     {
         private ObjectField _objectField;
+        public PhraseEventType Type { get; }
 
-        public EventAssetField(PhraseEventSo eventAsset = null, Action onChange = null)
+        public EventAssetField(EventVisualData data, Action onChange = null)
+        {
+            Type = data.Type;
+
+            switch (data.Type)
+            {
+                case PhraseEventType.AudioClip:
+                    var audioAsset = data.GetEventObject<AudioClip>();
+                    _objectField = new ObjectField
+                    {
+                        objectType = typeof(AudioClip),
+                        allowSceneObjects = false,
+                        value = audioAsset,
+                    };
+                    break;
+                case PhraseEventType.VideoClip:
+                    var videoAsset = data.GetEventObject<VideoClip>();
+                    _objectField = new ObjectField
+                    {
+                        objectType = typeof(VideoClip),
+                        allowSceneObjects = false,
+                        value = videoAsset,
+                    };
+                    break;
+                case PhraseEventType.GameObject:
+                    var objectAsset = data.GetEventObject<GameObject>();
+                    _objectField = new ObjectField
+                    {
+                        objectType = typeof(GameObject),
+                        allowSceneObjects = false,
+                        value = objectAsset,
+                    };
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            _objectField.RegisterValueChangedCallback(_ => onChange?.Invoke());
+
+            contentContainer.Add(_objectField);
+        }
+
+        public string GetEvent()
+        {
+            return NodeUtils.GetPathByObject(_objectField.value);
+        }
+    }
+
+    public class _EventAssetField<T> : VisualElement where T : Object
+    {
+        private ObjectField _objectField;
+
+        public _EventAssetField(T eventAsset = null, Action onChange = null)
         {
             _objectField = new ObjectField
             {
-                objectType = typeof(PhraseEventSo),
+                objectType = typeof(T),
                 allowSceneObjects = false,
                 value = eventAsset,
             };
