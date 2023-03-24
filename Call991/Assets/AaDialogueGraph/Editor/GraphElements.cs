@@ -302,8 +302,8 @@ namespace AaDialogueGraph.Editor
         {
             return new PhraseVisualData
             {
-                TextAppear = contentContainer.Query<PopupField<TextAppear>>().First().value,
-                HideOnEnd = contentContainer.Query<Toggle>().First().value,
+                TextAppear = contentContainer.Q<PopupField<TextAppear>>().value,
+                HideOnEnd = contentContainer.Q<Toggle>().value,
             };
         }
     }
@@ -328,7 +328,6 @@ namespace AaDialogueGraph.Editor
             var addSoundEventAssetButton = new Button(() =>
             {
                 // add sound
-                //contentContainer.Add(new EventVisual(new EventVisualData(), OnDeleteEvent, _onChange));
                 var eventVisualData = new EventVisualData {Type = PhraseEventType.AudioClip,};
                 contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
                 _onChange?.Invoke();
@@ -348,6 +347,7 @@ namespace AaDialogueGraph.Editor
 
             var addObjectEventAssetButton = new Button(() =>
             {
+                // add prefab
                 var eventVisualData = new EventVisualData {Type = PhraseEventType.GameObject,};
                 contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
                 _onChange?.Invoke();
@@ -364,11 +364,6 @@ namespace AaDialogueGraph.Editor
         {
             contentContainer.Remove(eventVisual);
             _onChange?.Invoke();
-        }
-
-        public List<EventVisual> GetEvents()
-        {
-            return contentContainer.Query<EventVisual>().ToList();
         }
     }
 
@@ -411,7 +406,7 @@ namespace AaDialogueGraph.Editor
             {
                 name = AaGraphConstants.LoopToggleName,
                 text = AaGraphConstants.LoopToggleName,
-                value = data?.Stop ?? false,
+                value = data?.Loop ?? false,
                 //tooltip = "If "
             };
             loopContainer.Add(loopToggle);

@@ -68,7 +68,7 @@ MonoBehaviour:
       x: 215
       y: 214
       width: 307
-      height: 441
+      height: 390
     PhraseSketchText: khm...
     PersonVisualData:
       Person: 1
@@ -78,24 +78,18 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 0
     EventVisualData:
-    - Type: 0
-      PhraseEvent: 
-      Layer: 1
-      Loop: 1
-      Stop: 0
-      Delay: 1
-    - Type: 1
-      PhraseEvent: 
-      Layer: 2
-      Loop: 0
-      Stop: 1
-      Delay: 2
     - Type: 2
-      PhraseEvent: 
-      Layer: 3
-      Loop: 1
+      PhraseEvent: ClickPointImage.prefab
+      Layer: 0
+      Loop: 0
       Stop: 0
-      Delay: 3
+      Delay: 0
+    - Type: 0
+      PhraseEvent: Sounds/EventSounds/SFX_Fire_Trigger-01.ogg
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
     PhraseSounds:
     - Sounds/RU/7_lvl/p.elena.012.ogg
     Phrases:
