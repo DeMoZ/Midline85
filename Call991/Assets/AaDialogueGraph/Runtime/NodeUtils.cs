@@ -1,10 +1,14 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class NodeUtils
 {
+    public const string AssetsResources = "Assets/Resources/";
+
     public static T GetObjectByPath<T>(string path) where T : Object
     {
         var fileNameExtension = Path.GetFileName(path);
@@ -22,7 +26,11 @@ public class NodeUtils
         if (obj != null)
         {
             path = UnityEditor.AssetDatabase.GetAssetPath(obj);
-            path = path.Replace("Assets/Resources/", "");
+         
+            if (!path.Contains(AssetsResources))
+                throw new Exception($"Selected object {path} not in the path {AssetsResources} and will not be loaded in game");
+            
+            path = path.Replace(AssetsResources, "");
         }
 
         return path;
