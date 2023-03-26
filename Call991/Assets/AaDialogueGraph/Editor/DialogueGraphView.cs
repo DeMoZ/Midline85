@@ -77,6 +77,7 @@ namespace AaDialogueGraph.Editor
         {
             var miniMap = new MiniMap {anchored = false};
             miniMap.SetPosition(new Rect(10, 30, 200, 100));
+            miniMap.maxHeight = 100;
             Add(miniMap);
         }
 
