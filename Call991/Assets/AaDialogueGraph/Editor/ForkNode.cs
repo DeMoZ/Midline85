@@ -36,6 +36,7 @@ namespace AaDialogueGraph.Editor
 
             var outPort = GraphElements.GeneratePort(this, Direction.Output, Port.Capacity.Multi);
             outPort.portName = AaGraphConstants.OutPortName;
+            outPort.tooltip = "Default exit from the node.\nIf none of case exits \"true\"";
             outputContainer.Add(outPort);
 
             var addExitButton = new Button(() =>

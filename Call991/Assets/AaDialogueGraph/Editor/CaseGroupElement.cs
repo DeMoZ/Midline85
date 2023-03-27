@@ -9,6 +9,7 @@ namespace AaDialogueGraph.Editor
         {
             var buttonsContainer = new VisualElement();
             buttonsContainer.style.flexDirection = FlexDirection.Row;
+            foldout.Add(buttonsContainer);
 
             var addAndCase = new Button(() =>
             {
@@ -33,9 +34,7 @@ namespace AaDialogueGraph.Editor
             });
             addNoCase.text = AaGraphConstants.NoWord;
             buttonsContainer.Add(addNoCase);
-
-            contentContainer.Add(buttonsContainer);
-
+            
             CreateCases(foldout, data);
 
             UpdateCasesCount(foldout);
