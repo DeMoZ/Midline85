@@ -14,6 +14,21 @@ using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace AaDialogueGraph.Editor
 {
+    public static class AaChoices
+    {
+        private static List<string> _choiceKeys = new();
+
+        public static List<string> ChoiceKeys
+        {
+            get
+            {
+                if (!_choiceKeys.Any())
+                    _choiceKeys = LocalizationManager.GetTermsList().Where(cKey => cKey.Contains("c.word")).ToList();
+
+                return _choiceKeys;
+            }
+        }
+    }
     public static class AaGraphConstants
     {
         public const string DefaultFileName = "NewDialogue";
@@ -22,6 +37,7 @@ namespace AaDialogueGraph.Editor
         public const string DialogueGraph = "Dialogue Graph";
         public const string NewChoiceNode = "Choices Node";
         public const string NewPhraseNode = "Phrase Node";
+        public const string NewForkNode = "Fork Node";
 
         public const string SaveData = "Save Data";
         public const string LoadData = "Load Data";
@@ -30,10 +46,16 @@ namespace AaDialogueGraph.Editor
         public const string InPortName = "in";
         public const string OutPortName = "out";
 
+        public const string AndWord = "+And Word";
+        public const string NoWord = "+No Word";
+        
         public const string HideOnEnd = "HideOnEnd";
 
         public const string LoopToggleName = "Loop";
         public const string StopToggleName = "Stop";
+
+        public const string DeleteName = "X";
+        public const string CaseWordKey = "c.word";
     }
 
     public class LanguageOperation

@@ -7,11 +7,11 @@ namespace AaDialogueGraph
     public class ChoiceNodeData : AaNodeData
     {
         public string Choice;
-        public List<ChoiceCaseData> Cases;
+        public List<CaseData> Cases;
     }
 
     [Serializable]
-    public class ChoiceCaseData
+    public class CaseData
     {
         public bool And;
         public List<string> Cases;

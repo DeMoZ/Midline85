@@ -7,7 +7,7 @@ using Object = UnityEngine.Object;
 
 public class NodeUtils
 {
-    public const string AssetsResources = "Assets/Resources/";
+    private const string AssetsResources = "Assets/Resources/";
 
     public static T GetObjectByPath<T>(string path) where T : Object
     {

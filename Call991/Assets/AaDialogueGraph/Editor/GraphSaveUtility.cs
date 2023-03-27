@@ -112,11 +112,11 @@ namespace AaDialogueGraph.Editor
                 var andCases = node.Query<AndChoiceCase>().ToList();
                 var noCases = node.Query<NoChoiceCase>().ToList();
 
-                var caseData = new List<ChoiceCaseData>();
+                var caseData = new List<CaseData>();
 
                 foreach (var andCase in andCases)
                 {
-                    caseData.Add(new ChoiceCaseData
+                    caseData.Add(new CaseData
                     {
                         And = true,
                         Cases = andCase.GetOrCases(),
@@ -125,7 +125,7 @@ namespace AaDialogueGraph.Editor
 
                 foreach (var noCase in noCases)
                 {
-                    caseData.Add(new ChoiceCaseData
+                    caseData.Add(new CaseData
                     {
                         And = false,
                         Cases = noCase.GetOrCases(),

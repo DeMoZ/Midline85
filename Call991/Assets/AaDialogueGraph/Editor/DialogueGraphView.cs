@@ -67,6 +67,14 @@ namespace AaDialogueGraph.Editor
             AddElement(choiceNode);
         }
 
+        public void CreateForkNode()
+        {
+            var nodeData = new ForkNodeData();
+            var forkNode = new ForkNode(nodeData, Guid.NewGuid().ToString());
+            forkNode.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+            AddElement(forkNode);
+        }
+
         private Vector2 GetNewNodePosition()
         {
             var worldPosition = Event.current.mousePosition + Vector2.up * 100;

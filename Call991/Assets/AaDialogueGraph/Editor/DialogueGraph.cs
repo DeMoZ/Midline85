@@ -79,6 +79,12 @@ namespace AaDialogueGraph.Editor
             };
             toolbar.Add(choiceCreateButton);
 
+            var forkCreateButton = new Button(() => _graphView.CreateForkNode())
+            {
+                text = AaGraphConstants.NewForkNode,
+            };
+            toolbar.Add(forkCreateButton);
+
             rootVisualElement.Add(toolbar);
         }
 
