@@ -1,7 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using I2.Loc;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine.UIElements;
 
@@ -9,25 +7,11 @@ namespace AaDialogueGraph.Editor
 {
     public class ForkNode : AaNode
     {
-        private static List<string> _choiceKeys = new();
-
-        private static List<string> ChoiceKeys
-        {
-            get
-            {
-                if (!_choiceKeys.Any())
-                    _choiceKeys = LocalizationManager.GetTermsList()
-                        .Where(cKey => cKey.Contains(AaGraphConstants.CaseWordKey)).ToList();
-
-                return _choiceKeys;
-            }
-        }
-
         public ForkNode(ForkNodeData data, string guid)
         {
             Guid = guid;
 
-            NodeType = AaNodeType.ChoiceNode;
+            NodeType = AaNodeType.ForkNode;
             title = AaGraphConstants.NewForkNode;
 
             var inPort = GraphElements.GeneratePort(this, Direction.Input, Port.Capacity.Multi);

@@ -23,12 +23,47 @@ namespace AaDialogueGraph.Editor
             get
             {
                 if (!_choiceKeys.Any())
-                    _choiceKeys = LocalizationManager.GetTermsList().Where(cKey => cKey.Contains("c.word")).ToList();
+                    _choiceKeys = LocalizationManager.GetTermsList()
+                        .Where(cKey => cKey.Contains(AaGraphConstants.CaseWordKey)).ToList();
 
                 return _choiceKeys;
             }
         }
     }
+    
+    public static class AaEnds
+    {
+        private static List<string> _endKeys = new();
+
+        public static List<string> EndKeys
+        {
+            get
+            {
+                if (!_endKeys.Any())
+                {
+                    _endKeys = Resources.Load<GameEnds>("GameEnds").Ends;
+                }
+
+                return _endKeys;
+            }
+        }
+    }
+
+// public static class AaChoices
+    // {
+    //     private static List<string> _choiceKeys = new();
+    //
+    //     public static List<string> ChoiceKeys
+    //     {
+    //         get
+    //         {
+    //             if (!_choiceKeys.Any())
+    //                 _choiceKeys = LocalizationManager.GetTermsList().Where(cKey => cKey.Contains("c.word")).ToList();
+    //
+    //             return _choiceKeys;
+    //         }
+    //     }
+    // }
     public static class AaGraphConstants
     {
         public const string DefaultFileName = "NewDialogue";
@@ -46,15 +81,24 @@ namespace AaDialogueGraph.Editor
         public const string InPortName = "in";
         public const string OutPortName = "out";
 
-        public const string AndWord = "+And Word";
-        public const string NoWord = "+No Word";
-        
+        public const string AndWord = "+Word";
+        public const string NoWord = "-Word";
+
+        public const string AndEnd = "+End";
+        public const string NoEnd = "-End";
+
+        public const string And = "+";
+        public const string No = "-";
+
         public const string HideOnEnd = "HideOnEnd";
 
         public const string LoopToggleName = "Loop";
         public const string StopToggleName = "Stop";
 
         public const string DeleteName = "X";
+        public const string DeleteNameSmall = "x";
+        public const string OrName = "or";
+        
         public const string CaseWordKey = "c.word";
     }
 
@@ -350,7 +394,7 @@ namespace AaDialogueGraph.Editor
             var addSoundEventAssetButton = new Button(() =>
             {
                 // add sound
-                var eventVisualData = new EventVisualData {Type = PhraseEventType.AudioClip,};
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.AudioClip, };
                 contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
                 _onChange?.Invoke();
             });
@@ -360,7 +404,7 @@ namespace AaDialogueGraph.Editor
             var addVideoEventAssetButton = new Button(() =>
             {
                 // add video
-                var eventVisualData = new EventVisualData {Type = PhraseEventType.VideoClip,};
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.VideoClip, };
                 contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
                 _onChange?.Invoke();
             });
@@ -370,7 +414,7 @@ namespace AaDialogueGraph.Editor
             var addObjectEventAssetButton = new Button(() =>
             {
                 // add prefab
-                var eventVisualData = new EventVisualData {Type = PhraseEventType.GameObject,};
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.GameObject, };
                 contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
                 _onChange?.Invoke();
             });
@@ -449,7 +493,7 @@ namespace AaDialogueGraph.Editor
             delayContainer.AddToClassList("aa-Toggle_content-container");
             delayContainer.style.flexDirection = FlexDirection.Row;
             containerRow2.Add(delayContainer);
-            var delayLabel = new Label {text = "Delay"};
+            var delayLabel = new Label { text = "Delay" };
             delayLabel.tooltip = "Time in seconds before the event happen";
             delayContainer.Add(delayLabel);
 
@@ -471,8 +515,8 @@ namespace AaDialogueGraph.Editor
                 PhraseEvent = eventAssetField.GetEvent(),
                 Type = eventAssetField.Type,
                 Layer = contentContainer.Q<PopupField<PhraseEventLayer>>().value,
-                Loop = contentContainer.Q<Toggle>(name:AaGraphConstants.LoopToggleName).value,
-                Stop = contentContainer.Q<Toggle>(name:AaGraphConstants.StopToggleName).value,
+                Loop = contentContainer.Q<Toggle>(name: AaGraphConstants.LoopToggleName).value,
+                Stop = contentContainer.Q<Toggle>(name: AaGraphConstants.StopToggleName).value,
                 Delay = contentContainer.Q<FloatField>().value,
             };
         }
@@ -602,93 +646,4 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(Label);
         }
     }
-
-    #region Choce Cases
-
-    public class ChoicePopupField : VisualElement
-    {
-        public string Value { get; private set; }
-
-        public ChoicePopupField(List<string> keys, string currentChoice = null)
-        {
-            var label = new Label();
-
-            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = KeyToTextTitle(val)));
-            contentContainer.Add(label);
-        }
-
-        private string KeyToTextTitle(string val)
-        {
-            Value = val;
-            string textValue = new LocalizedString(val);
-            textValue = textValue.Split(" ")[0];
-            return textValue;
-        }
-    }
-
-    public abstract class ChoiceCase : VisualElement
-    {
-        protected List<string> _choiceKeys;
-
-        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            string currentOption = null)
-        {
-            _choiceKeys = choiceKeys;
-
-            contentContainer.style.flexDirection = FlexDirection.Row;
-
-            contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
-            {
-                text = "x",
-            });
-            contentContainer.Add(new Label(caseName));
-
-            contentContainer.Add(new ChoicePopupField(_choiceKeys, currentOption));
-
-            contentContainer.Add(new Button(() => AddCaseField())
-            {
-                text = "or",
-            });
-        }
-
-        /// <summary>
-        /// Return list of cases that can be one of a case 
-        /// </summary>
-        /// <returns></returns>
-        public List<string> GetOrCases()
-        {
-            var popups = contentContainer.Query<ChoicePopupField>().ToList();
-            var cases = popups.Select(c => c.Value).ToList();
-            return cases;
-        }
-
-        public void AddCaseField(string currentChoice = null) =>
-            contentContainer.Add(new ChoicePopupField(_choiceKeys, currentChoice));
-    }
-
-    /// <summary>
-    /// To easily find data for save/load
-    /// </summary>
-    public class AndChoiceCase : ChoiceCase
-    {
-        public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
-        {
-            contentContainer.AddToClassList("aa-ChoiceAsset_content-container-green");
-        }
-    }
-
-    /// <summary>
-    /// To easily find data for save/load
-    /// </summary>
-    public class NoChoiceCase : ChoiceCase
-    {
-        public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
-        {
-            contentContainer.AddToClassList("aa-ChoiceAsset_content-container-red");
-        }
-    }
-
-    #endregion
 }

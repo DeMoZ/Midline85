@@ -118,7 +118,7 @@ namespace AaDialogueGraph.Editor
                 {
                     caseData.Add(new CaseData
                     {
-                        And = true,
+                        CaseType = CaseType.AndWord,
                         Cases = andCase.GetOrCases(),
                     });
                 }
@@ -127,7 +127,7 @@ namespace AaDialogueGraph.Editor
                 {
                     caseData.Add(new CaseData
                     {
-                        And = false,
+                        CaseType = CaseType.NoWord,
                         Cases = noCase.GetOrCases(),
                     });
                 }

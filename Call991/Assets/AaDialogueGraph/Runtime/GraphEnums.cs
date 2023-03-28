@@ -3,6 +3,7 @@ public enum AaNodeType
     Phrase,
     EntryPoint,
     ChoiceNode,
+    ForkNode,
 }
 
 public enum LanguageOperationType
@@ -25,4 +26,13 @@ public enum PhraseEventType
     AudioClip,
     VideoClip,
     GameObject,
+}
+
+public enum CaseType
+{
+    AndWord,
+    NoWord,
+    AndEnd,
+    NoEnd,
+    Count
 }

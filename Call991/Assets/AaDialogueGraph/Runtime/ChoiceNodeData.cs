@@ -13,7 +13,7 @@ namespace AaDialogueGraph
     [Serializable]
     public class CaseData
     {
-        public bool And;
+        public CaseType CaseType;
         public List<string> Cases;
     }
 }

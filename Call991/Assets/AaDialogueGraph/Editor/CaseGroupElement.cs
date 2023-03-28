@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine.UIElements;
 
@@ -11,30 +12,62 @@ namespace AaDialogueGraph.Editor
             buttonsContainer.style.flexDirection = FlexDirection.Row;
             foldout.Add(buttonsContainer);
 
-            var addAndCase = new Button(() =>
+            var andWordCase = new Button(() =>
             {
-                contentContainer.Add(new AndChoiceCase("and", element =>
+                contentContainer.Add(new AndChoiceCase(AaGraphConstants.And, element =>
                 {
                     RemoveElement(element, contentContainer);
                     UpdateCasesCount(foldout);
                 }, AaChoices.ChoiceKeys));
                 UpdateCasesCount(foldout);
             });
-            addAndCase.text = AaGraphConstants.AndWord;
-            buttonsContainer.Add(addAndCase);
+            andWordCase.text = AaGraphConstants.AndWord;
+            andWordCase.AddToClassList("aa-ChoiceAsset_content-container-green");
+            buttonsContainer.Add(andWordCase);
 
-            var addNoCase = new Button(() =>
+            var noWordCase = new Button(() =>
             {
-                contentContainer.Add(new NoChoiceCase("no", element =>
+                contentContainer.Add(new NoChoiceCase(AaGraphConstants.No, element =>
                 {
                     RemoveElement(element, contentContainer);
                     UpdateCasesCount(foldout);
                 }, AaChoices.ChoiceKeys));
                 UpdateCasesCount(foldout);
             });
-            addNoCase.text = AaGraphConstants.NoWord;
-            buttonsContainer.Add(addNoCase);
+            noWordCase.text = AaGraphConstants.NoWord;
+            noWordCase.AddToClassList("aa-ChoiceAsset_content-container-red");
+            buttonsContainer.Add(noWordCase);
             
+            var addEndCase = new Button(() =>
+            {
+                contentContainer.Add(new AndEndCase(AaGraphConstants.And, element =>
+                {
+                    RemoveElement(element, contentContainer);
+                    UpdateCasesCount(foldout);
+                }, AaEnds.EndKeys));
+                UpdateCasesCount(foldout);
+            });
+            addEndCase.text = AaGraphConstants.AndEnd;
+            addEndCase.AddToClassList("aa-ChoiceAsset_content-container-blue");
+            buttonsContainer.Add(addEndCase);
+            
+            var noEndCase = new Button(() =>
+            {
+                contentContainer.Add(new NoEndCase(AaGraphConstants.No, element =>
+                {
+                    RemoveElement(element, contentContainer);
+                    UpdateCasesCount(foldout);
+                }, AaEnds.EndKeys));
+                UpdateCasesCount(foldout);
+            });
+            noEndCase.text = AaGraphConstants.NoEnd;
+            noEndCase.AddToClassList("aa-ChoiceAsset_content-container-pink");
+            buttonsContainer.Add(noEndCase);
+            //
+            //
+            // todo add count case
+            //
+            //
             CreateCases(foldout, data);
 
             UpdateCasesCount(foldout);
@@ -58,24 +91,58 @@ namespace AaDialogueGraph.Editor
             {
                 if (caseData?.Cases == null || caseData.Cases.Count < 1) continue;
 
-                ChoiceCase aCase;
-                if (caseData.And)
+                if (caseData.CaseType is CaseType.AndWord or CaseType.NoWord)
                 {
-                    aCase = new AndChoiceCase("and", element =>
-                        RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.Cases[0]);
-                }
-                else
-                {
-                    aCase = new NoChoiceCase("no", element =>
-                        RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.Cases[0]);
+                    ChoiceCase choiceCase;
+
+                    switch (caseData.CaseType)
+                    {
+                        case CaseType.AndWord:
+                            choiceCase = new AndChoiceCase(AaGraphConstants.And, element =>
+                                RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.Cases[0]);
+                            break;
+                        case CaseType.NoWord:
+                            choiceCase = new NoChoiceCase(AaGraphConstants.No, element =>
+                                RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.Cases[0]);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    foldout.Add(choiceCase);
                 }
 
-                for (var i = 1; i < caseData.Cases.Count; i++)
+                if (caseData.CaseType is CaseType.AndEnd or CaseType.NoEnd)
                 {
-                    aCase.AddCaseField(caseData.Cases[i]);
+                    EndCase endCase;
+
+                    switch (caseData.CaseType)
+                    {
+                        case CaseType.AndEnd:
+                            endCase = new AndEndCase(AaGraphConstants.And, element =>
+                                RemoveElement(element, foldout), AaEnds.EndKeys, caseData.Cases[0]);
+                            break;
+                        case CaseType.NoEnd:
+                            endCase = new NoEndCase(AaGraphConstants.No, element =>
+                                RemoveElement(element, foldout), AaEnds.EndKeys, caseData.Cases[0]);
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    for (var i = 1; i < caseData.Cases.Count; i++)
+                    {
+                        endCase.AddCaseField(caseData.Cases[i]);
+                    }
+
+                    foldout.Add(endCase);
                 }
 
-                foldout.Add(aCase);
+                if (caseData.CaseType is CaseType.Count)
+                {
+                    // todo need to add count case generation
+                    throw new NotImplementedException();
+                }
             }
         }
     }
