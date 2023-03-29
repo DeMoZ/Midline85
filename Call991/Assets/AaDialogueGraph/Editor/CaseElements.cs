@@ -7,6 +7,7 @@ using UnityEngine.UIElements;
 namespace AaDialogueGraph.Editor
 {
     #region WordCase
+
     public class ChoicePopupField : VisualElement
     {
         public string Value { get; private set; }
@@ -91,61 +92,62 @@ namespace AaDialogueGraph.Editor
             contentContainer.AddToClassList("aa-ChoiceAsset_content-container-red");
         }
     }
-#endregion
-    
-#region End Case
 
-public class EndPopupField : VisualElement
-{
-    public string Value { get; private set; }
+    #endregion
 
-    public EndPopupField(List<string> keys, string currentChoice = null)
+    #region End Case
+
+    public class EndPopupField : VisualElement
     {
-        var label = new Label();
+        public string Value { get; private set; }
 
-        contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = val));
-        contentContainer.Add(label);
-    }
-}
-
-public abstract class EndCase : VisualElement
-{
-    protected List<string> _choiceKeys;
-
-    public EndCase(string caseName, Action<EndCase> onDelete, List<string> keys, string currentOption = null)
-    {
-        _choiceKeys = keys;
-
-        contentContainer.style.flexDirection = FlexDirection.Row;
-
-        contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
+        public EndPopupField(List<string> keys, string currentChoice = null)
         {
-            text = AaGraphConstants.DeleteNameSmall,
-        });
-        contentContainer.Add(new Label(caseName));
+            var label = new Label();
 
-        contentContainer.Add(new EndPopupField(_choiceKeys, currentOption));
-
-        contentContainer.Add(new Button(() => AddCaseField())
-        {
-            text = AaGraphConstants.OrName,
-        });
+            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = val));
+            contentContainer.Add(label);
+        }
     }
 
-    /// <summary>
-    /// Return list of cases that can be one of a case 
-    /// </summary>
-    /// <returns></returns>
-    public List<string> GetOrCases()
+    public abstract class EndCase : VisualElement
     {
-        var popups = contentContainer.Query<EndPopupField>().ToList();
-        var cases = popups.Select(c => c.Value).ToList();
-        return cases;
-    }
+        protected List<string> _choiceKeys;
 
-    public void AddCaseField(string currentChoice = null) =>
-        contentContainer.Add(new EndPopupField(_choiceKeys, currentChoice));
-}
+        public EndCase(string caseName, Action<EndCase> onDelete, List<string> keys, string currentOption = null)
+        {
+            _choiceKeys = keys;
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+
+            contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
+            {
+                text = AaGraphConstants.DeleteNameSmall,
+            });
+            contentContainer.Add(new Label(caseName));
+
+            contentContainer.Add(new EndPopupField(_choiceKeys, currentOption));
+
+            contentContainer.Add(new Button(() => AddCaseField())
+            {
+                text = AaGraphConstants.OrName,
+            });
+        }
+
+        /// <summary>
+        /// Return list of cases that can be one of a case 
+        /// </summary>
+        /// <returns></returns>
+        public List<string> GetOrCases()
+        {
+            var popups = contentContainer.Query<EndPopupField>().ToList();
+            var cases = popups.Select(c => c.Value).ToList();
+            return cases;
+        }
+
+        public void AddCaseField(string currentChoice = null) =>
+            contentContainer.Add(new EndPopupField(_choiceKeys, currentChoice));
+    }
 
     /// <summary>
     /// To easily find data for save/load
@@ -170,6 +172,6 @@ public abstract class EndCase : VisualElement
             contentContainer.AddToClassList("aa-ChoiceAsset_content-container-pink");
         }
     }
-    
+
     #endregion
 }

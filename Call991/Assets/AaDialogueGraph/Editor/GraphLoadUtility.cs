@@ -15,7 +15,7 @@ namespace AaDialogueGraph.Editor
 
             if (string.IsNullOrEmpty(fileName))
             {
-                path = GraphSaveUtility.NoGraphName;
+                path = NoGraphName;
                 return false;
             }
 
@@ -30,7 +30,7 @@ namespace AaDialogueGraph.Editor
             if (!_containerCash)
             {
                 EditorUtility.DisplayDialog("File not found", $"Target dialogue {path} doesn't exist", "OK");
-                path = GraphSaveUtility.NoGraphName;
+                path = NoGraphName;
                 return false;
             }
 

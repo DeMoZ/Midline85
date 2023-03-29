@@ -60,7 +60,7 @@ namespace AaDialogueGraph.Editor
                 var phrase = data.Phrases != null && data.Phrases.Count > i
                     ? NodeUtils.GetObjectByPath<Phrase>(data.Phrases[i])
                     : null;
-                
+
                 phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase, CheckNodeContent));
             }
 

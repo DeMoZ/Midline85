@@ -79,7 +79,12 @@ namespace AaDialogueGraph.Editor
         }
         private void UpdateCasesCount(Foldout foldout)
         {
-            var cnt = foldout.Query<ChoiceCase>().ToList().Count;
+            var cnt = 0;
+            var cntWords = foldout.Query<ChoiceCase>().ToList().Count;
+            var cntEnds = foldout.Query<EndCase>().ToList().Count;
+            //var cntCounts = foldout.Query<EndCase>().ToList().Count;
+            cnt = cntWords + cntEnds;
+            
             foldout.text = $"Cases {cnt}";
         }
         

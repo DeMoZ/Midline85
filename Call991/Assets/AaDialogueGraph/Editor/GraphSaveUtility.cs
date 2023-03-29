@@ -21,10 +21,10 @@ namespace AaDialogueGraph.Editor
         private List<Edge> Edges => _targetGraphView.edges.ToList();
         private List<AaNode> AaNodes => _targetGraphView.Query<AaNode>().ToList();
 
-        public static AaDialogueGraph.Editor.GraphSaveUtility GetInstance(DialogueGraphView targetGraphView,
+        public static GraphSaveUtility GetInstance(DialogueGraphView targetGraphView,
             AaReactive<LanguageOperation> languageOperation)
         {
-            return new AaDialogueGraph.Editor.GraphSaveUtility
+            return new GraphSaveUtility
             {
                 _targetGraphView = targetGraphView,
                 _languageOperation = languageOperation,
@@ -96,8 +96,8 @@ namespace AaDialogueGraph.Editor
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
-                    PhraseSounds = NodeUtils.GetObjectPath(phraseSounds),
-                    Phrases = NodeUtils.GetObjectPath(phrases),
+                    PhraseSounds = EditorNodeUtils.GetObjectPath(phraseSounds),
+                    Phrases = EditorNodeUtils.GetObjectPath(phrases),
                 });
             }
 

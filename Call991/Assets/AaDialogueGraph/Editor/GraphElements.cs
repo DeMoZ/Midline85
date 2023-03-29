@@ -30,7 +30,7 @@ namespace AaDialogueGraph.Editor
             }
         }
     }
-    
+
     public static class AaEnds
     {
         private static List<string> _endKeys = new();
@@ -49,23 +49,10 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-// public static class AaChoices
-    // {
-    //     private static List<string> _choiceKeys = new();
-    //
-    //     public static List<string> ChoiceKeys
-    //     {
-    //         get
-    //         {
-    //             if (!_choiceKeys.Any())
-    //                 _choiceKeys = LocalizationManager.GetTermsList().Where(cKey => cKey.Contains("c.word")).ToList();
-    //
-    //             return _choiceKeys;
-    //         }
-    //     }
-    // }
     public static class AaGraphConstants
     {
+        public const string AssetsResources = "Assets/Resources/";
+
         public const string DefaultFileName = "NewDialogue";
         public const string NewLanguageName = "new";
 
@@ -98,7 +85,7 @@ namespace AaDialogueGraph.Editor
         public const string DeleteName = "X";
         public const string DeleteNameSmall = "x";
         public const string OrName = "or";
-        
+
         public const string CaseWordKey = "c.word";
     }
 
@@ -571,7 +558,7 @@ namespace AaDialogueGraph.Editor
 
         public string GetEvent()
         {
-            return NodeUtils.GetPathByObject(_objectField.value);
+            return EditorNodeUtils.GetPathByObject(_objectField.value);
         }
     }
 
