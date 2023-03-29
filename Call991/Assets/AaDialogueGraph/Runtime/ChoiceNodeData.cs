@@ -14,6 +14,6 @@ namespace AaDialogueGraph
     public class CaseData
     {
         public CaseType CaseType;
-        public List<string> Cases;
+        public List<string> OrCases;
     }
 }

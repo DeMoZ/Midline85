@@ -34,7 +34,7 @@ namespace AaDialogueGraph.Editor
         protected List<string> _choiceKeys;
 
         public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            string currentOption = null)
+            List<string> orCases = null)
         {
             _choiceKeys = choiceKeys;
 
@@ -46,12 +46,24 @@ namespace AaDialogueGraph.Editor
             });
             contentContainer.Add(new Label(caseName));
 
-            contentContainer.Add(new ChoicePopupField(_choiceKeys, currentOption));
+            orCases ??= new List<string> { choiceKeys[0] };
+
+            contentContainer.Add(new ChoicePopupField(_choiceKeys, orCases[0]));
 
             contentContainer.Add(new Button(() => AddCaseField())
             {
                 text = AaGraphConstants.OrName,
             });
+
+            if (orCases.Count > 1)
+            {
+                for (var i = 1; i < orCases.Count; i++)
+                {
+                    if (string.IsNullOrEmpty(orCases[i])) orCases[i] = choiceKeys[0];
+
+                    contentContainer.Add(new ChoicePopupField(_choiceKeys, orCases[i]));
+                }
+            }
         }
 
         /// <summary>
@@ -75,7 +87,7 @@ namespace AaDialogueGraph.Editor
     public class AndChoiceCase : ChoiceCase
     {
         public AndChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
+            List<string> orCases = null) : base(caseName, onDelete, choiceKeys, orCases)
         {
             contentContainer.AddToClassList("aa-ChoiceAsset_content-container-green");
         }
@@ -87,7 +99,7 @@ namespace AaDialogueGraph.Editor
     public class NoChoiceCase : ChoiceCase
     {
         public NoChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
+            List<string> orCases = null) : base(caseName, onDelete, choiceKeys, orCases)
         {
             contentContainer.AddToClassList("aa-ChoiceAsset_content-container-red");
         }
