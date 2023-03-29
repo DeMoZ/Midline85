@@ -4,8 +4,8 @@ using UnityEngine;
 namespace Configs
 {
     [CreateAssetMenu]
-    public class GameEnds : ScriptableObject
+    public class PopupKeysList : ScriptableObject
     {
-        public List<string> Ends = new List<string>();
+        public List<string> Keys = new ();
     }
 }

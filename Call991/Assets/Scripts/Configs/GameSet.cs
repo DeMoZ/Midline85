@@ -41,6 +41,10 @@ namespace Configs
 
         [Space]
         public string titleVideoSoName;
+
+        [Space] 
+        public PopupKeysList GameCountKeys;
+        public PopupKeysList GameEndsKeys;
         
         [Header("Button Sounds")]
         public AudioClip menuBtnClip;

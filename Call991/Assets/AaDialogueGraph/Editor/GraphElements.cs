@@ -31,20 +31,23 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-    public static class AaEnds
+    public static class AaKeys
     {
-        private static List<string> _endKeys = new();
+        private static GameSet _gameSet;
 
-        public static List<string> EndKeys
+        public static List<string> EndKeys => GetGameSet.GameEndsKeys.Keys;
+        public static List<string> CountKeys => GetGameSet.GameCountKeys.Keys;
+
+        private static GameSet GetGameSet
         {
             get
             {
-                if (!_endKeys.Any())
+                if (_gameSet == null)
                 {
-                    _endKeys = Resources.Load<GameEnds>("GameEnds").Ends;
+                    _gameSet = Resources.Load<GameSet>("GameSet");
                 }
 
-                return _endKeys;
+                return _gameSet;
             }
         }
     }

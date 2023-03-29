@@ -44,7 +44,7 @@ namespace AaDialogueGraph.Editor
                 {
                     RemoveElement(element, contentContainer);
                     UpdateCasesCount(foldout);
-                }, AaEnds.EndKeys));
+                }, AaKeys.EndKeys));
                 UpdateCasesCount(foldout);
             });
             addEndCase.text = AaGraphConstants.AndEnd;
@@ -57,7 +57,7 @@ namespace AaDialogueGraph.Editor
                 {
                     RemoveElement(element, contentContainer);
                     UpdateCasesCount(foldout);
-                }, AaEnds.EndKeys));
+                }, AaKeys.EndKeys));
                 UpdateCasesCount(foldout);
             });
             noEndCase.text = AaGraphConstants.NoEnd;
