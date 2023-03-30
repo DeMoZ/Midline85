@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using I2.Loc;
+using UnityEditor.UIElements;
 using UnityEngine.UIElements;
 
 namespace AaDialogueGraph.Editor
@@ -186,4 +187,27 @@ namespace AaDialogueGraph.Editor
     }
 
     #endregion
+
+    public class CountCase : VisualElement
+    {
+        public CountCase(Action<CountCase> onDelete, List<string> countKeys, string currentOption = null, int currentValue = 1)
+        {
+            contentContainer.style.flexDirection = FlexDirection.Row;
+            
+            contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
+            {
+                text = AaGraphConstants.DeleteNameSmall,
+            });
+
+            contentContainer.Add(new Label(AaGraphConstants.Count));
+            contentContainer.Add(new EndPopupField(countKeys, currentOption));
+            contentContainer.Add(new Label(AaGraphConstants.CountMin));
+
+            IntegerField integerField = new IntegerField();
+            integerField.value = currentValue;
+            integerField.style.width = 30;
+            contentContainer.Add(integerField);
+            contentContainer.AddToClassList("aa-ChoiceAsset_content-container-orange");
+        }
+    }
 }

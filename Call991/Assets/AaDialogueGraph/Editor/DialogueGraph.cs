@@ -85,6 +85,12 @@ namespace AaDialogueGraph.Editor
             };
             toolbar.Add(forkCreateButton);
 
+            //var countCreateButton = new Button(() => _graphView.CreateCountNode())
+            //{
+            //    text = AaGraphConstants.NewCountNode,
+            //};
+            //toolbar.Add(countCreateButton);
+
             rootVisualElement.Add(toolbar);
         }
 

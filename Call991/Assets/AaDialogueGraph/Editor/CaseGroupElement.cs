@@ -63,11 +63,20 @@ namespace AaDialogueGraph.Editor
             noEndCase.text = AaGraphConstants.NoEnd;
             noEndCase.AddToClassList("aa-ChoiceAsset_content-container-pink");
             buttonsContainer.Add(noEndCase);
-            //
-            //
-            // todo add count case
-            //
-            //
+
+            var countCase = new Button(() =>
+            {
+                contentContainer.Add(new CountCase(element =>
+                {
+                    RemoveElement(element, contentContainer);
+                    UpdateCasesCount(foldout);
+                }, AaKeys.CountKeys));
+                UpdateCasesCount(foldout);
+            });
+            countCase.text = AaGraphConstants.PlusCount;
+            countCase.AddToClassList("aa-ChoiceAsset_content-container-orange");
+            buttonsContainer.Add(countCase);
+
             CreateCases(foldout, data);
 
             UpdateCasesCount(foldout);
@@ -83,8 +92,8 @@ namespace AaDialogueGraph.Editor
             var cnt = 0;
             var cntWords = foldout.Query<ChoiceCase>().ToList().Count;
             var cntEnds = foldout.Query<EndCase>().ToList().Count;
-            //var cntCounts = foldout.Query<EndCase>().ToList().Count;
-            cnt = cntWords + cntEnds;
+            var cntCounts = foldout.Query<CountCase>().ToList().Count;
+            cnt = cntWords + cntEnds + cntCounts;
 
             foldout.text = $"Cases {cnt}";
         }
