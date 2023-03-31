@@ -10,7 +10,7 @@ namespace AaDialogueGraph.Editor
             Guid = guid;
 
             NodeType = AaNodeType.ChoiceNode;
-            titleContainer.Add(new ChoicePopupField(AaChoices.ChoiceKeys, data.Choice));
+            titleContainer.Add(new ChoicePopupField(AaKeys.ChoiceKeys, data.Choice));
 
             var inPort = GraphElements.GeneratePort(this, Direction.Input, Port.Capacity.Multi);
             inPort.portName = AaGraphConstants.InPortName;
@@ -23,7 +23,7 @@ namespace AaDialogueGraph.Editor
             var caseFoldout = new Foldout();
             caseFoldout.value = false;
             
-            var caseElement = new CaseGroupElement(caseFoldout, data.Words);
+            var caseElement = new CaseGroupElement(caseFoldout, data.Words, data.Ends, data.Counts);
             caseFoldout.Add(caseElement);
             contentContainer.Add(caseFoldout);
             caseFoldout.AddToClassList("aa-ChoiceNode_extension-container");

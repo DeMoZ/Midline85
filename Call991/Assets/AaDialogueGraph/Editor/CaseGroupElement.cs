@@ -6,7 +6,8 @@ namespace AaDialogueGraph.Editor
 {
     public class CaseGroupElement : VisualElement
     {
-        public CaseGroupElement(Foldout foldout, List<CaseData> data)
+        public CaseGroupElement(Foldout foldout, List<CaseData> wordData, List<EndData> endData,
+            List<CountData> countData)
         {
             var buttonsContainer = new VisualElement();
             buttonsContainer.style.flexDirection = FlexDirection.Row;
@@ -18,7 +19,7 @@ namespace AaDialogueGraph.Editor
                 {
                     RemoveElement(element, contentContainer);
                     UpdateCasesCount(foldout);
-                }, AaChoices.ChoiceKeys));
+                }, AaKeys.ChoiceKeys));
                 UpdateCasesCount(foldout);
             });
             andWordCase.text = AaGraphConstants.AndWord;
@@ -31,7 +32,7 @@ namespace AaDialogueGraph.Editor
                 {
                     RemoveElement(element, contentContainer);
                     UpdateCasesCount(foldout);
-                }, AaChoices.ChoiceKeys));
+                }, AaKeys.ChoiceKeys));
                 UpdateCasesCount(foldout);
             });
             noWordCase.text = AaGraphConstants.NoWord;
@@ -77,7 +78,9 @@ namespace AaDialogueGraph.Editor
             countCase.AddToClassList("aa-ChoiceAsset_content-container-orange");
             buttonsContainer.Add(countCase);
 
-            CreateCases(foldout, data);
+            CreateWordCases(foldout, wordData);
+            CreateEndCases(foldout, endData);
+            //CreateCountCases(foldout, countData);
 
             UpdateCasesCount(foldout);
         }
@@ -98,67 +101,56 @@ namespace AaDialogueGraph.Editor
             foldout.text = $"Cases {cnt}";
         }
 
-        private void CreateCases(Foldout foldout, List<CaseData> data)
+        private void CreateWordCases(VisualElement foldout, List<CaseData> data)
         {
             if (data == null || data.Count < 1) return;
 
             foreach (var caseData in data)
             {
                 if (caseData?.OrKeys == null || caseData.OrKeys.Count < 1) continue;
+                ChoiceCase choiceCase;
 
-                if (caseData.CaseType is CaseType.AndWord or CaseType.NoWord)
+                switch (caseData.CaseType)
                 {
-                    ChoiceCase choiceCase;
-
-                    switch (caseData.CaseType)
-                    {
-                        case CaseType.AndWord:
-                            choiceCase = new AndChoiceCase(AaGraphConstants.And, element =>
-                                RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.OrKeys);
-                            break;
-                        case CaseType.NoWord:
-                            choiceCase = new NoChoiceCase(AaGraphConstants.No, element =>
-                                RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.OrKeys);
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-
-                    foldout.Add(choiceCase);
+                    case CaseType.AndWord:
+                        choiceCase = new AndChoiceCase(AaGraphConstants.And, element =>
+                            RemoveElement(element, foldout), AaKeys.ChoiceKeys, caseData.OrKeys);
+                        break;
+                    case CaseType.NoWord:
+                        choiceCase = new NoChoiceCase(AaGraphConstants.No, element =>
+                            RemoveElement(element, foldout), AaKeys.ChoiceKeys, caseData.OrKeys);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
 
-                /*if (caseData.CaseType is CaseType.AndEnd or CaseType.NoEnd)
+                foldout.Add(choiceCase);
+            }
+        }
+        private void CreateEndCases(VisualElement foldout, List<EndData> data)
+        {
+            if (data == null || data.Count < 1) return;
+
+            foreach (var caseData in data)
+            {
+                if (caseData?.OrKeys == null || caseData.OrKeys.Count < 1) continue;
+                EndCase endCase;
+
+                switch (caseData.EndType)
                 {
-                // todo need to add End case generation
-                    EndCase endCase;
+                    case EndType.AndEnd:
+                        endCase = new AndEndCase(AaGraphConstants.And, element =>
+                            RemoveElement(element, foldout), AaKeys.EndKeys, caseData.OrKeys);
+                        break;
+                    case EndType.NoEnd:
+                        endCase = new NoEndCase(AaGraphConstants.No, element =>
+                            RemoveElement(element, foldout), AaKeys.EndKeys, caseData.OrKeys);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
 
-                    switch (caseData.CaseType)
-                    {
-                        case CaseType.AndEnd:
-                            endCase = new AndEndCase(AaGraphConstants.And, element =>
-                                RemoveElement(element, foldout), AaEnds.EndKeys, caseData.OrCases[0]);
-                            break;
-                        case CaseType.NoEnd:
-                            endCase = new NoEndCase(AaGraphConstants.No, element =>
-                                RemoveElement(element, foldout), AaEnds.EndKeys, caseData.OrCases[0]);
-                            break;
-                        default:
-                            throw new ArgumentOutOfRangeException();
-                    }
-
-                    for (var i = 1; i < caseData.OrCases.Count; i++)
-                    {
-                        endCase.AddCaseField(caseData.OrCases[i]);
-                    }
-
-                    foldout.Add(endCase);
-                }*/
-
-                /*if (caseData.CaseType is CaseType.Count)
-                {
-                    // todo need to add count case generation
-                    throw new NotImplementedException();
-                }*/
+                foldout.Add(endCase);
             }
         }
     }

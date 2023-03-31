@@ -15,6 +15,8 @@ namespace AaDialogueGraph
     public class ExitCaseData
     {
         public List<CaseData> Cases;
+        public List<EndData> Ends;
+        public List<CountData> Counts;
 
     }
 }

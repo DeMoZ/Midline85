@@ -26,7 +26,7 @@ namespace AaDialogueGraph.Editor
             var addExitButton = new Button(() =>
             {
                 var exitContainer = new ForkExitElement(this, exitCase => RemoveElement(exitCase, contentContainer),
-                    new List<CaseData>());
+                    new List<CaseData>(), new List<EndData>(), new List<CountData>());
                 contentContainer.Add(exitContainer);
             });
             addExitButton.text = "Add case exit";
@@ -37,7 +37,7 @@ namespace AaDialogueGraph.Editor
                 foreach (var exit in data.Exits)
                 {
                     var exitContainer = new ForkExitElement(this, exitCase => RemoveElement(exitCase, contentContainer),
-                        exit.Cases);
+                        exit.Cases, exit.Ends, exit.Counts);
                     contentContainer.Add(exitContainer);
                 }
             }
@@ -50,7 +50,7 @@ namespace AaDialogueGraph.Editor
 
         public class ForkExitElement : VisualElement
         {
-            public ForkExitElement(AaNode node, Action<VisualElement> onDelete, List<CaseData> data)
+            public ForkExitElement(AaNode node, Action<VisualElement> onDelete, List<CaseData> wordData, List<EndData> endData, List<CountData> countData)
             {
                 var deleteButton = new Button(() => { onDelete?.Invoke(this); });
                 deleteButton.text = AaGraphConstants.DeleteName;
@@ -58,7 +58,7 @@ namespace AaDialogueGraph.Editor
 
                 var caseFoldout = new Foldout { value = false };
 
-                var caseElement = new CaseGroupElement(caseFoldout, data);
+                var caseElement = new CaseGroupElement(caseFoldout, wordData, endData, countData);
                 caseFoldout.Add(caseElement);
                 contentContainer.Add(caseFoldout);
 

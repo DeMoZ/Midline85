@@ -14,23 +14,6 @@ using Toggle = UnityEngine.UIElements.Toggle;
 
 namespace AaDialogueGraph.Editor
 {
-    public static class AaChoices
-    {
-        private static List<string> _choiceKeys = new();
-
-        public static List<string> ChoiceKeys
-        {
-            get
-            {
-                if (!_choiceKeys.Any())
-                    _choiceKeys = LocalizationManager.GetTermsList()
-                        .Where(cKey => cKey.Contains(AaGraphConstants.CaseWordKey)).ToList();
-
-                return _choiceKeys;
-            }
-        }
-    }
-
     public static class AaKeys
     {
         private static GameSet _gameSet;
@@ -48,6 +31,20 @@ namespace AaDialogueGraph.Editor
                 }
 
                 return _gameSet;
+            }
+        }
+        
+        private static List<string> _choiceKeys = new();
+
+        public static List<string> ChoiceKeys
+        {
+            get
+            {
+                if (!_choiceKeys.Any())
+                    _choiceKeys = LocalizationManager.GetTermsList()
+                        .Where(cKey => cKey.Contains(AaGraphConstants.CaseWordKey)).ToList();
+
+                return _choiceKeys;
             }
         }
     }

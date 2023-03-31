@@ -32,12 +32,11 @@ namespace AaDialogueGraph.Editor
 
     public abstract class ChoiceCase : VisualElement
     {
-        protected List<string> _choiceKeys;
+        protected List<string> _keys;
 
-        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> choiceKeys,
-            List<string> orCases = null)
+        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> keys,List<string> orCases = null)
         {
-            _choiceKeys = choiceKeys;
+            _keys = keys;
 
             contentContainer.style.flexDirection = FlexDirection.Row;
 
@@ -47,9 +46,9 @@ namespace AaDialogueGraph.Editor
             });
             contentContainer.Add(new Label(caseName));
 
-            orCases ??= new List<string> { choiceKeys[0] };
+            orCases ??= new List<string> { keys[0] };
 
-            contentContainer.Add(new ChoicePopupField(_choiceKeys, orCases[0]));
+            contentContainer.Add(new ChoicePopupField(_keys, orCases[0]));
 
             contentContainer.Add(new Button(() => AddCaseField())
             {
@@ -60,9 +59,9 @@ namespace AaDialogueGraph.Editor
             {
                 for (var i = 1; i < orCases.Count; i++)
                 {
-                    if (string.IsNullOrEmpty(orCases[i])) orCases[i] = choiceKeys[0];
+                    if (string.IsNullOrEmpty(orCases[i])) orCases[i] = keys[0];
 
-                    contentContainer.Add(new ChoicePopupField(_choiceKeys, orCases[i]));
+                    contentContainer.Add(new ChoicePopupField(_keys, orCases[i]));
                 }
             }
         }
@@ -79,7 +78,7 @@ namespace AaDialogueGraph.Editor
         }
 
         private void AddCaseField(string currentChoice = null) =>
-            contentContainer.Add(new ChoicePopupField(_choiceKeys, currentChoice));
+            contentContainer.Add(new ChoicePopupField(_keys, currentChoice));
     }
 
     /// <summary>
@@ -131,11 +130,11 @@ namespace AaDialogueGraph.Editor
 
     public abstract class EndCase : VisualElement
     {
-        protected List<string> _endKeys;
+        protected List<string> _keys;
 
-        public EndCase(string caseName, Action<EndCase> onDelete, List<string> keys, string currentOption = null)
+        public EndCase(string caseName, Action<EndCase> onDelete, List<string> keys, List<string>  orCases = null)
         {
-            _endKeys = keys;
+            _keys = keys;
 
             contentContainer.style.flexDirection = FlexDirection.Row;
 
@@ -145,12 +144,22 @@ namespace AaDialogueGraph.Editor
             });
             contentContainer.Add(new Label(caseName));
 
-            contentContainer.Add(new EndPopupField(_endKeys, currentOption));
+            contentContainer.Add(new EndPopupField(_keys, orCases[0]));
 
             contentContainer.Add(new Button(() => AddCaseField())
             {
                 text = AaGraphConstants.OrName,
             });
+            
+            if (orCases.Count > 1)
+            {
+                for (var i = 1; i < orCases.Count; i++)
+                {
+                    if (string.IsNullOrEmpty(orCases[i])) orCases[i] = keys[0];
+
+                    contentContainer.Add(new EndPopupField(_keys, orCases[i]));
+                }
+            }
         }
 
         /// <summary>
@@ -165,7 +174,7 @@ namespace AaDialogueGraph.Editor
         }
 
         private void AddCaseField(string currentChoice = null) =>
-            contentContainer.Add(new EndPopupField(_endKeys, currentChoice));
+            contentContainer.Add(new EndPopupField(_keys, currentChoice));
     }
 
     /// <summary>
@@ -173,8 +182,8 @@ namespace AaDialogueGraph.Editor
     /// </summary>
     public class AndEndCase : EndCase
     {
-        public AndEndCase(string caseName, Action<EndCase> onDelete, List<string> choiceKeys,
-            string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
+        public AndEndCase(string caseName, Action<EndCase> onDelete, List<string> keys,
+            List<string> orCases = null) : base(caseName, onDelete, keys, orCases)
         {
             contentContainer.AddToClassList("aa-ChoiceAsset_content-container-blue");
         }
@@ -185,8 +194,8 @@ namespace AaDialogueGraph.Editor
     /// </summary>
     public class NoEndCase : EndCase
     {
-        public NoEndCase(string caseName, Action<EndCase> onDelete, List<string> choiceKeys,
-            string currentOption = null) : base(caseName, onDelete, choiceKeys, currentOption)
+        public NoEndCase(string caseName, Action<EndCase> onDelete, List<string> keys,
+            List<string> orCases = null) : base(caseName, onDelete, keys, orCases)
         {
             contentContainer.AddToClassList("aa-ChoiceAsset_content-container-pink");
         }
