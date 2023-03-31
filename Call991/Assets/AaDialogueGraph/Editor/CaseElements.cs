@@ -47,7 +47,6 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(new Label(caseName));
 
             orCases ??= new List<string> { keys[0] };
-
             contentContainer.Add(new ChoicePopupField(_keys, orCases[0]));
 
             contentContainer.Add(new Button(() => AddCaseField())
@@ -143,7 +142,8 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.DeleteNameSmall,
             });
             contentContainer.Add(new Label(caseName));
-
+            
+            orCases ??= new List<string> { keys[0] };
             contentContainer.Add(new EndPopupField(_keys, orCases[0]));
 
             contentContainer.Add(new Button(() => AddCaseField())
