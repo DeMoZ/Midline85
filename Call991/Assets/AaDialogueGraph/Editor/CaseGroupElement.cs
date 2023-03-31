@@ -104,7 +104,7 @@ namespace AaDialogueGraph.Editor
 
             foreach (var caseData in data)
             {
-                if (caseData?.OrCases == null || caseData.OrCases.Count < 1) continue;
+                if (caseData?.OrKeys == null || caseData.OrKeys.Count < 1) continue;
 
                 if (caseData.CaseType is CaseType.AndWord or CaseType.NoWord)
                 {
@@ -114,11 +114,11 @@ namespace AaDialogueGraph.Editor
                     {
                         case CaseType.AndWord:
                             choiceCase = new AndChoiceCase(AaGraphConstants.And, element =>
-                                RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.OrCases);
+                                RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.OrKeys);
                             break;
                         case CaseType.NoWord:
                             choiceCase = new NoChoiceCase(AaGraphConstants.No, element =>
-                                RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.OrCases);
+                                RemoveElement(element, foldout), AaChoices.ChoiceKeys, caseData.OrKeys);
                             break;
                         default:
                             throw new ArgumentOutOfRangeException();

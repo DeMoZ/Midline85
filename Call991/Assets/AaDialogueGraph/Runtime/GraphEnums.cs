@@ -32,7 +32,15 @@ public enum CaseType
 {
     AndWord,
     NoWord,
+}
+
+public enum EndType
+{
     AndEnd,
     NoEnd,
-    Count
+}
+
+public enum CountType
+{
+    Sum,
 }

@@ -78,7 +78,7 @@ namespace AaDialogueGraph.Editor
             return cases;
         }
 
-        public void AddCaseField(string currentChoice = null) =>
+        private void AddCaseField(string currentChoice = null) =>
             contentContainer.Add(new ChoicePopupField(_choiceKeys, currentChoice));
     }
 
@@ -118,18 +118,24 @@ namespace AaDialogueGraph.Editor
         {
             var label = new Label();
 
-            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = val));
+            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = KeyToTextTitle(val)));
             contentContainer.Add(label);
+        }
+        
+        private string KeyToTextTitle(string val)
+        {
+            Value = val;
+            return val;
         }
     }
 
     public abstract class EndCase : VisualElement
     {
-        protected List<string> _choiceKeys;
+        protected List<string> _endKeys;
 
         public EndCase(string caseName, Action<EndCase> onDelete, List<string> keys, string currentOption = null)
         {
-            _choiceKeys = keys;
+            _endKeys = keys;
 
             contentContainer.style.flexDirection = FlexDirection.Row;
 
@@ -139,7 +145,7 @@ namespace AaDialogueGraph.Editor
             });
             contentContainer.Add(new Label(caseName));
 
-            contentContainer.Add(new EndPopupField(_choiceKeys, currentOption));
+            contentContainer.Add(new EndPopupField(_endKeys, currentOption));
 
             contentContainer.Add(new Button(() => AddCaseField())
             {
@@ -158,8 +164,8 @@ namespace AaDialogueGraph.Editor
             return cases;
         }
 
-        public void AddCaseField(string currentChoice = null) =>
-            contentContainer.Add(new EndPopupField(_choiceKeys, currentChoice));
+        private void AddCaseField(string currentChoice = null) =>
+            contentContainer.Add(new EndPopupField(_endKeys, currentChoice));
     }
 
     /// <summary>
