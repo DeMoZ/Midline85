@@ -79,6 +79,7 @@ namespace AaDialogueGraph.Editor
         
         public const string Count = "Count";
         public const string PlusCount = "+Count";
+        public const string Range = "Range";
         public const string CountMin = "Min";
 
         public const string HideOnEnd = "HideOnEnd";

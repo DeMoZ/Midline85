@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace AaDialogueGraph
 {
@@ -31,6 +32,6 @@ namespace AaDialogueGraph
     {
         public CountType CountType;
         public string CountKey;
-        public int Count;
+        public Vector2Int Count;
     }
 }

@@ -3,17 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using I2.Loc;
 using UnityEditor.UIElements;
+using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace AaDialogueGraph.Editor
 {
-    #region WordCase
-
-    public class ChoicePopupField : VisualElement
+    public abstract class KeyPopupField : VisualElement
     {
         public string Value { get; private set; }
 
-        public ChoicePopupField(List<string> keys, string currentChoice = null)
+        protected KeyPopupField(List<string> keys, string currentChoice = null)
+        {
+            CreateElements(keys, currentChoice);
+        }
+
+        protected virtual void CreateElements(List<string> keys, string currentChoice = null)
         {
             var label = new Label();
 
@@ -21,7 +25,22 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(label);
         }
 
-        private string KeyToTextTitle(string val)
+        protected virtual string KeyToTextTitle(string val)
+        {
+            Value = val;
+            return val;
+        }
+    }
+
+    public class ChoicePopupField : KeyPopupField
+    {
+        public string Value { get; private set; }
+
+        public ChoicePopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
+        {
+        }
+
+        protected override string KeyToTextTitle(string val)
         {
             Value = val;
             string textValue = new LocalizedString(val);
@@ -30,11 +49,37 @@ namespace AaDialogueGraph.Editor
         }
     }
 
+    public class EndPopupField : KeyPopupField
+    {
+        public EndPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
+        {
+        }
+
+        protected override void CreateElements(List<string> keys, string currentChoice = null)
+        {
+            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => KeyToTextTitle(val)));
+        }
+    }
+
+    public class CountPopupField : KeyPopupField
+    {
+        public CountPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
+        {
+        }
+
+        protected override void CreateElements(List<string> keys, string currentChoice = null)
+        {
+            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => KeyToTextTitle(val)));
+        }
+    }
+
+    #region WordCase
+
     public abstract class ChoiceCase : VisualElement
     {
         protected List<string> _keys;
 
-        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> keys,List<string> orCases = null)
+        public ChoiceCase(string caseName, Action<ChoiceCase> onDelete, List<string> keys, List<string> orCases = null)
         {
             _keys = keys;
 
@@ -108,30 +153,11 @@ namespace AaDialogueGraph.Editor
 
     #region End Case
 
-    public class EndPopupField : VisualElement
-    {
-        public string Value { get; private set; }
-
-        public EndPopupField(List<string> keys, string currentChoice = null)
-        {
-            var label = new Label();
-
-            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = KeyToTextTitle(val)));
-            contentContainer.Add(label);
-        }
-        
-        private string KeyToTextTitle(string val)
-        {
-            Value = val;
-            return val;
-        }
-    }
-
     public abstract class EndCase : VisualElement
     {
         protected List<string> _keys;
 
-        public EndCase(string caseName, Action<EndCase> onDelete, List<string> keys, List<string>  orCases = null)
+        public EndCase(string caseName, Action<EndCase> onDelete, List<string> keys, List<string> orCases = null)
         {
             _keys = keys;
 
@@ -142,7 +168,7 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.DeleteNameSmall,
             });
             contentContainer.Add(new Label(caseName));
-            
+
             orCases ??= new List<string> { keys[0] };
             contentContainer.Add(new EndPopupField(_keys, orCases[0]));
 
@@ -150,7 +176,7 @@ namespace AaDialogueGraph.Editor
             {
                 text = AaGraphConstants.OrName,
             });
-            
+
             if (orCases.Count > 1)
             {
                 for (var i = 1; i < orCases.Count; i++)
@@ -205,24 +231,43 @@ namespace AaDialogueGraph.Editor
 
     public class CountCase : VisualElement
     {
-        public CountCase(Action<CountCase> onDelete, List<string> countKeys, string currentOption = null, int currentValue = 1)
+        public CountCase(Action<CountCase> onDelete, List<string> countKeys, string currentOption = null,
+            Vector2Int? currentValue  = null)
         {
             contentContainer.style.flexDirection = FlexDirection.Row;
-            
+
             contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
             {
                 text = AaGraphConstants.DeleteNameSmall,
             });
 
-            contentContainer.Add(new Label(AaGraphConstants.Count));
-            contentContainer.Add(new EndPopupField(countKeys, currentOption));
-            contentContainer.Add(new Label(AaGraphConstants.CountMin));
+            contentContainer.Add(new Label(AaGraphConstants.Range));
 
-            IntegerField integerField = new IntegerField();
-            integerField.value = currentValue;
-            integerField.style.width = 30;
-            contentContainer.Add(integerField);
+            var countPopupField = new CountPopupField(countKeys, currentOption);
+            contentContainer.Add(countPopupField);
+
+            var rangeField = new Vector2IntField();
+            
+            if (currentValue.HasValue)
+            {
+                rangeField.value = currentValue.Value;
+            }
+            countPopupField.Add(rangeField);
+            
             contentContainer.AddToClassList("aa-ChoiceAsset_content-container-orange");
+        }
+
+        public string GetKey()
+        {
+            var popup = contentContainer.Q<CountPopupField>();
+            var cases = popup.Value;
+            return cases;
+        }
+
+        public Vector2Int GetRange()
+        {
+            var field = contentContainer.Q<Vector2IntField>();
+            return field.value;
         }
     }
 }
