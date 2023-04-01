@@ -80,7 +80,7 @@ namespace AaDialogueGraph.Editor
 
             CreateWordCases(foldout, wordData);
             CreateEndCases(foldout, endData);
-            //CreateCountCases(foldout, countData);
+            CreateCountCases(foldout, countData);
 
             UpdateCasesCount(foldout);
         }
@@ -151,6 +151,19 @@ namespace AaDialogueGraph.Editor
                 }
 
                 foldout.Add(endCase);
+            }
+        }
+
+        private void CreateCountCases(VisualElement foldout, List<CountData> data)
+        {
+            if (data == null || data.Count < 1) return;
+            
+            foreach (var caseData in data)
+            {
+                var countCase = new CountCase(element =>
+                    RemoveElement(element, foldout), AaKeys.CountKeys, caseData.CountKey, caseData.Range);
+
+                foldout.Add(countCase);
             }
         }
     }

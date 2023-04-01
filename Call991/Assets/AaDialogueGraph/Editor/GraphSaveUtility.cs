@@ -166,7 +166,7 @@ namespace AaDialogueGraph.Editor
                     {
                         CountType = CountType.Sum,
                         CountKey = countCase.GetKey(),
-                        Count = countCase.GetRange(),
+                        Range = countCase.GetRange(),
                     });
                 }
                 
