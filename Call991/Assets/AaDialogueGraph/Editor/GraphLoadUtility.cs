@@ -38,6 +38,7 @@ namespace AaDialogueGraph.Editor
             CreateEntryPoint();
             CreatePhraseNodes();
             CreateChoiceNodes();
+            CreateForkNodes();
             ConnectNodes();
             SetPositions();
 
@@ -48,7 +49,8 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var node in AaNodes)
             {
-                Enumerable.Where<Edge>(Edges, x => x.input.node == node).ToList().ForEach(edge => _targetGraphView.RemoveElement(edge));
+                Enumerable.Where<Edge>(Edges, x => x.input.node == node).ToList()
+                    .ForEach(edge => _targetGraphView.RemoveElement(edge));
                 _targetGraphView.RemoveElement(node);
             }
         }
@@ -77,8 +79,16 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var data in _containerCash.ChoiceNodeData)
             {
-                var dt = data;
                 var node = new ChoiceNode(data, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
+
+        private void CreateForkNodes()
+        {
+            foreach (var data in _containerCash.ForkNodeData)
+            {
+                var node = new ForkNode(data, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -87,7 +97,8 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var node in AaNodes)
             {
-                var nodeLinkData = Enumerable.Where<NodeLinkData>(_containerCash.NodeLinks, x => x.BaseNodeGuid == node.Guid).ToList();
+                var nodeLinkData = Enumerable
+                    .Where<NodeLinkData>(_containerCash.NodeLinks, x => x.BaseNodeGuid == node.Guid).ToList();
                 var outPort = UQueryExtensions.Q<Port>(node.outputContainer);
 
                 for (var j = 0; j < nodeLinkData.Count; j++)
@@ -98,7 +109,7 @@ namespace AaDialogueGraph.Editor
                     if (targetNode == null) continue;
 
                     var portOut = outPort;
-                    var portIn = (Port) targetNode.inputContainer[0];
+                    var portIn = (Port)targetNode.inputContainer[0];
 
                     // link
                     LinkNodes(portOut, portIn);
@@ -130,14 +141,20 @@ namespace AaDialogueGraph.Editor
                         break;
 
                     case PhraseNode:
-                        var phraseData = Enumerable.FirstOrDefault<PhraseNodeData>(_containerCash.PhraseNodeData, n => n.Guid == node.Guid);
+                        var phraseData = Enumerable.FirstOrDefault(_containerCash.PhraseNodeData, n => n.Guid == node.Guid);
                         if (phraseData != null) node.SetPosition(phraseData.Rect);
                         break;
 
                     case ChoiceNode:
                     {
-                        var choiceData = Enumerable.FirstOrDefault<ChoiceNodeData>(_containerCash.ChoiceNodeData, n => n.Guid == node.Guid);
+                        var choiceData = Enumerable.FirstOrDefault(_containerCash.ChoiceNodeData, n => n.Guid == node.Guid);
                         if (choiceData != null) node.SetPosition(choiceData.Rect);
+                        break;
+                    }
+                    case ForkNode:
+                    {
+                        var forkData = Enumerable.FirstOrDefault(_containerCash.ForkNodeData, n => n.Guid == node.Guid);
+                        if (forkData != null) node.SetPosition(forkData.Rect);
                         break;
                     }
                 }

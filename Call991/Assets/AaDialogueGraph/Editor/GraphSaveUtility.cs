@@ -67,8 +67,9 @@ namespace AaDialogueGraph.Editor
             var choiceNodes = AaNodes.OfType<ChoiceNode>().ToList();
             dialogueContainer.ChoiceNodeData.AddRange(ChoiceNodesToData(choiceNodes));
 
-            //var forkNodes = ;
-            
+            var forkNodes = AaNodes.OfType<ForkNode>().ToList();
+            dialogueContainer.ForkNodeData.AddRange(ForkNodesData(forkNodes));
+
             CreateFolders(fileName);
 
             AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
@@ -111,74 +112,40 @@ namespace AaDialogueGraph.Editor
             var data = new List<ChoiceNodeData>();
             foreach (var node in nodes)
             {
-                var andWordCases = node.Query<AndChoiceCase>().ToList();
-                var noWordCases = node.Query<NoChoiceCase>().ToList();
+                var caseData = GetCaseData(node);
 
-                var wordCaseData = new List<CaseData>();
-
-                foreach (var andCase in andWordCases)
-                {
-                    wordCaseData.Add(new CaseData
-                    {
-                        CaseType = CaseType.AndWord,
-                        OrKeys = andCase.GetOrCases(),
-                    });
-                }
-
-                foreach (var noCase in noWordCases)
-                {
-                    wordCaseData.Add(new CaseData
-                    {
-                        CaseType = CaseType.NoWord,
-                        OrKeys = noCase.GetOrCases(),
-                    });
-                }
-                
-                var andEndCases = node.Query<AndEndCase>().ToList();
-                var noEndCases = node.Query<NoEndCase>().ToList();
-
-                var endCaseData = new List<EndData>();
-
-                foreach (var andCase in andEndCases)
-                {
-                    endCaseData.Add(new EndData
-                    {
-                        EndType = EndType.AndEnd,
-                        OrKeys = andCase.GetOrCases(),
-                    });
-                }
-
-                foreach (var noCase in noEndCases)
-                {
-                    endCaseData.Add(new EndData
-                    {
-                        EndType = EndType.NoEnd,
-                        OrKeys = noCase.GetOrCases(),
-                    });
-                }
-
-                var countCases = node.Query<CountCase>().ToList();
-                var countCaseData = new List<CountData>();
-                
-                foreach (var countCase in countCases)
-                {
-                    countCaseData.Add(new CountData
-                    {
-                        CountType = CountType.Sum,
-                        CountKey = countCase.GetKey(),
-                        Range = countCase.GetRange(),
-                    });
-                }
-                
                 data.Add(new ChoiceNodeData
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
-
                     Choice = node.Q<ChoicePopupField>().Value,
-                    Words = wordCaseData,
-                    Ends = endCaseData,
-                    Counts = countCaseData,
+                    CaseData = caseData,
+                });
+            }
+
+            return data;
+        }
+
+        private List<ForkNodeData> ForkNodesData(List<ForkNode> nodes)
+        {
+            var data = new List<ForkNodeData>();
+
+            foreach (var node in nodes)
+            {
+                var exits = new List<CaseData>();
+                var casesGroup = node.Query<CaseGroupElement>().ToList();
+
+                foreach (var group in casesGroup)
+                {
+                    var caseData = GetCaseData(group);
+                    exits.Add(caseData);
+                }
+
+                data.Add(new ForkNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    CaseData = exits,
                 });
             }
 
@@ -201,6 +168,91 @@ namespace AaDialogueGraph.Editor
 
                 pathPart = part;
             }
+        }
+
+        private CaseData GetCaseData(VisualElement container)
+        {
+            var words = GetChoiceCases(container);
+            var ends = GetEndCases(container);
+            var counts = GetCountCases(container);
+
+            return new CaseData
+            {
+                Words = words,
+                Ends = ends,
+                Counts = counts,
+            };
+        }
+
+        private List<ChoiceData> GetChoiceCases(VisualElement container)
+        {
+            var result = new List<ChoiceData>();
+            var andWordCases = container.Query<AndChoiceCase>().ToList();
+            var noWordCases = container.Query<NoChoiceCase>().ToList();
+
+            foreach (var andCase in andWordCases)
+            {
+                result.Add(new ChoiceData
+                {
+                    CaseType = CaseType.AndWord,
+                    OrKeys = andCase.GetOrCases(),
+                });
+            }
+
+            foreach (var noCase in noWordCases)
+            {
+                result.Add(new ChoiceData
+                {
+                    CaseType = CaseType.NoWord,
+                    OrKeys = noCase.GetOrCases(),
+                });
+            }
+
+            return result;
+        }
+
+        private List<EndData> GetEndCases(VisualElement container)
+        {
+            var result = new List<EndData>();
+            var andEndCases = container.Query<AndEndCase>().ToList();
+            var noEndCases = container.Query<NoEndCase>().ToList();
+            foreach (var andCase in andEndCases)
+            {
+                result.Add(new EndData
+                {
+                    EndType = EndType.AndEnd,
+                    OrKeys = andCase.GetOrCases(),
+                });
+            }
+
+            foreach (var noCase in noEndCases)
+            {
+                result.Add(new EndData
+                {
+                    EndType = EndType.NoEnd,
+                    OrKeys = noCase.GetOrCases(),
+                });
+            }
+
+            return result;
+        }
+
+        private List<CountData> GetCountCases(VisualElement container)
+        {
+            var result = new List<CountData>();
+            var countCases = container.Query<CountCase>().ToList();
+
+            foreach (var countCase in countCases)
+            {
+                result.Add(new CountData
+                {
+                    CountType = CountType.Sum,
+                    CountKey = countCase.GetKey(),
+                    Range = countCase.GetRange(),
+                });
+            }
+
+            return result;
         }
     }
 }

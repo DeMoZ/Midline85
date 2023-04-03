@@ -6,7 +6,7 @@ namespace AaDialogueGraph.Editor
 {
     public class CaseGroupElement : VisualElement
     {
-        public CaseGroupElement(Foldout foldout, List<CaseData> wordData, List<EndData> endData,
+        public CaseGroupElement(Foldout foldout, List<ChoiceData> wordData, List<EndData> endData,
             List<CountData> countData)
         {
             var buttonsContainer = new VisualElement();
@@ -101,7 +101,7 @@ namespace AaDialogueGraph.Editor
             foldout.text = $"Cases {cnt}";
         }
 
-        private void CreateWordCases(VisualElement foldout, List<CaseData> data)
+        private void CreateWordCases(VisualElement foldout, List<ChoiceData> data)
         {
             if (data == null || data.Count < 1) return;
 

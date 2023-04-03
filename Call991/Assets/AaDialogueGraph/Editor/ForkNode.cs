@@ -26,18 +26,18 @@ namespace AaDialogueGraph.Editor
             var addExitButton = new Button(() =>
             {
                 var exitContainer = new ForkExitElement(this, exitCase => RemoveElement(exitCase, contentContainer),
-                    new List<CaseData>(), new List<EndData>(), new List<CountData>());
+                    new List<ChoiceData>(), new List<EndData>(), new List<CountData>());
                 contentContainer.Add(exitContainer);
             });
             addExitButton.text = "Add case exit";
             contentContainer.Add(addExitButton);
 
-            if (data.Exits != null)
+            if (data.CaseData != null)
             {
-                foreach (var exit in data.Exits)
+                foreach (var exit in data.CaseData)
                 {
                     var exitContainer = new ForkExitElement(this, exitCase => RemoveElement(exitCase, contentContainer),
-                        exit.Cases, exit.Ends, exit.Counts);
+                        exit.Words, exit.Ends, exit.Counts);
                     contentContainer.Add(exitContainer);
                 }
             }
@@ -50,7 +50,7 @@ namespace AaDialogueGraph.Editor
 
         public class ForkExitElement : VisualElement
         {
-            public ForkExitElement(AaNode node, Action<VisualElement> onDelete, List<CaseData> wordData, List<EndData> endData, List<CountData> countData)
+            public ForkExitElement(AaNode node, Action<VisualElement> onDelete, List<ChoiceData> wordData, List<EndData> endData, List<CountData> countData)
             {
                 var deleteButton = new Button(() => { onDelete?.Invoke(this); });
                 deleteButton.text = AaGraphConstants.DeleteName;

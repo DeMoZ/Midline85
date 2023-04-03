@@ -8,13 +8,19 @@ namespace AaDialogueGraph
     public class ChoiceNodeData : AaNodeData
     {
         public string Choice;
-        public List<CaseData> Words;
-        public List<EndData> Ends;
-        public List<CountData> Counts;
+        public CaseData CaseData = new ();
     }
 
     [Serializable]
     public class CaseData
+    {
+        public List<ChoiceData> Words;
+        public List<EndData> Ends;
+        public List<CountData> Counts;
+    }
+    
+    [Serializable]
+    public class ChoiceData
     {
         public CaseType CaseType;
         public List<string> OrKeys;
