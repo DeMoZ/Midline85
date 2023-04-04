@@ -97,9 +97,8 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var node in AaNodes)
             {
-                var nodeLinkData = Enumerable
-                    .Where<NodeLinkData>(_containerCash.NodeLinks, x => x.BaseNodeGuid == node.Guid).ToList();
-                var outPort = UQueryExtensions.Q<Port>(node.outputContainer);
+                var nodeLinkData = _containerCash.NodeLinks.Where(x => x.BaseNodeGuid == node.Guid).ToList();
+                var outPort = UQueryExtensions.Q<Port>(node.outputContainer); // port and inheritances
 
                 for (var j = 0; j < nodeLinkData.Count; j++)
                 {
@@ -108,10 +107,11 @@ namespace AaDialogueGraph.Editor
 
                     if (targetNode == null) continue;
 
-                    var portOut = outPort;
                     var portIn = (Port)targetNode.inputContainer[0];
+                    Port portOut = string.IsNullOrEmpty(nodeLinkData[j].BaseExitName)
+                        ? outPort
+                        : node.Query<Port>().ToList().FirstOrDefault(p => p.name == nodeLinkData[j].BaseExitName);
 
-                    // link
                     LinkNodes(portOut, portIn);
                 }
             }
@@ -141,22 +141,19 @@ namespace AaDialogueGraph.Editor
                         break;
 
                     case PhraseNode:
-                        var phraseData = Enumerable.FirstOrDefault(_containerCash.PhraseNodeData, n => n.Guid == node.Guid);
+                        var phraseData = _containerCash.PhraseNodeData.FirstOrDefault(n => n.Guid == node.Guid);
                         if (phraseData != null) node.SetPosition(phraseData.Rect);
                         break;
 
                     case ChoiceNode:
-                    {
-                        var choiceData = Enumerable.FirstOrDefault(_containerCash.ChoiceNodeData, n => n.Guid == node.Guid);
+                        var choiceData = _containerCash.ChoiceNodeData.FirstOrDefault(n => n.Guid == node.Guid);
                         if (choiceData != null) node.SetPosition(choiceData.Rect);
                         break;
-                    }
+
                     case ForkNode:
-                    {
-                        var forkData = Enumerable.FirstOrDefault(_containerCash.ForkNodeData, n => n.Guid == node.Guid);
+                        var forkData = _containerCash.ForkNodeData.FirstOrDefault(n => n.Guid == node.Guid);
                         if (forkData != null) node.SetPosition(forkData.Rect);
                         break;
-                    }
                 }
             }
         }

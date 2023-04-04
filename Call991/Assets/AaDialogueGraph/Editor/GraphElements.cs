@@ -318,9 +318,9 @@ namespace AaDialogueGraph.Editor
         {
             return new PersonVisualData
             {
-                Person = contentContainer.Query<PopupField<Person>>().First().value,
-                ScreenPlace = contentContainer.Query<PopupField<ScreenPlace>>().First().value,
-                HideOnEnd = contentContainer.Query<Toggle>().First().value,
+                Person = contentContainer.Q<PopupField<Person>>().value,
+                ScreenPlace = contentContainer.Q<PopupField<ScreenPlace>>().value,
+                HideOnEnd = contentContainer.Q<Toggle>().value,
             };
         }
     }

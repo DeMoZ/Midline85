@@ -23,7 +23,7 @@ namespace AaDialogueGraph.Editor
             var caseFoldout = new Foldout();
             caseFoldout.value = false;
             
-            var caseElement = new CaseGroupElement(caseFoldout, data.CaseData.Words, data.CaseData.Ends, data.CaseData.Counts);
+            var caseElement = new CaseGroupElement(caseFoldout, data.CaseData.Words, data.CaseData.Ends, data.CaseData.Counts, null);
             caseFoldout.Add(caseElement);
             contentContainer.Add(caseFoldout);
             caseFoldout.AddToClassList("aa-ChoiceNode_extension-container");

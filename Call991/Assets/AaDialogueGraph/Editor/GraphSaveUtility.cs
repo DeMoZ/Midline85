@@ -45,10 +45,11 @@ namespace AaDialogueGraph.Editor
             {
                 var inputNode = port.input.node as AaNode;
                 var outputNode = port.output.node as AaNode;
-
+                
                 dialogueContainer.NodeLinks.Add(new NodeLinkData
                 {
                     BaseNodeGuid = outputNode!.Guid,
+                    BaseExitName = port.output.name,
                     TargetNodeGuid = inputNode!.Guid,
                 });
             }
@@ -132,12 +133,12 @@ namespace AaDialogueGraph.Editor
 
             foreach (var node in nodes)
             {
-                var exits = new List<CaseData>();
+                var exits = new List<ForkCaseData>();
                 var casesGroup = node.Query<CaseGroupElement>().ToList();
 
                 foreach (var group in casesGroup)
                 {
-                    var caseData = GetCaseData(group);
+                    var caseData = new ForkCaseData (GetCaseData(group), group.Guid);
                     exits.Add(caseData);
                 }
 

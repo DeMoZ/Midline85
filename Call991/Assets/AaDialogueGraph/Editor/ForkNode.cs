@@ -26,7 +26,8 @@ namespace AaDialogueGraph.Editor
             var addExitButton = new Button(() =>
             {
                 var exitContainer = new ForkExitElement(this, exitCase => RemoveElement(exitCase, contentContainer),
-                    new List<ChoiceData>(), new List<EndData>(), new List<CountData>());
+                    new List<ChoiceData>(), new List<EndData>(), new List<CountData>(), 
+                    System.Guid.NewGuid().ToString());
                 contentContainer.Add(exitContainer);
             });
             addExitButton.text = "Add case exit";
@@ -37,7 +38,7 @@ namespace AaDialogueGraph.Editor
                 foreach (var exit in data.CaseData)
                 {
                     var exitContainer = new ForkExitElement(this, exitCase => RemoveElement(exitCase, contentContainer),
-                        exit.Words, exit.Ends, exit.Counts);
+                        exit.Words, exit.Ends, exit.Counts, exit.ForkExitName);
                     contentContainer.Add(exitContainer);
                 }
             }
@@ -50,7 +51,8 @@ namespace AaDialogueGraph.Editor
 
         public class ForkExitElement : VisualElement
         {
-            public ForkExitElement(AaNode node, Action<VisualElement> onDelete, List<ChoiceData> wordData, List<EndData> endData, List<CountData> countData)
+            public ForkExitElement(AaNode node, Action<VisualElement> onDelete, List<ChoiceData> wordData,
+                List<EndData> endData, List<CountData> countData, string exitGuid)
             {
                 var deleteButton = new Button(() => { onDelete?.Invoke(this); });
                 deleteButton.text = AaGraphConstants.DeleteName;
@@ -58,12 +60,13 @@ namespace AaDialogueGraph.Editor
 
                 var caseFoldout = new Foldout { value = false };
 
-                var caseElement = new CaseGroupElement(caseFoldout, wordData, endData, countData);
+                var caseElement = new CaseGroupElement(caseFoldout, wordData, endData, countData, exitGuid);
                 caseFoldout.Add(caseElement);
                 contentContainer.Add(caseFoldout);
 
                 var caseOutPort = GraphElements.GeneratePort(node, Direction.Output, Port.Capacity.Multi);
                 caseOutPort.portName = AaGraphConstants.OutPortName;
+                caseOutPort.name = exitGuid;
                 contentContainer.Add(caseOutPort);
 
                 contentContainer.style.flexDirection = FlexDirection.Row;

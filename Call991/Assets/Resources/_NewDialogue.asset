@@ -1,0 +1,252 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: _NewDialogue
+  m_EditorClassIdentifier: 
+  Languages:
+  - new
+  EntryGuid: 07a31212-ddec-4fff-880f-d3bb28efaa2b
+  EntryRect:
+    serializedVersion: 2
+    x: 100
+    y: 200
+    width: 102
+    height: 125
+  PhraseNodeData:
+  - Guid: 0324c7dd-9d00-4bdd-92ee-3be719e88219
+    Rect:
+      serializedVersion: 2
+      x: 354
+      y: 200
+      width: 105
+      height: 96
+    PhraseSketchText: fire
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 776e8492-312b-45da-a2a8-223e1a0497f4
+    Rect:
+      serializedVersion: 2
+      x: 233
+      y: 200
+      width: 100
+      height: 96
+    PhraseSketchText: hi
+    PersonVisualData:
+      Person: 1
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 2df30576-abc6-4914-b3ed-33d6b66b56ea
+    Rect:
+      serializedVersion: 2
+      x: 600
+      y: 140
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 995b19c7-a841-4462-a5f8-3b42c64d0b9f
+    Rect:
+      serializedVersion: 2
+      x: 600
+      y: 248
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 36aa9afb-4c92-4170-94ed-b5b23b6d0d46
+    Rect:
+      serializedVersion: 2
+      x: 809
+      y: 419
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 9a96a5ec-d37b-45b6-83a0-22038409139a
+    Rect:
+      serializedVersion: 2
+      x: 809
+      y: 314
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: e9b6ab7f-13b8-442d-88c2-5c7ed50e6ac5
+    Rect:
+      serializedVersion: 2
+      x: 809
+      y: 200
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  ChoiceNodeData:
+  - Guid: 448cd075-bca0-42a4-8f06-4cef581a3105
+    Rect:
+      serializedVersion: 2
+      x: 485
+      y: 362
+      width: 103
+      height: 96
+    Choice: c.word.001
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+  - Guid: 77ee98b7-df0a-4082-8caa-ab19a7480c67
+    Rect:
+      serializedVersion: 2
+      x: 485
+      y: 248
+      width: 103
+      height: 96
+    Choice: c.word.001
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+  - Guid: 3684ceca-65ed-482e-95a3-b8f549dd891e
+    Rect:
+      serializedVersion: 2
+      x: 485
+      y: 140
+      width: 103
+      height: 96
+    Choice: c.word.001
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+  ForkNodeData:
+  - Guid: cfe349b9-b25b-425f-a3f9-4ea6577765bb
+    Rect:
+      serializedVersion: 2
+      x: 605
+      y: 362
+      width: 152
+      height: 153
+    CaseData:
+    - Words: []
+      Ends: []
+      Counts: []
+      ForkExitName: 4bc96681-91bc-4efd-8e5a-663d2da84d81
+    - Words: []
+      Ends: []
+      Counts: []
+      ForkExitName: bfbda3e3-605a-4438-8f6a-8c708ed37ca5
+  NodeLinks:
+  - BaseNodeGuid: 07a31212-ddec-4fff-880f-d3bb28efaa2b
+    BaseExitName: 
+    TargetNodeGuid: 776e8492-312b-45da-a2a8-223e1a0497f4
+  - BaseNodeGuid: 0324c7dd-9d00-4bdd-92ee-3be719e88219
+    BaseExitName: 
+    TargetNodeGuid: 3684ceca-65ed-482e-95a3-b8f549dd891e
+  - BaseNodeGuid: 0324c7dd-9d00-4bdd-92ee-3be719e88219
+    BaseExitName: 
+    TargetNodeGuid: 77ee98b7-df0a-4082-8caa-ab19a7480c67
+  - BaseNodeGuid: 0324c7dd-9d00-4bdd-92ee-3be719e88219
+    BaseExitName: 
+    TargetNodeGuid: 448cd075-bca0-42a4-8f06-4cef581a3105
+  - BaseNodeGuid: 776e8492-312b-45da-a2a8-223e1a0497f4
+    BaseExitName: 
+    TargetNodeGuid: 0324c7dd-9d00-4bdd-92ee-3be719e88219
+  - BaseNodeGuid: 448cd075-bca0-42a4-8f06-4cef581a3105
+    BaseExitName: 
+    TargetNodeGuid: cfe349b9-b25b-425f-a3f9-4ea6577765bb
+  - BaseNodeGuid: 77ee98b7-df0a-4082-8caa-ab19a7480c67
+    BaseExitName: 
+    TargetNodeGuid: 995b19c7-a841-4462-a5f8-3b42c64d0b9f
+  - BaseNodeGuid: 3684ceca-65ed-482e-95a3-b8f549dd891e
+    BaseExitName: 
+    TargetNodeGuid: 2df30576-abc6-4914-b3ed-33d6b66b56ea
+  - BaseNodeGuid: cfe349b9-b25b-425f-a3f9-4ea6577765bb
+    BaseExitName: 
+    TargetNodeGuid: e9b6ab7f-13b8-442d-88c2-5c7ed50e6ac5
+  - BaseNodeGuid: cfe349b9-b25b-425f-a3f9-4ea6577765bb
+    BaseExitName: bfbda3e3-605a-4438-8f6a-8c708ed37ca5
+    TargetNodeGuid: 36aa9afb-4c92-4170-94ed-b5b23b6d0d46
+  - BaseNodeGuid: cfe349b9-b25b-425f-a3f9-4ea6577765bb
+    BaseExitName: 4bc96681-91bc-4efd-8e5a-663d2da84d81
+    TargetNodeGuid: 9a96a5ec-d37b-45b6-83a0-22038409139a

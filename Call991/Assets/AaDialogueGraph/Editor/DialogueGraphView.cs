@@ -51,7 +51,7 @@ namespace AaDialogueGraph.Editor
 
         public void CreatePhraseNode()
         {
-            var languages = contentContainer.Query<EntryPointNode>().First().GetLanguages() ?? new List<string>();
+            var languages = contentContainer.Q<EntryPointNode>().GetLanguages() ?? new List<string>();
             var nodeData = new PhraseNodeData();
             var phraseNode = new PhraseNode(nodeData, languages, Guid.NewGuid().ToString());
             phraseNode.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
@@ -121,7 +121,7 @@ namespace AaDialogueGraph.Editor
 
                         var rows = node.Query<PhraseElementsRowField>().ToList();
                         var row = rows[index];
-                        var label = row.Query<Label>().First();
+                        var label = row.Q<Label>();
                         label.text = languageOperation.Value;
                     }
 
