@@ -13,6 +13,7 @@ namespace AaDialogueGraph
         public List<ChoiceNodeData> ChoiceNodeData = new();
         public List<ForkNodeData> ForkNodeData = new();
         public List<CountNodeData> CountNodeData = new();
+        public List<EndNodeData> EndNodeData = new();
         public List<NodeLinkData> NodeLinks = new();
     }
 }

@@ -40,6 +40,7 @@ namespace AaDialogueGraph.Editor
             CreateChoiceNodes();
             CreateForkNodes();
             CreateCountNodes();
+            CreateEndNodes();
             
             ConnectNodes();
             SetPositions();
@@ -100,6 +101,15 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.CountNodeData)
             {
                 var node = new CountNode(data, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
+        
+        private void CreateEndNodes()
+        {
+            foreach (var data in _containerCash.EndNodeData)
+            {
+                var node = new EndNode(data, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }

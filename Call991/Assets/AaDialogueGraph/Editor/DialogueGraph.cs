@@ -90,6 +90,12 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.CountNode,
             };
             toolbar.Add(countCreateButton);
+            
+            var endCreateButton = new Button(() => _graphView.CreateEndNode())
+            {
+                text = AaGraphConstants.EndNode,
+            };
+            toolbar.Add(endCreateButton);
 
             rootVisualElement.Add(toolbar);
         }

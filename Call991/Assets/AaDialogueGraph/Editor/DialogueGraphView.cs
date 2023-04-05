@@ -79,6 +79,13 @@ namespace AaDialogueGraph.Editor
             AddElement(node);
         }
 
+        public void CreateEndNode()
+        {
+            var node = new EndNode(new EndNodeData(), Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+            AddElement(node);
+        }
+
         private Vector2 GetNewNodePosition()
         {
             var worldPosition = Event.current.mousePosition + Vector2.up * 100;

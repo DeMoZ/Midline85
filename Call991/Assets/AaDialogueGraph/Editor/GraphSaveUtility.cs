@@ -75,6 +75,9 @@ namespace AaDialogueGraph.Editor
             var countNodes = AaNodes.OfType<CountNode>().ToList();
             dialogueContainer.CountNodeData.AddRange(CountNodesToData(countNodes));
 
+            var endNodes = AaNodes.OfType<EndNode>().ToList();
+            dialogueContainer.EndNodeData.AddRange(EndNodesToData(endNodes));
+
             CreateFolders(fileName);
 
             AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
@@ -162,14 +165,28 @@ namespace AaDialogueGraph.Editor
             var data = new List<CountNodeData>();
             foreach (var node in nodes)
             {
-                var caseData = GetCaseData(node);
-
                 data.Add(new CountNodeData
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     Choice = node.Q<CountPopupField>().Value,
                     Value =  node.Q<IntegerField>().value,
+                });
+            }
+
+            return data;
+        }
+        
+        private List<EndNodeData> EndNodesToData(List<EndNode> nodes)
+        {
+            var data = new List<EndNodeData>();
+            foreach (var node in nodes)
+            {
+                data.Add(new EndNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    End = node.Q<EndPopupField>().Value,
                 });
             }
 
