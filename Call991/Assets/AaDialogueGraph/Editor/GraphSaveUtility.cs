@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Object = UnityEngine.Object;
@@ -69,7 +70,10 @@ namespace AaDialogueGraph.Editor
             dialogueContainer.ChoiceNodeData.AddRange(ChoiceNodesToData(choiceNodes));
 
             var forkNodes = AaNodes.OfType<ForkNode>().ToList();
-            dialogueContainer.ForkNodeData.AddRange(ForkNodesData(forkNodes));
+            dialogueContainer.ForkNodeData.AddRange(ForkNodesToData(forkNodes));
+
+            var countNodes = AaNodes.OfType<CountNode>().ToList();
+            dialogueContainer.CountNodeData.AddRange(CountNodesToData(countNodes));
 
             CreateFolders(fileName);
 
@@ -127,7 +131,7 @@ namespace AaDialogueGraph.Editor
             return data;
         }
 
-        private List<ForkNodeData> ForkNodesData(List<ForkNode> nodes)
+        private List<ForkNodeData> ForkNodesToData(List<ForkNode> nodes)
         {
             var data = new List<ForkNodeData>();
 
@@ -153,6 +157,25 @@ namespace AaDialogueGraph.Editor
             return data;
         }
 
+        private List<CountNodeData> CountNodesToData(List<CountNode> nodes)
+        {
+            var data = new List<CountNodeData>();
+            foreach (var node in nodes)
+            {
+                var caseData = GetCaseData(node);
+
+                data.Add(new CountNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    Choice = node.Q<CountPopupField>().Value,
+                    Value =  node.Q<IntegerField>().value,
+                });
+            }
+
+            return data;
+        }
+        
         private void CreateFolders(string fileName)
         {
             var pathName = $"Resources/{fileName}";
