@@ -168,11 +168,17 @@ MonoBehaviour:
       serializedVersion: 2
       x: 485
       y: 362
-      width: 103
-      height: 96
+      width: 270
+      height: 216
     Choice: c.word.001
     CaseData:
-      Words: []
+      Words:
+      - CaseType: 0
+        OrKeys:
+        - c.word.001
+      - CaseType: 1
+        OrKeys:
+        - c.word.001
       Ends: []
       Counts: []
   - Guid: 77ee98b7-df0a-4082-8caa-ab19a7480c67
@@ -180,25 +186,31 @@ MonoBehaviour:
       serializedVersion: 2
       x: 485
       y: 248
-      width: 103
-      height: 96
+      width: 270
+      height: 161
     Choice: c.word.001
     CaseData:
       Words: []
-      Ends: []
+      Ends:
+      - EndType: 0
+        OrKeys:
+        - FIRE.END.BAD
       Counts: []
   - Guid: 3684ceca-65ed-482e-95a3-b8f549dd891e
     Rect:
       serializedVersion: 2
       x: 485
       y: 140
-      width: 103
-      height: 96
+      width: 270
+      height: 177
     Choice: c.word.001
     CaseData:
       Words: []
       Ends: []
-      Counts: []
+      Counts:
+      - CountType: 0
+        CountKey: FIRE.EMOTIONS
+        Range: {x: 0, y: 50}
   ForkNodeData:
   - Guid: cfe349b9-b25b-425f-a3f9-4ea6577765bb
     Rect:
@@ -216,6 +228,23 @@ MonoBehaviour:
       Ends: []
       Counts: []
       ForkExitName: bfbda3e3-605a-4438-8f6a-8c708ed37ca5
+  - Guid: 
+    Rect:
+      serializedVersion: 2
+      x: 745
+      y: -128
+      width: 152
+      height: 153
+    CaseData:
+    - Words: []
+      Ends: []
+      Counts: []
+      ForkExitName: 
+    - Words: []
+      Ends: []
+      Counts: []
+      ForkExitName: 
+  CountNodeData: []
   NodeLinks:
   - BaseNodeGuid: 07a31212-ddec-4fff-880f-d3bb28efaa2b
     BaseExitName: 

@@ -4,6 +4,7 @@ public enum AaNodeType
     EntryPoint,
     ChoiceNode,
     ForkNode,
+    CountNode,
 }
 
 public enum LanguageOperationType

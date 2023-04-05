@@ -69,27 +69,27 @@ namespace AaDialogueGraph.Editor
             
             var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode())
             {
-                text = AaGraphConstants.NewPhraseNode,
+                text = AaGraphConstants.PhraseNode,
             };
             toolbar.Add(phraseCreateButton);
 
             var choiceCreateButton = new Button(() => _graphView.CreateChoiceNode())
             {
-                text = AaGraphConstants.NewChoiceNode,
+                text = AaGraphConstants.ChoiceNode,
             };
             toolbar.Add(choiceCreateButton);
 
             var forkCreateButton = new Button(() => _graphView.CreateForkNode())
             {
-                text = AaGraphConstants.NewForkNode,
+                text = AaGraphConstants.ForkNode,
             };
             toolbar.Add(forkCreateButton);
 
-            //var countCreateButton = new Button(() => _graphView.CreateCountNode())
-            //{
-            //    text = AaGraphConstants.NewCountNode,
-            //};
-            //toolbar.Add(countCreateButton);
+            var countCreateButton = new Button(() => _graphView.CreateCountNode())
+            {
+                text = AaGraphConstants.CountNode,
+            };
+            toolbar.Add(countCreateButton);
 
             rootVisualElement.Add(toolbar);
         }

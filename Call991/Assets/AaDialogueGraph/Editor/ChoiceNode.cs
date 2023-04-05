@@ -12,13 +12,8 @@ namespace AaDialogueGraph.Editor
             NodeType = AaNodeType.ChoiceNode;
             titleContainer.Add(new ChoicePopupField(AaKeys.ChoiceKeys, data.Choice));
 
-            var inPort = GraphElements.GeneratePort(this, Direction.Input, Port.Capacity.Multi);
-            inPort.portName = AaGraphConstants.InPortName;
-            inputContainer.Add(inPort);
-
-            var outPort = GraphElements.GeneratePort(this, Direction.Output, Port.Capacity.Multi);
-            outPort.portName = AaGraphConstants.OutPortName;
-            outputContainer.Add(outPort);
+            CreateInPort();
+            CreateOutPort();
 
             var caseFoldout = new Foldout();
             caseFoldout.value = false;

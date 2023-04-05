@@ -52,27 +52,31 @@ namespace AaDialogueGraph.Editor
         public void CreatePhraseNode()
         {
             var languages = contentContainer.Q<EntryPointNode>().GetLanguages() ?? new List<string>();
-            var nodeData = new PhraseNodeData();
-            var phraseNode = new PhraseNode(nodeData, languages, Guid.NewGuid().ToString());
-            phraseNode.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+            var node = new PhraseNode(new PhraseNodeData(), languages, Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
-            AddElement(phraseNode);
+            AddElement(node);
         }
 
         public void CreateChoiceNode()
         {
-            var nodeData = new ChoiceNodeData();
-            var choiceNode = new ChoiceNode(nodeData, Guid.NewGuid().ToString());
-            choiceNode.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
-            AddElement(choiceNode);
+            var node = new ChoiceNode(new ChoiceNodeData(), Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+            AddElement(node);
         }
 
         public void CreateForkNode()
         {
-            var nodeData = new ForkNodeData();
-            var forkNode = new ForkNode(nodeData, Guid.NewGuid().ToString());
-            forkNode.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
-            AddElement(forkNode);
+            var node = new ForkNode(new ForkNodeData(), Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+            AddElement(node);
+        }
+        
+        public void CreateCountNode()
+        {
+            var node = new CountNode(new CountNodeData(), Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+            AddElement(node);
         }
 
         private Vector2 GetNewNodePosition()

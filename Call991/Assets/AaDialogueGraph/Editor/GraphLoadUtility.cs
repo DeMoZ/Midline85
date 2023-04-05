@@ -154,6 +154,11 @@ namespace AaDialogueGraph.Editor
                         var forkData = _containerCash.ForkNodeData.FirstOrDefault(n => n.Guid == node.Guid);
                         if (forkData != null) node.SetPosition(forkData.Rect);
                         break;
+                    
+                    case CountNode:
+                        var countData = _containerCash.CountNodeData.FirstOrDefault(n => n.Guid == node.Guid);
+                        if (countData != null) node.SetPosition(countData.Rect);
+                        break;
                 }
             }
         }
