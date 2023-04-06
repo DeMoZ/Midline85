@@ -1,9 +1,11 @@
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
+using Edge = UnityEditor.Experimental.GraphView.Edge;
 
 namespace AaDialogueGraph.Editor
 {
@@ -41,7 +43,7 @@ namespace AaDialogueGraph.Editor
             CreateForkNodes();
             CreateCountNodes();
             CreateEndNodes();
-            
+
             ConnectNodes();
             SetPositions();
 
@@ -60,10 +62,10 @@ namespace AaDialogueGraph.Editor
 
         private void CreateEntryPoint()
         {
-            var entryNode = new EntryPointNode(_languageOperation, _containerCash.EntryGuid);
+            var entryNode = new EntryPointNode(_languageOperation, _containerCash.EntryNodeData.EntryGuid);
             _targetGraphView.AddElement(entryNode);
 
-            foreach (var language in _containerCash.Languages)
+            foreach (var language in _containerCash.EntryNodeData.Languages)
             {
                 entryNode.contentContainer.Add(new LanguageField(language, _languageOperation));
             }
@@ -73,7 +75,7 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var data in _containerCash.PhraseNodeData)
             {
-                var node = new PhraseNode(data, _containerCash.Languages, data.Guid);
+                var node = new PhraseNode(data, _containerCash.EntryNodeData.Languages, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -95,7 +97,7 @@ namespace AaDialogueGraph.Editor
                 _targetGraphView.AddElement(node);
             }
         }
-        
+
         private void CreateCountNodes()
         {
             foreach (var data in _containerCash.CountNodeData)
@@ -104,7 +106,7 @@ namespace AaDialogueGraph.Editor
                 _targetGraphView.AddElement(node);
             }
         }
-        
+
         private void CreateEndNodes()
         {
             foreach (var data in _containerCash.EndNodeData)
@@ -153,33 +155,28 @@ namespace AaDialogueGraph.Editor
 
         private void SetPositions()
         {
+            var nodes = new List<AaNodeData>();
+
+            nodes.AddRange(_containerCash.PhraseNodeData);
+            nodes.AddRange(_containerCash.ChoiceNodeData);
+            nodes.AddRange(_containerCash.ForkNodeData);
+            nodes.AddRange(_containerCash.CountNodeData);
+            nodes.AddRange(_containerCash.EndNodeData);
+            nodes.Add(_containerCash.EntryNodeData);
+
+            // foreach (var node in AaNodes)
+            // {
+            //     var data = nodes.FirstOrDefault(n => n.Guid == node.Guid);
+            //     if (data != null) node.SetPosition(data.Rect);
+            // }
+
+            var nodesDict = nodes.ToDictionary(nodeData => nodeData.Guid);
+
             foreach (var node in AaNodes)
             {
-                switch (node)
+                if (nodesDict.TryGetValue(node.Guid ,  out var data))
                 {
-                    case EntryPointNode:
-                        node.SetPosition(_containerCash.EntryRect);
-                        break;
-
-                    case PhraseNode:
-                        var phraseData = _containerCash.PhraseNodeData.FirstOrDefault(n => n.Guid == node.Guid);
-                        if (phraseData != null) node.SetPosition(phraseData.Rect);
-                        break;
-
-                    case ChoiceNode:
-                        var choiceData = _containerCash.ChoiceNodeData.FirstOrDefault(n => n.Guid == node.Guid);
-                        if (choiceData != null) node.SetPosition(choiceData.Rect);
-                        break;
-
-                    case ForkNode:
-                        var forkData = _containerCash.ForkNodeData.FirstOrDefault(n => n.Guid == node.Guid);
-                        if (forkData != null) node.SetPosition(forkData.Rect);
-                        break;
-                    
-                    case CountNode:
-                        var countData = _containerCash.CountNodeData.FirstOrDefault(n => n.Guid == node.Guid);
-                        if (countData != null) node.SetPosition(countData.Rect);
-                        break;
+                    node.SetPosition(data.Rect);
                 }
             }
         }

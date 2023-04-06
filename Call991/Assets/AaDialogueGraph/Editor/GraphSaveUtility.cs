@@ -38,7 +38,7 @@ namespace AaDialogueGraph.Editor
 
             var entryContainer = AaNodes.First(n => n.EntryPoint).contentContainer;
             var languageFields = entryContainer.Query<LanguageField>().ToList();
-            languageFields.ForEach(lf => dialogueContainer.Languages.Add(lf.Language));
+            languageFields.ForEach(lf => dialogueContainer.EntryNodeData.Languages.Add(lf.Language));
 
             var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
 
@@ -59,8 +59,8 @@ namespace AaDialogueGraph.Editor
             if (entryNode.Any())
             {
                 var node = entryNode.First(n => n != null);
-                dialogueContainer.EntryGuid = node.Guid;
-                dialogueContainer.EntryRect = node.GetPosition();
+                dialogueContainer.EntryNodeData.EntryGuid = node.Guid;
+                dialogueContainer.EntryNodeData.EntryRect = node.GetPosition();
             }
 
             var phraseNodes = AaNodes.OfType<PhraseNode>().ToList();
