@@ -1,11 +1,8 @@
-using UnityEditor.UIElements;
-using UnityEngine.UIElements;
-
 namespace AaDialogueGraph.Editor
 {
     public class EndNode : AaNode
     {
-        public EndNode(EndNodeData data, string guid)
+        public void Set(EndNodeData data, string guid)
         {
             Guid = guid;
             NodeType = AaNodeType.CountNode;

@@ -10,7 +10,7 @@ namespace AaDialogueGraph.Editor
 {
     public abstract class KeyPopupField : VisualElement
     {
-        public string Value { get; private set; }
+        public string Value { get; protected set; }
 
         protected KeyPopupField(List<string> keys, string currentChoice = null)
         {
@@ -34,8 +34,6 @@ namespace AaDialogueGraph.Editor
 
     public class ChoicePopupField : KeyPopupField
     {
-        public string Value { get; private set; }
-
         public ChoicePopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
         {
         }

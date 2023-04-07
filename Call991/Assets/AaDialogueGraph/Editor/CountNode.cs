@@ -5,7 +5,7 @@ namespace AaDialogueGraph.Editor
 {
     public class CountNode : AaNode
     {
-        public CountNode(CountNodeData data, string guid)
+        public void Set(CountNodeData data, string guid)
         {
             Guid = guid;
             NodeType = AaNodeType.CountNode;

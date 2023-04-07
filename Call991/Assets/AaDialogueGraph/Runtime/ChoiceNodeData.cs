@@ -17,6 +17,17 @@ namespace AaDialogueGraph
         public List<ChoiceData> Words;
         public List<EndData> Ends;
         public List<CountData> Counts;
+
+        public CaseData()
+        {
+        }
+
+        public CaseData(List<ChoiceData> words, List<EndData> ends, List<CountData> counts)
+        {
+            Words = words;
+            Ends = ends;
+            Counts = counts;
+        }
     }
     
     [Serializable]

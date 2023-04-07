@@ -4,7 +4,7 @@ namespace AaDialogueGraph.Editor
 {
     public class ChoiceNode : AaNode
     {
-        public ChoiceNode(ChoiceNodeData data, string guid)
+        public void Set(ChoiceNodeData data, string guid)
         {
             Guid = guid;
 
@@ -16,8 +16,9 @@ namespace AaDialogueGraph.Editor
 
             var caseFoldout = new Foldout();
             caseFoldout.value = false;
-            
-            var caseElement = new CaseGroupElement(caseFoldout, data.CaseData.Words, data.CaseData.Ends, data.CaseData.Counts, null);
+
+            var caseElement = new CaseGroupElement();
+            caseElement.Set(caseFoldout, data.CaseData.Words, data.CaseData.Ends, data.CaseData.Counts, null);
             caseFoldout.Add(caseElement);
             contentContainer.Add(caseFoldout);
             caseFoldout.AddToClassList("aa-ChoiceNode_extension-container");

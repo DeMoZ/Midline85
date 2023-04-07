@@ -7,34 +7,34 @@ namespace AaDialogueGraph.Editor
 {
     public class ForkNode : AaNode
     {
-        public ForkNode(ForkNodeData data, string guid)
+        public void Set(ForkNodeData data, string guid)
         {
             Guid = guid;
 
             NodeType = AaNodeType.ForkNode;
             title = AaGraphConstants.ForkNode;
-            
+
             CreateInPort();
             CreateOutPort("Default exit from the node.\nIf none of case exits \"true\"");
             
             var addExitButton = new Button(() =>
             {
-                var exitContainer = new ForkExitElement(this, exitCase => RemoveElement(exitCase, contentContainer),
-                    new List<ChoiceData>(), new List<EndData>(), new List<CountData>(), 
-                    System.Guid.NewGuid().ToString());
-                contentContainer.Add(exitContainer);
+                CreateForkExitElement(contentContainer, new ForkCaseData(new CaseData(), System.Guid.NewGuid().ToString()));
             });
             addExitButton.text = "Add case exit";
             contentContainer.Add(addExitButton);
-
-            if (data.CaseData != null)
+            
+            foreach (var forkCase in data.ForkCaseData)
             {
-                foreach (var exit in data.CaseData)
-                {
-                    var exitContainer = new ForkExitElement(this, exitCase => RemoveElement(exitCase, contentContainer),
-                        exit.Words, exit.Ends, exit.Counts, exit.ForkExitName);
-                    contentContainer.Add(exitContainer);
-                }
+                CreateForkExitElement(contentContainer, new ForkCaseData(forkCase, forkCase.ForkExitName));
+            }
+
+            void CreateForkExitElement(VisualElement visualElement, ForkCaseData data)
+            {
+                var exitContainer = new ForkExitElement();
+                exitContainer.Set(this, exitCase => RemoveElement(exitCase, contentContainer),
+                    data.Words, data.Ends, data.Counts, data.ForkExitName);
+                visualElement.Add(exitContainer);
             }
         }
 
@@ -43,9 +43,9 @@ namespace AaDialogueGraph.Editor
             container.Remove(exitCase);
         }
 
-        public class ForkExitElement : VisualElement
+        private class ForkExitElement : VisualElement
         {
-            public ForkExitElement(AaNode node, Action<VisualElement> onDelete, List<ChoiceData> wordData,
+            public void Set(AaNode node, Action<VisualElement> onDelete, List<ChoiceData> wordData,
                 List<EndData> endData, List<CountData> countData, string exitGuid)
             {
                 var deleteButton = new Button(() => { onDelete?.Invoke(this); });
@@ -54,7 +54,8 @@ namespace AaDialogueGraph.Editor
 
                 var caseFoldout = new Foldout { value = false };
 
-                var caseElement = new CaseGroupElement(caseFoldout, wordData, endData, countData, exitGuid);
+                var caseElement = new CaseGroupElement();
+                caseElement.Set(caseFoldout, wordData, endData, countData, exitGuid);
                 caseFoldout.Add(caseElement);
                 contentContainer.Add(caseFoldout);
 

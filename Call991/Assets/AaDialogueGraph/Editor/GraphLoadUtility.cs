@@ -62,7 +62,7 @@ namespace AaDialogueGraph.Editor
 
         private void CreateEntryPoint()
         {
-            var entryNode = new EntryPointNode(_languageOperation, _containerCash.EntryNodeData.EntryGuid);
+            var entryNode = new EntryPointNode(_languageOperation, _containerCash.EntryNodeData.Guid);
             _targetGraphView.AddElement(entryNode);
 
             foreach (var language in _containerCash.EntryNodeData.Languages)
@@ -75,7 +75,8 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var data in _containerCash.PhraseNodeData)
             {
-                var node = new PhraseNode(data, _containerCash.EntryNodeData.Languages, data.Guid);
+                var node = new PhraseNode();
+                node.Set(data, _containerCash.EntryNodeData.Languages, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -84,7 +85,8 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var data in _containerCash.ChoiceNodeData)
             {
-                var node = new ChoiceNode(data, data.Guid);
+                var node = new ChoiceNode();
+                node.Set(data, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -93,7 +95,8 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var data in _containerCash.ForkNodeData)
             {
-                var node = new ForkNode(data, data.Guid);
+                var node = new ForkNode();
+                node.Set(data, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -102,7 +105,8 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var data in _containerCash.CountNodeData)
             {
-                var node = new CountNode(data, data.Guid);
+                var node = new CountNode();
+                node.Set(data, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -111,7 +115,8 @@ namespace AaDialogueGraph.Editor
         {
             foreach (var data in _containerCash.EndNodeData)
             {
-                var node = new EndNode(data, data.Guid);
+                var node = new EndNode();
+                node.Set(data, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }

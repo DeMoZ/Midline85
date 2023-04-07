@@ -5,7 +5,7 @@ namespace AaDialogueGraph
     [System.Serializable]
     public class ForkNodeData : AaNodeData
     { 
-        public List<ForkCaseData> CaseData;
+        public List<ForkCaseData> ForkCaseData = new ();
     }
 
     [System.Serializable]
@@ -13,7 +13,7 @@ namespace AaDialogueGraph
     {
         public string ForkExitName;
 
-        public ForkCaseData(CaseData caseData, string name)
+        public ForkCaseData(CaseData caseData, string name) : base (caseData.Words, caseData.Ends, caseData.Counts)
         {
             ForkExitName = name;
         } 

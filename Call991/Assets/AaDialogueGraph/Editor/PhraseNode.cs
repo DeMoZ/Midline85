@@ -13,7 +13,7 @@ namespace AaDialogueGraph.Editor
 
         public string PhraseSketchText => _phraseSketchTxt;
 
-        public PhraseNode(PhraseNodeData data, List<string> languages, string guid)
+        public void Set(PhraseNodeData data, List<string> languages, string guid)
         {
             Guid = guid;
 

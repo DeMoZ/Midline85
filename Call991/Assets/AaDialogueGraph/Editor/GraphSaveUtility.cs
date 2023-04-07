@@ -46,7 +46,7 @@ namespace AaDialogueGraph.Editor
             {
                 var inputNode = port.input.node as AaNode;
                 var outputNode = port.output.node as AaNode;
-                
+
                 dialogueContainer.NodeLinks.Add(new NodeLinkData
                 {
                     BaseNodeGuid = outputNode!.Guid,
@@ -59,8 +59,8 @@ namespace AaDialogueGraph.Editor
             if (entryNode.Any())
             {
                 var node = entryNode.First(n => n != null);
-                dialogueContainer.EntryNodeData.EntryGuid = node.Guid;
-                dialogueContainer.EntryNodeData.EntryRect = node.GetPosition();
+                dialogueContainer.EntryNodeData.Guid = node.Guid;
+                dialogueContainer.EntryNodeData.Rect = node.GetPosition();
             }
 
             var phraseNodes = AaNodes.OfType<PhraseNode>().ToList();
@@ -141,11 +141,12 @@ namespace AaDialogueGraph.Editor
             foreach (var node in nodes)
             {
                 var exits = new List<ForkCaseData>();
-                var casesGroup = node.Query<CaseGroupElement>().ToList();
+                var groups = node.Query<CaseGroupElement>().ToList();
 
-                foreach (var group in casesGroup)
+                foreach (var group in groups)
                 {
-                    var caseData = new ForkCaseData (GetCaseData(group), group.Guid);
+                    var gotData = GetCaseData(group);
+                    var caseData = new ForkCaseData(gotData, group.Guid);
                     exits.Add(caseData);
                 }
 
@@ -153,7 +154,7 @@ namespace AaDialogueGraph.Editor
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
-                    CaseData = exits,
+                    ForkCaseData = exits,
                 });
             }
 
@@ -170,13 +171,13 @@ namespace AaDialogueGraph.Editor
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     Choice = node.Q<CountPopupField>().Value,
-                    Value =  node.Q<IntegerField>().value,
+                    Value = node.Q<IntegerField>().value,
                 });
             }
 
             return data;
         }
-        
+
         private List<EndNodeData> EndNodesToData(List<EndNode> nodes)
         {
             var data = new List<EndNodeData>();
@@ -192,7 +193,7 @@ namespace AaDialogueGraph.Editor
 
             return data;
         }
-        
+
         private void CreateFolders(string fileName)
         {
             var pathName = $"Resources/{fileName}";
@@ -217,12 +218,7 @@ namespace AaDialogueGraph.Editor
             var ends = GetEndCases(container);
             var counts = GetCountCases(container);
 
-            return new CaseData
-            {
-                Words = words,
-                Ends = ends,
-                Counts = counts,
-            };
+            return new CaseData(words, ends, counts);
         }
 
         private List<ChoiceData> GetChoiceCases(VisualElement container)
@@ -281,8 +277,10 @@ namespace AaDialogueGraph.Editor
         private List<CountData> GetCountCases(VisualElement container)
         {
             var result = new List<CountData>();
-            var countCases = container.Query<CountCase>().ToList();
-
+           // var countCases = container.Query<CountCase>().ToList();
+            
+            var countCases = UQueryExtensions.Query<CountCase>(container).ToList();
+            
             foreach (var countCase in countCases)
             {
                 result.Add(new CountData
@@ -292,6 +290,15 @@ namespace AaDialogueGraph.Editor
                     Range = countCase.GetRange(),
                 });
             }
+            /*var countCase = container.Q<CountCase>();
+ 
+            result.Add(new CountData
+            {
+                CountType = CountType.Sum,
+                CountKey = countCase.GetKey(),
+                Range = countCase.GetRange(),
+            });*/
+
 
             return result;
         }

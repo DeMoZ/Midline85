@@ -8,7 +8,7 @@ namespace AaDialogueGraph.Editor
     {
         public string Guid { get; private set; }
         
-        public CaseGroupElement(Foldout foldout, List<ChoiceData> wordData, List<EndData> endData,
+        public void Set(Foldout foldout, List<ChoiceData> wordData, List<EndData> endData,
             List<CountData> countData, string exitGuid)
         {
             Guid = exitGuid;

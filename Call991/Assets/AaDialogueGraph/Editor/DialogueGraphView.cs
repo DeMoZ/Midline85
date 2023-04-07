@@ -11,11 +11,11 @@ namespace AaDialogueGraph.Editor
     {
         public DialogueGraphView(AaReactive<LanguageOperation> languageOperation)
         {
-            var backgroundStyle = (StyleSheet) EditorGUIUtility.Load("AaDialogueGraph/Styles/GraphViewStyle.uss");
+            var backgroundStyle = (StyleSheet)EditorGUIUtility.Load("AaDialogueGraph/Styles/GraphViewStyle.uss");
             if (backgroundStyle)
                 styleSheets.Add(backgroundStyle);
 
-            var styleSheet = (StyleSheet) EditorGUIUtility.Load("AaDialogueGraph/Styles/PhraseNodeStyle.uss");
+            var styleSheet = (StyleSheet)EditorGUIUtility.Load("AaDialogueGraph/Styles/PhraseNodeStyle.uss");
             if (styleSheet)
                 styleSheets.Add(styleSheet);
 
@@ -52,7 +52,8 @@ namespace AaDialogueGraph.Editor
         public void CreatePhraseNode()
         {
             var languages = contentContainer.Q<EntryPointNode>().GetLanguages() ?? new List<string>();
-            var node = new PhraseNode(new PhraseNodeData(), languages, Guid.NewGuid().ToString());
+            var node = new PhraseNode();
+            node.Set(new PhraseNodeData(), languages, Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);
@@ -60,28 +61,32 @@ namespace AaDialogueGraph.Editor
 
         public void CreateChoiceNode()
         {
-            var node = new ChoiceNode(new ChoiceNodeData(), Guid.NewGuid().ToString());
+            var node = new ChoiceNode();
+            node.Set(new ChoiceNodeData(), Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
 
         public void CreateForkNode()
         {
-            var node = new ForkNode(new ForkNodeData(), Guid.NewGuid().ToString());
+            var node = new ForkNode();
+            node.Set(new ForkNodeData(), Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
-        
+
         public void CreateCountNode()
         {
-            var node = new CountNode(new CountNodeData(), Guid.NewGuid().ToString());
+            var node = new CountNode();
+            node.Set(new CountNodeData(), Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
 
         public void CreateEndNode()
         {
-            var node = new EndNode(new EndNodeData(), Guid.NewGuid().ToString());
+            var node = new EndNode();
+            node.Set(new EndNodeData(), Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
@@ -94,7 +99,7 @@ namespace AaDialogueGraph.Editor
 
         private void CreateMinimap()
         {
-            var miniMap = new MiniMap {anchored = false};
+            var miniMap = new MiniMap { anchored = false };
             miniMap.SetPosition(new Rect(10, 30, 200, 100));
             miniMap.maxHeight = 100;
             Add(miniMap);

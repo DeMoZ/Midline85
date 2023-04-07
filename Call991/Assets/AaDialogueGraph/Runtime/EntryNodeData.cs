@@ -8,7 +8,5 @@ namespace AaDialogueGraph
     public class EntryNodeData : AaNodeData
     {
         public List<string> Languages = new();
-        public string EntryGuid;
-        public Rect EntryRect;
     }
 }
