@@ -141,13 +141,11 @@ namespace AaDialogueGraph.Editor
             foreach (var node in nodes)
             {
                 var exits = new List<ForkCaseData>();
-                var groups = node.Query<CaseGroupElement>().ToList();
-
-                foreach (var group in groups)
+                var prongs = node.Query<ForkExitElement>().ToList();
+                
+                foreach (var prong in prongs)
                 {
-                    var gotData = GetCaseData(group);
-                    var caseData = new ForkCaseData(gotData, group.Guid);
-                    exits.Add(caseData);
+                    exits.Add(new ForkCaseData(GetCaseData(prong), prong.Guid));
                 }
 
                 data.Add(new ForkNodeData
@@ -253,6 +251,7 @@ namespace AaDialogueGraph.Editor
             var result = new List<EndData>();
             var andEndCases = container.Query<AndEndCase>().ToList();
             var noEndCases = container.Query<NoEndCase>().ToList();
+            
             foreach (var andCase in andEndCases)
             {
                 result.Add(new EndData
@@ -277,9 +276,7 @@ namespace AaDialogueGraph.Editor
         private List<CountData> GetCountCases(VisualElement container)
         {
             var result = new List<CountData>();
-           // var countCases = container.Query<CountCase>().ToList();
-            
-            var countCases = UQueryExtensions.Query<CountCase>(container).ToList();
+            var countCases = container.Query<CountCase>().ToList();
             
             foreach (var countCase in countCases)
             {
@@ -290,16 +287,7 @@ namespace AaDialogueGraph.Editor
                     Range = countCase.GetRange(),
                 });
             }
-            /*var countCase = container.Q<CountCase>();
- 
-            result.Add(new CountData
-            {
-                CountType = CountType.Sum,
-                CountKey = countCase.GetKey(),
-                Range = countCase.GetRange(),
-            });*/
-
-
+           
             return result;
         }
     }

@@ -652,11 +652,16 @@ namespace AaDialogueGraph.Editor
 
     public class NodeTitleErrorField : VisualElement
     {
-        public Label Label { get; private set; }
+        public Label Label { get;}
 
         public NodeTitleErrorField()
         {
             Label = new Label();
+            Set();
+        }
+
+        private void Set()
+        {
             contentContainer.Add(Label);
         }
     }

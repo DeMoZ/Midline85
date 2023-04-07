@@ -6,13 +6,8 @@ namespace AaDialogueGraph.Editor
 {
     public class CaseGroupElement : VisualElement
     {
-        public string Guid { get; private set; }
-        
-        public void Set(Foldout foldout, List<ChoiceData> wordData, List<EndData> endData,
-            List<CountData> countData, string exitGuid)
+        public void Set(Foldout foldout, List<ChoiceData> wordData, List<EndData> endData, List<CountData> countData)
         {
-            Guid = exitGuid;
-            
             var buttonsContainer = new VisualElement();
             buttonsContainer.style.flexDirection = FlexDirection.Row;
             foldout.Add(buttonsContainer);
