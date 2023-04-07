@@ -30,7 +30,9 @@ namespace AaDialogueGraph.Editor
             gridBackground.StretchToParentSize();
 
             languageOperation.Subscribe(OnLanguageChange);
-            AddElement(new EntryPointNode(languageOperation));
+            var node = new EntryPointNode();
+            node.Set(languageOperation);
+            AddElement(node);
 
             CreateMinimap();
         }
@@ -124,8 +126,9 @@ namespace AaDialogueGraph.Editor
                         if (node.EntryPoint) continue;
 
                         var phraseContainer = node.Q<PhraseElementsTable>();
-                        phraseContainer?.Add(new PhraseElementsRowField(AaGraphConstants.NewLanguageName,
-                            onChange: node.CheckNodeContent));
+                        var field = new PhraseElementsRowField();
+                        field.Set(AaGraphConstants.NewLanguageName, onChange: node.CheckNodeContent);
+                        phraseContainer?.Add(field);
                         node.CheckNodeContent();
                     }
 

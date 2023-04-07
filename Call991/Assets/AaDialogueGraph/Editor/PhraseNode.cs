@@ -24,24 +24,28 @@ namespace AaDialogueGraph.Editor
             extensionContainer.Add(contentFolder);
             contentFolder.AddToClassList("aa-PhraseNode_extension-container");
 
-            var titleTextField = new PhraseSketchField(data.PhraseSketchText, val =>
+            var titleTextField = new PhraseSketchField();
+            titleTextField.Set(data.PhraseSketchText, val =>
             {
                 _phraseSketchTxt = val;
                 title = GetTitle(_personTxt, _phraseSketchTxt);
             });
             contentFolder.Add(titleTextField);
 
-            var personVisual = new PersonVisual(data.PersonVisualData, val =>
+            var personVisual = new PersonVisual();
+            personVisual.Set(data.PersonVisualData, val =>
             {
                 _personTxt = val;
                 title = GetTitle(_personTxt, _phraseSketchTxt);
             });
             contentFolder.Add(personVisual);
 
-            var phraseVisual = new PhraseVisual(data.PhraseVisualData);
+            var phraseVisual = new PhraseVisual();
+            phraseVisual.Set(data.PhraseVisualData);
             contentFolder.Add(phraseVisual);
 
-            var phraseEvents = new PhraseEvents(data.EventVisualData, CheckNodeContent);
+            var phraseEvents = new PhraseEvents();
+            phraseEvents.Set(data.EventVisualData, CheckNodeContent);
             contentFolder.Add(phraseEvents);
 
             var phraseContainer = new PhraseElementsTable();
@@ -60,7 +64,9 @@ namespace AaDialogueGraph.Editor
                     ? NodeUtils.GetObjectByPath<Phrase>(data.Phrases[i])
                     : null;
 
-                phraseContainer.Add(new PhraseElementsRowField(languages[i], clip, phrase, CheckNodeContent));
+                var field = new PhraseElementsRowField();
+                field.Set(languages[i], clip, phrase, CheckNodeContent); 
+                phraseContainer.Add(field);
             }
 
             phraseContainer.contentContainer.AddToClassList("aa-PhraseAsset_content-container");

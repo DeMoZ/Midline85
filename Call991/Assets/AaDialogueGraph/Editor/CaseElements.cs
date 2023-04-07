@@ -21,7 +21,9 @@ namespace AaDialogueGraph.Editor
         {
             var label = new Label();
 
-            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => label.text = KeyToTextTitle(val)));
+            var popup = new NoEnumPopup();
+            popup.Set(keys, currentChoice, val => label.text = KeyToTextTitle(val));
+            contentContainer.Add(popup);
             contentContainer.Add(label);
         }
 
@@ -55,7 +57,9 @@ namespace AaDialogueGraph.Editor
 
         protected override void CreateElements(List<string> keys, string currentChoice = null)
         {
-            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => KeyToTextTitle(val)));
+            var popup = new NoEnumPopup();
+            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
+            contentContainer.Add(popup);
         }
     }
 
@@ -67,7 +71,9 @@ namespace AaDialogueGraph.Editor
 
         protected override void CreateElements(List<string> keys, string currentChoice = null)
         {
-            contentContainer.Add(new NoEnumPopup(keys, currentChoice, val => KeyToTextTitle(val)));
+            var popup = new NoEnumPopup();
+            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
+            contentContainer.Add(popup);
         }
     }
 

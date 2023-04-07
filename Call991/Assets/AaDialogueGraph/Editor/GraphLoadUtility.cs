@@ -62,12 +62,15 @@ namespace AaDialogueGraph.Editor
 
         private void CreateEntryPoint()
         {
-            var entryNode = new EntryPointNode(_languageOperation, _containerCash.EntryNodeData.Guid);
-            _targetGraphView.AddElement(entryNode);
+            var node = new EntryPointNode();
+            node.Set(_languageOperation, _containerCash.EntryNodeData.Guid);
+            _targetGraphView.AddElement(node);
 
             foreach (var language in _containerCash.EntryNodeData.Languages)
             {
-                entryNode.contentContainer.Add(new LanguageField(language, _languageOperation));
+                var field = new LanguageField();
+                field.Set(language, _languageOperation);
+                node.contentContainer.Add(field);
             }
         }
 

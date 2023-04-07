@@ -33,7 +33,7 @@ namespace AaDialogueGraph.Editor
                 return _gameSet;
             }
         }
-        
+
         private static List<string> _choiceKeys = new();
 
         public static List<string> ChoiceKeys
@@ -78,7 +78,7 @@ namespace AaDialogueGraph.Editor
 
         public const string And = "+";
         public const string No = "-";
-        
+
         public const string Count = "Count";
         public const string PlusCount = "+Count";
         public const string Range = "Range";
@@ -114,7 +114,7 @@ namespace AaDialogueGraph.Editor
 
     public class EntryPointNode : AaNode
     {
-        public EntryPointNode(AaReactive<LanguageOperation> onLanguageChange, string guid = null)
+        public void Set(AaReactive<LanguageOperation> onLanguageChange, string guid = null)
         {
             title = "Start";
             Guid = guid ?? System.Guid.NewGuid().ToString();
@@ -126,7 +126,8 @@ namespace AaDialogueGraph.Editor
 
             var addLanguageButton = new Button(() =>
             {
-                var languageField = new LanguageField(AaGraphConstants.NewLanguageName, onLanguageChange);
+                var languageField = new LanguageField();
+                languageField.Set(AaGraphConstants.NewLanguageName, onLanguageChange);
                 contentContainer.Add(languageField);
 
                 onLanguageChange.Value = new LanguageOperation
@@ -158,7 +159,7 @@ namespace AaDialogueGraph.Editor
     {
         public string Language;
 
-        public LanguageField(string language, AaReactive<LanguageOperation> onLanguage)
+        public void Set(string language, AaReactive<LanguageOperation> onLanguage)
         {
             language ??= AaGraphConstants.NewLanguageName;
             Language = language;
@@ -214,13 +215,19 @@ namespace AaDialogueGraph.Editor
 
     public class PhraseElementsRowField : VisualElement
     {
-        public PhraseElementsRowField(string language, Object clip = null, Phrase phrase = null, Action onChange = null)
+        public void Set(string language, Object clip = null, Phrase phrase = null, Action onChange = null)
         {
             var label = new Label(language);
             label.AddToClassList("aa-BlackText");
             contentContainer.Add(label);
-            contentContainer.Add(new PhraseSoundField(clip, onChange));
-            contentContainer.Add(new PhraseAssetField(phrase, onChange));
+            var soundField = new PhraseSoundField();
+            soundField.Set(clip, onChange);
+            contentContainer.Add(soundField);
+
+            var assetField = new PhraseAssetField();
+            assetField.Set(phrase, onChange);
+            contentContainer.Add(assetField);
+
             contentContainer.style.flexDirection = FlexDirection.Row;
         }
     }
@@ -229,7 +236,7 @@ namespace AaDialogueGraph.Editor
     {
         private ObjectField _objectField;
 
-        public PhraseSoundField(Object clip = null, Action onChange = null)
+        public void Set(Object clip = null, Action onChange = null)
         {
             _objectField = new ObjectField
             {
@@ -253,7 +260,7 @@ namespace AaDialogueGraph.Editor
     {
         private ObjectField _objectField;
 
-        public PhraseAssetField(Object phraseAsset = null, Action onChange = null)
+        public void Set(Object phraseAsset = null, Action onChange = null)
         {
             _objectField = new ObjectField
             {
@@ -275,7 +282,7 @@ namespace AaDialogueGraph.Editor
 
     public class PersonVisual : VisualElement
     {
-        public PersonVisual(PersonVisualData data = null, Action<string> onPersonChange = null)
+        public void Set(PersonVisualData data = null, Action<string> onPersonChange = null)
         {
             var label = new Label("   Person");
             label.AddToClassList("aa-BlackText");
@@ -329,7 +336,7 @@ namespace AaDialogueGraph.Editor
 
     public class PhraseVisual : VisualElement
     {
-        public PhraseVisual(PhraseVisualData data)
+        public void Set(PhraseVisualData data)
         {
             var label = new Label("   Phrase");
             label.AddToClassList("aa-BlackText");
@@ -374,7 +381,7 @@ namespace AaDialogueGraph.Editor
     {
         private Action _onChange;
 
-        public PhraseEvents(List<EventVisualData> data, Action onChange)
+        public void Set(List<EventVisualData> data, Action onChange)
         {
             _onChange = onChange;
             var headerContent = new VisualElement();
@@ -389,7 +396,9 @@ namespace AaDialogueGraph.Editor
             {
                 // add sound
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.AudioClip, };
-                contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
+                var eventVisual = new EventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange);
+                contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
             addSoundEventAssetButton.text = "Sound";
@@ -399,7 +408,9 @@ namespace AaDialogueGraph.Editor
             {
                 // add video
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.VideoClip, };
-                contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
+                var eventVisual = new EventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange);
+                contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
             addVideoEventAssetButton.text = "Video";
@@ -409,7 +420,9 @@ namespace AaDialogueGraph.Editor
             {
                 // add prefab
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.GameObject, };
-                contentContainer.Add(new EventVisual(eventVisualData, OnDeleteEvent, _onChange));
+                var eventVisual = new EventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange);
+                contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
             addObjectEventAssetButton.text = "Object";
@@ -417,7 +430,12 @@ namespace AaDialogueGraph.Editor
 
             contentContainer.AddToClassList("aa-EventAsset_content-container");
 
-            data?.ForEach(item => contentContainer.Add(new EventVisual(item, OnDeleteEvent, _onChange)));
+            data?.ForEach(item =>
+            {
+                var eventVisual = new EventVisual();
+                eventVisual.Set(item, OnDeleteEvent, _onChange);
+                contentContainer.Add(eventVisual);
+            });
         }
 
         private void OnDeleteEvent(EventVisual eventVisual)
@@ -429,7 +447,7 @@ namespace AaDialogueGraph.Editor
 
     public class EventVisual : VisualElement
     {
-        public EventVisual(EventVisualData data, Action<EventVisual> onDelete, Action onChange)
+        public void Set(EventVisualData data, Action<EventVisual> onDelete, Action onChange)
         {
             contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
             {
@@ -452,7 +470,9 @@ namespace AaDialogueGraph.Editor
                 });
             containerRow1.Add(layerPopup);
 
-            containerRow1.Add(new EventAssetField(data, onChange));
+            var field = new EventAssetField();
+            field.Set(data, onChange);
+            containerRow1.Add(field);
 
             var containerRow2 = new VisualElement();
             containerRow2.style.flexDirection = FlexDirection.Row;
@@ -519,9 +539,9 @@ namespace AaDialogueGraph.Editor
     public class EventAssetField : VisualElement
     {
         private ObjectField _objectField;
-        public PhraseEventType Type { get; }
+        public PhraseEventType Type { get; private set; }
 
-        public EventAssetField(EventVisualData data, Action onChange = null)
+        public void Set(EventVisualData data, Action onChange = null)
         {
             Type = data.Type;
 
@@ -597,7 +617,7 @@ namespace AaDialogueGraph.Editor
 
     public class NoEnumPopup : VisualElement
     {
-        public NoEnumPopup(List<string> keys, string currentChoice = null, Action<string> onChange = null)
+        public void Set(List<string> keys, string currentChoice = null, Action<string> onChange = null)
         {
             contentContainer.Add(new PopupField<string>("", keys,
                 currentChoice ?? keys?[0], val =>
@@ -612,7 +632,7 @@ namespace AaDialogueGraph.Editor
     {
         public string Value { get; set; }
 
-        public PhraseSketchField(string value = null, Action<string> onTextChange = null)
+        public void Set(string value = null, Action<string> onTextChange = null)
         {
             var titleTextField = new TextField
             {
@@ -632,7 +652,7 @@ namespace AaDialogueGraph.Editor
 
     public class NodeTitleErrorField : VisualElement
     {
-        public Label Label { get; }
+        public Label Label { get; private set; }
 
         public NodeTitleErrorField()
         {

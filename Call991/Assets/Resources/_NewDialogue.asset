@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: _NewDialogue
   m_EditorClassIdentifier: 
   EntryNodeData:
-    Guid: 08ed3306-3e1c-4de5-95bf-bfb045225bd3
+    Guid: 4e3d925d-13e7-46b6-94a0-e7651461c866
     Rect:
       serializedVersion: 2
       x: 100
@@ -21,21 +21,86 @@ MonoBehaviour:
       width: 102
       height: 101
     Languages: []
-  PhraseNodeData: []
-  ChoiceNodeData: []
-  ForkNodeData:
-  - Guid: 27cb5621-74c7-49ec-9cda-e55881481f21
+  PhraseNodeData:
+  - Guid: fdd2688d-2413-4863-86df-56a9815b1965
     Rect:
       serializedVersion: 2
-      x: 301
-      y: 176
+      x: 250
+      y: 192
+      width: 100
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds: []
+    Phrases: []
+  ChoiceNodeData:
+  - Guid: 363ced11-f3f4-4963-a6f6-b1b98651ab41
+    Rect:
+      serializedVersion: 2
+      x: 227
+      y: 394
+      width: 270
+      height: 177
+    Choice: c.word.001
+    CaseData:
+      Words: []
+      Ends: []
+      Counts:
+      - CountType: 0
+        CountKey: FIRE.EMOTIONS
+        Range: {x: 0, y: 0}
+  ForkNodeData:
+  - Guid: de6fc854-f365-47a6-b4c6-290f59d66e55
+    Rect:
+      serializedVersion: 2
+      x: 370
+      y: -34
       width: 349
       height: 203
     ForkCaseData:
     - Words: []
       Ends: []
       Counts: []
-      ForkExitName: 66169c57-8515-4bb7-a9dd-b6777c4af937
-  CountNodeData: []
-  EndNodeData: []
-  NodeLinks: []
+      ForkExitName: 878acdfa-0772-4bdb-bbf9-84640ddf78b7
+  CountNodeData:
+  - Guid: 0bcd6da7-feed-41d3-ab10-dcab1f9d8624
+    Rect:
+      serializedVersion: 2
+      x: 647
+      y: 278
+      width: 129
+      height: 98
+    Choice: FIRE.EMOTIONS
+    Value: 1
+  EndNodeData:
+  - Guid: 2ff3b4a3-8859-4b48-94ef-f80b2b5c1cb9
+    Rect:
+      serializedVersion: 2
+      x: 753
+      y: 115
+      width: 119
+      height: 77
+    End: FIRE.END.BAD
+  NodeLinks:
+  - BaseNodeGuid: 4e3d925d-13e7-46b6-94a0-e7651461c866
+    BaseExitName: 
+    TargetNodeGuid: fdd2688d-2413-4863-86df-56a9815b1965
+  - BaseNodeGuid: fdd2688d-2413-4863-86df-56a9815b1965
+    BaseExitName: 
+    TargetNodeGuid: 363ced11-f3f4-4963-a6f6-b1b98651ab41
+  - BaseNodeGuid: 363ced11-f3f4-4963-a6f6-b1b98651ab41
+    BaseExitName: 
+    TargetNodeGuid: de6fc854-f365-47a6-b4c6-290f59d66e55
+  - BaseNodeGuid: de6fc854-f365-47a6-b4c6-290f59d66e55
+    BaseExitName: 
+    TargetNodeGuid: 0bcd6da7-feed-41d3-ab10-dcab1f9d8624
+  - BaseNodeGuid: 0bcd6da7-feed-41d3-ab10-dcab1f9d8624
+    BaseExitName: 
+    TargetNodeGuid: 2ff3b4a3-8859-4b48-94ef-f80b2b5c1cb9
