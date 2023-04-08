@@ -1,0 +1,335 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: _TestDialogue
+  m_EditorClassIdentifier: 
+  EntryNodeData:
+    Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    Rect:
+      serializedVersion: 2
+      x: 100
+      y: 200
+      width: 105
+      height: 125
+    Languages:
+    - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+  PhraseNodeData:
+  - Guid: 382ec279-ff04-49e8-8219-93295b36f8e2
+    Rect:
+      serializedVersion: 2
+      x: 328
+      y: 200
+      width: 341
+      height: 288
+    PhraseSketchText: fire
+    PersonVisualData:
+      Person: 2
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 5f293775-3ba4-461c-9b35-f54049eb6fbf
+    Rect:
+      serializedVersion: 2
+      x: 593
+      y: 138
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 0774b222-2c2f-4876-86c4-45dfa39a7633
+    Rect:
+      serializedVersion: 2
+      x: 593
+      y: 248
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: b8b538e0-1375-4177-82b0-bd383a88d18f
+    Rect:
+      serializedVersion: 2
+      x: 1049
+      y: 26
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 383cce55-bf74-4ee6-ac4b-26d702569479
+    Rect:
+      serializedVersion: 2
+      x: 1040
+      y: 339
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
+    Rect:
+      serializedVersion: 2
+      x: 1049
+      y: 186
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 422a11da-244c-4b99-850a-2d1c804db1c6
+    Rect:
+      serializedVersion: 2
+      x: 593
+      y: 362
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    Rect:
+      serializedVersion: 2
+      x: 205
+      y: 200
+      width: 343
+      height: 288
+    PhraseSketchText: 911
+    PersonVisualData:
+      Person: 1
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - Sounds/RU/7_lvl/p.elena.012.ogg
+    Phrases:
+    - EN/7_lvl/p.elena.026.asset
+  ChoiceNodeData:
+  - Guid: 86590081-41a0-4bb6-b1f1-4849ba91b666
+    Rect:
+      serializedVersion: 2
+      x: 458
+      y: 138
+      width: 103
+      height: 96
+    Choice: c.word.001
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+  - Guid: bf1cbdee-77a5-417a-b01d-74132503d277
+    Rect:
+      serializedVersion: 2
+      x: 458
+      y: 248
+      width: 104
+      height: 96
+    Choice: c.word.002
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+  - Guid: d3b1ec0b-1751-478e-ae86-2f044f3a4e9e
+    Rect:
+      serializedVersion: 2
+      x: 458
+      y: 362
+      width: 104
+      height: 96
+    Choice: c.word.003
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+  ForkNodeData:
+  - Guid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    Rect:
+      serializedVersion: 2
+      x: 855
+      y: 186
+      width: 150
+      height: 153
+    ForkCaseData:
+    - Words:
+      - CaseType: 0
+        OrKeys:
+        - c.word.002
+      Ends: []
+      Counts: []
+      ForkExitName: 60f15cb1-2be0-4fa0-aa43-0e51d4637fba
+    - Words: []
+      Ends: []
+      Counts:
+      - CountType: 0
+        CountKey: FIRE.EMOTIONS
+        Range: {x: 0, y: 1}
+      ForkExitName: f5134bf5-33f7-483a-9357-ba01ff2e832e
+  CountNodeData:
+  - Guid: b275f276-42f6-400c-a691-f18378d0443c
+    Rect:
+      serializedVersion: 2
+      x: 708
+      y: 360
+      width: 129
+      height: 98
+    Choice: FIRE.EMOTIONS
+    Value: 1
+  EndNodeData:
+  - Guid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
+    Rect:
+      serializedVersion: 2
+      x: 1214
+      y: 210
+      width: 131
+      height: 77
+    End: FIRE.END.NEUT1
+  - Guid: 638d89e0-48a2-470a-817c-e0c7ba4445e2
+    Rect:
+      serializedVersion: 2
+      x: 1214
+      y: 362
+      width: 129
+      height: 77
+    End: FIRE.END.GOOD
+  - Guid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
+    Rect:
+      serializedVersion: 2
+      x: 1190
+      y: 26
+      width: 119
+      height: 77
+    End: FIRE.END.BAD
+  NodeLinks:
+  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    BaseExitName: 
+    TargetNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+  - BaseNodeGuid: 382ec279-ff04-49e8-8219-93295b36f8e2
+    BaseExitName: 
+    TargetNodeGuid: 86590081-41a0-4bb6-b1f1-4849ba91b666
+  - BaseNodeGuid: 382ec279-ff04-49e8-8219-93295b36f8e2
+    BaseExitName: 
+    TargetNodeGuid: bf1cbdee-77a5-417a-b01d-74132503d277
+  - BaseNodeGuid: 382ec279-ff04-49e8-8219-93295b36f8e2
+    BaseExitName: 
+    TargetNodeGuid: d3b1ec0b-1751-478e-ae86-2f044f3a4e9e
+  - BaseNodeGuid: 5f293775-3ba4-461c-9b35-f54049eb6fbf
+    BaseExitName: 
+    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+  - BaseNodeGuid: 0774b222-2c2f-4876-86c4-45dfa39a7633
+    BaseExitName: 
+    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+  - BaseNodeGuid: b8b538e0-1375-4177-82b0-bd383a88d18f
+    BaseExitName: 
+    TargetNodeGuid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
+  - BaseNodeGuid: 383cce55-bf74-4ee6-ac4b-26d702569479
+    BaseExitName: 
+    TargetNodeGuid: 638d89e0-48a2-470a-817c-e0c7ba4445e2
+  - BaseNodeGuid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
+    BaseExitName: 
+    TargetNodeGuid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    BaseExitName: 
+    TargetNodeGuid: 382ec279-ff04-49e8-8219-93295b36f8e2
+  - BaseNodeGuid: 422a11da-244c-4b99-850a-2d1c804db1c6
+    BaseExitName: 
+    TargetNodeGuid: b275f276-42f6-400c-a691-f18378d0443c
+  - BaseNodeGuid: 86590081-41a0-4bb6-b1f1-4849ba91b666
+    BaseExitName: 
+    TargetNodeGuid: 5f293775-3ba4-461c-9b35-f54049eb6fbf
+  - BaseNodeGuid: bf1cbdee-77a5-417a-b01d-74132503d277
+    BaseExitName: 
+    TargetNodeGuid: 0774b222-2c2f-4876-86c4-45dfa39a7633
+  - BaseNodeGuid: d3b1ec0b-1751-478e-ae86-2f044f3a4e9e
+    BaseExitName: 
+    TargetNodeGuid: 422a11da-244c-4b99-850a-2d1c804db1c6
+  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    BaseExitName: 
+    TargetNodeGuid: b8b538e0-1375-4177-82b0-bd383a88d18f
+  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    BaseExitName: 60f15cb1-2be0-4fa0-aa43-0e51d4637fba
+    TargetNodeGuid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
+  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    BaseExitName: f5134bf5-33f7-483a-9357-ba01ff2e832e
+    TargetNodeGuid: 383cce55-bf74-4ee6-ac4b-26d702569479
+  - BaseNodeGuid: b275f276-42f6-400c-a691-f18378d0443c
+    BaseExitName: 
+    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
