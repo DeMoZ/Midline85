@@ -41,12 +41,14 @@ namespace Configs
 
         [Space]
         public string titleVideoSoName;
-
-        [Space] 
-        public PopupKeysList GameCountKeys;
-        public PopupKeysList GameEndsKeys;
         
-        [Header("Button Sounds")]
+        [Space][Header("DialogueGraph settings")]
+        public PopupKeysList CountKeys;
+        public PopupKeysList EndsKeys;
+        public ChoiceKeysList ChoiceKeys;
+        public LanguagesKeysList LanguagesKeys;
+        
+        [Space][Header("Button Sounds")]
         public AudioClip menuBtnClip;
         public AudioClip choiceBtnClip;
         public AudioClip timerClip;

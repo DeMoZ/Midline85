@@ -34,6 +34,27 @@ namespace AaDialogueGraph.Editor
         }
     }
 
+    public class LanguagePopupField : KeyPopupField
+    {
+        public event Action<string> OnValueChange;
+        public LanguagePopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
+        {
+        }
+        
+        protected override void CreateElements(List<string> keys, string currentChoice = null)
+        {
+            var popup = new NoEnumPopup();
+            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
+            contentContainer.Add(popup);
+        }
+
+        protected override string KeyToTextTitle(string val)
+        {
+            OnValueChange?.Invoke(val);
+            return base.KeyToTextTitle(val);
+        }
+    }
+    
     public class ChoicePopupField : KeyPopupField
     {
         public ChoicePopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)

@@ -35,11 +35,6 @@ namespace AaDialogueGraph.Editor
         public void SaveGraph(string fileName)
         {
             var dialogueContainer = ScriptableObject.CreateInstance<DialogueContainer>();
-
-            var entryContainer = AaNodes.First(n => n.EntryPoint).contentContainer;
-            var languageFields = entryContainer.Query<LanguageField>().ToList();
-            languageFields.ForEach(lf => dialogueContainer.EntryNodeData.Languages.Add(lf.Language));
-
             var connectedPorts = Edges.Where(x => x.input.node != null).ToArray();
 
             foreach (var port in connectedPorts)
@@ -55,12 +50,10 @@ namespace AaDialogueGraph.Editor
                 });
             }
 
-            var entryNode = AaNodes.Select(n => n as EntryPointNode).ToList();
-            if (entryNode.Any())
+            var entryNode = AaNodes.FirstOrDefault(n => n is EntryNode);
+            if (entryNode != null)
             {
-                var node = entryNode.First(n => n != null);
-                dialogueContainer.EntryNodeData.Guid = node.Guid;
-                dialogueContainer.EntryNodeData.Rect = node.GetPosition();
+                dialogueContainer.EntryNodeData = EntryNodeToData(entryNode as EntryNode);
             }
 
             var phraseNodes = AaNodes.OfType<PhraseNode>().ToList();
@@ -87,6 +80,19 @@ namespace AaDialogueGraph.Editor
             Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
         }
 
+        private EntryNodeData EntryNodeToData(EntryNode node)
+        {
+            var data = new EntryNodeData
+            {
+                Guid = node.Guid,
+                Rect = node.GetPosition()
+            };
+
+            var languageFields = node.Query<LanguagePopupField>().ToList();
+            data.Languages = languageFields.Select(field => field.Value).ToList();
+            return data;
+        }
+        
         private List<PhraseNodeData> PhraseNodesToData(List<PhraseNode> nodes)
         {
             var data = new List<PhraseNodeData>();
@@ -142,7 +148,7 @@ namespace AaDialogueGraph.Editor
             {
                 var exits = new List<ForkCaseData>();
                 var prongs = node.Query<ForkExitElement>().ToList();
-                
+
                 foreach (var prong in prongs)
                 {
                     exits.Add(new ForkCaseData(GetCaseData(prong), prong.Guid));
@@ -251,7 +257,7 @@ namespace AaDialogueGraph.Editor
             var result = new List<EndData>();
             var andEndCases = container.Query<AndEndCase>().ToList();
             var noEndCases = container.Query<NoEndCase>().ToList();
-            
+
             foreach (var andCase in andEndCases)
             {
                 result.Add(new EndData
@@ -277,7 +283,7 @@ namespace AaDialogueGraph.Editor
         {
             var result = new List<CountData>();
             var countCases = container.Query<CountCase>().ToList();
-            
+
             foreach (var countCase in countCases)
             {
                 result.Add(new CountData
@@ -287,7 +293,7 @@ namespace AaDialogueGraph.Editor
                     Range = countCase.GetRange(),
                 });
             }
-           
+
             return result;
         }
     }

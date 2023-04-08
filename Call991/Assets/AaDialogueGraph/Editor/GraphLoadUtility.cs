@@ -37,7 +37,7 @@ namespace AaDialogueGraph.Editor
             }
 
             ClearGraph();
-            CreateEntryPoint();
+            CreateEntryNode();
             CreatePhraseNodes();
             CreateChoiceNodes();
             CreateForkNodes();
@@ -60,9 +60,9 @@ namespace AaDialogueGraph.Editor
             }
         }
 
-        private void CreateEntryPoint()
+        private void CreateEntryNode()
         {
-            var node = new EntryPointNode();
+            var node = new EntryNode();
             node.Set(_languageOperation, _containerCash.EntryNodeData.Guid);
             _targetGraphView.AddElement(node);
 

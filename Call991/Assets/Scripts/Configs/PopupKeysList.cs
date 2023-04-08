@@ -3,9 +3,10 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "AaDialogueGraph/PopupKeysList")]
     public class PopupKeysList : ScriptableObject
     {
-        public List<string> Keys = new ();
+        [SerializeField] protected List<string> keys;
+        public virtual List<string> Keys => keys;
     }
 }

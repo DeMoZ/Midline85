@@ -30,7 +30,7 @@ namespace AaDialogueGraph.Editor
             gridBackground.StretchToParentSize();
 
             languageOperation.Subscribe(OnLanguageChange);
-            var node = new EntryPointNode();
+            var node = new EntryNode();
             node.Set(languageOperation);
             AddElement(node);
 
@@ -53,7 +53,7 @@ namespace AaDialogueGraph.Editor
 
         public void CreatePhraseNode()
         {
-            var languages = contentContainer.Q<EntryPointNode>().GetLanguages() ?? new List<string>();
+            var languages = contentContainer.Q<EntryNode>().GetLanguages() ?? new List<string>();
             var node = new PhraseNode();
             node.Set(new PhraseNodeData(), languages, Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
@@ -114,7 +114,7 @@ namespace AaDialogueGraph.Editor
         {
             var phraseNodes = contentContainer.Query<PhraseNode>().ToList();
 
-            var entryNode = contentContainer.Q<EntryPointNode>();
+            var entryNode = contentContainer.Q<EntryNode>();
             var languageFields = entryNode.Query<LanguageField>().ToList();
             var index = languageFields.IndexOf(languageOperation.Element as LanguageField);
 
@@ -127,7 +127,7 @@ namespace AaDialogueGraph.Editor
 
                         var phraseContainer = node.Q<PhraseElementsTable>();
                         var field = new PhraseElementsRowField();
-                        field.Set(AaGraphConstants.NewLanguageName, onChange: node.CheckNodeContent);
+                        field.Set(AaKeys.LanguageKeys[0], onChange: node.CheckNodeContent);
                         phraseContainer?.Add(field);
                         node.CheckNodeContent();
                     }

@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Configs;
-using I2.Loc;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -18,8 +17,10 @@ namespace AaDialogueGraph.Editor
     {
         private static GameSet _gameSet;
 
-        public static List<string> EndKeys => GetGameSet.GameEndsKeys.Keys;
-        public static List<string> CountKeys => GetGameSet.GameCountKeys.Keys;
+        public static List<string> EndKeys => GetGameSet.EndsKeys.Keys;
+        public static List<string> CountKeys => GetGameSet.CountKeys.Keys;
+        public static List<string> ChoiceKeys => GetGameSet.ChoiceKeys.Keys;
+        public static List<string> LanguageKeys => GetGameSet.LanguagesKeys.Keys;
 
         private static GameSet GetGameSet
         {
@@ -33,20 +34,6 @@ namespace AaDialogueGraph.Editor
                 return _gameSet;
             }
         }
-
-        private static List<string> _choiceKeys = new();
-
-        public static List<string> ChoiceKeys
-        {
-            get
-            {
-                if (!_choiceKeys.Any())
-                    _choiceKeys = LocalizationManager.GetTermsList()
-                        .Where(cKey => cKey.Contains(AaGraphConstants.CaseWordKey)).ToList();
-
-                return _choiceKeys;
-            }
-        }
     }
 
     public static class AaGraphConstants
@@ -54,7 +41,6 @@ namespace AaDialogueGraph.Editor
         public const string AssetsResources = "Assets/Resources/";
 
         public const string DefaultFileName = "NewDialogue";
-        public const string NewLanguageName = "new";
 
         public const string DialogueGraph = "Dialogue Graph";
         public const string ChoiceNode = "Choices Node";
@@ -92,8 +78,6 @@ namespace AaDialogueGraph.Editor
         public const string DeleteName = "X";
         public const string DeleteNameSmall = "x";
         public const string OrName = "or";
-
-        public const string CaseWordKey = "c.word";
     }
 
     public class LanguageOperation
@@ -109,100 +93,6 @@ namespace AaDialogueGraph.Editor
             Port.Capacity capacity = Port.Capacity.Single)
         {
             return node.InstantiatePort(Orientation.Horizontal, portDirection, capacity, typeof(float));
-        }
-    }
-
-    public class EntryPointNode : AaNode
-    {
-        public void Set(AaReactive<LanguageOperation> onLanguageChange, string guid = null)
-        {
-            title = "Start";
-            Guid = guid ?? System.Guid.NewGuid().ToString();
-            NodeType = AaNodeType.EntryPoint;
-
-            var port = GraphElements.GeneratePort(this, Direction.Output);
-            port.portName = "Next";
-            outputContainer.Add(port);
-
-            var addLanguageButton = new Button(() =>
-            {
-                var languageField = new LanguageField();
-                languageField.Set(AaGraphConstants.NewLanguageName, onLanguageChange);
-                contentContainer.Add(languageField);
-
-                onLanguageChange.Value = new LanguageOperation
-                {
-                    Type = LanguageOperationType.Add,
-                    Value = AaGraphConstants.NewLanguageName
-                };
-            });
-            addLanguageButton.text = "Add Language";
-            contentContainer.Add(addLanguageButton);
-
-            RefreshExpandedState();
-            RefreshPorts();
-
-            SetPosition(new Rect(100, 200, 200, 150));
-        }
-
-        public List<string> GetLanguages()
-        {
-            var languages = new List<string>();
-            var languageFields = contentContainer.Query<LanguageField>();
-
-            languageFields.ForEach(lf => languages.Add(lf.Language));
-            return languages;
-        }
-    }
-
-    public class LanguageField : VisualElement
-    {
-        public string Language;
-
-        public void Set(string language, AaReactive<LanguageOperation> onLanguage)
-        {
-            language ??= AaGraphConstants.NewLanguageName;
-            Language = language;
-
-            var languageLabel = new Label(language);
-            contentContainer.Add(languageLabel);
-
-            var textField = new TextField
-            {
-                name = string.Empty,
-                value = language,
-            };
-
-            textField.RegisterValueChangedCallback(evt =>
-            {
-                textField.name = evt.newValue;
-                languageLabel.text = evt.newValue;
-                Language = evt.newValue;
-
-                onLanguage.Value = new LanguageOperation
-                {
-                    Type = LanguageOperationType.Change,
-                    Value = evt.newValue,
-                    Element = this
-                };
-            });
-
-            var deleteLanguageButton = new Button(() =>
-            {
-                onLanguage.Value = new LanguageOperation
-                {
-                    Type = LanguageOperationType.Remove,
-                    Element = this
-                };
-            })
-            {
-                text = "X",
-            };
-
-            contentContainer.Add(deleteLanguageButton);
-            contentContainer.Add(languageLabel);
-            contentContainer.Add(textField);
-            contentContainer.style.flexDirection = FlexDirection.Row;
         }
     }
 

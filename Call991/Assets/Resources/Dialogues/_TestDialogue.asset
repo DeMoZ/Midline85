@@ -18,18 +18,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 100
       y: 200
-      width: 102
+      width: 105
       height: 125
     Languages:
-    - ru
+    - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
   PhraseNodeData:
   - Guid: 382ec279-ff04-49e8-8219-93295b36f8e2
     Rect:
       serializedVersion: 2
       x: 328
       y: 200
-      width: 100
-      height: 96
+      width: 341
+      height: 288
     PhraseSketchText: fire
     PersonVisualData:
       Person: 2
@@ -40,9 +40,9 @@ MonoBehaviour:
       HideOnEnd: 0
     EventVisualData: []
     PhraseSounds:
-    - Sounds/RU/7_lvl/p.lara.032.ogg
+    - 
     Phrases:
-    - EN/7_lvl/p.lara.020.asset
+    - 
   - Guid: 5f293775-3ba4-461c-9b35-f54049eb6fbf
     Rect:
       serializedVersion: 2
@@ -68,26 +68,6 @@ MonoBehaviour:
       serializedVersion: 2
       x: 593
       y: 248
-      width: 105
-      height: 96
-    PhraseSketchText: 
-    PersonVisualData:
-      Person: 0
-      ScreenPlace: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 0
-    EventVisualData: []
-    PhraseSounds:
-    - 
-    Phrases:
-    - 
-  - Guid: 422a11da-244c-4b99-850a-2d1c804db1c6
-    Rect:
-      serializedVersion: 2
-      x: 593
-      y: 362
       width: 105
       height: 96
     PhraseSketchText: 
@@ -163,13 +143,33 @@ MonoBehaviour:
     - 
     Phrases:
     - 
+  - Guid: 422a11da-244c-4b99-850a-2d1c804db1c6
+    Rect:
+      serializedVersion: 2
+      x: 593
+      y: 362
+      width: 105
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
   - Guid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
     Rect:
       serializedVersion: 2
-      x: 213
+      x: 205
       y: 200
-      width: 100
-      height: 96
+      width: 343
+      height: 288
     PhraseSketchText: 911
     PersonVisualData:
       Person: 1
@@ -180,9 +180,9 @@ MonoBehaviour:
       HideOnEnd: 0
     EventVisualData: []
     PhraseSounds:
-    - Sounds/RU/7_lvl/p.elena.013.ogg
+    - Sounds/RU/7_lvl/p.elena.012.ogg
     Phrases:
-    - EN/7_lvl/p.elena.009.asset
+    - EN/7_lvl/p.elena.026.asset
   ChoiceNodeData:
   - Guid: 86590081-41a0-4bb6-b1f1-4849ba91b666
     Rect:
@@ -282,9 +282,6 @@ MonoBehaviour:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
     TargetNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
-  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
-    BaseExitName: 
-    TargetNodeGuid: 382ec279-ff04-49e8-8219-93295b36f8e2
   - BaseNodeGuid: 382ec279-ff04-49e8-8219-93295b36f8e2
     BaseExitName: 
     TargetNodeGuid: 86590081-41a0-4bb6-b1f1-4849ba91b666
@@ -300,9 +297,6 @@ MonoBehaviour:
   - BaseNodeGuid: 0774b222-2c2f-4876-86c4-45dfa39a7633
     BaseExitName: 
     TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-  - BaseNodeGuid: 422a11da-244c-4b99-850a-2d1c804db1c6
-    BaseExitName: 
-    TargetNodeGuid: b275f276-42f6-400c-a691-f18378d0443c
   - BaseNodeGuid: b8b538e0-1375-4177-82b0-bd383a88d18f
     BaseExitName: 
     TargetNodeGuid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
@@ -312,6 +306,12 @@ MonoBehaviour:
   - BaseNodeGuid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
     BaseExitName: 
     TargetNodeGuid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    BaseExitName: 
+    TargetNodeGuid: 382ec279-ff04-49e8-8219-93295b36f8e2
+  - BaseNodeGuid: 422a11da-244c-4b99-850a-2d1c804db1c6
+    BaseExitName: 
+    TargetNodeGuid: b275f276-42f6-400c-a691-f18378d0443c
   - BaseNodeGuid: 86590081-41a0-4bb6-b1f1-4849ba91b666
     BaseExitName: 
     TargetNodeGuid: 5f293775-3ba4-461c-9b35-f54049eb6fbf
