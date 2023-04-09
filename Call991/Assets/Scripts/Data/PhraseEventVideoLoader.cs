@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using Core;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Video;
@@ -121,12 +122,12 @@ namespace Data
 
             if (config.clip)
             {
-                _ctx.videoManager.PrepareVideo(config.videoClip);
+                _ctx.videoManager.PrepareVideo(config.videoClip).Forget();;
             }
             else
             {
                 _videoPath = Path.Combine(_streamingPath, config.videoName + ".mp4");
-                _ctx.videoManager.PrepareVideo(_videoPath);
+                _ctx.videoManager.PrepareVideo(_videoPath).Forget();;
             }
         }
     }

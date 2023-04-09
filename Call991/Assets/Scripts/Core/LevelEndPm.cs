@@ -48,10 +48,10 @@ namespace Core
             var conf = await ResourcesLoader.LoadAsync<PhraseEndLevelEventSo>(soFile);
 
             if (!string.IsNullOrWhiteSpace(conf.soundEventId))
-                _ctx.phraseEventSoundLoader.LoadMusicEvent(conf.soundEventId);
+                _ctx.phraseEventSoundLoader.LoadMusicEvent(conf.soundEventId).Forget();;
 
             if(!string.IsNullOrWhiteSpace(conf.videoEventId))
-                _ctx.phraseEventVideoLoader.LoadVideoEvent(conf.videoEventId);
+                _ctx.phraseEventVideoLoader.LoadVideoEvent(conf.videoEventId).Forget();;
             
             var statistics = GetStatistics();
     

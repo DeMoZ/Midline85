@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Configs;
+using Core;
 using Data;
 using UI;
 using UniRx;
@@ -356,24 +357,24 @@ public class LevelScenePm : IDisposable
         switch (pEvent.eventType)
         {
             case PhraseEventTypes.Music:
-                _ctx.phraseEventSoundLoader.LoadMusicEvent(pEvent.eventId);
+                _ctx.phraseEventSoundLoader.LoadMusicEvent(pEvent.eventId).Forget();;
                 break;
             case PhraseEventTypes.Video:
                 break;
             case PhraseEventTypes.Sfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
-                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, false, pEvent.stop);
+                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, false, pEvent.stop).Forget();;
                 break;
             case PhraseEventTypes.LoopSfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
-                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop);
+                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop).Forget();;
                 break;
             case PhraseEventTypes.Vfx:
 
                 break;
             case PhraseEventTypes.LoopVfx:
                 Debug.LogWarning($"[{this}] PhraseEventTypes.VideoLoop to be execute");
-                _ctx.phraseEventVideoLoader.LoadVideoEvent(pEvent.eventId);
+                _ctx.phraseEventVideoLoader.LoadVideoEvent(pEvent.eventId).Forget();
                 break;
             case PhraseEventTypes.LevelEnd:
                 Debug.LogWarning($"[{this}] PhraseEventTypes.LevelEnd to be execute");

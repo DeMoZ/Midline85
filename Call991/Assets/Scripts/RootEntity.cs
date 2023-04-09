@@ -1,5 +1,6 @@
 ﻿using System;
 using Configs;
+using Core;
 using I2.Loc;
 using UI;
 using UniRx;
@@ -50,7 +51,7 @@ public class RootEntity : IDisposable
             voiceFolder = voiceFolder,
             levelFolder = levelFolder,
         });
-        _ctx.audioManager.PlayMusic("Intro");
+        _ctx.audioManager.PlayMusic("Intro").Forget();
 
         _ctx.videoManager.SetCtx(new VideoManager.Ctx
         {

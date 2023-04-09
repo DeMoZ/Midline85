@@ -13,12 +13,12 @@ public class AaSelectable : Selectable
     private bool _noPointerPress;
 
     public event Action OnClick;
-    public event Action<AaSelectable> OnSelect;
+    public event Action<AaSelectable> OnSelectObj;
     public event Action<AaSelectable> OnUnSelect;
     public static event Action<Vector2, Sprite> OnMouseClickSelectable;
 
     public bool IsSelected => currentSelectionState == SelectionState.Selected;
-    public bool IsPressed => IsPressed();
+    public new bool IsPressed => IsPressed();
 
     public override void OnPointerExit(PointerEventData eventData)
     {
@@ -58,7 +58,7 @@ public class AaSelectable : Selectable
                 base.DoStateTransition(state, instant);
                 SetSelected();
                 PlayHoverSound();
-                OnSelect?.Invoke(this);
+                OnSelectObj?.Invoke(this);
                 break;
             case SelectionState.Disabled:
                 //Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> {state}" + gameObject.ToStringEventSystem());

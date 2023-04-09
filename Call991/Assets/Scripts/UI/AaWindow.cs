@@ -16,7 +16,7 @@ public class AaWindow : InputHandler
         
         foreach (var selectable in windowSelectables)
         {
-            selectable.OnSelect += OnSelect;
+            selectable.OnSelectObj += OnSelectObj;
             selectable.OnUnSelect += OnUnSelect;
         }
     }
@@ -25,7 +25,7 @@ public class AaWindow : InputHandler
     {
         foreach (var selectable in windowSelectables)
         {
-            selectable.OnSelect -= OnSelect;
+            selectable.OnSelectObj -= OnSelectObj;
             selectable.OnUnSelect -= OnUnSelect;
         }
     }
@@ -37,7 +37,7 @@ public class AaWindow : InputHandler
         EventSystem.current.SetSelectedGameObject(null);
     }
 
-    private void OnSelect(AaSelectable obj)
+    private void OnSelectObj(AaSelectable obj)
     {
         //Debug.Log($"[{this}] <color=red>Window</color> to OnSelect {obj.gameObject.ToStringEventSystem()}");
         firstSelected = obj;

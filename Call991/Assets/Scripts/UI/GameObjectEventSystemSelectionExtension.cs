@@ -50,7 +50,7 @@ namespace UI
 
     public static class EventSystemExtension
     {
-        public static string ToString()
+        public new static string ToString()
         {
             if (EventSystem.current == null) 
                 return $"<color=green> no current</color>";

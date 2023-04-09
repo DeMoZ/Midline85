@@ -42,10 +42,13 @@ public class EntryRoot : MonoBehaviour
         Application.targetFrameRate = 60;
         // CultureInfo.CurrentCulture = CultureInfo.InvariantCulture;
         // Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        await Task.Delay(0);
     }
 
     private async void CreateRootEntity()
     {
+        await Task.Delay(0);
+        
         var blocker = new Blocker(screenFade, videoFade);
        
         var clickImage = Resources.Load<GameObject>("ClickPointImage");

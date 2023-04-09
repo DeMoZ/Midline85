@@ -11,7 +11,8 @@ namespace Configs
     public class LanguagesKeysList : PopupKeysList
     {
         [SerializeField] private string nope = "No need to add or change anything in that file";
-
+        private string Nope => nope;
+        
         public override List<string> Keys
         {
             get
