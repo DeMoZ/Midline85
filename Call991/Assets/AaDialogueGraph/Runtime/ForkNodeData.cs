@@ -6,6 +6,11 @@ namespace AaDialogueGraph
     public class ForkNodeData : AaNodeData
     { 
         public List<ForkCaseData> ForkCaseData = new ();
+        
+        public ForkNodeData()
+        {
+            NodeType = AaNodeType.ForkNode;
+        }
     }
 
     [System.Serializable]

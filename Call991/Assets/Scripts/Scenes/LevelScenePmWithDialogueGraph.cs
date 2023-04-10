@@ -12,7 +12,7 @@ using UniRx;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class LevelScenePm : IDisposable
+public class LevelScenePmWithDialogueGraph : IDisposable
 {
     public struct Ctx
     {
@@ -62,13 +62,15 @@ public class LevelScenePm : IDisposable
     /// </summary>
     private bool _selectionPlaced;
 
-    public LevelScenePm(Ctx ctx)
+    public LevelScenePmWithDialogueGraph(Ctx ctx)
     {
         Debug.Log($"[{this}] constructor");
 
         _ctx = ctx;
         _disposables = new CompositeDisposable();
 
+        _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
+        
         _onClickChoiceButton = new ReactiveCommand<int>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
         _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
@@ -106,7 +108,7 @@ public class LevelScenePm : IDisposable
         await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
         _ctx.videoManager.PlayPreparedVideo();
         await Task.Delay(500);
-        RunDialogue();
+        ExecuteDialogue();
         await _ctx.blocker.FadeScreenBlocker(false);
         _ctx.cursorSettings.EnableCursor(true);
     }
@@ -141,6 +143,7 @@ public class LevelScenePm : IDisposable
         _ctx.cursorSettings.EnableCursor(false);
     }
 
+    [Obsolete]
     private async Task ShowIntro()
     {
         _ctx.blocker.EnableScreenFade(true);
@@ -153,6 +156,16 @@ public class LevelScenePm : IDisposable
         _ctx.onShowIntro.Execute(false);
     }
 
+    private async void ExecuteDialogue()
+    {
+        _ctx.FindNext.Execute(new List<AaNodeData>());
+    }
+
+    private async void OnDialogue( List<AaNodeData> data)
+    {
+        Debug.LogError($"Received new nodes {data}");
+    }
+    
     private async void RunDialogue()
     {
         _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.LastPhrase);

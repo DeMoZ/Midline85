@@ -37,8 +37,7 @@ public class RootEntity : IDisposable
         
         var soundPath = "Sounds/Ui";
         var musicPath = "Sounds/Music";
-        var voiceFolder = "RU"; // todo: reactive
-        var levelFolder = "RU_7_P"; // todo: reactive
+        //var levelFolder = "RU_7_P";
 
         _ctx.audioManager.SetCtx(new AudioManager.Ctx
         {
@@ -48,8 +47,7 @@ public class RootEntity : IDisposable
             audioMixer = audioMixer,
             soundPath = soundPath,
             musicPath = musicPath,
-            voiceFolder = voiceFolder,
-            levelFolder = levelFolder,
+            //levelFolder = levelFolder,
         });
         _ctx.audioManager.PlayMusic("Intro").Forget();
 

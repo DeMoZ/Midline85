@@ -4,5 +4,10 @@ namespace AaDialogueGraph
     public class EndNodeData : AaNodeData
     { 
         public string End;
+        
+        public EndNodeData()
+        {
+            NodeType = AaNodeType.EndNode;
+        }
     }
 }

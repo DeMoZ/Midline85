@@ -11,7 +11,7 @@ namespace AaDialogueGraph.Editor
         {
             title = "Start";
             Guid = guid ?? System.Guid.NewGuid().ToString();
-            NodeType = AaNodeType.EntryPoint;
+            NodeType = AaNodeType.EntryNode;
 
             var port = GraphElements.GeneratePort(this, Direction.Output);
             port.portName = "Next";

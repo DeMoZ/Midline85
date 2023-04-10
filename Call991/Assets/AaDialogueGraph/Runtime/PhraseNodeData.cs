@@ -14,6 +14,11 @@ namespace AaDialogueGraph
         public List<EventVisualData> EventVisualData;
         public List<string> PhraseSounds;
         public List<string> Phrases;
+        
+        public PhraseNodeData()
+        {
+            NodeType = AaNodeType.PhraseNode;
+        }
     }
 
     [Serializable]

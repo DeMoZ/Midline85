@@ -5,5 +5,10 @@ namespace AaDialogueGraph
     { 
         public string Choice;
         public int Value = 1;
+        
+        public CountNodeData()
+        {
+            NodeType = AaNodeType.CountNode;
+        }
     }
 }

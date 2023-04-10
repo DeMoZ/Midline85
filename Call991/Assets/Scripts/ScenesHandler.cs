@@ -130,6 +130,7 @@ public class ScenesHandler : IDisposable
     {
         var tLanguage = _ctx.profile.TextLanguage;
         var aLanguage = _ctx.profile.AudioLanguage;
+        var levelData = new LevelData(_ctx.gameSet.GameLevels.TestLevel.GetNodesData(), _ctx.gameSet.GameLevels.TestLevel.NodeLinks);
         var levelFolder = "7_lvl";
         var chapterSet = await ResourcesLoader.LoadAsync<ChapterSet>(levelFolder + "/7_lvl_Total");
         var dialogues = await chapterSet.LoadDialogues(tLanguage, levelFolder);
@@ -156,6 +157,7 @@ public class ScenesHandler : IDisposable
         {
             gameSet = _ctx.gameSet,
             constructorTask = constructorTask,
+            LevelData = levelData,
             profile = _ctx.profile,
             chapterSet = chapterSet,
             dialogues = dialogues,
