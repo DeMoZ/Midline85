@@ -7,8 +7,6 @@ namespace Configs
     [CreateAssetMenu]
     public class GameSet : SerializedScriptableObject
     {
-        // [HideInInspector] public Language textLanguage = Language.EN;
-        // [HideInInspector] [ReadOnly] public Language audioLanguage = Language.RU;
         [Title("Opening Logo")]
         public float logoFadeInTime = 1f;
         public float logoHoldTime = 3f;

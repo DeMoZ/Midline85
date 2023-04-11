@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using Configs;
@@ -10,6 +11,7 @@ using Data;
 using UI;
 using UniRx;
 using UnityEngine;
+using ManualResetEvent = System.Threading.ManualResetEvent;
 using Random = UnityEngine.Random;
 
 public class LevelScenePm : IDisposable
@@ -18,12 +20,14 @@ public class LevelScenePm : IDisposable
     {
         public ReactiveCommand<List<AaNodeData>> FindNext;
         public ReactiveCommand<List<AaNodeData>> OnNext;
-        
+
+        public ReactiveCommand<UiPhraseData> OnShowPhrase;
+
         public AudioManager audioManager;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
-        public ReactiveCommand<PhraseSet> onShowPhrase;
+
         public ReactiveCommand<PhraseSet> onHidePhrase;
         public ReactiveCommand<bool> onShowIntro;
         public ReactiveCommand<string> onPhraseLevelEndEvent;
@@ -54,8 +58,8 @@ public class LevelScenePm : IDisposable
     private PhraseSet _currentPhrase;
     private ReactiveCommand<int> _onClickChoiceButton;
 
-    private bool _choiceDone;
-    private float _phraseTimer;
+     private bool _choiceDone;
+     private float _phraseTimer;
 
     /// <summary>
     /// Choice button selection with keyboard.
@@ -68,6 +72,8 @@ public class LevelScenePm : IDisposable
 
         _ctx = ctx;
         _disposables = new CompositeDisposable();
+
+        _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
 
         _onClickChoiceButton = new ReactiveCommand<int>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
@@ -99,14 +105,14 @@ public class LevelScenePm : IDisposable
 
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-
+        //to not distarb me
         await ShowNewsPaper();
         await Task.Delay(500);
         await ShowIntro();
         await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
         _ctx.videoManager.PlayPreparedVideo();
         await Task.Delay(500);
-        RunDialogue();
+        ExecuteDialogue();
         await _ctx.blocker.FadeScreenBlocker(false);
         _ctx.cursorSettings.EnableCursor(true);
     }
@@ -117,14 +123,17 @@ public class LevelScenePm : IDisposable
         _ctx.phraseSoundPlayer.Pause(pause);
         _ctx.audioManager.Pause(pause);
 
-        if (!pause) 
+        if (!pause)
             _selectionPlaced = false;
     }
 
     private void OnSkipPhrase()
     {
-        if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
-            _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear);
+        Debug.LogError($"[{this}] OnSkipPhrase");
+        //_token.Cancel;
+        _phraseTokenSource.Cancel();
+        // if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
+        //     _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear);
     }
 
     private async Task ShowNewsPaper()
@@ -141,6 +150,7 @@ public class LevelScenePm : IDisposable
         _ctx.cursorSettings.EnableCursor(false);
     }
 
+    [Obsolete]
     private async Task ShowIntro()
     {
         _ctx.blocker.EnableScreenFade(true);
@@ -148,10 +158,176 @@ public class LevelScenePm : IDisposable
         _ctx.videoManager.PlayPreparedVideo();
         _ctx.onShowIntro.Execute(true);
         await _ctx.blocker.FadeScreenBlocker(false);
-        await Task.Delay((int) (_ctx.gameSet.levelIntroDelay * 1000));
+        await Task.Delay((int)(_ctx.gameSet.levelIntroDelay * 1000));
         await _ctx.blocker.FadeScreenBlocker(true);
         _ctx.onShowIntro.Execute(false);
     }
+
+    private void ExecuteDialogue()
+    {
+        Debug.LogError($"_ctx.FindNext.Execute with no data");
+        _ctx.FindNext.Execute(new List<AaNodeData>());
+    }
+
+    private CancellationTokenSource _phraseTokenSource;
+    // private CancellationToken _token;
+    private List<Task> _tasks = new();
+    
+    private List<AaNodeData> _next;
+    private List<ChoiceNodeData> _choices;
+
+    private async void OnDialogue(List<AaNodeData> data)
+    {
+        _phraseTokenSource = new CancellationTokenSource();
+
+        Debug.LogError($"Received new nodes {data.Count}");
+
+        _next = new List<AaNodeData>();
+        _choices = new List<ChoiceNodeData>();
+
+        var phrases = data.OfType<PhraseNodeData>().ToList();
+        var choices = data.OfType<ChoiceNodeData>().ToList();
+        var ends = data.OfType<EndNodeData>().ToList();
+
+        _next.AddRange(phrases);
+        // _next.Add(choices); //if only selected by click or timeout
+        // shoudl be level end on ends
+        
+        foreach (var phrase in phrases)
+        {
+            _tasks.Add(RunPhrase(phrase, _phraseTokenSource.Token));
+        }
+
+        if (choices.Any())
+        {
+            // Task choicesTask = Observable.FromCoroutine(ct => ChoiceRoutine(ct, resetEvent)).ToTask();
+            // resetEvent.Set();
+            
+            //_tasks.Add(choicesTask);
+        }
+
+        // foreach (var end in ends)
+        // {
+        //     _tasks.Add(RunEnd(end));
+        // }
+
+        // await for showing, strike all events
+        try
+        {
+            await Task.WhenAll(_tasks);
+        }
+        catch (OperationCanceledException)
+        {
+            Debug.LogError($"[{this}] Tasks were canceled");
+        }
+        
+        // ask for new
+        // if (_choices.Any() && _notChosen)
+        // {
+        //     AutoselectChoice();
+        //         // chosen will be added into _next
+        // }
+
+        Debug.LogError($"[{this}] после ожидания тасок");
+        if (_next.Any())
+        {
+            _ctx.FindNext?.Execute(_next);
+        }
+    }
+
+    private async Task RunPhrase(PhraseNodeData data, CancellationToken token)
+    {
+        Debug.LogError($"RunPhrase {data}");
+        float defaultTime = 4f;
+        Phrase phrase = null;
+        // get language
+        // await try load dialogue for the language
+        //     await try load dialogue for default language
+
+        //await _ctx.phraseSoundPlayer.TryLoadDialogue(phraseByLanguage, _token);
+
+        var uiPhrase = new UiPhraseData
+        {
+            DefaultTime = defaultTime,
+            Description = data.PhraseSketchText,
+            PersonVisualData = data.PersonVisualData,
+            PhraseVisualData = data.PhraseVisualData,
+            Phrase = phrase,
+        };
+
+        _ctx.OnShowPhrase.Execute(uiPhrase);
+
+        var time = (int)((phrase == null ? defaultTime : phrase.totalTime) * 1000);
+        await Task.Delay(time, token);
+
+
+        /*Observable.FromCoroutine(PhraseRoutine).Subscribe(_ =>
+        {
+            Debug.Log($"[{this}] Coroutine end");
+
+            if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
+                _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
+
+            switch (_currentPhrase.nextIs)
+            {
+                case NextIs.Phrase:
+                    NextPhrase();
+                    break;
+                case NextIs.Choices:
+                    NextChoices();
+                    break;
+                case NextIs.LevelEnd:
+                    Debug.LogWarning($"[{this}] LevelEnd on {_currentPhrase.phraseId}");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }).AddTo(_disposables);*/
+    }
+
+    private async Task RunChoices(List<ChoiceNodeData> data)
+    {
+        Debug.LogError($"RunChoices {data.Count}");
+
+        GameObjectEventSystemSelectionExtension.ClearSelection();
+
+        foreach (var choice in data)
+        {
+            _ctx.buttons[_choices.Count].interactable = !choice.IsLocked;
+            _ctx.buttons[_choices.Count].Show(choice.Choice, choice.IsLocked);
+        }
+        
+        Debug.LogError("the rest of the method is not implemented yet");
+
+        var resetEvent = new ManualResetEvent(false);
+        Observable.FromCoroutine(ct => ChoiceRoutine(ct, resetEvent))
+            .Subscribe(_ =>
+            {
+                Debug.Log($"[{this}] Choice coroutine end");
+                // Вызываем метод Set(), чтобы разблокировать поток
+                resetEvent.Set();
+            })
+            .AddTo(_disposables);
+        
+        //await resetEvent.WaitOne();
+        
+        // Observable.FromCoroutine(ChoiceRoutine).Subscribe(_ =>
+        //     {
+        //         Debug.Log($"[{this}] Choice coroutine end");
+        //     })
+        //     .AddTo(_disposables);
+        
+        //await Task.Delay((int)(_ctx.gameSet.choicesDuration * 1000), _token);
+    }
+
+    private void RunEndNode(EndNodeData data)
+    {
+        Debug.LogError($"EndNodeData {data}");
+
+        throw new NotImplementedException();
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
 
     private async void RunDialogue()
     {
@@ -177,7 +353,7 @@ public class LevelScenePm : IDisposable
                     NextPhrase();
                     break;
                 case NextIs.Choices:
-                    NextChoices();
+                    //NextChoices();
                     break;
                 case NextIs.LevelEnd:
                     Debug.LogWarning($"[{this}] LevelEnd on {_currentPhrase.phraseId}");
@@ -227,6 +403,21 @@ public class LevelScenePm : IDisposable
         return false;
     }
 
+    private IEnumerator ChoiceRoutine(CancellationToken ct, ManualResetEvent resetEvent)
+    {
+        while (!ct.IsCancellationRequested)
+        {
+            yield return new WaitForSeconds(1);
+            Debug.Log($"[{this}] Choice coroutine running...");
+        }
+
+        // Посылаем событие окончания работы
+        resetEvent.Set();
+
+        // Останавливаем корутину
+        yield break;
+    }
+    
     private IEnumerator ChoiceRoutine()
     {
         var timer = 0f;
@@ -266,7 +457,7 @@ public class LevelScenePm : IDisposable
         }
 
         _ctx.buttons[index].gameObject.Select();
-        _ctx.buttons[index].Press(); 
+        _ctx.buttons[index].Press();
         OnClickChoiceButton(index);
     }
 
@@ -331,7 +522,7 @@ public class LevelScenePm : IDisposable
             pEvents.AddRange(_currentPhrase.phraseEvents);
 
         Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}: {_currentPhrase.Phrase.text}");
-        _ctx.onShowPhrase.Execute(_currentPhrase);
+        //_ctx.onShowPhrase.Execute(_currentPhrase);
         _ctx.phraseSoundPlayer.TryPlayPhraseFile();
 
         while (_phraseTimer <= _currentPhrase.Phrase.Duration(_currentPhrase.textAppear))
@@ -361,17 +552,20 @@ public class LevelScenePm : IDisposable
         switch (pEvent.eventType)
         {
             case PhraseEventTypes.Music:
-                _ctx.phraseEventSoundLoader.LoadMusicEvent(pEvent.eventId).Forget();;
+                _ctx.phraseEventSoundLoader.LoadMusicEvent(pEvent.eventId).Forget();
+                ;
                 break;
             case PhraseEventTypes.Video:
                 break;
             case PhraseEventTypes.Sfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
-                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, false, pEvent.stop).Forget();;
+                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, false, pEvent.stop).Forget();
+                ;
                 break;
             case PhraseEventTypes.LoopSfx:
                 _ctx.onPhraseSoundEvent.Execute(pEvent); // TODO: is it required?
-                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop).Forget();;
+                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop).Forget();
+                ;
                 break;
             case PhraseEventTypes.Vfx:
 
@@ -423,7 +617,7 @@ public class LevelScenePm : IDisposable
         _ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
         _ctx.profile.LastPhrase = _currentPhrase.choices[index].nextPhraseId;
 
-        await Task.Delay((int) (_ctx.gameSet.slowButtonFadeDuration * 1000));
+        await Task.Delay((int)(_ctx.gameSet.slowButtonFadeDuration * 1000));
 
         foreach (var button in _ctx.buttons)
             button?.gameObject?.SetActive(false);
@@ -433,6 +627,7 @@ public class LevelScenePm : IDisposable
 
     public void Dispose()
     {
+        //_token.ThrowIfCancellationRequested();
         _disposables.Dispose();
     }
 

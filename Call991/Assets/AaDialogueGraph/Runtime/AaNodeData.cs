@@ -6,6 +6,5 @@ namespace AaDialogueGraph
     {
         public string Guid;
         public Rect Rect;
-        public virtual AaNodeType NodeType { get; protected set; }
     }
 }

@@ -109,11 +109,9 @@ public class DialoguePm : IDisposable
                         break;
                 }
                 
-                targetNodes.Add(nodeData);
             }
         }
         
-        result.AddRange(targetNodes);
         return result;
     }
 

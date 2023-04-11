@@ -10,14 +10,11 @@ namespace AaDialogueGraph
         public string Choice;
         public CaseData CaseData = new ();
         public bool IsLocked;
-        public ChoiceNodeData()
-        {
-            NodeType = AaNodeType.ChoiceNode;
-        }
-
+        
         public bool IsCaseResolved()
         {
-            throw new NotImplementedException();
+            Debug.LogError("the rest of the method is not implemented yet");
+            return true;
         }
     }
 

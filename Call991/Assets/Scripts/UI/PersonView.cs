@@ -3,6 +3,7 @@ using System.Collections;
 using System.Text;
 using I2.Loc;
 using TMPro;
+using UI;
 using UnityEngine;
 
 public class PersonView : MonoBehaviour
@@ -28,8 +29,21 @@ public class PersonView : MonoBehaviour
         if(_yieldTime.HasValue)
             StartCoroutine(YieldTime(_wordTime - _yieldTime.Value));
     }
+    public void ShowPhrase(UiPhraseData phrase)
+    {
+        description.text = string.Empty;
 
-    public void ShowPhrase(PhraseSet phrase)
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
+
+        _localize = phrase.PersonVisualData.Person.ToString();
+        personName.text = _localize;
+        description.gameObject.SetActive(true);
+        ShowPhraseText(phrase);
+    }
+    
+    [Obsolete]
+    public void _ShowPhrase(PhraseSet phrase)
     {
         description.text = string.Empty;
 
@@ -39,10 +53,18 @@ public class PersonView : MonoBehaviour
         _localize = phrase.GetPersonName();
         personName.text = _localize;
         description.gameObject.SetActive(true);
-        ShowPhraseText(phrase);
+        //ShowPhraseText(phrase);
     }
 
-    private void ShowPhraseText(PhraseSet phraseSet)
+    private void ShowPhraseText(UiPhraseData data)
+    {
+        description.text = data.Description;
+
+        Debug.LogError("the rest of the method is not implemented yet");
+    }
+    
+    [Obsolete]
+    private void _ShowPhraseText(PhraseSet phraseSet)
     {
         _phrase = phraseSet.Phrase;
         _wordIndex = 0;

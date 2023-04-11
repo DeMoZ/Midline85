@@ -1,19 +1,32 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AaDialogueGraph;
 using PhotoViewer.Scripts.Photo;
 using UniRx;
 using UnityEngine;
 
 namespace UI
 {
+    public class UiPhraseData
+    {
+        public float DefaultTime;
+        public string Description;
+        
+        public Phrase Phrase;
+        public PersonVisualData PersonVisualData;
+        public PhraseVisualData PhraseVisualData;
+    }
+    
     public class UiLevelScene : MonoBehaviour, IDisposable
     {
         public struct Ctx
         {
+            public ReactiveCommand<UiPhraseData> OnShowPhrase;
+            
             public ReactiveCommand onClickMenuButton;
-            public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
-            public ReactiveCommand<PhraseSet> onShowPhrase;
+            //public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
+            //public ReactiveCommand<PhraseSet> onShowPhrase;
             public ReactiveCommand<PhraseSet> onHidePhrase;
             public ReactiveCommand<bool> onShowIntro;
 
@@ -85,8 +98,9 @@ namespace UI
                 profile = _ctx.profile,
             });
 
-            _ctx.onPhraseSoundEvent.Subscribe(OnPhraseSoundEvent).AddTo(_disposables);
-            _ctx.onShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
+            _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
+            
+            //_ctx.onShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
             _ctx.onHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
             _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
             _ctx.onHideLevelUi.Subscribe(time =>

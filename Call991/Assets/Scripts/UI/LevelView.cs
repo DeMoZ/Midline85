@@ -48,7 +48,20 @@ namespace UI
             _ctx.onClickPauseButton?.Execute();
         }
         
-        public void OnShowPhrase(PhraseSet phrase)
+        public void OnShowPhrase(UiPhraseData data)
+        {
+            var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
+            if (personView == null)
+            {
+                Debug.LogError($"[{this}] [OnShowPhrase] no person on side {data.PersonVisualData.ScreenPlace}");
+                return;
+            }
+
+            personView.ShowPhrase(data);
+        }
+        
+        [Obsolete]
+        public void _OnShowPhrase(PhraseSet phrase)
         {
             var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
             if (personView == null)
@@ -57,7 +70,7 @@ namespace UI
                 return;
             }
 
-            personView.ShowPhrase(phrase);
+            personView._ShowPhrase(phrase);
         }
 
         public void OnHidePhrase(PhraseSet phrase)

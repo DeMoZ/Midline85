@@ -67,7 +67,9 @@ public class LevelSceneEntity : IGameScene
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
         var onPhraseSoundEvent = new ReactiveCommand<PhraseEvent>().AddTo(_disposables);
-        var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
+
+        var onShowPhrase = new ReactiveCommand<UiPhraseData>();
+        //var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
@@ -156,7 +158,7 @@ public class LevelSceneEntity : IGameScene
         //     cursorSettings = _ctx.cursorSettings,
         // }).AddTo(_disposables);
         
-        var scenePm = new LevelScenePmWithDialogueGraph(new LevelScenePmWithDialogueGraph.Ctx
+        var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             FindNext = findNext,
             OnNext = onNext,
@@ -166,7 +168,10 @@ public class LevelSceneEntity : IGameScene
             onSwitchScene = _ctx.onSwitchScene,
             onClickMenuButton = onClickMenuButton,
             onPhraseSoundEvent = onPhraseSoundEvent,
-            onShowPhrase = onShowPhrase,
+            
+            OnShowPhrase = onShowPhrase,
+
+            //onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onAfterEnter = onAfterEnter,
             gameSet = _ctx.gameSet,
@@ -191,8 +196,8 @@ public class LevelSceneEntity : IGameScene
         _ui.SetCtx(new UiLevelScene.Ctx
         {
             onClickMenuButton = onClickMenuButton,
-            onPhraseSoundEvent = onPhraseSoundEvent,
-            onShowPhrase = onShowPhrase,
+            //onPhraseSoundEvent = onPhraseSoundEvent,
+            OnShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onShowIntro = onShowIntro,
             onHideLevelUi = onHideLevelUi,
