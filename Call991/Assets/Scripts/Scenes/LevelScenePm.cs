@@ -58,8 +58,9 @@ public class LevelScenePm : IDisposable
     private PhraseSet _currentPhrase;
     private ReactiveCommand<int> _onClickChoiceButton;
 
-     private bool _choiceDone;
-     private float _phraseTimer;
+    private bool _choiceDone;
+    private float _phraseTimer;
+    private bool _isPhraseSkipped;
 
     /// <summary>
     /// Choice button selection with keyboard.
@@ -105,9 +106,9 @@ public class LevelScenePm : IDisposable
 
         if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
             _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-        //to not distarb me
-        await ShowNewsPaper();
-        await Task.Delay(500);
+        //TODO to not bother me
+        // await ShowNewsPaper();
+        // await Task.Delay(500);
         await ShowIntro();
         await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
         _ctx.videoManager.PlayPreparedVideo();
@@ -130,10 +131,7 @@ public class LevelScenePm : IDisposable
     private void OnSkipPhrase()
     {
         Debug.LogError($"[{this}] OnSkipPhrase");
-        //_token.Cancel;
-        _phraseTokenSource.Cancel();
-        // if (_currentPhrase != null && _currentPhrase.nextIs != NextIs.LevelEnd)
-        //     _phraseTimer = _currentPhrase.Phrase.Duration(_currentPhrase.textAppear);
+        _isPhraseSkipped = true;
     }
 
     private async Task ShowNewsPaper()
@@ -153,12 +151,12 @@ public class LevelScenePm : IDisposable
     [Obsolete]
     private async Task ShowIntro()
     {
-        _ctx.blocker.EnableScreenFade(true);
-        await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.titleVideoSoName);
-        _ctx.videoManager.PlayPreparedVideo();
-        _ctx.onShowIntro.Execute(true);
-        await _ctx.blocker.FadeScreenBlocker(false);
-        await Task.Delay((int)(_ctx.gameSet.levelIntroDelay * 1000));
+        // _ctx.blocker.EnableScreenFade(true);
+        // await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.titleVideoSoName);
+        // _ctx.videoManager.PlayPreparedVideo();
+        // _ctx.onShowIntro.Execute(true);
+        // await _ctx.blocker.FadeScreenBlocker(false);
+        // await Task.Delay((int)(_ctx.gameSet.levelIntroDelay * 1000));
         await _ctx.blocker.FadeScreenBlocker(true);
         _ctx.onShowIntro.Execute(false);
     }
@@ -168,17 +166,16 @@ public class LevelScenePm : IDisposable
         Debug.LogError($"_ctx.FindNext.Execute with no data");
         _ctx.FindNext.Execute(new List<AaNodeData>());
     }
-
-    private CancellationTokenSource _phraseTokenSource;
+    
     // private CancellationToken _token;
     private List<Task> _tasks = new();
-    
+
     private List<AaNodeData> _next;
     private List<ChoiceNodeData> _choices;
 
-    private async void OnDialogue(List<AaNodeData> data)
+    private void OnDialogue(List<AaNodeData> data)
     {
-        _phraseTokenSource = new CancellationTokenSource();
+        _isPhraseSkipped = false;
 
         Debug.LogError($"Received new nodes {data.Count}");
 
@@ -192,19 +189,37 @@ public class LevelScenePm : IDisposable
         _next.AddRange(phrases);
         // _next.Add(choices); //if only selected by click or timeout
         // shoudl be level end on ends
-        
+
+        var observables = new IObservable<Unit>[] { };
+
         foreach (var phrase in phrases)
         {
-            _tasks.Add(RunPhrase(phrase, _phraseTokenSource.Token));
+            var routine = Observable.FromCoroutine(() => RunPhrase(phrase));
+            observables = observables.Concat(new[] { routine }).ToArray();
         }
-
+        
         if (choices.Any())
         {
-            // Task choicesTask = Observable.FromCoroutine(ct => ChoiceRoutine(ct, resetEvent)).ToTask();
-            // resetEvent.Set();
-            
+            var routine = Observable.FromCoroutine(() => RunChoices(choices));
+            observables = observables.Concat(new[] { routine }).ToArray();
+
             //_tasks.Add(choicesTask);
         }
+
+        Observable.WhenAll(observables)
+            .Subscribe(_ =>
+            {
+                Debug.Log("All coroutines completed");
+                _next.AddRange(phrases);
+                //_next.Add(choice);
+                if (_next.Any())
+                {
+                    _ctx.FindNext?.Execute(_next);
+                }
+            }).AddTo(_disposables);
+
+
+       
 
         // foreach (var end in ends)
         // {
@@ -212,15 +227,8 @@ public class LevelScenePm : IDisposable
         // }
 
         // await for showing, strike all events
-        try
-        {
-            await Task.WhenAll(_tasks);
-        }
-        catch (OperationCanceledException)
-        {
-            Debug.LogError($"[{this}] Tasks were canceled");
-        }
-        
+
+
         // ask for new
         // if (_choices.Any() && _notChosen)
         // {
@@ -228,14 +236,14 @@ public class LevelScenePm : IDisposable
         //         // chosen will be added into _next
         // }
 
-        Debug.LogError($"[{this}] после ожидания тасок");
-        if (_next.Any())
-        {
-            _ctx.FindNext?.Execute(_next);
-        }
+        // Debug.LogError($"[{this}] после ожидания тасок");
+        // if (_next.Any())
+        // {
+        //     _ctx.FindNext?.Execute(_next);
+        // }
     }
 
-    private async Task RunPhrase(PhraseNodeData data, CancellationToken token)
+    private IEnumerator RunPhrase(PhraseNodeData data)
     {
         Debug.LogError($"RunPhrase {data}");
         float defaultTime = 4f;
@@ -257,35 +265,32 @@ public class LevelScenePm : IDisposable
 
         _ctx.OnShowPhrase.Execute(uiPhrase);
 
-        var time = (int)((phrase == null ? defaultTime : phrase.totalTime) * 1000);
-        await Task.Delay(time, token);
+        var time = phrase == null ? defaultTime : phrase.totalTime;
+        var timer = 0f;
 
-
-        /*Observable.FromCoroutine(PhraseRoutine).Subscribe(_ =>
+        while (timer <= time)
         {
-            Debug.Log($"[{this}] Coroutine end");
+            yield return null;
+            timer += Time.deltaTime;
 
-            if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
-                _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
-
-            switch (_currentPhrase.nextIs)
+            if (_isPhraseSkipped)
             {
-                case NextIs.Phrase:
-                    NextPhrase();
-                    break;
-                case NextIs.Choices:
-                    NextChoices();
-                    break;
-                case NextIs.LevelEnd:
-                    Debug.LogWarning($"[{this}] LevelEnd on {_currentPhrase.phraseId}");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
+                // todo yield hideText then break;
+                
+                yield break;
             }
-        }).AddTo(_disposables);*/
+        }
+        
+        // todo yield hideText
     }
 
-    private async Task RunChoices(List<ChoiceNodeData> data)
+    private IEnumerator RunChoices(List<ChoiceNodeData> data)
+    {
+        // todo yield for timer and expect click  
+        // on click yield for hideButtons
+        yield return null;
+    }
+    /*private async Task RunChoices(List<ChoiceNodeData> data)
     {
         Debug.LogError($"RunChoices {data.Count}");
 
@@ -296,7 +301,7 @@ public class LevelScenePm : IDisposable
             _ctx.buttons[_choices.Count].interactable = !choice.IsLocked;
             _ctx.buttons[_choices.Count].Show(choice.Choice, choice.IsLocked);
         }
-        
+
         Debug.LogError("the rest of the method is not implemented yet");
 
         var resetEvent = new ManualResetEvent(false);
@@ -308,17 +313,18 @@ public class LevelScenePm : IDisposable
                 resetEvent.Set();
             })
             .AddTo(_disposables);
-        
+
         //await resetEvent.WaitOne();
-        
+
         // Observable.FromCoroutine(ChoiceRoutine).Subscribe(_ =>
         //     {
         //         Debug.Log($"[{this}] Choice coroutine end");
         //     })
         //     .AddTo(_disposables);
-        
+
         //await Task.Delay((int)(_ctx.gameSet.choicesDuration * 1000), _token);
     }
+    */
 
     private void RunEndNode(EndNodeData data)
     {
@@ -417,7 +423,7 @@ public class LevelScenePm : IDisposable
         // Останавливаем корутину
         yield break;
     }
-    
+
     private IEnumerator ChoiceRoutine()
     {
         var timer = 0f;
