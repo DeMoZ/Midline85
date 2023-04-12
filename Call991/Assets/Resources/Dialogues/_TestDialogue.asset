@@ -18,8 +18,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 100
       y: 200
-      width: 104
-      height: 124
+      width: 105
+      height: 125
     Languages:
     - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
   PhraseNodeData:
@@ -28,7 +28,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 328
       y: 200
-      width: 99.5
+      width: 100
       height: 96
     PhraseSketchText: fire
     PersonVisualData:
@@ -37,7 +37,7 @@ MonoBehaviour:
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
-      HideOnEnd: 0
+      HideOnEnd: 1
     EventVisualData: []
     PhraseSounds:
     - 
@@ -48,7 +48,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 593
       y: 138
-      width: 104.5
+      width: 105
       height: 96
     PhraseSketchText: 
     PersonVisualData:
@@ -68,7 +68,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 593
       y: 248
-      width: 104.5
+      width: 105
       height: 96
     PhraseSketchText: 
     PersonVisualData:
@@ -88,7 +88,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1049
       y: 26
-      width: 104.5
+      width: 105
       height: 96
     PhraseSketchText: 
     PersonVisualData:
@@ -108,7 +108,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1040
       y: 339
-      width: 104.5
+      width: 105
       height: 96
     PhraseSketchText: 
     PersonVisualData:
@@ -128,7 +128,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1049
       y: 186
-      width: 104.5
+      width: 105
       height: 96
     PhraseSketchText: 
     PersonVisualData:
@@ -148,7 +148,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 593
       y: 362
-      width: 104.5
+      width: 105
       height: 96
     PhraseSketchText: 
     PersonVisualData:
@@ -168,7 +168,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 205
       y: 200
-      width: 99.5
+      width: 100
       height: 96
     PhraseSketchText: 911
     PersonVisualData:
@@ -177,7 +177,7 @@ MonoBehaviour:
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
-      HideOnEnd: 0
+      HideOnEnd: 1
     EventVisualData: []
     PhraseSounds:
     - Sounds/RU/7_lvl/p.elena.012.ogg
@@ -190,44 +190,47 @@ MonoBehaviour:
       x: 458
       y: 138
       width: 103
-      height: 95.5
+      height: 96
     Choice: c.word.001
     CaseData:
       Words: []
       Ends: []
       Counts: []
+    IsLocked: 0
   - Guid: bf1cbdee-77a5-417a-b01d-74132503d277
     Rect:
       serializedVersion: 2
       x: 458
       y: 248
-      width: 103.5
-      height: 95.5
+      width: 104
+      height: 96
     Choice: c.word.002
     CaseData:
       Words: []
       Ends: []
       Counts: []
+    IsLocked: 0
   - Guid: d3b1ec0b-1751-478e-ae86-2f044f3a4e9e
     Rect:
       serializedVersion: 2
       x: 458
       y: 362
-      width: 103.5
-      height: 95.5
+      width: 104
+      height: 96
     Choice: c.word.003
     CaseData:
       Words: []
       Ends: []
       Counts: []
+    IsLocked: 0
   ForkNodeData:
   - Guid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
     Rect:
       serializedVersion: 2
       x: 855
       y: 186
-      width: 149
-      height: 152.5
+      width: 150
+      height: 153
     ForkCaseData:
     - Words:
       - CaseType: 0
@@ -249,8 +252,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 708
       y: 360
-      width: 128.5
-      height: 97.5
+      width: 129
+      height: 98
     Choice: FIRE.EMOTIONS
     Value: 1
   EndNodeData:
@@ -275,7 +278,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1190
       y: 26
-      width: 118.5
+      width: 119
       height: 77
     End: FIRE.END.BAD
   NodeLinks:

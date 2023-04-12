@@ -27,7 +27,7 @@ namespace UI
             public ReactiveCommand onClickMenuButton;
             //public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
             //public ReactiveCommand<PhraseSet> onShowPhrase;
-            public ReactiveCommand<PhraseSet> onHidePhrase;
+            public ReactiveCommand<UiPhraseData> onHidePhrase;
             public ReactiveCommand<bool> onShowIntro;
 
             public ReactiveCommand<float> onHideLevelUi;

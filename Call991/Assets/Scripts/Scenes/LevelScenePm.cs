@@ -28,7 +28,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
 
-        public ReactiveCommand<PhraseSet> onHidePhrase;
+        public ReactiveCommand<UiPhraseData> onHidePhrase;
         public ReactiveCommand<bool> onShowIntro;
         public ReactiveCommand<string> onPhraseLevelEndEvent;
 
@@ -60,7 +60,7 @@ public class LevelScenePm : IDisposable
 
     private bool _choiceDone;
     private float _phraseTimer;
-    private bool _isPhraseSkipped;
+    private readonly ReactiveProperty<bool> _isPhraseSkipped = new ();
 
     /// <summary>
     /// Choice button selection with keyboard.
@@ -131,7 +131,7 @@ public class LevelScenePm : IDisposable
     private void OnSkipPhrase()
     {
         Debug.LogError($"[{this}] OnSkipPhrase");
-        _isPhraseSkipped = true;
+        _isPhraseSkipped.Value = true;
     }
 
     private async Task ShowNewsPaper()
@@ -175,7 +175,7 @@ public class LevelScenePm : IDisposable
 
     private void OnDialogue(List<AaNodeData> data)
     {
-        _isPhraseSkipped = false;
+        _isPhraseSkipped.Value = false;
 
         Debug.LogError($"Received new nodes {data.Count}");
 
@@ -266,22 +266,32 @@ public class LevelScenePm : IDisposable
         _ctx.OnShowPhrase.Execute(uiPhrase);
 
         var time = phrase == null ? defaultTime : phrase.totalTime;
-        var timer = 0f;
 
+        foreach (var t in Timer(time, _isPhraseSkipped, HideText )) yield return t;
+        
+        HideText();
+        
+        void HideText()
+        {
+            _ctx.onHidePhrase.Execute(uiPhrase);
+        }
+    }
+
+    private IEnumerable Timer(float time, ReactiveProperty<bool> onSkip, Action onEnd )
+    {
+        var timer = 0f;
+        
         while (timer <= time)
         {
             yield return null;
             timer += Time.deltaTime;
 
-            if (_isPhraseSkipped)
+            if (onSkip.Value)
             {
-                // todo yield hideText then break;
-                
+                onEnd?.Invoke();
                 yield break;
             }
         }
-        
-        // todo yield hideText
     }
 
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
@@ -350,8 +360,8 @@ public class LevelScenePm : IDisposable
         {
             Debug.Log($"[{this}] Coroutine end");
 
-            if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
-                _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
+            // if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
+            //     _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
 
             switch (_currentPhrase.nextIs)
             {

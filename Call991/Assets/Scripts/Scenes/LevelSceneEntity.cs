@@ -70,7 +70,7 @@ public class LevelSceneEntity : IGameScene
 
         var onShowPhrase = new ReactiveCommand<UiPhraseData>();
         //var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
-        var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
+        var onHidePhrase = new ReactiveCommand<UiPhraseData>().AddTo(_disposables);
         var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
 

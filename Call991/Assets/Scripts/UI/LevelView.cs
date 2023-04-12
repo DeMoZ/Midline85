@@ -73,19 +73,19 @@ namespace UI
             personView._ShowPhrase(phrase);
         }
 
-        public void OnHidePhrase(PhraseSet phrase)
+        public void OnHidePhrase(UiPhraseData data)
         {
-            var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
+            var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
             if (personView == null)
             {
-                Debug.LogError($"[{this}] [OnHidePhrase] no person on side {phrase.screenPlace}");
+                Debug.LogError($"[{this}] [OnHidePhrase] no person on side {data.PersonVisualData.ScreenPlace}");
                 return;
             }
 
-            if (phrase.hidePhraseOnEnd)
+            if (data.PhraseVisualData.HideOnEnd)
                 personView.HidePhrase();
 
-            if (phrase.hidePersonOnEnd)
+            if (data.PersonVisualData.HideOnEnd)
                 personView.gameObject.SetActive(false);
         }
 
