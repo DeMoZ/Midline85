@@ -54,7 +54,7 @@ public class LevelScenePm : IDisposable
     private Ctx _ctx;
     private CompositeDisposable _disposables;
     private PhraseSet _currentPhrase;
-    private ReactiveCommand<int> _onClickChoiceButton;
+    private ReactiveCommand<ChoiceButtonView> _onClickChoiceButton;
 
     private bool _choiceDone;
     private float _phraseTimer;
@@ -75,7 +75,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
 
-        _onClickChoiceButton = new ReactiveCommand<int>().AddTo(_disposables);
+        _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
         _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
 
@@ -281,16 +281,20 @@ public class LevelScenePm : IDisposable
         
         // todo yield for timer and expect click  
         // on click yield for hideButtons
-        foreach (var choice in data)
+        for (var i = 0; i < data.Count; i++)
         {
-            _ctx.buttons[_choices.Count].interactable = !choice.IsLocked;
-            _ctx.buttons[_choices.Count].Show(choice.Choice, choice.IsLocked);
+            var choice = data[i];
+            _ctx.buttons[i].interactable = !choice.IsLocked;
+            _ctx.buttons[i].Show(choice.Choice, choice.IsLocked);
         }
 
         var time = _ctx.gameSet.choicesDuration;
         foreach (var t in Timer(time, _isChoiceDone)) yield return t;
 
-        AutoChoice();
+        if (!_isChoiceDone.Value)
+        {
+            AutoChoice();
+        }
 
         void AutoChoice()
         {
@@ -306,17 +310,15 @@ public class LevelScenePm : IDisposable
 
             _ctx.buttons[index].gameObject.Select();
             _ctx.buttons[index].Press();
-            OnClickChoiceButton(index);
+            OnClickChoiceButton(_ctx.buttons[index]);
         }
     }
     
-    private void OnClickChoiceButton(int index)
+    private void OnClickChoiceButton(ChoiceButtonView buttonView)
     {
         if (_isChoiceDone.Value) return;
         
-        _isChoiceDone.Value = true;
-        
-        _next.Add(_choices[index]);
+        _next.Add(_choices[_ctx.buttons.IndexOf(buttonView)]);
         
         _ctx.audioManager.StopTimer();
         _ctx.audioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
@@ -333,6 +335,8 @@ public class LevelScenePm : IDisposable
             {
                 button.gameObject.SetActive(false);
             }
+            
+            _isChoiceDone.Value = true;
         }).AddTo(_disposables);
     }
     /*private async Task RunChoices(List<ChoiceNodeData> data)
@@ -461,7 +465,7 @@ public class LevelScenePm : IDisposable
 
         return false;
     }
-
+/*
     private IEnumerator ChoiceRoutine()
     {
         var timer = 0f;
@@ -504,7 +508,7 @@ public class LevelScenePm : IDisposable
         _ctx.buttons[index].Press();
         OnClickChoiceButton(index);
     }
-
+*/
     private void CheckForSelectionPlaced()
     {
         if (!_selectionPlaced && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
@@ -635,11 +639,10 @@ public class LevelScenePm : IDisposable
             buttonsAppearDuration = _ctx.gameSet.buttonsAppearDuration,
         });
 
-        for (int i = 0; i < _ctx.buttons.Count; i++)
+        foreach (var button in _ctx.buttons)
         {
-            _ctx.buttons[i].SetCtx(new ChoiceButtonView.Ctx
+            button.SetCtx(new ChoiceButtonView.Ctx
             {
-                index = i,
                 onClickChoiceButton = _onClickChoiceButton,
                 buttonsAppearDuration = _ctx.gameSet.buttonsAppearDuration,
                 fastButtonFadeDuration = _ctx.gameSet.fastButtonFadeDuration,
