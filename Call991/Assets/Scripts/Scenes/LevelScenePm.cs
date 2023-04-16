@@ -171,6 +171,7 @@ public class LevelScenePm : IDisposable
 
     private List<AaNodeData> _next;
     private List<ChoiceNodeData> _choices;
+    private ChoiceNodeData _choice;
 
     private void OnDialogue(List<AaNodeData> data)
     {
@@ -180,7 +181,7 @@ public class LevelScenePm : IDisposable
         Debug.LogError($"Received new nodes {data.Count}");
 
         _next = new List<AaNodeData>();
-        //_choices = new List<ChoiceNodeData>();
+        _choice = null;
 
         var phrases = data.OfType<PhraseNodeData>().ToList();
         _choices = data.OfType<ChoiceNodeData>().ToList();
@@ -212,7 +213,7 @@ public class LevelScenePm : IDisposable
             {
                 Debug.Log("All coroutines completed");
                 _next.AddRange(phrases);
-                //_next.Add(choice);
+                _next.Add(_choice);
                 if (_next.Any())
                 {
                     _ctx.FindNext?.Execute(_next);
@@ -288,14 +289,24 @@ public class LevelScenePm : IDisposable
             _ctx.buttons[i].Show(choice.Choice, choice.IsLocked);
         }
 
-        var time = _ctx.gameSet.choicesDuration;
-        foreach (var t in Timer(time, _isChoiceDone)) yield return t;
+        foreach (var t in Timer(_ctx.gameSet.choicesDuration, _isChoiceDone)) yield return t;
 
         if (!_isChoiceDone.Value)
         {
             AutoChoice();
         }
 
+        _ctx.audioManager.StopTimer();
+        _ctx.audioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
+        _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
+        
+        foreach (var t in Timer(_ctx.gameSet.slowButtonFadeDuration)) yield return t;
+
+        foreach (var button in _ctx.buttons)
+        {
+            button.gameObject.SetActive(false);
+        }
+        
         void AutoChoice()
         {
             Debug.LogWarning($"[{this}] choice time up! Random choice!");
@@ -317,50 +328,11 @@ public class LevelScenePm : IDisposable
     private void OnClickChoiceButton(ChoiceButtonView buttonView)
     {
         if (_isChoiceDone.Value) return;
-        
-        _next.Add(_choices[_ctx.buttons.IndexOf(buttonView)]);
-        
-        _ctx.audioManager.StopTimer();
-        _ctx.audioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
+        _isChoiceDone.Value = true;
 
-        _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
-
-        //GameObjectEventSystemSelectionExtension.StopSelection();
-        //_ctx.profile.AddChoice(_currentPhrase.choices[index].choiceId);
-        //_ctx.profile.LastPhrase = _currentPhrase.choices[index].nextPhraseId;
-
-        Observable.FromCoroutine(() => ObserveTimer(_ctx.gameSet.slowButtonFadeDuration)).Subscribe(_ =>
-        {
-            foreach (var button in _ctx.buttons)
-            {
-                button.gameObject.SetActive(false);
-            }
-            
-            _isChoiceDone.Value = true;
-        }).AddTo(_disposables);
+        _choice = _choices[_ctx.buttons.IndexOf(buttonView)];
     }
-    /*private async Task RunChoices(List<ChoiceNodeData> data)
-    {
-        Debug.LogError($"RunChoices {data.Count}");
-
-        GameObjectEventSystemSelectionExtension.ClearSelection();
-
-        
-
-        Debug.LogError("the rest of the method is not implemented yet");
-
-        var resetEvent = new ManualResetEvent(false);
-       
-        // Observable.FromCoroutine(ChoiceRoutine).Subscribe(_ =>
-        //     {
-        //         Debug.Log($"[{this}] Choice coroutine end");
-        //     })
-        //     .AddTo(_disposables);
-
-        //await Task.Delay((int)(_ctx.gameSet.choicesDuration * 1000), _token);
-    }
-    */
-
+    
     private void RunEndNode(EndNodeData data)
     {
         Debug.LogError($"EndNodeData {data}");
