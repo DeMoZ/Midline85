@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AaDialogueGraph;
 using Newtonsoft.Json;
 using UnityEngine;
@@ -11,6 +12,7 @@ public class DialogueLoggerPm : IDisposable
 {
     private const string LOGKey = "LogNodes";
     private const string ChoicesKey = "Choices";
+    private const string EndsKey = "Ends";
 
     private Dictionary<string, string> _logCash = new();
     private Dictionary<string, string> _choicesCash = new();
@@ -63,6 +65,11 @@ public class DialogueLoggerPm : IDisposable
                          $"\n{serializedData}");
     }
 
+    public bool ContainsChoice(List<string> orChoices)
+    {
+        return orChoices.Select(choice => ContainsChoice(choice)).Any(contains => contains);
+    }
+    
     public bool ContainsChoice(string choice)
     {
         var deserializedData = new Dictionary<string, string>();
@@ -74,6 +81,24 @@ public class DialogueLoggerPm : IDisposable
         }
 
         return deserializedData.TryGetValue(choice, out var data);
+    }
+    
+    public bool ContainsEnd(List<string> orEnds)
+    {
+        return orEnds.Select(end => ContainsEnd(end)).Any(contains => contains);
+    }
+    
+    public bool ContainsEnd(string end)
+    {
+        var deserializedData = new Dictionary<string, string>();
+        var serializedData = PlayerPrefs.GetString(EndsKey, null);
+
+        if (!string.IsNullOrEmpty(serializedData))
+        {
+            deserializedData = JsonConvert.DeserializeObject<Dictionary<string, string>>(serializedData);
+        }
+
+        return deserializedData.TryGetValue(end, out var data);
     }
     
     public void AddCount(string key, int value)

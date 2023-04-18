@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AaDialogueGraph;
+using Newtonsoft.Json;
 using UniRx;
 using UnityEngine;
 
@@ -23,8 +24,8 @@ public class DialoguePm : IDisposable
     {
         _ctx = ctx;
         _disposables = new CompositeDisposable();
-        _dialogueLoggerPm = new DialogueLoggerPm();
-        
+        _dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
+
         _currentNodes.Add(_ctx.LevelData.GetEntryNode());
         _ctx.FindNext.Subscribe(OnFindNext).AddTo(_disposables);
     }
@@ -43,7 +44,7 @@ public class DialoguePm : IDisposable
         // how to show locked choce nodes?
 
         _dialogueLoggerPm.AddLog(data);
-        
+
         _currentNodes = FindNext(data.Any() ? data : _currentNodes);
 
         if (_currentNodes.Any())
@@ -103,9 +104,24 @@ public class DialoguePm : IDisposable
                         break;
                     case ForkNodeData forkData:
 
-                        var exit = GetForkExit(forkData.ForkCaseData);
-                        result.Add(exit);
+                        var exits = GetForkExit(forkData.ForkCaseData);
                         
+                        if (!exits.Any())
+                        {
+                            exits.Add(forkData.Guid);
+                        }
+                        
+                        var nodes = new List<AaNodeData>();
+
+                        foreach (var exit in exits)
+                        {
+                            // find nodes where exit is a base node guid
+                            
+                            // if the node is count or fork, send the node by circle
+                        }
+                        
+                        //result.Add(exit);
+
                         break;
                     case CountNodeData countData:
                         _dialogueLoggerPm.AddLog(countData);
@@ -125,15 +141,107 @@ public class DialoguePm : IDisposable
         return result;
     }
 
-    private AaNodeData GetForkExit(List<ForkCaseData> data)
+    private List<string> GetForkExit(List<ForkCaseData> data)
     {
-       // fork has default exit
-       // fork has case exits
-       // need to pass throug cases and found if i can select one.
-       // if no - select default exit.
+        var result = new List<string>();
         
-      // the method should has one more layers for determinig what type on nodes is next 
-      return null;
+        foreach (var condition in data)
+        {
+            var isInCase = IsInCase(condition);
+            if (isInCase)
+            {
+                Debug.LogWarning($"[{this}] found exit from fork:\n{JsonConvert.SerializeObject(condition)}");
+                result.Add(condition.ForkExitName);
+            }
+        }
+
+        // if (!result.Any())
+        // {
+        //     result.Add(defaultExit);
+        // }
+        
+        return result;
+    }
+
+    private bool IsInCase(CaseData data)
+    {
+        var inCase = true;
+
+        // if (data.Words.Any())
+        // {
+        foreach (var caseData in data.Words)
+        {
+            var andWord = false;
+            var noWord = false;
+
+            switch (caseData.CaseType)
+            {
+                case CaseType.AndWord:
+                    andWord = _dialogueLoggerPm.ContainsChoice(caseData.OrKeys);
+                    if (andWord) continue;
+                    break;
+                case CaseType.NoWord:
+                    noWord = _dialogueLoggerPm.ContainsChoice(caseData.OrKeys);
+                    if (noWord) continue;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            if (!andWord || noWord)
+            {
+                inCase = false;
+                break;
+            }
+        }
+
+        //}
+        // and
+        // if (data.Ends.Any())
+        // {
+        foreach (var endData in data.Ends)
+        {
+            var andEnd = false;
+            var noEnd = false;
+
+            switch (endData.EndType)
+            {
+                case EndType.AndEnd:
+                    andEnd = _dialogueLoggerPm.ContainsEnd(endData.OrKeys);
+                    if (andEnd) continue;
+                    break;
+                case EndType.NoEnd:
+                    noEnd = _dialogueLoggerPm.ContainsEnd(endData.OrKeys);
+                    if (noEnd) continue;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            if (!andEnd || noEnd)
+            {
+                inCase = false;
+                break;
+            }
+        }
+        //}
+
+        // and
+        // if (data.Counts.Any())
+        // {
+        foreach (var count in data.Counts)
+        {
+            var value = _dialogueLoggerPm.GetCount(count.CountKey);
+            if (value < count.Range.x || value > count.Range.y)
+            {
+                inCase = false;
+                break;
+            }
+        }
+        //}
+
+
+        return inCase;
     }
 
     public void Dispose()

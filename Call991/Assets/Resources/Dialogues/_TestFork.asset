@@ -1,0 +1,180 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: _TestFork
+  m_EditorClassIdentifier: 
+  EntryNodeData:
+    Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    Rect:
+      serializedVersion: 2
+      x: 100
+      y: 200
+      width: 104
+      height: 124
+    Languages:
+    - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
+  PhraseNodeData:
+  - Guid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    Rect:
+      serializedVersion: 2
+      x: 205
+      y: 200
+      width: 99.5
+      height: 96
+    PhraseSketchText: 911
+    PersonVisualData:
+      Person: 1
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSounds:
+    - Sounds/RU/7_lvl/p.elena.012.ogg
+    Phrases:
+    - EN/7_lvl/p.elena.026.asset
+  - Guid: 383cce55-bf74-4ee6-ac4b-26d702569479
+    Rect:
+      serializedVersion: 2
+      x: 578
+      y: 353
+      width: 99.5
+      height: 96
+    PhraseSketchText: exir 2
+    PersonVisualData:
+      Person: 3
+      ScreenPlace: 6
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
+    Rect:
+      serializedVersion: 2
+      x: 587
+      y: 200
+      width: 99.5
+      height: 96
+    PhraseSketchText: exit 1
+    PersonVisualData:
+      Person: 2
+      ScreenPlace: 4
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  - Guid: b8b538e0-1375-4177-82b0-bd383a88d18f
+    Rect:
+      serializedVersion: 2
+      x: 578
+      y: 48.5
+      width: 101
+      height: 96
+    PhraseSketchText: default ext
+    PersonVisualData:
+      Person: 1
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - 
+    Phrases:
+    - 
+  ChoiceNodeData: []
+  ForkNodeData:
+  - Guid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    Rect:
+      serializedVersion: 2
+      x: 347
+      y: 163
+      width: 347.5
+      height: 226.5
+    ForkCaseData:
+    - Words:
+      - CaseType: 0
+        OrKeys:
+        - c.word.002
+      Ends: []
+      Counts: []
+      ForkExitName: 60f15cb1-2be0-4fa0-aa43-0e51d4637fba
+    - Words: []
+      Ends: []
+      Counts:
+      - CountType: 0
+        CountKey: FIRE.EMOTIONS
+        Range: {x: 4, y: 200}
+      ForkExitName: f5134bf5-33f7-483a-9357-ba01ff2e832e
+  CountNodeData: []
+  EndNodeData:
+  - Guid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
+    Rect:
+      serializedVersion: 2
+      x: 752
+      y: 224
+      width: 131
+      height: 77
+    End: FIRE.END.NEUT1
+  - Guid: 638d89e0-48a2-470a-817c-e0c7ba4445e2
+    Rect:
+      serializedVersion: 2
+      x: 752
+      y: 376
+      width: 129
+      height: 77
+    End: FIRE.END.GOOD
+  - Guid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
+    Rect:
+      serializedVersion: 2
+      x: 728
+      y: 40
+      width: 118.5
+      height: 77
+    End: FIRE.END.BAD
+  NodeLinks:
+  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    BaseExitName: 
+    TargetNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    BaseExitName: 
+    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+  - BaseNodeGuid: 383cce55-bf74-4ee6-ac4b-26d702569479
+    BaseExitName: 
+    TargetNodeGuid: 638d89e0-48a2-470a-817c-e0c7ba4445e2
+  - BaseNodeGuid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
+    BaseExitName: 
+    TargetNodeGuid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
+  - BaseNodeGuid: b8b538e0-1375-4177-82b0-bd383a88d18f
+    BaseExitName: 
+    TargetNodeGuid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
+  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    BaseExitName: 
+    TargetNodeGuid: b8b538e0-1375-4177-82b0-bd383a88d18f
+  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    BaseExitName: 60f15cb1-2be0-4fa0-aa43-0e51d4637fba
+    TargetNodeGuid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
+  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    BaseExitName: f5134bf5-33f7-483a-9357-ba01ff2e832e
+    TargetNodeGuid: 383cce55-bf74-4ee6-ac4b-26d702569479
