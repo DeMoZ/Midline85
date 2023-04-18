@@ -79,6 +79,13 @@ public class DialoguePm : IDisposable
     {
         var result = new List<AaNodeData>();
         var links = _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == data.Guid);
+        result = LinksToNodes(links);
+        return result;
+    }
+
+    private List<AaNodeData> LinksToNodes(IEnumerable<NodeLinkData> links)
+    {
+        var result = new List<AaNodeData>();
 
         foreach (var link in links)
         {
@@ -103,24 +110,24 @@ public class DialoguePm : IDisposable
                         result.Add(nodeData);
                         break;
                     case ForkNodeData forkData:
-
                         var exits = GetForkExit(forkData.ForkCaseData);
-                        
+
                         if (!exits.Any())
                         {
-                            exits.Add(forkData.Guid);
+                            var exitLinks = 
+                                _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == forkData.Guid 
+                                                                            && string.IsNullOrEmpty(l.BaseExitName));
+                            result.AddRange(LinksToNodes(exitLinks));
                         }
-                        
-                        var nodes = new List<AaNodeData>();
-
-                        foreach (var exit in exits)
+                        else
                         {
-                            // find nodes where exit is a base node guid
-                            
-                            // if the node is count or fork, send the node by circle
+                            foreach (var exit in exits)
+                            {
+                                var exitLinks = 
+                                    _ctx.LevelData.Links.Where(l => l.BaseExitName == exit);
+                                result.AddRange(LinksToNodes(exitLinks));
+                            }
                         }
-                        
-                        //result.Add(exit);
 
                         break;
                     case CountNodeData countData:
@@ -152,6 +159,7 @@ public class DialoguePm : IDisposable
             {
                 Debug.LogWarning($"[{this}] found exit from fork:\n{JsonConvert.SerializeObject(condition)}");
                 result.Add(condition.ForkExitName);
+                break;
             }
         }
 
@@ -167,8 +175,6 @@ public class DialoguePm : IDisposable
     {
         var inCase = true;
 
-        // if (data.Words.Any())
-        // {
         foreach (var caseData in data.Words)
         {
             var andWord = false;
@@ -194,11 +200,7 @@ public class DialoguePm : IDisposable
                 break;
             }
         }
-
-        //}
-        // and
-        // if (data.Ends.Any())
-        // {
+        
         foreach (var endData in data.Ends)
         {
             var andEnd = false;
@@ -224,11 +226,7 @@ public class DialoguePm : IDisposable
                 break;
             }
         }
-        //}
-
-        // and
-        // if (data.Counts.Any())
-        // {
+        
         foreach (var count in data.Counts)
         {
             var value = _dialogueLoggerPm.GetCount(count.CountKey);
@@ -238,9 +236,7 @@ public class DialoguePm : IDisposable
                 break;
             }
         }
-        //}
-
-
+        
         return inCase;
     }
 
