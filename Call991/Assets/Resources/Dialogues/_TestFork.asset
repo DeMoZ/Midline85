@@ -104,6 +104,19 @@ MonoBehaviour:
     Phrases:
     - EN/7_lvl/p.elena.026.asset
   ChoiceNodeData:
+  - Guid: c8540eb5-507c-45e6-b9a5-b122d3130ecf
+    Rect:
+      serializedVersion: 2
+      x: 18
+      y: 48.5
+      width: 101.5
+      height: 95.5
+    Choice: c.word.001
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
   - Guid: 92148cd9-1ab8-4294-869c-834dbed7f5bc
     Rect:
       serializedVersion: 2
@@ -151,7 +164,7 @@ MonoBehaviour:
       Counts:
       - CountType: 0
         CountKey: FIRE.EMOTIONS
-        Range: {x: 4, y: 200}
+        Range: {x: 1, y: 2}
       ForkExitName: f5134bf5-33f7-483a-9357-ba01ff2e832e
   CountNodeData:
   - Guid: 7e736ca7-a690-462f-907d-339ae62bc89b
@@ -201,6 +214,24 @@ MonoBehaviour:
   - BaseNodeGuid: b8b538e0-1375-4177-82b0-bd383a88d18f
     BaseExitName: 
     TargetNodeGuid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    BaseExitName: 
+    TargetNodeGuid: 92148cd9-1ab8-4294-869c-834dbed7f5bc
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    BaseExitName: 
+    TargetNodeGuid: 41d0e64a-52e3-45bc-989e-8b3e7a2ffa7e
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    BaseExitName: 
+    TargetNodeGuid: c8540eb5-507c-45e6-b9a5-b122d3130ecf
+  - BaseNodeGuid: 92148cd9-1ab8-4294-869c-834dbed7f5bc
+    BaseExitName: 
+    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+  - BaseNodeGuid: 41d0e64a-52e3-45bc-989e-8b3e7a2ffa7e
+    BaseExitName: 
+    TargetNodeGuid: 7e736ca7-a690-462f-907d-339ae62bc89b
+  - BaseNodeGuid: c8540eb5-507c-45e6-b9a5-b122d3130ecf
+    BaseExitName: 
+    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
   - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
     BaseExitName: 60f15cb1-2be0-4fa0-aa43-0e51d4637fba
     TargetNodeGuid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
@@ -213,15 +244,3 @@ MonoBehaviour:
   - BaseNodeGuid: 7e736ca7-a690-462f-907d-339ae62bc89b
     BaseExitName: 
     TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
-    BaseExitName: 
-    TargetNodeGuid: 92148cd9-1ab8-4294-869c-834dbed7f5bc
-  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
-    BaseExitName: 
-    TargetNodeGuid: 41d0e64a-52e3-45bc-989e-8b3e7a2ffa7e
-  - BaseNodeGuid: 92148cd9-1ab8-4294-869c-834dbed7f5bc
-    BaseExitName: 
-    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-  - BaseNodeGuid: 41d0e64a-52e3-45bc-989e-8b3e7a2ffa7e
-    BaseExitName: 
-    TargetNodeGuid: 7e736ca7-a690-462f-907d-339ae62bc89b
