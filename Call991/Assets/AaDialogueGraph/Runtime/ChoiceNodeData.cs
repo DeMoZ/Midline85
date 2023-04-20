@@ -10,12 +10,6 @@ namespace AaDialogueGraph
         public string Choice;
         public CaseData CaseData = new ();
         public bool IsLocked;
-        
-        public bool IsCaseResolved()
-        {
-            Debug.LogError("the rest of the method is not implemented yet");
-            return true;
-        }
     }
 
     [Serializable]

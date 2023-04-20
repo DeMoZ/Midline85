@@ -165,10 +165,7 @@ public class LevelScenePm : IDisposable
         Debug.LogError($"_ctx.FindNext.Execute with no data");
         _ctx.FindNext.Execute(new List<AaNodeData>());
     }
-
-    // private CancellationToken _token;
-    private List<Task> _tasks = new();
-
+    
     private List<AaNodeData> _next;
     private List<ChoiceNodeData> _choices;
     private ChoiceNodeData _choice;
@@ -185,7 +182,7 @@ public class LevelScenePm : IDisposable
 
         var phrases = data.OfType<PhraseNodeData>().ToList();
         _choices = data.OfType<ChoiceNodeData>().ToList();
-        
+
         var ends = data.OfType<EndNodeData>().ToList();
         if (ends.Any())
         {
@@ -227,20 +224,6 @@ public class LevelScenePm : IDisposable
         // }
 
         // await for showing, strike all events
-
-
-        // ask for new
-        // if (_choices.Any() && _notChosen)
-        // {
-        //     AutoselectChoice();
-        //         // chosen will be added into _next
-        // }
-
-        // Debug.LogError($"[{this}] после ожидания тасок");
-        // if (_next.Any())
-        // {
-        //     _ctx.FindNext?.Execute(_next);
-        // }
     }
 
     private IEnumerator RunPhrase(PhraseNodeData data)
@@ -279,7 +262,7 @@ public class LevelScenePm : IDisposable
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
     {
         var cnt = data.Count;
-        
+
         // todo yield for timer and expect click  
         // on click yield for hideButtons
         for (var i = 0; i < data.Count; i++)
@@ -299,14 +282,14 @@ public class LevelScenePm : IDisposable
         _ctx.audioManager.StopTimer();
         _ctx.audioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
-        
+
         foreach (var t in Timer(_ctx.gameSet.slowButtonFadeDuration)) yield return t;
 
         foreach (var button in _ctx.buttons)
         {
             button.gameObject.SetActive(false);
         }
-        
+
         void AutoChoice()
         {
             Debug.LogWarning($"[{this}] choice time up! Random choice!");
@@ -324,7 +307,7 @@ public class LevelScenePm : IDisposable
             OnClickChoiceButton(_ctx.buttons[index]);
         }
     }
-    
+
     private void OnClickChoiceButton(ChoiceButtonView buttonView)
     {
         if (_isChoiceDone.Value) return;
@@ -332,7 +315,7 @@ public class LevelScenePm : IDisposable
 
         _choice = _choices[_ctx.buttons.IndexOf(buttonView)];
     }
-    
+
     private void RunEndNode(EndNodeData data)
     {
         Debug.LogError($"EndNodeData {data}");
@@ -344,7 +327,7 @@ public class LevelScenePm : IDisposable
     {
         foreach (var t in Timer(time, onSkip, onEnd)) yield return t;
     }
-    
+
 
     private IEnumerable Timer(float time, ReactiveProperty<bool> onSkip = null, Action onEnd = null)
     {
@@ -363,73 +346,7 @@ public class LevelScenePm : IDisposable
         }
     }
     //------------------------------------------------------------------------------------------------------------------
-
-    private async void RunDialogue()
-    {
-        _currentPhrase = _ctx.dialogues.phrases.FirstOrDefault(p => p.phraseId == _ctx.profile.LastPhrase);
-        if (_currentPhrase == null)
-        {
-            Debug.LogError($"[{this}] _ctx.profile.LastPhrase: {_ctx.profile.LastPhrase}. Not found in phrases.");
-            return;
-        }
-
-        await _ctx.phraseSoundPlayer.TryLoadDialogue(_currentPhrase.Phrase.GetOverridenPhraseId());
-
-        Observable.FromCoroutine(PhraseRoutine).Subscribe(_ =>
-        {
-            Debug.Log($"[{this}] Coroutine end");
-
-            // if (_currentPhrase.hidePhraseOnEnd || _currentPhrase.hidePersonOnEnd)
-            //     _ctx.onHidePhrase.Execute(_currentPhrase); // TODO can be awaitable hide
-
-            switch (_currentPhrase.nextIs)
-            {
-                case NextIs.Phrase:
-                    //NextPhrase();
-                    break;
-                case NextIs.Choices:
-                    //NextChoices();
-                    break;
-                case NextIs.LevelEnd:
-                    Debug.LogWarning($"[{this}] LevelEnd on {_currentPhrase.phraseId}");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }).AddTo(_disposables);
-    }
-
-    private void NextChoices()
-    {
-        if (_currentPhrase.choices.Count == 0)
-        {
-            Debug.LogWarning($"[{this}] no choices set up for phrase {_currentPhrase.phraseId}");
-            return;
-        }
-
-        _choiceDone = false;
-
-        GameObjectEventSystemSelectionExtension.ClearSelection();
-
-        for (int i = 0; i < _currentPhrase.choices.Count; i++)
-        {
-            if (_currentPhrase.choices[i].ifSelected)
-            {
-                Debug.Log($" {_currentPhrase.phraseId} choices {_currentPhrase.choices[i].choiceId} has requirements");
-                PrintArray(_currentPhrase.choices[i].requiredChoices);
-            }
-
-            // var isBlocked = IsBlocked(_currentPhrase.choices[i]);
-            // _ctx.buttons[i].interactable = !isBlocked;
-            // _ctx.buttons[i].Show(_currentPhrase.choices[i].choiceId, isBlocked);
-        }
-
-        PrintArray(_ctx.profile.GetPlayerData().choices);
-
-        // Observable.FromCoroutine(ChoiceRoutine).Subscribe(_ => { Debug.Log($"[{this}] Choice coroutine end"); })
-        //     .AddTo(_disposables);
-    }
-
+    
     private bool IsBlocked(Choice choice)
     {
         if (choice.ifSelected)
@@ -437,50 +354,7 @@ public class LevelScenePm : IDisposable
 
         return false;
     }
-/*
-    private IEnumerator ChoiceRoutine()
-    {
-        var timer = 0f;
 
-        var time = _currentPhrase.overrideChoicesDuration
-            ? _currentPhrase.choicesDuration
-            : _ctx.gameSet.choicesDuration;
-
-        _ctx.countDown.Show(time);
-        _ctx.audioManager.PlayUiSound(SoundUiTypes.Timer, true);
-
-        yield return new WaitForSeconds(_ctx.gameSet.buttonsAppearDuration);
-
-        _selectionPlaced = false;
-
-        while (timer <= time)
-        {
-            yield return null;
-            timer += Time.deltaTime;
-
-            if (_choiceDone)
-                yield break;
-
-            CheckForSelectionPlaced();
-        }
-
-        Debug.LogWarning($"[{this}] choice time up! Random choice!");
-
-        var isBlocked = true;
-        var index = 0;
-        while (isBlocked)
-        {
-            index = Random.Range(0, _currentPhrase.choices.Count);
-            isBlocked = IsBlocked(_currentPhrase.choices[index]);
-            if (isBlocked)
-                yield return null;
-        }
-
-        _ctx.buttons[index].gameObject.Select();
-        _ctx.buttons[index].Press();
-        OnClickChoiceButton(index);
-    }
-*/
     private void CheckForSelectionPlaced()
     {
         if (!_selectionPlaced && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
@@ -513,18 +387,6 @@ public class LevelScenePm : IDisposable
         }
 
         return rndChoice;
-    }
-
-    private void NextPhrase()
-    {
-        if (string.IsNullOrWhiteSpace(_currentPhrase.nextId))
-        {
-            Debug.LogWarning($"[{this}] nextId not set up for phrase {_currentPhrase.phraseId}");
-            return;
-        }
-
-        _ctx.profile.LastPhrase = _currentPhrase.nextId;
-        RunDialogue();
     }
 
     private IEnumerator PhraseRoutine()
@@ -625,7 +487,6 @@ public class LevelScenePm : IDisposable
 
     public void Dispose()
     {
-        //_token.ThrowIfCancellationRequested();
         _disposables.Dispose();
     }
 

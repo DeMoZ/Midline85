@@ -97,11 +97,12 @@ public class DialoguePm : IDisposable
                 {
                     case ChoiceNodeData choiceData:
                     {
-                        // calculate if locked
-                        if (!choiceData.IsCaseResolved())
-                        {
-                            choiceData.IsLocked = true;
-                        }
+                        var isInCase = IsInCase(choiceData.CaseData);
+                        
+                        if (!isInCase) Debug.LogWarning($"[{this}] button is locked:\n" +
+                                                        $"{JsonConvert.SerializeObject(choiceData.CaseData)}");
+
+                        choiceData.IsLocked = !isInCase;
 
                         result.Add(choiceData);
                         break;
@@ -140,7 +141,6 @@ public class DialoguePm : IDisposable
                         break;
                     case EntryNodeData:
                         throw new SystemException("Entry point can not be here. Some issues with graph");
-                        break;
                 }
             }
         }
@@ -163,11 +163,6 @@ public class DialoguePm : IDisposable
             }
         }
 
-        // if (!result.Any())
-        // {
-        //     result.Add(defaultExit);
-        // }
-        
         return result;
     }
 
