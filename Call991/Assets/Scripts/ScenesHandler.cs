@@ -155,7 +155,7 @@ public class ScenesHandler : IDisposable
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
         {
-            gameSet = _ctx.gameSet,
+            GameSet = _ctx.gameSet,
             constructorTask = constructorTask,
             LevelData = levelData,
             profile = _ctx.profile,

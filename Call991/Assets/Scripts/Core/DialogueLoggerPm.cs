@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using AaDialogueGraph;
 using Newtonsoft.Json;
@@ -39,49 +38,37 @@ public class DialogueLoggerPm : IDisposable
         switch (data)
         {
             case PhraseNodeData nodeData:
-            {
                 AddNode(nodeData.Guid, nodeData.PhraseSketchText);
                 break;
-            }
             case ChoiceNodeData nodeData:
-            {
-                AddChoice(nodeData.Choice);
+                AddCaseInCash(nodeData.Choice, _choicesCash);
                 AddNode(nodeData.Guid, nodeData.Choice);
                 break;
-            }
             case CountNodeData nodeData:
-            {
                 AddNode(nodeData.Guid, nodeData.Value.ToString());
                 break;
-            }
+            case EndNodeData nodeData:
+                AddCaseInCash(nodeData.End, _endsCash);
+                AddNode(nodeData.Guid, nodeData.End);
+                break;
         }
     }
-
-    private void AddChoice(string choice)
+    
+    private void AddCaseInCash(string condition, IDictionary<string, string> dictionary)
     {
-        Debug.LogError($"[{this}] Add Choice {choice}");
-        _choicesCash.Add(choice, "");
+        Debug.LogWarning($"[{this}] Add case into cash {condition}");
+        dictionary.Add(condition, "");
     }
 
-    private void AddEnd(string end)
-    {
-        Debug.LogError($"[{this}] Add Choice {end}");
-        _endsCash.Add(end, "");
-    }
+    public bool ContainsChoice(List<string> orChoices) => 
+        orChoices.Any(orChoice => _choicesCash.ContainsKey(orChoice));
 
-    public bool ContainsChoice(List<string> orChoices)
-    {
-        return orChoices.Any(orChoice => _choicesCash.ContainsKey(orChoice));
-    }
-
-    public bool ContainsEnd(List<string> orEnds)
-    {
-        return orEnds.Any(orEnd => _endsCash.ContainsKey(orEnd));
-    }
+    public bool ContainsEnd(List<string> orEnds) => 
+        orEnds.Any(orEnd => _endsCash.ContainsKey(orEnd));
 
     public void AddCount(string key, int value)
     {
-        Debug.LogError($"[{this}] Add Count {key}:{value}");
+        Debug.LogWarning($"[{this}] Add Count {key}:{value}");
         _countsCash.TryGetValue(key, out var count);
         _countsCash[key] = count + value;
     }
@@ -92,10 +79,8 @@ public class DialogueLoggerPm : IDisposable
         return count;
     }
 
-    private void AddNode(string key, string value)
-    {
+    private void AddNode(string key, string value) => 
         _logCash.Add(key, value);
-    }
 
     public void Save()
     {

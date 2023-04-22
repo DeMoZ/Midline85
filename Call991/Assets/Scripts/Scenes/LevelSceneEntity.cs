@@ -12,7 +12,7 @@ public class LevelSceneEntity : IGameScene
 {
     public struct Ctx
     {
-        public GameSet gameSet;
+        public GameSet GameSet;
         public Container<Task> constructorTask;
         public LevelData LevelData;
         
@@ -75,7 +75,7 @@ public class LevelSceneEntity : IGameScene
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
 
         var onPopulateStatistics = new ReactiveCommand<List<StatisticElement>>().AddTo(_disposables);
-        var onPhraseLevelEndEvent = new ReactiveCommand<string>().AddTo(_disposables);
+        var onLevelEnd = new ReactiveCommand<EndNodeData>().AddTo(_disposables);
         var onHideLevelUi = new ReactiveCommand<float>().AddTo(_disposables);
         var onShowStatisticUi = new ReactiveCommand<float>().AddTo(_disposables);
         var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);
@@ -103,20 +103,6 @@ public class LevelSceneEntity : IGameScene
 
         var phraseSkipper = new PhraseSkipper(onSkipPhrase).AddTo(_disposables);
         
-        /*var levelEndPm = new LevelEndPm(new LevelEndPm.Ctx
-        {
-            gameSet = _ctx.gameSet,
-            onHideLevelUi = onHideLevelUi,
-            achievementsSo = _ctx.achievementsSo,
-            profile = _ctx.profile,
-            onShowStatisticUi = onShowStatisticUi,
-            onPhraseLevelEndEvent = onPhraseLevelEndEvent,
-            endLevelConfigsPath = _ctx.endLevelConfigsPath,
-            phraseEventSoundLoader = phraseEventSoundLoader,
-            phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
-            onPopulateStatistics = onPopulateStatistics,
-        }).AddTo(_disposables);*/
-
         var onNext = new ReactiveCommand<List<AaNodeData>>();
         var findNext = new ReactiveCommand<List<AaNodeData>>();
         var dialoguePm = new DialoguePm(new DialoguePm.Ctx
@@ -124,39 +110,7 @@ public class LevelSceneEntity : IGameScene
             LevelData = _ctx.LevelData,
             FindNext = findNext,
             OnNext = onNext,
-        });
-        
-        // var scenePm = new LevelScenePm(new LevelScenePm.Ctx
-        // {
-        //     FindNext = findNext,
-        //     OnNext = onNext,
-        //     
-        //     profile = _ctx.profile,
-        //     dialogues = _ctx.dialogues,
-        //     onSwitchScene = _ctx.onSwitchScene,
-        //     onClickMenuButton = onClickMenuButton,
-        //     onPhraseSoundEvent = onPhraseSoundEvent,
-        //     onShowPhrase = onShowPhrase,
-        //     onHidePhrase = onHidePhrase,
-        //     onAfterEnter = onAfterEnter,
-        //     gameSet = _ctx.gameSet,
-        //     buttons = buttons,
-        //     countDown = countDown,
-        //     //phraseSoundPlayer = phraseSoundPm,
-        //     //phraseEventSoundLoader = phraseEventSoundLoader,
-        //     audioManager = _ctx.audioManager,
-        //     onShowIntro = onShowIntro,
-        //     onPhraseLevelEndEvent = onPhraseLevelEndEvent,
-        //     newspaperSprite = _ctx.newspaperSprite,
-        //     onShowNewspaper = onShowNewspaper,
-        //     chapterSet = _ctx.chapterSet,
-        //     phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
-        //     onSkipPhrase = onSkipPhrase,
-        //     onClickPauseButton = onClickPauseButton,
-        //     videoManager = _ctx.videoManager,
-        //     blocker = _ctx.blocker,
-        //     cursorSettings = _ctx.cursorSettings,
-        // }).AddTo(_disposables);
+        }).AddTo(_disposables);
         
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
@@ -171,17 +125,14 @@ public class LevelSceneEntity : IGameScene
             
             OnShowPhrase = onShowPhrase,
 
-            //onShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onAfterEnter = onAfterEnter,
-            gameSet = _ctx.gameSet,
+            gameSet = _ctx.GameSet,
             buttons = buttons,
             countDown = countDown,
-            //phraseSoundPlayer = phraseSoundPm,
-            //phraseEventSoundLoader = phraseEventSoundLoader,
             audioManager = _ctx.audioManager,
             onShowIntro = onShowIntro,
-            onPhraseLevelEndEvent = onPhraseLevelEndEvent,
+            OnLevelEnd = onLevelEnd,
             newspaperSprite = _ctx.newspaperSprite,
             onShowNewspaper = onShowNewspaper,
             chapterSet = _ctx.chapterSet,
@@ -195,13 +146,14 @@ public class LevelSceneEntity : IGameScene
 
         _ui.SetCtx(new UiLevelScene.Ctx
         {
+            GameSet = _ctx.GameSet,
             onClickMenuButton = onClickMenuButton,
             //onPhraseSoundEvent = onPhraseSoundEvent,
             OnShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onShowIntro = onShowIntro,
             onHideLevelUi = onHideLevelUi,
-            onPopulateStatistics = onPopulateStatistics,
+            OnLevelEnd = onLevelEnd,
             onShowStatisticUi = onShowStatisticUi,
             onShowNewspaper = onShowNewspaper,
             onClickPauseButton = onClickPauseButton,

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AaDialogueGraph;
+using Configs;
 using PhotoViewer.Scripts.Photo;
 using UniRx;
 using UnityEngine;
@@ -22,7 +23,9 @@ namespace UI
     {
         public struct Ctx
         {
+            public GameSet GameSet;
             public ReactiveCommand<UiPhraseData> OnShowPhrase;
+            public ReactiveCommand<EndNodeData> OnLevelEnd;
             
             public ReactiveCommand onClickMenuButton;
             //public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
@@ -32,7 +35,6 @@ namespace UI
 
             public ReactiveCommand<float> onHideLevelUi;
             public ReactiveCommand<float> onShowStatisticUi;
-            public ReactiveCommand<List<StatisticElement>> onPopulateStatistics;
 
             public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
             public ReactiveCommand<bool> onClickPauseButton;
@@ -107,8 +109,7 @@ namespace UI
             {
                 levelView.OnHideLevelUi(time, () => { EnableUi(statisticView.GetType()); });
             }).AddTo(_disposables);
-            _ctx.onShowStatisticUi.Subscribe(OnShowStatisticUi).AddTo(_disposables);
-            _ctx.onPopulateStatistics.Subscribe(OnPopulateStatistics).AddTo(_disposables);
+            _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
             _ctx.onShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
 
             onClickPauseButton.Subscribe(_ => OnClickPauseButton(true));
@@ -157,14 +158,11 @@ namespace UI
                 await Task.Delay(10);
         }
 
-        private void OnShowStatisticUi(float time)
+        private void OnLevelEnd(EndNodeData statistics)
         {
-            statisticView.Fade(time);
-        }
-
-        private void OnPopulateStatistics(List<StatisticElement> statistics)
-        {
-            statisticView.PopulateCells(statistics);
+            // TODO
+            // statisticView.PopulateCells(statistics);
+            statisticView.Fade(_ctx.GameSet.levelEndStatisticsUiFadeTime);
         }
 
         private void OnShowIntro(bool show) =>

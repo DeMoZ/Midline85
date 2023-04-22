@@ -39,22 +39,13 @@ public class DialoguePm : IDisposable
     /// <param name="data"></param>
     private void OnFindNext(List<AaNodeData> data)
     {
-        // todo where all the writings into prefs should be done??
-        // here?
-        // how to show locked choce nodes?
-
         _dialogueLoggerPm.AddLog(data);
-
         _currentNodes = FindNext(data.Any() ? data : _currentNodes);
 
         if (_currentNodes.Any())
-        {
             _ctx.OnNext?.Execute(_currentNodes);
-        }
         else
-        {
             Debug.LogWarning($"[{this}] no next nodes were found");
-        }
     }
 
     private List<AaNodeData> FindNext(List<AaNodeData> datas)
@@ -77,9 +68,8 @@ public class DialoguePm : IDisposable
 
     private List<AaNodeData> GetNext(AaNodeData data)
     {
-        var result = new List<AaNodeData>();
         var links = _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == data.Guid);
-        result = LinksToNodes(links);
+        var result = LinksToNodes(links);
         return result;
     }
 
@@ -89,55 +79,57 @@ public class DialoguePm : IDisposable
 
         foreach (var link in links)
         {
-            if (_ctx.LevelData.Nodes.TryGetValue(link.TargetNodeGuid, out var nodeData))
+            if (_ctx.LevelData.Nodes.TryGetValue(link.TargetNodeGuid, out var aaNodeData))
             {
-                if (result.Contains(nodeData)) continue;
+                if (result.Contains(aaNodeData)) continue;
 
-                switch (nodeData)
+                switch (aaNodeData)
                 {
-                    case ChoiceNodeData choiceData:
+                    case ChoiceNodeData nodeData:
                     {
-                        var isInCase = IsInCase(choiceData.CaseData);
-                        
-                        if (!isInCase) Debug.LogWarning($"[{this}] button is locked:\n" +
-                                                        $"{JsonConvert.SerializeObject(choiceData.CaseData)}");
+                        var isInCase = IsInCase(nodeData.CaseData);
 
-                        choiceData.IsLocked = !isInCase;
+                        if (!isInCase)
+                            Debug.LogWarning($"[{this}] button is locked:\n" +
+                                             $"{JsonConvert.SerializeObject(nodeData.CaseData)}");
 
-                        result.Add(choiceData);
+                        nodeData.IsLocked = !isInCase;
+
+                        result.Add(nodeData);
                         break;
                     }
                     case PhraseNodeData:
-                        result.Add(nodeData);
+                        result.Add(aaNodeData);
                         break;
-                    case ForkNodeData forkData:
-                        var exits = GetForkExit(forkData.ForkCaseData);
+                    case ForkNodeData nodeData:
+                        var exits = GetForkExit(nodeData.ForkCaseData);
 
                         if (!exits.Any())
                         {
-                            var exitLinks = 
-                                _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == forkData.Guid 
-                                                                            && string.IsNullOrEmpty(l.BaseExitName));
+                            var exitLinks =
+                                _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == nodeData.Guid
+                                                                && string.IsNullOrEmpty(l.BaseExitName));
                             result.AddRange(LinksToNodes(exitLinks));
                         }
                         else
                         {
                             foreach (var exit in exits)
                             {
-                                var exitLinks = 
+                                var exitLinks =
                                     _ctx.LevelData.Links.Where(l => l.BaseExitName == exit);
                                 result.AddRange(LinksToNodes(exitLinks));
                             }
                         }
 
                         break;
-                    case CountNodeData countData:
-                        _dialogueLoggerPm.AddLog(countData);
-                        _dialogueLoggerPm.AddCount(countData.Choice, countData.Value);
-                        result.AddRange(GetNext(countData));
+                    case CountNodeData nodeData:
+                        _dialogueLoggerPm.AddLog(nodeData);
+                        _dialogueLoggerPm.AddCount(nodeData.Choice, nodeData.Value);
+                        result.AddRange(GetNext(nodeData));
                         break;
-                    case EndNodeData:
-
+                    case EndNodeData nodeData:
+                        _dialogueLoggerPm.AddLog(nodeData);
+                        result.Add(nodeData);
                         break;
                     case EntryNodeData:
                         throw new SystemException("Entry point can not be here. Some issues with graph");
@@ -151,7 +143,7 @@ public class DialoguePm : IDisposable
     private List<string> GetForkExit(List<ForkCaseData> data)
     {
         var result = new List<string>();
-        
+
         foreach (var condition in data)
         {
             var isInCase = IsInCase(condition);
@@ -195,7 +187,7 @@ public class DialoguePm : IDisposable
                 break;
             }
         }
-        
+
         foreach (var endData in data.Ends)
         {
             var andEnd = false;
@@ -221,7 +213,7 @@ public class DialoguePm : IDisposable
                 break;
             }
         }
-        
+
         foreach (var count in data.Counts)
         {
             var value = _dialogueLoggerPm.GetCount(count.CountKey);
@@ -231,7 +223,7 @@ public class DialoguePm : IDisposable
                 break;
             }
         }
-        
+
         return inCase;
     }
 
