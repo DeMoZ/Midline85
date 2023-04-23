@@ -47,6 +47,7 @@ namespace Configs
         public PopupKeysList CountKeys;
         public PopupKeysList EndsKeys;
         public ChoiceKeysList ChoiceKeys;
+        public RecordKeysList RecordKeys;
         public LanguagesKeysList LanguagesKeys;
         
         [Space][Title("Button Sounds")]

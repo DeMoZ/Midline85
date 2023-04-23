@@ -83,6 +83,20 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(popup);
         }
     }
+    
+    public class RecordPopupField : KeyPopupField
+    {
+        public RecordPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
+        {
+        }
+
+        protected override string KeyToTextTitle(string val)
+        {
+            Value = val;
+            string textValue = new LocalizedString(val);
+            return textValue;
+        }
+    }
 
     public class CountPopupField : KeyPopupField
     {

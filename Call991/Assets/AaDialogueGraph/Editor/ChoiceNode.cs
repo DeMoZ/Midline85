@@ -14,14 +14,14 @@ namespace AaDialogueGraph.Editor
             CreateInPort();
             CreateOutPort();
 
-            var caseFoldout = new Foldout();
-            caseFoldout.value = false;
+            var foldout = new Foldout();
+            foldout.value = false;
 
             var caseElement = new CaseGroupElement();
-            caseElement.Set(caseFoldout, data.CaseData.Words, data.CaseData.Ends, data.CaseData.Counts);
-            caseFoldout.Add(caseElement);
-            contentContainer.Add(caseFoldout);
-            caseFoldout.AddToClassList("aa-ChoiceNode_extension-container");
+            caseElement.Set(foldout, data.CaseData.Words, data.CaseData.Ends, data.CaseData.Counts);
+            foldout.Add(caseElement);
+            contentContainer.Add(foldout);
+            foldout.AddToClassList("aa-ChoiceNode_extension-container");
         }
     }
 }

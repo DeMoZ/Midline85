@@ -192,6 +192,7 @@ namespace AaDialogueGraph.Editor
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     End = node.Q<EndPopupField>().Value,
+                    Records = node.GetRecords(),
                 });
             }
 

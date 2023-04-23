@@ -21,6 +21,7 @@ namespace AaDialogueGraph.Editor
         public static List<string> CountKeys => GetGameSet.CountKeys.Keys;
         public static List<string> ChoiceKeys => GetGameSet.ChoiceKeys.Keys;
         public static List<string> LanguageKeys => GetGameSet.LanguagesKeys.Keys;
+        public static List<string> RecordKeys => GetGameSet.RecordKeys.Keys;
 
         private static GameSet GetGameSet
         {
@@ -62,6 +63,8 @@ namespace AaDialogueGraph.Editor
         public const string AndEnd = "+End";
         public const string NoEnd = "-End";
 
+        public const string AddRecord = "+Record";
+        
         public const string And = "+";
         public const string No = "-";
 
@@ -167,6 +170,30 @@ namespace AaDialogueGraph.Editor
         public Phrase GetPhrase()
         {
             return _objectField.value as Phrase;
+        }
+    }
+    
+    public class SpriteField : VisualElement
+    {
+        private ObjectField _objectField;
+
+        public void Set(Object asset = null, Action onChange = null)
+        {
+            _objectField = new ObjectField
+            {
+                objectType = typeof(Sprite),
+                allowSceneObjects = false,
+                value = asset,
+            };
+
+            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
+
+            contentContainer.Add(_objectField);
+        }
+
+        public Sprite GetSprite()
+        {
+            return _objectField.value as Sprite;
         }
     }
 
