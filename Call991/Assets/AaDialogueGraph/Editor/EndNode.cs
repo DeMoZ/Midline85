@@ -38,14 +38,14 @@ namespace AaDialogueGraph.Editor
             UpdateCount(foldout);
         }
 
-        private RecordGroup NewRecordGroup(Foldout foldout, RecordData record)
+        private RecordGroup NewRecordGroup(Foldout foldout, RecordData data)
         {
             var recordGroup =  new RecordGroup();
             recordGroup.Set(element =>
             {
                 RemoveElement(element, contentContainer);
                 UpdateCount(foldout);
-            }, AaKeys.RecordKeys, record);
+            }, AaKeys.RecordKeys, data);
 
             return recordGroup;
         }
@@ -94,7 +94,7 @@ namespace AaDialogueGraph.Editor
             var verticalContainer = new VisualElement();
 
             var sprite = data != null && !string.IsNullOrEmpty(data.Sprite)
-                ? NodeUtils.GetObjectByPath<AudioClip>(data.Sprite)
+                ? NodeUtils.GetObjectByPath<Sprite>(data.Sprite)
                 : null;
 
             _objectField = new SpriteField();
