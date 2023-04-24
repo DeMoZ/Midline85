@@ -19,34 +19,38 @@ namespace AaDialogueGraph.Editor
             foldout.AddToClassList("aa-EndNode_extension-container");
             contentContainer.Add(foldout);
 
-            var phraseEvents = new PhraseEvents();
-            phraseEvents.Set(data.EventVisualData, () => { });
-            foldout.Add(phraseEvents);
+            var events = new AaNodeEvents();
+            events.Set(data.EventVisualData, () => { });
+            foldout.Add(events);
+
+            var recordsContainer = new VisualElement();
+            recordsContainer.AddToClassList("aa-RecordVisual_content-container");
+            foldout.Add(recordsContainer);
             
             var addRecord = new Button(() =>
             {
-                var recordGroup = NewRecordGroup(foldout, new RecordData());
-                foldout.Add(recordGroup);
+                var recordGroup = NewRecordGroup(recordsContainer, foldout, new RecordData());
+                recordsContainer.Add(recordGroup);
                 UpdateCount(foldout);
             });
             addRecord.text = AaGraphConstants.AddRecord;
-            foldout.Add(addRecord);
+            recordsContainer.Add(addRecord);
 
             foreach (var record in data.Records)
             {
-                var recordGroup = NewRecordGroup(foldout, record);
-                foldout.Add(recordGroup);
+                var recordGroup = NewRecordGroup(recordsContainer, foldout, record);
+                recordsContainer.Add(recordGroup);
             }
             
             UpdateCount(foldout);
         }
 
-        private RecordGroup NewRecordGroup(Foldout foldout, RecordData data)
+        private RecordGroup NewRecordGroup(VisualElement container, Foldout foldout, RecordData data)
         {
             var recordGroup =  new RecordGroup();
             recordGroup.Set(element =>
             {
-                RemoveElement(element, contentContainer);
+                RemoveElement(element, container);
                 UpdateCount(foldout);
             }, AaKeys.RecordKeys, data);
 

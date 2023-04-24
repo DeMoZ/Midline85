@@ -206,15 +206,6 @@ MonoBehaviour:
     Choice: FIRE.EMOTIONS
     Value: 1
   EndNodeData:
-  - Guid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
-    Rect:
-      serializedVersion: 2
-      x: 752
-      y: 224
-      width: 131
-      height: 95.5
-    End: FIRE.END.NEUT1
-    Records: []
   - Guid: 638d89e0-48a2-470a-817c-e0c7ba4445e2
     Rect:
       serializedVersion: 2
@@ -223,6 +214,17 @@ MonoBehaviour:
       width: 129
       height: 95.5
     End: FIRE.END.GOOD
+    EventVisualData: []
+    Records: []
+  - Guid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
+    Rect:
+      serializedVersion: 2
+      x: 752
+      y: 224
+      width: 131
+      height: 95.5
+    End: FIRE.END.NEUT1
+    EventVisualData: []
     Records: []
   - Guid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
     Rect:
@@ -230,8 +232,27 @@ MonoBehaviour:
       x: 728
       y: 39
       width: 510
-      height: 251
+      height: 437
     End: FIRE.END.BAD
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: Sounds/RU/7_lvl/p.elena.031.ogg
+      Layer: 1
+      Loop: 1
+      Stop: 1
+      Delay: 0
+    - Type: 1
+      PhraseEvent: 
+      Layer: 1
+      Loop: 1
+      Stop: 0
+      Delay: 0
+    - Type: 2
+      PhraseEvent: 
+      Layer: 3
+      Loop: 1
+      Stop: 0
+      Delay: 5
     Records:
     - Sprite: RecordIcons/iconFire.png
       Key: achive_killKids

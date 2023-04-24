@@ -20,7 +20,7 @@ namespace AaDialogueGraph.Editor
         protected virtual void CreateElements(List<string> keys, string currentChoice = null)
         {
             var label = new Label();
-
+            
             var popup = new NoEnumPopup();
             popup.Set(keys, currentChoice, val => label.text = KeyToTextTitle(val));
             contentContainer.Add(popup);
@@ -94,6 +94,19 @@ namespace AaDialogueGraph.Editor
         {
             Value = val;
             string textValue = new LocalizedString(val);
+
+            if (textValue.Length > 40)
+            {
+                var color = "</color>";
+                var parts = textValue.Split(color);
+                
+                if (parts.Length > 1)
+                {
+                    parts[1] = parts[1].Insert(0, $"{color}\n");
+                    textValue = $"{parts[0]}{parts[1]}";
+                }
+            }
+            
             return textValue;
         }
     }

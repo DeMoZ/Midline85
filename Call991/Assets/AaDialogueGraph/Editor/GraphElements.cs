@@ -292,9 +292,9 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-    #region PhraseEvents
+    #region NodeEvents
 
-    public class PhraseEvents : VisualElement
+    public class AaNodeEvents : VisualElement
     {
         private Action _onChange;
 

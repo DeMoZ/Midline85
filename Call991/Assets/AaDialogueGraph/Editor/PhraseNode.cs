@@ -44,7 +44,7 @@ namespace AaDialogueGraph.Editor
             phraseVisual.Set(data.PhraseVisualData);
             contentFolder.Add(phraseVisual);
 
-            var phraseEvents = new PhraseEvents();
+            var phraseEvents = new AaNodeEvents();
             phraseEvents.Set(data.EventVisualData, CheckNodeContent);
             contentFolder.Add(phraseEvents);
 
