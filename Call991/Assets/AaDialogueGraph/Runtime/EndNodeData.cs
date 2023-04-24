@@ -6,8 +6,8 @@ namespace AaDialogueGraph
     public class EndNodeData : AaNodeData
     { 
         public string End;
-        public List<EventVisualData> EventVisualData;
-        public List<RecordData> Records;
+        public List<EventVisualData> EventVisualData = new();
+        public List<RecordData> Records = new();
     }
 
     [System.Serializable]

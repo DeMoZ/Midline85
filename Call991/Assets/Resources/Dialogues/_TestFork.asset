@@ -172,6 +172,19 @@ MonoBehaviour:
       Ends: []
       Counts: []
     IsLocked: 0
+  - Guid: b3305724-5bbd-432b-b579-1582bb8fc699
+    Rect:
+      serializedVersion: 2
+      x: -268.5
+      y: 406.5
+      width: 103.5
+      height: 97.5
+    Choice: c.word.039
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
   ForkNodeData:
   - Guid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
     Rect:
@@ -231,8 +244,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 728
       y: 39
-      width: 510
-      height: 437
+      width: 118.5
+      height: 95.5
     End: FIRE.END.BAD
     EventVisualData:
     - Type: 0
@@ -258,6 +271,20 @@ MonoBehaviour:
       Key: achive_killKids
     - Sprite: RecordIcons/iconKids.png
       Key: achive_saveJack
+  - Guid: ee60845e-9aee-4ffc-b814-b6481f148594
+    Rect:
+      serializedVersion: 2
+      x: -110.5
+      y: 481.5
+      width: 326
+      height: 325.5
+    End: FIRE.END.GOOD
+    EventVisualData: []
+    Records:
+    - Sprite: RecordIcons/iconJack.png
+      Key: achive_killJack
+    - Sprite: RecordIcons/iconKids.png
+      Key: achive_killKids
   NodeLinks:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
@@ -316,3 +343,9 @@ MonoBehaviour:
   - BaseNodeGuid: 7e736ca7-a690-462f-907d-339ae62bc89b
     BaseExitName: 
     TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+  - BaseNodeGuid: b3305724-5bbd-432b-b579-1582bb8fc699
+    BaseExitName: 
+    TargetNodeGuid: ee60845e-9aee-4ffc-b814-b6481f148594
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    BaseExitName: 
+    TargetNodeGuid: b3305724-5bbd-432b-b579-1582bb8fc699

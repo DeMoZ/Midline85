@@ -25,7 +25,7 @@ namespace UI
         {
             public GameSet GameSet;
             public ReactiveCommand<UiPhraseData> OnShowPhrase;
-            public ReactiveCommand<EndNodeData> OnLevelEnd;
+            public ReactiveCommand<List<RecordData>> OnLevelEnd;
             
             public ReactiveCommand onClickMenuButton;
             //public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
@@ -105,10 +105,10 @@ namespace UI
             //_ctx.onShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
             _ctx.onHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
             _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
-            _ctx.onHideLevelUi.Subscribe(time =>
-            {
-                levelView.OnHideLevelUi(time, () => { EnableUi(statisticView.GetType()); });
-            }).AddTo(_disposables);
+            // _ctx.onHideLevelUi.Subscribe(time =>
+            // {
+            //     levelView.OnHideLevelUi(time, () => { EnableUi(statisticView.GetType()); });
+            // }).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
             _ctx.onShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
 
@@ -158,11 +158,13 @@ namespace UI
                 await Task.Delay(10);
         }
 
-        private void OnLevelEnd(EndNodeData statistics)
+        private void OnLevelEnd(List<RecordData> data)
         {
-            // TODO
-            // statisticView.PopulateCells(statistics);
+            //levelView.OnHideLevelUi(time, () => { EnableUi(statisticView.GetType()); });
+            statisticView.PopulateCells(data);
             statisticView.Fade(_ctx.GameSet.levelEndStatisticsUiFadeTime);
+            EnableUi(statisticView.GetType()); 
+                                //_ctx.GameSet.levelEndLevelUiDisappearTime
         }
 
         private void OnShowIntro(bool show) =>

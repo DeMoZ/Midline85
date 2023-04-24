@@ -75,7 +75,7 @@ public class LevelSceneEntity : IGameScene
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
 
         var onPopulateStatistics = new ReactiveCommand<List<StatisticElement>>().AddTo(_disposables);
-        var onLevelEnd = new ReactiveCommand<EndNodeData>().AddTo(_disposables);
+        ReactiveCommand<List<RecordData>> onLevelEnd = new ReactiveCommand<List<RecordData>>().AddTo(_disposables);
         var onHideLevelUi = new ReactiveCommand<float>().AddTo(_disposables);
         var onShowStatisticUi = new ReactiveCommand<float>().AddTo(_disposables);
         var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);

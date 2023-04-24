@@ -28,7 +28,7 @@ public class LevelScenePm : IDisposable
 
         public ReactiveCommand<UiPhraseData> onHidePhrase;
         public ReactiveCommand<bool> onShowIntro;
-        public ReactiveCommand<EndNodeData> OnLevelEnd;
+        public ReactiveCommand<List<RecordData>> OnLevelEnd;
 
         public Dialogues dialogues;
         public PlayerProfile profile;
@@ -175,7 +175,7 @@ public class LevelScenePm : IDisposable
         _isPhraseSkipped.Value = false;
         _isChoiceDone.Value = false;
 
-        Debug.LogError($"Received new nodes {data.Count}");
+        Debug.LogError($"[{this}] Received new nodes {data.Count}");
 
         _next = new List<AaNodeData>();
         _choice = null;
@@ -316,7 +316,9 @@ public class LevelScenePm : IDisposable
         //await Task.Delay((int) (_ctx.gameSet.levelEndLevelUiDisappearTime * 1000));
         //Debug.LogWarning($"[{this}] on hide awaited");
         
-        _ctx.OnLevelEnd.Execute(data.First());
+        _ctx.OnLevelEnd.Execute(data.First().Records);
+        
+        // TODO fade should be removed and implemented with prefab in envent field
         await Task.Delay((int) (_ctx.gameSet.levelEndStatisticsUiFadeTime * 1000));
     }
 

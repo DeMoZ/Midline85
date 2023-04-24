@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using AaDialogueGraph;
 using DG.Tweening;
 using I2.Loc;
 using UniRx;
@@ -18,8 +19,9 @@ namespace UI
         [SerializeField] private GameObject statisticsObjects = default;
         [SerializeField] private Image fadeImage = default;
         [Space] [SerializeField] private LocalizedString lockedTextKey = default;
-
-        [Space] [SerializeField] private List<StatisticsCellView> cells = default;
+        
+        [Space] [SerializeField] private RectTransform table = default;
+        [SerializeField] private StatisticsCellView cellPrefab = default;
 
         private Ctx _ctx;
         private Color fadeImageColor;
@@ -40,22 +42,23 @@ namespace UI
         private void OnClickMenu() =>
             _ctx.onClickMenuButton.Execute();
 
-        public void PopulateCells(List<StatisticElement> statisticElements)
+        public void PopulateCells(List<RecordData> data)
         {
-            for (var i = 0; i < cells.Count; i++)
+            foreach (Transform cell in table)
             {
-                var cell = cells[i];
-                if (statisticElements.Count > i && statisticElements[i].isReceived)
-                {
-                    cell.image.sprite = statisticElements[i].sprite;
-                    cell.text.text = statisticElements[i].isReceived ? statisticElements[i].description : lockedTextKey;
-                    cell.arrow.SetActive(statisticElements[i].isReceived);
-                    cell.gameObject.SetActive(true);
-                }
-                else
-                {
-                    cell.gameObject.SetActive(false);
-                }
+                Destroy(cell.gameObject);
+            }
+
+            foreach (var record in data)
+            {
+                var cell = Instantiate(cellPrefab, table);
+                cell.text.text = new LocalizedString(record.Key);
+                
+                var sprite = !string.IsNullOrEmpty(record.Sprite)
+                    ? NodeUtils.GetObjectByPath<Sprite>(record.Sprite)
+                    : null;
+                
+                cell.image.sprite = sprite;
             }
         }
 
