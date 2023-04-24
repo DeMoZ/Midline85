@@ -92,7 +92,7 @@ namespace AaDialogueGraph.Editor
             data.Languages = languageFields.Select(field => field.Value).ToList();
             return data;
         }
-        
+
         private List<PhraseNodeData> PhraseNodesToData(List<PhraseNode> nodes)
         {
             var data = new List<PhraseNodeData>();
@@ -187,11 +187,14 @@ namespace AaDialogueGraph.Editor
             var data = new List<EndNodeData>();
             foreach (var node in nodes)
             {
+                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
+
                 data.Add(new EndNodeData
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     End = node.Q<EndPopupField>().Value,
+                    EventVisualData = eventsVisualData,
                     Records = node.GetRecords(),
                 });
             }

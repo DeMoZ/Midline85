@@ -65,7 +65,7 @@ namespace AaDialogueGraph.Editor
                     : null;
 
                 var field = new PhraseElementsRowField();
-                field.Set(languages[i], clip, phrase, CheckNodeContent); 
+                field.Set(languages[i], clip, phrase, CheckNodeContent);
                 phraseContainer.Add(field);
             }
 

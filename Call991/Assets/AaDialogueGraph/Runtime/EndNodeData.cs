@@ -6,6 +6,7 @@ namespace AaDialogueGraph
     public class EndNodeData : AaNodeData
     { 
         public string End;
+        public List<EventVisualData> EventVisualData;
         public List<RecordData> Records;
     }
 

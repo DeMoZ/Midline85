@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -20,6 +19,10 @@ namespace AaDialogueGraph.Editor
             foldout.AddToClassList("aa-EndNode_extension-container");
             contentContainer.Add(foldout);
 
+            var phraseEvents = new PhraseEvents();
+            phraseEvents.Set(data.EventVisualData, () => { });
+            foldout.Add(phraseEvents);
+            
             var addRecord = new Button(() =>
             {
                 var recordGroup = NewRecordGroup(foldout, new RecordData());
@@ -76,6 +79,9 @@ namespace AaDialogueGraph.Editor
             }    
             return records;
         }
+        
+        public List<EventVisual> GetEventsVisual() =>
+            contentContainer.Query<EventVisual>().ToList();
     }
 
     public class RecordGroup : VisualElement
