@@ -71,13 +71,28 @@ namespace AaDialogueGraph.Editor
             var endNodes = AaNodes.OfType<EndNode>().ToList();
             dialogueContainer.EndNodeData.AddRange(EndNodesToData(endNodes));
 
-            CreateFolders(fileName);
+            var assetName = $"Assets/Resources/{fileName}.asset";
+            if (File.Exists(assetName))
+            {
+                var theFile = Resources.Load<DialogueContainer>(fileName);
+                EditorUtility.SetDirty(theFile);
+                EditorUtility.CopySerialized(dialogueContainer, theFile);
+                theFile.name = Path.GetFileName(fileName);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
 
-            AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+                Debug.Log($"Dialogue <color=yellow>{fileName}</color> <color=green>Refreshed</color>. {DateTime.Now}");
+            }
+            else
+            {
+                CreateFolders(fileName);
 
-            Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
+                AssetDatabase.CreateAsset(dialogueContainer, assetName);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+
+                Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
+            }
         }
 
         private EntryNodeData EntryNodeToData(EntryNode node)

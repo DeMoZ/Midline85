@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
-  m_Name: _TestFork
+  m_Name: 
   m_EditorClassIdentifier: 
   EntryNodeData:
     Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
@@ -23,66 +23,6 @@ MonoBehaviour:
     Languages:
     - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
   PhraseNodeData:
-  - Guid: 383cce55-bf74-4ee6-ac4b-26d702569479
-    Rect:
-      serializedVersion: 2
-      x: 578
-      y: 353
-      width: 99.5
-      height: 96
-    PhraseSketchText: exir 2
-    PersonVisualData:
-      Person: 3
-      ScreenPlace: 6
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 0
-    EventVisualData: []
-    PhraseSounds:
-    - 
-    Phrases:
-    - 
-  - Guid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
-    Rect:
-      serializedVersion: 2
-      x: 587
-      y: 200
-      width: 99.5
-      height: 96
-    PhraseSketchText: exit 1
-    PersonVisualData:
-      Person: 2
-      ScreenPlace: 4
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 0
-    EventVisualData: []
-    PhraseSounds:
-    - 
-    Phrases:
-    - 
-  - Guid: b8b538e0-1375-4177-82b0-bd383a88d18f
-    Rect:
-      serializedVersion: 2
-      x: 578
-      y: 48.5
-      width: 101
-      height: 96
-    PhraseSketchText: default ext
-    PersonVisualData:
-      Person: 1
-      ScreenPlace: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 0
-    EventVisualData: []
-    PhraseSounds:
-    - 
-    Phrases:
-    - 
   - Guid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
     Rect:
       serializedVersion: 2
@@ -172,42 +112,20 @@ MonoBehaviour:
       Ends: []
       Counts: []
     IsLocked: 0
-  - Guid: b3305724-5bbd-432b-b579-1582bb8fc699
+  - Guid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     Rect:
       serializedVersion: 2
       x: -268.5
-      y: 406.5
+      y: 394
       width: 103.5
       height: 97.5
-    Choice: c.word.039
+    Choice: c.word.008
     CaseData:
       Words: []
       Ends: []
       Counts: []
     IsLocked: 0
-  ForkNodeData:
-  - Guid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-    Rect:
-      serializedVersion: 2
-      x: 347
-      y: 163
-      width: 149
-      height: 152.5
-    ForkCaseData:
-    - Words:
-      - CaseType: 0
-        OrKeys:
-        - c.word.002
-      Ends: []
-      Counts: []
-      ForkExitName: 60f15cb1-2be0-4fa0-aa43-0e51d4637fba
-    - Words: []
-      Ends: []
-      Counts:
-      - CountType: 0
-        CountKey: FIRE.EMOTIONS
-        Range: {x: 1, y: 2}
-      ForkExitName: f5134bf5-33f7-483a-9357-ba01ff2e832e
+  ForkNodeData: []
   CountNodeData:
   - Guid: 7e736ca7-a690-462f-907d-339ae62bc89b
     Rect:
@@ -219,94 +137,33 @@ MonoBehaviour:
     Choice: FIRE.EMOTIONS
     Value: 1
   EndNodeData:
-  - Guid: 638d89e0-48a2-470a-817c-e0c7ba4445e2
+  - Guid: 657551ae-35b5-4275-a0f3-8d8ddf1b4be9
     Rect:
       serializedVersion: 2
-      x: 752
-      y: 376
-      width: 129
-      height: 95.5
-    End: FIRE.END.GOOD
-    EventVisualData: []
-    Records: []
-  - Guid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
-    Rect:
-      serializedVersion: 2
-      x: 752
-      y: 224
-      width: 131
-      height: 95.5
-    End: FIRE.END.NEUT1
-    EventVisualData: []
-    Records: []
-  - Guid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
-    Rect:
-      serializedVersion: 2
-      x: 728
-      y: 39
-      width: 118.5
-      height: 95.5
+      x: -143
+      y: 415
+      width: 326
+      height: 312
     End: FIRE.END.BAD
-    EventVisualData:
-    - Type: 0
-      PhraseEvent: Sounds/RU/7_lvl/p.elena.031.ogg
-      Layer: 1
-      Loop: 1
-      Stop: 1
-      Delay: 0
-    - Type: 1
-      PhraseEvent: 
-      Layer: 1
-      Loop: 1
-      Stop: 0
-      Delay: 0
-    - Type: 2
-      PhraseEvent: 
-      Layer: 3
-      Loop: 1
-      Stop: 0
-      Delay: 5
+    EventVisualData: []
     Records:
     - Sprite: RecordIcons/iconFire.png
-      Key: achive_killKids
-    - Sprite: RecordIcons/iconKids.png
-      Key: achive_saveJack
-  - Guid: ee60845e-9aee-4ffc-b814-b6481f148594
-    Rect:
-      serializedVersion: 2
-      x: -110.5
-      y: 481.5
-      width: 326
-      height: 325.5
-    End: FIRE.END.GOOD
-    EventVisualData: []
-    Records:
-    - Sprite: RecordIcons/iconJack.png
-      Key: achive_killJack
-    - Sprite: RecordIcons/iconKids.png
-      Key: achive_killKids
+      Key: achive_saveKids
+    - Sprite: RecordIcons/iconFire.png
+      Key: achive_backToMenu
   NodeLinks:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
     TargetNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
-  - BaseNodeGuid: 383cce55-bf74-4ee6-ac4b-26d702569479
-    BaseExitName: 
-    TargetNodeGuid: 638d89e0-48a2-470a-817c-e0c7ba4445e2
-  - BaseNodeGuid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
-    BaseExitName: 
-    TargetNodeGuid: a619d07f-2ca4-4fb5-8e48-ce2f44b5d3ad
-  - BaseNodeGuid: b8b538e0-1375-4177-82b0-bd383a88d18f
-    BaseExitName: 
-    TargetNodeGuid: 2e2f5ac3-ad86-48e2-a59c-68385de9243a
   - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
     BaseExitName: 
     TargetNodeGuid: 55ae36db-8978-44c1-8094-68a8a7c7d8ef
   - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
     BaseExitName: 
     TargetNodeGuid: ed6f4829-73f6-4e02-b25b-e79545d8d8e3
-  - BaseNodeGuid: e3074029-8df6-4187-b3a6-f0fbf5a545e9
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
     BaseExitName: 
-    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
+    TargetNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
   - BaseNodeGuid: 9ec5bf3e-2942-46b0-8130-fd2010df39d9
     BaseExitName: 
     TargetNodeGuid: 7e736ca7-a690-462f-907d-339ae62bc89b
@@ -328,24 +185,6 @@ MonoBehaviour:
   - BaseNodeGuid: 55ae36db-8978-44c1-8094-68a8a7c7d8ef
     BaseExitName: 
     TargetNodeGuid: 9ec5bf3e-2942-46b0-8130-fd2010df39d9
-  - BaseNodeGuid: 7fbfed3c-52e4-4783-aaec-d15d89f0851f
+  - BaseNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     BaseExitName: 
-    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-    BaseExitName: 60f15cb1-2be0-4fa0-aa43-0e51d4637fba
-    TargetNodeGuid: 8bf4180e-2783-4eaf-a1a6-5ca6b6ec9917
-  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-    BaseExitName: f5134bf5-33f7-483a-9357-ba01ff2e832e
-    TargetNodeGuid: 383cce55-bf74-4ee6-ac4b-26d702569479
-  - BaseNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-    BaseExitName: 
-    TargetNodeGuid: b8b538e0-1375-4177-82b0-bd383a88d18f
-  - BaseNodeGuid: 7e736ca7-a690-462f-907d-339ae62bc89b
-    BaseExitName: 
-    TargetNodeGuid: 23d0bc54-62a6-4071-9fae-3b7bd75769b4
-  - BaseNodeGuid: b3305724-5bbd-432b-b579-1582bb8fc699
-    BaseExitName: 
-    TargetNodeGuid: ee60845e-9aee-4ffc-b814-b6481f148594
-  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
-    BaseExitName: 
-    TargetNodeGuid: b3305724-5bbd-432b-b579-1582bb8fc699
+    TargetNodeGuid: 657551ae-35b5-4275-a0f3-8d8ddf1b4be9
