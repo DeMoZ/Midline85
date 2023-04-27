@@ -30,14 +30,13 @@ public class RootEntity : IDisposable
         var gameSet = Resources.Load<GameSet>("GameSet");
         var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
 
-        var onAudioLanguage = new ReactiveCommand<Language>().AddTo(_diposables);
+        var onAudioLanguage = new ReactiveCommand<string>().AddTo(_diposables);
         
         var profile = new PlayerProfile(onAudioLanguage);
         SetLanguage(profile.TextLanguage);
         
         var soundPath = "Sounds/Ui";
         var musicPath = "Sounds/Music";
-        //var levelFolder = "RU_7_P";
 
         _ctx.audioManager.SetCtx(new AudioManager.Ctx
         {
@@ -47,7 +46,6 @@ public class RootEntity : IDisposable
             audioMixer = audioMixer,
             soundPath = soundPath,
             musicPath = musicPath,
-            //levelFolder = levelFolder,
         });
         _ctx.audioManager.PlayMusic("Intro").Forget();
 
@@ -88,16 +86,9 @@ public class RootEntity : IDisposable
         _onStartApplicationSwitchScene.Execute();
     }
 
-    private void SetLanguage(Language language)
+    private void SetLanguage(string language)
     {
-        string locLanguage = language switch
-        {
-            Language.EN => "English",
-            Language.RU => "Russian",
-            _ => throw new ArgumentOutOfRangeException(nameof(language), language, null)
-        };
-
-        LocalizationManager.CurrentLanguage = locLanguage;
+        LocalizationManager.CurrentLanguage = language;
     }
 
     public void Dispose()

@@ -13,7 +13,7 @@ public class AudioManager : MonoBehaviour
     public struct Ctx
     {
         public GameSet gameSet;
-        public ReactiveCommand<Language> onAudioLanguage;
+        public ReactiveCommand<string> onAudioLanguage;
         public AudioMixer audioMixer;
         public PlayerProfile playerProfile;
         public string soundPath;

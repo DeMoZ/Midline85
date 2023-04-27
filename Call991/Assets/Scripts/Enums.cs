@@ -13,12 +13,6 @@ public enum DialogAppearType
     Fade,
 }
 
-public enum Language
-{
-    EN,
-    RU,
-}
-
 public enum AudioSourceType
 {
     Phrases,

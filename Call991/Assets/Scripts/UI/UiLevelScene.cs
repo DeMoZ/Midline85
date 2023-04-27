@@ -102,7 +102,6 @@ namespace UI
 
             _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
             
-            //_ctx.onShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
             _ctx.onHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
             _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
             // _ctx.onHideLevelUi.Subscribe(time =>

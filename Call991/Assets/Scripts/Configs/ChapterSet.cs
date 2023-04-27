@@ -13,7 +13,7 @@ public class ChapterSet : SerializedScriptableObject
     public string levelVideoSoName;
     public List<Dialogues> dialogues;
     
-    public async Task<Dialogues> LoadDialogues(Language language, string lvl)
+    public async Task<Dialogues> LoadDialogues(string language, string lvl)
     {
         var newDialogues = ScriptableObject.CreateInstance<Dialogues>();
         newDialogues.phrases = new List<PhraseSet>();
@@ -21,10 +21,10 @@ public class ChapterSet : SerializedScriptableObject
         foreach (var dialogue in dialogues)
             newDialogues.phrases.AddRange(dialogue.phrases);
 
-        var path = $"{language}/{lvl}/";
+        //var path = $"{language}/{lvl}/";
 
-        foreach (var phraseSet in newDialogues.phrases)
-            phraseSet.Phrase = await LoadTextPhrase(path, phraseSet.phraseId);
+        // foreach (var phraseSet in newDialogues.phrases)
+        //     phraseSet.Phrase = await LoadTextPhrase(path, phraseSet.phraseId);
 
         ResourcesLoader.UnloadUnused();
         return newDialogues;

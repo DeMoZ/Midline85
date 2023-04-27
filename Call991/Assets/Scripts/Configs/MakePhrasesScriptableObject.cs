@@ -6,7 +6,7 @@ using UnityEditor;
 public class MakePhrasesScriptableObject : ScriptableObject
 {
     public ChapterSet copyFromDialogues = default;
-    public Language Language = default;
+    public string Language = default;
     public string Lvl = "7_lvl";
 
     [Button("Make Assets/Resources/[Language]/[Lvl]/")]

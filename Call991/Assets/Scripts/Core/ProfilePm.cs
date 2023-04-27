@@ -12,8 +12,8 @@ public class PlayerProfile : IDisposable
     private const string AudioLanguageKey = "AudioLanguage";
     private const string PlayerDataKey = "PlayerData";
    
-    private Language _textLanguage;
-    private Language _audioLanguage;
+    private string _textLanguage;
+    private string _audioLanguage;
 
     private float _phraseVolume;
     private float _uiVolume;
@@ -21,23 +21,18 @@ public class PlayerProfile : IDisposable
     private float _musicVolume;
 
     private PlayerData _playerData;
-    private ReactiveCommand<Language> _onAudioLanguage;
+    private ReactiveCommand<string> _onAudioLanguage;
     private CompositeDisposable _disposables;
 
     public ReactiveCommand<(AudioSourceType type, float volume)> onVolumeSet;
 
-    public PlayerProfile(ReactiveCommand<Language> onAudioLanguage)
+    public PlayerProfile(ReactiveCommand<string> onAudioLanguage)
     {
         _disposables = new CompositeDisposable();
         
         _onAudioLanguage = onAudioLanguage;
-
-        var textLanguage = PlayerPrefs.GetString(TextLanguageKey, Language.EN.ToString());
-        Enum.TryParse(textLanguage, out _textLanguage);
-
-        //var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.EN.ToString());
-        var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, Language.RU.ToString());
-        Enum.TryParse(audioLanguage, out _audioLanguage);
+        _textLanguage = PlayerPrefs.GetString(TextLanguageKey, string.Empty);
+        _audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, string.Empty);
 
         _onAudioLanguage?.Execute(_audioLanguage);
 
@@ -77,7 +72,7 @@ public class PlayerProfile : IDisposable
         _playerData.choices.Clear();
     }
 
-    public Language TextLanguage
+    public string TextLanguage
     {
         get => _textLanguage;
         set
@@ -87,7 +82,7 @@ public class PlayerProfile : IDisposable
         }
     }
 
-    public Language AudioLanguage
+    public string AudioLanguage
     {
         get => _audioLanguage;
         set
@@ -225,7 +220,7 @@ public class PlayerProfile : IDisposable
         PlayerPrefs.GetFloat(sourceType.ToString(), 1);
 
 #if UNITY_EDITOR
-    public void SaveLanguages(Language textLanguage, Language audioLanguage)
+    public void SaveLanguages(string textLanguage, string audioLanguage)
     {
         PlayerPrefs.SetString(TextLanguageKey, textLanguage.ToString());
         PlayerPrefs.SetString(AudioLanguageKey, audioLanguage.ToString());

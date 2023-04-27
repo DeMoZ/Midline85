@@ -18,8 +18,8 @@ public class LevelScenePm : IDisposable
     {
         public ReactiveCommand<List<AaNodeData>> FindNext;
         public ReactiveCommand<List<AaNodeData>> OnNext;
-
         public ReactiveCommand<UiPhraseData> OnShowPhrase;
+        public List<string> Languages;
 
         public AudioManager audioManager;
         public ReactiveCommand<GameScenes> onSwitchScene;
@@ -187,7 +187,7 @@ public class LevelScenePm : IDisposable
         if (ends.Any())
         {
             RunEndNode(ends);
-            return; 
+            return;
 //------------------
         }
 
@@ -223,13 +223,10 @@ public class LevelScenePm : IDisposable
     private IEnumerator RunPhrase(PhraseNodeData data)
     {
         Debug.LogError($"RunPhrase {data}");
-        float defaultTime = 4f;
-        Phrase phrase = null;
-        // get language
-        // await try load dialogue for the language
-        //     await try load dialogue for default language
+        var defaultTime = 4f;
 
-        //await _ctx.phraseSoundPlayer.TryLoadDialogue(phraseByLanguage, _token);
+        var phrase = GetPhrase(data);
+        var audioClip = GetVoice(data);
 
         var uiPhrase = new UiPhraseData
         {
@@ -251,6 +248,41 @@ public class LevelScenePm : IDisposable
         {
             _ctx.onHidePhrase.Execute(uiPhrase);
         }
+    }
+
+    private Phrase GetPhrase(PhraseNodeData data)
+    {
+        if (_ctx.Languages == null || _ctx.Languages.Count == 0) return null;
+
+        var index = _ctx.Languages.IndexOf(_ctx.profile.TextLanguage.ToString());
+
+        if (index == -1) return null;
+        
+        Phrase result = null;
+
+        // TODO this loading should be awaitable and asynchronous
+        result = NodeUtils.GetObjectByPath<Phrase>(data.Phrases[index])
+                 ?? NodeUtils.GetObjectByPath<Phrase>(data.Phrases[0]);
+
+        return result;
+    }
+
+    private AudioClip GetVoice(PhraseNodeData data)
+    {
+        if (_ctx.Languages == null || _ctx.Languages.Count == 0) return null;
+
+        var index = _ctx.Languages.IndexOf(_ctx.profile.AudioLanguage.ToString());
+
+        if (index == -1) return null;
+        
+        AudioClip result = null;
+
+        // TODO this loading should be awaitable and asynchronous
+        result = NodeUtils.GetObjectByPath<AudioClip>(data.PhraseSounds[index])
+                 ?? NodeUtils.GetObjectByPath<AudioClip>(data.PhraseSounds[0]);
+
+        //await _ctx.phraseSoundPlayer.TryLoadDialogue(phraseByLanguage);
+        return result;
     }
 
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
@@ -310,16 +342,16 @@ public class LevelScenePm : IDisposable
     private async void RunEndNode(List<EndNodeData> data)
     {
         Debug.LogWarning($"[{this}] level end {data.Count}");
-        
+
         // TODO move into event on Phrase Node
         //_ctx.onHideLevelUi.Execute(_ctx.gameSet.levelEndLevelUiDisappearTime);
         //await Task.Delay((int) (_ctx.gameSet.levelEndLevelUiDisappearTime * 1000));
-        //Debug.LogWarning($"[{this}] on hide awaited");
-        
+        //Debug.LogWarning($"[{this}] on hide awaited");Ë
+
         _ctx.OnLevelEnd.Execute(data.First().Records);
-        
+
         // TODO fade should be removed and implemented with prefab in envent field
-        await Task.Delay((int) (_ctx.gameSet.levelEndStatisticsUiFadeTime * 1000));
+        await Task.Delay((int)(_ctx.gameSet.levelEndStatisticsUiFadeTime * 1000));
     }
 
     private IEnumerator ObserveTimer(float time, ReactiveProperty<bool> onSkip = null, Action onEnd = null)
@@ -344,51 +376,51 @@ public class LevelScenePm : IDisposable
             }
         }
     }
-    //------------------------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------------------
 
-    // private bool IsBlocked(Choice choice)
-    // {
-    //     if (choice.ifSelected)
-    //         return !_ctx.profile.ContainsChoice(choice.requiredChoices);
-    //
-    //     return false;
-    // }
+// private bool IsBlocked(Choice choice)
+// {
+//     if (choice.ifSelected)
+//         return !_ctx.profile.ContainsChoice(choice.requiredChoices);
+//
+//     return false;
+// }
 
-    /*TODO This might be needed
-     private void CheckForSelectionPlaced()
+/*TODO This might be needed
+ private void CheckForSelectionPlaced()
+{
+    if (!_selectionPlaced && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
+                              Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
     {
-        if (!_selectionPlaced && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
-                                  Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
+        // set first selection
+        var eventSystemSelectGameObject = RandomSelectButton(new List<Choice>(_currentPhrase.choices));
+
+        if (eventSystemSelectGameObject != null)
         {
-            // set first selection
-            var eventSystemSelectGameObject = RandomSelectButton(new List<Choice>(_currentPhrase.choices));
-
-            if (eventSystemSelectGameObject != null)
-            {
-                var selectIndex = _currentPhrase.choices.IndexOf(eventSystemSelectGameObject);
-                _ctx.buttons[selectIndex].gameObject.Select();
-            }
-
-            _selectionPlaced = true;
-        }
-    }
-
-    private Choice RandomSelectButton(List<Choice> choices)
-    {
-        if (choices.Count == 0)
-            return null;
-
-        var rndChoice = choices[Random.Range(0, choices.Count)];
-
-        if (IsBlocked(rndChoice))
-        {
-            choices.Remove(rndChoice);
-            return RandomSelectButton(new List<Choice>(choices));
+            var selectIndex = _currentPhrase.choices.IndexOf(eventSystemSelectGameObject);
+            _ctx.buttons[selectIndex].gameObject.Select();
         }
 
-        return rndChoice;
+        _selectionPlaced = true;
     }
-    */
+}
+
+private Choice RandomSelectButton(List<Choice> choices)
+{
+    if (choices.Count == 0)
+        return null;
+
+    var rndChoice = choices[Random.Range(0, choices.Count)];
+
+    if (IsBlocked(rndChoice))
+    {
+        choices.Remove(rndChoice);
+        return RandomSelectButton(new List<Choice>(choices));
+    }
+
+    return rndChoice;
+}
+*/
 
     private IEnumerator PhraseRoutine()
     {

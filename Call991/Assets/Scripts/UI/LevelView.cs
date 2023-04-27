@@ -60,19 +60,6 @@ namespace UI
             personView.ShowPhrase(data);
         }
         
-        [Obsolete]
-        public void _OnShowPhrase(PhraseSet phrase)
-        {
-            var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
-            if (personView == null)
-            {
-                Debug.LogError($"[{this}] [OnShowPhrase] no person on side {phrase.screenPlace}");
-                return;
-            }
-
-            personView._ShowPhrase(phrase);
-        }
-
         public void OnHidePhrase(UiPhraseData data)
         {
             var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);

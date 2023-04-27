@@ -15,7 +15,7 @@ public class LevelSceneEntity : IGameScene
         public GameSet GameSet;
         public Container<Task> constructorTask;
         public LevelData LevelData;
-        
+
         public ChapterSet chapterSet;
         public Dialogues dialogues;
         public ReactiveCommand<GameScenes> onSwitchScene;
@@ -35,7 +35,7 @@ public class LevelSceneEntity : IGameScene
     private Ctx _ctx;
     private UiLevelScene _ui;
     private CompositeDisposable _disposables;
-    
+
     public LevelSceneEntity(Ctx ctx)
     {
         _ctx = ctx;
@@ -69,13 +69,11 @@ public class LevelSceneEntity : IGameScene
         var onPhraseSoundEvent = new ReactiveCommand<PhraseEvent>().AddTo(_disposables);
 
         var onShowPhrase = new ReactiveCommand<UiPhraseData>();
-        //var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
         var onHidePhrase = new ReactiveCommand<UiPhraseData>().AddTo(_disposables);
         var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
 
-        var onPopulateStatistics = new ReactiveCommand<List<StatisticElement>>().AddTo(_disposables);
-        ReactiveCommand<List<RecordData>> onLevelEnd = new ReactiveCommand<List<RecordData>>().AddTo(_disposables);
+        var onLevelEnd = new ReactiveCommand<List<RecordData>>().AddTo(_disposables);
         var onHideLevelUi = new ReactiveCommand<float>().AddTo(_disposables);
         var onShowStatisticUi = new ReactiveCommand<float>().AddTo(_disposables);
         var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);
@@ -102,7 +100,7 @@ public class LevelSceneEntity : IGameScene
         }).AddTo(_disposables);*/
 
         var phraseSkipper = new PhraseSkipper(onSkipPhrase).AddTo(_disposables);
-        
+
         var onNext = new ReactiveCommand<List<AaNodeData>>();
         var findNext = new ReactiveCommand<List<AaNodeData>>();
         var dialoguePm = new DialoguePm(new DialoguePm.Ctx
@@ -111,18 +109,19 @@ public class LevelSceneEntity : IGameScene
             FindNext = findNext,
             OnNext = onNext,
         }).AddTo(_disposables);
-        
+
+        var languages = _ctx.LevelData.GetEntryNode().Languages;
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             FindNext = findNext,
             OnNext = onNext,
-            
+            Languages = languages,
             profile = _ctx.profile,
             dialogues = _ctx.dialogues,
             onSwitchScene = _ctx.onSwitchScene,
             onClickMenuButton = onClickMenuButton,
             onPhraseSoundEvent = onPhraseSoundEvent,
-            
+
             OnShowPhrase = onShowPhrase,
 
             onHidePhrase = onHidePhrase,
