@@ -129,7 +129,7 @@ public class LevelScenePm : IDisposable
 
     private void OnSkipPhrase()
     {
-        Debug.LogError($"[{this}] OnSkipPhrase");
+        Debug.Log($"[{this}] OnSkipPhrase");
         _isPhraseSkipped.Value = true;
     }
 
@@ -162,7 +162,7 @@ public class LevelScenePm : IDisposable
 
     private void ExecuteDialogue()
     {
-        Debug.LogError($"_ctx.FindNext.Execute with no data");
+        Debug.Log($"[{this}] _ctx.FindNext.Execute with no data");
         _ctx.FindNext.Execute(new List<AaNodeData>());
     }
 
@@ -175,7 +175,7 @@ public class LevelScenePm : IDisposable
         _isPhraseSkipped.Value = false;
         _isChoiceDone.Value = false;
 
-        Debug.LogError($"[{this}] Received new nodes {data.Count}");
+        Debug.Log($"[{this}] Received new nodes {data.Count}");
 
         _next = new List<AaNodeData>();
         _choice = null;
@@ -208,7 +208,7 @@ public class LevelScenePm : IDisposable
         Observable.WhenAll(observables)
             .Subscribe(_ =>
             {
-                Debug.Log("All coroutines completed");
+                Debug.Log($"[{this}] All coroutines completed");
                 _next.AddRange(phrases);
                 _next.Add(_choice);
                 if (_next.Any())
@@ -222,7 +222,7 @@ public class LevelScenePm : IDisposable
 
     private IEnumerator RunPhrase(PhraseNodeData data)
     {
-        Debug.LogError($"RunPhrase {data}");
+        Debug.Log($"[{this}] RunPhrase {data}");
         var defaultTime = 4f;
 
         var phrase = GetPhrase(data);
@@ -257,7 +257,7 @@ public class LevelScenePm : IDisposable
         var index = _ctx.Languages.IndexOf(_ctx.profile.TextLanguage.ToString());
 
         if (index == -1) return null;
-        
+
         Phrase result = null;
 
         // TODO this loading should be awaitable and asynchronous
@@ -274,7 +274,7 @@ public class LevelScenePm : IDisposable
         var index = _ctx.Languages.IndexOf(_ctx.profile.AudioLanguage.ToString());
 
         if (index == -1) return null;
-        
+
         AudioClip result = null;
 
         // TODO this loading should be awaitable and asynchronous
@@ -315,7 +315,7 @@ public class LevelScenePm : IDisposable
 
     private void AutoChoice(List<ChoiceNodeData> data)
     {
-        Debug.LogWarning($"[{this}] choice time up! Random choice!");
+        Debug.Log($"[{this}] <color=yellow>choice time up!</color> Random choice!");
 
         var cnt = data.Count;
         var isBlocked = true;
@@ -341,7 +341,7 @@ public class LevelScenePm : IDisposable
 
     private async void RunEndNode(List<EndNodeData> data)
     {
-        Debug.LogWarning($"[{this}] level end {data.Count}");
+        Debug.Log($"[{this}] level end {data.Count}");
 
         // TODO move into event on Phrase Node
         //_ctx.onHideLevelUi.Execute(_ctx.gameSet.levelEndLevelUiDisappearTime);
@@ -426,7 +426,7 @@ private Choice RandomSelectButton(List<Choice> choices)
     {
         if (_currentPhrase == null)
         {
-            Debug.LogError($"[{this}] No phrase found for id {_ctx.profile.LastPhrase}");
+            Debug.Log($"[{this}] No phrase found for id {_ctx.profile.LastPhrase}");
             yield break;
         }
 
@@ -486,11 +486,11 @@ private Choice RandomSelectButton(List<Choice> choices)
 
                 break;
             case PhraseEventTypes.LoopVfx:
-                Debug.LogWarning($"[{this}] PhraseEventTypes.VideoLoop to be execute");
+                Debug.Log($"[{this}] PhraseEventTypes.VideoLoop to be execute");
                 _ctx.phraseEventVideoLoader.LoadVideoEvent(pEvent.eventId).Forget();
                 break;
             case PhraseEventTypes.LevelEnd:
-                Debug.LogWarning($"[{this}] PhraseEventTypes.LevelEnd to be execute");
+                Debug.Log($"[{this}] PhraseEventTypes.LevelEnd to be execute");
                 // _ctx.cursorSettings.EnableCursor(false);
                 //_ctx.OnLevelEnd.Execute(pEvent.eventId);
                 break;

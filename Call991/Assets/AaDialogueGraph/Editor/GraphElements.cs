@@ -44,14 +44,14 @@ namespace AaDialogueGraph.Editor
         public const string DefaultFileName = "NewDialogue";
 
         public const string DialogueGraph = "Dialogue Graph";
-        public const string ChoiceNode = "Choices Node";
-        public const string PhraseNode = "Phrase Node";
-        public const string ForkNode = "Fork Node";
-        public const string CountNode = "Count Node";
-        public const string EndNode = "End Node";
+        public const string ChoiceNode = "Button";
+        public const string PhraseNode = "Phrase";
+        public const string ForkNode = "Fork";
+        public const string CountNode = "Count";
+        public const string EndNode = "End";
 
-        public const string SaveData = "Save Data";
-        public const string LoadData = "Load Data";
+        public const string SaveData = "Save";
+        public const string LoadData = "Load";
 
         public const string LineSpace = " | ";
         public const string InPortName = "in";

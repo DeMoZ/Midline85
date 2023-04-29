@@ -56,8 +56,8 @@ public class DialogueLoggerPm : IDisposable
     
     private void AddCaseInCash(string condition, IDictionary<string, string> dictionary)
     {
-        Debug.LogWarning($"[{this}] Add case into cash {condition}");
-        dictionary.Add(condition, "");
+        Debug.Log($"[{this}] Add case into cash {condition}");
+        dictionary[condition] = "";
     }
 
     public bool ContainsChoice(List<string> orChoices) => 
@@ -68,7 +68,7 @@ public class DialogueLoggerPm : IDisposable
 
     public void AddCount(string key, int value)
     {
-        Debug.LogWarning($"[{this}] Add Count {key}:{value}");
+        Debug.Log($"[{this}] Add Count {key}:{value}");
         _countsCash.TryGetValue(key, out var count);
         _countsCash[key] = count + value;
     }
@@ -80,7 +80,7 @@ public class DialogueLoggerPm : IDisposable
     }
 
     private void AddNode(string key, string value) => 
-        _logCash.Add(key, value);
+        _logCash[key] = value;
 
     public void Save()
     {
