@@ -22,6 +22,7 @@ namespace AaDialogueGraph.Editor
             }
 
             path = Path.GetDirectoryName(fileName);
+            path = path.Replace("\\", "/");
             var onlyFileName = Path.GetFileNameWithoutExtension(fileName);
 
             var split = path.Split("Resources/");
@@ -182,7 +183,7 @@ namespace AaDialogueGraph.Editor
 
             foreach (var node in AaNodes)
             {
-                if (nodesDict.TryGetValue(node.Guid ,  out var data))
+                if (nodesDict.TryGetValue(node.Guid, out var data))
                 {
                     node.SetPosition(data.Rect);
                 }

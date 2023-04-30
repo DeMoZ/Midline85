@@ -118,7 +118,7 @@ namespace AaDialogueGraph.Editor
 
             if (!saveUtility.LoadGraph(ref _fileName))
             {
-                Debug.LogError("Some error while loading graph");
+                Debug.LogError($"[{this}] Some error while loading graph");
                 return;
             }
 

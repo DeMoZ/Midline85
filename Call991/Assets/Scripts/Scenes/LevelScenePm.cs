@@ -94,6 +94,7 @@ public class LevelScenePm : IDisposable
         InitButtons();
 
 #if !BUILD_PRODUCTION
+        // todo refactoring to support both replay level in editor and build
         if (!string.IsNullOrWhiteSpace(_ctx.profile.CheatPhrase))
         {
             _ctx.profile.ClearPhrases();
