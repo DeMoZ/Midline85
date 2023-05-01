@@ -129,18 +129,10 @@ public class ScenesHandler : IDisposable
     private async Task<IGameScene> LoadLevel7()
     {
         var tLanguage = _ctx.profile.TextLanguage;
-        var aLanguage = _ctx.profile.AudioLanguage;
         var levelData = new LevelData(_ctx.gameSet.GameLevels.TestLevel.GetNodesData(), _ctx.gameSet.GameLevels.TestLevel.NodeLinks);
         var levelFolder = "7_lvl";
         var chapterSet = await ResourcesLoader.LoadAsync<ChapterSet>(levelFolder + "/7_lvl_Total");
-        var dialogues = await chapterSet.LoadDialogues(tLanguage, levelFolder);
         var videoPathBuilder = new VideoPathBuilder();
-        //var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P";
-        var phraseSoundStreamingPath = "Sounds/Ru/RU_7_P";
-        //var phraseSoundResourcesPath = Path.Combine("Sounds", tLanguage.ToString(), levelFolder);
-        var phraseSoundResourcesPath = Path.Combine("Sounds/Ru", levelFolder);
-        var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelFolder + "/7_lvl_achievements");
-        var endLevelConfigsPath = levelFolder;
         var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
         var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.audioManager.OnSceneSwitch();
@@ -158,14 +150,9 @@ public class ScenesHandler : IDisposable
             GameSet = _ctx.gameSet,
             constructorTask = constructorTask,
             LevelData = levelData,
-            profile = _ctx.profile,
+            Profile = _ctx.profile,
             chapterSet = chapterSet,
-            dialogues = dialogues,
             onSwitchScene = _ctx.onSwitchScene,
-            achievementsSo = achievementsSo,
-            phraseSoundStreamingPath = phraseSoundStreamingPath,
-            phraseSoundResourcesPath = phraseSoundResourcesPath,
-            endLevelConfigsPath = endLevelConfigsPath,
             audioManager = _ctx.audioManager,
             videoManager = _ctx.videoManager,
             newspaperSprite = newspaperSprite,

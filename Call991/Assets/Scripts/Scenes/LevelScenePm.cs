@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using Configs;
@@ -19,26 +20,24 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<List<AaNodeData>> FindNext;
         public ReactiveCommand<List<AaNodeData>> OnNext;
         public ReactiveCommand<UiPhraseData> OnShowPhrase;
-        public List<string> Languages;
+        public PlayerProfile Profile;
 
         public AudioManager audioManager;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
-
         public ReactiveCommand<UiPhraseData> onHidePhrase;
         public ReactiveCommand<bool> onShowIntro;
         public ReactiveCommand<List<RecordData>> OnLevelEnd;
 
-        public Dialogues dialogues;
-        public PlayerProfile profile;
+        public PhraseSoundPlayer PhraseSoundPlayer;
+        public DialogueContentLoader ContentLoader;
         public List<ChoiceButtonView> buttons;
         public CountDownView countDown;
 
         public ReactiveCommand onAfterEnter;
         public GameSet gameSet;
 
-        public PhraseSoundPlayer phraseSoundPlayer;
         public PhraseEventSoundLoader phraseEventSoundLoader;
         public Sprite newspaperSprite;
         public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
@@ -60,6 +59,7 @@ public class LevelScenePm : IDisposable
     private float _phraseTimer;
     private readonly ReactiveProperty<bool> _isPhraseSkipped = new();
     private readonly ReactiveProperty<bool> _isChoiceDone = new();
+    public CancellationTokenSource _tokenSource;
 
     /// <summary>
     /// Choice button selection with keyboard.
@@ -72,6 +72,7 @@ public class LevelScenePm : IDisposable
 
         _ctx = ctx;
         _disposables = new CompositeDisposable();
+        _tokenSource = new CancellationTokenSource().AddTo(_disposables);
 
         _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
 
@@ -95,17 +96,18 @@ public class LevelScenePm : IDisposable
 
 #if !BUILD_PRODUCTION
         // todo refactoring to support both replay level in editor and build
-        if (!string.IsNullOrWhiteSpace(_ctx.profile.CheatPhrase))
+        if (!string.IsNullOrWhiteSpace(_ctx.Profile.CheatPhrase))
         {
-            _ctx.profile.ClearPhrases();
-            _ctx.profile.ClearChoices();
+            _ctx.Profile.ClearPhrases();
+            _ctx.Profile.ClearChoices();
 
-            _ctx.profile.LastPhrase = _ctx.profile.CheatPhrase;
+            _ctx.Profile.LastPhrase = _ctx.Profile.CheatPhrase;
         }
 #endif
 
-        if (string.IsNullOrWhiteSpace(_ctx.profile.LastPhrase))
-            _ctx.profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
+        // if (string.IsNullOrWhiteSpace(_ctx.Profile.LastPhrase))
+        //     _ctx.Profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
+        
         //TODO to not bother me
         // await ShowNewsPaper();
         // await Task.Delay(500);
@@ -121,7 +123,7 @@ public class LevelScenePm : IDisposable
     private void SetPause(bool pause)
     {
         Time.timeScale = pause ? 0 : 1;
-        _ctx.phraseSoundPlayer.Pause(pause);
+        _ctx.PhraseSoundPlayer.Pause(pause);
         _ctx.audioManager.Pause(pause);
 
         if (!pause)
@@ -171,7 +173,7 @@ public class LevelScenePm : IDisposable
     private List<ChoiceNodeData> _choices;
     private ChoiceNodeData _choice;
 
-    private void OnDialogue(List<AaNodeData> data)
+    private async void OnDialogue(List<AaNodeData> data)
     {
         _isPhraseSkipped.Value = false;
         _isChoiceDone.Value = false;
@@ -194,9 +196,16 @@ public class LevelScenePm : IDisposable
 
         var observables = new IObservable<Unit>[] { };
 
-        foreach (var phrase in phrases)
+        foreach (var phraseData in phrases)
         {
-            var routine = Observable.FromCoroutine(() => RunPhrase(phrase));
+            var phrase = await _ctx.ContentLoader.GetPhraseAsync(phraseData);
+            var audioClip = await _ctx.ContentLoader.GetVoiceAsync(phraseData);
+
+            if (_tokenSource.IsCancellationRequested) return;
+
+            _ctx.PhraseSoundPlayer.PlayPhrase(audioClip);
+
+            var routine = Observable.FromCoroutine(() => RunPhrase(phraseData, phrase));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
@@ -221,13 +230,10 @@ public class LevelScenePm : IDisposable
         // TODO await for showing, strike all events
     }
 
-    private IEnumerator RunPhrase(PhraseNodeData data)
+    private IEnumerator RunPhrase(PhraseNodeData data, Phrase phrase)
     {
         Debug.Log($"[{this}] RunPhrase {data}");
         var defaultTime = 4f;
-
-        var phrase = GetPhrase(data);
-        var audioClip = GetVoice(data);
 
         var uiPhrase = new UiPhraseData
         {
@@ -249,41 +255,6 @@ public class LevelScenePm : IDisposable
         {
             _ctx.onHidePhrase.Execute(uiPhrase);
         }
-    }
-
-    private Phrase GetPhrase(PhraseNodeData data)
-    {
-        if (_ctx.Languages == null || _ctx.Languages.Count == 0) return null;
-
-        var index = _ctx.Languages.IndexOf(_ctx.profile.TextLanguage.ToString());
-
-        if (index == -1) return null;
-
-        Phrase result = null;
-
-        // TODO this loading should be awaitable and asynchronous
-        result = NodeUtils.GetObjectByPath<Phrase>(data.Phrases[index])
-                 ?? NodeUtils.GetObjectByPath<Phrase>(data.Phrases[0]);
-
-        return result;
-    }
-
-    private AudioClip GetVoice(PhraseNodeData data)
-    {
-        if (_ctx.Languages == null || _ctx.Languages.Count == 0) return null;
-
-        var index = _ctx.Languages.IndexOf(_ctx.profile.AudioLanguage.ToString());
-
-        if (index == -1) return null;
-
-        AudioClip result = null;
-
-        // TODO this loading should be awaitable and asynchronous
-        result = NodeUtils.GetObjectByPath<AudioClip>(data.PhraseSounds[index])
-                 ?? NodeUtils.GetObjectByPath<AudioClip>(data.PhraseSounds[0]);
-
-        //await _ctx.phraseSoundPlayer.TryLoadDialogue(phraseByLanguage);
-        return result;
     }
 
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
@@ -427,7 +398,7 @@ private Choice RandomSelectButton(List<Choice> choices)
     {
         if (_currentPhrase == null)
         {
-            Debug.Log($"[{this}] No phrase found for id {_ctx.profile.LastPhrase}");
+            Debug.Log($"[{this}] No phrase found for id {_ctx.Profile.LastPhrase}");
             yield break;
         }
 
@@ -439,7 +410,7 @@ private Choice RandomSelectButton(List<Choice> choices)
 
         Debug.Log($"[{this}] Execute event for phrase {_currentPhrase.phraseId}: {_currentPhrase.Phrase.text}");
         //_ctx.onShowPhrase.Execute(_currentPhrase);
-        _ctx.phraseSoundPlayer.TryPlayPhraseFile();
+        //_ctx.phraseSoundPlayer.TryPlayPhraseFile();
 
         while (_phraseTimer <= _currentPhrase.Phrase.Duration(_currentPhrase.textAppear))
         {
@@ -491,9 +462,7 @@ private Choice RandomSelectButton(List<Choice> choices)
                 _ctx.phraseEventVideoLoader.LoadVideoEvent(pEvent.eventId).Forget();
                 break;
             case PhraseEventTypes.LevelEnd:
-                Debug.Log($"[{this}] PhraseEventTypes.LevelEnd to be execute");
-                // _ctx.cursorSettings.EnableCursor(false);
-                //_ctx.OnLevelEnd.Execute(pEvent.eventId);
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
@@ -521,6 +490,7 @@ private Choice RandomSelectButton(List<Choice> choices)
 
     public void Dispose()
     {
+        _tokenSource.Cancel();
         _disposables.Dispose();
     }
 

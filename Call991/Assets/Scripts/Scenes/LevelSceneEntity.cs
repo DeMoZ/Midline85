@@ -2,7 +2,6 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using Configs;
-using Core;
 using Data;
 using UI;
 using UniRx;
@@ -17,13 +16,8 @@ public class LevelSceneEntity : IGameScene
         public LevelData LevelData;
 
         public ChapterSet chapterSet;
-        public Dialogues dialogues;
         public ReactiveCommand<GameScenes> onSwitchScene;
-        public PlayerProfile profile;
-        public AchievementsSo achievementsSo;
-        public string phraseSoundStreamingPath;
-        public string phraseSoundResourcesPath;
-        public string endLevelConfigsPath;
+        public PlayerProfile Profile;
         public AudioManager audioManager;
         public VideoManager videoManager;
         public Sprite newspaperSprite;
@@ -35,7 +29,7 @@ public class LevelSceneEntity : IGameScene
     private Ctx _ctx;
     private UiLevelScene _ui;
     private CompositeDisposable _disposables;
-
+    
     public LevelSceneEntity(Ctx ctx)
     {
         _ctx = ctx;
@@ -52,8 +46,9 @@ public class LevelSceneEntity : IGameScene
     private async Task ConstructorTask()
     {
         await Task.Delay(10);
+        // todo should be removed and music must be played in other way
         await _ctx.audioManager.PlayMusic("7_lvl");
-        // todo load from addressables black screen above the scene;
+        
         // scene doesnt exist here
         // so just load and show on enter. Is it instant?
     }
@@ -81,14 +76,19 @@ public class LevelSceneEntity : IGameScene
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
+        var languages = _ctx.LevelData.GetEntryNode().Languages;
 
-        /*var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
+        var phraseSoundPlayer = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {
-            streamingPath = _ctx.phraseSoundStreamingPath,
-            resourcesPath = _ctx.phraseSoundResourcesPath,
             audioSource = _ui.PhraseAudioSource,
-        }).AddTo(_disposables);*/
-
+        }).AddTo(_disposables);
+        
+        var contentLoader = new DialogueContentLoader(new DialogueContentLoader.Ctx
+        {
+            Languages = languages,
+            Profile = _ctx.Profile,
+        }).AddTo(_disposables);
+        
         // _ctx.audioManager.SetPhraseAudioSource(_ui.PhraseAudioSource);
 
         /*var phraseEventSoundLoader = new PhraseEventSoundLoader(new PhraseEventSoundLoader.Ctx
@@ -110,19 +110,18 @@ public class LevelSceneEntity : IGameScene
             OnNext = onNext,
         }).AddTo(_disposables);
 
-        var languages = _ctx.LevelData.GetEntryNode().Languages;
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             FindNext = findNext,
             OnNext = onNext,
-            Languages = languages,
-            profile = _ctx.profile,
-            dialogues = _ctx.dialogues,
+            Profile = _ctx.Profile,
             onSwitchScene = _ctx.onSwitchScene,
             onClickMenuButton = onClickMenuButton,
             onPhraseSoundEvent = onPhraseSoundEvent,
 
             OnShowPhrase = onShowPhrase,
+            PhraseSoundPlayer = phraseSoundPlayer,
+            ContentLoader = contentLoader,
 
             onHidePhrase = onHidePhrase,
             onAfterEnter = onAfterEnter,
@@ -158,7 +157,7 @@ public class LevelSceneEntity : IGameScene
             onClickPauseButton = onClickPauseButton,
             pool = uiPool,
             audioManager = _ctx.audioManager,
-            profile = _ctx.profile,
+            profile = _ctx.Profile,
         });
 
         onAfterEnter.Execute();

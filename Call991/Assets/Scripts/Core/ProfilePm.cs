@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using I2.Loc;
 using Newtonsoft.Json;
 using UniRx;
 using UnityEngine;
@@ -31,8 +32,9 @@ public class PlayerProfile : IDisposable
         _disposables = new CompositeDisposable();
         
         _onAudioLanguage = onAudioLanguage;
-        _textLanguage = PlayerPrefs.GetString(TextLanguageKey, string.Empty);
-        _audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, string.Empty);
+        var defaultLanguage = LocalizationManager.CurrentLanguage;
+        _textLanguage = PlayerPrefs.GetString(TextLanguageKey, defaultLanguage);
+        _audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, defaultLanguage);
 
         _onAudioLanguage?.Execute(_audioLanguage);
 
@@ -204,8 +206,8 @@ public class PlayerProfile : IDisposable
 
     private void SaveLanguages()
     {
-        PlayerPrefs.SetString(TextLanguageKey, _textLanguage.ToString());
-        PlayerPrefs.SetString(AudioLanguageKey, _audioLanguage.ToString());
+        PlayerPrefs.SetString(TextLanguageKey, _textLanguage);
+        PlayerPrefs.SetString(AudioLanguageKey, _audioLanguage);
 
         _onAudioLanguage?.Execute(_audioLanguage);
     }

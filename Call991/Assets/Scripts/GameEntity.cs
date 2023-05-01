@@ -3,9 +3,9 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class EntryRoot : MonoBehaviour
+public class GameEntity : MonoBehaviour
 {
-    private static EntryRoot _instance;
+    private static GameEntity _instance;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private VideoManager videoManager;
     
@@ -16,6 +16,8 @@ public class EntryRoot : MonoBehaviour
     [Space]
     [SerializeField] private Transform clicksParent;
 
+    private CompositeDisposable _disposable;
+    
     private async void Awake()
     {
         if (_instance == null)
@@ -29,6 +31,7 @@ public class EntryRoot : MonoBehaviour
             return;
         }
 
+        _disposable = new CompositeDisposable();
         DontDestroyOnLoad(gameObject);
 
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
@@ -59,11 +62,12 @@ public class EntryRoot : MonoBehaviour
             audioManager = audioManager,
             videoManager = videoManager,
             blocker = blocker,
-        });
+        }).AddTo(_disposable);
     }
 
     private void OnDestroy()
     {
+        _disposable?.Dispose();
         ResourcesLoader.UnloadUnused();
     }
 }

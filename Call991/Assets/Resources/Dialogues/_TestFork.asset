@@ -46,11 +46,33 @@ MonoBehaviour:
     Phrases:
     - RU/7_lvl/p.elena.001.asset
     - EN/7_lvl/p.elena.009.asset
+  - Guid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
+    Rect:
+      serializedVersion: 2
+      x: -774
+      y: 177
+      width: 137.5
+      height: 96
+    PhraseSketchText: "\u043D\u0435\u0442 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E "
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - Sounds/RU/7_lvl/p.elena.003.ogg
+    - 
+    Phrases:
+    - RU/7_lvl/p.elena.003.asset
+    - 
   - Guid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
     Rect:
       serializedVersion: 2
-      x: -626
-      y: 199.5
+      x: -736
+      y: 336.5
       width: 99.5
       height: 96
     PhraseSketchText: 911
@@ -68,28 +90,49 @@ MonoBehaviour:
     Phrases:
     - RU/7_lvl/p.jack.014.asset
     - EN/7_lvl/p.elena.021.asset
-  - Guid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
+  - Guid: f8a5b1a2-6617-4efe-9b0b-4570ab5aa301
     Rect:
       serializedVersion: 2
-      x: -754
-      y: 177
-      width: 235.5
+      x: -607
+      y: 359
+      width: 99.5
       height: 96
-    PhraseSketchText: "\u043D\u0435\u0442 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E
-      \u0432\u044B\u0431\u0435\u0440\u0435\u0442\u0441\u044F \u0440\u0443\u0441\u0441"
+    PhraseSketchText: check1
     PersonVisualData:
-      Person: 0
-      ScreenPlace: 1
+      Person: 2
+      ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 0
     EventVisualData: []
     PhraseSounds:
+    - Sounds/RU/7_lvl/p.elena.034.ogg
+    - Sounds/RU/7_lvl/p.lara.005.ogg
+    Phrases:
     - 
+    - 
+  - Guid: 784d5f57-573d-4307-985a-3ee731d29457
+    Rect:
+      serializedVersion: 2
+      x: -507.5
+      y: 359
+      width: 99.5
+      height: 96
+    PhraseSketchText: check2
+    PersonVisualData:
+      Person: 3
+      ScreenPlace: 6
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData: []
+    PhraseSounds:
+    - Sounds/RU/7_lvl/p.jack.002.ogg
     - 
     Phrases:
-    - RU/7_lvl/p.elena.036.asset
+    - 
     - 
   ChoiceNodeData:
   - Guid: e3074029-8df6-4187-b3a6-f0fbf5a545e9
@@ -123,7 +166,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 8
       y: 115.5
-      width: 103
+      width: 101.5
       height: 97.5
     Choice: c.word.001
     CaseData:
@@ -198,6 +241,9 @@ MonoBehaviour:
     - Sprite: RecordIcons/iconFire.png
       Key: achive_backToMenu
   NodeLinks:
+  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    BaseExitName: 
+    TargetNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
   - BaseNodeGuid: 01c6a733-7e61-4fa5-a900-7445ffba437f
     BaseExitName: 
     TargetNodeGuid: 7fbfed3c-52e4-4783-aaec-d15d89f0851f
@@ -207,15 +253,9 @@ MonoBehaviour:
   - BaseNodeGuid: 01c6a733-7e61-4fa5-a900-7445ffba437f
     BaseExitName: 
     TargetNodeGuid: 9ec5bf3e-2942-46b0-8130-fd2010df39d9
-  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+  - BaseNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
     BaseExitName: 
-    TargetNodeGuid: 55ae36db-8978-44c1-8094-68a8a7c7d8ef
-  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
-    BaseExitName: 
-    TargetNodeGuid: ed6f4829-73f6-4e02-b25b-e79545d8d8e3
-  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
-    BaseExitName: 
-    TargetNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
+    TargetNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
   - BaseNodeGuid: 9ec5bf3e-2942-46b0-8130-fd2010df39d9
     BaseExitName: 
     TargetNodeGuid: 7e736ca7-a690-462f-907d-339ae62bc89b
@@ -234,9 +274,12 @@ MonoBehaviour:
   - BaseNodeGuid: 55ae36db-8978-44c1-8094-68a8a7c7d8ef
     BaseExitName: 
     TargetNodeGuid: 01c6a733-7e61-4fa5-a900-7445ffba437f
-  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+  - BaseNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
     BaseExitName: 
-    TargetNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
-  - BaseNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
+    TargetNodeGuid: f8a5b1a2-6617-4efe-9b0b-4570ab5aa301
+  - BaseNodeGuid: f8a5b1a2-6617-4efe-9b0b-4570ab5aa301
     BaseExitName: 
-    TargetNodeGuid: 83b66b2b-7e88-4121-8f6a-d7854a989fa7
+    TargetNodeGuid: 784d5f57-573d-4307-985a-3ee731d29457
+  - BaseNodeGuid: 784d5f57-573d-4307-985a-3ee731d29457
+    BaseExitName: 
+    TargetNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
