@@ -12,13 +12,11 @@ public class AudioManager : MonoBehaviour
 {
     public struct Ctx
     {
-        public GameSet gameSet;
-        public ReactiveCommand<string> onAudioLanguage;
+        public GameSet GameSet;
         public AudioMixer audioMixer;
         public PlayerProfile playerProfile;
         public string soundPath;
         public string musicPath;
-        public string voiceFolder;
         public string levelFolder;
     }
 
@@ -68,7 +66,7 @@ public class AudioManager : MonoBehaviour
     {
         List<string> musics;
 
-        if (!_ctx.gameSet.musics.TryGetValue(key, out musics))
+        if (!_ctx.GameSet.musics.TryGetValue(key, out musics))
         {
             Debug.LogError($"[{this}] Music key not found: {key}:{index}");
             return;
@@ -149,13 +147,13 @@ public class AudioManager : MonoBehaviour
         switch (type)
         {
             case SoundUiTypes.ChoiceButton:
-                PlayMusicFile(uiAudioSource, _ctx.gameSet.choiceBtnClip, false);
+                PlayMusicFile(uiAudioSource, _ctx.GameSet.choiceBtnClip, false);
                 break;
             case SoundUiTypes.MenuButton:
-                PlayMusicFile(uiAudioSource, _ctx.gameSet.menuBtnClip, false);
+                PlayMusicFile(uiAudioSource, _ctx.GameSet.menuBtnClip, false);
                 break;
             case SoundUiTypes.Timer:
-                PlayMusicFile(timerAudioSource, _ctx.gameSet.timerClip, true);
+                PlayMusicFile(timerAudioSource, _ctx.GameSet.timerClip, true);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);

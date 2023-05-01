@@ -80,7 +80,7 @@ public class LevelSceneEntity : IGameScene
 
         var phraseSoundPlayer = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {
-            audioSource = _ui.PhraseAudioSource,
+            AudioSource = _ui.PhraseAudioSource,
         }).AddTo(_disposables);
         
         var contentLoader = new DialogueContentLoader(new DialogueContentLoader.Ctx

@@ -1,7 +1,6 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using Configs;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -10,10 +9,6 @@ public class VideoManager : MonoBehaviour
 {
     public struct Ctx
     {
-        public GameSet gameSet;
-        public string videoPath;
-
-        public string levelFolder;
     }
 
     [SerializeField] private VideoPlayer videoPlayer = default;
@@ -28,6 +23,7 @@ public class VideoManager : MonoBehaviour
 
     public void SetCtx(Ctx ctx)
     {
+        _ctx = ctx;
     }
 
     public async Task LoadVideoSoToPrepareVideo(string eventId)
@@ -137,7 +133,6 @@ public class VideoManager : MonoBehaviour
 
     private async Task<PhraseVfxEventSo> LoadConfig(string eventId)
     {
-        //var soFile = Path.Combine(_ctx.eventSoPath, eventId);
         var conf = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(eventId);
         return conf;
     }

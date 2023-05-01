@@ -1,10 +1,6 @@
 using System;
-using System.Collections;
-using System.IO;
-using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Networking;
 
 namespace Data
 {
@@ -12,7 +8,7 @@ namespace Data
     {
         public struct Ctx
         {
-            public AudioSource audioSource;
+            public AudioSource AudioSource;
         }
 
         private Ctx _ctx;
@@ -30,17 +26,17 @@ namespace Data
             if (clip == null) return;
 
             Debug.Log($"[{this}] play phrase audio clip {_audioClip}");
-            _ctx.audioSource.clip = clip;
-            _ctx.audioSource.Play();
-            _ctx.audioSource.loop = false;
+            _ctx.AudioSource.clip = clip;
+            _ctx.AudioSource.Play();
+            _ctx.AudioSource.loop = false;
         }
         
         public void Pause(bool pause)
         {
             if (pause)
-                _ctx.audioSource?.Pause();
+                _ctx.AudioSource.Pause();
             else
-                _ctx.audioSource?.UnPause();
+                _ctx.AudioSource.UnPause();
         }
 
         public void Dispose()

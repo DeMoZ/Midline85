@@ -55,13 +55,13 @@ public class GameEntity : MonoBehaviour
         var blocker = new Blocker(screenFade, videoFade);
        
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
-        var clickPointHandler = new ClickPointHandler(clickImage, clicksParent);
+        var clickPointHandler = new ClickPointHandler(clickImage, clicksParent).AddTo(_disposable);
         
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
-            audioManager = audioManager,
-            videoManager = videoManager,
-            blocker = blocker,
+            AudioManager = audioManager,
+            VideoManager = videoManager,
+            Blocker = blocker,
         }).AddTo(_disposable);
     }
 

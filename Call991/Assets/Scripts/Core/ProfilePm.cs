@@ -12,7 +12,7 @@ public class PlayerProfile : IDisposable
     private const string TextLanguageKey = "TextLanguage";
     private const string AudioLanguageKey = "AudioLanguage";
     private const string PlayerDataKey = "PlayerData";
-   
+
     private string _textLanguage;
     private string _audioLanguage;
 
@@ -22,21 +22,17 @@ public class PlayerProfile : IDisposable
     private float _musicVolume;
 
     private PlayerData _playerData;
-    private ReactiveCommand<string> _onAudioLanguage;
     private CompositeDisposable _disposables;
 
     public ReactiveCommand<(AudioSourceType type, float volume)> onVolumeSet;
 
-    public PlayerProfile(ReactiveCommand<string> onAudioLanguage)
+    public PlayerProfile()
     {
         _disposables = new CompositeDisposable();
-        
-        _onAudioLanguage = onAudioLanguage;
+
         var defaultLanguage = LocalizationManager.CurrentLanguage;
         _textLanguage = PlayerPrefs.GetString(TextLanguageKey, defaultLanguage);
         _audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, defaultLanguage);
-
-        _onAudioLanguage?.Execute(_audioLanguage);
 
         var savedProfile = PlayerPrefs.GetString(PlayerDataKey, null);
         _playerData = string.IsNullOrWhiteSpace(savedProfile)
@@ -54,7 +50,7 @@ public class PlayerProfile : IDisposable
         _uiVolume = LoadVolume(AudioSourceType.Effects);
         _timerVolume = LoadVolume(AudioSourceType.Effects);
         _musicVolume = LoadVolume(AudioSourceType.Music);
-        
+
         // Debug.LogError($"on load: phrase = {_phraseVolume}; ui = {_uiVolume}; timer = {_timerVolume}; mus = {_musicVolume}");
     }
 
@@ -104,7 +100,8 @@ public class PlayerProfile : IDisposable
         }
     }
 
-    public float UiVolume{
+    public float UiVolume
+    {
         get => _uiVolume;
         private set
         {
@@ -112,8 +109,9 @@ public class PlayerProfile : IDisposable
             SaveVolume(AudioSourceType.Effects, value);
         }
     }
-    
-    public float TimerVolume {
+
+    public float TimerVolume
+    {
         get => _timerVolume;
         private set
         {
@@ -121,8 +119,9 @@ public class PlayerProfile : IDisposable
             SaveVolume(AudioSourceType.Effects, value);
         }
     }
-    
-    public float MusicVolume {
+
+    public float MusicVolume
+    {
         get => _musicVolume;
         private set
         {
@@ -147,7 +146,7 @@ public class PlayerProfile : IDisposable
                 break;
         }
     }
-    
+
     public string LastPhrase
     {
         get => _playerData.lastPhraseId;
@@ -208,8 +207,6 @@ public class PlayerProfile : IDisposable
     {
         PlayerPrefs.SetString(TextLanguageKey, _textLanguage);
         PlayerPrefs.SetString(AudioLanguageKey, _audioLanguage);
-
-        _onAudioLanguage?.Execute(_audioLanguage);
     }
 
     private void SaveVolume(AudioSourceType type, float volume)
@@ -218,7 +215,7 @@ public class PlayerProfile : IDisposable
         //onVolumeChanged?.Execute((type, volume)); - if only need additional calculation
     }
 
-    private float LoadVolume(AudioSourceType sourceType) => 
+    private float LoadVolume(AudioSourceType sourceType) =>
         PlayerPrefs.GetFloat(sourceType.ToString(), 1);
 
 #if UNITY_EDITOR
@@ -230,9 +227,6 @@ public class PlayerProfile : IDisposable
 #endif
     public void Dispose()
     {
-        _disposables.Dispose();
-        
-        _onAudioLanguage?.Dispose();
         onVolumeSet?.Dispose();
         _disposables?.Dispose();
     }

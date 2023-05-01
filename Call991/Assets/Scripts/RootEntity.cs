@@ -12,9 +12,9 @@ public class RootEntity : IDisposable
 {
     public struct Ctx
     {
-        public AudioManager audioManager;
-        public VideoManager videoManager;
-        public Blocker blocker;
+        public AudioManager AudioManager;
+        public VideoManager VideoManager;
+        public Blocker Blocker;
     }
 
     private Ctx _ctx;
@@ -29,29 +29,24 @@ public class RootEntity : IDisposable
 
         var gameSet = Resources.Load<GameSet>("GameSet");
         var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
-
-        var onAudioLanguage = new ReactiveCommand<string>().AddTo(_diposables);
-        
-        var profile = new PlayerProfile(onAudioLanguage);
+        var profile = new PlayerProfile();
         SetLanguage(profile.TextLanguage);
         
         var soundPath = "Sounds/Ui";
         var musicPath = "Sounds/Music";
 
-        _ctx.audioManager.SetCtx(new AudioManager.Ctx
+        _ctx.AudioManager.SetCtx(new AudioManager.Ctx
         {
-            gameSet = gameSet,
-            onAudioLanguage = onAudioLanguage,
+            GameSet = gameSet,
             playerProfile = profile,
             audioMixer = audioMixer,
             soundPath = soundPath,
             musicPath = musicPath,
         });
-        _ctx.audioManager.PlayMusic("Intro").Forget();
+        _ctx.AudioManager.PlayMusic("Intro").Forget();
 
-        _ctx.videoManager.SetCtx(new VideoManager.Ctx
+        _ctx.VideoManager.SetCtx(new VideoManager.Ctx
         {
-            gameSet = gameSet,
         });
         
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
@@ -67,9 +62,9 @@ public class RootEntity : IDisposable
             onStartApplicationSwitchScene = _onStartApplicationSwitchScene,
             onSwitchScene = onSwitchScene,
             profile = profile,
-            audioManager = _ctx.audioManager,
-            videoManager = _ctx.videoManager,
-            blocker = _ctx.blocker,
+            audioManager = _ctx.AudioManager,
+            videoManager = _ctx.VideoManager,
+            blocker = _ctx.Blocker,
             cursorSettings = cursorSettings,
         }).AddTo(_diposables);
 
@@ -77,9 +72,9 @@ public class RootEntity : IDisposable
         {
             scenesHandler = scenesHandler,
             onSwitchScene = onSwitchScene,
-            videoManager = _ctx.videoManager,
+            videoManager = _ctx.VideoManager,
             gameSet = gameSet,
-            blocker = _ctx.blocker,
+            blocker = _ctx.Blocker,
             cursorSettings = cursorSettings,
         }).AddTo(_diposables);
 
