@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public class NodeUtils
+public static class NodeUtils
 {
     public static T GetObjectByPath<T>(string path) where T : Object
     {

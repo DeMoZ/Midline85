@@ -51,8 +51,14 @@ public class GameEntity : MonoBehaviour
     private async void CreateRootEntity()
     {
         await Task.Delay(0);
+
+        var onScreenFade = new ReactiveCommand<(bool show, float time)>();
+        var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
+        {
+            OnScreenFade = onScreenFade,
+        }).AddTo(_disposable);
         
-        var blocker = new Blocker(screenFade, videoFade);
+        var blocker = new Blocker(screenFade, videoFade, onScreenFade);
        
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
         var clickPointHandler = new ClickPointHandler(clickImage, clicksParent).AddTo(_disposable);
@@ -62,6 +68,7 @@ public class GameEntity : MonoBehaviour
             AudioManager = audioManager,
             VideoManager = videoManager,
             Blocker = blocker,
+            ObjectEvents = objectEvents,
         }).AddTo(_disposable);
     }
 

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
+using AaDialogueGraph;
 using Configs;
 using UI;
 using UniRx;
@@ -15,9 +16,7 @@ public class AudioManager : MonoBehaviour
         public GameSet GameSet;
         public AudioMixer audioMixer;
         public PlayerProfile playerProfile;
-        public string soundPath;
         public string musicPath;
-        public string levelFolder;
     }
 
     [SerializeField] private AudioSource musicAudioSource = default;
@@ -245,5 +244,43 @@ public class AudioManager : MonoBehaviour
     {
         if (_phraseAudioSource != null)
             _phraseAudioSource.volume = _ctx.playerProfile.PhraseVolume;
+    }
+
+    public void PlayEventSound(EventVisualData data, AudioClip audioClip)
+    {
+        // TODO here is one more switch construction for each layer of sound player
+        switch (data.Layer)
+        {
+            case PhraseEventLayer.Effects:
+                break;
+            case PhraseEventLayer.Single1:
+                break;
+            case PhraseEventLayer.Single2:
+                break;
+            case PhraseEventLayer.Multiple:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        } 
+        
+        if (data.Loop)
+            PlayLoopSfx(audioClip, data.Stop);
+        else
+            PlaySfx(audioClip);
+        
+        /*switch (pEvent.eventType)
+        {
+            case PhraseEventTypes.Music:
+                _ctx.phraseEventSoundLoader.LoadMusicEvent(pEvent.eventId).Forget();
+                break;
+            case PhraseEventTypes.Sfx:
+                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, false, pEvent.stop).Forget();
+                break;
+            case PhraseEventTypes.LoopSfx:
+                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop).Forget();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }*/
     }
 }

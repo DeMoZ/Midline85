@@ -2,7 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AaDialogueGraph;
-using Configs;
 using PhotoViewer.Scripts.Photo;
 using UniRx;
 using UnityEngine;
@@ -11,7 +10,6 @@ namespace UI
 {
     public class UiPhraseData
     {
-        public float DefaultTime;
         public string Description;
         
         public Phrase Phrase;
@@ -23,25 +21,17 @@ namespace UI
     {
         public struct Ctx
         {
-            public GameSet GameSet;
             public ReactiveCommand<UiPhraseData> OnShowPhrase;
             public ReactiveCommand<List<RecordData>> OnLevelEnd;
             
             public ReactiveCommand onClickMenuButton;
-            //public ReactiveCommand<PhraseEvent> onPhraseSoundEvent;
-            //public ReactiveCommand<PhraseSet> onShowPhrase;
             public ReactiveCommand<UiPhraseData> onHidePhrase;
             public ReactiveCommand<bool> onShowIntro;
-
-            public ReactiveCommand<float> onHideLevelUi;
-            public ReactiveCommand<float> onShowStatisticUi;
-
             public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
             public ReactiveCommand<bool> onClickPauseButton;
 
-            public Pool pool;
-            public AudioManager audioManager;
-            public PlayerProfile profile;
+            public AudioManager AudioManager;
+            public PlayerProfile Profile;
         }
 
         private Ctx _ctx;
@@ -78,7 +68,7 @@ namespace UI
 
             statisticView.SetCtx(new StatisticsView.Ctx
             {
-                onClickMenuButton = _ctx.onClickMenuButton,
+                OnClickMenuButton = _ctx.onClickMenuButton,
             });
 
             levelView.SetCtx(new LevelView.Ctx
@@ -95,19 +85,15 @@ namespace UI
 
             menuSettings.SetCtx(new UiMenuSettings.Ctx
             {
-                audioManager = _ctx.audioManager,
+                audioManager = _ctx.AudioManager,
                 onClickToMenu = _onClickToMenu,
-                profile = _ctx.profile,
+                profile = _ctx.Profile,
             });
 
             _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
             
             _ctx.onHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
             _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
-            // _ctx.onHideLevelUi.Subscribe(time =>
-            // {
-            //     levelView.OnHideLevelUi(time, () => { EnableUi(statisticView.GetType()); });
-            // }).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
             _ctx.onShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
 
@@ -128,7 +114,7 @@ namespace UI
         private void EnableUi(Type type)
         {
             if (levelView == null) return;
-
+            
             menuSettings.gameObject.SetActive(menuSettings.GetType() == type);
             levelTitleView.gameObject.SetActive(levelTitleView.GetType() == type);
             levelView.gameObject.SetActive(levelView.GetType() == type);
@@ -159,21 +145,13 @@ namespace UI
 
         private void OnLevelEnd(List<RecordData> data)
         {
-            //levelView.OnHideLevelUi(time, () => { EnableUi(statisticView.GetType()); });
             statisticView.PopulateCells(data);
-            statisticView.Fade(_ctx.GameSet.levelEndStatisticsUiFadeTime);
             EnableUi(statisticView.GetType()); 
-                                //_ctx.GameSet.levelEndLevelUiDisappearTime
         }
 
         private void OnShowIntro(bool show) =>
             EnableUi(show ? levelTitleView.GetType() : levelView.GetType());
-
-        private void OnPhraseSoundEvent(PhraseEvent phraseEvent)
-        {
-            // todo: for extra sound events on phrase time points 
-        }
-
+        
         public void Dispose()
         {
             newspaper.OnClose -= OnNewspaperClose;

@@ -18,12 +18,13 @@ public class LevelSceneEntity : IGameScene
         public ChapterSet chapterSet;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile Profile;
-        public AudioManager audioManager;
+        public AudioManager AudioManager;
         public VideoManager videoManager;
         public Sprite newspaperSprite;
         public PhraseEventVideoLoader phraseEventVideoLoader;
-        public Blocker blocker;
+        public Blocker Blocker;
         public CursorSet cursorSettings;
+        public ObjectEvents ObjectEvents;
     }
 
     private Ctx _ctx;
@@ -47,7 +48,7 @@ public class LevelSceneEntity : IGameScene
     {
         await Task.Delay(10);
         // todo should be removed and music must be played in other way
-        await _ctx.audioManager.PlayMusic("7_lvl");
+        await _ctx.AudioManager.PlayMusic("7_lvl");
         
         // scene doesnt exist here
         // so just load and show on enter. Is it instant?
@@ -58,10 +59,8 @@ public class LevelSceneEntity : IGameScene
         Debug.Log($"[{this}] Entered");
         // from prefab, or find, or addressable
         _ui = Object.FindObjectOfType<UiLevelScene>();
-        var uiPool = new Pool(new GameObject("uiPool").transform);
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
-        var onPhraseSoundEvent = new ReactiveCommand<PhraseEvent>().AddTo(_disposables);
 
         var onShowPhrase = new ReactiveCommand<UiPhraseData>();
         var onHidePhrase = new ReactiveCommand<UiPhraseData>().AddTo(_disposables);
@@ -69,8 +68,6 @@ public class LevelSceneEntity : IGameScene
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
 
         var onLevelEnd = new ReactiveCommand<List<RecordData>>().AddTo(_disposables);
-        var onHideLevelUi = new ReactiveCommand<float>().AddTo(_disposables);
-        var onShowStatisticUi = new ReactiveCommand<float>().AddTo(_disposables);
         var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);
         var onSkipPhrase = new ReactiveCommand().AddTo(_disposables);
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
@@ -91,14 +88,6 @@ public class LevelSceneEntity : IGameScene
         
         // _ctx.audioManager.SetPhraseAudioSource(_ui.PhraseAudioSource);
 
-        /*var phraseEventSoundLoader = new PhraseEventSoundLoader(new PhraseEventSoundLoader.Ctx
-        {
-            audioManager = _ctx.audioManager,
-            eventSoPath = "PhraseSFX",
-            streamingPath = "Sounds/EventSounds",
-            resourcesPath = "Sounds/EventSounds",
-        }).AddTo(_disposables);*/
-
         var phraseSkipper = new PhraseSkipper(onSkipPhrase).AddTo(_disposables);
 
         var onNext = new ReactiveCommand<List<AaNodeData>>();
@@ -117,18 +106,18 @@ public class LevelSceneEntity : IGameScene
             Profile = _ctx.Profile,
             onSwitchScene = _ctx.onSwitchScene,
             onClickMenuButton = onClickMenuButton,
-            onPhraseSoundEvent = onPhraseSoundEvent,
 
             OnShowPhrase = onShowPhrase,
             PhraseSoundPlayer = phraseSoundPlayer,
             ContentLoader = contentLoader,
+            ObjectEvents = _ctx.ObjectEvents,
 
             onHidePhrase = onHidePhrase,
             onAfterEnter = onAfterEnter,
             gameSet = _ctx.GameSet,
             buttons = buttons,
             countDown = countDown,
-            audioManager = _ctx.audioManager,
+            AudioManager = _ctx.AudioManager,
             onShowIntro = onShowIntro,
             OnLevelEnd = onLevelEnd,
             newspaperSprite = _ctx.newspaperSprite,
@@ -138,26 +127,21 @@ public class LevelSceneEntity : IGameScene
             onSkipPhrase = onSkipPhrase,
             onClickPauseButton = onClickPauseButton,
             videoManager = _ctx.videoManager,
-            blocker = _ctx.blocker,
+            Blocker = _ctx.Blocker,
             cursorSettings = _ctx.cursorSettings,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
         {
-            GameSet = _ctx.GameSet,
             onClickMenuButton = onClickMenuButton,
-            //onPhraseSoundEvent = onPhraseSoundEvent,
             OnShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             onShowIntro = onShowIntro,
-            onHideLevelUi = onHideLevelUi,
             OnLevelEnd = onLevelEnd,
-            onShowStatisticUi = onShowStatisticUi,
             onShowNewspaper = onShowNewspaper,
             onClickPauseButton = onClickPauseButton,
-            pool = uiPool,
-            audioManager = _ctx.audioManager,
-            profile = _ctx.Profile,
+            AudioManager = _ctx.AudioManager,
+            Profile = _ctx.Profile,
         });
 
         onAfterEnter.Execute();

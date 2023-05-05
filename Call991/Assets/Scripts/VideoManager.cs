@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
+using AaDialogueGraph;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -135,5 +136,24 @@ public class VideoManager : MonoBehaviour
     {
         var conf = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(eventId);
         return conf;
+    }
+
+    public void PlayEventVideo(EventVisualData data, VideoClip videoClip)
+    {
+        throw new NotImplementedException();
+        /*switch (pEvent.eventType)
+        {
+            case PhraseEventTypes.Video:
+                break;
+            case PhraseEventTypes.Vfx:
+
+                break;
+            case PhraseEventTypes.LoopVfx:
+                Debug.Log($"[{this}] PhraseEventTypes.VideoLoop to be execute");
+                _ctx.phraseEventVideoLoader.LoadVideoEvent(pEvent.eventId).Forget();
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }*/
     }
 }

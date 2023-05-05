@@ -2,15 +2,14 @@ using System;
 using UniRx;
 using UnityEngine;
 
-
 public class MenuScenePm : IDisposable
 {
     public struct Ctx
     {
-        public ReactiveCommand onClickPlayGame;
-        public ReactiveCommand onClickNewGame;
-        public ReactiveCommand<GameScenes> onSwitchScene;
-        public PlayerProfile profile;
+        public ReactiveCommand OnClickPlayGame;
+        public ReactiveCommand OnClickNewGame;
+        public ReactiveCommand<GameScenes> OnSwitchScene;
+        public PlayerProfile Profile;
     }
 
     private Ctx _ctx;
@@ -19,21 +18,21 @@ public class MenuScenePm : IDisposable
     {
         _ctx = ctx;
 
-        _ctx.onClickPlayGame.Subscribe(_ => OnClickPlayGame());
-        _ctx.onClickNewGame.Subscribe(_ => OnClickNewGame());
+        _ctx.OnClickPlayGame.Subscribe(_ => OnClickPlayGame());
+        _ctx.OnClickNewGame.Subscribe(_ => OnClickNewGame());
     }
 
     private void OnClickPlayGame()
     {
         Debug.Log("[MenuScenePm] OnClickPlay");
-        _ctx.onSwitchScene.Execute(GameScenes.Level1);
+        _ctx.OnSwitchScene.Execute(GameScenes.Level1);
     }
 
     private void OnClickNewGame()
     {
         Debug.Log("[MenuScenePm] OnClickNewGame");
-        _ctx.profile.Clear();
-        _ctx.onSwitchScene.Execute(GameScenes.Level1);
+        _ctx.Profile.Clear();
+        _ctx.OnSwitchScene.Execute(GameScenes.Level1);
     }
 
     private void OnClickSettings()

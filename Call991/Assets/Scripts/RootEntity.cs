@@ -15,6 +15,7 @@ public class RootEntity : IDisposable
         public AudioManager AudioManager;
         public VideoManager VideoManager;
         public Blocker Blocker;
+        public ObjectEvents ObjectEvents;
     }
 
     private Ctx _ctx;
@@ -32,7 +33,6 @@ public class RootEntity : IDisposable
         var profile = new PlayerProfile();
         SetLanguage(profile.TextLanguage);
         
-        var soundPath = "Sounds/Ui";
         var musicPath = "Sounds/Music";
 
         _ctx.AudioManager.SetCtx(new AudioManager.Ctx
@@ -40,7 +40,6 @@ public class RootEntity : IDisposable
             GameSet = gameSet,
             playerProfile = profile,
             audioMixer = audioMixer,
-            soundPath = soundPath,
             musicPath = musicPath,
         });
         _ctx.AudioManager.PlayMusic("Intro").Forget();
@@ -57,15 +56,16 @@ public class RootEntity : IDisposable
         
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
         {
-            gameSet = gameSet,
-            startApplicationSceneName = startApplicationSceneName,
-            onStartApplicationSwitchScene = _onStartApplicationSwitchScene,
+            GameSet = gameSet,
+            StartApplicationSceneName = startApplicationSceneName,
+            OnStartApplicationSwitchScene = _onStartApplicationSwitchScene,
             onSwitchScene = onSwitchScene,
-            profile = profile,
-            audioManager = _ctx.AudioManager,
+            Profile = profile,
+            AudioManager = _ctx.AudioManager,
             videoManager = _ctx.VideoManager,
-            blocker = _ctx.Blocker,
-            cursorSettings = cursorSettings,
+            Blocker = _ctx.Blocker,
+            ObjectEvents = _ctx.ObjectEvents,
+            CursorSettings = cursorSettings,
         }).AddTo(_diposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

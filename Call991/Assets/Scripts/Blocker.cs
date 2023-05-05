@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Core;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
@@ -16,15 +17,21 @@ public class Blocker : IDisposable
     private Color _videoBlockerColor;
     private Color _screenBlockerColor;
 
-    public Blocker(Image screenFade, Image videoFade)
+    public Blocker(Image screenFade, Image videoFade, ReactiveCommand<(bool show,float time)> onScreenFade)
     {
+        _disposables = new CompositeDisposable();
+
         _screenFade = screenFade;
         _videoFade = videoFade;
 
         _videoBlockerColor = _videoFade.color;
         _screenBlockerColor = _screenFade.color;
 
-        _disposables = new CompositeDisposable();
+        onScreenFade.Subscribe(param =>
+        {
+            Debug.LogError($"[{this}] received event Fade");
+            FadeScreenBlocker(param.show, param.time).Forget();
+        }).AddTo(_disposables);
     }
 
     public async Task FadeVideoBlocker(bool show)
@@ -63,7 +70,7 @@ public class Blocker : IDisposable
         if (!show)
             EnableScreenFade(false);
     }
-
+ 
     public void EnableVideoFade(bool enable, bool show = true)
     {
         _videoBlockerColor.a = show ? 1 : 0;
@@ -73,6 +80,7 @@ public class Blocker : IDisposable
 
     public void EnableScreenFade(bool enable, bool show = true)
     {
+        Debug.LogError($"[{this}] Screen fade enable {enable}; show {show}");
         _screenBlockerColor.a = show ? 1 : 0;
         _screenFade.color = _screenBlockerColor;
         _screenFade.gameObject.SetActive(enable);
