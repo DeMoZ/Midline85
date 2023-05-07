@@ -18,8 +18,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: -967
       y: 171
-      width: 105
-      height: 149
+      width: 104
+      height: 147.5
     Languages:
     - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
     - English
@@ -29,7 +29,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: -257
       y: -255
-      width: 100
+      width: 99.5
       height: 96
     PhraseSketchText: xheck
     PersonVisualData:
@@ -44,8 +44,8 @@ MonoBehaviour:
     - 
     - 
     Phrases:
-    - RU/7_lvl/p.elena.001.asset
-    - EN/7_lvl/p.elena.009.asset
+    - 
+    - 
   - Guid: f7432440-37e3-4136-8052-ded1135d3a01
     Rect:
       serializedVersion: 2
@@ -74,46 +74,12 @@ MonoBehaviour:
     Phrases:
     - 
     - 
-  - Guid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
-    Rect:
-      serializedVersion: 2
-      x: -822
-      y: 186
-      width: 138
-      height: 96
-    PhraseSketchText: "\u043D\u0435\u0442 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E "
-    PersonVisualData:
-      Person: 0
-      ScreenPlace: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 0
-    EventVisualData:
-    - Type: 0
-      PhraseEvent: Sounds/EventSounds/SFX_OpenDoor_Footsteps_TakePhone.ogg
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0.5
-    - Type: 2
-      PhraseEvent: Dialogues/EventPrefabs/BlockerShow.prefab
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 1
-    PhraseSounds:
-    - Sounds/RU/7_lvl/p.elena.003.ogg
-    - 
-    Phrases:
-    - RU/7_lvl/p.elena.003.asset
-    - 
   - Guid: e53d3c5a-0dc3-42f4-8ed3-517b6b2d88a2
     Rect:
       serializedVersion: 2
       x: -657
       y: 186
-      width: 127
+      width: 126.5
       height: 96
     PhraseSketchText: disable blocker
     PersonVisualData:
@@ -136,14 +102,54 @@ MonoBehaviour:
     Phrases:
     - 
     - 
+  - Guid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
+    Rect:
+      serializedVersion: 2
+      x: -822
+      y: 199
+      width: 127.5
+      height: 96
+    PhraseSketchText: "\u043D\u0435\u0442 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E "
+    PersonVisualData:
+      Person: 0
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: Sounds/EventSounds/SFX_OpenDoor_Footsteps_TakePhone.ogg
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0.5
+    - Type: 2
+      PhraseEvent: Dialogues/EventPrefabs/BlockerShow.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 1
+    - Type: 1
+      PhraseEvent: Videos/VideoBack.mp4
+      Layer: 1
+      Loop: 1
+      Stop: 0
+      Delay: 0
+    PhraseSounds:
+    - Sounds/Lvl_7/Ru/p.elena.003.ogg
+    - 
+    Phrases:
+    - Phrases/Lvl_7/Ru/p.elena.003.asset
+    - Phrases/Lvl_7/En/p.elena.003.asset
   ChoiceNodeData:
   - Guid: e3074029-8df6-4187-b3a6-f0fbf5a545e9
     Rect:
       serializedVersion: 2
       x: 124
       y: -108
-      width: 104
-      height: 98
+      width: 103.5
+      height: 97.5
     Choice: c.word.002
     CaseData:
       Words: []
@@ -155,8 +161,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 124
       y: 9
-      width: 104
-      height: 98
+      width: 103.5
+      height: 97.5
     Choice: c.word.003
     CaseData:
       Words: []
@@ -168,8 +174,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: -152
       y: -88
-      width: 104
-      height: 98
+      width: 103.5
+      height: 97.5
     Choice: c.word.006
     CaseData:
       Words: []
@@ -181,8 +187,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 124
       y: -220
-      width: 102
-      height: 98
+      width: 103
+      height: 97.5
     Choice: c.word.001
     CaseData:
       Words:
@@ -197,8 +203,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: -554
       y: -207
-      width: 104
-      height: 98
+      width: 103.5
+      height: 97.5
     Choice: c.word.005
     CaseData:
       Words: []
@@ -210,8 +216,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: -555
       y: 331
-      width: 102
-      height: 98
+      width: 101.5
+      height: 97.5
     Choice: c.word.010
     CaseData:
       Words: []
@@ -225,8 +231,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 280
       y: -68
-      width: 129
-      height: 96
+      width: 128.5
+      height: 95.5
     Choice: FIRE.EMOTIONS
     Value: 1
   EndNodeData:
@@ -235,8 +241,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: -260
       y: 199
-      width: 119
-      height: 96
+      width: 118.5
+      height: 95.5
     End: FIRE.END.BAD
     EventVisualData:
     - Type: 2
@@ -264,6 +270,12 @@ MonoBehaviour:
   - BaseNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
     BaseExitName: 
     TargetNodeGuid: 657551ae-35b5-4275-a0f3-8d8ddf1b4be9
+  - BaseNodeGuid: e53d3c5a-0dc3-42f4-8ed3-517b6b2d88a2
+    BaseExitName: 
+    TargetNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
+  - BaseNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
+    BaseExitName: 
+    TargetNodeGuid: e53d3c5a-0dc3-42f4-8ed3-517b6b2d88a2
   - BaseNodeGuid: 9ec5bf3e-2942-46b0-8130-fd2010df39d9
     BaseExitName: 
     TargetNodeGuid: 7e736ca7-a690-462f-907d-339ae62bc89b
@@ -282,9 +294,3 @@ MonoBehaviour:
   - BaseNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     BaseExitName: 
     TargetNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
-  - BaseNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
-    BaseExitName: 
-    TargetNodeGuid: e53d3c5a-0dc3-42f4-8ed3-517b6b2d88a2
-  - BaseNodeGuid: e53d3c5a-0dc3-42f4-8ed3-517b6b2d88a2
-    BaseExitName: 
-    TargetNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
