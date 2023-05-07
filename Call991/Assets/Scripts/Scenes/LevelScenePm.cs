@@ -42,7 +42,7 @@ public class LevelScenePm : IDisposable
         public Sprite newspaperSprite;
         public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
         public ChapterSet chapterSet;
-        public PhraseEventVideoLoader phraseEventVideoLoader;
+        
         public ReactiveCommand onSkipPhrase;
         public ReactiveCommand<bool> onClickPauseButton;
         public VideoManager videoManager;
@@ -112,7 +112,9 @@ public class LevelScenePm : IDisposable
         // await ShowNewsPaper();
         // await Task.Delay(500);
         await ShowIntro();
-        await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
+        
+        //await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
+        
         _ctx.videoManager.PlayPreparedVideo();
         await Task.Delay(500);
         ExecuteDialogue();

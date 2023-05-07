@@ -81,44 +81,6 @@ public class VideoManager : MonoBehaviour
         videoPlayer.isLooping = true;
     }
 
-    public void PlayVideo(string sceneVideoUrl, PhraseEventTypes phraseEventTypes)
-    {
-        switch (phraseEventTypes)
-        {
-            case PhraseEventTypes.Video:
-                break;
-            case PhraseEventTypes.Vfx:
-                vfxPlayer.url = sceneVideoUrl;
-                vfxPlayer.isLooping = false;
-                break;
-            case PhraseEventTypes.LoopVfx:
-                videoPlayer.url = sceneVideoUrl;
-                videoPlayer.isLooping = true;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(phraseEventTypes), phraseEventTypes, null);
-        }
-    }
-
-    public void PlayVideo(VideoClip clip, PhraseEventTypes phraseEventTypes)
-    {
-        switch (phraseEventTypes)
-        {
-            case PhraseEventTypes.Video:
-                break;
-            case PhraseEventTypes.Vfx:
-                vfxPlayer.clip = clip;
-                videoPlayer.isLooping = false;
-                break;
-            case PhraseEventTypes.LoopVfx:
-                videoPlayer.clip = clip;
-                videoPlayer.isLooping = true;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(phraseEventTypes), phraseEventTypes, null);
-        }
-    }
-
     public void EnableVideo(bool enable)
     {
         videoImage.gameObject.SetActive(enable);
@@ -140,20 +102,30 @@ public class VideoManager : MonoBehaviour
 
     public void PlayEventVideo(EventVisualData data, VideoClip videoClip)
     {
-        throw new NotImplementedException();
-        /*switch (pEvent.eventType)
+        // TODO layers should be added to mixer
+        switch (data.Layer)
         {
-            case PhraseEventTypes.Video:
+            case PhraseEventLayer.Effects: // case PhraseEventTypes.LoopSfx:
+                videoPlayer.clip = videoClip;
+                videoPlayer.isLooping = data.Loop;
+                throw new NotImplementedException();
                 break;
-            case PhraseEventTypes.Vfx:
-
+            case PhraseEventLayer.Single1: // case PhraseEventTypes.Video:
+                videoPlayer.clip = videoClip;
+                videoPlayer.isLooping = data.Loop;
                 break;
-            case PhraseEventTypes.LoopVfx:
-                Debug.Log($"[{this}] PhraseEventTypes.VideoLoop to be execute");
-                _ctx.phraseEventVideoLoader.LoadVideoEvent(pEvent.eventId).Forget();
+            case PhraseEventLayer.Single2: //case PhraseEventTypes.Video: should be second video layer
+                videoPlayer.clip = videoClip;
+                videoPlayer.isLooping = data.Loop;
+                throw new NotImplementedException();
+                break;
+            case PhraseEventLayer.Multiple: // on that layer can be several musics at the same time
+                videoPlayer.clip = videoClip;
+                videoPlayer.isLooping = data.Loop;
+                throw new NotImplementedException();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
-        }*/
+        }
     }
 }

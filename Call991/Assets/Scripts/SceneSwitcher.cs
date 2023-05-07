@@ -14,7 +14,6 @@ public class SceneSwitcher : IDisposable
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ScenesHandler scenesHandler;
         public VideoManager videoManager;
-        public PhraseEventVideoLoader phraseEventVideoLoader;
         public Blocker blocker;
         public GameSet gameSet;
         public CursorSet cursorSettings;

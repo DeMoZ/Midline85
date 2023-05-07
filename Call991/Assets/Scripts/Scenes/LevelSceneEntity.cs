@@ -21,7 +21,6 @@ public class LevelSceneEntity : IGameScene
         public AudioManager AudioManager;
         public VideoManager videoManager;
         public Sprite newspaperSprite;
-        public PhraseEventVideoLoader phraseEventVideoLoader;
         public Blocker Blocker;
         public CursorSet cursorSettings;
         public ObjectEvents ObjectEvents;
@@ -123,7 +122,6 @@ public class LevelSceneEntity : IGameScene
             newspaperSprite = _ctx.newspaperSprite,
             onShowNewspaper = onShowNewspaper,
             chapterSet = _ctx.chapterSet,
-            phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
             onSkipPhrase = onSkipPhrase,
             onClickPauseButton = onClickPauseButton,
             videoManager = _ctx.videoManager,

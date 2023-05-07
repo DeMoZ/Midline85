@@ -2,7 +2,6 @@ using System;
 using System.IO;
 using System.Threading.Tasks;
 using Configs;
-using Data;
 using UI;
 using UniRx;
 using UnityEngine;
@@ -134,18 +133,10 @@ public class ScenesHandler : IDisposable
             _ctx.GameSet.GameLevels.TestLevel.NodeLinks);
         var levelFolder = "7_lvl";
         var chapterSet = await ResourcesLoader.LoadAsync<ChapterSet>(levelFolder + "/7_lvl_Total");
-        var videoPathBuilder = new VideoPathBuilder();
         var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
         var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.AudioManager.OnSceneSwitch();
-
-        var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
-        {
-            eventSoPath = levelFolder,
-            videoManager = _ctx.videoManager,
-            streamingPath = "Videos/EventVideos",
-        }).AddTo(_disposables);
-
+        
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
         {
@@ -159,7 +150,6 @@ public class ScenesHandler : IDisposable
             AudioManager = _ctx.AudioManager,
             videoManager = _ctx.videoManager,
             newspaperSprite = newspaperSprite,
-            phraseEventVideoLoader = phraseEventVideoLoader,
             Blocker = _ctx.Blocker,
             cursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
@@ -179,12 +169,6 @@ public class ScenesHandler : IDisposable
         _ctx.videoManager.EnableVideo(false);
 
         var toLevelScene = scene == GameScenes.Level1;
-
-        var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
-        {
-            videoManager = _ctx.videoManager,
-            streamingPath = "Videos/EventVideos",
-        }).AddTo(_disposables);
 
         var switchSceneEntity = new LoadingSceneEntity(new LoadingSceneEntity.Ctx
         {

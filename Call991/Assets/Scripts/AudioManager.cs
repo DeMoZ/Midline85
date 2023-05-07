@@ -55,12 +55,6 @@ public class AudioManager : MonoBehaviour
         _disposables?.Dispose();
     }
 
-    public string LanguagePath
-    {
-        get => _languagePath;
-        set => _languagePath = value;
-    }
-
     public async Task PlayMusic(string key, int index = 0, bool merge = false)
     {
         List<string> musics;
@@ -100,13 +94,6 @@ public class AudioManager : MonoBehaviour
 
             _currentMusicClip = musicClip;
         }
-    }
-
-
-    public void SetPhraseAudioSource(AudioSource phraseAudioSource)
-    {
-        _phraseAudioSource = phraseAudioSource;
-        SetPhraseVolume();
     }
 
     private void MergeMusics()
@@ -170,7 +157,7 @@ public class AudioManager : MonoBehaviour
         timerAudioSource.clip = null;
     }
 
-    public void PlaySfx(AudioClip audioClip)
+    private void PlaySfx(AudioClip audioClip)
     {
         var source = Instantiate<TempAudioSource>(tempSoundSourcePrefab);
         source.PlayAndDestroy(audioClip, () => { _sfxs.Remove(source); });
@@ -179,7 +166,7 @@ public class AudioManager : MonoBehaviour
         _sfxs.Add(source);
     }
 
-    public void PlayLoopSfx(AudioClip audioClip, bool stop)
+    private void PlayLoopSfx(AudioClip audioClip, bool stop)
     {
         var audioName = audioClip.name;
 
@@ -248,39 +235,27 @@ public class AudioManager : MonoBehaviour
 
     public void PlayEventSound(EventVisualData data, AudioClip audioClip)
     {
-        // TODO here is one more switch construction for each layer of sound player
+        // TODO layers should be added to mixer
         switch (data.Layer)
         {
-            case PhraseEventLayer.Effects:
+            case PhraseEventLayer.Effects: // case PhraseEventTypes.LoopSfx:
+                if (data.Loop)
+                    PlayLoopSfx(audioClip, data.Stop);
+                else
+                    PlaySfx(audioClip); // case PhraseEventTypes.Sfx:
                 break;
-            case PhraseEventLayer.Single1:
+            case PhraseEventLayer.Single1: // case PhraseEventTypes.Music:
+                PlayMusicFile(musicAudioSource, audioClip, true);
+                _currentMusicClip = audioClip;
                 break;
-            case PhraseEventLayer.Single2:
+            case PhraseEventLayer.Single2: // case PhraseEventTypes.Music: should be second music layer
+                PlayMusicFile(musicAudioSource, audioClip, true);
+                _currentMusicClip = audioClip;
                 break;
-            case PhraseEventLayer.Multiple:
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        } 
-        
-        if (data.Loop)
-            PlayLoopSfx(audioClip, data.Stop);
-        else
-            PlaySfx(audioClip);
-        
-        /*switch (pEvent.eventType)
-        {
-            case PhraseEventTypes.Music:
-                _ctx.phraseEventSoundLoader.LoadMusicEvent(pEvent.eventId).Forget();
-                break;
-            case PhraseEventTypes.Sfx:
-                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, false, pEvent.stop).Forget();
-                break;
-            case PhraseEventTypes.LoopSfx:
-                _ctx.phraseEventSoundLoader.LoadSfxEvent(pEvent.eventId, true, pEvent.stop).Forget();
+            case PhraseEventLayer.Multiple: // on that layer can be several musics at the same time
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
-        }*/
+        }
     }
 }
