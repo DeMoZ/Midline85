@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using Configs;
@@ -35,10 +36,12 @@ public class AudioManager : MonoBehaviour
     private List<TempAudioSource> _sfxs;
 
     private CompositeDisposable _disposables;
-
+    private CancellationTokenSource _tokenSource;
     public void SetCtx(Ctx ctx)
     {
         _disposables = new CompositeDisposable();
+        _tokenSource = new CancellationTokenSource().AddTo(_disposables);
+        
         _ctx = ctx;
         menuButtonAudioSettings.OnHover += PlayUiSound;
 
@@ -52,6 +55,7 @@ public class AudioManager : MonoBehaviour
     private void OnDestroy()
     {
         menuButtonAudioSettings.OnHover -= PlayUiSound;
+        _tokenSource?.Cancel();
         _disposables?.Dispose();
     }
 
@@ -78,6 +82,7 @@ public class AudioManager : MonoBehaviour
         try
         {
             musicClip = await ResourcesLoader.LoadAsync<AudioClip>(filePath);
+            if (_tokenSource.IsCancellationRequested) return;
         }
         catch (Exception e)
         {

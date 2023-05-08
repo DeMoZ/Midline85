@@ -112,13 +112,16 @@ public class LevelScenePm : IDisposable
         // await ShowNewsPaper();
         // await Task.Delay(500);
         await ShowIntro();
-        
+        if (_tokenSource.IsCancellationRequested) return;
         //await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
         
         _ctx.videoManager.PlayPreparedVideo();
         await Task.Delay(500);
+        if (_tokenSource.IsCancellationRequested) return;
         ExecuteDialogue();
         await _ctx.Blocker.FadeScreenBlocker(false);
+        if (_tokenSource.IsCancellationRequested) return;
+        
         _ctx.cursorSettings.EnableCursor(true);
     }
 

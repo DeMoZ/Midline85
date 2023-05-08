@@ -1,4 +1,5 @@
 using System;
+using System.Threading;
 using System.Threading.Tasks;
 using Configs;
 using Data;
@@ -25,10 +26,12 @@ public class SceneSwitcher : IDisposable
 
     private IGameScene _currentScene;
 
+    private CancellationTokenSource _tokenSource;
     public SceneSwitcher(Ctx ctx)
     {
         _ctx = ctx;
         _diposables = new CompositeDisposable();
+        _tokenSource = new CancellationTokenSource().AddTo(_diposables);
         _ctx.OnSwitchScene.Subscribe(OnSwitchScene).AddTo(_diposables);
     }
 
@@ -65,6 +68,8 @@ public class SceneSwitcher : IDisposable
             _ctx.Blocker.EnableScreenFade(true);
             var contentLoader = new ContentLoader(new ContentLoader.Ctx());
             var videoClip = await contentLoader.GetObjectAsync<VideoClip>(_ctx.GameSet.interactiveVideoRef);
+            if (_tokenSource.IsCancellationRequested) return;
+
             _ctx.VideoManager.EnableVideo(true);
             _ctx.VideoManager.PlayVideo(videoClip);
             await _ctx.Blocker.FadeScreenBlocker(false);
@@ -74,7 +79,8 @@ public class SceneSwitcher : IDisposable
         Debug.Log($"[{this}][OnSwitchSceneLoaded] Start load scene {scene}");
 
         _currentScene = await _ctx.ScenesHandler.SceneEntity(scene);
-        
+        if (_tokenSource.IsCancellationRequested) return;
+
         SceneManager.LoadSceneAsync(_ctx.ScenesHandler.GetSceneName(scene)) // async load scene
             .AsAsyncOperationObservable() // as Observable thread
             .Do(x =>
@@ -95,7 +101,8 @@ public class SceneSwitcher : IDisposable
 
     public void Dispose()
     {
+        _tokenSource.Cancel();
+        _currentScene?.Dispose();
         _diposables.Dispose();
-        _currentScene.Dispose();
     }
 }
