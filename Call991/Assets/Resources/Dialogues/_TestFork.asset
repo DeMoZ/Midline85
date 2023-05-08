@@ -241,14 +241,20 @@ MonoBehaviour:
       serializedVersion: 2
       x: -260
       y: 199
-      width: 118.5
-      height: 95.5
+      width: 326
+      height: 333.5
     End: FIRE.END.BAD
     EventVisualData:
     - Type: 2
       PhraseEvent: Dialogues/EventPrefabs/BlockerHide.prefab
       Layer: 0
       Loop: 0
+      Stop: 0
+      Delay: 0
+    - Type: 1
+      PhraseEvent: Videos/Statistics.mp4
+      Layer: 1
+      Loop: 1
       Stop: 0
       Delay: 0
     Records:

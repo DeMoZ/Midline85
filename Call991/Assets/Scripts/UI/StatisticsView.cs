@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using AaDialogueGraph;
 using I2.Loc;
 using UniRx;
@@ -30,7 +31,7 @@ namespace UI
         private void OnClickMenu() =>
             _ctx.OnClickMenuButton.Execute();
 
-        public void PopulateCells(List<RecordData> data)
+        public async Task PopulateCells(List<RecordData> data)
         {
             foreach (Transform cell in table)
             {
@@ -42,9 +43,14 @@ namespace UI
                 var cell = Instantiate(cellPrefab, table);
                 cell.text.text = new LocalizedString(record.Key);
 
-                var sprite = !string.IsNullOrEmpty(record.Sprite)
-                    ? NodeUtils.GetObjectByPath<Sprite>(record.Sprite)
-                    : null;
+                Sprite sprite;
+                if (!string.IsNullOrEmpty(record.Sprite))
+                {
+                    sprite = await NodeUtils.GetObjectByPathAsync<Sprite>(record.Sprite);
+                    if (tokenSource is { IsCancellationRequested: true }) return;
+                }
+                else
+                    sprite = null;
 
                 cell.image.sprite = sprite;
             }

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using PhotoViewer.Scripts.Photo;
@@ -51,12 +52,13 @@ namespace UI
         public List<ChoiceButtonView> Buttons => levelView.Buttons;
         public CountDownView CountDown => levelView.CountDown;
         public AudioSource PhraseAudioSource => phraseAudioSource;
-
+        private CancellationTokenSource _tokenSource;
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
             _disposables = new CompositeDisposable();
-
+            _tokenSource = new CancellationTokenSource().AddTo(_disposables);
+            
             _onClickToMenu = new ReactiveCommand();
             _onClickToMenu.Subscribe(_ => OnClickToMenu()).AddTo(_disposables);
 
@@ -143,9 +145,11 @@ namespace UI
                 await Task.Delay(10);
         }
 
-        private void OnLevelEnd(List<RecordData> data)
+        private async void OnLevelEnd(List<RecordData> data)
         {
-            statisticView.PopulateCells(data);
+            await statisticView.PopulateCells(data);
+            if (_tokenSource.IsCancellationRequested) return;
+            
             EnableUi(statisticView.GetType()); 
         }
 
@@ -155,13 +159,14 @@ namespace UI
         public void Dispose()
         {
             newspaper.OnClose -= OnNewspaperClose;
-
+            _tokenSource.Cancel();
             //levelTitleView.Dispose();
             levelView.Dispose();
             //statisticView.Dispose();
             //newspaper.Dispose();
             levelPauseView.Dispose();
             //menuSettings.Dispose();
+            _disposables.Dispose();
         }
     }
 }
