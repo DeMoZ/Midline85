@@ -79,7 +79,7 @@ public class LevelSceneEntity : IGameScene
             AudioSource = _ui.PhraseAudioSource,
         }).AddTo(_disposables);
         
-        var contentLoader = new DialogueContentLoader(new DialogueContentLoader.Ctx
+        var contentLoader = new ContentLoader(new ContentLoader.Ctx
         {
             Languages = languages,
             Profile = _ctx.Profile,

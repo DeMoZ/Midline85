@@ -27,45 +27,6 @@ public class VideoManager : MonoBehaviour
         _ctx = ctx;
     }
 
-    public async Task LoadVideoSoToPrepareVideo(string eventId)
-    {
-        var config = await LoadConfig(eventId);
-        if (config == null)
-        {
-            Debug.LogError($"[{this}] sound event SO wasn't found: A PATH /{eventId}");
-            return;
-        }
-
-        if (config.clip)
-        {
-            await PrepareVideo(config.videoClip);
-        }
-        else
-        {
-            var streamingPath = "file:///" + Path.Combine(Application.streamingAssetsPath, "Videos/EventVideos");
-            var videoPath = Path.Combine(streamingPath, config.videoName + ".mp4");
-            await PrepareVideo(videoPath);
-        }
-    }
-
-    public async Task PrepareVideo(string url)
-    {
-        videoPlayer.Stop();
-        videoPlayer.clip = null;
-        videoPlayer.url = url;
-
-        await PrepareVideo();
-    }
-
-    public async Task PrepareVideo(VideoClip clip)
-    {
-        videoPlayer.Stop();
-        videoPlayer.url = null;
-        videoPlayer.clip = clip;
-
-        await PrepareVideo();
-    }
-
     private async Task PrepareVideo()
     {
         videoPlayer.Stop();
@@ -86,21 +47,21 @@ public class VideoManager : MonoBehaviour
         videoImage.gameObject.SetActive(enable);
     }
 
-    public void EnableVideoPlayer(bool isActive)
+    public void EnableVideoPlayer(bool enable)
     {
-        videoPlayer.gameObject.SetActive(isActive);
-        vfxPlayer.gameObject.SetActive(isActive);
-        videoImage.gameObject.SetActive(isActive);
-        vfxImage.gameObject.SetActive(isActive);
+        videoPlayer.gameObject.SetActive(enable);
+        vfxPlayer.gameObject.SetActive(enable);
+        videoImage.gameObject.SetActive(enable);
+        vfxImage.gameObject.SetActive(enable);
     }
-
-    private async Task<PhraseVfxEventSo> LoadConfig(string eventId)
+    
+    public void PlayVideo(VideoClip videoClip)
     {
-        var conf = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(eventId);
-        return conf;
+        videoPlayer.clip = videoClip;
+        videoPlayer.isLooping = true;
     }
-
-    public void PlayEventVideo(EventVisualData data, VideoClip videoClip)
+    
+    public void PlayVideo(EventVisualData data, VideoClip videoClip)
     {
         // TODO layers should be added to mixer
         switch (data.Layer)

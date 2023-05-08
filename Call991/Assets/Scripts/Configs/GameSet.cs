@@ -37,8 +37,8 @@ namespace Configs
         public float levelEndLevelUiDisappearTime = 3f;
         public float levelEndStatisticsUiFadeTime = 1f;
 
-        [Space]
-        public string titleVideoSoName;
+        [Space][Title("InteractiveVideoRef")]
+        public string interactiveVideoRef;
 
         [Space][Title("ScriptableObject with all the levels")]
         public GameLevelsSo GameLevels;

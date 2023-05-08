@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Data
 {
-    public class DialogueContentLoader : IDisposable
+    public class ContentLoader : IDisposable
     {
         public struct Ctx
         {
@@ -16,7 +16,7 @@ namespace Data
 
         private Ctx _ctx;
 
-        public DialogueContentLoader(Ctx ctx)
+        public ContentLoader(Ctx ctx)
         {
             _ctx = ctx;
         }

@@ -32,7 +32,7 @@ public class LevelScenePm : IDisposable
         public ObjectEvents ObjectEvents;
 
         public PhraseSoundPlayer PhraseSoundPlayer;
-        public DialogueContentLoader ContentLoader;
+        public ContentLoader ContentLoader;
         public List<ChoiceButtonView> buttons;
         public CountDownView countDown;
 
@@ -336,7 +336,7 @@ public class LevelScenePm : IDisposable
                 _ctx.AudioManager.PlayEventSound(data, content[data.PhraseEvent] as AudioClip);
                 break;
             case PhraseEventType.VideoClip:
-                _ctx.videoManager.PlayEventVideo(data, content[data.PhraseEvent] as VideoClip);
+                _ctx.videoManager.PlayVideo(data, content[data.PhraseEvent] as VideoClip);
                 break;
             case PhraseEventType.GameObject:
                 var prefab = content[data.PhraseEvent] as GameObject;

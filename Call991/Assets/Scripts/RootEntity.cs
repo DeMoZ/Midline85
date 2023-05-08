@@ -70,12 +70,12 @@ public class RootEntity : IDisposable
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
-            scenesHandler = scenesHandler,
-            onSwitchScene = onSwitchScene,
-            videoManager = _ctx.VideoManager,
-            gameSet = gameSet,
-            blocker = _ctx.Blocker,
-            cursorSettings = cursorSettings,
+            ScenesHandler = scenesHandler,
+            OnSwitchScene = onSwitchScene,
+            VideoManager = _ctx.VideoManager,
+            GameSet = gameSet,
+            Blocker = _ctx.Blocker,
+            CursorSettings = cursorSettings,
         }).AddTo(_diposables);
 
         _onStartApplicationSwitchScene.Execute();
