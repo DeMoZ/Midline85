@@ -102,25 +102,7 @@ public class DialoguePm : IDisposable
                         result.Add(aaNodeData);
                         break;
                     case ForkNodeData nodeData:
-                        var exits = GetForkExit(nodeData.ForkCaseData);
-
-                        if (!exits.Any())
-                        {
-                            var exitLinks =
-                                _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == nodeData.Guid
-                                                                && string.IsNullOrEmpty(l.BaseExitName));
-                            result.AddRange(LinksToNodes(exitLinks));
-                        }
-                        else
-                        {
-                            foreach (var exit in exits)
-                            {
-                                var exitLinks =
-                                    _ctx.LevelData.Links.Where(l => l.BaseExitName == exit);
-                                result.AddRange(LinksToNodes(exitLinks));
-                            }
-                        }
-
+                        result.AddRange(GetForkExitNode(nodeData));
                         break;
                     case CountNodeData nodeData:
                         _dialogueLoggerPm.AddLog(nodeData);
@@ -140,22 +122,37 @@ public class DialoguePm : IDisposable
         return result;
     }
 
-    private List<string> GetForkExit(List<ForkCaseData> data)
+    private List<AaNodeData> GetForkExitNode(ForkNodeData data)
     {
-        var result = new List<string>();
+        var exit = GetForkExit(data.ForkCaseData);
 
-        foreach (var condition in data)
+        if (string.IsNullOrEmpty(exit))
         {
-            var isInCase = IsInCase(condition);
-            if (isInCase)
+            var exitLinks =
+                _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == data.Guid
+                                                && string.IsNullOrEmpty(l.BaseExitName));
+            return LinksToNodes(exitLinks);
+        }
+        else
+        {
+            var exitLinks =
+                _ctx.LevelData.Links.Where(l => l.BaseExitName == exit);
+            return LinksToNodes(exitLinks);
+        }
+    }
+    
+    private string GetForkExit(List<ForkCaseData> data)
+    {
+        for (var i = data.Count-1; i >= 0; i--)
+        {
+            if (IsInCase(data[i]))
             {
-                Debug.LogWarning($"[{this}] found exit from fork:\n{JsonConvert.SerializeObject(condition)}");
-                result.Add(condition.ForkExitName);
-                break;
+                Debug.LogWarning($"[{this}] found exit from fork:\n{JsonConvert.SerializeObject(data[i])}");
+                return data[i].ForkExitName;
             }
         }
 
-        return result;
+        return null;
     }
 
     private bool IsInCase(CaseData data)
