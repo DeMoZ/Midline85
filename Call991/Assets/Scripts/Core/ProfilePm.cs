@@ -32,7 +32,8 @@ public class PlayerProfile : IDisposable
 
         var defaultLanguage = LocalizationManager.CurrentLanguage;
         _textLanguage = PlayerPrefs.GetString(TextLanguageKey, defaultLanguage);
-        _audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, defaultLanguage);
+        // TODO remove set russian for default voice language.
+        _audioLanguage = "Русский"; //PlayerPrefs.GetString(AudioLanguageKey, defaultLanguage);
 
         var savedProfile = PlayerPrefs.GetString(PlayerDataKey, null);
         _playerData = string.IsNullOrWhiteSpace(savedProfile)

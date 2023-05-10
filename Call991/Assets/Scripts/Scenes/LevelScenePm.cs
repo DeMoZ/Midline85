@@ -42,7 +42,7 @@ public class LevelScenePm : IDisposable
         public Sprite newspaperSprite;
         public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
         public ChapterSet chapterSet;
-        
+
         public ReactiveCommand onSkipPhrase;
         public ReactiveCommand<bool> onClickPauseButton;
         public VideoManager videoManager;
@@ -114,14 +114,14 @@ public class LevelScenePm : IDisposable
         await ShowIntro();
         if (_tokenSource.IsCancellationRequested) return;
         //await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
-        
+
         _ctx.videoManager.PlayPreparedVideo();
         await Task.Delay(500);
         if (_tokenSource.IsCancellationRequested) return;
         ExecuteDialogue();
         await _ctx.Blocker.FadeScreenBlocker(false);
         if (_tokenSource.IsCancellationRequested) return;
-        
+
         _ctx.cursorSettings.EnableCursor(true);
     }
 
@@ -320,7 +320,7 @@ public class LevelScenePm : IDisposable
 
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
-        
+
         //Debug.LogError($"[{this}] hide Text called anyway");
         _ctx.onHidePhrase.Execute(uiPhrase);
     }
@@ -336,21 +336,23 @@ public class LevelScenePm : IDisposable
         switch (data.Type)
         {
             case PhraseEventType.AudioClip:
-                _ctx.AudioManager.PlayEventSound(data, content[data.PhraseEvent] as AudioClip);
+                var audioClip = content[data.PhraseEvent] as AudioClip;
+                if (audioClip == null) break;
+                _ctx.AudioManager.PlayEventSound(data, audioClip);
                 break;
             case PhraseEventType.VideoClip:
-                _ctx.videoManager.PlayVideo(data, content[data.PhraseEvent] as VideoClip);
+                var videoClip = content[data.PhraseEvent] as VideoClip;
+                if (videoClip == null) break;
+                _ctx.videoManager.PlayVideo(data, videoClip);
                 break;
             case PhraseEventType.GameObject:
                 var prefab = content[data.PhraseEvent] as GameObject;
-                
                 if (prefab == null) break;
-                
                 var eventObject = Object.Instantiate(prefab).GetComponent<PhraseObjectEvent>();
                 eventObject.SetCtx(_ctx.ObjectEvents, _ctx.gameSet);
-                
+
                 yield return eventObject.AwaitInvoke();
-                
+
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
