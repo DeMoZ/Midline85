@@ -100,7 +100,8 @@ namespace AaDialogueGraph.Editor
             var data = new EntryNodeData
             {
                 Guid = node.Guid,
-                Rect = node.GetPosition()
+                Rect = node.GetPosition(),
+                LevelId = node.Q<LevelIdPopupField>().Value
             };
 
             var languageFields = node.Query<LanguagePopupField>().ToList();

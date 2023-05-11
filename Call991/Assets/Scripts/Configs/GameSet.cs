@@ -49,6 +49,7 @@ namespace Configs
         public ChoiceKeysList ChoiceKeys;
         public RecordKeysList RecordKeys;
         public LanguagesKeysList LanguagesKeys;
+        public LevelKeysList LevelKeys;
         
         [Space][Title("Button Sounds")]
         public AudioClip menuBtnClip;

@@ -24,9 +24,10 @@ public class DialoguePm : IDisposable
     {
         _ctx = ctx;
         _disposables = new CompositeDisposable();
-        _dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
+        var entryNode = _ctx.LevelData.GetEntryNode();
+        _dialogueLoggerPm = new DialogueLoggerPm(entryNode.LevelId).AddTo(_disposables);
 
-        _currentNodes.Add(_ctx.LevelData.GetEntryNode());
+        _currentNodes.Add(entryNode);
         _ctx.FindNext.Subscribe(OnFindNext).AddTo(_disposables);
     }
 

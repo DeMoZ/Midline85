@@ -125,6 +125,20 @@ namespace AaDialogueGraph.Editor
         }
     }
 
+    public class LevelIdPopupField : KeyPopupField
+    {
+        public LevelIdPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
+        {
+        }
+
+        protected override void CreateElements(List<string> keys, string currentChoice = null)
+        {
+            var popup = new NoEnumPopup();
+            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
+            contentContainer.Add(popup);
+        }
+    }
+
     #region WordCase
 
     public abstract class ChoiceCase : VisualElement

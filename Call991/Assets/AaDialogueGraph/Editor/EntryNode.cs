@@ -7,7 +7,7 @@ namespace AaDialogueGraph.Editor
 {
     public class EntryNode : AaNode
     {
-        public void Set(AaReactive<LanguageOperation> onLanguageChange, string guid = null)
+        public void Set(AaReactive<LanguageOperation> onLanguageChange, string guid = null, string levelId = null)
         {
             title = "Start";
             Guid = guid ?? System.Guid.NewGuid().ToString();
@@ -16,6 +16,9 @@ namespace AaDialogueGraph.Editor
             var port = GraphElements.GeneratePort(this, Direction.Output);
             port.portName = "Next";
             outputContainer.Add(port);
+
+            var levelKey = new LevelIdPopupField(AaKeys.LevelIdKeys, levelId);
+            contentContainer.Add(levelKey);
 
             var addLanguageButton = new Button(() =>
             {
@@ -82,7 +85,7 @@ namespace AaDialogueGraph.Editor
                 };
             };
             contentContainer.Add(popup);
-            
+
             contentContainer.style.flexDirection = FlexDirection.Row;
         }
     }

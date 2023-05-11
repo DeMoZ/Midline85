@@ -22,6 +22,7 @@ namespace AaDialogueGraph.Editor
         public static List<string> ChoiceKeys => GetGameSet.ChoiceKeys.Keys;
         public static List<string> LanguageKeys => GetGameSet.LanguagesKeys.Keys;
         public static List<string> RecordKeys => GetGameSet.RecordKeys.Keys;
+        public static List<string> LevelIdKeys => GetGameSet.LevelKeys.Keys;
 
         private static GameSet GetGameSet
         {

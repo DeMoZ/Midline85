@@ -64,9 +64,10 @@ namespace AaDialogueGraph.Editor
         private void CreateEntryNode()
         {
             var node = new EntryNode();
-            node.Set(_languageOperation, _containerCash.EntryNodeData.Guid);
+            var levelId = AaKeys.LevelIdKeys.Contains(_containerCash.EntryNodeData.LevelId)?_containerCash.EntryNodeData.LevelId: null;
+            node.Set(_languageOperation, _containerCash.EntryNodeData.Guid, levelId);
             _targetGraphView.AddElement(node);
-
+            
             foreach (var language in _containerCash.EntryNodeData.Languages)
             {
                 var field = new LanguageField();

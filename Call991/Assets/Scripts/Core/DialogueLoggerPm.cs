@@ -10,18 +10,26 @@ using UnityEngine;
 /// </summary>
 public class DialogueLoggerPm : IDisposable
 {
-    private const string LOGKey = "LogNodes";
-    private const string ChoicesKey = "Choices";
-    private const string EndsKey = "Ends";
-    private const string CountsKey = "Counts";
+    private const string GameProgress = "GameProgress";
 
     private Dictionary<string, string> _logCash;
     private Dictionary<string, string> _choicesCash;
     private Dictionary<string, string> _endsCash;
     private Dictionary<string, int> _countsCash;
 
-    public DialogueLoggerPm()
+    private string _currentLevelId;
+
+    // all progress loaded from prefs (to modify and save it back)
+    private GameContainer _savedCash;
+
+    //  
+    private Dictionary<string, string> _savedChoices;
+    private Dictionary<string, string> _savedEnds;
+    private Dictionary<string, int> _savedCounts;
+
+    public DialogueLoggerPm(string levelId)
     {
+        _currentLevelId = levelId;
         Load();
     }
 
@@ -53,18 +61,20 @@ public class DialogueLoggerPm : IDisposable
                 break;
         }
     }
-    
+
     private void AddCaseInCash(string condition, IDictionary<string, string> dictionary)
     {
         Debug.Log($"[{this}] Add case into cash {condition}");
         dictionary[condition] = "";
     }
 
-    public bool ContainsChoice(List<string> orChoices) => 
-        orChoices.Any(orChoice => _choicesCash.ContainsKey(orChoice));
+    public bool ContainsChoice(List<string> orChoices) =>
+        orChoices.Any(orChoice => _choicesCash.ContainsKey(orChoice) ||
+                                  _savedChoices.ContainsKey(orChoice));
 
-    public bool ContainsEnd(List<string> orEnds) => 
-        orEnds.Any(orEnd => _endsCash.ContainsKey(orEnd));
+    public bool ContainsEnd(List<string> orEnds) =>
+        orEnds.Any(orEnd => _endsCash.ContainsKey(orEnd) ||
+                            _savedEnds.ContainsKey(orEnd));
 
     public void AddCount(string key, int value)
     {
@@ -75,45 +85,71 @@ public class DialogueLoggerPm : IDisposable
 
     public int GetCount(string key)
     {
-        _countsCash.TryGetValue(key, out var count);
-        return count;
+        _countsCash.TryGetValue(key, out var countCurrent);
+        _savedCounts.TryGetValue(key, out var countSaved);
+        return countCurrent + countSaved;
     }
 
-    private void AddNode(string key, string value) => 
+    private void AddNode(string key, string value) =>
         _logCash[key] = value;
 
     public void Save()
     {
-        SetToPrefs(LOGKey, _logCash);
-        SetToPrefs(ChoicesKey, _choicesCash);
-        SetToPrefs(EndsKey, _endsCash);
-        SetToPrefs(CountsKey, _countsCash);
+        _savedCash.LevelProgress[_currentLevelId] = new LevelContainer
+        {
+            LogCash = _logCash,
+            ChoicesCash = _choicesCash,
+            EndsCash = _endsCash,
+            CountsCash = _countsCash,
+        };
+
+        var data = JsonConvert.SerializeObject(_savedCash);
+        PlayerPrefs.SetString(GameProgress, data);
     }
 
     private void Load()
     {
-        _logCash = GetFromPrefs<string>(LOGKey);
-        _choicesCash = GetFromPrefs<string>(ChoicesKey);
-        _endsCash = GetFromPrefs<string>(EndsKey);
-        _countsCash = GetFromPrefs<int>(CountsKey);
-    }
+        _logCash = new Dictionary<string, string>();
+        _choicesCash = new Dictionary<string, string>();
+        _endsCash = new Dictionary<string, string>();
+        _countsCash = new Dictionary<string, int>();
 
-    private Dictionary<string, T> GetFromPrefs<T>(string prefsKey)
-    {
-        var prefsData = PlayerPrefs.GetString(prefsKey, null);
+        _savedChoices = new Dictionary<string, string>();
+        _savedEnds = new Dictionary<string, string>();
+        _savedCounts = new Dictionary<string, int>();
 
-        return !string.IsNullOrEmpty(prefsData)
-            ? JsonConvert.DeserializeObject<Dictionary<string, T>>(prefsData)
-            : new Dictionary<string, T>();
-    }
+        var stringData = PlayerPrefs.GetString(GameProgress, string.Empty);
+        _savedCash = string.IsNullOrEmpty(stringData)
+            ? new GameContainer()
+            : JsonConvert.DeserializeObject<GameContainer>(stringData);
 
-    private void SetToPrefs<T>(string key, T data)
-    {
-        var serialized = JsonConvert.SerializeObject(data);
-        PlayerPrefs.SetString(key, serialized);
+        // reset cashed data for current level to not affect current level progress
+        _savedCash.LevelProgress[_currentLevelId] = new LevelContainer();
+
+        foreach (var level in _savedCash.LevelProgress)
+        {
+            foreach (var pair in level.Value.ChoicesCash) _savedChoices[pair.Key] = pair.Value;
+            foreach (var pair in level.Value.EndsCash) _savedEnds[pair.Key] = pair.Value;
+            foreach (var pair in level.Value.CountsCash) _savedCounts[pair.Key] = pair.Value;
+        }
     }
 
     public void Dispose()
     {
     }
+}
+
+[Serializable]
+public class GameContainer
+{
+    public Dictionary<string, LevelContainer> LevelProgress = new();
+}
+
+[Serializable]
+public class LevelContainer
+{
+    public Dictionary<string, string> LogCash = new();
+    public Dictionary<string, string> ChoicesCash = new();
+    public Dictionary<string, string> EndsCash = new();
+    public Dictionary<string, int> CountsCash = new();
 }
