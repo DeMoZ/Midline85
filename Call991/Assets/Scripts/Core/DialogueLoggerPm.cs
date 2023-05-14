@@ -105,6 +105,7 @@ public class DialogueLoggerPm : IDisposable
 
         var data = JsonConvert.SerializeObject(_savedCash);
         PlayerPrefs.SetString(GameProgress, data);
+        Debug.LogError("-- Progress saved --");
     }
 
     private void Load()
@@ -136,6 +137,7 @@ public class DialogueLoggerPm : IDisposable
 
     public void Dispose()
     {
+        Save();
     }
 }
 

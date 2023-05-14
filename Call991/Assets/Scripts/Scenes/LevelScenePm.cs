@@ -41,7 +41,6 @@ public class LevelScenePm : IDisposable
 
         public Sprite newspaperSprite;
         public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
-        public ChapterSet chapterSet;
 
         public ReactiveCommand onSkipPhrase;
         public ReactiveCommand<bool> onClickPauseButton;

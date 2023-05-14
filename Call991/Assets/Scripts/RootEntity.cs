@@ -16,6 +16,7 @@ public class RootEntity : IDisposable
         public VideoManager VideoManager;
         public Blocker Blocker;
         public ObjectEvents ObjectEvents;
+        public OverridenDialogue OverridenDialogue;
     }
 
     private Ctx _ctx;
@@ -66,6 +67,7 @@ public class RootEntity : IDisposable
             Blocker = _ctx.Blocker,
             ObjectEvents = _ctx.ObjectEvents,
             CursorSettings = cursorSettings,
+            OverridenDialogue = _ctx.OverridenDialogue,
         }).AddTo(_diposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

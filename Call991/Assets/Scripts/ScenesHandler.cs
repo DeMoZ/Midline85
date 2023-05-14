@@ -20,12 +20,14 @@ public class ScenesHandler : IDisposable
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
+        public OverridenDialogue OverridenDialogue;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
     private const string SWITCH_SCENE = "2_SwitchScene";
     private const string MENU_SCENE = "MenuScene";
     private const string LEVEL_SCENE = "LevelScene";
+    private const string LEVEL_TEST_SCENE = "LevelTestScene";
     private const string OPEN_SCENE = "OpenScene";
 
     private Ctx _ctx;
@@ -35,6 +37,7 @@ public class ScenesHandler : IDisposable
     public string MenuScene => MENU_SCENE;
     public string SwitchScene => SWITCH_SCENE;
     public string LevelScene => LEVEL_SCENE;
+    public string LevelTestScene => LEVEL_TEST_SCENE;
     public string OpenScene => OPEN_SCENE;
 
     public ScenesHandler(Ctx ctx)
@@ -61,7 +64,8 @@ public class ScenesHandler : IDisposable
             //     break;
 
             case LEVEL_SCENE:
-                _ctx.onSwitchScene.Execute(GameScenes.Level1);
+            case LEVEL_TEST_SCENE:
+                _ctx.onSwitchScene.Execute(GameScenes.Level);
                 break;
             default:
                 _ctx.onSwitchScene.Execute(GameScenes.Menu);
@@ -75,7 +79,7 @@ public class ScenesHandler : IDisposable
         {
             GameScenes.OpenScene => OpenScene,
             GameScenes.Menu => MenuScene,
-            GameScenes.Level1 => LevelScene,
+            GameScenes.Level => LevelScene,
             _ => throw new ArgumentOutOfRangeException(nameof(scene), scene, null)
         };
     }
@@ -86,7 +90,7 @@ public class ScenesHandler : IDisposable
         {
             GameScenes.OpenScene => LoadOpenScene(),
             GameScenes.Menu => await LoadMenu(),
-            GameScenes.Level1 => await LoadLevel7(),
+            GameScenes.Level => await LoadLevel7(),
             _ => await LoadMenu()
         };
 
@@ -129,14 +133,18 @@ public class ScenesHandler : IDisposable
     private async Task<IGameScene> LoadLevel7()
     {
         var tLanguage = _ctx.Profile.TextLanguage;
-        var levelData = new LevelData(_ctx.GameSet.GameLevels.TestLevel.GetNodesData(),
-            _ctx.GameSet.GameLevels.TestLevel.NodeLinks);
+        var level = _ctx.OverridenDialogue != null && _ctx.OverridenDialogue.Dialogue != null
+            ? _ctx.OverridenDialogue.Dialogue
+            : _ctx.GameSet.GameLevels.TestLevel;
+
+        var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
+
+        var levelOnly = _ctx.OverridenDialogue is { LevelOnly: true };
         var levelFolder = "7_lvl";
-        var chapterSet = await ResourcesLoader.LoadAsync<ChapterSet>(levelFolder + "/7_lvl_Total");
         var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
         var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.AudioManager.OnSceneSwitch();
-        
+
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
         {
@@ -145,7 +153,6 @@ public class ScenesHandler : IDisposable
             LevelData = levelData,
             Profile = _ctx.Profile,
             ObjectEvents = _ctx.ObjectEvents,
-            chapterSet = chapterSet,
             onSwitchScene = _ctx.onSwitchScene,
             AudioManager = _ctx.AudioManager,
             videoManager = _ctx.videoManager,
@@ -168,7 +175,7 @@ public class ScenesHandler : IDisposable
     {
         _ctx.videoManager.EnableVideo(false);
 
-        var toLevelScene = scene == GameScenes.Level1;
+        var toLevelScene = scene == GameScenes.Level;
 
         var switchSceneEntity = new LoadingSceneEntity(new LoadingSceneEntity.Ctx
         {

@@ -8,16 +8,14 @@ public class GameEntity : MonoBehaviour
     private static GameEntity _instance;
     [SerializeField] private AudioManager audioManager;
     [SerializeField] private VideoManager videoManager;
-    
-    [Space] 
-    [SerializeField] private Image videoFade;
+
+    [Space] [SerializeField] private Image videoFade;
     [SerializeField] private Image screenFade;
 
-    [Space]
-    [SerializeField] private Transform clicksParent;
+    [Space] [SerializeField] private Transform clicksParent;
 
     private CompositeDisposable _disposable;
-    
+
     private async void Awake()
     {
         if (_instance == null)
@@ -57,18 +55,23 @@ public class GameEntity : MonoBehaviour
         {
             OnScreenFade = onScreenFade,
         }).AddTo(_disposable);
-        
+
         var blocker = new Blocker(screenFade, videoFade, onScreenFade);
-       
+
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
         var clickPointHandler = new ClickPointHandler(clickImage, clicksParent).AddTo(_disposable);
-        
+
+        // check for the test dialogue.
+        var testDialogue = FindObjectOfType<TestDialogue>();
+        var overridenDialogue = testDialogue ? testDialogue.GetDialogue() : null;
+
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             AudioManager = audioManager,
             VideoManager = videoManager,
             Blocker = blocker,
             ObjectEvents = objectEvents,
+            OverridenDialogue = overridenDialogue,
         }).AddTo(_disposable);
     }
 

@@ -61,7 +61,7 @@ public class SceneSwitcher : IDisposable
         var onLoadingProcess = new ReactiveProperty<string>().AddTo(_diposables);
         var switchSceneEntity = _ctx.ScenesHandler.LoadingSceneEntity(onLoadingProcess, scene);
 
-        var toLevelScene = scene == GameScenes.Level1;
+        var toLevelScene = scene == GameScenes.Level;
 
         if (toLevelScene)
         {

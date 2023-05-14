@@ -15,7 +15,6 @@ public class LevelSceneEntity : IGameScene
         public Container<Task> constructorTask;
         public LevelData LevelData;
 
-        public ChapterSet chapterSet;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public PlayerProfile Profile;
         public AudioManager AudioManager;
@@ -121,7 +120,6 @@ public class LevelSceneEntity : IGameScene
             OnLevelEnd = onLevelEnd,
             newspaperSprite = _ctx.newspaperSprite,
             onShowNewspaper = onShowNewspaper,
-            chapterSet = _ctx.chapterSet,
             onSkipPhrase = onSkipPhrase,
             onClickPauseButton = onClickPauseButton,
             videoManager = _ctx.videoManager,

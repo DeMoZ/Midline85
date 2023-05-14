@@ -65,7 +65,7 @@ namespace AaDialogueGraph.Editor
         public const string NoEnd = "-End";
 
         public const string AddRecord = "+Record";
-        
+
         public const string And = "+";
         public const string No = "-";
 
@@ -173,7 +173,7 @@ namespace AaDialogueGraph.Editor
             return _objectField.value as Phrase;
         }
     }
-    
+
     public class SpriteField : VisualElement
     {
         private ObjectField _objectField;
@@ -507,30 +507,6 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-    public class _EventAssetField<T> : VisualElement where T : Object
-    {
-        private ObjectField _objectField;
-
-        public _EventAssetField(T eventAsset = null, Action onChange = null)
-        {
-            _objectField = new ObjectField
-            {
-                objectType = typeof(T),
-                allowSceneObjects = false,
-                value = eventAsset,
-            };
-
-            _objectField.RegisterValueChangedCallback(_ => onChange?.Invoke());
-
-            contentContainer.Add(_objectField);
-        }
-
-        public PhraseEventSo GetEvent()
-        {
-            return _objectField.value as PhraseEventSo;
-        }
-    }
-
     #endregion
 
     public class NoEnumPopup : VisualElement
@@ -570,7 +546,7 @@ namespace AaDialogueGraph.Editor
 
     public class NodeTitleErrorField : VisualElement
     {
-        public Label Label { get;}
+        public Label Label { get; }
 
         public NodeTitleErrorField()
         {

@@ -25,14 +25,14 @@ public class MenuScenePm : IDisposable
     private void OnClickPlayGame()
     {
         Debug.Log("[MenuScenePm] OnClickPlay");
-        _ctx.OnSwitchScene.Execute(GameScenes.Level1);
+        _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
     private void OnClickNewGame()
     {
         Debug.Log("[MenuScenePm] OnClickNewGame");
         _ctx.Profile.Clear();
-        _ctx.OnSwitchScene.Execute(GameScenes.Level1);
+        _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
     private void OnClickSettings()
