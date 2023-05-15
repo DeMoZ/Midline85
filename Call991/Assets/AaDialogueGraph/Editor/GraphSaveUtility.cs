@@ -70,6 +70,9 @@ namespace AaDialogueGraph.Editor
 
             var endNodes = AaNodes.OfType<EndNode>().ToList();
             dialogueContainer.EndNodeData.AddRange(EndNodesToData(endNodes));
+            
+            var eventNodes = AaNodes.OfType<EventNode>().ToList();
+            dialogueContainer.EventNodeData.AddRange(EventNodesToData(eventNodes));
 
             var assetName = $"Assets/Resources/{fileName}.asset";
             if (File.Exists(assetName))
@@ -136,7 +139,7 @@ namespace AaDialogueGraph.Editor
 
             return data;
         }
-
+        
         private List<ChoiceNodeData> ChoiceNodesToData(List<ChoiceNode> nodes)
         {
             var data = new List<ChoiceNodeData>();
@@ -212,6 +215,25 @@ namespace AaDialogueGraph.Editor
                     End = node.Q<EndPopupField>().Value,
                     EventVisualData = eventsVisualData,
                     Records = node.GetRecords(),
+                });
+            }
+
+            return data;
+        }
+
+        private List<EventNodeData> EventNodesToData(List<EventNode> nodes)
+        {
+            var data = new List<EventNodeData>();
+            foreach (var node in nodes)
+            {
+                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
+             
+                data.Add(new EventNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    
+                    EventVisualData = eventsVisualData,
                 });
             }
 

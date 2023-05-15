@@ -28,7 +28,7 @@ MonoBehaviour:
   - Guid: f7432440-37e3-4136-8052-ded1135d3a01
     Rect:
       serializedVersion: 2
-      x: 530
+      x: 818
       y: 40
       width: 160
       height: 96
@@ -56,7 +56,7 @@ MonoBehaviour:
   - Guid: e53d3c5a-0dc3-42f4-8ed3-517b6b2d88a2
     Rect:
       serializedVersion: 2
-      x: 355
+      x: 643
       y: 27
       width: 126.5
       height: 96
@@ -84,7 +84,7 @@ MonoBehaviour:
   - Guid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
     Rect:
       serializedVersion: 2
-      x: 190
+      x: 478
       y: 40
       width: 127.5
       height: 96
@@ -125,7 +125,7 @@ MonoBehaviour:
   - Guid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     Rect:
       serializedVersion: 2
-      x: 457
+      x: 745
       y: 172
       width: 101.5
       height: 97.5
@@ -141,10 +141,10 @@ MonoBehaviour:
   - Guid: 657551ae-35b5-4275-a0f3-8d8ddf1b4be9
     Rect:
       serializedVersion: 2
-      x: 752
+      x: 1040
       y: 40
-      width: 326
-      height: 333.5
+      width: 118.5
+      height: 95.5
     End: FIRE.END.BAD
     EventVisualData:
     - Type: 2
@@ -162,10 +162,43 @@ MonoBehaviour:
     Records:
     - Sprite: RecordIcons/iconFire.png
       Key: achive_unknown
+  - Guid: 5d6b7e2b-8896-40b6-8258-09a0a36de6e3
+    Rect:
+      serializedVersion: 2
+      x: 436.5
+      y: 207
+      width: 326
+      height: 246
+    End: FIRE.END.BAD
+    EventVisualData: []
+    Records:
+    - Sprite: 
+      Key: achive_killJack
+  EventNodeData:
+  - Guid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
+    Rect:
+      serializedVersion: 2
+      x: 337
+      y: 40
+      width: 99.5
+      height: 107
+    EventVisualData:
+    - Type: 2
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHide.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+    - Type: 0
+      PhraseEvent: Sounds/Lvl_7/Ru/p.jack.030.ogg
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
   NodeLinks:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
-    TargetNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
+    TargetNodeGuid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
   - BaseNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
     BaseExitName: 
     TargetNodeGuid: 657551ae-35b5-4275-a0f3-8d8ddf1b4be9
@@ -178,3 +211,6 @@ MonoBehaviour:
   - BaseNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     BaseExitName: 
     TargetNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
+  - BaseNodeGuid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
+    BaseExitName: 
+    TargetNodeGuid: 5d6b7e2b-8896-40b6-8258-09a0a36de6e3

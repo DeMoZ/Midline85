@@ -85,6 +85,14 @@ namespace AaDialogueGraph.Editor
             AddElement(node);
         }
 
+        public void CreateEventNode()
+        {
+            var node = new EventNode();
+            node.Set(new EventNodeData(), Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+            AddElement(node);
+        }
+
         public void CreateEndNode()
         {
             var node = new EndNode();

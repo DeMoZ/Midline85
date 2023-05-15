@@ -135,6 +135,7 @@ namespace PhotoViewer.Scripts.Photo
 
         private void RescalePhoto(Sprite sprite)
         {
+            return;
             if (_viewTransfrom == null) return;
 
             var viewerSize = ViewerSize;

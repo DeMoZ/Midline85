@@ -13,6 +13,7 @@ namespace AaDialogueGraph
         public List<ForkNodeData> ForkNodeData = new();
         public List<CountNodeData> CountNodeData = new();
         public List<EndNodeData> EndNodeData = new();
+        public List<EventNodeData> EventNodeData = new();
         public List<NodeLinkData> NodeLinks = new();
 
         public Dictionary<string, AaNodeData> GetNodesData()
@@ -23,6 +24,7 @@ namespace AaDialogueGraph
             nodes.AddRange(ForkNodeData);
             nodes.AddRange(CountNodeData);
             nodes.AddRange(EndNodeData);
+            nodes.AddRange(EventNodeData);
             nodes.Add(EntryNodeData);
 
             return nodes.ToDictionary(data => data.Guid);

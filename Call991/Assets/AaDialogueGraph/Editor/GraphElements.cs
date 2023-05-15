@@ -49,6 +49,7 @@ namespace AaDialogueGraph.Editor
         public const string PhraseNode = "Phrase";
         public const string ForkNode = "Fork";
         public const string CountNode = "Count";
+        public const string EventNode = "Event";
         public const string EndNode = "End";
 
         public const string SaveData = "Save";

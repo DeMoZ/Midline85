@@ -59,6 +59,9 @@ public class DialogueLoggerPm : IDisposable
                 AddCaseInCash(nodeData.End, _endsCash);
                 AddNode(nodeData.Guid, nodeData.End);
                 break;
+            case EventNodeData nodeData:
+                AddNode(nodeData.Guid, "");
+                break;
         }
     }
 

@@ -91,6 +91,12 @@ namespace AaDialogueGraph.Editor
             };
             toolbar.Add(countCreateButton);
             
+            var eventCreateButton = new Button(() => _graphView.CreateEventNode())
+            {
+                text = AaGraphConstants.EventNode,
+            };
+            toolbar.Add(eventCreateButton);
+            
             var endCreateButton = new Button(() => _graphView.CreateEndNode())
             {
                 text = AaGraphConstants.EndNode,

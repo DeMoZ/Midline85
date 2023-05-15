@@ -107,9 +107,8 @@ public class LevelScenePm : IDisposable
         // if (string.IsNullOrWhiteSpace(_ctx.Profile.LastPhrase))
         //     _ctx.Profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
 
-        //TODO to not bother me
-        // await ShowNewsPaper();
-        // await Task.Delay(500);
+        await ShowNewsPaper();
+        await Task.Delay(500);
         await ShowIntro();
         if (_tokenSource.IsCancellationRequested) return;
         //await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
@@ -157,12 +156,12 @@ public class LevelScenePm : IDisposable
     [Obsolete]
     private async Task ShowIntro()
     {
-        // _ctx.blocker.EnableScreenFade(true);
-        // await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.titleVideoSoName);
-        // _ctx.videoManager.PlayPreparedVideo();
-        // _ctx.onShowIntro.Execute(true);
-        // await _ctx.blocker.FadeScreenBlocker(false);
-        // await Task.Delay((int)(_ctx.gameSet.levelIntroDelay * 1000));
+        _ctx.Blocker.EnableScreenFade(true);
+        //await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.titleVideoSoName);
+        _ctx.videoManager.PlayPreparedVideo();
+        _ctx.onShowIntro.Execute(true);
+        await _ctx.Blocker.FadeScreenBlocker(false);
+        await Task.Delay((int)(_ctx.gameSet.levelIntroDelay * 1000));
         await _ctx.Blocker.FadeScreenBlocker(true);
         _ctx.onShowIntro.Execute(false);
     }
@@ -189,9 +188,11 @@ public class LevelScenePm : IDisposable
 
         var phrases = data.OfType<PhraseNodeData>().ToList();
         var ends = data.OfType<EndNodeData>().ToList();
+        var events = data.OfType<EventNodeData>().ToList();
         _choices = data.OfType<ChoiceNodeData>().ToList();
         var observables = new IObservable<Unit>[] { };
-        var dialogueEvents = GetEvents(phrases, ends);
+        var dialogueEvents = GetEvents(phrases, ends, events);
+        
         var content = new Dictionary<string, object>();
 
         // load content with cancellation token. Return on Cancel.
@@ -223,6 +224,12 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunPhrase(phraseData, phrase));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
+        
+        foreach (var eventData in events)
+        {
+            var routine = Observable.FromCoroutine(() => RunEventNode(eventData));
+            observables = observables.Concat(new[] { routine }).ToArray();
+        }
 
         if (_choices.Any())
         {
@@ -235,6 +242,7 @@ public class LevelScenePm : IDisposable
             {
                 Debug.Log($"[{this}] All coroutines completed");
                 _next.AddRange(phrases);
+                _next.AddRange(events);
                 _next.Add(_choice);
                 if (_next.Any())
                 {
@@ -245,7 +253,7 @@ public class LevelScenePm : IDisposable
             }).AddTo(_disposables);
     }
 
-    private List<EventVisualData> GetEvents(List<PhraseNodeData> phrases, List<EndNodeData> ends)
+    private List<EventVisualData> GetEvents(List<PhraseNodeData> phrases, List<EndNodeData> ends, List<EventNodeData> events)
     {
         var result = new List<EventVisualData>();
 
@@ -257,6 +265,11 @@ public class LevelScenePm : IDisposable
         foreach (var end in ends.Where(end => end.EventVisualData.Any()))
         {
             result.AddRange(end.EventVisualData);
+        }
+        
+        foreach (var evt in events.Where(evt => evt.EventVisualData.Any()))
+        {
+            result.AddRange(evt.EventVisualData);
         }
 
         return result;
@@ -322,6 +335,12 @@ public class LevelScenePm : IDisposable
 
         //Debug.LogError($"[{this}] hide Text called anyway");
         _ctx.onHidePhrase.Execute(uiPhrase);
+    }
+    
+    private IEnumerator RunEventNode(EventNodeData data)
+    {
+        Debug.Log($"[{this}] RunEventNode {data}");
+        yield return null;
     }
 
     private IEnumerator RunDialogueEvent(EventVisualData data, Dictionary<string, object> content)

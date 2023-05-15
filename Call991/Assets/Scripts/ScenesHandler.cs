@@ -139,10 +139,9 @@ public class ScenesHandler : IDisposable
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
 
-        var levelOnly = _ctx.OverridenDialogue is { LevelOnly: true };
-        var levelFolder = "7_lvl";
-        var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
-        var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
+        var skipWarning = _ctx.OverridenDialogue is { SkipWarning: true };
+        // var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
+        // var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();
@@ -156,7 +155,7 @@ public class ScenesHandler : IDisposable
             onSwitchScene = _ctx.onSwitchScene,
             AudioManager = _ctx.AudioManager,
             videoManager = _ctx.videoManager,
-            newspaperSprite = newspaperSprite,
+            //newspaperSprite = newspaperSprite,
             Blocker = _ctx.Blocker,
             cursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);

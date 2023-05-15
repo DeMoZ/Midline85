@@ -44,6 +44,7 @@ namespace AaDialogueGraph.Editor
             CreateForkNodes();
             CreateCountNodes();
             CreateEndNodes();
+            CreateEventNodes();
 
             ConnectNodes();
             SetPositions();
@@ -125,6 +126,16 @@ namespace AaDialogueGraph.Editor
                 _targetGraphView.AddElement(node);
             }
         }
+        
+        private void CreateEventNodes()
+        {
+            foreach (var data in _containerCash.EventNodeData)
+            {
+                var node = new EventNode();
+                node.Set(data, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
 
         private void ConnectNodes()
         {
@@ -171,6 +182,7 @@ namespace AaDialogueGraph.Editor
             nodes.AddRange(_containerCash.ChoiceNodeData);
             nodes.AddRange(_containerCash.ForkNodeData);
             nodes.AddRange(_containerCash.CountNodeData);
+            nodes.AddRange(_containerCash.EventNodeData);
             nodes.AddRange(_containerCash.EndNodeData);
             nodes.Add(_containerCash.EntryNodeData);
 
