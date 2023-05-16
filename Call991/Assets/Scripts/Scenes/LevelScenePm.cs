@@ -29,7 +29,6 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<UiPhraseData> onHidePhrase;
-        public ReactiveCommand<bool> onShowIntro;
         public ReactiveCommand<List<RecordData>> OnLevelEnd;
         public ObjectEvents ObjectEvents;
 
@@ -94,28 +93,21 @@ public class LevelScenePm : IDisposable
     private async void OnAfterEnter()
     {
         InitButtons();
-// todo remove the block and check. This logic implemented in DialoguePm
-#if !BUILD_PRODUCTION
-        // todo refactoring to support both replay level in editor and build
-        if (!string.IsNullOrWhiteSpace(_ctx.Profile.CheatPhrase))
-        {
-            _ctx.Profile.ClearPhrases();
-            _ctx.Profile.ClearChoices();
-
-            _ctx.Profile.LastPhrase = _ctx.Profile.CheatPhrase;
-        }
-#endif
-
-        // if (string.IsNullOrWhiteSpace(_ctx.Profile.LastPhrase))
-        //     _ctx.Profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
+// // todo remove the block and check. This logic implemented in DialoguePm
+// #if !BUILD_PRODUCTION
+//         // todo refactoring to support both replay level in editor and build
+//         if (!string.IsNullOrWhiteSpace(_ctx.Profile.CheatPhrase))
+//         {
+//             _ctx.Profile.ClearPhrases();
+//             _ctx.Profile.ClearChoices();
+//
+//             _ctx.Profile.LastPhrase = _ctx.Profile.CheatPhrase;
+//         }
+// #endif
         
-        await ShowIntro();
-        if (_tokenSource.IsCancellationRequested) return;
-        //await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
-
-        _ctx.videoManager.PlayPreparedVideo();
-        await Task.Delay(500);
-        if (_tokenSource.IsCancellationRequested) return;
+        //_ctx.videoManager.PlayPreparedVideo();
+        //await Task.Delay(500);
+        //if (_tokenSource.IsCancellationRequested) return;
         ExecuteDialogue();
         await _ctx.Blocker.FadeScreenBlocker(false);
         if (_tokenSource.IsCancellationRequested) return;
@@ -137,19 +129,6 @@ public class LevelScenePm : IDisposable
     {
         Debug.Log($"[{this}] OnSkipPhrase");
         _isPhraseSkipped.Value = true;
-    }
-
-    [Obsolete]
-    private async Task ShowIntro()
-    {
-        _ctx.Blocker.EnableScreenFade(true);
-        //await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.titleVideoSoName);
-        _ctx.videoManager.PlayPreparedVideo();
-        _ctx.onShowIntro.Execute(true);
-        await _ctx.Blocker.FadeScreenBlocker(false);
-        await Task.Delay((int)(_ctx.gameSet.levelIntroDelay * 1000));
-        await _ctx.Blocker.FadeScreenBlocker(true);
-        _ctx.onShowIntro.Execute(false);
     }
 
     private void ExecuteDialogue()

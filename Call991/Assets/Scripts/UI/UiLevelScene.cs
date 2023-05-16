@@ -26,14 +26,17 @@ namespace UI
             public ReactiveCommand<List<RecordData>> OnLevelEnd;
 
             public ReactiveCommand onClickMenuButton;
+
             public ReactiveCommand<UiPhraseData> onHidePhrase;
-            public ReactiveCommand<bool> onShowIntro;
+
             public ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)> OnShowNewspaper;
+            public ReactiveCommand OnShowLevelUi;
+            public ReactiveCommand<(bool show, string[] keys)> OnShowTitle;
+            
             public ReactiveCommand<bool> onClickPauseButton;
 
             public AudioManager AudioManager;
             public PlayerProfile Profile;
-            public ReactiveCommand OnShowLevelUi;
         }
 
         private Ctx _ctx;
@@ -97,7 +100,7 @@ namespace UI
             _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
 
             _ctx.onHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
-            _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
+            _ctx.OnShowTitle.Subscribe(OnShowTitle).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
             _ctx.OnShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
             _ctx.OnShowLevelUi.Subscribe(_ => OnShowLevelUi()).AddTo(_disposables);
@@ -120,7 +123,7 @@ namespace UI
         {
             EnableUi(levelView.GetType());
         }
-        
+
         private void EnableUi(Type type)
         {
             if (levelView == null) return;
@@ -163,8 +166,11 @@ namespace UI
             EnableUi(statisticView.GetType());
         }
 
-        private void OnShowIntro(bool show) =>
-            EnableUi(show ? levelTitleView.GetType() : levelView.GetType());
+        private void OnShowTitle((bool show, string[] keys) data)
+        {
+            levelTitleView.Set(chapter: data.keys[0], title: data.keys[1]);
+            EnableUi(data.show ? levelTitleView.GetType() : levelView.GetType());
+        }
 
         public void Dispose()
         {

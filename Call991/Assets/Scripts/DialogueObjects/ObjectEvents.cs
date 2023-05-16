@@ -9,13 +9,15 @@ public class ObjectEvents : IDisposable
     public struct Ctx
     {
         public ReactiveCommand<(bool show, float time)> OnScreenFade;
+        public ReactiveCommand<(bool show, string[] keys)> OnShowTitle;
+        public bool SkipTitle;
     }
 
-    public Ctx GetCtx { get; }
+    public Ctx EventsGroup { get; }
 
-    public ObjectEvents(Ctx getCtx)
+    public ObjectEvents(Ctx ctx)
     {
-        GetCtx = getCtx;
+        EventsGroup = ctx;
     }
     
     public void Dispose()

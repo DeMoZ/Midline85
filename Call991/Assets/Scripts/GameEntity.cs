@@ -49,23 +49,26 @@ public class GameEntity : MonoBehaviour
     private async void CreateRootEntity()
     {
         await Task.Delay(0);
-
+        
+        // check for the test dialogue.
+        var testDialogue = FindObjectOfType<TestDialogue>();
+        var overridenDialogue = testDialogue 
+            ? testDialogue.GetDialogue() 
+            : new OverridenDialogue(false,false,false,null);
+        
         var onScreenFade = new ReactiveCommand<(bool show, float time)>();
+        var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
         var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
         {
             OnScreenFade = onScreenFade,
+            OnShowTitle = onShowTitle,
+            SkipTitle = overridenDialogue.SkipTitle,
         }).AddTo(_disposable);
 
         var blocker = new Blocker(screenFade, videoFade, onScreenFade);
 
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
         var clickPointHandler = new ClickPointHandler(clickImage, clicksParent).AddTo(_disposable);
-
-        // check for the test dialogue.
-        var testDialogue = FindObjectOfType<TestDialogue>();
-        var overridenDialogue = testDialogue 
-            ? testDialogue.GetDialogue() 
-            : new OverridenDialogue(false,false,false,null);
 
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {

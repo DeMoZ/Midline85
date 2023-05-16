@@ -28,8 +28,8 @@ MonoBehaviour:
   - Guid: f7432440-37e3-4136-8052-ded1135d3a01
     Rect:
       serializedVersion: 2
-      x: 818
-      y: 40
+      x: 1048.5
+      y: 29
       width: 160
       height: 96
     PhraseSketchText: simple enable events
@@ -56,8 +56,8 @@ MonoBehaviour:
   - Guid: e53d3c5a-0dc3-42f4-8ed3-517b6b2d88a2
     Rect:
       serializedVersion: 2
-      x: 643
-      y: 27
+      x: 873.5
+      y: 16
       width: 126.5
       height: 96
     PhraseSketchText: disable blocker
@@ -84,7 +84,7 @@ MonoBehaviour:
   - Guid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
     Rect:
       serializedVersion: 2
-      x: 478
+      x: 555.5
       y: 40
       width: 127.5
       height: 96
@@ -125,8 +125,8 @@ MonoBehaviour:
   - Guid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     Rect:
       serializedVersion: 2
-      x: 745
-      y: 172
+      x: 975.5
+      y: 161
       width: 101.5
       height: 97.5
     Choice: c.word.010
@@ -141,8 +141,8 @@ MonoBehaviour:
   - Guid: 657551ae-35b5-4275-a0f3-8d8ddf1b4be9
     Rect:
       serializedVersion: 2
-      x: 1040
-      y: 40
+      x: 1270.5
+      y: 29
       width: 118.5
       height: 95.5
     End: FIRE.END.BAD
@@ -165,8 +165,8 @@ MonoBehaviour:
   - Guid: 5d6b7e2b-8896-40b6-8258-09a0a36de6e3
     Rect:
       serializedVersion: 2
-      x: 436.5
-      y: 207
+      x: 710
+      y: 136
       width: 118.5
       height: 95.5
     End: FIRE.END.BAD
@@ -175,11 +175,25 @@ MonoBehaviour:
     - Sprite: 
       Key: achive_killJack
   EventNodeData:
+  - Guid: 7c98582c-14a2-4f5c-8cba-32fb86f2be0b
+    Rect:
+      serializedVersion: 2
+      x: 419
+      y: 40
+      width: 99.5
+      height: 107
+    EventVisualData:
+    - Type: 2
+      PhraseEvent: Dialogues/EventPrefabs/IntroINCENDIES.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
   - Guid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
     Rect:
       serializedVersion: 2
-      x: 303
-      y: 40
+      x: 202
+      y: 178
       width: 99.5
       height: 107
     EventVisualData:
@@ -199,8 +213,8 @@ MonoBehaviour:
   - Guid: 7bce324e-534a-4666-8460-f807c756fb73
     Rect:
       serializedVersion: 2
-      x: 171
-      y: 51
+      x: 301.5
+      y: 40
       width: 99.5
       height: 96
     EventVisualData: []
@@ -219,13 +233,13 @@ MonoBehaviour:
     TargetNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
   - BaseNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
     BaseExitName: 
-    TargetNodeGuid: e53d3c5a-0dc3-42f4-8ed3-517b6b2d88a2
+    TargetNodeGuid: 5d6b7e2b-8896-40b6-8258-09a0a36de6e3
   - BaseNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     BaseExitName: 
     TargetNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
-  - BaseNodeGuid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
-    BaseExitName: 
-    TargetNodeGuid: 5d6b7e2b-8896-40b6-8258-09a0a36de6e3
   - BaseNodeGuid: 7bce324e-534a-4666-8460-f807c756fb73
     BaseExitName: 
-    TargetNodeGuid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
+    TargetNodeGuid: 7c98582c-14a2-4f5c-8cba-32fb86f2be0b
+  - BaseNodeGuid: 7c98582c-14a2-4f5c-8cba-32fb86f2be0b
+    BaseExitName: 
+    TargetNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14

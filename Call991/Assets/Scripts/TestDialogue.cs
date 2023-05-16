@@ -5,8 +5,9 @@ using UnityEngine;
 public class TestDialogue : MonoBehaviour
 {
     [SerializeField] private bool _skipWarning;
-    [SerializeField] private bool _skipTitle;
     [SerializeField] private bool _skipNewspaper;
+    [SerializeField] private bool _skipTitle;
+
     [SerializeField] private DialogueContainer _dialogue;
 
     public OverridenDialogue GetDialogue()
