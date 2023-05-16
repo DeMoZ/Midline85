@@ -12,27 +12,28 @@ namespace UI
     public class UiPhraseData
     {
         public string Description;
-        
+
         public Phrase Phrase;
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
     }
-    
+
     public class UiLevelScene : MonoBehaviour, IDisposable
     {
         public struct Ctx
         {
             public ReactiveCommand<UiPhraseData> OnShowPhrase;
             public ReactiveCommand<List<RecordData>> OnLevelEnd;
-            
+
             public ReactiveCommand onClickMenuButton;
             public ReactiveCommand<UiPhraseData> onHidePhrase;
             public ReactiveCommand<bool> onShowIntro;
-            public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
+            public ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)> OnShowNewspaper;
             public ReactiveCommand<bool> onClickPauseButton;
 
             public AudioManager AudioManager;
             public PlayerProfile Profile;
+            public ReactiveCommand OnShowLevelUi;
         }
 
         private Ctx _ctx;
@@ -53,12 +54,13 @@ namespace UI
         public CountDownView CountDown => levelView.CountDown;
         public AudioSource PhraseAudioSource => phraseAudioSource;
         private CancellationTokenSource _tokenSource;
+
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
             _disposables = new CompositeDisposable();
             _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-            
+
             _onClickToMenu = new ReactiveCommand();
             _onClickToMenu.Subscribe(_ => OnClickToMenu()).AddTo(_disposables);
 
@@ -93,11 +95,12 @@ namespace UI
             });
 
             _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
-            
+
             _ctx.onHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
             _ctx.onShowIntro.Subscribe(OnShowIntro).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
-            _ctx.onShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
+            _ctx.OnShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
+            _ctx.OnShowLevelUi.Subscribe(_ => OnShowLevelUi()).AddTo(_disposables);
 
             onClickPauseButton.Subscribe(_ => OnClickPauseButton(true));
             onClickUnPauseButton.Subscribe(_ => OnClickPauseButton(false));
@@ -113,10 +116,15 @@ namespace UI
             EnableUi(value ? levelPauseView.GetType() : levelView.GetType());
         }
 
+        private void OnShowLevelUi()
+        {
+            EnableUi(levelView.GetType());
+        }
+        
         private void EnableUi(Type type)
         {
             if (levelView == null) return;
-            
+
             menuSettings.gameObject.SetActive(menuSettings.GetType() == type);
             levelTitleView.gameObject.SetActive(levelTitleView.GetType() == type);
             levelView.gameObject.SetActive(levelView.GetType() == type);
@@ -130,32 +138,34 @@ namespace UI
             _isNewspaperActive = false;
         }
 
-        private void OnShowNewspaper((Container<Task> task, Sprite sprite) spriteData)
+        private void OnShowNewspaper((Container<bool> btnPressed, Sprite sprite) spriteData)
         {
             newspaper.SetNewspaper(spriteData.sprite);
             EnableUi(newspaper.GetType());
-            spriteData.task.Value = YieldNewspaper();
+            YieldNewspaper(spriteData.btnPressed);
         }
 
-        private async Task YieldNewspaper()
+        private async void YieldNewspaper(Container<bool> btnPressed)
         {
             _isNewspaperActive = true;
 
             while (_isNewspaperActive)
                 await Task.Delay(10);
+
+            btnPressed.Value = true;
         }
 
         private async void OnLevelEnd(List<RecordData> data)
         {
             await statisticView.PopulateCells(data);
             if (_tokenSource.IsCancellationRequested) return;
-            
-            EnableUi(statisticView.GetType()); 
+
+            EnableUi(statisticView.GetType());
         }
 
         private void OnShowIntro(bool show) =>
             EnableUi(show ? levelTitleView.GetType() : levelView.GetType());
-        
+
         public void Dispose()
         {
             newspaper.OnClose -= OnNewspaperClose;

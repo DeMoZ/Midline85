@@ -63,7 +63,9 @@ public class GameEntity : MonoBehaviour
 
         // check for the test dialogue.
         var testDialogue = FindObjectOfType<TestDialogue>();
-        var overridenDialogue = testDialogue ? testDialogue.GetDialogue() : null;
+        var overridenDialogue = testDialogue 
+            ? testDialogue.GetDialogue() 
+            : new OverridenDialogue(false,false,false,null);
 
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {

@@ -19,10 +19,10 @@ public class LevelSceneEntity : IGameScene
         public PlayerProfile Profile;
         public AudioManager AudioManager;
         public VideoManager videoManager;
-        public Sprite newspaperSprite;
         public Blocker Blocker;
         public CursorSet cursorSettings;
         public ObjectEvents ObjectEvents;
+        public OverridenDialogue OverridenDialogue;
     }
 
     private Ctx _ctx;
@@ -66,7 +66,9 @@ public class LevelSceneEntity : IGameScene
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
 
         var onLevelEnd = new ReactiveCommand<List<RecordData>>().AddTo(_disposables);
-        var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);
+        var onShowNewspaper = new ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)>().AddTo(_disposables);
+        var onShowLevelUi = new ReactiveCommand(); // on newspaper done
+
         var onSkipPhrase = new ReactiveCommand().AddTo(_disposables);
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
         var buttons = _ui.Buttons;
@@ -84,8 +86,6 @@ public class LevelSceneEntity : IGameScene
             Profile = _ctx.Profile,
         }).AddTo(_disposables);
         
-        // _ctx.audioManager.SetPhraseAudioSource(_ui.PhraseAudioSource);
-
         var phraseSkipper = new PhraseSkipper(onSkipPhrase).AddTo(_disposables);
 
         var onNext = new ReactiveCommand<List<AaNodeData>>();
@@ -102,9 +102,11 @@ public class LevelSceneEntity : IGameScene
             FindNext = findNext,
             OnNext = onNext,
             Profile = _ctx.Profile,
+            OverridenDialogue = _ctx.OverridenDialogue,
             onSwitchScene = _ctx.onSwitchScene,
             onClickMenuButton = onClickMenuButton,
-
+            OnShowLevelUi = onShowLevelUi,
+            
             OnShowPhrase = onShowPhrase,
             PhraseSoundPlayer = phraseSoundPlayer,
             ContentLoader = contentLoader,
@@ -118,8 +120,7 @@ public class LevelSceneEntity : IGameScene
             AudioManager = _ctx.AudioManager,
             onShowIntro = onShowIntro,
             OnLevelEnd = onLevelEnd,
-            newspaperSprite = _ctx.newspaperSprite,
-            onShowNewspaper = onShowNewspaper,
+            OnShowNewspaper = onShowNewspaper,
             onSkipPhrase = onSkipPhrase,
             onClickPauseButton = onClickPauseButton,
             videoManager = _ctx.videoManager,
@@ -134,7 +135,8 @@ public class LevelSceneEntity : IGameScene
             onHidePhrase = onHidePhrase,
             onShowIntro = onShowIntro,
             OnLevelEnd = onLevelEnd,
-            onShowNewspaper = onShowNewspaper,
+            OnShowNewspaper = onShowNewspaper,
+            OnShowLevelUi = onShowLevelUi,
             onClickPauseButton = onClickPauseButton,
             AudioManager = _ctx.AudioManager,
             Profile = _ctx.Profile,

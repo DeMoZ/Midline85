@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using Configs;
+using Core;
 using Data;
 using UI;
 using UniRx;
@@ -24,6 +25,7 @@ public class LevelScenePm : IDisposable
         public PlayerProfile Profile;
 
         public AudioManager AudioManager;
+        public ReactiveCommand OnShowLevelUi; // on newspaper done
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<UiPhraseData> onHidePhrase;
@@ -39,14 +41,14 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand onAfterEnter;
         public GameSet gameSet;
 
-        public Sprite newspaperSprite;
-        public ReactiveCommand<(Container<Task> task, Sprite sprite)> onShowNewspaper;
+        public ReactiveCommand<(Container<bool> task, Sprite sprite)> OnShowNewspaper;
 
         public ReactiveCommand onSkipPhrase;
         public ReactiveCommand<bool> onClickPauseButton;
         public VideoManager videoManager;
         public Blocker Blocker;
         public CursorSet cursorSettings;
+        public OverridenDialogue OverridenDialogue;
     }
 
     private Ctx _ctx;
@@ -58,7 +60,7 @@ public class LevelScenePm : IDisposable
     private float _phraseTimer;
     private readonly ReactiveProperty<bool> _isPhraseSkipped = new();
     private readonly ReactiveProperty<bool> _isChoiceDone = new();
-    public CancellationTokenSource _tokenSource;
+    private CancellationTokenSource _tokenSource;
 
     /// <summary>
     /// Choice button selection with keyboard.
@@ -92,7 +94,7 @@ public class LevelScenePm : IDisposable
     private async void OnAfterEnter()
     {
         InitButtons();
-
+// todo remove the block and check. This logic implemented in DialoguePm
 #if !BUILD_PRODUCTION
         // todo refactoring to support both replay level in editor and build
         if (!string.IsNullOrWhiteSpace(_ctx.Profile.CheatPhrase))
@@ -106,9 +108,7 @@ public class LevelScenePm : IDisposable
 
         // if (string.IsNullOrWhiteSpace(_ctx.Profile.LastPhrase))
         //     _ctx.Profile.LastPhrase = _ctx.dialogues.phrases[0].phraseId;
-
-        await ShowNewsPaper();
-        await Task.Delay(500);
+        
         await ShowIntro();
         if (_tokenSource.IsCancellationRequested) return;
         //await _ctx.phraseEventVideoLoader.LoadVideoSoToPrepareVideo(_ctx.chapterSet.levelVideoSoName);
@@ -137,20 +137,6 @@ public class LevelScenePm : IDisposable
     {
         Debug.Log($"[{this}] OnSkipPhrase");
         _isPhraseSkipped.Value = true;
-    }
-
-    private async Task ShowNewsPaper()
-    {
-        await _ctx.Blocker.FadeScreenBlocker(true);
-
-        var container = new Container<Task>();
-        _ctx.onShowNewspaper?.Execute((container, _ctx.newspaperSprite));
-
-        await _ctx.Blocker.FadeScreenBlocker(false);
-        _ctx.cursorSettings.EnableCursor(true);
-
-        await container.Value;
-        _ctx.cursorSettings.EnableCursor(false);
     }
 
     [Obsolete]
@@ -189,14 +175,15 @@ public class LevelScenePm : IDisposable
         var phrases = data.OfType<PhraseNodeData>().ToList();
         var ends = data.OfType<EndNodeData>().ToList();
         var events = data.OfType<EventNodeData>().ToList();
+        var newspapers = data.OfType<NewspaperNodeData>().ToList();
         _choices = data.OfType<ChoiceNodeData>().ToList();
         var observables = new IObservable<Unit>[] { };
-        var dialogueEvents = GetEvents(phrases, ends, events);
-        
+        var dialogueEvents = GetEvents(phrases, ends, events, newspapers);
+
         var content = new Dictionary<string, object>();
 
         // load content with cancellation token. Return on Cancel.
-        if (await LoadContent(content, dialogueEvents, phrases)) return;
+        if (await LoadContent(content, dialogueEvents, phrases, newspapers)) return;
 
         if (dialogueEvents.Count > 0)
         {
@@ -210,10 +197,10 @@ public class LevelScenePm : IDisposable
         if (ends.Any())
         {
             var end = ends.First();
-            dialogueEvents.AddRange(end.EventVisualData);
+            dialogueEvents.AddRange(end.EventVisualData); // TODO check if this is not required line (possible twice added)
             RunEndNode(end);
         }
-
+        
         foreach (var phraseData in phrases)
         {
             var phrase = content[$"p_{phraseData.Guid}"] as Phrase;
@@ -224,7 +211,7 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunPhrase(phraseData, phrase));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
-        
+
         foreach (var eventData in events)
         {
             var routine = Observable.FromCoroutine(() => RunEventNode(eventData));
@@ -236,13 +223,21 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunChoices(_choices));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
-
+        
+        if (newspapers.Any() && !_ctx.OverridenDialogue.SkipNewspaper)
+        {
+            var newspaper = newspapers.First();
+            var routine = Observable.FromCoroutine(() => RunNewspaperNode(content[newspaper.Guid] as Sprite));
+            observables = observables.Concat(new[] { routine }).ToArray();
+        }
+        
         Observable.WhenAll(observables)
             .Subscribe(_ =>
             {
                 Debug.Log($"[{this}] All coroutines completed");
                 _next.AddRange(phrases);
                 _next.AddRange(events);
+                _next.AddRange(newspapers);
                 _next.Add(_choice);
                 if (_next.Any())
                 {
@@ -253,30 +248,28 @@ public class LevelScenePm : IDisposable
             }).AddTo(_disposables);
     }
 
-    private List<EventVisualData> GetEvents(List<PhraseNodeData> phrases, List<EndNodeData> ends, List<EventNodeData> events)
+    private List<EventVisualData> GetEvents(List<PhraseNodeData> phrases, List<EndNodeData> ends,
+        List<EventNodeData> events, List<NewspaperNodeData> newspapers)
     {
         var result = new List<EventVisualData>();
 
         foreach (var phrase in phrases.Where(phrase => phrase.EventVisualData.Any()))
-        {
             result.AddRange(phrase.EventVisualData);
-        }
 
         foreach (var end in ends.Where(end => end.EventVisualData.Any()))
-        {
             result.AddRange(end.EventVisualData);
-        }
-        
+
         foreach (var evt in events.Where(evt => evt.EventVisualData.Any()))
-        {
             result.AddRange(evt.EventVisualData);
-        }
+
+        foreach (var newspaper in newspapers.Where(newspaper => newspaper.EventVisualData.Any()))
+            result.AddRange(newspaper.EventVisualData);
 
         return result;
     }
 
     private async Task<bool> LoadContent(Dictionary<string, object> content, List<EventVisualData> dialogueEvents,
-        List<PhraseNodeData> phrases)
+        List<PhraseNodeData> phrases, List<NewspaperNodeData> newspapers)
     {
         foreach (var eventContent in dialogueEvents)
         {
@@ -312,6 +305,14 @@ public class LevelScenePm : IDisposable
             if (_tokenSource.IsCancellationRequested) return true;
         }
 
+        foreach (var newspaperData in newspapers)
+        {
+            var sprite = await _ctx.ContentLoader.GetNewspaperAsync(newspaperData);
+            content[newspaperData.Guid] = sprite;
+
+            if (_tokenSource.IsCancellationRequested) return true;
+        }
+
         return false;
     }
 
@@ -336,7 +337,7 @@ public class LevelScenePm : IDisposable
         //Debug.LogError($"[{this}] hide Text called anyway");
         _ctx.onHidePhrase.Execute(uiPhrase);
     }
-    
+
     private IEnumerator RunEventNode(EventNodeData data)
     {
         Debug.Log($"[{this}] RunEventNode {data}");
@@ -406,6 +407,35 @@ public class LevelScenePm : IDisposable
             button.gameObject.SetActive(false);
         }
     }
+    
+    private IEnumerator RunNewspaperNode(Sprite sprite)
+    {
+        Debug.Log($"[{this}] RunEventNode {sprite}");
+
+        _ctx.cursorSettings.EnableCursor(false);
+        _ctx.Blocker.FadeScreenBlocker(false).Forget();
+        yield return new WaitForSeconds(_ctx.gameSet.newspaperFadeTime);
+        _ctx.cursorSettings.EnableCursor(false);
+
+        if (sprite == null) yield break;
+
+        var container = new Container<bool>();
+        _ctx.OnShowNewspaper?.Execute((container, sprite));
+
+        var delay = new WaitForSeconds(0.1f);
+        while (!container.Value)
+        {
+            yield return delay;
+        }
+
+        _ctx.cursorSettings.EnableCursor(false);
+        _ctx.Blocker.FadeScreenBlocker(true).Forget();
+        yield return new WaitForSeconds(_ctx.gameSet.newspaperFadeTime);
+
+        _ctx.OnShowLevelUi?.Execute();
+        
+        _ctx.cursorSettings.EnableCursor(true);
+    }
 
     private void AutoChoice(List<ChoiceNodeData> data)
     {
@@ -436,6 +466,7 @@ public class LevelScenePm : IDisposable
     private void RunEndNode(EndNodeData data)
     {
         Debug.Log($"[{this}] level end {data}");
+        _ctx.Blocker.FadeScreenBlocker(false).Forget();
         _ctx.OnLevelEnd?.Execute(data.Records);
     }
 

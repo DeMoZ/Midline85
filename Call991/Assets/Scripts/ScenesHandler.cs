@@ -1,5 +1,4 @@
 using System;
-using System.IO;
 using System.Threading.Tasks;
 using Configs;
 using UI;
@@ -90,7 +89,7 @@ public class ScenesHandler : IDisposable
         {
             GameScenes.OpenScene => LoadOpenScene(),
             GameScenes.Menu => await LoadMenu(),
-            GameScenes.Level => await LoadLevel7(),
+            GameScenes.Level => await LoadLevel(),
             _ => await LoadMenu()
         };
 
@@ -130,16 +129,14 @@ public class ScenesHandler : IDisposable
         return sceneEntity;
     }
 
-    private async Task<IGameScene> LoadLevel7()
+    private async Task<IGameScene> LoadLevel()
     {
-        var tLanguage = _ctx.Profile.TextLanguage;
-        var level = _ctx.OverridenDialogue != null && _ctx.OverridenDialogue.Dialogue != null
+        var level = _ctx.OverridenDialogue.Dialogue != null
             ? _ctx.OverridenDialogue.Dialogue
             : _ctx.GameSet.GameLevels.TestLevel;
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
 
-        var skipWarning = _ctx.OverridenDialogue is { SkipWarning: true };
         // var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
         // var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
         _ctx.AudioManager.OnSceneSwitch();
@@ -155,7 +152,7 @@ public class ScenesHandler : IDisposable
             onSwitchScene = _ctx.onSwitchScene,
             AudioManager = _ctx.AudioManager,
             videoManager = _ctx.videoManager,
-            //newspaperSprite = newspaperSprite,
+            OverridenDialogue = _ctx.OverridenDialogue,
             Blocker = _ctx.Blocker,
             cursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
