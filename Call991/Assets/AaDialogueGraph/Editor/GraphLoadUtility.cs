@@ -45,6 +45,7 @@ namespace AaDialogueGraph.Editor
             CreateCountNodes();
             CreateEndNodes();
             CreateEventNodes();
+            CreateNewspaperNodes();
 
             ConnectNodes();
             SetPositions();
@@ -137,6 +138,16 @@ namespace AaDialogueGraph.Editor
             }
         }
 
+        private void CreateNewspaperNodes()
+        {
+            foreach (var data in _containerCash.NewspaperNodeData)
+            {
+                var node = new NewspaperNode();
+                node.Set(data, _containerCash.EntryNodeData.Languages, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
+        
         private void ConnectNodes()
         {
             foreach (var node in AaNodes)
@@ -184,6 +195,7 @@ namespace AaDialogueGraph.Editor
             nodes.AddRange(_containerCash.CountNodeData);
             nodes.AddRange(_containerCash.EventNodeData);
             nodes.AddRange(_containerCash.EndNodeData);
+            nodes.AddRange(_containerCash.NewspaperNodeData);
             nodes.Add(_containerCash.EntryNodeData);
 
             // foreach (var node in AaNodes)

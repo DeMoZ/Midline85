@@ -48,7 +48,7 @@ namespace AaDialogueGraph.Editor
             phraseEvents.Set(data.EventVisualData, CheckNodeContent);
             contentFolder.Add(phraseEvents);
 
-            var phraseContainer = new PhraseElementsTable();
+            var phraseContainer = new ElementsTable();
             var phraseAssetsLabel = new Label("Phrase Assets");
             phraseAssetsLabel.AddToClassList("aa-BlackText");
             phraseContainer.Add(phraseAssetsLabel);

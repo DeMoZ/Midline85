@@ -144,7 +144,7 @@ public class LevelScenePm : IDisposable
         await _ctx.Blocker.FadeScreenBlocker(true);
 
         var container = new Container<Task>();
-        _ctx.onShowNewspaper.Execute((container, _ctx.newspaperSprite));
+        _ctx.onShowNewspaper?.Execute((container, _ctx.newspaperSprite));
 
         await _ctx.Blocker.FadeScreenBlocker(false);
         _ctx.cursorSettings.EnableCursor(true);

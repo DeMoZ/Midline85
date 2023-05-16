@@ -101,6 +101,17 @@ namespace AaDialogueGraph.Editor
             AddElement(node);
         }
 
+        public void CreateNewspaperNode()
+        {
+            var languages = contentContainer.Q<EntryNode>().GetLanguages() ?? new List<string>();
+            var node = new NewspaperNode();
+            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+
+            AddElement(node);
+        }
+
+
         private Vector2 GetNewNodePosition()
         {
             var worldPosition = Event.current.mousePosition + Vector2.up * 100;
@@ -121,6 +132,7 @@ namespace AaDialogueGraph.Editor
         private void OnLanguageChange(LanguageOperation languageOperation)
         {
             var phraseNodes = contentContainer.Query<PhraseNode>().ToList();
+            var newspaperNodes = contentContainer.Query<NewspaperNode>().ToList();
 
             var entryNode = contentContainer.Q<EntryNode>();
             var languageFields = entryNode.Query<LanguageField>().ToList();
@@ -131,12 +143,19 @@ namespace AaDialogueGraph.Editor
                 case LanguageOperationType.Add:
                     foreach (var node in phraseNodes)
                     {
-                        if (node.EntryPoint) continue;
-
-                        var phraseContainer = node.Q<PhraseElementsTable>();
+                        var tableContainer = node.Q<ElementsTable>();
                         var field = new PhraseElementsRowField();
                         field.Set(AaKeys.LanguageKeys[0], onChange: node.CheckNodeContent);
-                        phraseContainer?.Add(field);
+                        tableContainer?.Add(field);
+                        node.CheckNodeContent();
+                    }
+
+                    foreach (var node in newspaperNodes)
+                    {
+                        var tableContainer = node.Q<ElementsTable>();
+                        var field = new NewspaperElementsRowField();
+                        field.Set(AaKeys.LanguageKeys[0], onChange: node.CheckNodeContent);
+                        tableContainer?.Add(field);
                         node.CheckNodeContent();
                     }
 
@@ -144,9 +163,17 @@ namespace AaDialogueGraph.Editor
                 case LanguageOperationType.Change:
                     foreach (var node in phraseNodes)
                     {
-                        if (node.EntryPoint) continue;
+                        ChangeRow<PhraseElementsRowField>(node);
+                    }
 
-                        var rows = node.Query<PhraseElementsRowField>().ToList();
+                    foreach (var node in newspaperNodes)
+                    {
+                        ChangeRow<NewspaperElementsRowField>(node);
+                    }
+
+                    void ChangeRow<T>(AaNode node) where T : VisualElement
+                    {
+                        var rows = node.Query<T>().ToList();
                         var row = rows[index];
                         var label = row.Q<Label>();
                         label.text = languageOperation.Value;
@@ -157,16 +184,25 @@ namespace AaDialogueGraph.Editor
                 case LanguageOperationType.Remove:
                     foreach (var node in phraseNodes)
                     {
-                        if (node.EntryPoint) continue;
-
-                        var rows = node.Query<PhraseElementsRowField>().ToList();
-                        var row = rows[index];
-                        var phraseContainer = node.Q<PhraseElementsTable>();
-                        phraseContainer.Remove(row);
+                        RemoveRow<PhraseElementsRowField>(node);
                         node.CheckNodeContent();
                     }
-
+                    
+                    foreach (var node in newspaperNodes)
+                    {
+                        RemoveRow<NewspaperElementsRowField>(node);
+                        node.CheckNodeContent();
+                    }
+                    
                     entryNode.Remove(languageOperation.Element);
+
+                    void RemoveRow<T>(AaNode node) where T : VisualElement
+                    {
+                        var rows = node.Query<T>().ToList();
+                        var row = rows[index];
+                        var phraseContainer = node.Q<ElementsTable>();
+                        phraseContainer.Remove(row);
+                    }
                     break;
 
                 default:

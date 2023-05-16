@@ -167,8 +167,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 436.5
       y: 207
-      width: 326
-      height: 246
+      width: 118.5
+      height: 95.5
     End: FIRE.END.BAD
     EventVisualData: []
     Records:
@@ -195,10 +195,22 @@ MonoBehaviour:
       Loop: 0
       Stop: 0
       Delay: 0
+  NewspaperNodeData:
+  - Guid: 7bce324e-534a-4666-8460-f807c756fb73
+    Rect:
+      serializedVersion: 2
+      x: 171
+      y: 51
+      width: 240.5
+      height: 195
+    EventVisualData: []
+    Sprites:
+    - Phrases/Lvl_7/En/newspaper.png
+    - 
   NodeLinks:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
-    TargetNodeGuid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
+    TargetNodeGuid: 7bce324e-534a-4666-8460-f807c756fb73
   - BaseNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
     BaseExitName: 
     TargetNodeGuid: 657551ae-35b5-4275-a0f3-8d8ddf1b4be9
@@ -212,5 +224,8 @@ MonoBehaviour:
     BaseExitName: 
     TargetNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
   - BaseNodeGuid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
+    BaseExitName: 
+    TargetNodeGuid: 5d6b7e2b-8896-40b6-8258-09a0a36de6e3
+  - BaseNodeGuid: 7bce324e-534a-4666-8460-f807c756fb73
     BaseExitName: 
     TargetNodeGuid: 5d6b7e2b-8896-40b6-8258-09a0a36de6e3

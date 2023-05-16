@@ -102,6 +102,12 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.EndNode,
             };
             toolbar.Add(endCreateButton);
+            
+            var newspaperCreateButton = new Button(() => _graphView.CreateNewspaperNode())
+            {
+                text = AaGraphConstants.NewspaperNode,
+            };
+            toolbar.Add(newspaperCreateButton);
 
             rootVisualElement.Add(toolbar);
         }

@@ -50,6 +50,7 @@ namespace AaDialogueGraph.Editor
         public const string ForkNode = "Fork";
         public const string CountNode = "Count";
         public const string EventNode = "Event";
+        public const string NewspaperNode = "Newspaper";
         public const string EndNode = "End";
 
         public const string SaveData = "Save";
@@ -104,7 +105,7 @@ namespace AaDialogueGraph.Editor
     /// <summary>
     /// Helper element to be able to find contaniter with phrases
     /// </summary>
-    public class PhraseElementsTable : VisualElement
+    public class ElementsTable : VisualElement
     {
     }
 
@@ -122,6 +123,22 @@ namespace AaDialogueGraph.Editor
             var assetField = new PhraseAssetField();
             assetField.Set(phrase, onChange);
             contentContainer.Add(assetField);
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+        }
+    }
+    
+    public class NewspaperElementsRowField : VisualElement
+    {
+        public void Set(string language, Sprite sprite = null, Action onChange = null)
+        {
+            var label = new Label(language);
+            label.AddToClassList("aa-BlackText");
+            contentContainer.Add(label);
+
+            var spriteField = new SpriteField();
+            spriteField.Set(sprite, onChange);
+            contentContainer.Add(spriteField);
 
             contentContainer.style.flexDirection = FlexDirection.Row;
         }

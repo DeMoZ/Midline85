@@ -70,9 +70,12 @@ namespace AaDialogueGraph.Editor
 
             var endNodes = AaNodes.OfType<EndNode>().ToList();
             dialogueContainer.EndNodeData.AddRange(EndNodesToData(endNodes));
-            
+
             var eventNodes = AaNodes.OfType<EventNode>().ToList();
             dialogueContainer.EventNodeData.AddRange(EventNodesToData(eventNodes));
+
+            var newspaperNodes = AaNodes.OfType<NewspaperNode>().ToList();
+            dialogueContainer.NewspaperNodeData.AddRange(NewspaperNodesToData(newspaperNodes));
 
             var assetName = $"Assets/Resources/{fileName}.asset";
             if (File.Exists(assetName))
@@ -139,7 +142,7 @@ namespace AaDialogueGraph.Editor
 
             return data;
         }
-        
+
         private List<ChoiceNodeData> ChoiceNodesToData(List<ChoiceNode> nodes)
         {
             var data = new List<ChoiceNodeData>();
@@ -227,18 +230,39 @@ namespace AaDialogueGraph.Editor
             foreach (var node in nodes)
             {
                 var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
-             
+
                 data.Add(new EventNodeData
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
-                    
+
                     EventVisualData = eventsVisualData,
                 });
             }
 
             return data;
         }
+
+        private List<NewspaperNodeData> NewspaperNodesToData(List<NewspaperNode> nodes)
+        {
+            var data = new List<NewspaperNodeData>();
+            foreach (var node in nodes)
+            {
+                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
+                var sprites = node.GetSprites().Cast<Object>().ToList();
+
+                data.Add(new NewspaperNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    EventVisualData = eventsVisualData,
+                    Sprites = EditorNodeUtils.GetObjectPath(sprites),
+                });
+            }
+
+            return data;
+        }
+
 
         private void CreateFolders(string fileName)
         {
