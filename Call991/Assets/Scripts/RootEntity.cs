@@ -78,6 +78,7 @@ public class RootEntity : IDisposable
             GameSet = gameSet,
             Blocker = _ctx.Blocker,
             CursorSettings = cursorSettings,
+            OverridenDialogue = _ctx.OverridenDialogue,
         }).AddTo(_diposables);
 
         _onStartApplicationSwitchScene.Execute();

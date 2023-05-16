@@ -19,6 +19,7 @@ public class SceneSwitcher : IDisposable
         public Blocker Blocker;
         public GameSet GameSet;
         public CursorSet CursorSettings;
+        public OverridenDialogue OverridenDialogue;
     }
 
     private Ctx _ctx;
@@ -66,14 +67,18 @@ public class SceneSwitcher : IDisposable
         if (toLevelScene)
         {
             _ctx.Blocker.EnableScreenFade(true);
-            var contentLoader = new ContentLoader(new ContentLoader.Ctx());
-            var videoClip = await contentLoader.GetObjectAsync<VideoClip>(_ctx.GameSet.interactiveVideoRef);
-            if (_tokenSource.IsCancellationRequested) return;
 
-            _ctx.VideoManager.EnableVideo(true);
-            _ctx.VideoManager.PlayVideo(videoClip);
-            await _ctx.Blocker.FadeScreenBlocker(false);
-            await Task.Delay((int)(_ctx.GameSet.startGameOpeningHoldTime * 1000));
+            if (!_ctx.OverridenDialogue.SkipWarning)
+            {
+                var contentLoader = new ContentLoader(new ContentLoader.Ctx());
+                var videoClip = await contentLoader.GetObjectAsync<VideoClip>(_ctx.GameSet.interactiveVideoRef);
+                if (_tokenSource.IsCancellationRequested) return;
+
+                _ctx.VideoManager.EnableVideo(true);
+                _ctx.VideoManager.PlayVideo(videoClip);
+                await _ctx.Blocker.FadeScreenBlocker(false);
+                await Task.Delay((int)(_ctx.GameSet.startGameOpeningHoldTime * 1000));
+            }
         }
 
         Debug.Log($"[{this}][OnSwitchSceneLoaded] Start load scene {scene}");
