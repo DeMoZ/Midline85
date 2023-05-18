@@ -86,41 +86,35 @@ MonoBehaviour:
       serializedVersion: 2
       x: 555.5
       y: 40
-      width: 127.5
-      height: 96
-    PhraseSketchText: "\u043D\u0435\u0442 \u0430\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u043E\u0433\u043E "
+      width: 365.5
+      height: 405.5
+    PhraseSketchText: 911
     PersonVisualData:
-      Person: 0
-      ScreenPlace: 1
+      Person: 1
+      ScreenPlace: 2
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 0
     EventVisualData:
-    - Type: 0
-      PhraseEvent: Sounds/EventSounds/SFX_OpenDoor_Footsteps_TakePhone.ogg
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0.5
-    - Type: 2
-      PhraseEvent: Dialogues/EventPrefabs/BlockerShow.prefab
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 1
     - Type: 1
       PhraseEvent: Videos/VideoBack.mp4
       Layer: 1
       Loop: 1
       Stop: 0
       Delay: 0
+    - Type: 2
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHide.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
     PhraseSounds:
-    - Sounds/Lvl_7/Ru/p.elena.003.ogg
+    - Sounds/Lvl_7/Ru/p.elena.001.ogg
     - 
     Phrases:
-    - Phrases/Lvl_7/Ru/p.elena.003.asset
-    - Phrases/Lvl_7/En/p.elena.003.asset
+    - Phrases/Lvl_7/Ru/p.elena.001.asset
+    - Phrases/Lvl_7/En/p.elena.001.asset
   ChoiceNodeData:
   - Guid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     Rect:
@@ -175,6 +169,20 @@ MonoBehaviour:
     - Sprite: 
       Key: achive_killJack
   EventNodeData:
+  - Guid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
+    Rect:
+      serializedVersion: 2
+      x: 166
+      y: 40
+      width: 99.5
+      height: 107
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: Sounds/Music/7 Chapter_ 1 Track.mp3
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 0
   - Guid: 7c98582c-14a2-4f5c-8cba-32fb86f2be0b
     Rect:
       serializedVersion: 2
@@ -189,23 +197,9 @@ MonoBehaviour:
       Loop: 0
       Stop: 0
       Delay: 0
-  - Guid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
-    Rect:
-      serializedVersion: 2
-      x: 202
-      y: 178
-      width: 99.5
-      height: 107
-    EventVisualData:
-    - Type: 2
-      PhraseEvent: Dialogues/EventPrefabs/BlockerHide.prefab
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-    - Type: 0
-      PhraseEvent: Sounds/Lvl_7/Ru/p.jack.030.ogg
-      Layer: 0
+    - Type: 1
+      PhraseEvent: Videos/Chapter7Title.mp4
+      Layer: 1
       Loop: 0
       Stop: 0
       Delay: 0
@@ -224,7 +218,7 @@ MonoBehaviour:
   NodeLinks:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
-    TargetNodeGuid: 7bce324e-534a-4666-8460-f807c756fb73
+    TargetNodeGuid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
   - BaseNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
     BaseExitName: 
     TargetNodeGuid: 657551ae-35b5-4275-a0f3-8d8ddf1b4be9
@@ -237,9 +231,12 @@ MonoBehaviour:
   - BaseNodeGuid: 996ff1eb-291c-4da6-9ff3-ee27387b6c0b
     BaseExitName: 
     TargetNodeGuid: f7432440-37e3-4136-8052-ded1135d3a01
-  - BaseNodeGuid: 7bce324e-534a-4666-8460-f807c756fb73
+  - BaseNodeGuid: 4562d8ca-70c3-48d8-a4e9-dda7986b201c
     BaseExitName: 
-    TargetNodeGuid: 7c98582c-14a2-4f5c-8cba-32fb86f2be0b
+    TargetNodeGuid: 7bce324e-534a-4666-8460-f807c756fb73
   - BaseNodeGuid: 7c98582c-14a2-4f5c-8cba-32fb86f2be0b
     BaseExitName: 
     TargetNodeGuid: f21a84a9-c1b7-49e1-87d4-3e4967265a14
+  - BaseNodeGuid: 7bce324e-534a-4666-8460-f807c756fb73
+    BaseExitName: 
+    TargetNodeGuid: 7c98582c-14a2-4f5c-8cba-32fb86f2be0b

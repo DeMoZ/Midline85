@@ -18,11 +18,11 @@ public class LevelTitle : PhraseObjectEvent
             };
 
             ObjectEvents.EventsGroup.OnShowTitle?.Execute((true, keys));
-            ObjectEvents.EventsGroup.OnScreenFade?.Execute((false, GameSet.startGameOpeningHoldTime));
+            ObjectEvents.EventsGroup.OnScreenFade?.Execute((false, GameSet.shortFadeTime));
 
             yield return new WaitForSeconds(GameSet.levelIntroDelay);
 
-            ObjectEvents.EventsGroup.OnScreenFade?.Execute((true, GameSet.startGameOpeningHoldTime));
+            ObjectEvents.EventsGroup.OnScreenFade?.Execute((true, GameSet.shortFadeTime));
             yield return new WaitForSeconds(GameSet.shortFadeTime);
             ObjectEvents.EventsGroup.OnShowTitle?.Execute((false, keys));
         }
