@@ -99,7 +99,6 @@ public class LevelSceneEntity : IGameScene
         {
             FindNext = findNext,
             OnNext = onNext,
-            Profile = _ctx.Profile,
             OverridenDialogue = _ctx.OverridenDialogue,
             onSwitchScene = _ctx.onSwitchScene,
             onClickMenuButton = onClickMenuButton,

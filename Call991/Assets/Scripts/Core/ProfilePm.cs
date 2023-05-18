@@ -21,7 +21,6 @@ public class PlayerProfile : IDisposable
     private float _timerVolume;
     private float _musicVolume;
 
-    private PlayerData _playerData;
     private CompositeDisposable _disposables;
 
     public ReactiveCommand<(AudioSourceType type, float volume)> onVolumeSet;
@@ -34,11 +33,6 @@ public class PlayerProfile : IDisposable
         _textLanguage = PlayerPrefs.GetString(TextLanguageKey, defaultLanguage);
         // TODO remove set russian for default voice language.
         _audioLanguage = "Русский"; //PlayerPrefs.GetString(AudioLanguageKey, defaultLanguage);
-
-        var savedProfile = PlayerPrefs.GetString(PlayerDataKey, null);
-        _playerData = string.IsNullOrWhiteSpace(savedProfile)
-            ? new PlayerData()
-            : JsonConvert.DeserializeObject<PlayerData>(savedProfile);
 
         onVolumeSet = new ReactiveCommand<(AudioSourceType type, float volume)>();
         LoadVolumes();
@@ -58,17 +52,6 @@ public class PlayerProfile : IDisposable
     public void Clear()
     {
         PlayerPrefs.DeleteKey(PlayerDataKey);
-        _playerData = new PlayerData();
-    }
-
-    public void ClearPhrases()
-    {
-        _playerData.phrases.Clear();
-    }
-
-    public void ClearChoices()
-    {
-        _playerData.choices.Clear();
     }
 
     public string TextLanguage
@@ -148,62 +131,6 @@ public class PlayerProfile : IDisposable
         }
     }
 
-    public string LastPhrase
-    {
-        get => _playerData.lastPhraseId;
-        set
-        {
-            _playerData.lastPhraseId = value;
-            AddPhrase(value);
-            SavePlayerData();
-        }
-    }
-
-    public string CheatPhrase
-    {
-        get => _playerData.cheatPhraseId;
-        set
-        {
-            _playerData.cheatPhraseId = value;
-            SavePlayerData();
-        }
-    }
-
-    public void AddPhrase(string phraseId)
-    {
-        if (_playerData.phrases.Contains(phraseId)) return;
-
-        _playerData.phrases.Add(phraseId);
-        SavePlayerData();
-    }
-
-    public void AddChoice(string choiceId)
-    {
-        if (_playerData.choices.Contains(choiceId)) return;
-
-        _playerData.choices.Add(choiceId);
-        SavePlayerData();
-    }
-
-    public bool ContainsChoice(List<string> choices)
-    {
-        foreach (var required in choices)
-        {
-            var orChoices = required.Split('|');
-
-            if (!_playerData.choices.Any(orChoices.Contains))
-                return false;
-        }
-
-        return true;
-    }
-
-    public PlayerData GetPlayerData() =>
-        _playerData;
-
-    private void SavePlayerData() =>
-        PlayerPrefs.SetString(PlayerDataKey, JsonConvert.SerializeObject(_playerData));
-
     private void SaveLanguages()
     {
         PlayerPrefs.SetString(TextLanguageKey, _textLanguage);
@@ -231,13 +158,4 @@ public class PlayerProfile : IDisposable
         onVolumeSet?.Dispose();
         _disposables?.Dispose();
     }
-}
-
-public class PlayerData
-{
-    public string lastPhraseId = null;
-    public string cheatPhraseId = null;
-
-    public List<string> choices = new List<string>();
-    public List<string> phrases = new List<string>();
 }

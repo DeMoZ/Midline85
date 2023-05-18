@@ -25,12 +25,11 @@ namespace UI
         [SerializeField] private LanguageDropdown audioLanguage = default;
 
         private Ctx _ctx;
-        //private Dialogues _dialogues;
-        
+
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            inputId.text = _ctx.profile.CheatPhrase;
+            inputId.text = "";
             SetTextDropdown();
             SetAudioDropdown();
 

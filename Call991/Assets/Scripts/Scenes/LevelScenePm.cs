@@ -22,7 +22,6 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<List<AaNodeData>> FindNext;
         public ReactiveCommand<List<AaNodeData>> OnNext;
         public ReactiveCommand<UiPhraseData> OnShowPhrase;
-        public PlayerProfile Profile;
 
         public AudioManager AudioManager;
         public ReactiveCommand OnShowLevelUi; // on newspaper done
@@ -74,12 +73,11 @@ public class LevelScenePm : IDisposable
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
 
-        _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
-
         _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
-        _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
 
+        _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
+        _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
         _ctx.onClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
         _ctx.onClickMenuButton.Subscribe(_ =>
@@ -90,29 +88,11 @@ public class LevelScenePm : IDisposable
         _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
-    private async void OnAfterEnter()
+    private void OnAfterEnter()
     {
         InitButtons();
-// // todo remove the block and check. This logic implemented in DialoguePm
-// #if !BUILD_PRODUCTION
-//         // todo refactoring to support both replay level in editor and build
-//         if (!string.IsNullOrWhiteSpace(_ctx.Profile.CheatPhrase))
-//         {
-//             _ctx.Profile.ClearPhrases();
-//             _ctx.Profile.ClearChoices();
-//
-//             _ctx.Profile.LastPhrase = _ctx.Profile.CheatPhrase;
-//         }
-// #endif
-        
-        //_ctx.videoManager.PlayPreparedVideo();
-        //await Task.Delay(500);
-        //if (_tokenSource.IsCancellationRequested) return;
-        ExecuteDialogue();
-        await _ctx.Blocker.FadeScreenBlocker(false);
-        if (_tokenSource.IsCancellationRequested) return;
-
         _ctx.cursorSettings.EnableCursor(true);
+        ExecuteDialogue();
     }
 
     private void SetPause(bool pause)
