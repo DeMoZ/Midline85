@@ -34,9 +34,8 @@ namespace Configs
         
         [Title("Level Intro")]
         public float levelIntroDelay = 2f;
-        public float levelEndLevelUiDisappearTime = 3f;
         public float levelEndStatisticsUiFadeTime = 1f;
-        public float newspaperFadeTime = 0.5f;
+        public float shortFadeTime = 0.5f;
 
         [Space][Title("InteractiveVideoRef")]
         public string interactiveVideoRef;

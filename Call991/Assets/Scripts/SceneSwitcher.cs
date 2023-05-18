@@ -77,7 +77,13 @@ public class SceneSwitcher : IDisposable
                 _ctx.VideoManager.EnableVideo(true);
                 _ctx.VideoManager.PlayVideo(videoClip);
                 await _ctx.Blocker.FadeScreenBlocker(false);
+                if (_tokenSource.IsCancellationRequested) return;
+                
                 await Task.Delay((int)(_ctx.GameSet.startGameOpeningHoldTime * 1000));
+                if (_tokenSource.IsCancellationRequested) return;
+                
+                await _ctx.Blocker.FadeScreenBlocker(true, _ctx.GameSet.shortFadeTime);
+                if (_tokenSource.IsCancellationRequested) return;
             }
         }
 

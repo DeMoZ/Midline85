@@ -1,5 +1,6 @@
 using System;
 using System.Threading.Tasks;
+using Configs;
 using Core;
 using DG.Tweening;
 using UniRx;
@@ -8,16 +9,15 @@ using UnityEngine.UI;
 
 public class Blocker : IDisposable
 {
-    private const float FadeTime = 0.3f;
-
     private readonly Image _screenFade;
     private readonly Image _videoFade;
     private readonly CompositeDisposable _disposables;
+    private readonly GameSet _gameSet;
 
     private Color _videoBlockerColor;
     private Color _screenBlockerColor;
 
-    public Blocker(Image screenFade, Image videoFade, ReactiveCommand<(bool show,float time)> onScreenFade)
+    public Blocker(Image screenFade, Image videoFade, GameSet gameSet, ReactiveCommand<(bool show,float time)> onScreenFade)
     {
         _disposables = new CompositeDisposable();
 
@@ -26,7 +26,8 @@ public class Blocker : IDisposable
 
         _videoBlockerColor = _videoFade.color;
         _screenBlockerColor = _screenFade.color;
-
+        _gameSet = gameSet;
+        
         onScreenFade.Subscribe(param =>
         {
             Debug.LogError($"[{this}] received event Fade");
@@ -34,15 +35,16 @@ public class Blocker : IDisposable
         }).AddTo(_disposables);
     }
 
-    public async Task FadeVideoBlocker(bool show)
+    public async Task FadeVideoBlocker(bool show, float? fadeTime = null)
     {
+        var time = fadeTime ?? _gameSet.shortFadeTime; 
         var toColor = show ? 1 : 0;
         _videoBlockerColor.a = show ? 0 : 1;
         _videoFade.color = _videoBlockerColor;
 
         EnableVideoFade(true, !show);
 
-        var seq = _videoFade.DOFade(toColor, FadeTime);
+        var seq = _videoFade.DOFade(toColor, time);
         seq.Play();
 
         while (seq.IsPlaying())
@@ -54,7 +56,7 @@ public class Blocker : IDisposable
 
     public async Task FadeScreenBlocker(bool show, float? fadeTime = null)
     {
-        var time = fadeTime ?? FadeTime;
+        var time = fadeTime ?? _gameSet.shortFadeTime;
         var toColor = show ? 1 : 0;
         _screenBlockerColor.a = show ? 0 : 1;
         _screenFade.color = _screenBlockerColor;

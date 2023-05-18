@@ -23,7 +23,7 @@ public class LevelTitle : PhraseObjectEvent
             yield return new WaitForSeconds(GameSet.levelIntroDelay);
 
             ObjectEvents.EventsGroup.OnScreenFade?.Execute((true, GameSet.startGameOpeningHoldTime));
-            yield return new WaitForSeconds(GameSet.newspaperFadeTime);
+            yield return new WaitForSeconds(GameSet.shortFadeTime);
             ObjectEvents.EventsGroup.OnShowTitle?.Execute((false, keys));
         }
 

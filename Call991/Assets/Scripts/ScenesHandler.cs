@@ -136,9 +136,7 @@ public class ScenesHandler : IDisposable
             : _ctx.GameSet.GameLevels.TestLevel;
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
-
-        // var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
-        // var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
+        
         _ctx.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();

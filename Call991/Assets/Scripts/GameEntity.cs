@@ -14,7 +14,7 @@ public class GameEntity : MonoBehaviour
 
     [Space] [SerializeField] private Transform clicksParent;
 
-    private CompositeDisposable _disposable;
+    private CompositeDisposable _disposables;
 
     private async void Awake()
     {
@@ -29,7 +29,7 @@ public class GameEntity : MonoBehaviour
             return;
         }
 
-        _disposable = new CompositeDisposable();
+        _disposables = new CompositeDisposable();
         DontDestroyOnLoad(gameObject);
 
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
@@ -55,34 +55,21 @@ public class GameEntity : MonoBehaviour
         var overridenDialogue = testDialogue 
             ? testDialogue.GetDialogue() 
             : new OverridenDialogue(false,false,false,null);
-        
-        var onScreenFade = new ReactiveCommand<(bool show, float time)>();
-        var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
-        var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
-        {
-            OnScreenFade = onScreenFade,
-            OnShowTitle = onShowTitle,
-            SkipTitle = overridenDialogue.SkipTitle,
-        }).AddTo(_disposable);
-
-        var blocker = new Blocker(screenFade, videoFade, onScreenFade);
-
-        var clickImage = Resources.Load<GameObject>("ClickPointImage");
-        var clickPointHandler = new ClickPointHandler(clickImage, clicksParent).AddTo(_disposable);
 
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             AudioManager = audioManager,
             VideoManager = videoManager,
-            Blocker = blocker,
-            ObjectEvents = objectEvents,
+            VideoFade = videoFade,
+            ScreenFade = screenFade,
+            ClicksParent = clicksParent,
             OverridenDialogue = overridenDialogue,
-        }).AddTo(_disposable);
+        }).AddTo(_disposables);
     }
 
     private void OnDestroy()
     {
-        _disposable?.Dispose();
+        _disposables?.Dispose();
         ResourcesLoader.UnloadUnused();
     }
 }

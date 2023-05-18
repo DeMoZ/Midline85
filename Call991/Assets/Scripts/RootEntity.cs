@@ -7,6 +7,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RootEntity : IDisposable
 {
@@ -14,28 +15,48 @@ public class RootEntity : IDisposable
     {
         public AudioManager AudioManager;
         public VideoManager VideoManager;
-        public Blocker Blocker;
-        public ObjectEvents ObjectEvents;
         public OverridenDialogue OverridenDialogue;
+        public Image VideoFade;
+        public Image ScreenFade;
+        public Transform ClicksParent;
     }
 
     private Ctx _ctx;
-    private CompositeDisposable _diposables;
+    private CompositeDisposable _disposables;
     private readonly ReactiveCommand _onStartApplicationSwitchScene;
 
     public RootEntity(Ctx ctx)
     {
         Debug.Log($"[RootEntity][time] Loading scene start.. {Time.realtimeSinceStartup}");
         _ctx = ctx;
-        _diposables = new CompositeDisposable();
+        _disposables = new CompositeDisposable();
+
+        var musicPath = "Sounds/Music";
 
         var gameSet = Resources.Load<GameSet>("GameSet");
         var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
+        var cursorSettings = Resources.Load<CursorSet>("CursorSet");
+        var clickImage = Resources.Load<GameObject>("ClickPointImage");
+
+        _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
+        var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
+        var onScreenFade = new ReactiveCommand<(bool show, float time)>();
+        var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
+        
+        var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
+        {
+            OnScreenFade = onScreenFade,
+            OnShowTitle = onShowTitle,
+            SkipTitle = _ctx.OverridenDialogue.SkipTitle,
+        }).AddTo(_disposables);
+
+        
         var profile = new PlayerProfile();
         SetLanguage(profile.TextLanguage);
         
-        var musicPath = "Sounds/Music";
-
+        var clickPointHandler = new ClickPointHandler(clickImage, _ctx.ClicksParent).AddTo(_disposables);
+        var blocker = new Blocker(_ctx.ScreenFade, _ctx.VideoFade, gameSet, onScreenFade.AddTo(_disposables));
+        
         _ctx.AudioManager.SetCtx(new AudioManager.Ctx
         {
             GameSet = gameSet,
@@ -51,10 +72,6 @@ public class RootEntity : IDisposable
         
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
-        _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);
-        var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_diposables);
-        var cursorSettings = Resources.Load<CursorSet>("CursorSet");
-        
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
         {
             GameSet = gameSet,
@@ -64,11 +81,11 @@ public class RootEntity : IDisposable
             Profile = profile,
             AudioManager = _ctx.AudioManager,
             videoManager = _ctx.VideoManager,
-            Blocker = _ctx.Blocker,
-            ObjectEvents = _ctx.ObjectEvents,
+            Blocker = blocker,
+            ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,
             OverridenDialogue = _ctx.OverridenDialogue,
-        }).AddTo(_diposables);
+        }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
@@ -76,10 +93,10 @@ public class RootEntity : IDisposable
             OnSwitchScene = onSwitchScene,
             VideoManager = _ctx.VideoManager,
             GameSet = gameSet,
-            Blocker = _ctx.Blocker,
+            Blocker = blocker,
             CursorSettings = cursorSettings,
             OverridenDialogue = _ctx.OverridenDialogue,
-        }).AddTo(_diposables);
+        }).AddTo(_disposables);
 
         _onStartApplicationSwitchScene.Execute();
     }
@@ -91,6 +108,6 @@ public class RootEntity : IDisposable
 
     public void Dispose()
     {
-        _diposables.Dispose();
+        _disposables.Dispose();
     }
 }

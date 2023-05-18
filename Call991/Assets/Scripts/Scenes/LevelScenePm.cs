@@ -393,7 +393,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.cursorSettings.EnableCursor(false);
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
-        yield return new WaitForSeconds(_ctx.gameSet.newspaperFadeTime);
+        yield return new WaitForSeconds(_ctx.gameSet.shortFadeTime);
         _ctx.cursorSettings.EnableCursor(false);
 
         if (sprite == null) yield break;
@@ -409,7 +409,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.cursorSettings.EnableCursor(false);
         _ctx.Blocker.FadeScreenBlocker(true).Forget();
-        yield return new WaitForSeconds(_ctx.gameSet.newspaperFadeTime);
+        yield return new WaitForSeconds(_ctx.gameSet.shortFadeTime);
 
         _ctx.OnShowLevelUi?.Execute();
         

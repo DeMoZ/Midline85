@@ -45,8 +45,6 @@ public class LevelSceneEntity : IGameScene
     private async Task ConstructorTask()
     {
         await Task.Delay(10);
-        // todo should be removed and music must be played in other way
-        await _ctx.AudioManager.PlayMusic("7_lvl");
         
         // scene doesnt exist here
         // so just load and show on enter. Is it instant?
