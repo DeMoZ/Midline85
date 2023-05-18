@@ -15,7 +15,7 @@ public class ScenesHandler : IDisposable
         public PlayerProfile Profile;
         public AudioManager AudioManager;
         public GameSet GameSet;
-        public VideoManager videoManager;
+        public VideoManager VideoManager;
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
@@ -120,7 +120,7 @@ public class ScenesHandler : IDisposable
             OnSwitchScene = _ctx.onSwitchScene,
             Profile = _ctx.Profile,
             AudioManager = _ctx.AudioManager,
-            videoManager = _ctx.videoManager,
+            videoManager = _ctx.VideoManager,
             ConstructorTask = constructorTask,
         }).AddTo(_disposables);
 
@@ -149,7 +149,7 @@ public class ScenesHandler : IDisposable
             ObjectEvents = _ctx.ObjectEvents,
             onSwitchScene = _ctx.onSwitchScene,
             AudioManager = _ctx.AudioManager,
-            videoManager = _ctx.videoManager,
+            videoManager = _ctx.VideoManager,
             OverridenDialogue = _ctx.OverridenDialogue,
             Blocker = _ctx.Blocker,
             cursorSettings = _ctx.CursorSettings,
@@ -167,7 +167,7 @@ public class ScenesHandler : IDisposable
 
     public IGameScene LoadingSceneEntity(ReactiveProperty<string> onLoadingProcess, GameScenes scene)
     {
-        _ctx.videoManager.EnableVideo(false);
+        _ctx.VideoManager.EnableVideo(false);
 
         var toLevelScene = scene == GameScenes.Level;
 

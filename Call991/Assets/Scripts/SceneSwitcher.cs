@@ -67,24 +67,7 @@ public class SceneSwitcher : IDisposable
         if (toLevelScene)
         {
             _ctx.Blocker.EnableScreenFade(true);
-
-            if (!_ctx.OverridenDialogue.SkipWarning)
-            {
-                var contentLoader = new ContentLoader(new ContentLoader.Ctx());
-                var videoClip = await contentLoader.GetObjectAsync<VideoClip>(_ctx.GameSet.interactiveVideoRef);
-                if (_tokenSource.IsCancellationRequested) return;
-
-                _ctx.VideoManager.EnableVideo(true);
-                _ctx.VideoManager.PlayVideo(videoClip);
-                await _ctx.Blocker.FadeScreenBlocker(false);
-                if (_tokenSource.IsCancellationRequested) return;
-                
-                await Task.Delay((int)(_ctx.GameSet.startGameOpeningHoldTime * 1000));
-                if (_tokenSource.IsCancellationRequested) return;
-                
-                await _ctx.Blocker.FadeScreenBlocker(true, _ctx.GameSet.shortFadeTime);
-                if (_tokenSource.IsCancellationRequested) return;
-            }
+            _ctx.VideoManager.EnableVideo(true);
         }
 
         Debug.Log($"[{this}][OnSwitchSceneLoaded] Start load scene {scene}");

@@ -18,7 +18,6 @@ namespace UI
 
         [SerializeField] private TextMeshProUGUI loadingValue = default;
         [SerializeField] private GameObject loadingUi = default;
-        [SerializeField] private UiLoadingTitle loadingWarningTitle = default;
         
         private Ctx _ctx;
 
@@ -29,8 +28,6 @@ namespace UI
             _ctx.onLoadingProcess.Subscribe(OnLoadingProcess);
             
             loadingUi.SetActive(!ctx.toLevelScene);
-            loadingWarningTitle.SetCtx(_ctx.gameSet.openingLineAppearTime);
-            loadingWarningTitle.gameObject.SetActive(ctx.toLevelScene);
             _ctx.blocker.EnableScreenFade(ctx.firstLoad);
         }
 

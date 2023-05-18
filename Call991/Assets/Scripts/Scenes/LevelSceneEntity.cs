@@ -131,6 +131,7 @@ public class LevelSceneEntity : IGameScene
             OnShowPhrase = onShowPhrase,
             onHidePhrase = onHidePhrase,
             OnShowTitle = _ctx.ObjectEvents.EventsGroup.OnShowTitle,
+            OnShowWarning = _ctx.ObjectEvents.EventsGroup.OnShowWarning,
             OnLevelEnd = onLevelEnd,
             OnShowNewspaper = onShowNewspaper,
             OnShowLevelUi = onShowLevelUi,

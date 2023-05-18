@@ -391,16 +391,21 @@ public class LevelScenePm : IDisposable
     {
         Debug.Log($"[{this}] RunEventNode {sprite}");
 
+        var container = new Container<bool>();
+        if (sprite != null)
+        {
+            _ctx.OnShowNewspaper?.Execute((container, sprite));
+        }
+        else
+        {
+            container.Value = true;
+        }
+        
         _ctx.cursorSettings.EnableCursor(false);
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
         yield return new WaitForSeconds(_ctx.gameSet.shortFadeTime);
-        _ctx.cursorSettings.EnableCursor(false);
-
-        if (sprite == null) yield break;
-
-        var container = new Container<bool>();
-        _ctx.OnShowNewspaper?.Execute((container, sprite));
-
+        _ctx.cursorSettings.EnableCursor(true);
+        
         var delay = new WaitForSeconds(0.1f);
         while (!container.Value)
         {

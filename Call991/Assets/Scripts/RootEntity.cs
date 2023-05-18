@@ -39,15 +39,19 @@ public class RootEntity : IDisposable
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
+        
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
         var onScreenFade = new ReactiveCommand<(bool show, float time)>();
         var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
+        var onShowWarning = new ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)>();
         
         var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
         {
             OnScreenFade = onScreenFade,
             OnShowTitle = onShowTitle,
+            OnShowWarning = onShowWarning,
             SkipTitle = _ctx.OverridenDialogue.SkipTitle,
+            SkipWarning = _ctx.OverridenDialogue.SkipWarning,
         }).AddTo(_disposables);
 
         
@@ -80,7 +84,7 @@ public class RootEntity : IDisposable
             onSwitchScene = onSwitchScene,
             Profile = profile,
             AudioManager = _ctx.AudioManager,
-            videoManager = _ctx.VideoManager,
+            VideoManager = _ctx.VideoManager,
             Blocker = blocker,
             ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,

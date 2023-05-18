@@ -32,7 +32,8 @@ namespace UI
             public ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)> OnShowNewspaper;
             public ReactiveCommand OnShowLevelUi;
             public ReactiveCommand<(bool show, string[] keys)> OnShowTitle;
-            
+            public ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)> OnShowWarning;
+
             public ReactiveCommand<bool> onClickPauseButton;
 
             public AudioManager AudioManager;
@@ -48,6 +49,7 @@ namespace UI
         [SerializeField] private PhotoView newspaper = default;
         [SerializeField] private LevelPauseView levelPauseView = default;
         [SerializeField] private UiMenuSettings menuSettings = default;
+        [SerializeField] private UiLevelWarning levelWarning = default;
 
         private CompositeDisposable _disposables;
         private bool _isNewspaperActive;
@@ -103,6 +105,7 @@ namespace UI
             _ctx.OnShowTitle.Subscribe(OnShowTitle).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
             _ctx.OnShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
+            _ctx.OnShowWarning.Subscribe(OnShowWarning).AddTo(_disposables);
             _ctx.OnShowLevelUi.Subscribe(_ => OnShowLevelUi()).AddTo(_disposables);
 
             onClickPauseButton.Subscribe(_ => OnClickPauseButton(true));
@@ -134,6 +137,7 @@ namespace UI
             statisticView.gameObject.SetActive(statisticView.GetType() == type);
             newspaper.gameObject.SetActive(newspaper.GetType() == type);
             levelPauseView.gameObject.SetActive(levelPauseView.GetType() == type);
+            levelWarning.gameObject.SetActive(levelWarning.GetType() == type);
         }
 
         private void OnNewspaperClose()
@@ -170,6 +174,12 @@ namespace UI
         {
             levelTitleView.Set(chapter: data.keys[0], title: data.keys[1]);
             EnableUi(data.show ? levelTitleView.GetType() : levelView.GetType());
+        }
+        
+        private void OnShowWarning((bool show, string[] keys, float delayTime, float fadeTime) data)
+        {
+            levelWarning.Set(data.keys, data.delayTime, data.fadeTime);
+            EnableUi(data.show ? levelWarning.GetType() : levelView.GetType());
         }
 
         public void Dispose()

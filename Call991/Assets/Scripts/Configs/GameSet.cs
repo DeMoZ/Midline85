@@ -32,10 +32,13 @@ namespace Configs
         public float fastButtonFadeDuration = 0.3f;
         public float slowButtonFadeDuration = 0.6f;
         
-        [Title("Level Intro")]
+        [Title("Level Timings")]
         public float levelIntroDelay = 2f;
         public float levelEndStatisticsUiFadeTime = 1f;
         public float shortFadeTime = 0.5f;
+        [Space] public float levelWarningTotalDelay = 4f;
+        public float levelWarningLineDelay = 1f;
+        public float levelWarningLineFadeTime = 0.5f;
 
         [Space][Title("InteractiveVideoRef")]
         public string interactiveVideoRef;
