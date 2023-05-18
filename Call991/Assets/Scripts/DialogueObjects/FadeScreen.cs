@@ -9,6 +9,10 @@ public class FadeScreen : PhraseObjectEvent
     {
         ObjectEvents.EventsGroup.OnScreenFade?.Execute((showBlocker, GameSet.levelEndStatisticsUiFadeTime));
         yield return new WaitForSeconds(GameSet.levelEndStatisticsUiFadeTime);
-        Destroy(gameObject);
+        
+        if (gameObject)
+        {
+            Destroy(gameObject);
+        }
     }
 }

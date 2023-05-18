@@ -24,7 +24,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<UiPhraseData> OnShowPhrase;
 
         public AudioManager AudioManager;
-        public ReactiveCommand OnShowLevelUi; // on newspaper done
+        public ReactiveCommand OnShowLevelUi;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
         public ReactiveCommand<UiPhraseData> onHidePhrase;
@@ -91,6 +91,7 @@ public class LevelScenePm : IDisposable
     private void OnAfterEnter()
     {
         InitButtons();
+        _ctx.OnShowLevelUi.Execute();
         _ctx.cursorSettings.EnableCursor(true);
         ExecuteDialogue();
     }

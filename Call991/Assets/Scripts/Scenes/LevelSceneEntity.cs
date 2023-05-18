@@ -60,15 +60,13 @@ public class LevelSceneEntity : IGameScene
 
         var onShowPhrase = new ReactiveCommand<UiPhraseData>();
         var onHidePhrase = new ReactiveCommand<UiPhraseData>().AddTo(_disposables);
-        var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
-
         var onLevelEnd = new ReactiveCommand<List<RecordData>>().AddTo(_disposables);
         var onShowNewspaper = new ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)>().AddTo(_disposables);
         var onShowLevelUi = new ReactiveCommand(); // on newspaper done
-
         var onSkipPhrase = new ReactiveCommand().AddTo(_disposables);
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
+        
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
         var languages = _ctx.LevelData.GetEntryNode().Languages;
@@ -86,8 +84,8 @@ public class LevelSceneEntity : IGameScene
         
         var phraseSkipper = new PhraseSkipper(onSkipPhrase).AddTo(_disposables);
 
-        var onNext = new ReactiveCommand<List<AaNodeData>>();
-        var findNext = new ReactiveCommand<List<AaNodeData>>();
+        var onNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
+        var findNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
         var dialoguePm = new DialoguePm(new DialoguePm.Ctx
         {
             LevelData = _ctx.LevelData,
