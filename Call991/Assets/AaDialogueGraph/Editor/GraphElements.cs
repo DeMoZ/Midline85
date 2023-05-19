@@ -289,7 +289,7 @@ namespace AaDialogueGraph.Editor
             var onEndToggle = new Toggle
             {
                 text = AaGraphConstants.HideOnEnd,
-                value = data?.HideOnEnd ?? false,
+                value = data?.HideOnEnd ?? true,
             };
             onEndToggle.tooltip = "Phrase will be hidden after the phrase end";
             toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
