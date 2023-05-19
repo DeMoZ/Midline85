@@ -127,7 +127,7 @@ namespace AaDialogueGraph.Editor
             contentContainer.style.flexDirection = FlexDirection.Row;
         }
     }
-    
+
     public class NewspaperElementsRowField : VisualElement
     {
         public void Set(string language, Sprite sprite = null, Action onChange = null)
@@ -383,8 +383,12 @@ namespace AaDialogueGraph.Editor
 
     public class EventVisual : VisualElement
     {
+        private PhraseEventType _type;
+
         public void Set(EventVisualData data, Action<EventVisual> onDelete, Action onChange)
         {
+            _type = data.Type;
+
             contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
             {
                 text = "X",
@@ -398,13 +402,17 @@ namespace AaDialogueGraph.Editor
             containerColumn.Add(containerRow1);
 
             var layerOptions = Enum.GetValues(typeof(PhraseEventLayer)).Cast<PhraseEventLayer>().ToList();
-            var layerPopup = new PopupField<PhraseEventLayer>("", layerOptions, data?.Layer ?? layerOptions[0],
-                val =>
-                {
-                    onChange?.Invoke();
-                    return val.ToString();
-                });
-            containerRow1.Add(layerPopup);
+
+            if (data.Type != PhraseEventType.GameObject)
+            {
+                var layerPopup = new PopupField<PhraseEventLayer>("", layerOptions, data?.Layer ?? layerOptions[0],
+                    val =>
+                    {
+                        onChange?.Invoke();
+                        return val.ToString();
+                    });
+                containerRow1.Add(layerPopup);
+            }
 
             var field = new EventAssetField();
             field.Set(data, onChange);
@@ -418,14 +426,17 @@ namespace AaDialogueGraph.Editor
             loopContainer.AddToClassList("aa-Toggle_content-container");
             containerRow2.Add(loopContainer);
 
-            var loopToggle = new Toggle
+            if (data.Type != PhraseEventType.GameObject)
             {
-                name = AaGraphConstants.LoopToggleName,
-                text = AaGraphConstants.LoopToggleName,
-                value = data?.Loop ?? false,
-                //tooltip = "If "
-            };
-            loopContainer.Add(loopToggle);
+                var loopToggle = new Toggle
+                {
+                    name = AaGraphConstants.LoopToggleName,
+                    text = AaGraphConstants.LoopToggleName,
+                    value = data?.Loop ?? false,
+                };
+
+                loopContainer.Add(loopToggle);
+            }
 
             var stopContainer = new VisualElement();
             stopContainer.AddToClassList("aa-Toggle_content-container");
@@ -457,7 +468,7 @@ namespace AaDialogueGraph.Editor
             contentContainer.AddToClassList("aa-EventVisual_content-container");
         }
 
-        public EventVisualData GetData()
+        private EventVisualData GetMediaData()
         {
             var eventAssetField = contentContainer.Q<EventAssetField>();
             return new EventVisualData
@@ -469,6 +480,32 @@ namespace AaDialogueGraph.Editor
                 Stop = contentContainer.Q<Toggle>(name: AaGraphConstants.StopToggleName).value,
                 Delay = contentContainer.Q<FloatField>().value,
             };
+        }
+
+        private EventVisualData GetObjectData()
+        {
+            var eventAssetField = contentContainer.Q<EventAssetField>();
+            return new EventVisualData
+            {
+                PhraseEvent = eventAssetField.GetEvent(),
+                Type = eventAssetField.Type,
+                Stop = contentContainer.Q<Toggle>(name: AaGraphConstants.StopToggleName).value,
+                Delay = contentContainer.Q<FloatField>().value,
+            };
+        }
+
+        public EventVisualData GetData()
+        {
+            switch (_type)
+            {
+                case PhraseEventType.AudioClip:
+                case PhraseEventType.VideoClip:
+                    return GetMediaData();
+                case PhraseEventType.GameObject:
+                    return GetObjectData();
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 
