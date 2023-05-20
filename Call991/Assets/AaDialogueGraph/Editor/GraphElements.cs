@@ -564,7 +564,7 @@ namespace AaDialogueGraph.Editor
         public void Set(List<string> keys, string currentChoice = null, Action<string> onChange = null)
         {
             contentContainer.Add(new PopupField<string>("", keys,
-                string.IsNullOrEmpty(currentChoice) || !AaKeys.PersonsKeys.Keys.Contains(currentChoice)
+                string.IsNullOrEmpty(currentChoice) || !keys.Contains(currentChoice)
                     ? keys?[0]
                     : currentChoice, val =>
                 {
