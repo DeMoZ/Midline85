@@ -45,8 +45,9 @@ namespace Configs
 
         [Space][Title("ScriptableObject with all the levels")]
         public GameLevelsSo GameLevels;
-        
-        [Space][Title("DialogueGraph settings")]
+
+        [Space] [Title("DialogueGraph settings")]
+        public PersonKeysList PersonsKeys;
         public PopupKeysList CountKeys;
         public PopupKeysList EndsKeys;
         public ChoiceKeysList ChoiceKeys;

@@ -35,7 +35,8 @@ namespace AaDialogueGraph.Editor
             var personVisual = new PersonVisual();
             personVisual.Set(data.PersonVisualData, val =>
             {
-                _personTxt = val;
+                _personTxt = AaKeys.PersonsKeys.GetColorKey(val);
+               
                 title = GetTitle(_personTxt, _phraseSketchTxt);
             });
             contentFolder.Add(personVisual);

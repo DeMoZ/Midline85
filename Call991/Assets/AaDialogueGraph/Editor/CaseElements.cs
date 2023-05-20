@@ -69,6 +69,31 @@ namespace AaDialogueGraph.Editor
             return textValue;
         }
     }
+    
+    public class PersonPopupField : KeyPopupField
+    {
+        public event Action<string> OnValueChange;
+        
+        public PersonPopupField(List<string> keys, string currentChoice = null, Action<string> onValueChange = null) 
+            : base(keys, currentChoice)
+        {
+            OnValueChange = onValueChange;
+        }
+
+        protected override void CreateElements(List<string> keys, string currentChoice = null)
+        {
+            var popup = new NoEnumPopup();
+            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
+            contentContainer.Add(popup);
+        }
+
+        protected override string KeyToTextTitle(string val)
+        {
+            Value = val;
+            OnValueChange?.Invoke(val);
+            return base.KeyToTextTitle(val);
+        }
+    }
 
     public class EndPopupField : KeyPopupField
     {

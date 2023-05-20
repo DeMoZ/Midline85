@@ -23,6 +23,7 @@ namespace AaDialogueGraph.Editor
         public static List<string> LanguageKeys => GetGameSet.LanguagesKeys.Keys;
         public static List<string> RecordKeys => GetGameSet.RecordKeys.Keys;
         public static List<string> LevelIdKeys => GetGameSet.LevelKeys.Keys;
+        public static PersonKeysList PersonsKeys => GetGameSet.PersonsKeys;
 
         private static GameSet GetGameSet
         {
@@ -227,9 +228,9 @@ namespace AaDialogueGraph.Editor
             var personContainer = new VisualElement();
             contentContainer.Add(personContainer);
 
-            var personOptions = Enum.GetValues(typeof(Person)).Cast<Person>().ToList();
-            var personPopup = new PopupField<Person>("", personOptions, data?.Person ?? personOptions[0],
-                (val) => OnPersonChange(val, onPersonChange));
+            var currentChoice = data?.Person ?? AaKeys.PersonsKeys.Keys[0];
+            var personPopup = new PersonPopupField(AaKeys.PersonsKeys.Keys, currentChoice, onPersonChange);
+            onPersonChange?.Invoke(currentChoice);
             personContainer.Add(personPopup);
 
             var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
@@ -253,17 +254,11 @@ namespace AaDialogueGraph.Editor
             contentContainer.AddToClassList("aa-PersonVisual_content-container");
         }
 
-        private string OnPersonChange(Person val, Action<string> onPersonChange = null)
-        {
-            onPersonChange?.Invoke(val.ToString());
-            return val.ToString();
-        }
-
         public PersonVisualData GetData()
         {
             return new PersonVisualData
             {
-                Person = contentContainer.Q<PopupField<Person>>().value,
+                Person = contentContainer.Q<PersonPopupField>().Value,
                 ScreenPlace = contentContainer.Q<PopupField<ScreenPlace>>().value,
                 HideOnEnd = contentContainer.Q<Toggle>().value,
             };
@@ -569,7 +564,9 @@ namespace AaDialogueGraph.Editor
         public void Set(List<string> keys, string currentChoice = null, Action<string> onChange = null)
         {
             contentContainer.Add(new PopupField<string>("", keys,
-                currentChoice ?? keys?[0], val =>
+                string.IsNullOrEmpty(currentChoice) || !AaKeys.PersonsKeys.Keys.Contains(currentChoice)
+                    ? keys?[0]
+                    : currentChoice, val =>
                 {
                     onChange?.Invoke(val);
                     return val;

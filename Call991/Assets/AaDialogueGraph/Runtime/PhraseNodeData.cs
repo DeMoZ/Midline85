@@ -17,7 +17,7 @@ namespace AaDialogueGraph
     [Serializable]
     public class PersonVisualData
     {
-        public Person Person;
+        public string Person;
         public ScreenPlace ScreenPlace;
         public bool HideOnEnd;
     }
