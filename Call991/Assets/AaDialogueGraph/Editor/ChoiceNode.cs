@@ -1,15 +1,16 @@
+using System.Collections.Generic;
 using UnityEngine.UIElements;
 
 namespace AaDialogueGraph.Editor
 {
     public class ChoiceNode : AaNode
     {
-        public void Set(ChoiceNodeData data, string guid)
+        public void Set(ChoiceNodeData data, string guid, List<string> choiceKeys)
         {
             Guid = guid;
 
             NodeType = AaNodeType.ChoiceNode;
-            titleContainer.Add(new ChoicePopupField(AaKeys.ChoiceKeys, data.Choice));
+            titleContainer.Add(new ChoicePopupField(choiceKeys, data.Choice));
 
             CreateInPort();
             CreateOutPort();

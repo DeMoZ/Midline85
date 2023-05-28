@@ -66,10 +66,9 @@ namespace AaDialogueGraph.Editor
         private void CreateEntryNode()
         {
             var node = new EntryNode();
-            var levelId = AaKeys.LevelIdKeys.Contains(_containerCash.EntryNodeData.LevelId)?_containerCash.EntryNodeData.LevelId: null;
-            node.Set(_languageOperation, _containerCash.EntryNodeData.Guid, levelId);
+            node.Set(_languageOperation, _containerCash.EntryNodeData);
             _targetGraphView.AddElement(node);
-            
+
             foreach (var language in _containerCash.EntryNodeData.Languages)
             {
                 var field = new LanguageField();
@@ -90,10 +89,12 @@ namespace AaDialogueGraph.Editor
 
         private void CreateChoiceNodes()
         {
+            var choiceKeys = EditorNodeUtils.GetButtons(_containerCash.EntryNodeData.ButtonFilter);
+            
             foreach (var data in _containerCash.ChoiceNodeData)
             {
                 var node = new ChoiceNode();
-                node.Set(data, data.Guid);
+                node.Set(data, data.Guid, choiceKeys);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -127,7 +128,7 @@ namespace AaDialogueGraph.Editor
                 _targetGraphView.AddElement(node);
             }
         }
-        
+
         private void CreateEventNodes()
         {
             foreach (var data in _containerCash.EventNodeData)
@@ -147,7 +148,7 @@ namespace AaDialogueGraph.Editor
                 _targetGraphView.AddElement(node);
             }
         }
-        
+
         private void ConnectNodes()
         {
             foreach (var node in AaNodes)

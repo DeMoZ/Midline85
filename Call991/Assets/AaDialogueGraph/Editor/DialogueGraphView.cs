@@ -30,8 +30,9 @@ namespace AaDialogueGraph.Editor
             gridBackground.StretchToParentSize();
 
             languageOperation.Subscribe(OnLanguageChange);
+            var entryNodeData = new EntryNodeData();
             var node = new EntryNode();
-            node.Set(languageOperation);
+            node.Set(languageOperation, entryNodeData);
             AddElement(node);
 
             CreateMinimap();
@@ -53,7 +54,7 @@ namespace AaDialogueGraph.Editor
 
         public void CreatePhraseNode()
         {
-            var languages = contentContainer.Q<EntryNode>().GetLanguages() ?? new List<string>();
+            var languages = GetLanguages();
             var node = new PhraseNode();
             node.Set(new PhraseNodeData(), languages, Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
@@ -64,7 +65,8 @@ namespace AaDialogueGraph.Editor
         public void CreateChoiceNode()
         {
             var node = new ChoiceNode();
-            node.Set(new ChoiceNodeData(), Guid.NewGuid().ToString());
+            node.Set(new ChoiceNodeData(), Guid.NewGuid().ToString(),
+                EditorNodeUtils.GetButtons(contentContainer.Q<EntryNode>().GetFilters()));
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
@@ -103,7 +105,7 @@ namespace AaDialogueGraph.Editor
 
         public void CreateNewspaperNode()
         {
-            var languages = contentContainer.Q<EntryNode>().GetLanguages() ?? new List<string>();
+            var languages = GetLanguages();
             var node = new NewspaperNode();
             node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
@@ -111,7 +113,10 @@ namespace AaDialogueGraph.Editor
             AddElement(node);
         }
 
-
+        private List<string> GetLanguages() => contentContainer.Q<EntryNode>().GetLanguages() ?? new List<string>();
+       
+        
+        
         private Vector2 GetNewNodePosition()
         {
             var worldPosition = Event.current.mousePosition + Vector2.up * 100;

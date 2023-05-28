@@ -611,4 +611,22 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(Label);
         }
     }
+    
+    public class LineGroup : VisualElement
+    {
+        public LineGroup(IEnumerable<VisualElement> elements)
+        {
+            contentContainer.style.flexDirection = FlexDirection.Row;
+
+            foreach (var element in elements)
+            {
+                contentContainer.Add(element);
+            }
+        }
+    }
+
+    public class ButtonFilterTextField : TextField
+    {
+        
+    }
 }

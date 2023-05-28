@@ -6,12 +6,12 @@ using UnityEngine;
 namespace Configs
 {
     /// <summary>
-    /// AaDialogs choice list handler. Takes worlds i2loc and pretend that it has it.
+    /// AaDialogs choice list handler. Takes worlds i2loc.
     /// </summary>
     [CreateAssetMenu(menuName = "AaDialogueGraph/ChoiceKeysList")]
     public class ChoiceKeysList : PopupKeysList
     {
-        private const string CaseWordKey = "c.word";
+        private const string CaseWordKey = "btn.";
         [SerializeField] private string nope = "No need to add or change anything in that file";
         private string Nope => nope;
 

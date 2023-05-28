@@ -8,5 +8,6 @@ namespace AaDialogueGraph
     {
         public string LevelId;
         public List<string> Languages = new();
+        public string ButtonFilter;
     }
 }
