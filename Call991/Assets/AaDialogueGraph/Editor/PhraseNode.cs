@@ -35,7 +35,8 @@ namespace AaDialogueGraph.Editor
             var personVisual = new PersonVisual();
             personVisual.Set(data.PersonVisualData, val =>
             {
-                _personTxt = val;
+                _personTxt = AaKeys.PersonsKeys.GetColorKey(val);
+               
                 title = GetTitle(_personTxt, _phraseSketchTxt);
             });
             contentFolder.Add(personVisual);
@@ -44,11 +45,11 @@ namespace AaDialogueGraph.Editor
             phraseVisual.Set(data.PhraseVisualData);
             contentFolder.Add(phraseVisual);
 
-            var phraseEvents = new PhraseEvents();
+            var phraseEvents = new AaNodeEvents();
             phraseEvents.Set(data.EventVisualData, CheckNodeContent);
             contentFolder.Add(phraseEvents);
 
-            var phraseContainer = new PhraseElementsTable();
+            var phraseContainer = new ElementsTable();
             var phraseAssetsLabel = new Label("Phrase Assets");
             phraseAssetsLabel.AddToClassList("aa-BlackText");
             phraseContainer.Add(phraseAssetsLabel);
@@ -65,7 +66,7 @@ namespace AaDialogueGraph.Editor
                     : null;
 
                 var field = new PhraseElementsRowField();
-                field.Set(languages[i], clip, phrase, CheckNodeContent); 
+                field.Set(languages[i], clip, phrase, CheckNodeContent);
                 phraseContainer.Add(field);
             }
 

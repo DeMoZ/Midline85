@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading;
 using System.Threading.Tasks;
+using AaDialogueGraph;
 using Configs;
 using UI;
 using UniRx;
@@ -12,14 +14,10 @@ public class AudioManager : MonoBehaviour
 {
     public struct Ctx
     {
-        public GameSet gameSet;
-        public ReactiveCommand<Language> onAudioLanguage;
+        public GameSet GameSet;
         public AudioMixer audioMixer;
         public PlayerProfile playerProfile;
-        public string soundPath;
         public string musicPath;
-        public string voiceFolder;
-        public string levelFolder;
     }
 
     [SerializeField] private AudioSource musicAudioSource = default;
@@ -38,10 +36,12 @@ public class AudioManager : MonoBehaviour
     private List<TempAudioSource> _sfxs;
 
     private CompositeDisposable _disposables;
-
+    private CancellationTokenSource _tokenSource;
     public void SetCtx(Ctx ctx)
     {
         _disposables = new CompositeDisposable();
+        _tokenSource = new CancellationTokenSource().AddTo(_disposables);
+        
         _ctx = ctx;
         menuButtonAudioSettings.OnHover += PlayUiSound;
 
@@ -55,20 +55,15 @@ public class AudioManager : MonoBehaviour
     private void OnDestroy()
     {
         menuButtonAudioSettings.OnHover -= PlayUiSound;
+        _tokenSource?.Cancel();
         _disposables?.Dispose();
-    }
-
-    public string LanguagePath
-    {
-        get => _languagePath;
-        set => _languagePath = value;
     }
 
     public async Task PlayMusic(string key, int index = 0, bool merge = false)
     {
         List<string> musics;
 
-        if (!_ctx.gameSet.musics.TryGetValue(key, out musics))
+        if (!_ctx.GameSet.musics.TryGetValue(key, out musics))
         {
             Debug.LogError($"[{this}] Music key not found: {key}:{index}");
             return;
@@ -87,6 +82,7 @@ public class AudioManager : MonoBehaviour
         try
         {
             musicClip = await ResourcesLoader.LoadAsync<AudioClip>(filePath);
+            if (_tokenSource.IsCancellationRequested) return;
         }
         catch (Exception e)
         {
@@ -103,13 +99,6 @@ public class AudioManager : MonoBehaviour
 
             _currentMusicClip = musicClip;
         }
-    }
-
-
-    public void SetPhraseAudioSource(AudioSource phraseAudioSource)
-    {
-        _phraseAudioSource = phraseAudioSource;
-        SetPhraseVolume();
     }
 
     private void MergeMusics()
@@ -149,13 +138,13 @@ public class AudioManager : MonoBehaviour
         switch (type)
         {
             case SoundUiTypes.ChoiceButton:
-                PlayMusicFile(uiAudioSource, _ctx.gameSet.choiceBtnClip, false);
+                PlayMusicFile(uiAudioSource, _ctx.GameSet.choiceBtnClip, false);
                 break;
             case SoundUiTypes.MenuButton:
-                PlayMusicFile(uiAudioSource, _ctx.gameSet.menuBtnClip, false);
+                PlayMusicFile(uiAudioSource, _ctx.GameSet.menuBtnClip, false);
                 break;
             case SoundUiTypes.Timer:
-                PlayMusicFile(timerAudioSource, _ctx.gameSet.timerClip, true);
+                PlayMusicFile(timerAudioSource, _ctx.GameSet.timerClip, true);
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(type), type, null);
@@ -173,7 +162,7 @@ public class AudioManager : MonoBehaviour
         timerAudioSource.clip = null;
     }
 
-    public void PlaySfx(AudioClip audioClip)
+    private void PlaySfx(AudioClip audioClip)
     {
         var source = Instantiate<TempAudioSource>(tempSoundSourcePrefab);
         source.PlayAndDestroy(audioClip, () => { _sfxs.Remove(source); });
@@ -182,7 +171,7 @@ public class AudioManager : MonoBehaviour
         _sfxs.Add(source);
     }
 
-    public void PlayLoopSfx(AudioClip audioClip, bool stop)
+    private void PlayLoopSfx(AudioClip audioClip, bool stop)
     {
         var audioName = audioClip.name;
 
@@ -247,5 +236,31 @@ public class AudioManager : MonoBehaviour
     {
         if (_phraseAudioSource != null)
             _phraseAudioSource.volume = _ctx.playerProfile.PhraseVolume;
+    }
+
+    public void PlayEventSound(EventVisualData data, AudioClip audioClip)
+    {
+        // TODO layers should be added to mixer
+        switch (data.Layer)
+        {
+            case PhraseEventLayer.Effects: // case PhraseEventTypes.LoopSfx:
+                if (data.Loop)
+                    PlayLoopSfx(audioClip, data.Stop);
+                else
+                    PlaySfx(audioClip); // case PhraseEventTypes.Sfx:
+                break;
+            case PhraseEventLayer.Single1: // case PhraseEventTypes.Music:
+                PlayMusicFile(musicAudioSource, audioClip, true);
+                _currentMusicClip = audioClip;
+                break;
+            case PhraseEventLayer.Single2: // case PhraseEventTypes.Music: should be second music layer
+                PlayMusicFile(musicAudioSource, audioClip, true);
+                _currentMusicClip = audioClip;
+                break;
+            case PhraseEventLayer.Multiple: // on that layer can be several musics at the same time
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 }

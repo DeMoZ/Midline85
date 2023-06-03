@@ -24,5 +24,6 @@ public class PhraseSkipper :IDisposable
 
     public void Dispose()
     {
+        _disposables.Dispose();
     }
 }

@@ -35,7 +35,7 @@ public class PhraseSet
     public string phraseId;
     
     [VerticalGroup("Person")] [TableColumnWidth(150, false)]
-    public Person person;
+    public string person;
 
     [VerticalGroup("Person")] [Tooltip("Place on screen")]
     public ScreenPlace screenPlace = ScreenPlace.MiddleLeft;

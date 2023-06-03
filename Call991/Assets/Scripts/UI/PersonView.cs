@@ -3,6 +3,7 @@ using System.Collections;
 using System.Text;
 using I2.Loc;
 using TMPro;
+using UI;
 using UnityEngine;
 
 public class PersonView : MonoBehaviour
@@ -28,21 +29,61 @@ public class PersonView : MonoBehaviour
         if(_yieldTime.HasValue)
             StartCoroutine(YieldTime(_wordTime - _yieldTime.Value));
     }
-
-    public void ShowPhrase(PhraseSet phrase)
+    public void ShowPhrase(UiPhraseData data)
     {
         description.text = string.Empty;
 
         if (!gameObject.activeSelf)
             gameObject.SetActive(true);
 
-        _localize = phrase.GetPersonName();
+        _localize = data.PersonVisualData.Person.ToString();
         personName.text = _localize;
         description.gameObject.SetActive(true);
-        ShowPhraseText(phrase);
+        
+        if (data.Phrase == null)
+        {
+            description.text = data.Description;
+        }
+        else
+        {
+            ShowPhraseText(data);
+        }
+    }
+    
+    private void ShowPhraseText(UiPhraseData data)
+    {
+        _phrase = data.Phrase;
+        _wordIndex = 0;
+        _showPhrase = true;
+        
+        switch (data.PhraseVisualData.TextAppear)
+        {
+            case TextAppear.Pop:
+                description.text = data.Phrase.text;
+                break;
+            case TextAppear.Word:
+                if (gameObject is {activeInHierarchy: true, activeSelf: true})
+                {
+                    StartCoroutine(ShowWords(data.Phrase, 0));
+                }
+                else
+                {
+                    _yieldTime = 0;
+                    _wordTime = _phrase.wordTimes[0].time;
+                    _wordIndex = -1;
+                }
+                break;
+            case TextAppear.Letters:
+                break;
+            case TextAppear.Fade:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
 
-    private void ShowPhraseText(PhraseSet phraseSet)
+    [Obsolete]
+    private void _ShowPhraseText(PhraseSet phraseSet)
     {
         _phrase = phraseSet.Phrase;
         _wordIndex = 0;

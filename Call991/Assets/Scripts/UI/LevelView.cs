@@ -48,31 +48,31 @@ namespace UI
             _ctx.onClickPauseButton?.Execute();
         }
         
-        public void OnShowPhrase(PhraseSet phrase)
+        public void OnShowPhrase(UiPhraseData data)
         {
-            var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
+            var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
             if (personView == null)
             {
-                Debug.LogError($"[{this}] [OnShowPhrase] no person on side {phrase.screenPlace}");
+                Debug.LogError($"[{this}] [OnShowPhrase] no person on side {data.PersonVisualData.ScreenPlace}");
                 return;
             }
 
-            personView.ShowPhrase(phrase);
+            personView.ShowPhrase(data);
         }
-
-        public void OnHidePhrase(PhraseSet phrase)
+        
+        public void OnHidePhrase(UiPhraseData data)
         {
-            var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
+            var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
             if (personView == null)
             {
-                Debug.LogError($"[{this}] [OnHidePhrase] no person on side {phrase.screenPlace}");
+                Debug.LogError($"[{this}] [OnHidePhrase] no person on side {data.PersonVisualData.ScreenPlace}");
                 return;
             }
 
-            if (phrase.hidePhraseOnEnd)
+            if (data.PhraseVisualData.HideOnEnd)
                 personView.HidePhrase();
 
-            if (phrase.hidePersonOnEnd)
+            if (data.PersonVisualData.HideOnEnd)
                 personView.gameObject.SetActive(false);
         }
 

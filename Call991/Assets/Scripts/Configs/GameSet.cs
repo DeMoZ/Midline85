@@ -7,26 +7,24 @@ namespace Configs
     [CreateAssetMenu]
     public class GameSet : SerializedScriptableObject
     {
-        // [HideInInspector] public Language textLanguage = Language.EN;
-        // [HideInInspector] [ReadOnly] public Language audioLanguage = Language.RU;
-        [Header("Opening Logo")]
+        [Title("Opening Logo")]
         public float logoFadeInTime = 1f;
         public float logoHoldTime = 3f;
         public float logoFadeOutTime = 2f;
         
-        [Header("Opening Warning")]
+        [Title("Opening Warning")]
         public float warningFadeInTime = 1f;
         public float warningHoldTime = 5f;
         public float warningFadeOutTime = 2f;
         
-        [Header("Opening Start Game")]
+        [Title("Opening Start Game")]
         public float startFadeInTime = 1f;
         [Tooltip("appear delay for lines")]
         public float openingLineAppearTime = 1f;
         [Tooltip("warning before level load")]
         public float startGameOpeningHoldTime = 2f;
 
-        [Header("Level Buttons")]
+        [Title("Level Buttons")]
         public float choicesDuration = 3f;
         
         [Space]
@@ -34,21 +32,30 @@ namespace Configs
         public float fastButtonFadeDuration = 0.3f;
         public float slowButtonFadeDuration = 0.6f;
         
-        [Header("Level Intro")]
+        [Title("Level Timings")]
         public float levelIntroDelay = 2f;
-        public float levelEndLevelUiDisappearTime = 3f;
         public float levelEndStatisticsUiFadeTime = 1f;
+        public float shortFadeTime = 0.5f;
+        [Space] public float levelWarningTotalDelay = 4f;
+        public float levelWarningLineDelay = 1f;
+        public float levelWarningLineFadeTime = 0.5f;
 
-        [Space]
-        public string titleVideoSoName;
-        
-        [Space][Header("DialogueGraph settings")]
+        [Space][Title("InteractiveVideoRef")]
+        public string interactiveVideoRef;
+
+        [Space][Title("ScriptableObject with all the levels")]
+        public GameLevelsSo GameLevels;
+
+        [Space] [Title("DialogueGraph settings")]
+        public PersonKeysList PersonsKeys;
         public PopupKeysList CountKeys;
         public PopupKeysList EndsKeys;
         public ChoiceKeysList ChoiceKeys;
+        public RecordKeysList RecordKeys;
         public LanguagesKeysList LanguagesKeys;
+        public LevelKeysList LevelKeys;
         
-        [Space][Header("Button Sounds")]
+        [Space][Title("Button Sounds")]
         public AudioClip menuBtnClip;
         public AudioClip choiceBtnClip;
         public AudioClip timerClip;

@@ -7,7 +7,7 @@ namespace AaDialogueGraph.Editor
         public string Guid;
         protected AaNodeType NodeType;
         
-        public bool EntryPoint => NodeType == AaNodeType.EntryPoint;
+        public bool EntryPoint => NodeType == AaNodeType.EntryNode;
 
         public AaNode()
         {

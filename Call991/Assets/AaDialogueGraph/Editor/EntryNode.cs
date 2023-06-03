@@ -7,15 +7,29 @@ namespace AaDialogueGraph.Editor
 {
     public class EntryNode : AaNode
     {
-        public void Set(AaReactive<LanguageOperation> onLanguageChange, string guid = null)
+        public void Set(AaReactive<LanguageOperation> onLanguageChange, EntryNodeData data)
         {
             title = "Start";
-            Guid = guid ?? System.Guid.NewGuid().ToString();
-            NodeType = AaNodeType.EntryPoint;
+
+            Guid = data.Guid ?? System.Guid.NewGuid().ToString();
+            NodeType = AaNodeType.EntryNode;
 
             var port = GraphElements.GeneratePort(this, Direction.Output);
             port.portName = "Next";
             outputContainer.Add(port);
+
+            var levelId = AaKeys.LevelIdKeys.Contains(data.LevelId) ? data.LevelId : null;
+            var levelKey = new LevelIdPopupField(AaKeys.LevelIdKeys, levelId);
+            contentContainer.Add(levelKey);
+
+            var btnLabel = new Label("btn.Filter");
+            var buttonFilterField = new ButtonFilterTextField
+            {
+                value = data.ButtonFilter
+            };
+
+            var lineGroup = new LineGroup(new VisualElement[] { btnLabel, buttonFilterField });
+            contentContainer.Add(lineGroup);
 
             var addLanguageButton = new Button(() =>
             {
@@ -39,6 +53,11 @@ namespace AaDialogueGraph.Editor
             SetPosition(new Rect(100, 200, 200, 150));
         }
 
+        public string GetFilters()
+        {
+            return contentContainer.Q<ButtonFilterTextField>().value;
+        }
+        
         public List<string> GetLanguages()
         {
             var languages = new List<string>();
@@ -82,7 +101,7 @@ namespace AaDialogueGraph.Editor
                 };
             };
             contentContainer.Add(popup);
-            
+
             contentContainer.style.flexDirection = FlexDirection.Row;
         }
     }
