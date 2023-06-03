@@ -17,7 +17,7 @@ public class Blocker : IDisposable
     private Color _videoBlockerColor;
     private Color _screenBlockerColor;
 
-    public Blocker(Image screenFade, Image videoFade, GameSet gameSet, ReactiveCommand<(bool show,float time)> onScreenFade)
+    public Blocker(Image screenFade, Image videoFade, GameSet gameSet, ReactiveCommand<(bool show, float time)> onScreenFade)
     {
         _disposables = new CompositeDisposable();
 
@@ -27,17 +27,17 @@ public class Blocker : IDisposable
         _videoBlockerColor = _videoFade.color;
         _screenBlockerColor = _screenFade.color;
         _gameSet = gameSet;
-        
+
         onScreenFade.Subscribe(param =>
         {
-            Debug.LogError($"[{this}] received event Fade");
+            Debug.Log($"[{this}] received event Fade");
             FadeScreenBlocker(param.show, param.time).Forget();
         }).AddTo(_disposables);
     }
 
     public async Task FadeVideoBlocker(bool show, float? fadeTime = null)
     {
-        var time = fadeTime ?? _gameSet.shortFadeTime; 
+        var time = fadeTime ?? _gameSet.shortFadeTime;
         var toColor = show ? 1 : 0;
         _videoBlockerColor.a = show ? 0 : 1;
         _videoFade.color = _videoBlockerColor;
@@ -72,7 +72,7 @@ public class Blocker : IDisposable
         if (!show)
             EnableScreenFade(false);
     }
- 
+
     public void EnableVideoFade(bool enable, bool show = true)
     {
         _videoBlockerColor.a = show ? 1 : 0;
@@ -82,7 +82,7 @@ public class Blocker : IDisposable
 
     public void EnableScreenFade(bool enable, bool show = true)
     {
-        Debug.LogError($"[{this}] Screen fade enable {enable}; show {show}");
+        Debug.Log($"[{this}] Screen fade enable {enable}; show {show}");
         _screenBlockerColor.a = show ? 1 : 0;
         _screenFade.color = _screenBlockerColor;
         _screenFade.gameObject.SetActive(enable);
