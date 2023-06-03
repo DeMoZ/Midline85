@@ -20,17 +20,28 @@ public class PersonView : MonoBehaviour
     private bool _showPhrase;
     private float? _yieldTime;
     private float _wordTime;
-    
+    private Coroutine _phraseRoutine;
+    private Coroutine _yieldTimeRoutine;
+
     private void OnEnable()
     {
         if (!_showPhrase) return;
-        
-        if(_yieldTime.HasValue)
-            StartCoroutine(YieldTime(_wordTime - _yieldTime.Value));
+
+        if (_yieldTime.HasValue)
+        {
+            if (_yieldTimeRoutine != null)
+            {
+                StopCoroutine(_yieldTimeRoutine);
+            }
+
+            _yieldTimeRoutine = StartCoroutine(YieldTime(_wordTime - _yieldTime.Value));
+        }
     }
 
     public void ShowPhrase(PhraseSet phrase)
     {
+        ResetRoutines();
+
         description.text = string.Empty;
 
         if (!gameObject.activeSelf)
@@ -47,16 +58,19 @@ public class PersonView : MonoBehaviour
         _phrase = phraseSet.Phrase;
         _wordIndex = 0;
         _showPhrase = true;
-        
+
         switch (phraseSet.textAppear)
         {
             case TextAppear.Pop:
                 description.text = phraseSet.Phrase.text;
                 break;
             case TextAppear.Word:
-                if (gameObject is {activeInHierarchy: true, activeSelf: true})
+                if (gameObject is { activeInHierarchy: true, activeSelf: true })
                 {
-                    StartCoroutine(ShowWords(phraseSet.Phrase, 0));
+                    if (_phraseRoutine != null)
+                        StopCoroutine(_phraseRoutine);
+
+                    _phraseRoutine = StartCoroutine(ShowWords(phraseSet.Phrase, 0));
                 }
                 else
                 {
@@ -64,6 +78,7 @@ public class PersonView : MonoBehaviour
                     _wordTime = _phrase.wordTimes[0].time;
                     _wordIndex = -1;
                 }
+
                 break;
             case TextAppear.Letters:
                 break;
@@ -114,13 +129,28 @@ public class PersonView : MonoBehaviour
             var word = GetWord(phrase, i, text);
             text.Append(word);
             description.text = text.ToString();
-            
+
             yield return RoutineWaitForSeconds(_wordTime);
         }
 
-        _phrase = null;
+        ResetRoutines();
+    }
+
+    private void ResetRoutines()
+    {
+        if (_phraseRoutine != null)
+            StopCoroutine(_phraseRoutine);
+
+        if (_yieldTimeRoutine != null)
+            StopCoroutine(_yieldTimeRoutine);
+        
         _wordIndex = 0;
+        _wordTime = 0;
         _showPhrase = false;
+        _phrase = null;
+        _yieldTime = null;
+        _phraseRoutine = null;
+        _yieldTimeRoutine = null;
     }
 
     private static string GetWord(Phrase phrase, int i, StringBuilder text)
@@ -154,7 +184,7 @@ public class PersonView : MonoBehaviour
 
     private void OnDisable()
     {
-        if(_yieldTime.HasValue)
+        if (_yieldTime.HasValue)
             _yieldTime = Time.time - _yieldTime;
     }
 }
