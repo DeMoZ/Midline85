@@ -39,12 +39,13 @@ public class RootEntity : IDisposable
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
-        
+
+        var isPauseAllowed = new ReactiveProperty<bool>(true);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
         var onScreenFade = new ReactiveCommand<(bool show, float time)>();
         var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
         var onShowWarning = new ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)>();
-        
+
         var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
         {
             OnScreenFade = onScreenFade,
@@ -54,13 +55,21 @@ public class RootEntity : IDisposable
             SkipWarning = _ctx.OverridenDialogue.SkipWarning,
         }).AddTo(_disposables);
 
-        
+
         var profile = new PlayerProfile();
         SetLanguage(profile.TextLanguage);
-        
+
         var clickPointHandler = new ClickPointHandler(clickImage, _ctx.ClicksParent).AddTo(_disposables);
-        var blocker = new Blocker(_ctx.ScreenFade, _ctx.VideoFade, gameSet, onScreenFade.AddTo(_disposables));
-        
+
+        var blocker = new Blocker(new Blocker.Ctx
+        {
+            ScreenFade = _ctx.ScreenFade,
+            VideoFade = _ctx.VideoFade,
+            GameSet = gameSet,
+            OnScreenFade = onScreenFade,
+            IsPauseAllowed = isPauseAllowed,
+        }).AddTo(_disposables);
+
         _ctx.AudioManager.SetCtx(new AudioManager.Ctx
         {
             GameSet = gameSet,
@@ -73,7 +82,7 @@ public class RootEntity : IDisposable
         _ctx.VideoManager.SetCtx(new VideoManager.Ctx
         {
         });
-        
+
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
@@ -81,7 +90,7 @@ public class RootEntity : IDisposable
             GameSet = gameSet,
             StartApplicationSceneName = startApplicationSceneName,
             OnStartApplicationSwitchScene = _onStartApplicationSwitchScene,
-            onSwitchScene = onSwitchScene,
+            OnSwitchScene = onSwitchScene,
             Profile = profile,
             AudioManager = _ctx.AudioManager,
             VideoManager = _ctx.VideoManager,
@@ -89,6 +98,7 @@ public class RootEntity : IDisposable
             ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,
             OverridenDialogue = _ctx.OverridenDialogue,
+            IsPauseAllowed = isPauseAllowed,
         }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

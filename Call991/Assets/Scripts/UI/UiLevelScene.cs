@@ -25,16 +25,17 @@ namespace UI
             public ReactiveCommand<UiPhraseData> OnShowPhrase;
             public ReactiveCommand<List<RecordData>> OnLevelEnd;
 
-            public ReactiveCommand onClickMenuButton;
+            public ReactiveCommand OnClickMenuButton;
 
-            public ReactiveCommand<UiPhraseData> onHidePhrase;
+            public ReactiveCommand<UiPhraseData> OnHidePhrase;
 
             public ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)> OnShowNewspaper;
             public ReactiveCommand OnShowLevelUi;
             public ReactiveCommand<(bool show, string[] keys)> OnShowTitle;
             public ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)> OnShowWarning;
 
-            public ReactiveCommand<bool> onClickPauseButton;
+            public ReactiveCommand<bool> OnClickPauseButton;
+            public ReactiveProperty<bool> IsPauseAllowed;
 
             public AudioManager AudioManager;
             public PlayerProfile Profile;
@@ -77,7 +78,7 @@ namespace UI
 
             statisticView.SetCtx(new StatisticsView.Ctx
             {
-                OnClickMenuButton = _ctx.onClickMenuButton,
+                OnClickMenuButton = _ctx.OnClickMenuButton,
             });
 
             levelView.SetCtx(new LevelView.Ctx
@@ -87,7 +88,7 @@ namespace UI
 
             levelPauseView.SetCtx(new LevelPauseView.Ctx
             {
-                onClickMenuButton = _ctx.onClickMenuButton,
+                onClickMenuButton = _ctx.OnClickMenuButton,
                 onClickSettingsButton = onClickSettingsButton,
                 onClickUnPauseButton = onClickUnPauseButton,
             });
@@ -101,7 +102,7 @@ namespace UI
 
             _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
 
-            _ctx.onHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
+            _ctx.OnHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
             _ctx.OnShowTitle.Subscribe(OnShowTitle).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
             _ctx.OnShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
@@ -118,8 +119,11 @@ namespace UI
 
         private void OnClickPauseButton(bool value)
         {
-            _ctx.onClickPauseButton.Execute(value);
-            EnableUi(value ? levelPauseView.GetType() : levelView.GetType());
+            if(_ctx.IsPauseAllowed.Value)
+            {
+                _ctx.OnClickPauseButton.Execute(value);
+                EnableUi(value ? levelPauseView.GetType() : levelView.GetType());
+            }
         }
 
         private void OnShowLevelUi()

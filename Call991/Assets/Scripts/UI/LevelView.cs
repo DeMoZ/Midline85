@@ -13,13 +13,13 @@ namespace UI
         {
             public ReactiveCommand onClickPauseButton;
         }
-        
+
         [SerializeField] private MenuButtonView pauseButton = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private List<PersonView> persons = default;
-        [SerializeField] private  CountDownView countDown = default;
+        [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
-        
+
         public List<ChoiceButtonView> Buttons => buttons;
 
         public CountDownView CountDown => countDown;
@@ -29,7 +29,7 @@ namespace UI
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            
+
             foreach (var person in persons)
             {
                 person.gameObject.SetActive(false);
@@ -39,7 +39,7 @@ namespace UI
                 button.gameObject.SetActive(false);
 
             CountDown.gameObject.SetActive(false);
-            
+
             pauseButton.OnClick += OnClickPauseButton;
         }
 
@@ -47,7 +47,7 @@ namespace UI
         {
             _ctx.onClickPauseButton?.Execute();
         }
-        
+
         public void OnShowPhrase(UiPhraseData data)
         {
             var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
@@ -59,7 +59,7 @@ namespace UI
 
             personView.ShowPhrase(data);
         }
-        
+
         public void OnHidePhrase(UiPhraseData data)
         {
             var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
@@ -79,9 +79,9 @@ namespace UI
         public void OnHideLevelUi(float time, Action callback)
         {
             Debug.LogWarning($"[{this}] OnHideLevelUi");
-            canvasGroup.DOFade(0, time).OnComplete(() => { callback?.Invoke();});
+            canvasGroup.DOFade(0, time).OnComplete(() => { callback?.Invoke(); });
         }
-        
+
         public void Dispose()
         {
             pauseButton.OnClick -= OnClickPauseButton;

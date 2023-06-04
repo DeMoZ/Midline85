@@ -11,7 +11,7 @@ public class ScenesHandler : IDisposable
     {
         public string StartApplicationSceneName;
         public ReactiveCommand OnStartApplicationSwitchScene;
-        public ReactiveCommand<GameScenes> onSwitchScene;
+        public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
         public AudioManager AudioManager;
         public GameSet GameSet;
@@ -20,6 +20,7 @@ public class ScenesHandler : IDisposable
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
         public OverridenDialogue OverridenDialogue;
+        public ReactiveProperty<bool> IsPauseAllowed;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -53,7 +54,7 @@ public class ScenesHandler : IDisposable
         switch (_ctx.StartApplicationSceneName)
         {
             case ROOT_SCENE:
-                _ctx.onSwitchScene.Execute(GameScenes.OpenScene);
+                _ctx.OnSwitchScene.Execute(GameScenes.OpenScene);
                 break;
             // case MENU_SCENE:
             //     _ctx.onSwitchScene.Execute(GameScenes.Menu);
@@ -64,10 +65,10 @@ public class ScenesHandler : IDisposable
 
             case LEVEL_SCENE:
             case LEVEL_TEST_SCENE:
-                _ctx.onSwitchScene.Execute(GameScenes.Level);
+                _ctx.OnSwitchScene.Execute(GameScenes.Level);
                 break;
             default:
-                _ctx.onSwitchScene.Execute(GameScenes.Menu);
+                _ctx.OnSwitchScene.Execute(GameScenes.Menu);
                 break;
         }
     }
@@ -102,7 +103,7 @@ public class ScenesHandler : IDisposable
         var sceneEntity = new OpenSceneEntity(new OpenSceneEntity.Ctx
         {
             gameSet = _ctx.GameSet,
-            onSwitchScene = _ctx.onSwitchScene,
+            onSwitchScene = _ctx.OnSwitchScene,
             blocker = _ctx.Blocker,
             cursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
@@ -117,7 +118,7 @@ public class ScenesHandler : IDisposable
         var constructorTask = new Container<Task>();
         var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
         {
-            OnSwitchScene = _ctx.onSwitchScene,
+            OnSwitchScene = _ctx.OnSwitchScene,
             Profile = _ctx.Profile,
             AudioManager = _ctx.AudioManager,
             videoManager = _ctx.VideoManager,
@@ -136,23 +137,24 @@ public class ScenesHandler : IDisposable
             : _ctx.GameSet.GameLevels.TestLevel;
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
-        
+
         _ctx.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
         {
             GameSet = _ctx.GameSet,
-            constructorTask = constructorTask,
+            ConstructorTask = constructorTask,
             LevelData = levelData,
             Profile = _ctx.Profile,
             ObjectEvents = _ctx.ObjectEvents,
-            onSwitchScene = _ctx.onSwitchScene,
+            OnSwitchScene = _ctx.OnSwitchScene,
             AudioManager = _ctx.AudioManager,
-            videoManager = _ctx.VideoManager,
+            VideoManager = _ctx.VideoManager,
             OverridenDialogue = _ctx.OverridenDialogue,
             Blocker = _ctx.Blocker,
-            cursorSettings = _ctx.CursorSettings,
+            CursorSettings = _ctx.CursorSettings,
+            IsPauseAllowed = _ctx.IsPauseAllowed,
         }).AddTo(_disposables);
 
         await constructorTask.Value;
