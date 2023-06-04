@@ -342,6 +342,8 @@ public class LevelScenePm : IDisposable
 
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
     {
+        _ctx.AudioManager.PlayUiSound(SoundUiTypes.Timer);
+
         for (var i = 0; i < data.Count; i++)
         {
             var choice = data[i];
