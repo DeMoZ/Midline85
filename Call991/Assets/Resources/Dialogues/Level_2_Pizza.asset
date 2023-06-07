@@ -26,28 +26,6 @@ MonoBehaviour:
     - English
     ButtonFilter: pizza
   PhraseNodeData:
-  - Guid: 7804c480-c760-4e2f-9274-457d75a39293
-    Rect:
-      serializedVersion: 2
-      x: 404
-      y: 204
-      width: 100
-      height: 96
-    PhraseSketchText: 911
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
-    Phrases:
-    - 
-    - 
   - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
     Rect:
       serializedVersion: 2
@@ -4373,6 +4351,34 @@ MonoBehaviour:
     Phrases:
     - 
     - 
+  - Guid: 7804c480-c760-4e2f-9274-457d75a39293
+    Rect:
+      serializedVersion: 2
+      x: 404
+      y: 204
+      width: 100
+      height: 96
+    PhraseSketchText: 911
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData:
+    - Type: 2
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+    PhraseSounds:
+    - 
+    - 
+    Phrases:
+    - 
+    - 
   ChoiceNodeData:
   - Guid: 002670f8-042a-4b01-a76f-ac0593eeac3b
     Rect:
@@ -5836,7 +5842,7 @@ MonoBehaviour:
     EventVisualData:
     - Type: 0
       PhraseEvent: Sounds/Music/7 Chapter_ 1 Track.mp3
-      Layer: 0
+      Layer: 1
       Loop: 0
       Stop: 0
       Delay: 0
