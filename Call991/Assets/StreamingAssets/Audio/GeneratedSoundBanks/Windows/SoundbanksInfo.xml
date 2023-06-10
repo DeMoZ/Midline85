@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Windows" BasePlatform="Windows" SchemaVersion="16" SoundBankVersion="145">
+	<RootPaths>
+		<ProjectRoot>../..</ProjectRoot>
+		<SourceFilesRoot>../../.cache/Windows</SourceFilesRoot>
+		<SoundBanksRoot>.</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>.</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{986487A9-2683-E47A-8688-3D0FE6FDB954}">
+			<ShortName>Init</ShortName>
+			<Path>Init.bnk</Path>
+			<Plugins>
+				<AudioDevices>
+					<Plugin Id="2317455096" Name="No_Output" LibName="No Output" LibId="11862023"/>
+					<Plugin Id="3859886410" Name="System" LibName="System" LibId="11403271"/>
+				</AudioDevices>
+			</Plugins>
+			<Busses>
+				<Bus Id="3803692087" Name="Master Audio Bus"/>
+			</Busses>
+		</SoundBank>
+		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{DE213B69-9AC2-7B8C-4B05-E94DE20150A9}">
+			<ShortName>Master</ShortName>
+			<Path>Master.bnk</Path>
+			<Media>
+				<File Id="611488640" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>Sound test.wav</ShortName>
+					<CachePath>SFX/Sound test_10C4C929.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="1252261978" Name="SoundTest">
+					<MediaRefs>
+						<MediaRef Id="611488640"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+	</SoundBanks>
+	<FileHash>{A2FB0F60-9A82-559D-6B33-C234A03103CF}</FileHash>
+</SoundBanksInfo>

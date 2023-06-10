@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" SchemaVersion="110">
+	<InteractiveMusic>
+		<WorkUnit Name="Music" ID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" PersistMode="Standalone">
+			<ChildrenList>
+				<MusicSwitchContainer Name="MusicSwitch" ID="{964ADCEB-9999-409D-A51A-8D7C0692226C}" ShortID="533071240">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+							<ObjectRef Name="New_Guitar_Distortion" ID="{101EB3C3-DAB2-4C0F-9355-02264C50A801}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<MusicPlaylistContainer Name="PlaylistOne" ID="{8131452A-6559-4E16-B1EC-A5E5CEBEE56F}" ShortID="480642690">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="One" ID="{A0EFCC04-9DFC-4D14-85B3-58CD18F26E1D}" ShortID="71424696">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="244952.787563987"/>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+										<Property Name="Tempo" Type="Real64" Value="130"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+											<ObjectRef Name="New_Guitar_Distortion" ID="{101EB3C3-DAB2-4C0F-9355-02264C50A801}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="valhalla_light_130bpm_a1" ID="{7B35948A-9773-44BE-B5FA-38E355243B1F}" ShortID="932497172">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="valhalla_light_130bpm_a1" ID="{C0402380-B8F7-4EE0-A469-7FC404BAF498}">
+													<Language>SFX</Language>
+													<AudioFile>valhalla_light_130bpm_a1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="987752079"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{8437FA51-4693-4479-A9C5-9299A8369FFF}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{1EC7EDBF-6266-45E0-AF34-CB3E642CB503}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="valhalla_light_130bpm_a1" ID="{A44BBEC7-D033-4010-ACC6-7173E8768B06}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="22153.8548752834"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="valhalla_light_130bpm_a1" ID="{C0402380-B8F7-4EE0-A469-7FC404BAF498}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{8813878A-E238-48C7-B496-1C951EFF202D}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{6963D56A-7053-4C42-BC6A-1E30C97D0A78}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="14824.116797559"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{B989C3FA-7C58-4EC5-82B4-ACBE06FB992E}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{CA5BFE28-71F9-4DD9-B931-F2949D3B3EC7}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{F834BDD3-062F-429C-8349-E4EFF04944CA}" ShortID="933617109">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{EB14B54E-7261-45C3-83A7-DD145AB745F7}" ShortID="361277669">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="One" ID="{A0EFCC04-9DFC-4D14-85B3-58CD18F26E1D}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+						<MusicPlaylistContainer Name="PlaylistTwo" ID="{8985BC15-3E0E-4D4C-B408-1AD13159609B}" ShortID="747311837">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="Two" ID="{A684B113-536E-436E-BC71-E0133609B08C}" ShortID="1044042959">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="244952.787563987"/>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+										<Property Name="Tempo" Type="Real64" Value="130"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="Effect0" PluginName="Wwise Guitar Distortion" CompanyID="0" PluginID="126" PluginType="3">
+											<ObjectRef Name="New_Guitar_Distortion" ID="{101EB3C3-DAB2-4C0F-9355-02264C50A801}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="valhalla_light_130bpm_a7" ID="{8AE4DC17-E1EC-420D-A9A5-F7AE07769D5E}" ShortID="439257815">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="valhalla_light_130bpm_a7" ID="{F7C870A5-614C-4D65-99C1-75539560CC60}">
+													<Language>SFX</Language>
+													<AudioFile>valhalla_light_130bpm_a7.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="855236198"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{B09ABFD5-2F16-4150-BF33-A0C2D45C1CCB}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{9E821E4F-7409-4824-96F2-B0E519667BBB}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="valhalla_light_130bpm_a7" ID="{8CD026ED-043D-4868-805A-3CCC2E84F361}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="22153.8548752834"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="valhalla_light_130bpm_a7" ID="{F7C870A5-614C-4D65-99C1-75539560CC60}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{83E4DFB0-90CF-4DE8-8776-29D137CFC2A7}"/>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{BFE7571A-0C6B-40D4-AD34-550968BDD54D}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="14832.4068346001"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{185E734E-0AD7-4F2B-90DA-F3F9751A3526}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{F1CD6737-A788-4C13-9746-04BAFDD161F3}">
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<Playlist>
+								<MusicPlaylistItem Name="" ID="{CF44011D-5420-4267-8C5D-AEFB32A3EE97}" ShortID="419551570">
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{121C7092-7581-4FFF-9313-4236C812969B}" ShortID="442220020">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="Two" ID="{A684B113-536E-436E-BC71-E0133609B08C}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
+							</Playlist>
+						</MusicPlaylistContainer>
+					</ChildrenList>
+					<TransitionList>
+						<MusicTransition Name="Root" ID="{C6BDDB1C-7C45-4A3F-A7A2-397CA1EA0BC8}">
+							<PropertyList>
+								<Property Name="IsFolder" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<MusicTransition Name="Transition" ID="{D80F951F-A778-4A47-A0EB-DE57578A9A04}">
+									<PropertyList>
+										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+									</PropertyList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</ChildrenList>
+							<TransitionInfo/>
+						</MusicTransition>
+					</TransitionList>
+					<ArgumentList>
+						<ArgumentRef Name="MusicState" ID="{4779E08F-C1AC-405E-BB9B-CD73369FCAFE}"/>
+					</ArgumentList>
+					<EntryList>
+						<Entry>
+							<Path>
+								<PathElementRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="PlaylistOne" ID="{8131452A-6559-4E16-B1EC-A5E5CEBEE56F}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+						<Entry>
+							<Path>
+								<PathElementRef Name="Two" ID="{EEF7457D-D3AF-4EFA-8297-54436F3F371F}"/>
+							</Path>
+							<AudioNodeInfo>
+								<AudioNodeRef Name="PlaylistTwo" ID="{8985BC15-3E0E-4D4C-B408-1AD13159609B}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
+							</AudioNodeInfo>
+						</Entry>
+					</EntryList>
+				</MusicSwitchContainer>
+			</ChildrenList>
+		</WorkUnit>
+	</InteractiveMusic>
+</WwiseDocument>
