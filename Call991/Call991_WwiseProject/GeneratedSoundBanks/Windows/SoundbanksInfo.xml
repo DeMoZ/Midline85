@@ -33,191 +33,65 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="English(US)" Hash="{90415BB2-30B2-E3A4-9CE1-09F814F6D437}">
+		<SoundBank Id="4056684167" Type="User" Language="English(US)" Hash="{7C6E6908-4DA7-22E9-48FA-A86FEE9339C1}">
 			<ShortName>Master</ShortName>
 			<Path>English(US)/Master.bnk</Path>
 			<Media>
-				<File Id="319898978" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>sfx_jacket.wav</ShortName>
-					<CachePath>SFX/sfx_jacket_10C4C929.wem</CachePath>
-				</File>
-				<File Id="766217263" Language="English(US)" Streaming="false" Location="Memory">
-					<ShortName>Sound test.wav</ShortName>
-					<CachePath>Voices/English(US)/Sound test_10C4C929.wem</CachePath>
-				</File>
-				<File Id="855236198" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>valhalla_light_130bpm_a7.wav</ShortName>
-					<CachePath>SFX/valhalla_light_130bpm_a7_D79FB2B7.wem</CachePath>
-				</File>
-				<File Id="987752079" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>valhalla_light_130bpm_a1.wav</ShortName>
-					<CachePath>SFX/valhalla_light_130bpm_a1_D79FB2B7.wem</CachePath>
-				</File>
-			</Media>
-			<Plugins>
-				<ShareSets>
-					<Plugin Id="3435419520" Name="New_Guitar_Distortion" LibName="Wwise Guitar Distortion" LibId="8257539"/>
-				</ShareSets>
-			</Plugins>
-			<Events>
-				<Event Id="183767048" Name="elena_1" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767051" Name="elena_2" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767050" Name="elena_3" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767053" Name="elena_4" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767052" Name="elena_5" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767055" Name="elena_6" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="3991942870" Name="Music" DurationType="Infinite">
-					<SwitchContainers>
-						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="1021618141" Id="1064933119"/>
-							<MediaRefs>
-								<MediaRef Id="987752079"/>
-							</MediaRefs>
-							<PluginRefs>
-								<ShareSets>
-									<PluginRef Id="3435419520"/>
-								</ShareSets>
-							</PluginRefs>
-						</SwitchContainer>
-						<SwitchContainer>
-							<SwitchValue GroupType="Switch" GroupId="1021618141" Id="678209053"/>
-							<MediaRefs>
-								<MediaRef Id="855236198"/>
-							</MediaRefs>
-							<PluginRefs>
-								<ShareSets>
-									<PluginRef Id="3435419520"/>
-								</ShareSets>
-							</PluginRefs>
-						</SwitchContainer>
-					</SwitchContainers>
-				</Event>
-				<Event Id="405579864" Name="psycho1_elena_001" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="405579867" Name="psycho1_elena_002" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="405579866" Name="psycho1_elena_003" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="405579869" Name="psycho1_elena_004" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="405579868" Name="psycho1_elena_005" DurationType="OneShot" DurationMin="1.0433333" DurationMax="1.0433333">
-					<MediaRefs>
-						<MediaRef Id="766217263"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="1717033963" Name="sfx_jacket" DurationType="OneShot" DurationMin="10.7" DurationMax="10.7">
-					<MediaRefs>
-						<MediaRef Id="319898978"/>
-					</MediaRefs>
-				</Event>
-			</Events>
-			<GameParameters>
-				<GameParameter Id="3881602766" Name="TestGameRTPC"/>
-			</GameParameters>
-			<SwitchGroups>
-				<SwitchGroup Id="1021618141" Name="MusicState">
-					<Switches>
-						<Switch Id="678209053" Name="Two"/>
-						<Switch Id="1064933119" Name="One"/>
-					</Switches>
-				</SwitchGroup>
-			</SwitchGroups>
-		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="Russian" Hash="{10963AFC-B4B9-641F-21AA-2567F3D5A68F}">
-			<ShortName>Master</ShortName>
-			<Path>Russian/Master.bnk</Path>
-			<Media>
-				<File Id="29510230" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena.6.wav</ShortName>
-					<CachePath>Voices/Russian/elena.6_10C4C929.wem</CachePath>
-				</File>
-				<File Id="30359358" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>psycho1.elena.005.wav</ShortName>
-					<CachePath>Voices/Russian/psycho1.elena.005_10C4C929.wem</CachePath>
-				</File>
-				<File Id="77280988" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>psycho1.elena.004.wav</ShortName>
-					<CachePath>Voices/Russian/psycho1.elena.004_10C4C929.wem</CachePath>
-				</File>
-				<File Id="185932528" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena.3.wav</ShortName>
-					<CachePath>Voices/Russian/elena.3_10C4C929.wem</CachePath>
-				</File>
-				<File Id="319898978" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>sfx_jacket.wav</ShortName>
-					<CachePath>SFX/sfx_jacket_10C4C929.wem</CachePath>
-				</File>
-				<File Id="348014244" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>psycho1.elena.002.wav</ShortName>
-					<CachePath>Voices/Russian/psycho1.elena.002_10C4C929.wem</CachePath>
-				</File>
-				<File Id="354489126" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>psycho1.elena.003.wav</ShortName>
-					<CachePath>Voices/Russian/psycho1.elena.003_10C4C929.wem</CachePath>
-				</File>
-				<File Id="430409924" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena.2.wav</ShortName>
-					<CachePath>Voices/Russian/elena.2_10C4C929.wem</CachePath>
-				</File>
-				<File Id="649937155" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>psycho1.elena.001.wav</ShortName>
-					<CachePath>Voices/Russian/psycho1.elena.001_10C4C929.wem</CachePath>
-				</File>
-				<File Id="744064262" Language="Russian" Streaming="false" Location="Memory">
+				<File Id="104576181" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>elena.5.wav</ShortName>
-					<CachePath>Voices/Russian/elena.5_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/elena.5_10C4C929.wem</CachePath>
 				</File>
-				<File Id="744084293" Language="Russian" Streaming="false" Location="Memory">
+				<File Id="219082802" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>elena.3.wav</ShortName>
+					<CachePath>Voices/English(US)/elena.3_10C4C929.wem</CachePath>
+				</File>
+				<File Id="275931472" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>psycho1.elena.005.wav</ShortName>
+					<CachePath>Voices/English(US)/psycho1.elena.005_10C4C929.wem</CachePath>
+				</File>
+				<File Id="283080326" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>elena.2.wav</ShortName>
+					<CachePath>Voices/English(US)/elena.2_10C4C929.wem</CachePath>
+				</File>
+				<File Id="319898978" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_jacket.wav</ShortName>
+					<CachePath>SFX/sfx_jacket_10C4C929.wem</CachePath>
+				</File>
+				<File Id="358267263" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>elena.4.wav</ShortName>
-					<CachePath>Voices/Russian/elena.4_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/elena.4_10C4C929.wem</CachePath>
+				</File>
+				<File Id="391722621" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>elena.1.wav</ShortName>
+					<CachePath>Voices/English(US)/elena.1_10C4C929.wem</CachePath>
+				</File>
+				<File Id="556255674" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>psycho1.elena.003.wav</ShortName>
+					<CachePath>Voices/English(US)/psycho1.elena.003_10C4C929.wem</CachePath>
+				</File>
+				<File Id="738939156" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>psycho1.elena.001.wav</ShortName>
+					<CachePath>Voices/English(US)/psycho1.elena.001_10C4C929.wem</CachePath>
 				</File>
 				<File Id="855236198" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>valhalla_light_130bpm_a7.wav</ShortName>
 					<CachePath>SFX/valhalla_light_130bpm_a7_D79FB2B7.wem</CachePath>
 				</File>
-				<File Id="897824087" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena.1.wav</ShortName>
-					<CachePath>Voices/Russian/elena.1_10C4C929.wem</CachePath>
+				<File Id="941794527" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>psycho1.elena.002.wav</ShortName>
+					<CachePath>Voices/English(US)/psycho1.elena.002_10C4C929.wem</CachePath>
+				</File>
+				<File Id="941949314" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>elena.6.wav</ShortName>
+					<CachePath>Voices/English(US)/elena.6_10C4C929.wem</CachePath>
 				</File>
 				<File Id="987752079" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>valhalla_light_130bpm_a1.wav</ShortName>
 					<CachePath>SFX/valhalla_light_130bpm_a1_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="996282113" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>psycho1.elena.004.wav</ShortName>
+					<CachePath>Voices/English(US)/psycho1.elena.004_10C4C929.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -228,32 +102,32 @@
 			<Events>
 				<Event Id="183767048" Name="elena_1" DurationType="OneShot" DurationMin="17.566668" DurationMax="17.566668">
 					<MediaRefs>
-						<MediaRef Id="897824087"/>
+						<MediaRef Id="391722621"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="183767051" Name="elena_2" DurationType="OneShot" DurationMin="5.133333" DurationMax="5.133333">
 					<MediaRefs>
-						<MediaRef Id="430409924"/>
+						<MediaRef Id="283080326"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="183767050" Name="elena_3" DurationType="OneShot" DurationMin="0.93333334" DurationMax="0.93333334">
 					<MediaRefs>
-						<MediaRef Id="185932528"/>
+						<MediaRef Id="219082802"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="183767053" Name="elena_4" DurationType="OneShot" DurationMin="2.7333333" DurationMax="2.7333333">
 					<MediaRefs>
-						<MediaRef Id="744084293"/>
+						<MediaRef Id="358267263"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="183767052" Name="elena_5" DurationType="OneShot" DurationMin="2.8" DurationMax="2.8">
 					<MediaRefs>
-						<MediaRef Id="744064262"/>
+						<MediaRef Id="104576181"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="183767055" Name="elena_6" DurationType="OneShot" DurationMin="1.1666666" DurationMax="1.1666666">
 					<MediaRefs>
-						<MediaRef Id="29510230"/>
+						<MediaRef Id="941949314"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3991942870" Name="Music" DurationType="Infinite">
@@ -284,27 +158,27 @@
 				</Event>
 				<Event Id="405579864" Name="psycho1_elena_001" DurationType="OneShot" DurationMin="2.8" DurationMax="2.8">
 					<MediaRefs>
-						<MediaRef Id="649937155"/>
+						<MediaRef Id="738939156"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="405579867" Name="psycho1_elena_002" DurationType="OneShot" DurationMin="1.5333333" DurationMax="1.5333333">
 					<MediaRefs>
-						<MediaRef Id="348014244"/>
+						<MediaRef Id="941794527"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="405579866" Name="psycho1_elena_003" DurationType="OneShot" DurationMin="1.5333333" DurationMax="1.5333333">
 					<MediaRefs>
-						<MediaRef Id="354489126"/>
+						<MediaRef Id="556255674"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="405579869" Name="psycho1_elena_004" DurationType="OneShot" DurationMin="1.7" DurationMax="1.7">
 					<MediaRefs>
-						<MediaRef Id="77280988"/>
+						<MediaRef Id="996282113"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="405579868" Name="psycho1_elena_005" DurationType="OneShot" DurationMin="1.7333333" DurationMax="1.7333333">
 					<MediaRefs>
-						<MediaRef Id="30359358"/>
+						<MediaRef Id="275931472"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1717033963" Name="sfx_jacket" DurationType="OneShot" DurationMin="10.7" DurationMax="10.7">
@@ -326,5 +200,5 @@
 			</SwitchGroups>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{2FCAD0B9-9AED-E221-4871-065E12A7A133}</FileHash>
+	<FileHash>{F25B0E32-B056-8635-7AE0-9BA1F4E4C597}</FileHash>
 </SoundBanksInfo>
