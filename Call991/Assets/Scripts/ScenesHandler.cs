@@ -13,7 +13,7 @@ public class ScenesHandler : IDisposable
         public ReactiveCommand OnStartApplicationSwitchScene;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public AudioManager AudioManager;
+        public WwiseAudio AudioManager;
         public GameSet GameSet;
         public VideoManager VideoManager;
         public Blocker Blocker;

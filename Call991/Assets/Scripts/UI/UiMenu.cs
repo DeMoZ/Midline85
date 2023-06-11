@@ -7,7 +7,7 @@ namespace UI
     {
         public struct Ctx
         {
-            public AudioManager audioManager;
+            public WwiseAudio audioManager;
             public ReactiveCommand onClickPlayGame;
             public ReactiveCommand onClickNewGame;
             public ReactiveCommand onClickSettings;

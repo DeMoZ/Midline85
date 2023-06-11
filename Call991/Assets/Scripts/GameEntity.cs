@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameEntity : MonoBehaviour
 {
     private static GameEntity _instance;
-    [SerializeField] private AudioManager audioManager;
+    [SerializeField] private WwiseAudio audioManager;
     [SerializeField] private VideoManager videoManager;
 
     [Space] [SerializeField] private Image videoFade;
@@ -16,7 +16,7 @@ public class GameEntity : MonoBehaviour
 
     private CompositeDisposable _disposables;
 
-    private async void Awake()
+    private void Awake()
     {
         if (_instance == null)
         {
@@ -34,10 +34,15 @@ public class GameEntity : MonoBehaviour
 
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
 
-        await CreateAppSettings();
-        CreateRootEntity();
+        
     }
 
+    private async void Start()
+    {
+        await CreateAppSettings();
+        CreateRootEntity();
+    } 
+    
     private async Task CreateAppSettings()
     {
         Application.targetFrameRate = 60;

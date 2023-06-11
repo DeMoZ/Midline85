@@ -12,7 +12,7 @@ namespace UI
             public ReactiveCommand OnClickPlayGame;
             public ReactiveCommand OnClickNewGame;
             public PlayerProfile Profile;
-            public AudioManager AudioManager;
+            public WwiseAudio AudioManager;
         }
 
         [SerializeField] private UiMenu menu = default;

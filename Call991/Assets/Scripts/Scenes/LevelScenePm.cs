@@ -23,7 +23,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<List<AaNodeData>> OnNext;
         public ReactiveCommand<UiPhraseData> OnShowPhrase;
 
-        public AudioManager AudioManager;
+        public WwiseAudio AudioManager;
         public ReactiveCommand OnShowLevelUi;
         public ReactiveCommand<GameScenes> onSwitchScene;
         public ReactiveCommand onClickMenuButton;
@@ -59,7 +59,6 @@ public class LevelScenePm : IDisposable
     private readonly ReactiveProperty<bool> _isPhraseSkipped = new();
     private readonly ReactiveProperty<bool> _isChoiceDone = new();
     private CancellationTokenSource _tokenSource;
-
     /// <summary>
     /// Choice button selection with keyboard.
     /// </summary>
@@ -72,7 +71,7 @@ public class LevelScenePm : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-
+        
         _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
 
@@ -82,7 +81,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.onClickMenuButton.Subscribe(_ =>
         {
-            _ctx.AudioManager.PlayUiSound(SoundUiTypes.MenuButton);
+            //_ctx.AudioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onSwitchScene.Execute(GameScenes.Menu);
         }).AddTo(_disposables);
         _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
@@ -100,7 +99,7 @@ public class LevelScenePm : IDisposable
     {
         Time.timeScale = pause ? 0 : 1;
         _ctx.PhraseSoundPlayer.Pause(pause);
-        _ctx.AudioManager.Pause(pause);
+        //_ctx.AudioManager.Pause(pause);
 
         if (!pause)
             _selectionPlaced = false;
@@ -166,8 +165,27 @@ public class LevelScenePm : IDisposable
             var phrase = content[$"p_{phraseData.Guid}"] as Phrase;
             var audioClip = content[$"a_{phraseData.Guid}"] as AudioClip;
 
-            _ctx.PhraseSoundPlayer.PlayPhrase(audioClip);
+            //_ctx.PhraseSoundPlayer.PlayPhrase(audioClip);
+            
+            /*
+elena_1
+elena_2
+elena_3
+elena_4
+elena_5
+elena_6
 
+psycho1_elena_001
+psycho1_elena_002
+psycho1_elena_003
+psycho1_elena_004
+psycho1_elena_005
+sfx_jacket
+             */
+            var a = AkSoundEngine.GetCurrentLanguage();
+            Debug.LogWarning($"cur AK lang: {a}");
+            AkSoundEngine.PostEvent("elena_1", _ctx.AudioManager.gameObject);
+            
             var routine = Observable.FromCoroutine(() => RunPhrase(phraseData, phrase));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
@@ -235,10 +253,10 @@ public class LevelScenePm : IDisposable
         {
             switch (eventContent.Type)
             {
-                case PhraseEventType.AudioClip:
-                    var audio = await _ctx.ContentLoader.GetObjectAsync<AudioClip>(eventContent.PhraseEvent);
-                    content[eventContent.PhraseEvent] = audio;
-                    break;
+                // case PhraseEventType.AudioClip:
+                //     var audio = await _ctx.ContentLoader.GetObjectAsync<AudioClip>(eventContent.PhraseEvent);
+                //     content[eventContent.PhraseEvent] = audio;
+                //     break;
                 case PhraseEventType.VideoClip:
                     var video = await _ctx.ContentLoader.GetObjectAsync<VideoClip>(eventContent.PhraseEvent);
                     content[eventContent.PhraseEvent] = video;
@@ -317,7 +335,7 @@ public class LevelScenePm : IDisposable
             case PhraseEventType.AudioClip:
                 var audioClip = content[data.PhraseEvent] as AudioClip;
                 if (audioClip == null) break;
-                _ctx.AudioManager.PlayEventSound(data, audioClip);
+                //_ctx.AudioManager.PlayEventSound(data, audioClip);
                 break;
             case PhraseEventType.VideoClip:
                 var videoClip = content[data.PhraseEvent] as VideoClip;
@@ -342,7 +360,7 @@ public class LevelScenePm : IDisposable
 
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
     {
-        _ctx.AudioManager.PlayUiSound(SoundUiTypes.Timer);
+        //_ctx.AudioManager.PlayUiSound(SoundUiTypes.Timer);
 
         for (var i = 0; i < data.Count; i++)
         {
@@ -358,8 +376,8 @@ public class LevelScenePm : IDisposable
             AutoChoice(data);
         }
 
-        _ctx.AudioManager.StopTimer();
-        _ctx.AudioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
+        //_ctx.AudioManager.StopTimer();
+        //_ctx.AudioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
         _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
 
         foreach (var t in Timer(_ctx.gameSet.slowButtonFadeDuration)) yield return t;

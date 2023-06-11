@@ -17,7 +17,7 @@ public class LevelSceneEntity : IGameScene
 
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public AudioManager AudioManager;
+        public WwiseAudio AudioManager;
         public VideoManager VideoManager;
         public Blocker Blocker;
         public CursorSet CursorSettings;

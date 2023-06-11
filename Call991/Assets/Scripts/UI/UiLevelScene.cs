@@ -37,7 +37,7 @@ namespace UI
             public ReactiveCommand<bool> OnClickPauseButton;
             public ReactiveProperty<bool> IsPauseAllowed;
 
-            public AudioManager AudioManager;
+            public WwiseAudio AudioManager;
             public PlayerProfile Profile;
         }
 

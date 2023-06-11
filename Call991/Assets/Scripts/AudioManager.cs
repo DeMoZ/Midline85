@@ -44,7 +44,7 @@ public class AudioManager : MonoBehaviour
         
         _ctx = ctx;
         menuButtonAudioSettings.OnHover += PlayUiSound;
-
+        
         uiAudioSource.volume = _ctx.playerProfile.UiVolume;
         timerAudioSource.volume = _ctx.playerProfile.TimerVolume;
         musicAudioSource.volume = _ctx.playerProfile.MusicVolume;

@@ -13,7 +13,7 @@ public class RootEntity : IDisposable
 {
     public struct Ctx
     {
-        public AudioManager AudioManager;
+        public WwiseAudio AudioManager;
         public VideoManager VideoManager;
         public OverridenDialogue OverridenDialogue;
         public Image VideoFade;
@@ -70,14 +70,14 @@ public class RootEntity : IDisposable
             IsPauseAllowed = isPauseAllowed,
         }).AddTo(_disposables);
 
-        _ctx.AudioManager.SetCtx(new AudioManager.Ctx
+        _ctx.AudioManager.SetCtx(new WwiseAudio.Ctx
         {
             GameSet = gameSet,
             playerProfile = profile,
             audioMixer = audioMixer,
             musicPath = musicPath,
         });
-        _ctx.AudioManager.PlayMusic("Intro").Forget();
+        // TODO Wwise_ctx.AudioManager.PlayMusic("Intro").Forget();
 
         _ctx.VideoManager.SetCtx(new VideoManager.Ctx
         {

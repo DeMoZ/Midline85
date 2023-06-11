@@ -152,9 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5237e7bbfa914acd8b266926bc561310, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _skipWarning: 0
-  _skipNewspaper: 0
-  _skipTitle: 0
+  _skipWarning: 1
+  _skipNewspaper: 1
+  _skipTitle: 1
   _dialogue: {fileID: 11400000, guid: 143ccc7cdc4ad44d8b44930a409d2191, type: 2}
 --- !u!4 &557384412
 Transform:
@@ -178,28 +178,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1370545264393813620, guid: 494717e46d0d1440ba0f52436c35b16c,
-        type: 3}
-      propertyPath: overrideDialogue.Dialogue
-      value: 
-      objectReference: {fileID: 11400000, guid: 143ccc7cdc4ad44d8b44930a409d2191,
-        type: 2}
-    - target: {fileID: 1370545264393813620, guid: 494717e46d0d1440ba0f52436c35b16c,
-        type: 3}
-      propertyPath: overrideDialogue.LevelOnly
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370545264393813620, guid: 494717e46d0d1440ba0f52436c35b16c,
-        type: 3}
-      propertyPath: overrideLevelScene.levelOnly
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1370545264393813620, guid: 494717e46d0d1440ba0f52436c35b16c,
-        type: 3}
-      propertyPath: overrideLevelScene.levelScene
-      value: 
-      objectReference: {fileID: 11400000, guid: 143ccc7cdc4ad44d8b44930a409d2191,
-        type: 2}
     - target: {fileID: 1370545264393813621, guid: 494717e46d0d1440ba0f52436c35b16c,
         type: 3}
       propertyPath: m_Name
@@ -260,15 +238,5 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7826586422029267613, guid: 494717e46d0d1440ba0f52436c35b16c,
-        type: 3}
-      propertyPath: Loop
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7826586422029267613, guid: 494717e46d0d1440ba0f52436c35b16c,
-        type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 48afe033cf0faaa49bffbfe3c245c002, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 494717e46d0d1440ba0f52436c35b16c, type: 3}
