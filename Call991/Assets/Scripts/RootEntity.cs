@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using Configs;
 using Core;
 using I2.Loc;
@@ -40,6 +41,7 @@ public class RootEntity : IDisposable
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
 
+        var levelLanguages = new ReactiveProperty<List<string>>();
         var isPauseAllowed = new ReactiveProperty<bool>(true);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
         var onScreenFade = new ReactiveCommand<(bool show, float time)>();
@@ -72,8 +74,9 @@ public class RootEntity : IDisposable
 
         _ctx.AudioManager.SetCtx(new WwiseAudio.Ctx
         {
+            LevelLanguages = levelLanguages,
             GameSet = gameSet,
-            playerProfile = profile,
+            Profile = profile,
             audioMixer = audioMixer,
             musicPath = musicPath,
         });
@@ -99,6 +102,7 @@ public class RootEntity : IDisposable
             CursorSettings = cursorSettings,
             OverridenDialogue = _ctx.OverridenDialogue,
             IsPauseAllowed = isPauseAllowed,
+            LevelLanguages = levelLanguages,
         }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

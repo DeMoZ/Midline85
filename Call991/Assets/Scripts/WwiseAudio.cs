@@ -1,8 +1,5 @@
-using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading;
-using System.Threading.Tasks;
 using AaDialogueGraph;
 using Configs;
 using UI;
@@ -14,9 +11,11 @@ public class WwiseAudio : MonoBehaviour
 {
     public struct Ctx
     {
+        public ReactiveProperty<List<string>> LevelLanguages;
+        public PlayerProfile Profile;
+        
         public GameSet GameSet;
         public AudioMixer audioMixer;
-        public PlayerProfile playerProfile;
         public string musicPath;
     }
     
@@ -37,7 +36,7 @@ public class WwiseAudio : MonoBehaviour
         
         _ctx = ctx;
         menuButtonAudioSettings.OnHover += PlayUiSound;
-        _ctx.playerProfile.onVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
+        _ctx.Profile.onVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
     }
 
     private void OnDestroy()
@@ -139,5 +138,29 @@ public class WwiseAudio : MonoBehaviour
     public void PlayEventSound(EventVisualData data, AudioClip audioClip)
     {
         
+    }
+
+    public void PlayPhrase(List<string> sounds, string phraseSketchText)
+    {
+        var phraseSound = GetWwiseAudioKey(sounds);
+        if (!string.Equals(phraseSound, AaGraphConstants.None))
+        {
+            AkSoundEngine.PostEvent(phraseSound, gameObject);
+        }
+        else
+        {
+            Debug.LogError($"NONE sound for phrase {phraseSketchText}");
+        }
+    }
+    
+    private string GetWwiseAudioKey(List<string> data)
+    {
+        if (_ctx.LevelLanguages.Value == null || _ctx.LevelLanguages.Value.Count == 0) return null;
+
+        var index = _ctx.LevelLanguages.Value.IndexOf(_ctx.Profile.AudioLanguage);
+
+        if (index == -1) return null;
+
+        return data[index];
     }
 }

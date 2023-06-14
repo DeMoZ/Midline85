@@ -162,30 +162,9 @@ public class LevelScenePm : IDisposable
         
         foreach (var phraseData in phrases)
         {
+            _ctx.AudioManager.PlayPhrase(phraseData.PhraseSounds, phraseData.PhraseSketchText);
+
             var phrase = content[$"p_{phraseData.Guid}"] as Phrase;
-            var audioClip = content[$"a_{phraseData.Guid}"] as AudioClip;
-
-            //_ctx.PhraseSoundPlayer.PlayPhrase(audioClip);
-            
-            /*
-elena_1
-elena_2
-elena_3
-elena_4
-elena_5
-elena_6
-
-psycho1_elena_001
-psycho1_elena_002
-psycho1_elena_003
-psycho1_elena_004
-psycho1_elena_005
-sfx_jacket
-             */
-            var a = AkSoundEngine.GetCurrentLanguage();
-            Debug.LogWarning($"cur AK lang: {a}");
-            AkSoundEngine.PostEvent("elena_1", _ctx.AudioManager.gameObject);
-            
             var routine = Observable.FromCoroutine(() => RunPhrase(phraseData, phrase));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
@@ -253,6 +232,7 @@ sfx_jacket
         {
             switch (eventContent.Type)
             {
+                // [Depricated - moved to wwise]
                 // case PhraseEventType.AudioClip:
                 //     var audio = await _ctx.ContentLoader.GetObjectAsync<AudioClip>(eventContent.PhraseEvent);
                 //     content[eventContent.PhraseEvent] = audio;
@@ -275,10 +255,11 @@ sfx_jacket
         foreach (var phraseData in phrases)
         {
             var phrase = await _ctx.ContentLoader.GetPhraseAsync(phraseData);
-            var audioClip = await _ctx.ContentLoader.GetVoiceAsync(phraseData);
-
             content[$"p_{phraseData.Guid}"] = phrase;
-            content[$"a_{phraseData.Guid}"] = audioClip;
+            
+            // [Depricated - moved to wwise]
+            // var audioClip = await _ctx.ContentLoader.GetVoiceAsync(phraseData);
+            // content[$"a_{phraseData.Guid}"] = audioClip;
 
             if (_tokenSource.IsCancellationRequested) return true;
         }

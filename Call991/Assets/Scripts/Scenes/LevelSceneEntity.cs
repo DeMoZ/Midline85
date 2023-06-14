@@ -15,6 +15,7 @@ public class LevelSceneEntity : IGameScene
         public Container<Task> ConstructorTask;
         public LevelData LevelData;
 
+        public ReactiveProperty<List<string>> LevelLanguages;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
         public WwiseAudio AudioManager;
@@ -70,7 +71,7 @@ public class LevelSceneEntity : IGameScene
 
         var buttons = _ui.Buttons;
         var countDown = _ui.CountDown;
-        var languages = _ctx.LevelData.GetEntryNode().Languages;
+        _ctx.LevelLanguages.Value = _ctx.LevelData.GetEntryNode().Languages;
 
         var phraseSoundPlayer = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
         {
@@ -79,7 +80,7 @@ public class LevelSceneEntity : IGameScene
 
         var contentLoader = new ContentLoader(new ContentLoader.Ctx
         {
-            Languages = languages,
+            LevelLanguages = _ctx.LevelLanguages.Value,
             Profile = _ctx.Profile,
         }).AddTo(_disposables);
 

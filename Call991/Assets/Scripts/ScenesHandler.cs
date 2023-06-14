@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Configs;
 using UI;
@@ -21,6 +22,7 @@ public class ScenesHandler : IDisposable
         public ObjectEvents ObjectEvents;
         public OverridenDialogue OverridenDialogue;
         public ReactiveProperty<bool> IsPauseAllowed;
+        public ReactiveProperty<List<string>> LevelLanguages;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -155,6 +157,7 @@ public class ScenesHandler : IDisposable
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
             IsPauseAllowed = _ctx.IsPauseAllowed,
+            LevelLanguages = _ctx.LevelLanguages,
         }).AddTo(_disposables);
 
         await constructorTask.Value;
