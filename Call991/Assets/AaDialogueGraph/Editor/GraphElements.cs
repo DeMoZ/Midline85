@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Configs;
+using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -39,54 +40,6 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-    public static class AaGraphConstants
-    {
-        public const string AssetsResources = "Assets/Resources/";
-
-        public const string DefaultFileName = "NewDialogue";
-
-        public const string DialogueGraph = "Dialogue Graph";
-        public const string ChoiceNode = "Button";
-        public const string PhraseNode = "Phrase";
-        public const string ForkNode = "Fork";
-        public const string CountNode = "Count";
-        public const string EventNode = "Event";
-        public const string NewspaperNode = "Newspaper";
-        public const string EndNode = "End";
-
-        public const string SaveData = "Save";
-        public const string LoadData = "Load";
-
-        public const string LineSpace = " | ";
-        public const string InPortName = "in";
-        public const string OutPortName = "out";
-
-        public const string AndWord = "+Word";
-        public const string NoWord = "-Word";
-
-        public const string AndEnd = "+End";
-        public const string NoEnd = "-End";
-
-        public const string AddRecord = "+Record";
-
-        public const string And = "+";
-        public const string No = "-";
-
-        public const string Count = "Count";
-        public const string PlusCount = "+Count";
-        public const string Range = "Range";
-        public const string CountMin = "Min";
-
-        public const string HideOnEnd = "HideOnEnd";
-
-        public const string LoopToggleName = "Loop";
-        public const string StopToggleName = "Stop";
-
-        public const string DeleteName = "X";
-        public const string DeleteNameSmall = "x";
-        public const string OrName = "or";
-    }
-
     public class LanguageOperation
     {
         public LanguageOperationType Type;
@@ -112,14 +65,14 @@ namespace AaDialogueGraph.Editor
 
     public class PhraseElementsRowField : VisualElement
     {
-        public void Set(string language, Object clip = null, Phrase phrase = null, Action onChange = null)
+        public void Set(string language, List<string> sounds, string sound, Phrase phrase, Action onChange)
         {
             var label = new Label(language);
             label.AddToClassList("aa-BlackText");
             contentContainer.Add(label);
-            var soundField = new PhraseSoundField();
-            soundField.Set(clip, onChange);
-            contentContainer.Add(soundField);
+
+            var soundPopup = new SoundPopupField(sounds, sound);
+            contentContainer.Add(soundPopup);
 
             var assetField = new PhraseAssetField();
             assetField.Set(phrase, onChange);
@@ -190,6 +143,34 @@ namespace AaDialogueGraph.Editor
         public Phrase GetPhrase()
         {
             return _objectField.value as Phrase;
+        }
+    }
+
+    public class SoundAssetField : VisualElement
+    {
+        private ObjectField _objectField;
+
+        public void Set(Object phraseAsset, Action onChange = null)
+        {
+            _objectField = new ObjectField
+            {
+                objectType = typeof(WwiseSoundsKeysList),
+                allowSceneObjects = false,
+                value = phraseAsset,
+            };
+
+            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
+
+            contentContainer.Add(_objectField);
+            contentContainer.AddToClassList("aa-SoundAsset_content-container");
+        }
+
+        public WwiseSoundsKeysList GetSoundAsset()
+        {
+            if (_objectField == null || _objectField.value == null)
+                return null;
+
+            return _objectField.value as WwiseSoundsKeysList;
         }
     }
 
@@ -563,14 +544,16 @@ namespace AaDialogueGraph.Editor
     {
         public void Set(List<string> keys, string currentChoice = null, Action<string> onChange = null)
         {
-            contentContainer.Add(new PopupField<string>("", keys,
-                string.IsNullOrEmpty(currentChoice) || !keys.Contains(currentChoice)
-                    ? keys?[0]
-                    : currentChoice, val =>
-                {
-                    onChange?.Invoke(val);
-                    return val;
-                }));
+            keys = keys == null || keys.Count <1 ? new List<string> { AaGraphConstants.None } : keys;
+            currentChoice = string.IsNullOrEmpty(currentChoice) || !keys.Contains(currentChoice)
+                ? keys.Count > 0 ? keys[0] : AaGraphConstants.None
+                : currentChoice;
+
+            contentContainer.Add(new PopupField<string>("", keys, currentChoice, val =>
+            {
+                onChange?.Invoke(val);
+                return val;
+            }));
         }
     }
 
@@ -611,22 +594,22 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(Label);
         }
     }
-    
+
     public class LineGroup : VisualElement
     {
         public LineGroup(IEnumerable<VisualElement> elements)
         {
-            contentContainer.style.flexDirection = FlexDirection.Row;
-
             foreach (var element in elements)
             {
                 contentContainer.Add(element);
             }
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+            contentContainer.AddToClassList("aa-LineGroup_content-container");
         }
     }
 
     public class ButtonFilterTextField : TextField
     {
-        
     }
 }

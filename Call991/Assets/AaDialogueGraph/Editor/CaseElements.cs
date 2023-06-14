@@ -163,6 +163,20 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(popup);
         }
     }
+    
+    public class SoundPopupField : KeyPopupField
+    {
+        public SoundPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
+        {
+        }
+
+        protected override void CreateElements(List<string> keys, string currentChoice = null)
+        {
+            var popup = new NoEnumPopup();
+            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
+            contentContainer.Add(popup);
+        }
+    }
 
     #region WordCase
 

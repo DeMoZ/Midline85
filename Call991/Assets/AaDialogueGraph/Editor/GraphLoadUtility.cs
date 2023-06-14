@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Configs;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -79,10 +80,13 @@ namespace AaDialogueGraph.Editor
 
         private void CreatePhraseNodes()
         {
+            var soundAsset = (string.IsNullOrEmpty(_containerCash.EntryNodeData.SoundAsset) ? null : 
+                NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(_containerCash.EntryNodeData.SoundAsset))?.Keys;
+            
             foreach (var data in _containerCash.PhraseNodeData)
             {
                 var node = new PhraseNode();
-                node.Set(data, _containerCash.EntryNodeData.Languages, data.Guid);
+                node.Set(data, _containerCash.EntryNodeData.Languages,  soundAsset, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }

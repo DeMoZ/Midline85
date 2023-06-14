@@ -13,7 +13,7 @@ namespace AaDialogueGraph.Editor
 
         public string PhraseSketchText => _phraseSketchTxt;
 
-        public void Set(PhraseNodeData data, List<string> languages, string guid)
+        public void Set(PhraseNodeData data, List<string> languages, List<string> sounds, string guid)
         {
             Guid = guid;
 
@@ -36,7 +36,7 @@ namespace AaDialogueGraph.Editor
             personVisual.Set(data.PersonVisualData, val =>
             {
                 _personTxt = AaKeys.PersonsKeys.GetColorKey(val);
-               
+
                 title = GetTitle(_personTxt, _phraseSketchTxt);
             });
             contentFolder.Add(personVisual);
@@ -54,20 +54,21 @@ namespace AaDialogueGraph.Editor
             phraseAssetsLabel.AddToClassList("aa-BlackText");
             phraseContainer.Add(phraseAssetsLabel);
 
+            sounds = sounds == null || sounds.Count < 1 ? new List<string> { AaGraphConstants.None } : sounds;
+
             for (var i = 0; i < languages.Count; i++)
             {
-                var clips = data.PhraseSounds;
-                var clip = clips != null && clips.Count > i
-                    ? NodeUtils.GetObjectByPath<AudioClip>(clips[i])
-                    : null;
+                var sound = data.PhraseSounds.Count > i && !string.IsNullOrEmpty(data.PhraseSounds[i])
+                    ? data.PhraseSounds[i]
+                    : AaGraphConstants.None;
 
                 var phrase = data.Phrases != null && data.Phrases.Count > i
                     ? NodeUtils.GetObjectByPath<Phrase>(data.Phrases[i])
                     : null;
 
-                var field = new PhraseElementsRowField();
-                field.Set(languages[i], clip, phrase, CheckNodeContent);
-                phraseContainer.Add(field);
+                var phraseRowField = new PhraseElementsRowField();
+                phraseRowField.Set(languages[i], sounds, sound, phrase, CheckNodeContent);
+                phraseContainer.Add(phraseRowField);
             }
 
             phraseContainer.contentContainer.AddToClassList("aa-PhraseAsset_content-container");
@@ -108,8 +109,8 @@ namespace AaDialogueGraph.Editor
             titleContainer.Q<NodeTitleErrorField>().Label.text = errorFields.ToString();
         }
 
-        public List<AudioClip> GetPhraseSounds() =>
-            contentContainer.Query<PhraseSoundField>().ToList().Select(field => field.GetPhraseSound()).ToList();
+        public List<string> GetPhraseSounds() =>
+            contentContainer.Query<SoundPopupField>().ToList().Select(field => field.Value).ToList();
 
         public List<Phrase> GetPhrases() =>
             contentContainer.Query<PhraseAssetField>().ToList().Select(field => field.GetPhrase()).ToList();

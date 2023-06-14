@@ -103,14 +103,16 @@ namespace AaDialogueGraph.Editor
 
         private EntryNodeData EntryNodeToData(EntryNode node)
         {
+            var soundAsset = node.Q<SoundAssetField>().GetSoundAsset();
             var data = new EntryNodeData
             {
                 Guid = node.Guid,
                 Rect = node.GetPosition(),
                 LevelId = node.Q<LevelIdPopupField>().Value,
                 ButtonFilter = node.Q<ButtonFilterTextField>().value,
+                SoundAsset = EditorNodeUtils.GetPathByObject(soundAsset),
             };
-
+            
             var languageFields = node.Query<LanguagePopupField>().ToList();
             data.Languages = languageFields.Select(field => field.Value).ToList();
             return data;
@@ -124,7 +126,7 @@ namespace AaDialogueGraph.Editor
                 var personVisualData = node.GetPersonVisual().GetData();
                 var phraseVisualData = node.GetPhraseVisual().GetData();
                 var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
-                var phraseSounds = node.GetPhraseSounds().Cast<Object>().ToList();
+                var phraseSounds = node.GetPhraseSounds().ToList();
                 var phrases = node.GetPhrases().Cast<Object>().ToList();
 
                 data.Add(new PhraseNodeData
@@ -136,7 +138,7 @@ namespace AaDialogueGraph.Editor
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
-                    PhraseSounds = EditorNodeUtils.GetObjectPath(phraseSounds),
+                    PhraseSounds = phraseSounds,
                     Phrases = EditorNodeUtils.GetObjectPath(phrases),
                 });
             }

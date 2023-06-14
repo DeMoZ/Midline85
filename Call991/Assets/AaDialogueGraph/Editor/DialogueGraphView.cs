@@ -55,8 +55,10 @@ namespace AaDialogueGraph.Editor
         public void CreatePhraseNode()
         {
             var languages = GetLanguages();
+            var soundAsset = GetSoundAsset();
+            
             var node = new PhraseNode();
-            node.Set(new PhraseNodeData(), languages, Guid.NewGuid().ToString());
+            node.Set(new PhraseNodeData(), languages, soundAsset, Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);
@@ -114,9 +116,13 @@ namespace AaDialogueGraph.Editor
         }
 
         private List<string> GetLanguages() => contentContainer.Q<EntryNode>().GetLanguages() ?? new List<string>();
-       
-        
-        
+
+        private List<string> GetSoundAsset()
+        {
+            var keys = contentContainer.Q<SoundAssetField>().GetSoundAsset();
+            return keys != null ? keys.Keys : new List<string>();
+        }
+
         private Vector2 GetNewNodePosition()
         {
             var worldPosition = Event.current.mousePosition + Vector2.up * 100;
@@ -150,7 +156,7 @@ namespace AaDialogueGraph.Editor
                     {
                         var tableContainer = node.Q<ElementsTable>();
                         var field = new PhraseElementsRowField();
-                        field.Set(AaKeys.LanguageKeys[0], onChange: node.CheckNodeContent);
+                        field.Set(AaKeys.LanguageKeys[0], new List<string>(), null, null, node.CheckNodeContent);
                         tableContainer?.Add(field);
                         node.CheckNodeContent();
                     }

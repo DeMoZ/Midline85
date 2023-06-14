@@ -19,8 +19,9 @@ public class WwiseAudio : MonoBehaviour
         public PlayerProfile playerProfile;
         public string musicPath;
     }
-    [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
     
+    [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
+
     private Ctx _ctx;
     private string _currentMusicPath;
     private AudioClip _currentMusicClip;

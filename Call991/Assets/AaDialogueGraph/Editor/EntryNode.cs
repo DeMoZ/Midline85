@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Configs;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -22,14 +23,24 @@ namespace AaDialogueGraph.Editor
             var levelKey = new LevelIdPopupField(AaKeys.LevelIdKeys, levelId);
             contentContainer.Add(levelKey);
 
+            var soundLabel = new Label("Sounds");
+            var soundAsset = string.IsNullOrEmpty(data.SoundAsset)
+                ? null
+                : NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(data.SoundAsset);
+            
+            var soundField = new SoundAssetField();
+            soundField.Set(soundAsset);
+            var soundAssetLineGroup = new LineGroup(new VisualElement[] { soundLabel, soundField });
+            contentContainer.Add(soundAssetLineGroup);
+            
             var btnLabel = new Label("btn.Filter");
             var buttonFilterField = new ButtonFilterTextField
             {
                 value = data.ButtonFilter
             };
 
-            var lineGroup = new LineGroup(new VisualElement[] { btnLabel, buttonFilterField });
-            contentContainer.Add(lineGroup);
+            var btnFilterLineGroup = new LineGroup(new VisualElement[] { btnLabel, buttonFilterField });
+            contentContainer.Add(btnFilterLineGroup);
 
             var addLanguageButton = new Button(() =>
             {
