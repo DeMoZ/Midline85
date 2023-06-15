@@ -140,17 +140,23 @@ public class WwiseAudio : MonoBehaviour
         
     }
 
-    public void PlayPhrase(List<string> sounds, string phraseSketchText)
+    public uint? PlayPhrase(List<string> sounds, string phraseSketchText)
     {
         var phraseSound = GetWwiseAudioKey(sounds);
-        if (!string.Equals(phraseSound, AaGraphConstants.None))
+        var isNone = string.Equals(phraseSound, AaGraphConstants.None);
+        if (!isNone)
         {
-            AkSoundEngine.PostEvent(phraseSound, gameObject);
+            return AkSoundEngine.PostEvent(phraseSound, gameObject);
         }
-        else
-        {
-            Debug.LogError($"NONE sound for phrase {phraseSketchText}");
-        }
+
+        Debug.LogError($"NONE sound for phrase {phraseSketchText}");
+        return null;
+    }
+    
+    public void StopPhrase(uint? voiceId)
+    {
+        if (voiceId.HasValue)
+           AkSoundEngine.StopPlayingID(voiceId.Value); 
     }
     
     private string GetWwiseAudioKey(List<string> data)

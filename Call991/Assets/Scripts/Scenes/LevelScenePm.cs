@@ -59,6 +59,7 @@ public class LevelScenePm : IDisposable
     private readonly ReactiveProperty<bool> _isPhraseSkipped = new();
     private readonly ReactiveProperty<bool> _isChoiceDone = new();
     private CancellationTokenSource _tokenSource;
+
     /// <summary>
     /// Choice button selection with keyboard.
     /// </summary>
@@ -71,7 +72,7 @@ public class LevelScenePm : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-        
+
         _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
 
@@ -156,14 +157,13 @@ public class LevelScenePm : IDisposable
         if (ends.Any())
         {
             var end = ends.First();
-            dialogueEvents.AddRange(end.EventVisualData); // TODO check if this is not required line (possible twice added)
+            dialogueEvents.AddRange(end
+                .EventVisualData); // TODO check if this is not required line (possible twice added)
             RunEndNode(end);
         }
-        
+
         foreach (var phraseData in phrases)
         {
-            _ctx.AudioManager.PlayPhrase(phraseData.PhraseSounds, phraseData.PhraseSketchText);
-
             var phrase = content[$"p_{phraseData.Guid}"] as Phrase;
             var routine = Observable.FromCoroutine(() => RunPhrase(phraseData, phrase));
             observables = observables.Concat(new[] { routine }).ToArray();
@@ -180,14 +180,14 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunChoices(_choices));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
-        
+
         if (newspapers.Any() && !_ctx.OverridenDialogue.SkipNewspaper)
         {
             var newspaper = newspapers.First();
             var routine = Observable.FromCoroutine(() => RunNewspaperNode(content[newspaper.Guid] as Sprite));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
-        
+
         Observable.WhenAll(observables)
             .Subscribe(_ =>
             {
@@ -256,7 +256,7 @@ public class LevelScenePm : IDisposable
         {
             var phrase = await _ctx.ContentLoader.GetPhraseAsync(phraseData);
             content[$"p_{phraseData.Guid}"] = phrase;
-            
+
             // [Depricated - moved to wwise]
             // var audioClip = await _ctx.ContentLoader.GetVoiceAsync(phraseData);
             // content[$"a_{phraseData.Guid}"] = audioClip;
@@ -290,10 +290,13 @@ public class LevelScenePm : IDisposable
 
         _ctx.OnShowPhrase.Execute(uiPhrase);
 
+        var voiceId = _ctx.AudioManager.PlayPhrase(data.PhraseSounds, data.PhraseSketchText);
+        
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
 
         //Debug.LogError($"[{this}] hide Text called anyway");
+        _ctx.AudioManager.StopPhrase(voiceId);
         _ctx.onHidePhrase.Execute(uiPhrase);
     }
 
@@ -368,7 +371,7 @@ public class LevelScenePm : IDisposable
             button.gameObject.SetActive(false);
         }
     }
-    
+
     private IEnumerator RunNewspaperNode(Sprite sprite)
     {
         Debug.Log($"[{this}] RunEventNode {sprite}");
@@ -382,12 +385,12 @@ public class LevelScenePm : IDisposable
         {
             container.Value = true;
         }
-        
+
         _ctx.cursorSettings.EnableCursor(false);
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
         yield return new WaitForSeconds(_ctx.gameSet.shortFadeTime);
         _ctx.cursorSettings.EnableCursor(true);
-        
+
         var delay = new WaitForSeconds(0.1f);
         while (!container.Value)
         {
@@ -399,7 +402,7 @@ public class LevelScenePm : IDisposable
         yield return new WaitForSeconds(_ctx.gameSet.shortFadeTime);
 
         _ctx.OnShowLevelUi?.Execute();
-        
+
         _ctx.cursorSettings.EnableCursor(true);
     }
 
