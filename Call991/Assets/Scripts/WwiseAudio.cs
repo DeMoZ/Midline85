@@ -13,27 +13,27 @@ public class WwiseAudio : MonoBehaviour
     {
         public ReactiveProperty<List<string>> LevelLanguages;
         public PlayerProfile Profile;
-        
+
         public GameSet GameSet;
         public AudioMixer audioMixer;
         public string musicPath;
     }
-    
+
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
 
     private Ctx _ctx;
-    private string _currentMusicPath;
-    private AudioClip _currentMusicClip;
-    private Dictionary<string, LoopAudioSource> _loopSounds;
-    private List<TempAudioSource> _sfxs;
+    private GameObject _phraseGo;
+    private List<uint> _playingVoices;
+
 
     private CompositeDisposable _disposables;
     private CancellationTokenSource _tokenSource;
+
     public void SetCtx(Ctx ctx)
     {
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-        
+
         _ctx = ctx;
         menuButtonAudioSettings.OnHover += PlayUiSound;
         _ctx.Profile.onVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
@@ -45,6 +45,7 @@ public class WwiseAudio : MonoBehaviour
         _tokenSource?.Cancel();
         _disposables?.Dispose();
     }
+
     private void OnVolumeChanged((AudioSourceType source, float volume) value)
     {
         /*switch (value.source)
@@ -92,7 +93,6 @@ public class WwiseAudio : MonoBehaviour
     }
 
 
-
     public void OnSceneSwitch()
     {
         // _loopSounds ??= new Dictionary<string, LoopAudioSource>();
@@ -108,57 +108,60 @@ public class WwiseAudio : MonoBehaviour
         // timerAudioSource.clip = null;
     }
 
-    public void Pause(bool pause)
-    {
-        // if (pause)
-        //     timerAudioSource?.Pause();
-        // else
-        //     timerAudioSource?.UnPause();
-        //
-        // if (_loopSounds != null)
-        //     foreach (var source in _loopSounds)
-        //     {
-        //         if (source.Value)
-        //             source.Value.Pause(pause);
-        //     }
-        //
-        // if (_sfxs != null)
-        //     foreach (var source in _sfxs)
-        //     {
-        //         source.Pause(pause);
-        //     }
-    }
-
     private void SetPhraseVolume()
     {
         // if (_phraseAudioSource != null)
         //     _phraseAudioSource.volume = _ctx.playerProfile.PhraseVolume;
     }
 
-    public void PlayEventSound(EventVisualData data, AudioClip audioClip)
-    {
-        
-    }
-
-    public uint? PlayPhrase(List<string> sounds, string phraseSketchText)
+    public uint? PlayPhrase(List<string> sounds)
     {
         var phraseSound = GetWwiseAudioKey(sounds);
-        var isNone = string.Equals(phraseSound, AaGraphConstants.None);
-        if (!isNone)
+        var isNoKey = string.Equals(phraseSound, AaGraphConstants.None) || string.IsNullOrEmpty(phraseSound);
+
+        if (!isNoKey)
         {
-            return AkSoundEngine.PostEvent(phraseSound, gameObject);
+            var voiceId = AkSoundEngine.PostEvent(phraseSound, _phraseGo);
+            _playingVoices.Add(voiceId);
+            return voiceId;
         }
 
-        Debug.LogError($"NONE sound for phrase {phraseSketchText}");
         return null;
     }
-    
-    public void StopPhrase(uint? voiceId)
+
+    public void StopPhrase(uint voiceId)
     {
-        if (voiceId.HasValue)
-           AkSoundEngine.StopPlayingID(voiceId.Value); 
+        AkSoundEngine.StopPlayingID(voiceId);
     }
-    
+
+    public void PausePhrases()
+    {
+        foreach (var voiceId in _playingVoices)
+            AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Pause, voiceId);
+    }
+
+    public void UnPausePhrases()
+    {
+        foreach (var voiceId in _playingVoices)
+            AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Resume, voiceId);
+    }
+
+    public void CreatePhraseVoiceObject()
+    {
+        _playingVoices = new();
+        _phraseGo = new GameObject("PhraseVoiceGO");
+        _phraseGo.transform.parent = gameObject.transform;
+    }
+
+    public void ClearPhraseVoiceObject()
+    {
+        foreach (var voiceId in _playingVoices)
+            AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Stop, voiceId);
+
+        _playingVoices.Clear();
+        Destroy(_phraseGo);
+    }
+
     private string GetWwiseAudioKey(List<string> data)
     {
         if (_ctx.LevelLanguages.Value == null || _ctx.LevelLanguages.Value.Count == 0) return null;
@@ -168,5 +171,32 @@ public class WwiseAudio : MonoBehaviour
         if (index == -1) return null;
 
         return data[index];
+    }
+
+
+    //------
+    public AK.Wwise.Event someSound;
+
+    void _Start()
+    {
+        // Play the sound
+        someSound.Post(gameObject);
+    }
+
+    void _Update()
+    {
+        // Pause the sound
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            someSound.ExecuteAction(_phraseGo, AkActionOnEventType.AkActionOnEventType_Pause, 0,
+                AkCurveInterpolation.AkCurveInterpolation_Linear);
+        }
+
+        // Resume the sound
+        if (Input.GetKeyUp(KeyCode.Space))
+        {
+            someSound.ExecuteAction(gameObject, AkActionOnEventType.AkActionOnEventType_Resume, 0,
+                AkCurveInterpolation.AkCurveInterpolation_Linear);
+        }
     }
 }

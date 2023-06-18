@@ -73,11 +73,6 @@ public class LevelSceneEntity : IGameScene
         var countDown = _ui.CountDown;
         _ctx.LevelLanguages.Value = _ctx.LevelData.GetEntryNode().Languages;
 
-        var phraseSoundPlayer = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
-        {
-            AudioSource = _ui.PhraseAudioSource,
-        }).AddTo(_disposables);
-
         var contentLoader = new ContentLoader(new ContentLoader.Ctx
         {
             LevelLanguages = _ctx.LevelLanguages.Value,
@@ -100,25 +95,24 @@ public class LevelSceneEntity : IGameScene
             FindNext = findNext,
             OnNext = onNext,
             OverridenDialogue = _ctx.OverridenDialogue,
-            onSwitchScene = _ctx.OnSwitchScene,
-            onClickMenuButton = onClickMenuButton,
+            OnSwitchScene = _ctx.OnSwitchScene,
+            OnClickMenuButton = onClickMenuButton,
             OnShowLevelUi = onShowLevelUi,
 
             OnShowPhrase = onShowPhrase,
-            PhraseSoundPlayer = phraseSoundPlayer,
             ContentLoader = contentLoader,
             ObjectEvents = _ctx.ObjectEvents,
 
-            onHidePhrase = onHidePhrase,
-            onAfterEnter = onAfterEnter,
-            gameSet = _ctx.GameSet,
+            OnHidePhrase = onHidePhrase,
+            OnAfterEnter = onAfterEnter,
+            GameSet = _ctx.GameSet,
             buttons = buttons,
             countDown = countDown,
             AudioManager = _ctx.AudioManager,
             OnLevelEnd = onLevelEnd,
             OnShowNewspaper = onShowNewspaper,
-            onSkipPhrase = onSkipPhrase,
-            onClickPauseButton = onClickPauseButton,
+            OnSkipPhrase = onSkipPhrase,
+            OnClickPauseButton = onClickPauseButton,
             videoManager = _ctx.VideoManager,
             Blocker = _ctx.Blocker,
             cursorSettings = _ctx.CursorSettings,

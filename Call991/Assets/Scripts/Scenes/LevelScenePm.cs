@@ -25,24 +25,23 @@ public class LevelScenePm : IDisposable
 
         public WwiseAudio AudioManager;
         public ReactiveCommand OnShowLevelUi;
-        public ReactiveCommand<GameScenes> onSwitchScene;
-        public ReactiveCommand onClickMenuButton;
-        public ReactiveCommand<UiPhraseData> onHidePhrase;
+        public ReactiveCommand<GameScenes> OnSwitchScene;
+        public ReactiveCommand OnClickMenuButton;
+        public ReactiveCommand<UiPhraseData> OnHidePhrase;
         public ReactiveCommand<List<RecordData>> OnLevelEnd;
         public ObjectEvents ObjectEvents;
 
-        public PhraseSoundPlayer PhraseSoundPlayer;
         public ContentLoader ContentLoader;
         public List<ChoiceButtonView> buttons;
         public CountDownView countDown;
 
-        public ReactiveCommand onAfterEnter;
-        public GameSet gameSet;
+        public ReactiveCommand OnAfterEnter;
+        public GameSet GameSet;
 
         public ReactiveCommand<(Container<bool> task, Sprite sprite)> OnShowNewspaper;
 
-        public ReactiveCommand onSkipPhrase;
-        public ReactiveCommand<bool> onClickPauseButton;
+        public ReactiveCommand OnSkipPhrase;
+        public ReactiveCommand<bool> OnClickPauseButton;
         public VideoManager videoManager;
         public Blocker Blocker;
         public CursorSet cursorSettings;
@@ -73,19 +72,21 @@ public class LevelScenePm : IDisposable
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
 
+        _ctx.AudioManager.CreatePhraseVoiceObject();
+        
         _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
 
         _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
-        _ctx.onSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
-        _ctx.onClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
+        _ctx.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
+        _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
-        _ctx.onClickMenuButton.Subscribe(_ =>
+        _ctx.OnClickMenuButton.Subscribe(_ =>
         {
             //_ctx.AudioManager.PlayUiSound(SoundUiTypes.MenuButton);
-            _ctx.onSwitchScene.Execute(GameScenes.Menu);
+            _ctx.OnSwitchScene.Execute(GameScenes.Menu);
         }).AddTo(_disposables);
-        _ctx.onAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
+        _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
     private void OnAfterEnter()
@@ -99,11 +100,16 @@ public class LevelScenePm : IDisposable
     private void SetPause(bool pause)
     {
         Time.timeScale = pause ? 0 : 1;
-        _ctx.PhraseSoundPlayer.Pause(pause);
-        //_ctx.AudioManager.Pause(pause);
 
-        if (!pause)
+        if (pause)
+        {
+            _ctx.AudioManager.PausePhrases();
+        }
+        else
+        {
+            _ctx.AudioManager.UnPausePhrases();
             _selectionPlaced = false;
+        }
     }
 
     private void OnSkipPhrase()
@@ -290,14 +296,17 @@ public class LevelScenePm : IDisposable
 
         _ctx.OnShowPhrase.Execute(uiPhrase);
 
-        var voiceId = _ctx.AudioManager.PlayPhrase(data.PhraseSounds, data.PhraseSketchText);
+        var voiceId = _ctx.AudioManager.PlayPhrase(data.PhraseSounds);
         
+        if (voiceId == null)
+            Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
+
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
 
-        //Debug.LogError($"[{this}] hide Text called anyway");
-        _ctx.AudioManager.StopPhrase(voiceId);
-        _ctx.onHidePhrase.Execute(uiPhrase);
+        if (voiceId != null) _ctx.AudioManager.StopPhrase(voiceId.Value);
+
+        _ctx.OnHidePhrase.Execute(uiPhrase);
     }
 
     private IEnumerator RunEventNode(EventNodeData data)
@@ -330,7 +339,7 @@ public class LevelScenePm : IDisposable
                 var prefab = content[data.PhraseEvent] as GameObject;
                 if (prefab == null) break;
                 var eventObject = Object.Instantiate(prefab).GetComponent<PhraseObjectEvent>();
-                eventObject.SetCtx(_ctx.ObjectEvents, _ctx.gameSet);
+                eventObject.SetCtx(_ctx.ObjectEvents, _ctx.GameSet);
 
                 yield return eventObject.AwaitInvoke();
 
@@ -353,7 +362,7 @@ public class LevelScenePm : IDisposable
             _ctx.buttons[i].Show(choice.Choice, choice.IsLocked);
         }
 
-        foreach (var t in Timer(_ctx.gameSet.choicesDuration, _isChoiceDone)) yield return t;
+        foreach (var t in Timer(_ctx.GameSet.choicesDuration, _isChoiceDone)) yield return t;
 
         if (!_isChoiceDone.Value)
         {
@@ -362,9 +371,9 @@ public class LevelScenePm : IDisposable
 
         //_ctx.AudioManager.StopTimer();
         //_ctx.AudioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
-        _ctx.countDown.Stop(_ctx.gameSet.fastButtonFadeDuration);
+        _ctx.countDown.Stop(_ctx.GameSet.fastButtonFadeDuration);
 
-        foreach (var t in Timer(_ctx.gameSet.slowButtonFadeDuration)) yield return t;
+        foreach (var t in Timer(_ctx.GameSet.slowButtonFadeDuration)) yield return t;
 
         foreach (var button in _ctx.buttons)
         {
@@ -388,7 +397,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.cursorSettings.EnableCursor(false);
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
-        yield return new WaitForSeconds(_ctx.gameSet.shortFadeTime);
+        yield return new WaitForSeconds(_ctx.GameSet.shortFadeTime);
         _ctx.cursorSettings.EnableCursor(true);
 
         var delay = new WaitForSeconds(0.1f);
@@ -399,7 +408,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.cursorSettings.EnableCursor(false);
         _ctx.Blocker.FadeScreenBlocker(true).Forget();
-        yield return new WaitForSeconds(_ctx.gameSet.shortFadeTime);
+        yield return new WaitForSeconds(_ctx.GameSet.shortFadeTime);
 
         _ctx.OnShowLevelUi?.Execute();
 
@@ -511,7 +520,7 @@ private Choice RandomSelectButton(List<Choice> choices)
     {
         _ctx.countDown.SetCtx(new CountDownView.Ctx
         {
-            buttonsAppearDuration = _ctx.gameSet.buttonsAppearDuration,
+            buttonsAppearDuration = _ctx.GameSet.buttonsAppearDuration,
         });
 
         foreach (var button in _ctx.buttons)
@@ -519,15 +528,17 @@ private Choice RandomSelectButton(List<Choice> choices)
             button.SetCtx(new ChoiceButtonView.Ctx
             {
                 onClickChoiceButton = _onClickChoiceButton,
-                buttonsAppearDuration = _ctx.gameSet.buttonsAppearDuration,
-                fastButtonFadeDuration = _ctx.gameSet.fastButtonFadeDuration,
-                slowButtonFadeDuration = _ctx.gameSet.slowButtonFadeDuration,
+                buttonsAppearDuration = _ctx.GameSet.buttonsAppearDuration,
+                fastButtonFadeDuration = _ctx.GameSet.fastButtonFadeDuration,
+                slowButtonFadeDuration = _ctx.GameSet.slowButtonFadeDuration,
             });
         }
     }
 
     public void Dispose()
     {
+        _ctx.AudioManager.ClearPhraseVoiceObject();
+
         _tokenSource.Cancel();
         _disposables.Dispose();
     }
