@@ -3,7 +3,11 @@
 	<GameParameters>
 		<WorkUnit Name="Default Work Unit" ID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}" PersistMode="Standalone">
 			<ChildrenList>
-				<GameParameter Name="TestGameRTPC" ID="{C522716D-3A42-4243-8EB5-2E5B841C63F8}"/>
+				<GameParameter Name="TestGameRTPC" ID="{C522716D-3A42-4243-8EB5-2E5B841C63F8}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

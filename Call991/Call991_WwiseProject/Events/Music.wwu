@@ -5,6 +5,16 @@
 			<ChildrenList>
 				<Event Name="Music" ID="{8CC448A1-D5F6-487C-A950-4C978728F7B5}">
 					<ChildrenList>
+						<Action Name="" ID="{2D6DBE9C-A90A-4311-90AA-DD6E8D48EA5A}" ShortID="820300406">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="23"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}" WorkUnitID="{1111BE23-E6A7-4989-A558-82A2B0465646}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{B7ABD242-6939-4ABB-BBF3-544046E5CC63}" ShortID="760225426">
 							<ReferenceList>
 								<Reference Name="Target">

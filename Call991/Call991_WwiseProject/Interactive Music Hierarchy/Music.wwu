@@ -260,6 +260,9 @@
 							</TransitionList>
 							<Playlist>
 								<MusicPlaylistItem Name="" ID="{CF44011D-5420-4267-8C5D-AEFB32A3EE97}" ShortID="419551570">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
 									<ChildrenList>
 										<MusicPlaylistItem Name="" ID="{121C7092-7581-4FFF-9313-4236C812969B}" ShortID="442220020">
 											<PropertyList>
@@ -280,7 +283,7 @@
 							<ChildrenList>
 								<MusicTransition Name="Transition" ID="{D80F951F-A778-4A47-A0EB-DE57578A9A04}">
 									<PropertyList>
-										<Property Name="ExitSourceAt" Type="int16" Value="0"/>
+										<Property Name="ExitSourceAt" Type="int16" Value="2"/>
 									</PropertyList>
 									<TransitionInfo/>
 								</MusicTransition>
@@ -288,6 +291,21 @@
 							<TransitionInfo/>
 						</MusicTransition>
 					</TransitionList>
+					<ObjectLists>
+						<ObjectList Name="Stingers">
+							<Reference>
+								<Local>
+									<MusicStinger Name="" ID="{821ED73F-E347-40E7-80AF-1F12B11EE4CE}">
+										<PropertyList>
+											<Property Name="PlaySegmentAt" Type="int16" Value="2"/>
+										</PropertyList>
+										<TriggerRef Name="TestTrigger" ID="{FE73CE6C-2F50-4B94-815C-8277F06E8207}" WorkUnitID="{49B5C3FB-6DCA-4691-93C9-3BFB5DC62452}"/>
+										<SegmentRef Name="TestTrigger" ID="{64A1D988-644B-4202-BEFA-C1626FE39F07}" WorkUnitID="{24A91CE3-8FF8-4850-B044-E96FCCA1AC2D}"/>
+									</MusicStinger>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
 					<ArgumentList>
 						<ArgumentRef Name="MusicState" ID="{4779E08F-C1AC-405E-BB9B-CD73369FCAFE}"/>
 					</ArgumentList>
@@ -310,6 +328,7 @@
 						</Entry>
 					</EntryList>
 				</MusicSwitchContainer>
+				<WorkUnit Name="Trigger" ID="{24A91CE3-8FF8-4850-B044-E96FCCA1AC2D}" PersistMode="Reference"/>
 			</ChildrenList>
 		</WorkUnit>
 	</InteractiveMusic>

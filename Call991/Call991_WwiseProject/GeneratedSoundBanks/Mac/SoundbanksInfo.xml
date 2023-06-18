@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{AEF4A992-D898-39A0-B0FC-40E9CD06F855}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{20E7AF9D-B0D3-6BFA-1C55-81A5DE97EBA2}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -33,17 +33,17 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="English(US)" Hash="{7C6E6908-4DA7-22E9-48FA-A86FEE9339C1}">
+		<SoundBank Id="4056684167" Type="User" Language="English(US)" Hash="{D40E661B-13AC-DF37-85AB-00690FC9A285}">
 			<ShortName>Master</ShortName>
 			<Path>English(US)/Master.bnk</Path>
 			<Media>
 				<File Id="104576181" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>elena.5.wav</ShortName>
-					<CachePath>Voices/English(US)/elena.5_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/elena.5_ECF75A22.wem</CachePath>
 				</File>
 				<File Id="219082802" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>elena.3.wav</ShortName>
-					<CachePath>Voices/English(US)/elena.3_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/elena.3_2CCD5255.wem</CachePath>
 				</File>
 				<File Id="275931472" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>psycho1.elena.005.wav</ShortName>
@@ -51,19 +51,31 @@
 				</File>
 				<File Id="283080326" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>elena.2.wav</ShortName>
-					<CachePath>Voices/English(US)/elena.2_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/elena.2_62A70331.wem</CachePath>
+				</File>
+				<File Id="295073302" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Overlap.wav</ShortName>
+					<CachePath>SFX/UI_Overlap_BFB259A6.wem</CachePath>
+				</File>
+				<File Id="302530676" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>-07-glued-01.wav</ShortName>
+					<CachePath>SFX/-07-glued-01_D79FB2B7.wem</CachePath>
 				</File>
 				<File Id="319898978" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_jacket.wav</ShortName>
 					<CachePath>SFX/sfx_jacket_10C4C929.wem</CachePath>
 				</File>
+				<File Id="345689351" Language="English(US)" Streaming="false" Location="Memory">
+					<ShortName>English.wav</ShortName>
+					<CachePath>Voices/English(US)/English_10C4C929.wem</CachePath>
+				</File>
 				<File Id="358267263" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>elena.4.wav</ShortName>
-					<CachePath>Voices/English(US)/elena.4_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/elena.4_6E7298CA.wem</CachePath>
 				</File>
 				<File Id="391722621" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>elena.1.wav</ShortName>
-					<CachePath>Voices/English(US)/elena.1_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/elena.1_0AC09AE8.wem</CachePath>
 				</File>
 				<File Id="556255674" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>psycho1.elena.003.wav</ShortName>
@@ -71,7 +83,15 @@
 				</File>
 				<File Id="738939156" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>psycho1.elena.001.wav</ShortName>
-					<CachePath>Voices/English(US)/psycho1.elena.001_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/psycho1.elena.001_F0A9930B.wem</CachePath>
+				</File>
+				<File Id="809737166" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Click_Game.wav</ShortName>
+					<CachePath>SFX/UI_Click_Game_181DC7AA.wem</CachePath>
+				</File>
+				<File Id="838611190" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Click_Menu.wav</ShortName>
+					<CachePath>SFX/UI_Click_Menu_DA80F35B.wem</CachePath>
 				</File>
 				<File Id="855236198" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>valhalla_light_130bpm_a7.wav</ShortName>
@@ -83,7 +103,7 @@
 				</File>
 				<File Id="941949314" Language="English(US)" Streaming="false" Location="Memory">
 					<ShortName>elena.6.wav</ShortName>
-					<CachePath>Voices/English(US)/elena.6_10C4C929.wem</CachePath>
+					<CachePath>Voices/English(US)/elena.6_D98D01C8.wem</CachePath>
 				</File>
 				<File Id="987752079" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>valhalla_light_130bpm_a1.wav</ShortName>
@@ -100,37 +120,40 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
-				<Event Id="183767048" Name="elena_1" DurationType="OneShot" DurationMin="17.566668" DurationMax="17.566668">
+				<Event Id="183767048" Name="elena_1" DurationType="OneShot" DurationMin="17.247263" DurationMax="17.247263">
 					<MediaRefs>
 						<MediaRef Id="391722621"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="183767051" Name="elena_2" DurationType="OneShot" DurationMin="5.133333" DurationMax="5.133333">
+				<Event Id="183767051" Name="elena_2" DurationType="OneShot" DurationMin="4.8317347" DurationMax="4.8317347">
 					<MediaRefs>
 						<MediaRef Id="283080326"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="183767050" Name="elena_3" DurationType="OneShot" DurationMin="0.93333334" DurationMax="0.93333334">
+				<Event Id="183767050" Name="elena_3" DurationType="OneShot" DurationMin="0.7542766" DurationMax="0.7542766">
 					<MediaRefs>
 						<MediaRef Id="219082802"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="183767053" Name="elena_4" DurationType="OneShot" DurationMin="2.7333333" DurationMax="2.7333333">
+				<Event Id="183767053" Name="elena_4" DurationType="OneShot" DurationMin="2.592406" DurationMax="2.592406">
 					<MediaRefs>
 						<MediaRef Id="358267263"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="183767052" Name="elena_5" DurationType="OneShot" DurationMin="2.8" DurationMax="2.8">
+				<Event Id="183767052" Name="elena_5" DurationType="OneShot" DurationMin="2.638849" DurationMax="2.638849">
 					<MediaRefs>
 						<MediaRef Id="104576181"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="183767055" Name="elena_6" DurationType="OneShot" DurationMin="1.1666666" DurationMax="1.1666666">
+				<Event Id="183767055" Name="elena_6" DurationType="OneShot" DurationMin="0.9820144" DurationMax="0.9820144">
 					<MediaRefs>
 						<MediaRef Id="941949314"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3991942870" Name="Music" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="302530676"/>
+					</MediaRefs>
 					<SwitchContainers>
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="1021618141" Id="1064933119"/>
@@ -155,6 +178,9 @@
 							</PluginRefs>
 						</SwitchContainer>
 					</SwitchContainers>
+					<ActionSetSwitch>
+						<ActionSetSwitchEntry GroupId="1021618141" Id="1064933119" Name="One"/>
+					</ActionSetSwitch>
 				</Event>
 				<Event Id="405579864" Name="psycho1_elena_001" DurationType="OneShot" DurationMin="2.8" DurationMax="2.8">
 					<MediaRefs>
@@ -186,6 +212,26 @@
 						<MediaRef Id="319898978"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3276085083" Name="TestVoiceLanguage" DurationType="OneShot" DurationMin="1.3125625" DurationMax="1.3125625">
+					<MediaRefs>
+						<MediaRef Id="345689351"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3815197131" Name="UI_Click_Game" DurationType="OneShot" DurationMin="1.3" DurationMax="1.3">
+					<MediaRefs>
+						<MediaRef Id="809737166"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="574050428" Name="UI_Click_Menu" DurationType="OneShot" DurationMin="0.1106729" DurationMax="0.11725385">
+					<MediaRefs>
+						<MediaRef Id="838611190"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1463049803" Name="UI_Overlap" DurationType="OneShot" DurationMin="0.09438743" DurationMax="0.10594632">
+					<MediaRefs>
+						<MediaRef Id="295073302"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 			<GameParameters>
 				<GameParameter Id="3881602766" Name="TestGameRTPC"/>
@@ -198,7 +244,216 @@
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
+			<Triggers>
+				<Trigger Id="1624638295" Name="TestTrigger"/>
+			</Triggers>
+		</SoundBank>
+		<SoundBank Id="4056684167" Type="User" Language="Russia" Hash="{63ACA70F-FD34-6143-CD65-FB015F3B02B2}">
+			<ShortName>Master</ShortName>
+			<Path>Russia/Master.bnk</Path>
+			<Media>
+				<File Id="295073302" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Overlap.wav</ShortName>
+					<CachePath>SFX/UI_Overlap_BFB259A6.wem</CachePath>
+				</File>
+				<File Id="302530676" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>-07-glued-01.wav</ShortName>
+					<CachePath>SFX/-07-glued-01_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="319898978" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_jacket.wav</ShortName>
+					<CachePath>SFX/sfx_jacket_10C4C929.wem</CachePath>
+				</File>
+				<File Id="809737166" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Click_Game.wav</ShortName>
+					<CachePath>SFX/UI_Click_Game_181DC7AA.wem</CachePath>
+				</File>
+				<File Id="838611190" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Click_Menu.wav</ShortName>
+					<CachePath>SFX/UI_Click_Menu_DA80F35B.wem</CachePath>
+				</File>
+				<File Id="855236198" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>valhalla_light_130bpm_a7.wav</ShortName>
+					<CachePath>SFX/valhalla_light_130bpm_a7_D79FB2B7.wem</CachePath>
+				</File>
+				<File Id="935448665" Language="Russia" Streaming="false" Location="Memory">
+					<ShortName>Russia.wav</ShortName>
+					<CachePath>Voices/Russia/Russia_10C4C929.wem</CachePath>
+				</File>
+				<File Id="987752079" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>valhalla_light_130bpm_a1.wav</ShortName>
+					<CachePath>SFX/valhalla_light_130bpm_a1_D79FB2B7.wem</CachePath>
+				</File>
+			</Media>
+			<Plugins>
+				<Custom>
+					<Plugin Id="297430488" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="316226564" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="375040400" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="382336288" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="608652408" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="626032263" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="633876268" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="920888939" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="998548385" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="1067751530" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="1073562381" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+				</Custom>
+				<ShareSets>
+					<Plugin Id="3435419520" Name="New_Guitar_Distortion" LibName="Wwise Guitar Distortion" LibId="8257539"/>
+				</ShareSets>
+			</Plugins>
+			<Events>
+				<Event Id="183767048" Name="elena_1" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="626032263"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="183767051" Name="elena_2" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="608652408"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="183767050" Name="elena_3" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="633876268"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="183767053" Name="elena_4" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="998548385"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="183767052" Name="elena_5" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="920888939"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="183767055" Name="elena_6" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="382336288"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="3991942870" Name="Music" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="302530676"/>
+					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1021618141" Id="1064933119"/>
+							<MediaRefs>
+								<MediaRef Id="987752079"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="3435419520"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="1021618141" Id="678209053"/>
+							<MediaRefs>
+								<MediaRef Id="855236198"/>
+							</MediaRefs>
+							<PluginRefs>
+								<ShareSets>
+									<PluginRef Id="3435419520"/>
+								</ShareSets>
+							</PluginRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetSwitch>
+						<ActionSetSwitchEntry GroupId="1021618141" Id="1064933119" Name="One"/>
+					</ActionSetSwitch>
+				</Event>
+				<Event Id="405579864" Name="psycho1_elena_001" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="297430488"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="405579867" Name="psycho1_elena_002" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="1073562381"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="405579866" Name="psycho1_elena_003" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="316226564"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="405579869" Name="psycho1_elena_004" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="1067751530"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="405579868" Name="psycho1_elena_005" DurationType="OneShot" DurationMin="0.301" DurationMax="0.301">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="375040400"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+				<Event Id="1717033963" Name="sfx_jacket" DurationType="OneShot" DurationMin="10.7" DurationMax="10.7">
+					<MediaRefs>
+						<MediaRef Id="319898978"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3276085083" Name="TestVoiceLanguage" DurationType="OneShot" DurationMin="1.0070417" DurationMax="1.0070417">
+					<MediaRefs>
+						<MediaRef Id="935448665"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3815197131" Name="UI_Click_Game" DurationType="OneShot" DurationMin="1.3" DurationMax="1.3">
+					<MediaRefs>
+						<MediaRef Id="809737166"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="574050428" Name="UI_Click_Menu" DurationType="OneShot" DurationMin="0.1106729" DurationMax="0.11725385">
+					<MediaRefs>
+						<MediaRef Id="838611190"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1463049803" Name="UI_Overlap" DurationType="OneShot" DurationMin="0.09438743" DurationMax="0.10594632">
+					<MediaRefs>
+						<MediaRef Id="295073302"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+			<GameParameters>
+				<GameParameter Id="3881602766" Name="TestGameRTPC"/>
+			</GameParameters>
+			<SwitchGroups>
+				<SwitchGroup Id="1021618141" Name="MusicState">
+					<Switches>
+						<Switch Id="678209053" Name="Two"/>
+						<Switch Id="1064933119" Name="One"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
+			<Triggers>
+				<Trigger Id="1624638295" Name="TestTrigger"/>
+			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A2412BA2-0202-FD53-9F3B-43BE64EB5E40}</FileHash>
+	<FileHash>{4CCA77E7-F83F-4556-9148-02615F9F9091}</FileHash>
 </SoundBanksInfo>

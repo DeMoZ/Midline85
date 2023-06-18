@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{89606E4A-0CB9-4EDB-A9BD-592F01A34DB8}" SchemaVersion="110">
 	<Events>
-		<WorkUnit Name="Default Work Unit" ID="{89606E4A-0CB9-4EDB-A9BD-592F01A34DB8}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{89606E4A-0CB9-4EDB-A9BD-592F01A34DB8}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="TestVoiceLanguage" ID="{7E969093-95A8-4D79-81F2-7739EFE4E3AE}">
+					<ChildrenList>
+						<Action Name="" ID="{BC4947F5-F58B-47E4-8AD8-F7A9ADBA256A}" ShortID="352101876">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TestVoiceLanguage" ID="{2BDF95FF-96D3-4F7C-BC47-68D3A6D5C514}" WorkUnitID="{ED7C04B1-58B8-4F2E-9507-9DD0AAB10A70}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
 	</Events>
 </WwiseDocument>
