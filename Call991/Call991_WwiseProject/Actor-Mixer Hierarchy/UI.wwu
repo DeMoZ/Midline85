@@ -3,91 +3,19 @@
 	<AudioObjects>
 		<WorkUnit Name="UI" ID="{DA7FBD2A-0CB7-4DFB-B653-A74E1BF86E17}" PersistMode="Standalone">
 			<ChildrenList>
-				<RandomSequenceContainer Name="UI_Click_Game" ID="{7DB51E90-3343-44DE-8982-F624C1F7CEF9}" ShortID="1025987355">
-					<PropertyList>
-						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-					</PropertyList>
+				<ActorMixer Name="UI" ID="{300FC938-D6C4-46EF-A498-687AB524FDB5}" ShortID="401476297">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+							<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<Sound Name="UI_Click_Game" ID="{6CC34EA7-CAE2-4FE8-ADEE-8FD12F2AD4C8}" ShortID="1052415158">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="UI_Click_Game" ID="{E5F2BD87-B94B-4D36-92EC-DFA3F540094D}">
-									<PropertyList>
-										<Property Name="FadeInDuration" Type="Real64" Value="0.067313915857605"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-									</PropertyList>
-									<Language>SFX</Language>
-									<AudioFile>UI_Click_Game.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="809737166"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="UI_Click_Game" ID="{E5F2BD87-B94B-4D36-92EC-DFA3F540094D}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</RandomSequenceContainer>
-				<RandomSequenceContainer Name="UI_Overlap" ID="{8265D42A-5153-4AAE-85BE-1B4854E45692}" ShortID="394018761">
-					<PropertyList>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>27</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{674FB356-7CDF-43AE-ACC9-F8F6F1358871}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="100"/>
-											<Property Name="Min" Type="Real64" Value="-100"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-10.8</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<Sound Name="UI_Overlap" ID="{030AC9E3-12BC-46FB-9892-43296ADD7D73}" ShortID="921528708">
+						<RandomSequenceContainer Name="UI_Click_Game" ID="{7DB51E90-3343-44DE-8982-F624C1F7CEF9}" ShortID="1025987355">
 							<PropertyList>
 								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-24</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -98,50 +26,57 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="UI_Overlap" ID="{EA39DC1C-AA26-47C6-AFF4-FF5DEE864459}">
-									<Language>SFX</Language>
-									<AudioFile>UI_Overlap.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="295073302"/>
-									</MediaIDList>
-								</AudioFileSource>
+								<Sound Name="UI_Click_Game" ID="{6CC34EA7-CAE2-4FE8-ADEE-8FD12F2AD4C8}" ShortID="1052415158">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Click_Game" ID="{E5F2BD87-B94B-4D36-92EC-DFA3F540094D}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.067313915857605"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>UI_Click_Game.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="809737166"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Click_Game" ID="{E5F2BD87-B94B-4D36-92EC-DFA3F540094D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="UI_Overlap" ID="{EA39DC1C-AA26-47C6-AFF4-FF5DEE864459}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-					</ChildrenList>
-				</RandomSequenceContainer>
-				<BlendContainer Name="UI_Click_Menu" ID="{737B65E6-AEA3-425E-A03B-607D4007DB05}" ShortID="229631251">
-					<PropertyList>
-						<Property Name="Pitch" Type="int32">
-							<ModifierList>
-								<ModifierInfo>
-									<Modifier Name="" ID="{AEF7C24D-25B9-44C3-A16C-C906A974CA74}">
-										<PropertyList>
-											<Property Name="Enabled" Type="bool" Value="True"/>
-											<Property Name="Max" Type="Real64" Value="50"/>
-											<Property Name="Min" Type="Real64" Value="-50"/>
-										</PropertyList>
-									</Modifier>
-								</ModifierInfo>
-							</ModifierList>
-						</Property>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-						</Reference>
-					</ReferenceList>
-					<ChildrenList>
-						<RandomSequenceContainer Name="UI_Click_Menu" ID="{4F193116-967F-441B-AA0F-E37FCCCB59D1}" ShortID="967000297">
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="UI_Overlap" ID="{8265D42A-5153-4AAE-85BE-1B4854E45692}" ShortID="394018761">
 							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>27</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{674FB356-7CDF-43AE-ACC9-F8F6F1358871}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="100"/>
+													<Property Name="Min" Type="Real64" Value="-100"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6.1</Value>
+										<Value>-10.8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -154,13 +89,13 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<Sound Name="UI_Click_Menu" ID="{562AA343-D602-4A1E-ABB6-9FC87AC2BABE}" ShortID="132629160">
+								<Sound Name="UI_Overlap" ID="{030AC9E3-12BC-46FB-9892-43296ADD7D73}" ShortID="921528708">
 									<PropertyList>
 										<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 										<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-9.6</Value>
+												<Value>-24</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -173,28 +108,36 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<AudioFileSource Name="UI_Click_Menu" ID="{6BD41C72-DCB1-489A-BD29-F184C9151BD8}">
-											<PropertyList>
-												<Property Name="FadeOutDuration" Type="Real64" Value="0.0928802588996764"/>
-												<Property Name="FadeOutShape" Type="int16" Value="1"/>
-												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-												<Property Name="TrimBegin" Type="Real64" Value="0.0233009708737864"/>
-												<Property Name="TrimEnd" Type="Real64" Value="0.137216828478965"/>
-											</PropertyList>
+										<AudioFileSource Name="UI_Overlap" ID="{EA39DC1C-AA26-47C6-AFF4-FF5DEE864459}">
 											<Language>SFX</Language>
-											<AudioFile>UI_Click_Menu.wav</AudioFile>
+											<AudioFile>UI_Overlap.wav</AudioFile>
 											<MediaIDList>
-												<MediaID ID="838611190"/>
+												<MediaID ID="295073302"/>
 											</MediaIDList>
 										</AudioFileSource>
 									</ChildrenList>
 									<ActiveSourceList>
-										<ActiveSource Name="UI_Click_Menu" ID="{6BD41C72-DCB1-489A-BD29-F184C9151BD8}" Platform="Linked"/>
+										<ActiveSource Name="UI_Overlap" ID="{EA39DC1C-AA26-47C6-AFF4-FF5DEE864459}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
-						<Sound Name="UI_Overlap-002" ID="{8C8DFF35-103E-4568-BF0C-F42ECE042524}" ShortID="802252868">
+						<BlendContainer Name="UI_Click_Menu" ID="{737B65E6-AEA3-425E-A03B-607D4007DB05}" ShortID="229631251">
+							<PropertyList>
+								<Property Name="Pitch" Type="int32">
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{AEF7C24D-25B9-44C3-A16C-C906A974CA74}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Max" Type="Real64" Value="50"/>
+													<Property Name="Min" Type="Real64" Value="-50"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -204,20 +147,89 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="UI_Overlap-002" ID="{704D983B-B0A1-4D8E-88F5-3398A85801D3}">
-									<Language>SFX</Language>
-									<AudioFile>UI_Overlap-002.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="1072791647"/>
-									</MediaIDList>
-								</AudioFileSource>
+								<RandomSequenceContainer Name="UI_Click_Menu" ID="{4F193116-967F-441B-AA0F-E37FCCCB59D1}" ShortID="967000297">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-6.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="UI_Click_Menu" ID="{562AA343-D602-4A1E-ABB6-9FC87AC2BABE}" ShortID="132629160">
+											<PropertyList>
+												<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+												<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-9.6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="UI_Click_Menu" ID="{6BD41C72-DCB1-489A-BD29-F184C9151BD8}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.0928802588996764"/>
+														<Property Name="FadeOutShape" Type="int16" Value="1"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.0233009708737864"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.137216828478965"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>UI_Click_Menu.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="838611190"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="UI_Click_Menu" ID="{6BD41C72-DCB1-489A-BD29-F184C9151BD8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<Sound Name="UI_Overlap-002" ID="{8C8DFF35-103E-4568-BF0C-F42ECE042524}" ShortID="802252868">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="UI_Overlap-002" ID="{704D983B-B0A1-4D8E-88F5-3398A85801D3}">
+											<Language>SFX</Language>
+											<AudioFile>UI_Overlap-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1072791647"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="UI_Overlap-002" ID="{704D983B-B0A1-4D8E-88F5-3398A85801D3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
 							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="UI_Overlap-002" ID="{704D983B-B0A1-4D8E-88F5-3398A85801D3}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
+						</BlendContainer>
 					</ChildrenList>
-				</BlendContainer>
+				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>

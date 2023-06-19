@@ -1,0 +1,58 @@
+Event	ID	Name			Wwise Object Path	Notes
+	183767048	elena_1			\1 - Intro\Elena\elena_1	
+	183767050	elena_3			\1 - Intro\Elena\elena_3	
+	183767051	elena_2			\1 - Intro\Elena\elena_2	
+	183767052	elena_5			\1 - Intro\Elena\elena_5	
+	183767053	elena_4			\1 - Intro\Elena\elena_4	
+	183767055	elena_6			\1 - Intro\Elena\elena_6	
+	405579864	psycho1_elena_001			\Default Work Unit\psycho1_elena_001	
+	405579866	psycho1_elena_003			\Default Work Unit\psycho1_elena_003	
+	405579867	psycho1_elena_002			\Default Work Unit\psycho1_elena_002	
+	405579868	psycho1_elena_005			\Default Work Unit\psycho1_elena_005	
+	405579869	psycho1_elena_004			\Default Work Unit\psycho1_elena_004	
+	574050428	UI_Click_Menu			\UI\UI_Click_Menu	
+	1463049803	UI_Overlap			\UI\UI_Overlap	
+	1717033963	sfx_jacket			\Default Work Unit\sfx_jacket	
+	3276085083	TestVoiceLanguage			\Default Work Unit\TestVoiceLanguage	
+	3815197131	UI_Click_Game			\UI\UI_Click_Game	
+	3991942870	Music			\Music\Music	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1021618141	MusicState			\Default Work Unit\MusicState	
+
+Switch	ID	Name	Switch Group			Notes
+	678209053	Two	MusicState			
+	1064933119	One	MusicState			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3881602766	TestGameRTPC			\Default Work Unit\TestGameRTPC	
+
+Trigger	ID	Name			Wwise Object Path	Notes
+	1624638295	TestTrigger			\Default Work Unit\TestTrigger	
+
+Effect plug-ins	ID	Name	Type				Notes
+	3435419520	New_Guitar_Distortion	Wwise Guitar Distortion			
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	10896464	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_5\Sine	
+	49401058	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_005\Sine	
+	116876611	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_3\Sine	
+	367542691	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_1\Sine	
+	375501016	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_003\Sine	
+	488984861	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_004\Sine	
+	531146332	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_2\Sine	
+	621468828	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_4\Sine	
+	686623768	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_6\Sine	
+	743436829	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_002\Sine	
+	923269256	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_001\Sine	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	295073302	UI_Overlap	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\UI_Overlap_BFB259A6.wem		\Actor-Mixer Hierarchy\UI\UI\UI_Overlap\UI_Overlap		19312
+	302530676	-07-glued-01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\-07-glued-01_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Trigger\TestTrigger\-07-glued-01		92890
+	319898978	sfx_jacket	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_jacket_10C4C929.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_jacket		1027296
+	581690082	TestVoiceLanguage	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\English_10C4C929.wem		\Actor-Mixer Hierarchy\VoiceRU\TestVoice\TestVoiceLanguage		252108
+	809737166	UI_Click_Game	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\UI_Click_Game_394AA390.wem		\Actor-Mixer Hierarchy\UI\UI\UI_Click_Game\UI_Click_Game		249696
+	838611190	UI_Click_Menu	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\UI_Click_Menu_AA9076E9.wem		\Actor-Mixer Hierarchy\UI\UI\UI_Click_Menu\UI_Click_Menu\UI_Click_Menu		21984
+	855236198	valhalla_light_130bpm_a7	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\valhalla_light_130bpm_a7_D79FB2B7.wem		\Interactive Music Hierarchy\Music\MusicSwitch\PlaylistTwo\Two\valhalla_light_130bpm_a7		3908036
+	987752079	valhalla_light_130bpm_a1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\valhalla_light_130bpm_a1_D79FB2B7.wem		\Interactive Music Hierarchy\Music\MusicSwitch\PlaylistOne\One\valhalla_light_130bpm_a1		3908036
+

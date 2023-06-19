@@ -16,24 +16,24 @@
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
-						<AudioFileSource Name="English" ID="{F989C173-4F7C-48D2-9B33-986532822DC0}">
-							<Language>English(US)</Language>
-							<AudioFile>English.wav</AudioFile>
-							<MediaIDList>
-								<MediaID ID="345689351"/>
-							</MediaIDList>
-						</AudioFileSource>
 						<AudioFileSource Name="Russia" ID="{791C1064-3F42-4A73-8321-9430801A1E2C}">
-							<Language>Russia</Language>
+							<Language>Russian</Language>
 							<AudioFile>Russia.wav</AudioFile>
 							<MediaIDList>
-								<MediaID ID="935448665"/>
+								<MediaID ID="935448666"/>
+							</MediaIDList>
+						</AudioFileSource>
+						<AudioFileSource Name="English" ID="{D55C36DE-6F37-486A-8903-FE90461D7574}">
+							<Language>English</Language>
+							<AudioFile>English.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="581690082"/>
 							</MediaIDList>
 						</AudioFileSource>
 					</ChildrenList>
 					<ActiveSourceList>
 						<ActiveSource Name="Russia" ID="{791C1064-3F42-4A73-8321-9430801A1E2C}" Platform="Linked"/>
-						<ActiveSource Name="English" ID="{F989C173-4F7C-48D2-9B33-986532822DC0}" Platform="Linked"/>
+						<ActiveSource Name="English" ID="{D55C36DE-6F37-486A-8903-FE90461D7574}" Platform="Linked"/>
 					</ActiveSourceList>
 				</Sound>
 			</ChildrenList>

@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{E85ABACE-4007-4F90-9764-1AC2D92CAE01}" SchemaVersion="110">
 	<MixingSessions>
-		<WorkUnit Name="Default Work Unit" ID="{E85ABACE-4007-4F90-9764-1AC2D92CAE01}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{E85ABACE-4007-4F90-9764-1AC2D92CAE01}" PersistMode="Standalone">
+			<ChildrenList>
+				<MixingSession Name="Master" ID="{1B830262-D224-4530-A617-6AAAD8882667}">
+					<ObjectList>
+						<ObjectRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Voice" ID="{EE780549-5C4C-41A4-9E07-AD7B89BE0162}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+					</ObjectList>
+				</MixingSession>
+				<MixingSession Name="Voice" ID="{009F9A5C-6BB9-4DEC-A1F1-1327F27B5217}">
+					<ObjectList>
+						<ObjectRef Name="Elena" ID="{BEC8E535-25ED-403B-9B08-49F0C157AB52}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="George" ID="{8D05D29C-B2E1-4CBA-8F57-2E2B8AE47F45}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Girl" ID="{7224407F-AB21-4DE5-BEEB-DF22F4429067}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Jack" ID="{57EBD0A9-17D6-4616-8C32-6410C2CDE60C}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Joshua" ID="{BF6CCAF1-F62A-40DF-A7C7-D32839E7E717}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Konstantin" ID="{04D58EDE-0133-4ACA-9EF1-C1482DA76015}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Lara" ID="{5AE4C209-07D2-4B0F-8A0E-02C9AC47B9CB}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Mark" ID="{1EB2A9F9-C915-4060-8328-6235351CAD6E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Police" ID="{F4D99CE9-84A4-46E5-8BB9-D3F885ADA4EE}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+					</ObjectList>
+				</MixingSession>
+				<MixingSession Name="Voice - Elena" ID="{9D89B204-6209-42DD-AB8E-8B8898EA398F}">
+					<ObjectList>
+						<ObjectRef Name="Elena_Boss First" ID="{1A3CFE3C-1798-439A-9933-0F261A61C970}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Elena_Boss Two" ID="{0FF6CDC4-CC1E-4111-B9C4-B6BAA4B05AC4}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Elena_Chapter One" ID="{5B008593-8E59-42E9-95EE-31D32A1A8CBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Elena_Chapter Two" ID="{90F68053-71D6-4E79-B17B-AD6E144ECDA8}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Elena_Intro" ID="{20F990FC-85E4-40D4-84EE-4521D7C1ADD9}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Elena_Psychotherapist" ID="{3A02B0D1-063C-457D-9583-AC9D98A9AF89}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Elena_Training" ID="{93FAAE94-8F23-41EC-9461-809B60506814}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+					</ObjectList>
+				</MixingSession>
+				<MixingSession Name="Voice - Mark" ID="{2757EBAB-25BA-4806-96A0-A3DF10355605}">
+					<ObjectList>
+						<ObjectRef Name="Mark_Boss First" ID="{8E603697-E7F5-425B-A6B9-3B4ACEA7CE8F}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Mark_Boss Two" ID="{5161EDB4-D6B7-4A18-A849-CBAE75D28827}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Mark_Intro" ID="{F7602242-36FE-43E7-B031-102790538277}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						<ObjectRef Name="Mark_Training" ID="{FA34CF53-186F-41A3-BD2E-F74DD9E7B67C}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+					</ObjectList>
+				</MixingSession>
+			</ChildrenList>
+		</WorkUnit>
 	</MixingSessions>
 </WwiseDocument>

@@ -2,6 +2,10 @@
 <WwiseDocument Type="WorkUnit" ID="{76F04BCA-5AF7-4CF8-8061-675B6B245B51}" SchemaVersion="110" RootDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" ParentDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}">
 	<AudioObjects>
 		<WorkUnit Name="Lara" ID="{76F04BCA-5AF7-4CF8-8061-675B6B245B51}" OwnerID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" PersistMode="Nested">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="8"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
 			<ChildrenList>
 				<ActorMixer Name="fire_p_lara" ID="{CA7C0442-224B-452E-890E-D1868C91C3D3}" ShortID="193097082">
 					<ReferenceList>
@@ -9,7 +13,7 @@
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+							<ObjectRef Name="Lara" ID="{5AE4C209-07D2-4B0F-8A0E-02C9AC47B9CB}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -25,18 +29,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_001" ID="{46066982-F696-4474-AD10-668541F248E9}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.001.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="444352577"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_001" ID="{46066982-F696-4474-AD10-668541F248E9}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_002" ID="{09A31F96-FBD6-4AD3-A33A-48465B28C4CA}" ShortID="708501599">
 							<PropertyList>
@@ -50,18 +42,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_002" ID="{4CE4B983-7FF0-4544-BA82-A7507B488CB7}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.002.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="941417527"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_002" ID="{4CE4B983-7FF0-4544-BA82-A7507B488CB7}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_003" ID="{87495124-034F-43F5-88F6-02F7CAA51E38}" ShortID="201181267">
 							<PropertyList>
@@ -75,18 +55,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_003" ID="{458649AC-624E-47C2-AB87-7B48B967D0C2}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.003.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="853623581"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_003" ID="{458649AC-624E-47C2-AB87-7B48B967D0C2}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_004" ID="{9652E609-FAAF-49A7-AFD0-E365EC657B48}" ShortID="257963780">
 							<PropertyList>
@@ -100,18 +68,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_004" ID="{5830B1B9-D4B5-4D61-BBBF-9397AD286C63}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.004.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="83884180"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_004" ID="{5830B1B9-D4B5-4D61-BBBF-9397AD286C63}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_005" ID="{4B990C69-DC49-48B1-A17A-336C9E2B4A51}" ShortID="763962673">
 							<PropertyList>
@@ -125,18 +81,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_005" ID="{757BFBB4-F774-4427-83AD-191F88E15C57}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.005.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="79902288"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_005" ID="{757BFBB4-F774-4427-83AD-191F88E15C57}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_006" ID="{D460A82B-D088-4154-9B05-5F19D7E1249A}" ShortID="169991574">
 							<PropertyList>
@@ -150,18 +94,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_006" ID="{9DE1D21D-6EB3-4FCE-8C9A-C71EC98C7243}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.006.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="310038725"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_006" ID="{9DE1D21D-6EB3-4FCE-8C9A-C71EC98C7243}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_007" ID="{0744736E-E805-460B-A03C-EA56D30428B1}" ShortID="289404729">
 							<PropertyList>
@@ -175,18 +107,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_007" ID="{A45A8319-2412-4330-B2E8-E7C756C41F9A}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.007.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="466931230"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_007" ID="{A45A8319-2412-4330-B2E8-E7C756C41F9A}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_008" ID="{AA032AE3-FFBD-43A7-9F2A-C44B66CFF677}" ShortID="324547626">
 							<PropertyList>
@@ -200,18 +120,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_008" ID="{46008EAD-DC79-41DE-8836-87602144B626}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.008.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="466098013"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_008" ID="{46008EAD-DC79-41DE-8836-87602144B626}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_009" ID="{D8CA3867-F909-48A0-98BF-854F317881AA}" ShortID="280234007">
 							<PropertyList>
@@ -225,18 +133,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_009" ID="{F14A9909-3274-474C-9EBB-E69CC304BDB5}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.009.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="871265551"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_009" ID="{F14A9909-3274-474C-9EBB-E69CC304BDB5}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_010" ID="{878E5D93-5F14-4108-B951-B0F1A6079009}" ShortID="124759796">
 							<PropertyList>
@@ -250,18 +146,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_010" ID="{CC71E92D-F7EF-4CE7-85D1-2BE896E3A110}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.010.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="254657982"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_010" ID="{CC71E92D-F7EF-4CE7-85D1-2BE896E3A110}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_011" ID="{1A44AB67-DA2F-43FF-A069-10FA79F36E2F}" ShortID="324152731">
 							<PropertyList>
@@ -275,18 +159,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_011" ID="{4DD10B51-C8B1-4092-9486-D31BC4114C69}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.011.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="791834461"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_011" ID="{4DD10B51-C8B1-4092-9486-D31BC4114C69}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_012" ID="{9EA435AE-78A6-4430-BD48-28D6BFFE3282}" ShortID="489197365">
 							<PropertyList>
@@ -300,18 +172,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_012" ID="{BD546567-7AAE-4CBF-8C0A-E8D3290F14AF}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.012.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="24235469"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_012" ID="{BD546567-7AAE-4CBF-8C0A-E8D3290F14AF}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_013" ID="{0F10B3A8-EB47-44D5-A7A5-E5EBE770FFBB}" ShortID="635155426">
 							<PropertyList>
@@ -325,18 +185,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_013" ID="{95883269-F962-4FC4-B878-191F713B17B2}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.013.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="596666279"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_013" ID="{95883269-F962-4FC4-B878-191F713B17B2}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_014" ID="{9C4E8F6B-278F-47C7-8348-5DA00E9A221B}" ShortID="997748892">
 							<PropertyList>
@@ -350,18 +198,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_014" ID="{AA5022F4-E12D-4B16-AB5E-4BBA0C030DA4}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.014.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="859490412"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_014" ID="{AA5022F4-E12D-4B16-AB5E-4BBA0C030DA4}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_015" ID="{52187925-61D9-4A46-B324-EC5368DC2B71}" ShortID="94388127">
 							<PropertyList>
@@ -375,18 +211,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_015" ID="{C957F96B-AE64-4F50-8EB2-53F6A422601F}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.015.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="232894752"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_015" ID="{C957F96B-AE64-4F50-8EB2-53F6A422601F}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_016" ID="{813547AC-CC5C-4EDC-A5A7-3C17715E2643}" ShortID="195931227">
 							<PropertyList>
@@ -400,18 +224,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_016" ID="{87B6AF47-1239-4F4D-8FEB-F0FC21DC6AF4}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.016.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="224557487"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_016" ID="{87B6AF47-1239-4F4D-8FEB-F0FC21DC6AF4}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_017" ID="{B0B2F974-3AFA-45FC-A1F4-EB26EC986423}" ShortID="141941032">
 							<PropertyList>
@@ -425,18 +237,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_017" ID="{F7C4110E-FF78-478C-B486-BDE727562EF0}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.017.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="833263297"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_017" ID="{F7C4110E-FF78-478C-B486-BDE727562EF0}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_018" ID="{6B531B0B-07AB-4634-A917-5BCC5124D1C9}" ShortID="46060039">
 							<PropertyList>
@@ -450,18 +250,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_018" ID="{C8C7D034-39DD-410C-868E-B8DFD50815D0}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.018.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="59677707"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_018" ID="{C8C7D034-39DD-410C-868E-B8DFD50815D0}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_019" ID="{1E5837A5-CD1C-4A1E-B076-76CA07CB4CBA}" ShortID="935524043">
 							<PropertyList>
@@ -475,18 +263,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_019" ID="{E98B0B62-7DCA-45C6-8B6B-403703B472D7}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.019.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="138942597"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_019" ID="{E98B0B62-7DCA-45C6-8B6B-403703B472D7}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_020" ID="{D0B6531C-E2E7-48D5-9F5B-9FFA04B31B9C}" ShortID="966154736">
 							<PropertyList>
@@ -500,18 +276,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_020" ID="{7AE941BD-523A-433A-A212-B28C06A33274}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.020.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="548886751"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_020" ID="{7AE941BD-523A-433A-A212-B28C06A33274}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_021" ID="{9F53C400-CDE8-4F00-B792-F6990851AA54}" ShortID="224088297">
 							<PropertyList>
@@ -525,18 +289,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_021" ID="{B6D11200-3615-4FAC-B0D3-1AD0A8AB7B06}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.021.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="158667093"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_021" ID="{B6D11200-3615-4FAC-B0D3-1AD0A8AB7B06}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_022" ID="{E02D3BE1-FF5F-4981-81B7-B8265636071F}" ShortID="610589599">
 							<PropertyList>
@@ -550,18 +302,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_022" ID="{F0F85B15-F742-4BC9-9716-224706768680}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.022.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="656872938"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_022" ID="{F0F85B15-F742-4BC9-9716-224706768680}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_023" ID="{BB1E5F06-C012-4B3C-AF13-DCFC824D59BD}" ShortID="95310677">
 							<PropertyList>
@@ -575,18 +315,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_023" ID="{136CA9C3-E2FF-421A-A0F5-47370DD1213A}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.023.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="25701277"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_023" ID="{136CA9C3-E2FF-421A-A0F5-47370DD1213A}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_024" ID="{5011A76A-D390-4E2A-900E-DE28285B8102}" ShortID="876093727">
 							<PropertyList>
@@ -600,18 +328,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_024" ID="{518248F5-852D-4B4E-BC6A-B8DF22D0EB28}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.024.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="1008544048"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_024" ID="{518248F5-852D-4B4E-BC6A-B8DF22D0EB28}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_025" ID="{2AB19E9B-E2A0-4491-8068-EB0CB0DD00EE}" ShortID="52882862">
 							<PropertyList>
@@ -625,18 +341,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_025" ID="{96106B6F-9681-460C-8B5B-D07DDF623EDF}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.025.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="866867767"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_025" ID="{96106B6F-9681-460C-8B5B-D07DDF623EDF}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_026" ID="{0643C640-933C-48D1-B1A2-E424BB70B252}" ShortID="427768290">
 							<PropertyList>
@@ -650,18 +354,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_026" ID="{54DEDD62-AB07-4E1E-948B-29C8A76C2A28}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.026.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="561969442"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_026" ID="{54DEDD62-AB07-4E1E-948B-29C8A76C2A28}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_027" ID="{F488DEB2-F8CC-41E0-AE87-B79EBFC50513}" ShortID="202193410">
 							<PropertyList>
@@ -675,18 +367,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_027" ID="{CF220626-D223-40D2-9D95-8D795088D025}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.027.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="694077662"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_027" ID="{CF220626-D223-40D2-9D95-8D795088D025}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_028" ID="{DF625E60-B07B-494B-BB69-C9A00C1521B2}" ShortID="342603423">
 							<PropertyList>
@@ -700,18 +380,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_028" ID="{2CA95120-0284-4CB0-872A-547A34EBDEE8}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.028.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="91204504"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_028" ID="{2CA95120-0284-4CB0-872A-547A34EBDEE8}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_029" ID="{4B06DB10-7C5F-4CB9-B60C-C9F550586600}" ShortID="903962186">
 							<PropertyList>
@@ -725,18 +393,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_029" ID="{875B0A72-7D58-42BD-9354-CD31319711A1}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.029.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="704536185"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_029" ID="{875B0A72-7D58-42BD-9354-CD31319711A1}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_030" ID="{874EC06C-E1D1-4FB2-BF1E-90A1A1C0126C}" ShortID="862813290">
 							<PropertyList>
@@ -750,18 +406,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_030" ID="{337D3710-7056-4627-BA65-DDA6E08F8BA6}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.030.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="826764769"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_030" ID="{337D3710-7056-4627-BA65-DDA6E08F8BA6}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_031" ID="{60833AC9-9446-4AD7-B5BE-0AEDC78D55CE}" ShortID="263018188">
 							<PropertyList>
@@ -775,18 +419,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_031" ID="{47E4CEDE-C2D9-43C3-A339-49F3888959A3}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.031.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="888169291"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_031" ID="{47E4CEDE-C2D9-43C3-A339-49F3888959A3}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_032" ID="{8BB99322-E1DB-41A1-8B47-96B741FB54A1}" ShortID="69419544">
 							<PropertyList>
@@ -800,18 +432,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_032" ID="{DEB48AA1-778F-4C9B-B46A-99CCB7377561}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.032.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="1055084394"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_032" ID="{DEB48AA1-778F-4C9B-B46A-99CCB7377561}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_033" ID="{D7C0E346-B9D9-4238-A5ED-27297C8485AC}" ShortID="726303068">
 							<PropertyList>
@@ -825,18 +445,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_033" ID="{37A06C8D-3C87-487E-8580-C9EDA1E2B3C7}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.033.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="783437156"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_033" ID="{37A06C8D-3C87-487E-8580-C9EDA1E2B3C7}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_034" ID="{A69926CF-A210-470F-B2B8-77EC23E8CD2C}" ShortID="838599065">
 							<PropertyList>
@@ -850,18 +458,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_034" ID="{0B3484FB-A73C-479D-90CF-638FC27FF443}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.034.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="730267179"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_034" ID="{0B3484FB-A73C-479D-90CF-638FC27FF443}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_035" ID="{53FFEA90-D35E-4F28-BCE4-F3260351105A}" ShortID="714909972">
 							<PropertyList>
@@ -875,18 +471,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_035" ID="{ACA64F9B-1CFA-416D-8D81-5801BF93E850}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.035.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="373190913"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_035" ID="{ACA64F9B-1CFA-416D-8D81-5801BF93E850}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_036" ID="{367D8622-9F25-4FF6-B9F0-B6A5F60E2F1E}" ShortID="642515728">
 							<PropertyList>
@@ -900,18 +484,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_036" ID="{54595399-B394-4586-BB60-9FC329F94AD8}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.036.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="269074588"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_036" ID="{54595399-B394-4586-BB60-9FC329F94AD8}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_037" ID="{D618A7B1-4763-4A62-AE1D-F07374A077C7}" ShortID="638386140">
 							<PropertyList>
@@ -925,18 +497,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_037" ID="{060DC443-49B2-46CC-B5BA-38D7554A914A}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.037.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="334396435"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_037" ID="{060DC443-49B2-46CC-B5BA-38D7554A914A}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_038" ID="{199C217F-4635-4B5B-9811-F6E040DB10F5}" ShortID="230526832">
 							<PropertyList>
@@ -950,18 +510,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_038" ID="{F839EA9C-2A70-47E5-BF38-1C3CE0AFC335}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.038.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="569697615"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_038" ID="{F839EA9C-2A70-47E5-BF38-1C3CE0AFC335}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_039" ID="{69577012-B2EE-4E8A-B548-0946A5367C51}" ShortID="386221428">
 							<PropertyList>
@@ -975,18 +523,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_039" ID="{348A675B-C417-4D1B-BC54-3B2AFE0F303E}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.039.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="293995599"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_039" ID="{348A675B-C417-4D1B-BC54-3B2AFE0F303E}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_040" ID="{0AD89E39-A8C9-4847-9816-2DFC5F41AE7E}" ShortID="948927611">
 							<PropertyList>
@@ -1000,18 +536,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_040" ID="{3B25E27A-FFAC-42C9-9594-1A315CEC09C4}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.040.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="228812387"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_040" ID="{3B25E27A-FFAC-42C9-9594-1A315CEC09C4}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_041" ID="{94A2F088-C58C-4D30-859B-AF045F33C9BC}" ShortID="675762538">
 							<PropertyList>
@@ -1025,18 +549,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_041" ID="{B9EA003C-6A57-4943-BD03-894624AC136F}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.041.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="852207662"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_041" ID="{B9EA003C-6A57-4943-BD03-894624AC136F}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_042" ID="{A9CD68F6-B2DD-4E43-8276-2D6F54E134A4}" ShortID="598464003">
 							<PropertyList>
@@ -1050,18 +562,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_042" ID="{435D2C2C-C98E-4D86-A85D-4334DD6AC75A}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.042.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="244324368"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_042" ID="{435D2C2C-C98E-4D86-A85D-4334DD6AC75A}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_043" ID="{8C0F03FC-6091-4790-9EBF-BAED43573CED}" ShortID="120514567">
 							<PropertyList>
@@ -1075,18 +575,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_043" ID="{A6D37989-5896-4ABA-9FC4-389D4A7372B5}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.043.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="857843111"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_043" ID="{A6D37989-5896-4ABA-9FC4-389D4A7372B5}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_044" ID="{DE42E124-2C8D-4D02-99E1-C235F6FB6385}" ShortID="927092159">
 							<PropertyList>
@@ -1100,18 +588,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_044" ID="{CD0CFDD3-94D4-4D96-980B-9BA0EC151C25}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.044.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="962262269"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_044" ID="{CD0CFDD3-94D4-4D96-980B-9BA0EC151C25}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_045" ID="{4E07063F-B225-4404-AAA8-584650348B38}" ShortID="775105004">
 							<PropertyList>
@@ -1125,18 +601,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_045" ID="{8B248F14-59FA-48B6-B5BF-05795075FAE6}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.045.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="597401223"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_045" ID="{8B248F14-59FA-48B6-B5BF-05795075FAE6}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_046" ID="{BAF7615F-7900-4A85-9617-E6F0E1D2CE23}" ShortID="388397327">
 							<PropertyList>
@@ -1150,18 +614,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_046" ID="{3CECE801-D994-4124-988C-D869E1877C96}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.046.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="392815003"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_046" ID="{3CECE801-D994-4124-988C-D869E1877C96}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_047" ID="{FF345E30-E302-41B4-A825-553DE72A292E}" ShortID="797765111">
 							<PropertyList>
@@ -1175,18 +627,6 @@
 									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="fire_p_lara_047" ID="{E3DC0BAF-F3E9-4450-88DF-524A2A941DE4}">
-									<Language>English(US)</Language>
-									<AudioFile>fire.p.lara\fire.p.lara.047.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="1052019782"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_047" ID="{E3DC0BAF-F3E9-4450-88DF-524A2A941DE4}" Platform="Linked"/>
-							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
 				</ActorMixer>
