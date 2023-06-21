@@ -31,9 +31,7 @@ public class RootEntity : IDisposable
         Debug.Log($"[RootEntity][time] Loading scene start.. {Time.realtimeSinceStartup}");
         _ctx = ctx;
         _disposables = new CompositeDisposable();
-
-        var musicPath = "Sounds/Music";
-
+        
         var gameSet = Resources.Load<GameSet>("GameSet");
         var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
         var cursorSettings = Resources.Load<CursorSet>("CursorSet");
@@ -78,7 +76,6 @@ public class RootEntity : IDisposable
             GameSet = gameSet,
             Profile = profile,
             audioMixer = audioMixer,
-            musicPath = musicPath,
         });
         // TODO Wwise_ctx.AudioManager.PlayMusic("Intro").Forget();
 

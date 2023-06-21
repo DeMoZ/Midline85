@@ -96,6 +96,7 @@ public class AaSelectable : Selectable
     public void Press()
     {
         _noPointerPress = true;
+        buttonAudioSettings?.PlayClickSound();
         DoStateTransition(SelectionState.Pressed, true);
     }
 

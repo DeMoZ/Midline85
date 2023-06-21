@@ -9,6 +9,7 @@ using UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Audio;
+using Event = AK.Wwise.Event;
 
 public class AudioManager : MonoBehaviour
 {
@@ -50,6 +51,11 @@ public class AudioManager : MonoBehaviour
         musicAudioSource.volume = _ctx.playerProfile.MusicVolume;
 
         _ctx.playerProfile.onVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
+    }
+
+    private void PlayUiSound(Event obj)
+    {
+        throw new NotImplementedException();
     }
 
     private void OnDestroy()

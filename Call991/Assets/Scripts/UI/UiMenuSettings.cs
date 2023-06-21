@@ -43,7 +43,6 @@ namespace UI
 
         public void OnClickToMenu()
         {
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickToMenu.Execute();
         }
 
