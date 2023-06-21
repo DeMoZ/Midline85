@@ -29,19 +29,29 @@
 								<Value Platform="Windows">0</Value>
 							</ValueList>
 						</Property>
+						<Property Name="RemoveDCOffset" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 						<Property Name="SampleRate" Type="int32">
 							<ValueList>
 								<Value Platform="Mac">0</Value>
 								<Value Platform="Windows">0</Value>
 							</ValueList>
 						</Property>
+						<Property Name="UseFilenameMarker" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ConversionPluginInfoList>
 						<ConversionPluginInfo Platform="Mac">
-							<ConversionPlugin Name="" ID="{9A5D13E8-1159-40FE-B66A-9573534EFD23}" PluginName="PCM" CompanyID="0" PluginID="1"/>
+							<ConversionPlugin Name="" ID="{4E84D8E5-1868-429F-ACB0-FD02C0E8BE5F}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
 						</ConversionPluginInfo>
 						<ConversionPluginInfo Platform="Windows">
-							<ConversionPlugin Name="" ID="{B0E74020-62E9-41A1-95C4-AA4564780A66}" PluginName="PCM" CompanyID="0" PluginID="1"/>
+							<ConversionPlugin Name="" ID="{8D137BDC-9D8D-41D5-BA90-4AC1CBB7E772}" PluginName="Vorbis" CompanyID="0" PluginID="4"/>
 						</ConversionPluginInfo>
 					</ConversionPluginInfoList>
 				</Conversion>
