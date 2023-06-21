@@ -35,28 +35,24 @@ namespace UI
         private void OnClickPlay()
         {
             Debug.Log("[UiMenuScene] OnClickPlay");
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickPlayGame.Execute();
         }
         
         private void OnClickNewGame()
         {
             Debug.Log("[UiMenuScene] OnClickNewGame");
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickNewGame.Execute();
         }
 
         private void OnClickSettings()
         {
             Debug.Log("[UiMenuScene] OnClickSettings");
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickSettings.Execute();
         }
 
         private void OnClickCredits()
         {
             Debug.Log("[UiMenuScene] OnClickCredits");
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
             _ctx.onClickCredits.Execute();
         }
 

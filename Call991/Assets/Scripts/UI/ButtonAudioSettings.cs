@@ -1,30 +1,29 @@
 using System;
-using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace UI
 {
     [CreateAssetMenu]
-    public class ButtonAudioSettings : SerializedScriptableObject
+    public class ButtonAudioSettings : ScriptableObject
     {
-        [SerializeField] private AudioClip buttonHoverClip = default;
-        [SerializeField] private AudioClip buttonClickClip = default;
+        [SerializeField] private AK.Wwise.Event buttonHoverSound;
+        [SerializeField] private AK.Wwise.Event buttonClickSound;
         
-        private event Action<AudioClip> OnClick;
-        public event Action<AudioClip> OnHover;
+        public event Action<AK.Wwise.Event> OnClick;
+        public event Action<AK.Wwise.Event> OnHover;
 
         public void PlayHoverSound()
         {
-            if (!buttonHoverClip) return;
+            if (buttonHoverSound == null) return;
             
-            OnHover?.Invoke(buttonHoverClip);
+            OnHover?.Invoke(buttonHoverSound);
         }
 
         public void PlayClickSound()
         {
-            if (!buttonClickClip) return;
+            if (buttonClickSound == null) return;
             
-            OnClick?.Invoke(buttonClickClip);
+            OnClick?.Invoke(buttonClickSound);
         }
     }
 }

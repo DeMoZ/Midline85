@@ -1,11 +1,11 @@
 using System.Collections.Generic;
 using System.Threading;
-using AaDialogueGraph;
 using Configs;
 using UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.Audio;
+using Event = AK.Wwise.Event;
 
 public class WwiseAudio : MonoBehaviour
 {
@@ -16,12 +16,13 @@ public class WwiseAudio : MonoBehaviour
 
         public GameSet GameSet;
         public AudioMixer audioMixer;
-        public string musicPath;
     }
 
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
+    [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
 
     private Ctx _ctx;
+    private GameObject _menuButtonSoundGo;
     private GameObject _phraseGo;
     private List<uint> _playingVoices;
 
@@ -33,15 +34,29 @@ public class WwiseAudio : MonoBehaviour
     {
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-
+        
+        _menuButtonSoundGo = new GameObject("MenuButtonsSound");
+        _menuButtonSoundGo.transform.parent = transform.parent;
+        
         _ctx = ctx;
-        menuButtonAudioSettings.OnHover += PlayUiSound;
+        
+        menuButtonAudioSettings.OnHover += PlayButtonSound;
+        menuButtonAudioSettings.OnClick += PlayButtonSound;
+        
+        levelButtonAudioSettings.OnHover += PlayButtonSound;
+        levelButtonAudioSettings.OnClick += PlayButtonSound;
+        
         _ctx.Profile.onVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
     }
 
     private void OnDestroy()
     {
-        menuButtonAudioSettings.OnHover -= PlayUiSound;
+        menuButtonAudioSettings.OnHover -= PlayButtonSound;
+        menuButtonAudioSettings.OnClick -= PlayButtonSound;
+        
+        levelButtonAudioSettings.OnHover -= PlayButtonSound;
+        levelButtonAudioSettings.OnClick -= PlayButtonSound;
+        
         _tokenSource?.Cancel();
         _disposables?.Dispose();
     }
@@ -62,30 +77,7 @@ public class WwiseAudio : MonoBehaviour
                 break;
         }*/
     }
-
-    public void PlayUiSound(SoundUiTypes type, bool loop = false)
-    {
-        /*switch (type)
-        {
-            case SoundUiTypes.ChoiceButton:
-                PlayMusicFile(uiAudioSource, _ctx.GameSet.choiceBtnClip, false);
-                break;
-            case SoundUiTypes.MenuButton:
-                PlayMusicFile(uiAudioSource, _ctx.GameSet.menuBtnClip, false);
-                break;
-            case SoundUiTypes.Timer:
-                PlayMusicFile(timerAudioSource, _ctx.GameSet.timerClip, true);
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(type), type, null);
-        }*/
-    }
-
-    private void PlayUiSound(AudioClip clip)
-    {
-        //PlayMusicFile(uiAudioSource, clip, false);
-    }
-
+    
     public void StopTimer()
     {
         // timerAudioSource.Stop();
@@ -173,6 +165,10 @@ public class WwiseAudio : MonoBehaviour
         return data[index];
     }
 
+    private void PlayButtonSound(Event wwiseEvent)
+    {
+        wwiseEvent.Post(_menuButtonSoundGo);
+    }
 
     //------
     public AK.Wwise.Event someSound;
