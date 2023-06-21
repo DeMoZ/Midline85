@@ -13,13 +13,13 @@ namespace UI
         {
             public ReactiveCommand onClickPauseButton;
         }
-
+        
         [SerializeField] private MenuButtonView pauseButton = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private List<PersonView> persons = default;
-        [SerializeField] private CountDownView countDown = default;
+        [SerializeField] private  CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
-
+        
         public List<ChoiceButtonView> Buttons => buttons;
 
         public CountDownView CountDown => countDown;
@@ -29,7 +29,7 @@ namespace UI
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-
+            
             foreach (var person in persons)
             {
                 person.gameObject.SetActive(false);
@@ -39,7 +39,7 @@ namespace UI
                 button.gameObject.SetActive(false);
 
             CountDown.gameObject.SetActive(false);
-
+            
             pauseButton.OnClick += OnClickPauseButton;
         }
 
@@ -47,41 +47,41 @@ namespace UI
         {
             _ctx.onClickPauseButton?.Execute();
         }
-
-        public void OnShowPhrase(UiPhraseData data)
+        
+        public void OnShowPhrase(PhraseSet phrase)
         {
-            var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
+            var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
             if (personView == null)
             {
-                Debug.LogError($"[{this}] [OnShowPhrase] no person on side {data.PersonVisualData.ScreenPlace}");
+                Debug.LogError($"[{this}] [OnShowPhrase] no person on side {phrase.screenPlace}");
                 return;
             }
 
-            personView.ShowPhrase(data);
+            personView.ShowPhrase(phrase);
         }
 
-        public void OnHidePhrase(UiPhraseData data)
+        public void OnHidePhrase(PhraseSet phrase)
         {
-            var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
+            var personView = persons.FirstOrDefault(p => p.ScreenPlace == phrase.screenPlace);
             if (personView == null)
             {
-                Debug.LogError($"[{this}] [OnHidePhrase] no person on side {data.PersonVisualData.ScreenPlace}");
+                Debug.LogError($"[{this}] [OnHidePhrase] no person on side {phrase.screenPlace}");
                 return;
             }
 
-            if (data.PhraseVisualData.HideOnEnd)
+            if (phrase.hidePhraseOnEnd)
                 personView.HidePhrase();
 
-            if (data.PersonVisualData.HideOnEnd)
+            if (phrase.hidePersonOnEnd)
                 personView.gameObject.SetActive(false);
         }
 
         public void OnHideLevelUi(float time, Action callback)
         {
             Debug.LogWarning($"[{this}] OnHideLevelUi");
-            canvasGroup.DOFade(0, time).OnComplete(() => { callback?.Invoke(); });
+            canvasGroup.DOFade(0, time).OnComplete(() => { callback?.Invoke();});
         }
-
+        
         public void Dispose()
         {
             pauseButton.OnClick -= OnClickPauseButton;

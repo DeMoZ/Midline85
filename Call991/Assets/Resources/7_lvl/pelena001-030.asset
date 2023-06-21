@@ -1,0 +1,1012 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 914adf16d7034216aada47b4b1ca4b8e, type: 3}
+  m_Name: pelena001-030
+  m_EditorClassIdentifier: 
+  phrases:
+  - phraseId: p.elena.001
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.001
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.001
+    person: 0
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.001
+      nextPhraseId: p.elena.002
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.002
+      nextPhraseId: p.elena.003
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.003
+      nextPhraseId: p.elena.004
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.026
+      eventType: 4
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.002
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.002
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.003
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.003
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.004
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.003
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.002
+    person: 0
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.005
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.003
+    person: 0
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.005
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.005
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.004
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.004
+    person: 0
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.006
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.050
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.006
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.005
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.005
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.004
+      nextPhraseId: p.elena.007
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.005
+      nextPhraseId: p.elena.008
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.006
+      nextPhraseId: p.elena.009
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.006
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.010
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.023
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.007
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.006
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.008
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.007
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.009
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.008
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.007
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.011
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.024
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.lara.008
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.011
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.025
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.010
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.009
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.011
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.010
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.009
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.011
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.021
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.lara.010
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.011
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.022
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.lara.011
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.007
+      nextPhraseId: p.elena.012
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.008
+      nextPhraseId: p.elena.013
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.009
+      nextPhraseId: p.elena.014
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.012
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.012
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.009
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.013
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.013
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.010
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.014
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.017
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.011
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.lara.012
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.015
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.013
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.015
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.015
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.016
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.015
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.017
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.016
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.lara.016
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.017
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.017
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.lara.017
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.017
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.018
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.017
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.017.1
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.017.1
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.010
+      nextPhraseId: p.elena.018
+      ifSelected: 1
+      requiredChoices:
+      - c.word.008
+    - choiceId: c.word.011
+      nextPhraseId: p.elena.019
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.019
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.018
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.018
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.019
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.019
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.018
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.020
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.019
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.020
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.lara.020
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.lara.021
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.020
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.lara.021
+    person: 2
+    screenPlace: 5
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.002
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.002
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 1
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.003
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.003
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.013
+      nextPhraseId: p.elena.020
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.014
+      nextPhraseId: p.elena.021
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.020
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.004
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.021
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.005
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.004
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.022
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.005
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.022
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.022
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.005.1
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.005.1
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.022.1
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.028
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.elena.022.1
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.005.2
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.005.2
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.015
+      nextPhraseId: p.elena.023
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.016
+      nextPhraseId: p.elena.024.1
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.017
+      nextPhraseId: p.elena.024
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.023
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.006
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.024
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.007
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.024.1
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.007.1
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.006
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.024.1
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.029
+      eventType: 2
+      stop: 0
+      delay: 0
+    - eventId: e.sfx.035
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.jack.007
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.024.1
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 1
+    phraseEvents:
+    - eventId: e.sfx.034
+      eventType: 2
+      stop: 0
+      delay: 0
+    - eventId: e.sfx.036
+      eventType: 2
+      stop: 0
+      delay: 0
+  - phraseId: p.jack.007.1
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.018
+      nextPhraseId: p.elena.025
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.019
+      nextPhraseId: p.elena.026
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.020
+      nextPhraseId: p.elena.027
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.025
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.008
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.026
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.009
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.027
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.010
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.008
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.elena.028
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.009
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 1
+    nextId: 
+    choices:
+    - choiceId: c.word.020.1
+      nextPhraseId: p.elena.029
+      ifSelected: 0
+      requiredChoices: []
+    - choiceId: c.word.021
+      nextPhraseId: p.elena.030
+      ifSelected: 0
+      requiredChoices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.jack.010
+    person: 3
+    screenPlace: 6
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.025
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.029
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.008
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.030
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.024
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []
+  - phraseId: p.elena.028
+    person: 1
+    screenPlace: 2
+    hidePersonOnEnd: 0
+    textAppear: 0
+    hidePhraseOnEnd: 1
+    nextIs: 0
+    nextId: p.jack.011
+    choices: []
+    overrideChoicesDuration: 0
+    choicesDuration: 0
+    addEvent: 0
+    phraseEvents: []

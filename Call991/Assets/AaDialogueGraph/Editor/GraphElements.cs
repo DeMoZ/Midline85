@@ -21,9 +21,6 @@ namespace AaDialogueGraph.Editor
         public static List<string> CountKeys => GetGameSet.CountKeys.Keys;
         public static List<string> ChoiceKeys => GetGameSet.ChoiceKeys.Keys;
         public static List<string> LanguageKeys => GetGameSet.LanguagesKeys.Keys;
-        public static List<string> RecordKeys => GetGameSet.RecordKeys.Keys;
-        public static List<string> LevelIdKeys => GetGameSet.LevelKeys.Keys;
-        public static PersonKeysList PersonsKeys => GetGameSet.PersonsKeys;
 
         private static GameSet GetGameSet
         {
@@ -46,16 +43,14 @@ namespace AaDialogueGraph.Editor
         public const string DefaultFileName = "NewDialogue";
 
         public const string DialogueGraph = "Dialogue Graph";
-        public const string ChoiceNode = "Button";
-        public const string PhraseNode = "Phrase";
-        public const string ForkNode = "Fork";
-        public const string CountNode = "Count";
-        public const string EventNode = "Event";
-        public const string NewspaperNode = "Newspaper";
-        public const string EndNode = "End";
+        public const string ChoiceNode = "Choices Node";
+        public const string PhraseNode = "Phrase Node";
+        public const string ForkNode = "Fork Node";
+        public const string CountNode = "Count Node";
+        public const string EndNode = "End Node";
 
-        public const string SaveData = "Save";
-        public const string LoadData = "Load";
+        public const string SaveData = "Save Data";
+        public const string LoadData = "Load Data";
 
         public const string LineSpace = " | ";
         public const string InPortName = "in";
@@ -66,8 +61,6 @@ namespace AaDialogueGraph.Editor
 
         public const string AndEnd = "+End";
         public const string NoEnd = "-End";
-
-        public const string AddRecord = "+Record";
 
         public const string And = "+";
         public const string No = "-";
@@ -106,7 +99,7 @@ namespace AaDialogueGraph.Editor
     /// <summary>
     /// Helper element to be able to find contaniter with phrases
     /// </summary>
-    public class ElementsTable : VisualElement
+    public class PhraseElementsTable : VisualElement
     {
     }
 
@@ -124,22 +117,6 @@ namespace AaDialogueGraph.Editor
             var assetField = new PhraseAssetField();
             assetField.Set(phrase, onChange);
             contentContainer.Add(assetField);
-
-            contentContainer.style.flexDirection = FlexDirection.Row;
-        }
-    }
-
-    public class NewspaperElementsRowField : VisualElement
-    {
-        public void Set(string language, Sprite sprite = null, Action onChange = null)
-        {
-            var label = new Label(language);
-            label.AddToClassList("aa-BlackText");
-            contentContainer.Add(label);
-
-            var spriteField = new SpriteField();
-            spriteField.Set(sprite, onChange);
-            contentContainer.Add(spriteField);
 
             contentContainer.style.flexDirection = FlexDirection.Row;
         }
@@ -193,30 +170,6 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-    public class SpriteField : VisualElement
-    {
-        private ObjectField _objectField;
-
-        public void Set(Object asset = null, Action onChange = null)
-        {
-            _objectField = new ObjectField
-            {
-                objectType = typeof(Sprite),
-                allowSceneObjects = false,
-                value = asset,
-            };
-
-            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
-
-            contentContainer.Add(_objectField);
-        }
-
-        public Sprite GetSprite()
-        {
-            return _objectField.value as Sprite;
-        }
-    }
-
     public class PersonVisual : VisualElement
     {
         public void Set(PersonVisualData data = null, Action<string> onPersonChange = null)
@@ -228,9 +181,9 @@ namespace AaDialogueGraph.Editor
             var personContainer = new VisualElement();
             contentContainer.Add(personContainer);
 
-            var currentChoice = data?.Person ?? AaKeys.PersonsKeys.Keys[0];
-            var personPopup = new PersonPopupField(AaKeys.PersonsKeys.Keys, currentChoice, onPersonChange);
-            onPersonChange?.Invoke(currentChoice);
+            var personOptions = Enum.GetValues(typeof(Person)).Cast<Person>().ToList();
+            var personPopup = new PopupField<Person>("", personOptions, data?.Person ?? personOptions[0],
+                (val) => OnPersonChange(val, onPersonChange));
             personContainer.Add(personPopup);
 
             var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
@@ -254,11 +207,17 @@ namespace AaDialogueGraph.Editor
             contentContainer.AddToClassList("aa-PersonVisual_content-container");
         }
 
+        private string OnPersonChange(Person val, Action<string> onPersonChange = null)
+        {
+            onPersonChange?.Invoke(val.ToString());
+            return val.ToString();
+        }
+
         public PersonVisualData GetData()
         {
             return new PersonVisualData
             {
-                Person = contentContainer.Q<PersonPopupField>().Value,
+                Person = contentContainer.Q<PopupField<Person>>().value,
                 ScreenPlace = contentContainer.Q<PopupField<ScreenPlace>>().value,
                 HideOnEnd = contentContainer.Q<Toggle>().value,
             };
@@ -284,7 +243,7 @@ namespace AaDialogueGraph.Editor
             var onEndToggle = new Toggle
             {
                 text = AaGraphConstants.HideOnEnd,
-                value = data?.HideOnEnd ?? true,
+                value = data?.HideOnEnd ?? false,
             };
             onEndToggle.tooltip = "Phrase will be hidden after the phrase end";
             toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
@@ -306,9 +265,9 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-    #region NodeEvents
+    #region PhraseEvents
 
-    public class AaNodeEvents : VisualElement
+    public class PhraseEvents : VisualElement
     {
         private Action _onChange;
 
@@ -378,12 +337,8 @@ namespace AaDialogueGraph.Editor
 
     public class EventVisual : VisualElement
     {
-        private PhraseEventType _type;
-
         public void Set(EventVisualData data, Action<EventVisual> onDelete, Action onChange)
         {
-            _type = data.Type;
-
             contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
             {
                 text = "X",
@@ -397,17 +352,13 @@ namespace AaDialogueGraph.Editor
             containerColumn.Add(containerRow1);
 
             var layerOptions = Enum.GetValues(typeof(PhraseEventLayer)).Cast<PhraseEventLayer>().ToList();
-
-            if (data.Type != PhraseEventType.GameObject)
-            {
-                var layerPopup = new PopupField<PhraseEventLayer>("", layerOptions, data?.Layer ?? layerOptions[0],
-                    val =>
-                    {
-                        onChange?.Invoke();
-                        return val.ToString();
-                    });
-                containerRow1.Add(layerPopup);
-            }
+            var layerPopup = new PopupField<PhraseEventLayer>("", layerOptions, data?.Layer ?? layerOptions[0],
+                val =>
+                {
+                    onChange?.Invoke();
+                    return val.ToString();
+                });
+            containerRow1.Add(layerPopup);
 
             var field = new EventAssetField();
             field.Set(data, onChange);
@@ -421,17 +372,14 @@ namespace AaDialogueGraph.Editor
             loopContainer.AddToClassList("aa-Toggle_content-container");
             containerRow2.Add(loopContainer);
 
-            if (data.Type != PhraseEventType.GameObject)
+            var loopToggle = new Toggle
             {
-                var loopToggle = new Toggle
-                {
-                    name = AaGraphConstants.LoopToggleName,
-                    text = AaGraphConstants.LoopToggleName,
-                    value = data?.Loop ?? false,
-                };
-
-                loopContainer.Add(loopToggle);
-            }
+                name = AaGraphConstants.LoopToggleName,
+                text = AaGraphConstants.LoopToggleName,
+                value = data?.Loop ?? false,
+                //tooltip = "If "
+            };
+            loopContainer.Add(loopToggle);
 
             var stopContainer = new VisualElement();
             stopContainer.AddToClassList("aa-Toggle_content-container");
@@ -463,7 +411,7 @@ namespace AaDialogueGraph.Editor
             contentContainer.AddToClassList("aa-EventVisual_content-container");
         }
 
-        private EventVisualData GetMediaData()
+        public EventVisualData GetData()
         {
             var eventAssetField = contentContainer.Q<EventAssetField>();
             return new EventVisualData
@@ -475,32 +423,6 @@ namespace AaDialogueGraph.Editor
                 Stop = contentContainer.Q<Toggle>(name: AaGraphConstants.StopToggleName).value,
                 Delay = contentContainer.Q<FloatField>().value,
             };
-        }
-
-        private EventVisualData GetObjectData()
-        {
-            var eventAssetField = contentContainer.Q<EventAssetField>();
-            return new EventVisualData
-            {
-                PhraseEvent = eventAssetField.GetEvent(),
-                Type = eventAssetField.Type,
-                Stop = contentContainer.Q<Toggle>(name: AaGraphConstants.StopToggleName).value,
-                Delay = contentContainer.Q<FloatField>().value,
-            };
-        }
-
-        public EventVisualData GetData()
-        {
-            switch (_type)
-            {
-                case PhraseEventType.AudioClip:
-                case PhraseEventType.VideoClip:
-                    return GetMediaData();
-                case PhraseEventType.GameObject:
-                    return GetObjectData();
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
         }
     }
 
@@ -557,6 +479,30 @@ namespace AaDialogueGraph.Editor
         }
     }
 
+    public class _EventAssetField<T> : VisualElement where T : Object
+    {
+        private ObjectField _objectField;
+
+        public _EventAssetField(T eventAsset = null, Action onChange = null)
+        {
+            _objectField = new ObjectField
+            {
+                objectType = typeof(T),
+                allowSceneObjects = false,
+                value = eventAsset,
+            };
+
+            _objectField.RegisterValueChangedCallback(_ => onChange?.Invoke());
+
+            contentContainer.Add(_objectField);
+        }
+
+        public PhraseEventSo GetEvent()
+        {
+            return _objectField.value as PhraseEventSo;
+        }
+    }
+
     #endregion
 
     public class NoEnumPopup : VisualElement
@@ -564,9 +510,7 @@ namespace AaDialogueGraph.Editor
         public void Set(List<string> keys, string currentChoice = null, Action<string> onChange = null)
         {
             contentContainer.Add(new PopupField<string>("", keys,
-                string.IsNullOrEmpty(currentChoice) || !keys.Contains(currentChoice)
-                    ? keys?[0]
-                    : currentChoice, val =>
+                currentChoice ?? keys?[0], val =>
                 {
                     onChange?.Invoke(val);
                     return val;
@@ -598,7 +542,7 @@ namespace AaDialogueGraph.Editor
 
     public class NodeTitleErrorField : VisualElement
     {
-        public Label Label { get; }
+        public Label Label { get;}
 
         public NodeTitleErrorField()
         {
@@ -610,23 +554,5 @@ namespace AaDialogueGraph.Editor
         {
             contentContainer.Add(Label);
         }
-    }
-    
-    public class LineGroup : VisualElement
-    {
-        public LineGroup(IEnumerable<VisualElement> elements)
-        {
-            contentContainer.style.flexDirection = FlexDirection.Row;
-
-            foreach (var element in elements)
-            {
-                contentContainer.Add(element);
-            }
-        }
-    }
-
-    public class ButtonFilterTextField : TextField
-    {
-        
     }
 }

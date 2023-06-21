@@ -6,11 +6,11 @@ public class LoadingSceneEntity : IGameScene
 {
     public struct Ctx
     {
-        public ReactiveProperty<string> OnLoadingProcess;
-        public bool ToLevelScene;
-        public bool FirstLoad;
-        public Blocker Blocker;
-        public GameSet GameSet;
+        public ReactiveProperty<string> onLoadingProcess;
+        public bool toLevelScene;
+        public bool firstLoad;
+        public Blocker blocker;
+        public GameSet gameSet;
     }
 
     private Ctx _ctx;
@@ -22,11 +22,11 @@ public class LoadingSceneEntity : IGameScene
         var ui = UnityEngine.Object.FindObjectOfType<UiSwitchScene>();
         ui.SetCtx(new UiSwitchScene.Ctx
         {
-            onLoadingProcess = _ctx.OnLoadingProcess,
-            toLevelScene = _ctx.ToLevelScene,
-            firstLoad = _ctx.FirstLoad,
-            blocker = _ctx.Blocker,
-            gameSet = _ctx.GameSet,
+            onLoadingProcess = _ctx.onLoadingProcess,
+            toLevelScene = _ctx.toLevelScene,
+            firstLoad = _ctx.firstLoad,
+            blocker = _ctx.blocker,
+            gameSet = _ctx.gameSet,
         });
     }
 

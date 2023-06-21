@@ -2,15 +2,13 @@ using System;
 using UniRx;
 using UnityEngine;
 
-public class PhraseSkipper : IDisposable
+public class PhraseSkipper :IDisposable
 {
     private CompositeDisposable _disposables;
-
     public PhraseSkipper(ReactiveCommand onSkipPhrase)
     {
         _disposables = new CompositeDisposable();
-
-#if UNITY_EDITOR
+        
         var clickStream = Observable.EveryUpdate()
             .Where(_ => Input.GetMouseButtonDown(1));
         
@@ -22,11 +20,9 @@ public class PhraseSkipper : IDisposable
         {
             onSkipPhrase.Execute();
         }).AddTo(_disposables);
-#endif
     }
 
     public void Dispose()
     {
-        _disposables.Dispose();
     }
 }

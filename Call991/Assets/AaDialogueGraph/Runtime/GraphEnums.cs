@@ -1,11 +1,10 @@
 public enum AaNodeType
 {
-    PhraseNode,
-    EntryNode,
+    Phrase,
+    EntryPoint,
     ChoiceNode,
     ForkNode,
     CountNode,
-    EndNode,
 }
 
 public enum LanguageOperationType

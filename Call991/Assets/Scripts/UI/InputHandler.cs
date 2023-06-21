@@ -89,16 +89,14 @@ namespace UI
 
         private void SelectFirstSelected()
         {
-            // Debug.Log($"[InputHandler] SelectFirstSelected, firstSelected = {firstSelected}");
+            Debug.Log($"[InputHandler] SelectFirstSelected, firstSelected = {firstSelected}");
             EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
         }
 
         private void PressObject()
         {
-            // Debug.LogWarning($"[InputHandler] 0 PressObject; firstSelected = {firstSelected}");
             if (gameObject.activeInHierarchy && firstSelected.gameObject.IsSelected())
             {
-                // Debug.LogWarning($"[InputHandler] 1 PressObject.Press; firstSelected = {firstSelected}");
                 firstSelected.Press();
             }
         }

@@ -1,42 +1,95 @@
 using System;
+using System.Collections;
+using System.IO;
+using System.Threading.Tasks;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Networking;
 
 namespace Data
 {
     public class PhraseSoundPlayer : IDisposable
     {
-        public struct Ctx
-        {
-            public AudioSource AudioSource;
-        }
+        private AudioClip _audioClip;
+        private string _path;
+        private string _audioPath;
 
         private Ctx _ctx;
-        private AudioClip _audioClip;
         private CompositeDisposable _disposables;
-        
+
+        public struct Ctx
+        {
+            public string streamingPath; // *strAssets*/Sounds/RU/RU_7_P
+            public string resourcesPath;
+            public AudioSource audioSource;
+        }
+
         public PhraseSoundPlayer(Ctx ctx)
         {
             _ctx = ctx;
             _disposables = new CompositeDisposable();
+
+            _path = "file:///" + Path.Combine(Application.streamingAssetsPath, _ctx.streamingPath);
         }
 
-        public void PlayPhrase(AudioClip clip)
+         public async Task TryLoadStreamingDialogue(string phraseName)
+         {
+             _audioPath = Path.Combine(_path, phraseName + ".wav");
+             //_audioPath = Path.Combine(_path, phraseName + ".ogg");
+             var isLoaded = false;
+             Observable.FromCoroutine(LoadAudio).Subscribe(_ =>
+             {
+                 Debug.Log($"[{this}] Phrase sound load routine end: {_audioPath}");
+                 isLoaded = true;
+             }).AddTo(_disposables);
+        
+             while (!isLoaded)
+                 await Task.Yield();
+         }
+
+        public async Task TryLoadDialogue(string phraseName)
         {
-            if (clip == null) return;
+            _ctx.audioSource.clip = null;
+            _audioClip = null;
+            ResourcesLoader.UnloadUnused();
+            var clip = await ResourcesLoader.LoadAsync<AudioClip>(Path.Combine(_ctx.resourcesPath, phraseName));
+            if (clip) _audioClip = clip;
+        }
+
+        public void TryPlayPhraseFile()
+        {
+            if (_audioClip == null) return;
 
             Debug.Log($"[{this}] play phrase audio clip {_audioClip}");
-            _ctx.AudioSource.clip = clip;
-            _ctx.AudioSource.Play();
-            _ctx.AudioSource.loop = false;
+            _ctx.audioSource.clip = _audioClip;
+            _ctx.audioSource.Play();
+            _ctx.audioSource.loop = false;
         }
-        
+
+        private IEnumerator LoadAudio()
+        {
+            _audioClip = null; // todo: set to default audio with noise
+
+            var request = UnityWebRequestMultimedia.GetAudioClip(_audioPath, AudioType.WAV);
+            yield return request.SendWebRequest();
+
+            if (request.result != UnityWebRequest.Result.Success) //.ConnectionError)
+            {
+                Debug.LogError($"[{this}] audio wasn't loaded: {_audioPath}\n{request.error}");
+                yield break;
+            }
+            else
+            {
+                _audioClip = DownloadHandlerAudioClip.GetContent(request);
+            }
+        }
+
         public void Pause(bool pause)
         {
             if (pause)
-                _ctx.AudioSource.Pause();
+                _ctx.audioSource?.Pause();
             else
-                _ctx.AudioSource.UnPause();
+                _ctx.audioSource?.UnPause();
         }
 
         public void Dispose()

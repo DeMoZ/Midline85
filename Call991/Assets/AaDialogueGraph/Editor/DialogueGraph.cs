@@ -91,23 +91,11 @@ namespace AaDialogueGraph.Editor
             };
             toolbar.Add(countCreateButton);
             
-            var eventCreateButton = new Button(() => _graphView.CreateEventNode())
-            {
-                text = AaGraphConstants.EventNode,
-            };
-            toolbar.Add(eventCreateButton);
-            
             var endCreateButton = new Button(() => _graphView.CreateEndNode())
             {
                 text = AaGraphConstants.EndNode,
             };
             toolbar.Add(endCreateButton);
-            
-            var newspaperCreateButton = new Button(() => _graphView.CreateNewspaperNode())
-            {
-                text = AaGraphConstants.NewspaperNode,
-            };
-            toolbar.Add(newspaperCreateButton);
 
             rootVisualElement.Add(toolbar);
         }
@@ -130,7 +118,7 @@ namespace AaDialogueGraph.Editor
 
             if (!saveUtility.LoadGraph(ref _fileName))
             {
-                Debug.LogError($"[{this}] Some error while loading graph");
+                Debug.LogError("Some error while loading graph");
                 return;
             }
 

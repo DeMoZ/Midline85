@@ -9,6 +9,13 @@ public enum ScreenPlace
     BottomRight
 }
 
+public enum Person
+{
+    UNKNOWN,
+    ELENA,
+    LARA,
+    JACK,
+}
 
 public enum TextAppear
 {

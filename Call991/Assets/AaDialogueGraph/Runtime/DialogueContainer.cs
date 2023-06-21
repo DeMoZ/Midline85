@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using System.Linq;
 using UnityEngine;
 
 namespace AaDialogueGraph
@@ -13,23 +12,6 @@ namespace AaDialogueGraph
         public List<ForkNodeData> ForkNodeData = new();
         public List<CountNodeData> CountNodeData = new();
         public List<EndNodeData> EndNodeData = new();
-        public List<EventNodeData> EventNodeData = new();
-        public List<NewspaperNodeData> NewspaperNodeData = new();
         public List<NodeLinkData> NodeLinks = new();
-
-        public Dictionary<string, AaNodeData> GetNodesData()
-        {
-            var nodes = new List<AaNodeData>();
-            nodes.AddRange(PhraseNodeData);
-            nodes.AddRange(ChoiceNodeData);
-            nodes.AddRange(ForkNodeData);
-            nodes.AddRange(CountNodeData);
-            nodes.AddRange(EndNodeData);
-            nodes.AddRange(EventNodeData);
-            nodes.AddRange(NewspaperNodeData);
-            nodes.Add(EntryNodeData);
-
-            return nodes.ToDictionary(data => data.Guid);
-        }
     }
 }

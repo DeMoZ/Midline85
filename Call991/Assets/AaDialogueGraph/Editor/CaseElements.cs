@@ -20,7 +20,7 @@ namespace AaDialogueGraph.Editor
         protected virtual void CreateElements(List<string> keys, string currentChoice = null)
         {
             var label = new Label();
-            
+
             var popup = new NoEnumPopup();
             popup.Set(keys, currentChoice, val => label.text = KeyToTextTitle(val));
             contentContainer.Add(popup);
@@ -69,31 +69,6 @@ namespace AaDialogueGraph.Editor
             return textValue;
         }
     }
-    
-    public class PersonPopupField : KeyPopupField
-    {
-        public event Action<string> OnValueChange;
-        
-        public PersonPopupField(List<string> keys, string currentChoice = null, Action<string> onValueChange = null) 
-            : base(keys, currentChoice)
-        {
-            OnValueChange = onValueChange;
-        }
-
-        protected override void CreateElements(List<string> keys, string currentChoice = null)
-        {
-            var popup = new NoEnumPopup();
-            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
-            contentContainer.Add(popup);
-        }
-
-        protected override string KeyToTextTitle(string val)
-        {
-            Value = val;
-            OnValueChange?.Invoke(val);
-            return base.KeyToTextTitle(val);
-        }
-    }
 
     public class EndPopupField : KeyPopupField
     {
@@ -108,51 +83,10 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(popup);
         }
     }
-    
-    public class RecordPopupField : KeyPopupField
-    {
-        public RecordPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
-        {
-        }
-
-        protected override string KeyToTextTitle(string val)
-        {
-            Value = val;
-            string textValue = new LocalizedString(val);
-
-            if (textValue.Length > 40)
-            {
-                var color = "</color>";
-                var parts = textValue.Split(color);
-                
-                if (parts.Length > 1)
-                {
-                    parts[1] = parts[1].Insert(0, $"{color}\n");
-                    textValue = $"{parts[0]}{parts[1]}";
-                }
-            }
-            
-            return textValue;
-        }
-    }
 
     public class CountPopupField : KeyPopupField
     {
         public CountPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
-        {
-        }
-
-        protected override void CreateElements(List<string> keys, string currentChoice = null)
-        {
-            var popup = new NoEnumPopup();
-            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
-            contentContainer.Add(popup);
-        }
-    }
-
-    public class LevelIdPopupField : KeyPopupField
-    {
-        public LevelIdPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
         {
         }
 

@@ -1,6 +1,7 @@
 using System;
+using System.IO;
 using System.Threading.Tasks;
-using AaDialogueGraph;
+using Configs;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
@@ -9,6 +10,10 @@ public class VideoManager : MonoBehaviour
 {
     public struct Ctx
     {
+        public GameSet gameSet;
+        public string videoPath;
+
+        public string levelFolder;
     }
 
     [SerializeField] private VideoPlayer videoPlayer = default;
@@ -23,7 +28,45 @@ public class VideoManager : MonoBehaviour
 
     public void SetCtx(Ctx ctx)
     {
-        _ctx = ctx;
+    }
+
+    public async Task LoadVideoSoToPrepareVideo(string eventId)
+    {
+        var config = await LoadConfig(eventId);
+        if (config == null)
+        {
+            Debug.LogError($"[{this}] sound event SO wasn't found: A PATH /{eventId}");
+            return;
+        }
+
+        if (config.clip)
+        {
+            await PrepareVideo(config.videoClip);
+        }
+        else
+        {
+            var streamingPath = "file:///" + Path.Combine(Application.streamingAssetsPath, "Videos/EventVideos");
+            var videoPath = Path.Combine(streamingPath, config.videoName + ".mp4");
+            await PrepareVideo(videoPath);
+        }
+    }
+
+    public async Task PrepareVideo(string url)
+    {
+        videoPlayer.Stop();
+        videoPlayer.clip = null;
+        videoPlayer.url = url;
+
+        await PrepareVideo();
+    }
+
+    public async Task PrepareVideo(VideoClip clip)
+    {
+        videoPlayer.Stop();
+        videoPlayer.url = null;
+        videoPlayer.clip = clip;
+
+        await PrepareVideo();
     }
 
     private async Task PrepareVideo()
@@ -41,51 +84,61 @@ public class VideoManager : MonoBehaviour
         videoPlayer.isLooping = true;
     }
 
+    public void PlayVideo(string sceneVideoUrl, PhraseEventTypes phraseEventTypes)
+    {
+        switch (phraseEventTypes)
+        {
+            case PhraseEventTypes.Video:
+                break;
+            case PhraseEventTypes.Vfx:
+                vfxPlayer.url = sceneVideoUrl;
+                vfxPlayer.isLooping = false;
+                break;
+            case PhraseEventTypes.LoopVfx:
+                videoPlayer.url = sceneVideoUrl;
+                videoPlayer.isLooping = true;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(phraseEventTypes), phraseEventTypes, null);
+        }
+    }
+
+    public void PlayVideo(VideoClip clip, PhraseEventTypes phraseEventTypes)
+    {
+        switch (phraseEventTypes)
+        {
+            case PhraseEventTypes.Video:
+                break;
+            case PhraseEventTypes.Vfx:
+                vfxPlayer.clip = clip;
+                videoPlayer.isLooping = false;
+                break;
+            case PhraseEventTypes.LoopVfx:
+                videoPlayer.clip = clip;
+                videoPlayer.isLooping = true;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException(nameof(phraseEventTypes), phraseEventTypes, null);
+        }
+    }
+
     public void EnableVideo(bool enable)
     {
         videoImage.gameObject.SetActive(enable);
     }
 
-    public void EnableVideoPlayer(bool enable)
+    public void EnableVideoPlayer(bool isActive)
     {
-        videoPlayer.gameObject.SetActive(enable);
-        vfxPlayer.gameObject.SetActive(enable);
-        videoImage.gameObject.SetActive(enable);
-        vfxImage.gameObject.SetActive(enable);
+        videoPlayer.gameObject.SetActive(isActive);
+        vfxPlayer.gameObject.SetActive(isActive);
+        videoImage.gameObject.SetActive(isActive);
+        vfxImage.gameObject.SetActive(isActive);
     }
-    
-    public void PlayVideo(VideoClip videoClip)
+
+    private async Task<PhraseVfxEventSo> LoadConfig(string eventId)
     {
-        videoPlayer.clip = videoClip;
-        videoPlayer.isLooping = true;
-    }
-    
-    public void PlayVideo(EventVisualData data, VideoClip videoClip)
-    {
-        // TODO layers should be added to mixer
-        switch (data.Layer)
-        {
-            case PhraseEventLayer.Effects: // case PhraseEventTypes.LoopSfx:
-                videoPlayer.clip = videoClip;
-                videoPlayer.isLooping = data.Loop;
-                throw new NotImplementedException();
-                break;
-            case PhraseEventLayer.Single1: // case PhraseEventTypes.Video:
-                videoPlayer.clip = videoClip;
-                videoPlayer.isLooping = data.Loop;
-                break;
-            case PhraseEventLayer.Single2: //case PhraseEventTypes.Video: should be second video layer
-                videoPlayer.clip = videoClip;
-                videoPlayer.isLooping = data.Loop;
-                throw new NotImplementedException();
-                break;
-            case PhraseEventLayer.Multiple: // on that layer can be several musics at the same time
-                videoPlayer.clip = videoClip;
-                videoPlayer.isLooping = data.Loop;
-                throw new NotImplementedException();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+        //var soFile = Path.Combine(_ctx.eventSoPath, eventId);
+        var conf = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(eventId);
+        return conf;
     }
 }

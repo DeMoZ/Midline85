@@ -8,7 +8,7 @@ public class AaSelectable : Selectable
 {
     [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
     [SerializeField] private CursorSet cursorSettings = default;
-
+    
     private bool _instant;
     private bool _noPointerPress;
 
@@ -18,7 +18,6 @@ public class AaSelectable : Selectable
     public static event Action<Vector2, Sprite> OnMouseClickSelectable;
 
     public bool IsSelected => currentSelectionState == SelectionState.Selected;
-    public bool IsNormal => currentSelectionState == SelectionState.Normal;
     public new bool IsPressed => IsPressed();
 
     public override void OnPointerExit(PointerEventData eventData)
@@ -29,9 +28,9 @@ public class AaSelectable : Selectable
 
     protected void DoStateTransitionNormal()
     {
-        DoStateTransition(SelectionState.Normal, _instant);
+        DoStateTransition(SelectionState.Normal, _instant);    
     }
-
+    
     protected override void DoStateTransition(SelectionState state, bool instant)
     {
         _instant = instant;
@@ -39,36 +38,36 @@ public class AaSelectable : Selectable
         switch (state)
         {
             case SelectionState.Normal:
-                SetNormal();
-                
-                if (!IsNormal)
+                if (currentSelectionState == SelectionState.Selected)
                 {
                     OnUnSelect?.Invoke(this);
                 }
 
+                base.DoStateTransition(state, instant);
+                SetNormal();
                 break;
             case SelectionState.Highlighted:
-                SetSelected();
-                PlayHoverSound();
+                //Debug.LogWarning($"[AaSelectable] To Selected {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
+                DoStateTransition(SelectionState.Selected, instant);
                 break;
             case SelectionState.Pressed:
                 SetPressed();
                 break;
             case SelectionState.Selected:
                 //Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> Selected" + gameObject.ToStringEventSystem());
+                base.DoStateTransition(state, instant);
                 SetSelected();
                 PlayHoverSound();
                 OnSelectObj?.Invoke(this);
                 break;
             case SelectionState.Disabled:
                 //Debug.Log($"[AaSelectable] 2 {currentSelectionState} -> {state}" + gameObject.ToStringEventSystem());
+                base.DoStateTransition(state, instant);
                 SetDisabled();
                 break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(state), state, null);
         }
-        
-        base.DoStateTransition(state, instant);
     }
 
     protected virtual void SetDisabled()
@@ -106,7 +105,7 @@ public class AaSelectable : Selectable
     {
         //Debug.LogWarning($"[AaSelectable] 2 {currentSelectionState} -> Pressed" + gameObject.ToStringEventSystem());
         OnClick?.Invoke();
-
+        
         if (!_noPointerPress && cursorSettings.ClickPointSprite)
             OnMouseClickSelectable?.Invoke((Vector2)Input.mousePosition + cursorSettings.ClickPointOffset, cursorSettings.ClickPointSprite);
 

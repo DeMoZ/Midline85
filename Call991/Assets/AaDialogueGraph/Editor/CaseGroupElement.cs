@@ -17,9 +17,9 @@ namespace AaDialogueGraph.Editor
                 contentContainer.Add(new AndChoiceCase(AaGraphConstants.And, element =>
                 {
                     RemoveElement(element, contentContainer);
-                    UpdateCount(foldout);
+                    UpdateCasesCount(foldout);
                 }, AaKeys.ChoiceKeys));
-                UpdateCount(foldout);
+                UpdateCasesCount(foldout);
             });
             andWordCase.text = AaGraphConstants.AndWord;
             andWordCase.AddToClassList("aa-ChoiceAsset_content-container-green");
@@ -30,9 +30,9 @@ namespace AaDialogueGraph.Editor
                 contentContainer.Add(new NoChoiceCase(AaGraphConstants.No, element =>
                 {
                     RemoveElement(element, contentContainer);
-                    UpdateCount(foldout);
+                    UpdateCasesCount(foldout);
                 }, AaKeys.ChoiceKeys));
-                UpdateCount(foldout);
+                UpdateCasesCount(foldout);
             });
             noWordCase.text = AaGraphConstants.NoWord;
             noWordCase.AddToClassList("aa-ChoiceAsset_content-container-red");
@@ -43,9 +43,9 @@ namespace AaDialogueGraph.Editor
                 contentContainer.Add(new AndEndCase(AaGraphConstants.And, element =>
                 {
                     RemoveElement(element, contentContainer);
-                    UpdateCount(foldout);
+                    UpdateCasesCount(foldout);
                 }, AaKeys.EndKeys));
-                UpdateCount(foldout);
+                UpdateCasesCount(foldout);
             });
             addEndCase.text = AaGraphConstants.AndEnd;
             addEndCase.AddToClassList("aa-ChoiceAsset_content-container-blue");
@@ -56,9 +56,9 @@ namespace AaDialogueGraph.Editor
                 contentContainer.Add(new NoEndCase(AaGraphConstants.No, element =>
                 {
                     RemoveElement(element, contentContainer);
-                    UpdateCount(foldout);
+                    UpdateCasesCount(foldout);
                 }, AaKeys.EndKeys));
-                UpdateCount(foldout);
+                UpdateCasesCount(foldout);
             });
             noEndCase.text = AaGraphConstants.NoEnd;
             noEndCase.AddToClassList("aa-ChoiceAsset_content-container-pink");
@@ -69,9 +69,9 @@ namespace AaDialogueGraph.Editor
                 contentContainer.Add(new CountCase(element =>
                 {
                     RemoveElement(element, contentContainer);
-                    UpdateCount(foldout);
+                    UpdateCasesCount(foldout);
                 }, AaKeys.CountKeys));
-                UpdateCount(foldout);
+                UpdateCasesCount(foldout);
             });
             countCase.text = AaGraphConstants.PlusCount;
             countCase.AddToClassList("aa-ChoiceAsset_content-container-orange");
@@ -81,7 +81,7 @@ namespace AaDialogueGraph.Editor
             CreateEndCases(foldout, endData);
             CreateCountCases(foldout, countData);
 
-            UpdateCount(foldout);
+            UpdateCasesCount(foldout);
         }
 
         private void RemoveElement(VisualElement element, VisualElement container)
@@ -89,7 +89,7 @@ namespace AaDialogueGraph.Editor
             container.Remove(element);
         }
 
-        private void UpdateCount(Foldout foldout)
+        private void UpdateCasesCount(Foldout foldout)
         {
             var cnt = 0;
             var cntWords = foldout.Query<ChoiceCase>().ToList().Count;

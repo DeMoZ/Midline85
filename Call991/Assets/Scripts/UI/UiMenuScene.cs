@@ -9,10 +9,10 @@ namespace UI
     {
         public struct Ctx
         {
-            public ReactiveCommand OnClickPlayGame;
-            public ReactiveCommand OnClickNewGame;
-            public PlayerProfile Profile;
-            public AudioManager AudioManager;
+            public ReactiveCommand onClickPlayGame;
+            public ReactiveCommand onClickNewGame;
+            public PlayerProfile profile;
+            public AudioManager audioManager;
         }
 
         [SerializeField] private UiMenu menu = default;
@@ -22,9 +22,9 @@ namespace UI
         private Ctx _ctx;
         private CompositeDisposable _disposables;
 
-        private ReactiveCommand _onClickSettings;
-        private ReactiveCommand _onClickCredits;
-        private ReactiveCommand _onClickToMenu;
+        public ReactiveCommand _onClickSettings;
+        public ReactiveCommand _onClickCredits;
+        public ReactiveCommand _onClickToMenu;
 
         public async void SetCtx(Ctx ctx)
         {
@@ -40,18 +40,18 @@ namespace UI
 
             menu.SetCtx(new UiMenu.Ctx
             {
-                audioManager = _ctx.AudioManager,
-                onClickPlayGame = _ctx.OnClickPlayGame,
-                onClickNewGame = _ctx.OnClickNewGame,
+                audioManager = _ctx.audioManager,
+                onClickPlayGame = _ctx.onClickPlayGame,
+                onClickNewGame = _ctx.onClickNewGame,
                 onClickSettings = _onClickSettings,
                 onClickCredits = _onClickCredits,
             });
 
             menuSettings.SetCtx(new UiMenuSettings.Ctx
             {
-                audioManager = _ctx.AudioManager,
+                audioManager = _ctx.audioManager,
                 onClickToMenu = _onClickToMenu,
-                profile = _ctx.Profile,
+                profile = _ctx.profile,
             });
 
             menuCredits.SetCtx(new UiMenuCredits.Ctx

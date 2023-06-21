@@ -29,7 +29,8 @@ namespace UI
 
         public struct Ctx
         {
-            public ReactiveCommand<ChoiceButtonView> onClickChoiceButton;
+            public int index;
+            public ReactiveCommand<int> onClickChoiceButton;
             public float buttonsAppearDuration;
             public float fastButtonFadeDuration;
             public float slowButtonFadeDuration;
@@ -116,7 +117,7 @@ namespace UI
         private void ChoiceDoneForAllButtons(ChoiceButtonView btn)
         {
             if (btn == this)
-                _ctx.onClickChoiceButton?.Execute(this);
+                _ctx.onClickChoiceButton?.Execute(_ctx.index);
             else
                 DoStateTransitionNormal();
 
