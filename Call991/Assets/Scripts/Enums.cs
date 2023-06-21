@@ -1,8 +1,8 @@
 public enum GameScenes
 {
     Menu = 0,
-    Level1 = 1,
-    OpenScene =2,
+    Level = 1,
+    OpenScene = 2,
 }
 
 public enum DialogAppearType
@@ -11,12 +11,6 @@ public enum DialogAppearType
     Letters,
     Word,
     Fade,
-}
-
-public enum Language
-{
-    EN,
-    RU,
 }
 
 public enum AudioSourceType

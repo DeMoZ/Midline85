@@ -7,103 +7,121 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class RootEntity : IDisposable
 {
     public struct Ctx
     {
-        public AudioManager audioManager;
-        public VideoManager videoManager;
-        public Blocker blocker;
+        public AudioManager AudioManager;
+        public VideoManager VideoManager;
+        public OverridenDialogue OverridenDialogue;
+        public Image VideoFade;
+        public Image ScreenFade;
+        public Transform ClicksParent;
     }
 
     private Ctx _ctx;
-    private CompositeDisposable _diposables;
+    private CompositeDisposable _disposables;
     private readonly ReactiveCommand _onStartApplicationSwitchScene;
 
     public RootEntity(Ctx ctx)
     {
         Debug.Log($"[RootEntity][time] Loading scene start.. {Time.realtimeSinceStartup}");
         _ctx = ctx;
-        _diposables = new CompositeDisposable();
+        _disposables = new CompositeDisposable();
+
+        var musicPath = "Sounds/Music";
 
         var gameSet = Resources.Load<GameSet>("GameSet");
         var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
+        var cursorSettings = Resources.Load<CursorSet>("CursorSet");
+        var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
-        var onAudioLanguage = new ReactiveCommand<Language>().AddTo(_diposables);
-        
-        var profile = new PlayerProfile(onAudioLanguage);
-        SetLanguage(profile.TextLanguage);
-        
-        var soundPath = "Sounds/Ui";
-        var musicPath = "Sounds/Music";
-        var voiceFolder = "RU"; // todo: reactive
-        var levelFolder = "RU_7_P"; // todo: reactive
+        _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
 
-        _ctx.audioManager.SetCtx(new AudioManager.Ctx
+        var isPauseAllowed = new ReactiveProperty<bool>(true);
+        var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
+        var onScreenFade = new ReactiveCommand<(bool show, float time)>();
+        var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
+        var onShowWarning = new ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)>();
+
+        var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
         {
-            gameSet = gameSet,
-            onAudioLanguage = onAudioLanguage,
+            OnScreenFade = onScreenFade,
+            OnShowTitle = onShowTitle,
+            OnShowWarning = onShowWarning,
+            SkipTitle = _ctx.OverridenDialogue.SkipTitle,
+            SkipWarning = _ctx.OverridenDialogue.SkipWarning,
+        }).AddTo(_disposables);
+
+
+        var profile = new PlayerProfile();
+        SetLanguage(profile.TextLanguage);
+
+        var clickPointHandler = new ClickPointHandler(clickImage, _ctx.ClicksParent).AddTo(_disposables);
+
+        var blocker = new Blocker(new Blocker.Ctx
+        {
+            ScreenFade = _ctx.ScreenFade,
+            VideoFade = _ctx.VideoFade,
+            GameSet = gameSet,
+            OnScreenFade = onScreenFade,
+            IsPauseAllowed = isPauseAllowed,
+        }).AddTo(_disposables);
+
+        _ctx.AudioManager.SetCtx(new AudioManager.Ctx
+        {
+            GameSet = gameSet,
             playerProfile = profile,
             audioMixer = audioMixer,
-            soundPath = soundPath,
             musicPath = musicPath,
-            voiceFolder = voiceFolder,
-            levelFolder = levelFolder,
         });
-        _ctx.audioManager.PlayMusic("Intro").Forget();
+        _ctx.AudioManager.PlayMusic("Intro").Forget();
 
-        _ctx.videoManager.SetCtx(new VideoManager.Ctx
+        _ctx.VideoManager.SetCtx(new VideoManager.Ctx
         {
-            gameSet = gameSet,
         });
-        
+
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
-        _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_diposables);
-        var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_diposables);
-        var cursorSettings = Resources.Load<CursorSet>("CursorSet");
-        
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
         {
-            gameSet = gameSet,
-            startApplicationSceneName = startApplicationSceneName,
-            onStartApplicationSwitchScene = _onStartApplicationSwitchScene,
-            onSwitchScene = onSwitchScene,
-            profile = profile,
-            audioManager = _ctx.audioManager,
-            videoManager = _ctx.videoManager,
-            blocker = _ctx.blocker,
-            cursorSettings = cursorSettings,
-        }).AddTo(_diposables);
+            GameSet = gameSet,
+            StartApplicationSceneName = startApplicationSceneName,
+            OnStartApplicationSwitchScene = _onStartApplicationSwitchScene,
+            OnSwitchScene = onSwitchScene,
+            Profile = profile,
+            AudioManager = _ctx.AudioManager,
+            VideoManager = _ctx.VideoManager,
+            Blocker = blocker,
+            ObjectEvents = objectEvents,
+            CursorSettings = cursorSettings,
+            OverridenDialogue = _ctx.OverridenDialogue,
+            IsPauseAllowed = isPauseAllowed,
+        }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
-            scenesHandler = scenesHandler,
-            onSwitchScene = onSwitchScene,
-            videoManager = _ctx.videoManager,
-            gameSet = gameSet,
-            blocker = _ctx.blocker,
-            cursorSettings = cursorSettings,
-        }).AddTo(_diposables);
+            ScenesHandler = scenesHandler,
+            OnSwitchScene = onSwitchScene,
+            VideoManager = _ctx.VideoManager,
+            GameSet = gameSet,
+            Blocker = blocker,
+            CursorSettings = cursorSettings,
+            OverridenDialogue = _ctx.OverridenDialogue,
+        }).AddTo(_disposables);
 
         _onStartApplicationSwitchScene.Execute();
     }
 
-    private void SetLanguage(Language language)
+    private void SetLanguage(string language)
     {
-        string locLanguage = language switch
-        {
-            Language.EN => "English",
-            Language.RU => "Russian",
-            _ => throw new ArgumentOutOfRangeException(nameof(language), language, null)
-        };
-
-        LocalizationManager.CurrentLanguage = locLanguage;
+        LocalizationManager.CurrentLanguage = language;
     }
 
     public void Dispose()
     {
-        _diposables.Dispose();
+        _disposables.Dispose();
     }
 }

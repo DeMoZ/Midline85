@@ -1,5 +1,7 @@
 using System;
 using System.Threading.Tasks;
+using Configs;
+using Core;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
@@ -7,35 +9,53 @@ using UnityEngine.UI;
 
 public class Blocker : IDisposable
 {
-    private const float FadeTime = 0.3f;
-
+    public struct Ctx
+    {
+        public Image ScreenFade;
+        public Image VideoFade;
+        public GameSet GameSet;
+        public ReactiveProperty<bool> IsPauseAllowed;
+        public ReactiveCommand<(bool show, float time)> OnScreenFade;
+    }
+    
     private readonly Image _screenFade;
     private readonly Image _videoFade;
     private readonly CompositeDisposable _disposables;
+    private readonly GameSet _gameSet;
 
     private Color _videoBlockerColor;
     private Color _screenBlockerColor;
+    private Ctx _ctx;
 
-    public Blocker(Image screenFade, Image videoFade)
+    public Blocker(Ctx ctx)
     {
-        _screenFade = screenFade;
-        _videoFade = videoFade;
+        _ctx = ctx;
+        _disposables = new CompositeDisposable();
+
+        _screenFade = _ctx.ScreenFade;
+        _videoFade = _ctx.VideoFade;
 
         _videoBlockerColor = _videoFade.color;
         _screenBlockerColor = _screenFade.color;
+        _gameSet = _ctx.GameSet;
 
-        _disposables = new CompositeDisposable();
+        _ctx.OnScreenFade.Subscribe(param =>
+        {
+            Debug.Log($"[{this}] received event Fade");
+            FadeScreenBlocker(param.show, param.time).Forget();
+        }).AddTo(_disposables);
     }
 
-    public async Task FadeVideoBlocker(bool show)
+    public async Task FadeVideoBlocker(bool show, float? fadeTime = null)
     {
+        var time = fadeTime ?? _gameSet.shortFadeTime;
         var toColor = show ? 1 : 0;
         _videoBlockerColor.a = show ? 0 : 1;
         _videoFade.color = _videoBlockerColor;
 
         EnableVideoFade(true, !show);
 
-        var seq = _videoFade.DOFade(toColor, FadeTime);
+        var seq = _videoFade.DOFade(toColor, time);
         seq.Play();
 
         while (seq.IsPlaying())
@@ -47,7 +67,8 @@ public class Blocker : IDisposable
 
     public async Task FadeScreenBlocker(bool show, float? fadeTime = null)
     {
-        var time = fadeTime ?? FadeTime;
+        _ctx.IsPauseAllowed.Value = false;
+        var time = fadeTime ?? _gameSet.shortFadeTime;
         var toColor = show ? 1 : 0;
         _screenBlockerColor.a = show ? 0 : 1;
         _screenFade.color = _screenBlockerColor;
@@ -62,6 +83,8 @@ public class Blocker : IDisposable
 
         if (!show)
             EnableScreenFade(false);
+        
+        _ctx.IsPauseAllowed.Value = true;
     }
 
     public void EnableVideoFade(bool enable, bool show = true)
@@ -73,6 +96,7 @@ public class Blocker : IDisposable
 
     public void EnableScreenFade(bool enable, bool show = true)
     {
+        Debug.Log($"[{this}] Screen fade enable {enable}; show {show}");
         _screenBlockerColor.a = show ? 1 : 0;
         _screenFade.color = _screenBlockerColor;
         _screenFade.gameObject.SetActive(enable);

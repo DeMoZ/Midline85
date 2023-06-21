@@ -9,6 +9,7 @@ namespace AaDialogueGraph
     {
         public string Choice;
         public CaseData CaseData = new ();
+        public bool IsLocked;
     }
 
     [Serializable]

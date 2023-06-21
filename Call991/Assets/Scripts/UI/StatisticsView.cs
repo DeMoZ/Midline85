@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using DG.Tweening;
+using System.Threading.Tasks;
+using AaDialogueGraph;
 using I2.Loc;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
@@ -11,73 +11,49 @@ namespace UI
     {
         public struct Ctx
         {
-            public ReactiveCommand onClickMenuButton;
+            public ReactiveCommand OnClickMenuButton;
+            public Blocker Blocker;
         }
 
         [SerializeField] private MenuButtonView menuButton = default;
-        [SerializeField] private GameObject statisticsObjects = default;
-        [SerializeField] private Image fadeImage = default;
-        [Space] [SerializeField] private LocalizedString lockedTextKey = default;
 
-        [Space] [SerializeField] private List<StatisticsCellView> cells = default;
+        [Space] [SerializeField] private RectTransform table = default;
+        [SerializeField] private StatisticsCellView cellPrefab = default;
 
         private Ctx _ctx;
-        private Color fadeImageColor;
-
-        private void Awake()
-        {
-            gameObject.SetActive(false);
-        }
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
             menuButton.OnClick += OnClickMenu;
-
-            fadeImageColor = fadeImage.color;
         }
 
         private void OnClickMenu() =>
-            _ctx.onClickMenuButton.Execute();
+            _ctx.OnClickMenuButton.Execute();
 
-        public void PopulateCells(List<StatisticElement> statisticElements)
+        public async Task PopulateCells(List<RecordData> data)
         {
-            for (var i = 0; i < cells.Count; i++)
+            foreach (Transform cell in table)
             {
-                var cell = cells[i];
-                if (statisticElements.Count > i && statisticElements[i].isReceived)
+                Destroy(cell.gameObject);
+            }
+
+            foreach (var record in data)
+            {
+                var cell = Instantiate(cellPrefab, table);
+                cell.text.text = new LocalizedString(record.Key);
+
+                Sprite sprite;
+                if (!string.IsNullOrEmpty(record.Sprite))
                 {
-                    cell.image.sprite = statisticElements[i].sprite;
-                    cell.text.text = statisticElements[i].isReceived ? statisticElements[i].description : lockedTextKey;
-                    cell.arrow.SetActive(statisticElements[i].isReceived);
-                    cell.gameObject.SetActive(true);
+                    sprite = await NodeUtils.GetObjectByPathAsync<Sprite>(record.Sprite);
+                    if (tokenSource is { IsCancellationRequested: true }) return;
                 }
                 else
-                {
-                    cell.gameObject.SetActive(false);
-                }
+                    sprite = null;
+
+                cell.image.sprite = sprite;
             }
-        }
-
-        public void Fade(float time)
-        {
-            statisticsObjects.SetActive(false);
-            fadeImageColor.a = 0;
-            fadeImage.color = fadeImageColor;
-            gameObject.SetActive(true);
-            fadeImage.gameObject.SetActive(true);
-            fadeImage.DOFade(1, time / 2).OnComplete(() => OnBlackScreenOn(time));
-        }
-
-        private void OnBlackScreenOn(float time)
-        {
-            statisticsObjects.SetActive(true);
-            fadeImage.DOFade(0, time / 2).OnComplete(() => OnBlackScreenOff());
-        }
-
-        private void OnBlackScreenOff()
-        {
-            fadeImage.gameObject.SetActive(false);
         }
     }
 }

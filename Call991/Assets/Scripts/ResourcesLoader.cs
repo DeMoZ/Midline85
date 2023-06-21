@@ -5,7 +5,11 @@ public static class ResourcesLoader
 {
     public static async Task<T> LoadAsync<T>(string assetName) where T : UnityEngine.Object
     {
-        ResourceRequest resource = Resources.LoadAsync<T>(assetName);
+        if (string.IsNullOrEmpty(assetName))
+            return null;
+        
+        var resource = Resources.LoadAsync<T>(assetName);
+        
         while (!resource.isDone)
         {
             await Task.Yield();

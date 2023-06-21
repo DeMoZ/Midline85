@@ -3,6 +3,7 @@ using System.Collections;
 using System.Text;
 using I2.Loc;
 using TMPro;
+using UI;
 using UnityEngine;
 
 public class PersonView : MonoBehaviour
@@ -20,43 +21,61 @@ public class PersonView : MonoBehaviour
     private bool _showPhrase;
     private float? _yieldTime;
     private float _wordTime;
-    
+    private Coroutine _phraseRoutine;
+    private Coroutine _yieldTimeRoutine;
+
     private void OnEnable()
     {
         if (!_showPhrase) return;
-        
-        if(_yieldTime.HasValue)
-            StartCoroutine(YieldTime(_wordTime - _yieldTime.Value));
-    }
 
-    public void ShowPhrase(PhraseSet phrase)
+        if (_yieldTime.HasValue)
+        {
+            if (_yieldTimeRoutine != null)
+            {
+                StopCoroutine(_yieldTimeRoutine);
+            }
+
+            _yieldTimeRoutine = StartCoroutine(YieldTime(_wordTime - _yieldTime.Value));
+        }
+    }
+    public void ShowPhrase(UiPhraseData data)
     {
+        ResetRoutines();
+
         description.text = string.Empty;
 
         if (!gameObject.activeSelf)
             gameObject.SetActive(true);
 
-        _localize = phrase.GetPersonName();
+        _localize = data.PersonVisualData.Person.ToString();
         personName.text = _localize;
         description.gameObject.SetActive(true);
-        ShowPhraseText(phrase);
+        
+        if (data.Phrase == null)
+        {
+            description.text = data.Description;
+        }
+        else
+        {
+            ShowPhraseText(data);
+        }
     }
-
-    private void ShowPhraseText(PhraseSet phraseSet)
+    
+    private void ShowPhraseText(UiPhraseData data)
     {
-        _phrase = phraseSet.Phrase;
+        _phrase = data.Phrase;
         _wordIndex = 0;
         _showPhrase = true;
         
-        switch (phraseSet.textAppear)
+        switch (data.PhraseVisualData.TextAppear)
         {
             case TextAppear.Pop:
-                description.text = phraseSet.Phrase.text;
+                description.text = data.Phrase.text;
                 break;
             case TextAppear.Word:
                 if (gameObject is {activeInHierarchy: true, activeSelf: true})
                 {
-                    StartCoroutine(ShowWords(phraseSet.Phrase, 0));
+                    StartCoroutine(ShowWords(data.Phrase, 0));
                 }
                 else
                 {
@@ -64,6 +83,43 @@ public class PersonView : MonoBehaviour
                     _wordTime = _phrase.wordTimes[0].time;
                     _wordIndex = -1;
                 }
+                break;
+            case TextAppear.Letters:
+                break;
+            case TextAppear.Fade:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    [Obsolete]
+    private void _ShowPhraseText(PhraseSet phraseSet)
+    {
+        _phrase = phraseSet.Phrase;
+        _wordIndex = 0;
+        _showPhrase = true;
+
+        switch (phraseSet.textAppear)
+        {
+            case TextAppear.Pop:
+                description.text = phraseSet.Phrase.text;
+                break;
+            case TextAppear.Word:
+                if (gameObject is { activeInHierarchy: true, activeSelf: true })
+                {
+                    if (_phraseRoutine != null)
+                        StopCoroutine(_phraseRoutine);
+
+                    _phraseRoutine = StartCoroutine(ShowWords(phraseSet.Phrase, 0));
+                }
+                else
+                {
+                    _yieldTime = 0;
+                    _wordTime = _phrase.wordTimes[0].time;
+                    _wordIndex = -1;
+                }
+
                 break;
             case TextAppear.Letters:
                 break;
@@ -114,13 +170,28 @@ public class PersonView : MonoBehaviour
             var word = GetWord(phrase, i, text);
             text.Append(word);
             description.text = text.ToString();
-            
+
             yield return RoutineWaitForSeconds(_wordTime);
         }
 
-        _phrase = null;
+        ResetRoutines();
+    }
+
+    private void ResetRoutines()
+    {
+        if (_phraseRoutine != null)
+            StopCoroutine(_phraseRoutine);
+
+        if (_yieldTimeRoutine != null)
+            StopCoroutine(_yieldTimeRoutine);
+        
         _wordIndex = 0;
+        _wordTime = 0;
         _showPhrase = false;
+        _phrase = null;
+        _yieldTime = null;
+        _phraseRoutine = null;
+        _yieldTimeRoutine = null;
     }
 
     private static string GetWord(Phrase phrase, int i, StringBuilder text)
@@ -154,7 +225,7 @@ public class PersonView : MonoBehaviour
 
     private void OnDisable()
     {
-        if(_yieldTime.HasValue)
+        if (_yieldTime.HasValue)
             _yieldTime = Time.time - _yieldTime;
     }
 }

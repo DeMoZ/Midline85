@@ -22,6 +22,7 @@ namespace AaDialogueGraph.Editor
             }
 
             path = Path.GetDirectoryName(fileName);
+            path = path.Replace("\\", "/");
             var onlyFileName = Path.GetFileNameWithoutExtension(fileName);
 
             var split = path.Split("Resources/");
@@ -43,6 +44,8 @@ namespace AaDialogueGraph.Editor
             CreateForkNodes();
             CreateCountNodes();
             CreateEndNodes();
+            CreateEventNodes();
+            CreateNewspaperNodes();
 
             ConnectNodes();
             SetPositions();
@@ -63,7 +66,7 @@ namespace AaDialogueGraph.Editor
         private void CreateEntryNode()
         {
             var node = new EntryNode();
-            node.Set(_languageOperation, _containerCash.EntryNodeData.Guid);
+            node.Set(_languageOperation, _containerCash.EntryNodeData);
             _targetGraphView.AddElement(node);
 
             foreach (var language in _containerCash.EntryNodeData.Languages)
@@ -86,10 +89,12 @@ namespace AaDialogueGraph.Editor
 
         private void CreateChoiceNodes()
         {
+            var choiceKeys = EditorNodeUtils.GetButtons(_containerCash.EntryNodeData.ButtonFilter);
+            
             foreach (var data in _containerCash.ChoiceNodeData)
             {
                 var node = new ChoiceNode();
-                node.Set(data, data.Guid);
+                node.Set(data, data.Guid, choiceKeys);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -120,6 +125,26 @@ namespace AaDialogueGraph.Editor
             {
                 var node = new EndNode();
                 node.Set(data, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
+
+        private void CreateEventNodes()
+        {
+            foreach (var data in _containerCash.EventNodeData)
+            {
+                var node = new EventNode();
+                node.Set(data, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
+
+        private void CreateNewspaperNodes()
+        {
+            foreach (var data in _containerCash.NewspaperNodeData)
+            {
+                var node = new NewspaperNode();
+                node.Set(data, _containerCash.EntryNodeData.Languages, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -169,7 +194,9 @@ namespace AaDialogueGraph.Editor
             nodes.AddRange(_containerCash.ChoiceNodeData);
             nodes.AddRange(_containerCash.ForkNodeData);
             nodes.AddRange(_containerCash.CountNodeData);
+            nodes.AddRange(_containerCash.EventNodeData);
             nodes.AddRange(_containerCash.EndNodeData);
+            nodes.AddRange(_containerCash.NewspaperNodeData);
             nodes.Add(_containerCash.EntryNodeData);
 
             // foreach (var node in AaNodes)
@@ -182,7 +209,7 @@ namespace AaDialogueGraph.Editor
 
             foreach (var node in AaNodes)
             {
-                if (nodesDict.TryGetValue(node.Guid ,  out var data))
+                if (nodesDict.TryGetValue(node.Guid, out var data))
                 {
                     node.SetPosition(data.Rect);
                 }
