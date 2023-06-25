@@ -126,7 +126,7 @@ namespace AaDialogueGraph.Editor
                 var personVisualData = node.GetPersonVisual().GetData();
                 var phraseVisualData = node.GetPhraseVisual().GetData();
                 var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
-                var phraseSounds = node.GetPhraseSounds().ToList();
+                var phraseSound = node.GetPhraseSound();
                 var phrases = node.GetPhrases().Cast<Object>().ToList();
 
                 data.Add(new PhraseNodeData
@@ -138,7 +138,7 @@ namespace AaDialogueGraph.Editor
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
-                    PhraseSounds = phraseSounds,
+                    PhraseSound = phraseSound,
                     Phrases = EditorNodeUtils.GetObjectPath(phrases),
                 });
             }

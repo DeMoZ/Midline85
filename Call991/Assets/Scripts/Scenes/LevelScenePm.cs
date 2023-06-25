@@ -296,7 +296,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.OnShowPhrase.Execute(uiPhrase);
 
-        var voiceId = _ctx.AudioManager.PlayPhrase(data.PhraseSounds);
+        var voiceId = _ctx.AudioManager.PlayPhrase(data.PhraseSound);
         
         if (voiceId == null)
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");

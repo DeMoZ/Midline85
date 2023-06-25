@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using Configs;
@@ -106,6 +107,7 @@ public class WwiseAudio : MonoBehaviour
         //     _phraseAudioSource.volume = _ctx.playerProfile.PhraseVolume;
     }
 
+    [Obsolete]
     public uint? PlayPhrase(List<string> sounds)
     {
         var phraseSound = GetWwiseAudioKey(sounds);
@@ -114,6 +116,20 @@ public class WwiseAudio : MonoBehaviour
         if (!isNoKey)
         {
             var voiceId = AkSoundEngine.PostEvent(phraseSound, _phraseGo);
+            _playingVoices.Add(voiceId);
+            return voiceId;
+        }
+
+        return null;
+    }
+    
+    public uint? PlayPhrase(string sound)
+    {
+        var isNoKey = string.Equals(sound, AaGraphConstants.None) || string.IsNullOrEmpty(sound);
+
+        if (!isNoKey)
+        {
+            var voiceId = AkSoundEngine.PostEvent(sound, _phraseGo);
             _playingVoices.Add(voiceId);
             return voiceId;
         }

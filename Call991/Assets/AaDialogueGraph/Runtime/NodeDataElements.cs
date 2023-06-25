@@ -23,11 +23,5 @@ namespace AaDialogueGraph
                 ? null
                 : NodeUtils.GetObjectByPath<T>(PhraseEvent);
         }
-
-        // private bool Loop() =>
-        //     EventType is PhraseEventTypes.LoopSfx or PhraseEventTypes.LoopVfx;
-
-        // private bool Stop() =>
-        //     EventType is PhraseEventTypes.LoopSfx or PhraseEventTypes.LoopVfx;
     }
 }
