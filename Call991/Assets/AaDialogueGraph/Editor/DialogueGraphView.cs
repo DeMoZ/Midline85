@@ -56,7 +56,7 @@ namespace AaDialogueGraph.Editor
         {
             var languages = GetLanguages();
             var soundAsset = GetSoundAsset();
-            
+
             var node = new PhraseNode();
             node.Set(new PhraseNodeData(), languages, soundAsset, Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
@@ -91,16 +91,18 @@ namespace AaDialogueGraph.Editor
 
         public void CreateEventNode()
         {
+            var sounds = GetSoundAsset();
             var node = new EventNode();
-            node.Set(new EventNodeData(), Guid.NewGuid().ToString());
+            node.Set(new EventNodeData(), Guid.NewGuid().ToString(), sounds);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
 
         public void CreateEndNode()
         {
+            var sounds = GetSoundAsset();
             var node = new EndNode();
-            node.Set(new EndNodeData(), Guid.NewGuid().ToString());
+            node.Set(new EndNodeData(), Guid.NewGuid().ToString(), sounds);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
@@ -108,8 +110,9 @@ namespace AaDialogueGraph.Editor
         public void CreateNewspaperNode()
         {
             var languages = GetLanguages();
+            var sounds = GetSoundAsset();
             var node = new NewspaperNode();
-            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString());
+            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString(), sounds);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);
@@ -156,7 +159,7 @@ namespace AaDialogueGraph.Editor
                     {
                         var tableContainer = node.Q<ElementsTable>();
                         var field = new PhraseElementsRowField();
-                        field.Set(AaKeys.LanguageKeys[0], new List<string>(), null, null, node.CheckNodeContent);
+                        field.Set(AaKeys.LanguageKeys[0], null, node.CheckNodeContent);
                         tableContainer?.Add(field);
                         node.CheckNodeContent();
                     }
@@ -198,13 +201,13 @@ namespace AaDialogueGraph.Editor
                         RemoveRow<PhraseElementsRowField>(node);
                         node.CheckNodeContent();
                     }
-                    
+
                     foreach (var node in newspaperNodes)
                     {
                         RemoveRow<NewspaperElementsRowField>(node);
                         node.CheckNodeContent();
                     }
-                    
+
                     entryNode.Remove(languageOperation.Element);
 
                     void RemoveRow<T>(AaNode node) where T : VisualElement
@@ -214,6 +217,7 @@ namespace AaDialogueGraph.Editor
                         var phraseContainer = node.Q<ElementsTable>();
                         phraseContainer.Remove(row);
                     }
+
                     break;
 
                 default:

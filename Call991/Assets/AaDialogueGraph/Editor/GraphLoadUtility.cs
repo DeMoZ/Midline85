@@ -78,15 +78,21 @@ namespace AaDialogueGraph.Editor
             }
         }
 
+        private List<string> GetWwiseSoundsFromStartNode()
+        {
+            return (string.IsNullOrEmpty(_containerCash.EntryNodeData.SoundAsset) ? null : 
+                NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(_containerCash.EntryNodeData.SoundAsset))?.Keys;
+        }
+        
         private void CreatePhraseNodes()
         {
-            var soundAsset = (string.IsNullOrEmpty(_containerCash.EntryNodeData.SoundAsset) ? null : 
-                NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(_containerCash.EntryNodeData.SoundAsset))?.Keys;
+            var languages = _containerCash.EntryNodeData.Languages;
+            var sounds = GetWwiseSoundsFromStartNode();
             
             foreach (var data in _containerCash.PhraseNodeData)
             {
                 var node = new PhraseNode();
-                node.Set(data, _containerCash.EntryNodeData.Languages,  soundAsset, data.Guid);
+                node.Set(data, languages,  sounds, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -125,30 +131,37 @@ namespace AaDialogueGraph.Editor
 
         private void CreateEndNodes()
         {
+            var sounds = GetWwiseSoundsFromStartNode();
+            
             foreach (var data in _containerCash.EndNodeData)
             {
                 var node = new EndNode();
-                node.Set(data, data.Guid);
+                node.Set(data, data.Guid, sounds);
                 _targetGraphView.AddElement(node);
             }
         }
 
         private void CreateEventNodes()
         {
+            var sounds = GetWwiseSoundsFromStartNode();
+            
             foreach (var data in _containerCash.EventNodeData)
             {
                 var node = new EventNode();
-                node.Set(data, data.Guid);
+                node.Set(data, data.Guid, sounds);
                 _targetGraphView.AddElement(node);
             }
         }
 
         private void CreateNewspaperNodes()
         {
+            var languages = _containerCash.EntryNodeData.Languages;
+            var sounds = GetWwiseSoundsFromStartNode();
+            
             foreach (var data in _containerCash.NewspaperNodeData)
             {
                 var node = new NewspaperNode();
-                node.Set(data, _containerCash.EntryNodeData.Languages, data.Guid);
+                node.Set(data, languages, data.Guid, sounds);
                 _targetGraphView.AddElement(node);
             }
         }

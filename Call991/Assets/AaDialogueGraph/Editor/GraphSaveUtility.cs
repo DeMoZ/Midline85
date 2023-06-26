@@ -112,7 +112,7 @@ namespace AaDialogueGraph.Editor
                 ButtonFilter = node.Q<ButtonFilterTextField>().value,
                 SoundAsset = EditorNodeUtils.GetPathByObject(soundAsset),
             };
-            
+
             var languageFields = node.Query<LanguagePopupField>().ToList();
             data.Languages = languageFields.Select(field => field.Value).ToList();
             return data;
@@ -125,7 +125,7 @@ namespace AaDialogueGraph.Editor
             {
                 var personVisualData = node.GetPersonVisual().GetData();
                 var phraseVisualData = node.GetPhraseVisual().GetData();
-                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
+                var eventsVisualData = GetEventsData(node);
                 var phraseSound = node.GetPhraseSound();
                 var phrases = node.GetPhrases().Cast<Object>().ToList();
 
@@ -212,7 +212,7 @@ namespace AaDialogueGraph.Editor
             var data = new List<EndNodeData>();
             foreach (var node in nodes)
             {
-                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
+                var eventsVisualData = GetEventsData(node);
 
                 data.Add(new EndNodeData
                 {
@@ -232,13 +232,11 @@ namespace AaDialogueGraph.Editor
             var data = new List<EventNodeData>();
             foreach (var node in nodes)
             {
-                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
-
+                var eventsVisualData = GetEventsData(node);
                 data.Add(new EventNodeData
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
-
                     EventVisualData = eventsVisualData,
                 });
             }
@@ -251,7 +249,7 @@ namespace AaDialogueGraph.Editor
             var data = new List<NewspaperNodeData>();
             foreach (var node in nodes)
             {
-                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
+                var eventsVisualData = GetEventsData(node);
                 var sprites = node.GetSprites().Cast<Object>().ToList();
 
                 data.Add(new NewspaperNodeData
@@ -266,6 +264,10 @@ namespace AaDialogueGraph.Editor
             return data;
         }
 
+        private static List<EventVisualData> GetEventsData(AaNode node)
+        {
+            return node.GetEventsVisual().ToList().Select(evt => evt.GetData()).ToList();
+        }
 
         private void CreateFolders(string fileName)
         {

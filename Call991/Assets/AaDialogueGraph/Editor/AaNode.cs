@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.UIElements;
 
 namespace AaDialogueGraph.Editor
 {
@@ -12,6 +14,17 @@ namespace AaDialogueGraph.Editor
         public AaNode()
         {
             titleContainer.Remove(titleButtonContainer);
+        }
+
+        public virtual List<VisualEvent> GetEventsVisual()
+        {
+            var sounds = contentContainer.Query<SoundEventVisual>().ToList();
+            var objects = contentContainer.Query<ObjectEventVisual>().ToList();
+            var events = new List<VisualEvent>();
+            events.AddRange(sounds);
+            events.AddRange(objects);
+
+            return events;
         }
 
         protected void CreateInPort(string toolTip = null)

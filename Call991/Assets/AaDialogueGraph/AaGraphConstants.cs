@@ -46,4 +46,6 @@ public static class AaGraphConstants
     public const string OrName = "or";
 
     public const string None = "NONE";
+    
+    public const string SoundPopupField = "SoundPopupField";
 }

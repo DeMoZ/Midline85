@@ -1,14 +1,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using UnityEngine;
 using UnityEngine.UIElements;
 
 namespace AaDialogueGraph.Editor
 {
     public class PhraseNode : AaNode
     {
-        private const string SoundPopupField = "SoundPopupField";
         private string _personTxt;
         private string _phraseSketchTxt;
 
@@ -47,7 +45,7 @@ namespace AaDialogueGraph.Editor
             contentFolder.Add(phraseVisual);
 
             var phraseEvents = new AaNodeEvents();
-            phraseEvents.Set(data.EventVisualData, CheckNodeContent);
+            phraseEvents.Set(data.EventVisualData, CheckNodeContent, sounds);
             contentFolder.Add(phraseEvents);
 
             var phraseContainer = new ElementsTable();
@@ -62,7 +60,7 @@ namespace AaDialogueGraph.Editor
 
             var soundPopup = new SoundPopupField(sounds, sound)
             {
-                name = SoundPopupField
+                name = AaGraphConstants.SoundPopupField
             };
 
             var soundLine = new LineGroup(new VisualElement[]{ soundText, soundPopup });
@@ -122,8 +120,8 @@ namespace AaDialogueGraph.Editor
             titleContainer.Q<NodeTitleErrorField>().Label.text = errorFields.ToString();
         }
 
-        public string GetPhraseSound() =>
-            contentContainer.Query<SoundPopupField>().ToList().First(field => field.name == SoundPopupField).Value;
+        public string GetPhraseSound() => contentContainer.Query<SoundPopupField>().ToList()
+            .First(field => field.name == AaGraphConstants.SoundPopupField).Value;
 
         public List<Phrase> GetPhrases() =>
             contentContainer.Query<PhraseAssetField>().ToList().Select(field => field.GetPhrase()).ToList();
@@ -133,9 +131,6 @@ namespace AaDialogueGraph.Editor
 
         public PhraseVisual GetPhraseVisual() =>
             contentContainer.Q<PhraseVisual>();
-
-        public List<EventVisual> GetEventsVisual() =>
-            contentContainer.Query<EventVisual>().ToList();
 
         private string GetTitle(string person, string text)
         {
