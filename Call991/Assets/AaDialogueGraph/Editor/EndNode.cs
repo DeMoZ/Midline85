@@ -83,17 +83,6 @@ namespace AaDialogueGraph.Editor
             }    
             return records;
         }
-        
-        public override List<VisualEvent> GetEventsVisual()
-        {
-            var sounds = contentContainer.Query<SoundEventVisual>().ToList();
-            var objects = contentContainer.Query<ObjectEventVisual>().ToList();
-            var events = new List<VisualEvent>();
-            events.AddRange(sounds);
-            events.AddRange(objects);
-
-            return events;
-        }
     }
 
     public class RecordGroup : VisualElement
