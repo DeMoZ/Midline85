@@ -49,10 +49,10 @@ namespace AaDialogueGraph.Editor
             contentFolder.Add(phraseEvents);
 
             var phraseContainer = new ElementsTable();
-            
+
             var soundText = new Label("Phrase Sound");
             soundText.AddToClassList("aa-BlackText");
-            
+
             sounds = sounds == null || sounds.Count < 1 ? new List<string> { AaGraphConstants.None } : sounds;
             var sound = !string.IsNullOrEmpty(data.PhraseSound)
                 ? data.PhraseSound
@@ -63,7 +63,7 @@ namespace AaDialogueGraph.Editor
                 name = AaGraphConstants.SoundPopupField
             };
 
-            var soundLine = new LineGroup(new VisualElement[]{ soundText, soundPopup });
+            var soundLine = new LineGroup(new VisualElement[] { soundText, soundPopup });
 
             phraseContainer.Add(soundLine);
 
@@ -97,15 +97,17 @@ namespace AaDialogueGraph.Editor
         public void CheckNodeContent()
         {
             var phrases = contentContainer.Query<PhraseAssetField>().ToList();
-            var sounds = contentContainer.Query<PhraseSoundField>().ToList();
             var events = contentContainer.Query<EventAssetField>().ToList();
+            
+            var sounds = contentContainer.Query<SoundPopupField>().ToList();
+            var phraseSound = sounds.FirstOrDefault(s => s.name == AaGraphConstants.SoundPopupField);
 
             var errorFields = new StringBuilder();
 
             if (phrases.Any(p => p.GetPhrase() == null))
                 errorFields.Append("p.");
 
-            if (sounds.Any(s => s.GetPhraseSound() == null))
+            if (phraseSound == null || phraseSound.Value == AaGraphConstants.None)
                 errorFields.Append("s.");
 
             if (events.Any(evt => evt.GetEvent() == null))

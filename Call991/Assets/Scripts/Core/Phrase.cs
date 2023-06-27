@@ -7,12 +7,7 @@ using UnityEngine;
 public class Phrase : ScriptableObject
 {
     public string phraseId = default;
-
-    [HorizontalGroup("SoundName")] public bool overrideSoundName;
-
-    [ShowIf("overrideSoundName")] [HorizontalGroup("SoundName")] [HideLabel]
-    public string soundFileName;
-
+    
     [TextArea] public string text = default;
 
     [TableList] public List<WordTime> wordTimes = default;
@@ -25,10 +20,7 @@ public class Phrase : ScriptableObject
 
     [Tooltip("Full time text appear")] [ReadOnly]
     public float totalTime = 1.6f;
-
-    public string GetOverridenPhraseId() =>
-        overrideSoundName ? soundFileName : phraseId;
-
+    
     private void OnValidate()
     {
         // ResetWordTimes(); // for fix 
