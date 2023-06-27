@@ -1,8 +1,5 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using I2.Loc;
-using Newtonsoft.Json;
 using UniRx;
 using UnityEngine;
 
@@ -12,6 +9,9 @@ public class PlayerProfile : IDisposable
     private const string TextLanguageKey = "TextLanguage";
     private const string AudioLanguageKey = "AudioLanguage";
     private const string PlayerDataKey = "PlayerData";
+
+    private const string DefaultTextLanguage = "English";
+    private const string DefaultAudioLanguage = "Russian";
 
     private string _textLanguage;
     private string _audioLanguage;
@@ -23,20 +23,37 @@ public class PlayerProfile : IDisposable
 
     private CompositeDisposable _disposables;
 
-    public ReactiveCommand<(AudioSourceType type, float volume)> onVolumeSet;
+    public ReactiveProperty<string> AudioLanguageChanged = new();
+    public ReactiveCommand<(AudioSourceType type, float volume)> OnVolumeSet;
 
     public PlayerProfile()
     {
         _disposables = new CompositeDisposable();
-
-        var defaultLanguage = LocalizationManager.CurrentLanguage;
-        _textLanguage = PlayerPrefs.GetString(TextLanguageKey, defaultLanguage);
-        // TODO remove set russian for default voice language.
-        _audioLanguage = "Русский"; //PlayerPrefs.GetString(AudioLanguageKey, defaultLanguage);
-
-        onVolumeSet = new ReactiveCommand<(AudioSourceType type, float volume)>();
+        OnVolumeSet = new ReactiveCommand<(AudioSourceType type, float volume)>().AddTo(_disposables);
+        LoadLanguages();
         LoadVolumes();
-        onVolumeSet.Subscribe(SaveVolume).AddTo(_disposables);
+        OnVolumeSet.Subscribe(SaveVolume).AddTo(_disposables);
+    }
+
+    private void LoadLanguages()
+    {
+        var textLanguage = PlayerPrefs.GetString(TextLanguageKey, null);
+        var audioLanguage = PlayerPrefs.GetString(AudioLanguageKey, null);
+
+        var systemLanguage = Application.systemLanguage.ToString();
+        var locLanguages = LocalizationManager.GetAllLanguages();
+
+        if (string.IsNullOrEmpty(textLanguage))
+            _textLanguage = locLanguages.Contains(systemLanguage) ? systemLanguage : DefaultTextLanguage;
+        else
+            _textLanguage = locLanguages.Contains(textLanguage) ? textLanguage : DefaultTextLanguage;
+
+        if (string.IsNullOrEmpty(audioLanguage))
+            // TODO Uncomment
+            // AudioLanguage = locLanguages.Contains(systemLanguage) ? systemLanguage : DefaultAudioLanguage;
+            AudioLanguage = DefaultAudioLanguage;
+        else
+            AudioLanguage = locLanguages.Contains(audioLanguage) ? audioLanguage : DefaultAudioLanguage;
     }
 
     private void LoadVolumes()
@@ -70,6 +87,7 @@ public class PlayerProfile : IDisposable
         set
         {
             _audioLanguage = value;
+            AudioLanguageChanged.Value = _audioLanguage;
             SaveLanguages();
         }
     }
@@ -155,7 +173,6 @@ public class PlayerProfile : IDisposable
 #endif
     public void Dispose()
     {
-        onVolumeSet?.Dispose();
         _disposables?.Dispose();
     }
 }

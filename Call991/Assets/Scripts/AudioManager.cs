@@ -50,7 +50,7 @@ public class AudioManager : MonoBehaviour
         timerAudioSource.volume = _ctx.playerProfile.TimerVolume;
         musicAudioSource.volume = _ctx.playerProfile.MusicVolume;
 
-        _ctx.playerProfile.onVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
+        _ctx.playerProfile.OnVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
     }
 
     private void PlayUiSound(Event obj)

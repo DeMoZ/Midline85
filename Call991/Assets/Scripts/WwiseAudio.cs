@@ -35,31 +35,45 @@ public class WwiseAudio : MonoBehaviour
     {
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-        
+
         _menuButtonSoundGo = new GameObject("MenuButtonsSound");
         _menuButtonSoundGo.transform.parent = transform.parent;
-        
+
         _ctx = ctx;
-        
+
         menuButtonAudioSettings.OnHover += PlayButtonSound;
         menuButtonAudioSettings.OnClick += PlayButtonSound;
-        
+
         levelButtonAudioSettings.OnHover += PlayButtonSound;
         levelButtonAudioSettings.OnClick += PlayButtonSound;
-        
-        _ctx.Profile.onVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
+
+        _ctx.Profile.AudioLanguageChanged.Subscribe(OnAudioLanguageChanged).AddTo(_disposables);
+        _ctx.Profile.OnVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
     }
 
     private void OnDestroy()
     {
         menuButtonAudioSettings.OnHover -= PlayButtonSound;
         menuButtonAudioSettings.OnClick -= PlayButtonSound;
-        
+
         levelButtonAudioSettings.OnHover -= PlayButtonSound;
         levelButtonAudioSettings.OnClick -= PlayButtonSound;
-        
+
         _tokenSource?.Cancel();
         _disposables?.Dispose();
+    }
+
+    private void OnAudioLanguageChanged(string language)
+    {
+        var audioLanguage = language switch
+        {
+            "English" => "English(US)",
+            "Spanish" => "Spanish(SP)",
+            _ => "Russian(RU)"
+        };
+
+        AkSoundEngine.SetCurrentLanguage(audioLanguage);
+        Debug.Log($"[{this}] Current Wwise language = {AkSoundEngine.GetCurrentLanguage()}");
     }
 
     private void OnVolumeChanged((AudioSourceType source, float volume) value)
@@ -78,7 +92,7 @@ public class WwiseAudio : MonoBehaviour
                 break;
         }*/
     }
-    
+
     public void StopTimer()
     {
         // timerAudioSource.Stop();
@@ -122,7 +136,7 @@ public class WwiseAudio : MonoBehaviour
 
         return null;
     }
-    
+
     public uint? PlayPhrase(string sound)
     {
         var isNoKey = string.Equals(sound, AaGraphConstants.None) || string.IsNullOrEmpty(sound);
