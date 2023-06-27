@@ -73,7 +73,7 @@ public class LevelScenePm : IDisposable
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
 
         _ctx.AudioManager.CreatePhraseVoiceObject();
-        
+
         _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
 
@@ -144,16 +144,18 @@ public class LevelScenePm : IDisposable
         var newspapers = data.OfType<NewspaperNodeData>().ToList();
         _choices = data.OfType<ChoiceNodeData>().ToList();
         var observables = new IObservable<Unit>[] { };
-        var dialogueEvents = GetEvents(phrases, ends, events, newspapers);
+
+        GetEvents(out List<EventVisualData> soundEvents, out List<EventVisualData> objectEvents,
+            phrases, ends, events, newspapers);
 
         var content = new Dictionary<string, object>();
 
         // load content with cancellation token. Return on Cancel.
-        if (await LoadContent(content, dialogueEvents, phrases, newspapers)) return;
+        if (await LoadContent(content, objectEvents, phrases, newspapers)) return;
 
-        if (dialogueEvents.Count > 0)
+        if (objectEvents.Count > 0)
         {
-            foreach (var dialogueEvent in dialogueEvents)
+            foreach (var dialogueEvent in objectEvents)
             {
                 var routine = Observable.FromCoroutine(() => RunDialogueEvent(dialogueEvent, content));
                 observables = observables.Concat(new[] { routine }).ToArray();
@@ -163,8 +165,6 @@ public class LevelScenePm : IDisposable
         if (ends.Any())
         {
             var end = ends.First();
-            dialogueEvents.AddRange(end
-                .EventVisualData); // TODO check if this is not required line (possible twice added)
             RunEndNode(end);
         }
 
@@ -211,38 +211,42 @@ public class LevelScenePm : IDisposable
             }).AddTo(_disposables);
     }
 
-    private List<EventVisualData> GetEvents(List<PhraseNodeData> phrases, List<EndNodeData> ends,
-        List<EventNodeData> events, List<NewspaperNodeData> newspapers)
+    private void GetEvents(out List<EventVisualData> soundEvents, out List<EventVisualData> objectEvents,
+        IEnumerable<PhraseNodeData> phrases, IEnumerable<EndNodeData> ends, IEnumerable<EventNodeData> events,
+        IEnumerable<NewspaperNodeData> newspapers)
     {
-        var result = new List<EventVisualData>();
+        var allEvents = new List<EventVisualData>();
+        soundEvents = new List<EventVisualData>();
+        objectEvents = new List<EventVisualData>();
 
         foreach (var phrase in phrases.Where(phrase => phrase.EventVisualData.Any()))
-            result.AddRange(phrase.EventVisualData);
+            allEvents.AddRange(phrase.EventVisualData);
 
         foreach (var end in ends.Where(end => end.EventVisualData.Any()))
-            result.AddRange(end.EventVisualData);
+            allEvents.AddRange(end.EventVisualData);
 
         foreach (var evt in events.Where(evt => evt.EventVisualData.Any()))
-            result.AddRange(evt.EventVisualData);
+            allEvents.AddRange(evt.EventVisualData);
 
         foreach (var newspaper in newspapers.Where(newspaper => newspaper.EventVisualData.Any()))
-            result.AddRange(newspaper.EventVisualData);
+            allEvents.AddRange(newspaper.EventVisualData);
 
-        return result;
+        foreach (var anEvent in allEvents)
+        {
+            if (anEvent.Type == PhraseEventType.AudioClip)
+                soundEvents.Add(anEvent);
+            else
+                objectEvents.Add(anEvent);
+        }
     }
 
-    private async Task<bool> LoadContent(Dictionary<string, object> content, List<EventVisualData> dialogueEvents,
+    private async Task<bool> LoadContent(Dictionary<string, object> content, List<EventVisualData> objectEvents,
         List<PhraseNodeData> phrases, List<NewspaperNodeData> newspapers)
     {
-        foreach (var eventContent in dialogueEvents)
+        foreach (var eventContent in objectEvents)
         {
             switch (eventContent.Type)
             {
-                // [Depricated - moved to wwise]
-                // case PhraseEventType.AudioClip:
-                //     var audio = await _ctx.ContentLoader.GetObjectAsync<AudioClip>(eventContent.PhraseEvent);
-                //     content[eventContent.PhraseEvent] = audio;
-                //     break;
                 case PhraseEventType.VideoClip:
                     var video = await _ctx.ContentLoader.GetObjectAsync<VideoClip>(eventContent.PhraseEvent);
                     content[eventContent.PhraseEvent] = video;
@@ -258,18 +262,16 @@ public class LevelScenePm : IDisposable
             if (_tokenSource.IsCancellationRequested) return true;
         }
 
+        // phrase timing asset
         foreach (var phraseData in phrases)
         {
             var phrase = await _ctx.ContentLoader.GetPhraseAsync(phraseData);
             content[$"p_{phraseData.Guid}"] = phrase;
 
-            // [Depricated - moved to wwise]
-            // var audioClip = await _ctx.ContentLoader.GetVoiceAsync(phraseData);
-            // content[$"a_{phraseData.Guid}"] = audioClip;
-
             if (_tokenSource.IsCancellationRequested) return true;
         }
 
+        // newspaper graphics
         foreach (var newspaperData in newspapers)
         {
             var sprite = await _ctx.ContentLoader.GetNewspaperAsync(newspaperData);
@@ -297,7 +299,7 @@ public class LevelScenePm : IDisposable
         _ctx.OnShowPhrase.Execute(uiPhrase);
 
         var voiceId = _ctx.AudioManager.PlayPhrase(data.PhraseSound);
-        
+
         if (voiceId == null)
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
 
