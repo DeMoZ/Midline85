@@ -11,6 +11,7 @@ public class PlayerProfile : IDisposable
     private const string PlayerDataKey = "PlayerData";
 
     private const string DefaultTextLanguage = "English";
+    //private const string DefaultAudioLanguage = "English";
     private const string DefaultAudioLanguage = "Russian";
 
     private string _textLanguage;
@@ -49,9 +50,11 @@ public class PlayerProfile : IDisposable
             _textLanguage = locLanguages.Contains(textLanguage) ? textLanguage : DefaultTextLanguage;
 
         if (string.IsNullOrEmpty(audioLanguage))
+        {
+            AudioLanguage = DefaultAudioLanguage;
             // TODO Uncomment
             // AudioLanguage = locLanguages.Contains(systemLanguage) ? systemLanguage : DefaultAudioLanguage;
-            AudioLanguage = DefaultAudioLanguage;
+        }
         else
             AudioLanguage = locLanguages.Contains(audioLanguage) ? audioLanguage : DefaultAudioLanguage;
     }

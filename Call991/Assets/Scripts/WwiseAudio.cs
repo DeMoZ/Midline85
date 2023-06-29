@@ -67,9 +67,13 @@ public class WwiseAudio : MonoBehaviour
     {
         var audioLanguage = language switch
         {
-            "English" => "English(US)",
+            //"English" => "English(US)",
+            "English" => "English",
             "Spanish" => "Spanish(SP)",
-            _ => "Russian(RU)"
+            _ => "Russian"
+            //_ => "English"
+            //_ => "English(US)"
+            
         };
 
         AkSoundEngine.SetCurrentLanguage(audioLanguage);
@@ -121,21 +125,21 @@ public class WwiseAudio : MonoBehaviour
         //     _phraseAudioSource.volume = _ctx.playerProfile.PhraseVolume;
     }
 
-    [Obsolete]
-    public uint? PlayPhrase(List<string> sounds)
-    {
-        var phraseSound = GetWwiseAudioKey(sounds);
-        var isNoKey = string.Equals(phraseSound, AaGraphConstants.None) || string.IsNullOrEmpty(phraseSound);
-
-        if (!isNoKey)
-        {
-            var voiceId = AkSoundEngine.PostEvent(phraseSound, _phraseGo);
-            _playingVoices.Add(voiceId);
-            return voiceId;
-        }
-
-        return null;
-    }
+    // [Obsolete]
+    // public uint? PlayPhrase(List<string> sounds)
+    // {
+    //     var phraseSound = GetWwiseAudioKey(sounds);
+    //     var isNoKey = string.Equals(phraseSound, AaGraphConstants.None) || string.IsNullOrEmpty(phraseSound);
+    //
+    //     if (!isNoKey)
+    //     {
+    //         var voiceId = AkSoundEngine.PostEvent(phraseSound, _phraseGo);
+    //         _playingVoices.Add(voiceId);
+    //         return voiceId;
+    //     }
+    //
+    //     return null;
+    // }
 
     public uint? PlayPhrase(string sound)
     {
@@ -184,45 +188,19 @@ public class WwiseAudio : MonoBehaviour
         Destroy(_phraseGo);
     }
 
-    private string GetWwiseAudioKey(List<string> data)
-    {
-        if (_ctx.LevelLanguages.Value == null || _ctx.LevelLanguages.Value.Count == 0) return null;
-
-        var index = _ctx.LevelLanguages.Value.IndexOf(_ctx.Profile.AudioLanguage);
-
-        if (index == -1) return null;
-
-        return data[index];
-    }
+    // private string GetWwiseAudioKey(List<string> data)
+    // {
+    //     if (_ctx.LevelLanguages.Value == null || _ctx.LevelLanguages.Value.Count == 0) return null;
+    //
+    //     var index = _ctx.LevelLanguages.Value.IndexOf(_ctx.Profile.AudioLanguage);
+    //
+    //     if (index == -1) return null;
+    //
+    //     return data[index];
+    // }
 
     private void PlayButtonSound(Event wwiseEvent)
     {
         wwiseEvent.Post(_menuButtonSoundGo);
-    }
-
-    //------
-    public AK.Wwise.Event someSound;
-
-    void _Start()
-    {
-        // Play the sound
-        someSound.Post(gameObject);
-    }
-
-    void _Update()
-    {
-        // Pause the sound
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            someSound.ExecuteAction(_phraseGo, AkActionOnEventType.AkActionOnEventType_Pause, 0,
-                AkCurveInterpolation.AkCurveInterpolation_Linear);
-        }
-
-        // Resume the sound
-        if (Input.GetKeyUp(KeyCode.Space))
-        {
-            someSound.ExecuteAction(gameObject, AkActionOnEventType.AkActionOnEventType_Resume, 0,
-                AkCurveInterpolation.AkCurveInterpolation_Linear);
-        }
     }
 }
