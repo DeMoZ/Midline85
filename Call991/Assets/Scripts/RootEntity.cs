@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using Configs;
-using Core;
 using I2.Loc;
 using UI;
 using UniRx;

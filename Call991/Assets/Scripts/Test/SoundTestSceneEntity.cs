@@ -3,12 +3,23 @@ using System.Collections.Generic;
 using Configs;
 using I2.Loc;
 using TMPro;
+using UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class SoundTestSceneEntity : MonoBehaviour
 {
+    private enum ButtonColor
+    {
+        White,
+        Green,
+        Red
+    }
+
+    [SerializeField] private Transform topParent = default;
+    [SerializeField] private Button startButton = default;
+    [SerializeField] private Button stopButton = default;
     [SerializeField] private Transform buttonParent = default;
     [SerializeField] private Button buttonPrefab = default;
     [SerializeField] private WwiseAudio audioManager = default;
@@ -16,8 +27,10 @@ public class SoundTestSceneEntity : MonoBehaviour
 
     private List<string> _keys;
     private uint? _lastSoundUint;
-    private WaitForSeconds _waitForSeconds = new(2);
+    private WaitForSeconds _waitForSeconds = new(1);
     private Coroutine _testRoutine;
+    private List<Button> _buttons = new();
+    private int _currentIndex;
 
     void Start()
     {
@@ -29,6 +42,9 @@ public class SoundTestSceneEntity : MonoBehaviour
 
     private void Initialization()
     {
+        var cursorSettings = Resources.Load<CursorSet>("CursorSet");
+        cursorSettings.ApplyCursor(CursorType.Normal);
+
         _keys = wwiseSoundsKeysList.GetKeys();
 
         var levelLanguages = new ReactiveProperty<List<string>>(LocalizationManager.GetAllLanguages());
@@ -41,24 +57,51 @@ public class SoundTestSceneEntity : MonoBehaviour
         };
         audioManager.SetCtx(wwiseCtx);
         audioManager.CreatePhraseVoiceObject();
+
+        foreach (var language in levelLanguages.Value)
+        {
+            var topBtn = Instantiate(buttonPrefab, topParent);
+            topBtn.GetComponentInChildren<TMP_Text>().text = language;
+            topBtn.onClick.AddListener(() => profile.AudioLanguageChanged.Value = language);
+        }
+
+        startButton.onClick.AddListener(StartRoutine);
+        stopButton.onClick.AddListener(StopRoutine);
+    }
+
+    private void StartRoutine()
+    {
+        StopRoutine();
+        _testRoutine = StartCoroutine(RunTest());
+    }
+
+    private void StopRoutine()
+    {
+        if (_testRoutine != null)
+        {
+            StopCoroutine(_testRoutine);
+            _testRoutine = null;
+            Debug.LogWarning("Test stopped");
+        }
     }
 
     private void CreateButtons()
     {
-        foreach (var key in _keys)
+        for (var i = 0; i < _keys.Count; i++)
         {
+            var key = _keys[i];
             var btn = Instantiate(buttonPrefab, buttonParent);
             var txt = btn.GetComponentInChildren<TMP_Text>();
             txt.text = key;
             btn.onClick.AddListener(() => PlayButtonKey(key));
+
+            _buttons.Add(btn);
         }
     }
 
     private void PlayButtonKey(string key)
     {
-        if (_testRoutine != null)
-            StopCoroutine(_testRoutine);
-
+        StopRoutine();
         PlayKey(key);
     }
 
@@ -73,12 +116,34 @@ public class SoundTestSceneEntity : MonoBehaviour
             Debug.LogError($"NONE sound for phrase {key}");
         else
             Debug.Log($"play key = {key}");
+
+        SetButtonColor(_buttons[_currentIndex], _lastSoundUint == null ? ButtonColor.Red : ButtonColor.Green);
+    }
+
+    private void SetButtonColor(Button btn, ButtonColor btnColor)
+    {
+        var color = btnColor switch
+        {
+            ButtonColor.Green => Color.green,
+            ButtonColor.Red => Color.red,
+            _ => Color.white
+        };
+
+        var colors = btn.colors;
+        colors.normalColor = color;
+        btn.colors = colors;
     }
 
     private IEnumerator RunTest()
     {
-        foreach (var key in _keys)
+        foreach (var button in _buttons)
+            SetButtonColor(button, ButtonColor.White);
+
+        Debug.LogWarning("Test started");
+        for (var i = 0; i < _keys.Count; i++)
         {
+            _currentIndex = i;
+            var key = _keys[i];
             PlayKey(key);
             yield return _waitForSeconds;
         }
