@@ -412,7 +412,7 @@
 				<MusicSwitchContainer Name="MusicLevels" ID="{EFEB9A0F-73D9-4F08-8023-845DB00895C4}" ShortID="966635705">
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+							<ObjectRef Name="Music" ID="{EE3E2FE1-347F-42A2-BE52-4BEB38BA452F}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
@@ -457,6 +457,97 @@
 									<ObjectRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 								</Reference>
 							</ReferenceList>
+							<ChildrenList>
+								<MusicSegment Name="02_ A New Day" ID="{C57A7D81-26B5-420E-92CE-BCF89BFFE15F}" ShortID="77651678">
+									<PropertyList>
+										<Property Name="EndPosition" Type="Real64" Value="274000"/>
+										<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<MusicTrack Name="02_ A New Day" ID="{49FE4DF5-1768-44C6-84B3-17AB66E256D2}" ShortID="822531613">
+											<ReferenceList>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="02_ A New Day" ID="{F12D8F5C-85EE-4A8F-B3D0-9C8C6043E1E1}">
+													<Language>SFX</Language>
+													<AudioFile>02. A New Day.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1063374230"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<TransitionList>
+												<MusicTransition Name="Root" ID="{9D060DA0-8A77-4293-9865-2D1411022744}">
+													<PropertyList>
+														<Property Name="IsFolder" Type="bool" Value="True"/>
+													</PropertyList>
+													<TransitionInfo/>
+												</MusicTransition>
+											</TransitionList>
+											<ObjectLists>
+												<ObjectList Name="Sequences">
+													<Reference>
+														<Local>
+															<MusicTrackSequence Name="" ID="{23CEB39F-F222-43C1-A5DA-14F5B71F128D}">
+																<ObjectLists>
+																	<ObjectList Name="Clips">
+																		<Reference>
+																			<Local>
+																				<MusicClip Name="02_ A New Day" ID="{38FFBDFD-D269-47C1-AD8B-8970964F50F9}">
+																					<PropertyList>
+																						<Property Name="EndTrimOffset" Type="Real64" Value="274000"/>
+																						<Property Name="FadeInMode" Type="int16" Value="0"/>
+																						<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																					</PropertyList>
+																					<AudioSourceRef Name="02_ A New Day" ID="{F12D8F5C-85EE-4A8F-B3D0-9C8C6043E1E1}"/>
+																				</MusicClip>
+																			</Local>
+																		</Reference>
+																	</ObjectList>
+																</ObjectLists>
+															</MusicTrackSequence>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicTrack>
+									</ChildrenList>
+									<ObjectLists>
+										<ObjectList Name="Cues">
+											<Reference>
+												<Local>
+													<MusicCue Name="Entry Cue" ID="{62CBDA98-02A6-4E3F-BD22-44FCED7B57DE}">
+														<PropertyList>
+															<Property Name="TimeMs" Type="Real64" Value="4000"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+											<Reference>
+												<Local>
+													<MusicCue Name="Exit Cue" ID="{BD85CA55-467C-4A81-8C50-FD84715FDB7F}">
+														<PropertyList>
+															<Property Name="CueType" Type="int16" Value="1"/>
+															<Property Name="TimeMs" Type="Real64" Value="192000"/>
+														</PropertyList>
+													</MusicCue>
+												</Local>
+											</Reference>
+										</ObjectList>
+									</ObjectLists>
+								</MusicSegment>
+							</ChildrenList>
 							<TransitionList>
 								<MusicTransition Name="Root" ID="{D0D67FF6-7AFA-4294-8356-04B81FB60287}">
 									<PropertyList>
@@ -471,7 +562,19 @@
 								</MusicTransition>
 							</TransitionList>
 							<Playlist>
-								<MusicPlaylistItem Name="" ID="{FB12D066-A9E7-4B93-998F-B76C9F5E1247}" ShortID="1053912576"/>
+								<MusicPlaylistItem Name="" ID="{FB12D066-A9E7-4B93-998F-B76C9F5E1247}" ShortID="1053912576">
+									<PropertyList>
+										<Property Name="LoopCount" Type="int16" Value="0"/>
+									</PropertyList>
+									<ChildrenList>
+										<MusicPlaylistItem Name="" ID="{B49349B1-BE60-474C-A104-EA1F15C9C9FE}" ShortID="1052074655">
+											<PropertyList>
+												<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+											</PropertyList>
+											<SegmentRef Name="02_ A New Day" ID="{C57A7D81-26B5-420E-92CE-BCF89BFFE15F}"/>
+										</MusicPlaylistItem>
+									</ChildrenList>
+								</MusicPlaylistItem>
 							</Playlist>
 						</MusicPlaylistContainer>
 						<MusicPlaylistContainer Name="2 - Training" ID="{6ACBE9B3-C317-4E73-9114-FE8369E800CD}" ShortID="155891135">

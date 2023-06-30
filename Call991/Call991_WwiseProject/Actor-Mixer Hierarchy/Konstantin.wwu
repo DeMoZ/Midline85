@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{2C2838BD-AE14-4AA9-9335-CD786FA9A820}" SchemaVersion="110" RootDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" ParentDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}">
 	<AudioObjects>
-		<WorkUnit Name="Konstantin" ID="{2C2838BD-AE14-4AA9-9335-CD786FA9A820}" OwnerID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" PersistMode="Nested">
+		<WorkUnit Name="Konstantin" ID="{2C2838BD-AE14-4AA9-9335-CD786FA9A820}" OwnerID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" PersistMode="Nested">
 			<PropertyList>
 				<Property Name="Color" Type="int16" Value="14"/>
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
@@ -16,6 +16,548 @@
 							<ObjectRef Name="Konstantin" ID="{04D58EDE-0133-4ACA-9EF1-C1482DA76015}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="fire_p_const_001" ID="{C62DDF8C-2120-4C3C-8C21-D46994FA8251}" ShortID="216541027">
+							<Comment>Константин, пожарная бригада_ Коллега, это правда, что в горящем доме еще и отец семейства?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_001" ID="{0F2F95FB-3F3C-4F19-AEAD-4E92CFAEE611}">
+									<Comment>Константин, пожарная бригада_ Коллега, это правда, что в горящем доме еще и отец семейства?</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="733477802"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_001" ID="{0F2F95FB-3F3C-4F19-AEAD-4E92CFAEE611}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_002" ID="{5E9A2870-DC01-4475-989B-DD8872CC28A8}" ShortID="229571515">
+							<Comment>Мы постараемся его найти, но чёрт___ Времени у нас -- считай, ничего_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_002" ID="{41569ED9-B6CC-4A3E-99EB-24FFEBCABA31}">
+									<Comment>Мы постараемся его найти, но чёрт___ Времени у нас -- считай, ничего_</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="940802497"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_002" ID="{41569ED9-B6CC-4A3E-99EB-24FFEBCABA31}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_003" ID="{7DB88A13-3F25-4B35-BF60-72853C67297A}" ShortID="894198898">
+							<Comment>На кухне -- пусто! Вижу следы с веранды!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_003" ID="{A8272B5E-22D5-4415-BB70-1B2BBA88253A}">
+									<Comment>На кухне -- пусто! Вижу следы с веранды!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_003.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1037538666"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_003" ID="{A8272B5E-22D5-4415-BB70-1B2BBA88253A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_011" ID="{9426A3A8-3691-43AC-A995-1BABC3AAD46F}" ShortID="109087390">
+							<Comment>Константин, пожарная бригада_ Коллеги, приятно познакомиться, бла-бла_ Мы с парнями внутри_ Ищем детей_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_011" ID="{79FD7DD6-5AAF-457A-89F0-D81A7A0596F9}">
+									<Comment>Константин, пожарная бригада_ Коллеги, приятно познакомиться, бла-бла_ Мы с парнями внутри_ Ищем детей_</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_011.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="233657896"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_011" ID="{79FD7DD6-5AAF-457A-89F0-D81A7A0596F9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_015" ID="{68D187C0-081C-45AD-98DB-3F72AD0B2F40}" ShortID="789513989">
+							<Comment>Чердак -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_015" ID="{A467A8CE-DA3D-4BFE-9F58-DE1C90BA085B}">
+									<Comment>Чердак -- пусто!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_015.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1021025337"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_015" ID="{A467A8CE-DA3D-4BFE-9F58-DE1C90BA085B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_017" ID="{056117D7-2DB1-4B13-AB13-3DDF025A976F}" ShortID="236047104">
+							<Comment>Кухня -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_017" ID="{36E98081-2534-46FE-BBDB-0F6039DA61D2}">
+									<Comment>Кухня -- пусто!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_017.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="672601194"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_017" ID="{36E98081-2534-46FE-BBDB-0F6039DA61D2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_018" ID="{0F624965-62EB-4FB0-BAB2-8A99F3EEBB24}" ShortID="1043700751">
+							<Comment>Подвал заперт! Открываем! Пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_018" ID="{006D74DF-E71F-4A47-B537-DED90312F744}">
+									<Comment>Подвал заперт! Открываем! Пусто!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_018.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="101510680"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_018" ID="{006D74DF-E71F-4A47-B537-DED90312F744}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_013" ID="{0B32119B-B758-4518-A597-BD11A16564DA}" ShortID="190568067">
+							<Comment>Мы сразу на второй этаж!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_013" ID="{4991879C-EA71-43A3-8310-0329FECC4EFC}">
+									<Comment>Мы сразу на второй этаж!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_013.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="97385931"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_013" ID="{4991879C-EA71-43A3-8310-0329FECC4EFC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_005" ID="{A1547F06-63A5-4838-AC46-0CEA898B9039}" ShortID="245688240">
+							<Comment>Гостинная -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_005" ID="{AB3FF3D2-720B-4BAA-8F66-1BB97CF735B9}">
+									<Comment>Гостинная -- пусто!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="794473829"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_005" ID="{AB3FF3D2-720B-4BAA-8F66-1BB97CF735B9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_008" ID="{70BD33C2-C34C-45DD-8E02-DCA43ADB8D69}" ShortID="703120710">
+							<Comment>Детская -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_008" ID="{78775EE0-78AB-44DA-9ED9-C023B17E8E71}">
+									<Comment>Детская -- пусто!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_008.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="295810207"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_008" ID="{78775EE0-78AB-44DA-9ED9-C023B17E8E71}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_009" ID="{6A59E6BA-A917-4062-BB66-24A53EBEF6B9}" ShortID="473693291">
+							<Comment>Чердак -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_009" ID="{88352822-9D52-48AE-AB05-4E09DA17C965}">
+									<Comment>Чердак -- пусто!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="685198569"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_009" ID="{88352822-9D52-48AE-AB05-4E09DA17C965}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_006" ID="{3CFE7463-F290-40D6-ADE2-73090A1C3DD6}" ShortID="641172170">
+							<Comment>Мы продолжаем поиски! Но скоро на выход! Конец связи!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_006" ID="{70AAA411-41AB-4235-88E5-4115973AC823}">
+									<Comment>Мы продолжаем поиски! Но скоро на выход! Конец связи!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="65520159"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_006" ID="{70AAA411-41AB-4235-88E5-4115973AC823}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_007" ID="{53909792-8D16-4BBD-ABDA-D0350A4B8CFD}" ShortID="37549412">
+							<Comment>Проверяем второй этаж!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_007" ID="{233E6C46-825B-4EFF-9CDE-D161A1FC44E3}">
+									<Comment>Проверяем второй этаж!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_007.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="785053640"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_007" ID="{233E6C46-825B-4EFF-9CDE-D161A1FC44E3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_019" ID="{ABC31ED8-0ED2-466D-9F02-6CBC217502E8}" ShortID="141083685">
+							<Comment>Гостинная -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_019" ID="{4796CB52-3C77-4FA5-BEAD-929880CC1BB7}">
+									<Comment>Гостинная -- пусто!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="410418372"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_019" ID="{4796CB52-3C77-4FA5-BEAD-929880CC1BB7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_014" ID="{E5B5707E-5ABB-47BB-B4B4-EE07D0AD73F9}" ShortID="889265475">
+							<Comment>Детская -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_014" ID="{CC6C5248-2962-4156-91A8-9BA479C65DA2}">
+									<Comment>Детская -- пусто!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_014.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="269153981"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_014" ID="{CC6C5248-2962-4156-91A8-9BA479C65DA2}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_020" ID="{E2B902FA-FFBC-4F30-A0CA-4FB41FE54699}" ShortID="432092858">
+							<Comment>Мы продолжаем поиски! Скоро на выход! Конец связи!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_020" ID="{12125EBB-B20B-4AE9-8730-732C9852D51D}">
+									<Comment>Мы продолжаем поиски! Скоро на выход! Конец связи!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_020.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="823828587"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_020" ID="{12125EBB-B20B-4AE9-8730-732C9852D51D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_012" ID="{DCBD6226-9C6A-46B2-807A-76670D6A3553}" ShortID="245544244">
+							<Comment>Дому -- пиздец, время у нас -- минута, если не меньше_ Вперёд-вперёд-вперёд!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_012" ID="{1E4D7B28-7B9B-463D-8E28-C09C16C399A8}">
+									<Comment>Дому -- пиздец, время у нас -- минута, если не меньше_ Вперёд-вперёд-вперёд!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_012.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="326743550"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_012" ID="{1E4D7B28-7B9B-463D-8E28-C09C16C399A8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_016" ID="{8D548E4F-9711-4FBD-B98F-24338B594A31}" ShortID="356750038">
+							<Comment>Есть контакт! Мы взяли! Папашу успокойте! Конец связи!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_016" ID="{3C9C97E4-9246-4A48-928B-4B16A7D324E3}">
+									<Comment>Есть контакт! Мы взяли! Папашу успокойте! Конец связи!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="722065635"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_016" ID="{3C9C97E4-9246-4A48-928B-4B16A7D324E3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_004" ID="{60193045-E37D-41A8-AE19-ADD11B05421F}" ShortID="134111167">
+							<Comment>Подвал заперт! Открываем!__ Пусто! Дальше!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_004" ID="{76EDBA7F-8A0D-453B-A122-B0DAAA53BCC8}">
+									<Comment>Подвал заперт! Открываем!__ Пусто! Дальше!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1008185064"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_004" ID="{76EDBA7F-8A0D-453B-A122-B0DAAA53BCC8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_010" ID="{AE52BEEB-3533-4472-916F-5EFD275F20C7}" ShortID="567888859">
+							<Comment>Есть контакт! Мы взяли! Ищем отца -- и выходим!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_010" ID="{A823FCD2-B45A-4104-906F-06B095DC8315}">
+									<Comment>Есть контакт! Мы взяли! Ищем отца -- и выходим!</Comment>
+									<Language>English</Language>
+									<AudioFile>fire_p_const_010.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="146346103"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_010" ID="{A823FCD2-B45A-4104-906F-06B095DC8315}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

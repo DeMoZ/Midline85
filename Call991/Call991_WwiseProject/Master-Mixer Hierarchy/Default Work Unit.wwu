@@ -59,7 +59,15 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ChildrenList>
-										<Bus Name="Elena_Intro" ID="{20F990FC-85E4-40D4-84EE-4521D7C1ADD9}"/>
+										<Bus Name="Elena_Intro" ID="{20F990FC-85E4-40D4-84EE-4521D7C1ADD9}">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64">
+													<ValueList>
+														<Value>-13</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
 										<Bus Name="Elena_Training" ID="{93FAAE94-8F23-41EC-9461-809B60506814}"/>
 										<Bus Name="Elena_Chapter One" ID="{5B008593-8E59-42E9-95EE-31D32A1A8CBC}"/>
 										<Bus Name="Elena_Boss First" ID="{1A3CFE3C-1798-439A-9933-0F261A61C970}"/>

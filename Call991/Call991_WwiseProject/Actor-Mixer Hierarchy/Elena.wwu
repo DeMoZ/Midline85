@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}" SchemaVersion="110" RootDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" ParentDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}">
 	<AudioObjects>
-		<WorkUnit Name="Elena" ID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}" OwnerID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" PersistMode="Nested">
+		<WorkUnit Name="Elena" ID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}" OwnerID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" PersistMode="Nested">
 			<PropertyList>
 				<Property Name="Color" Type="int16" Value="24"/>
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
@@ -6127,7 +6127,7 @@
 						</Sound>
 					</ChildrenList>
 				</ActorMixer>
-				<ActorMixer Name="Pizza" ID="{DE5F899A-6206-4520-84D3-376D940E6746}" ShortID="626039162">
+				<ActorMixer Name="pizza_elena" ID="{DE5F899A-6206-4520-84D3-376D940E6746}" ShortID="626039162">
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -6136,6 +6136,2384 @@
 							<ObjectRef Name="Elena_Chapter Two" ID="{90F68053-71D6-4E79-B17B-AD6E144ECDA8}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="pizza_elena_001" ID="{D5396D37-38AD-4F6D-8AF0-B1BAD7639A58}" ShortID="104267866">
+							<Comment>911, оператор Елена_ Чем могу помочь?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_001" ID="{523D7319-2AE5-46FB-BDC5-1AC7317ED9BD}">
+									<Comment>911, оператор Елена_ Чем могу помочь?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="380967281"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_001" ID="{523D7319-2AE5-46FB-BDC5-1AC7317ED9BD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_002" ID="{2F5D929F-D130-4391-87F4-A983160A9114}" ShortID="666461926">
+							<Comment>Вы позвонили в службу 911___</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_002" ID="{C7662F31-3BE6-46DF-AEA2-3AB5531A79ED}">
+									<Comment>Вы позвонили в службу 911___</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="781956103"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_002" ID="{C7662F31-3BE6-46DF-AEA2-3AB5531A79ED}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_003" ID="{5473FA7C-1AF5-4B89-8AA1-852789C83B43}" ShortID="890549798">
+							<Comment>Это такой телефонный розыгрыш? Вы занимаете линию_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_003" ID="{7714D36B-E273-4CE4-AB2E-A009361AB4E1}">
+									<Comment>Это такой телефонный розыгрыш? Вы занимаете линию_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_003.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="10928421"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_003" ID="{7714D36B-E273-4CE4-AB2E-A009361AB4E1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_004" ID="{F05C4A73-6D38-448C-BE55-E5EE56C27BFF}" ShortID="145118629">
+							<Comment>Вы ошиблись номером_ Это служба 911_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_004" ID="{C38596B5-91BA-4529-A88F-D06B8553D043}">
+									<Comment>Вы ошиблись номером_ Это служба 911_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="76041179"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_004" ID="{C38596B5-91BA-4529-A88F-D06B8553D043}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_005" ID="{EC8AE353-28D7-4D02-9E15-75A813499631}" ShortID="64156633">
+							<Comment>Вашей жизни что-то угрожает?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_005" ID="{96CCD3A6-5BF7-4EC0-80C1-F723D04D7F6A}">
+									<Comment>Вашей жизни что-то угрожает?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="23784575"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_005" ID="{96CCD3A6-5BF7-4EC0-80C1-F723D04D7F6A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_006" ID="{EF970FF1-4736-4ACB-A51B-F899A2944D77}" ShortID="521885086">
+							<Comment>Мэм, мы не доставляем пиццу_ Если вам не угрожает опасность___</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_006" ID="{A9C3FA38-2448-46A5-A554-FFF96BACEF85}">
+									<Comment>Мэм, мы не доставляем пиццу_ Если вам не угрожает опасность___</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="640186321"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_006" ID="{A9C3FA38-2448-46A5-A554-FFF96BACEF85}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_007" ID="{2AED7DEF-1DC7-476E-9F44-D8DC58F8C684}" ShortID="95492817">
+							<Comment>Мэм___ Скажите “пепперони”, если вы в опасности_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_007" ID="{8FE496D5-3EE1-4AC0-BEAD-2113C580D7A8}">
+									<Comment>Мэм___ Скажите “пепперони”, если вы в опасности_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_007.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="763632330"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_007" ID="{8FE496D5-3EE1-4AC0-BEAD-2113C580D7A8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_008" ID="{C7E750E4-DA63-4D01-B030-EA72A73C1A44}" ShortID="14933535">
+							<Comment>Вы в опасности?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_008" ID="{9CC7A642-26C1-4053-954B-A97D8D6BFF5D}">
+									<Comment>Вы в опасности?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_008.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1008027546"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_008" ID="{9CC7A642-26C1-4053-954B-A97D8D6BFF5D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_009" ID="{33163522-2EC8-4884-8BD1-25DC58D2D08E}" ShortID="378147906">
+							<Comment>Назовите адрес_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_009" ID="{49673DA5-C118-42D9-9ACC-75563A248776}">
+									<Comment>Назовите адрес_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1039554305"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_009" ID="{49673DA5-C118-42D9-9ACC-75563A248776}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_010" ID="{E0BB5EFB-E8DB-48AB-998D-E6F42B156EDF}" ShortID="770754976">
+							<Comment>Насколько опасна ситуация?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_010" ID="{CDFCA79B-2768-4627-BFC1-2DA94CE4450D}">
+									<Comment>Насколько опасна ситуация?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_010.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="182563741"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_010" ID="{CDFCA79B-2768-4627-BFC1-2DA94CE4450D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_011" ID="{D881EC77-951E-43CE-A3C8-47DF0EA492B9}" ShortID="375286900">
+							<Comment>Сколько вас?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_011" ID="{9F15A8CE-22C3-4128-9A23-D0CA6335E0AC}">
+									<Comment>Сколько вас?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_011.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="563734747"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_011" ID="{9F15A8CE-22C3-4128-9A23-D0CA6335E0AC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_012" ID="{E04CC684-6269-423E-AB27-5F151E3A759E}" ShortID="38585192">
+							<Comment>Мне нужен точный адрес_ Номер дома, квартиры?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_012" ID="{093DB920-B173-4106-B0D2-434609A370AF}">
+									<Comment>Мне нужен точный адрес_ Номер дома, квартиры?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_012.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="921218049"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_012" ID="{093DB920-B173-4106-B0D2-434609A370AF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_013" ID="{E2CD6AD6-4DE9-4AB8-B2DE-F8F92A7D1D7E}" ShortID="90940198">
+							<Comment>Ещё как “доставляем”_ Что или кто вам угрожает?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_013" ID="{624C82B4-8516-463C-AAAF-9D20E222E868}">
+									<Comment>Ещё как “доставляем”_ Что или кто вам угрожает?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_013.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="22043793"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_013" ID="{624C82B4-8516-463C-AAAF-9D20E222E868}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_014" ID="{4E6936F9-12A7-434B-B066-A1146ECD14C9}" ShortID="175989962">
+							<Comment>Назовите вслух ваш “заказ”_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_014" ID="{C2C9DAAE-564B-4013-8D9F-C1D3B6366D3A}">
+									<Comment>Назовите вслух ваш “заказ”_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_014.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1067116826"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_014" ID="{C2C9DAAE-564B-4013-8D9F-C1D3B6366D3A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_015" ID="{FF78C328-1817-4062-A099-DA0F84CF0E1B}" ShortID="341749618">
+							<Comment>Ваш муж? Парень?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_015" ID="{8CC562E9-D638-4513-854D-AE3CB0266CFA}">
+									<Comment>Ваш муж? Парень?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_015.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="34150028"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_015" ID="{8CC562E9-D638-4513-854D-AE3CB0266CFA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_016" ID="{AF83B06D-3873-4FBE-AD8D-643E3CB158D9}" ShortID="104239208">
+							<Comment>Ваш отец?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_016" ID="{456873CF-EDA7-4B20-98D2-222CBBB2FCF3}">
+									<Comment>Ваш отец?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="34495873"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_016" ID="{456873CF-EDA7-4B20-98D2-222CBBB2FCF3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_017" ID="{C7C3B849-D523-40DF-B546-819B70FFE0BA}" ShortID="444672160">
+							<Comment>К вам ворвались в дом?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_017" ID="{368DBB74-85F8-40D9-B417-64814BDF6696}">
+									<Comment>К вам ворвались в дом?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_017.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="331322786"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_017" ID="{368DBB74-85F8-40D9-B417-64814BDF6696}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_018" ID="{06EE61EA-2603-4CE4-B089-38F52CE92B8F}" ShortID="643092190">
+							<Comment>А теперь -- адрес, куда выслать наряд_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_018" ID="{B54DAF35-A9F7-480A-8A9A-5F5213A09E35}">
+									<Comment>А теперь -- адрес, куда выслать наряд_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_018.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="232790685"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_018" ID="{B54DAF35-A9F7-480A-8A9A-5F5213A09E35}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_019" ID="{8ACDC951-A173-4CF5-AE12-A90C33BE9B1C}" ShortID="594539493">
+							<Comment>К дому выслана полиция_ Ожидайте_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_019" ID="{42BC10BF-C67A-4093-98D4-DBD566C437F0}">
+									<Comment>К дому выслана полиция_ Ожидайте_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="132019410"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_019" ID="{42BC10BF-C67A-4093-98D4-DBD566C437F0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_020" ID="{8234947D-AF6F-431B-8401-530FEC9FA1B8}" ShortID="277994611">
+							<Comment>Без сирены_ Поняла_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_020" ID="{959D90EE-2711-497E-8F9E-FF9D15C82510}">
+									<Comment>Без сирены_ Поняла_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_020.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="7406227"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_020" ID="{959D90EE-2711-497E-8F9E-FF9D15C82510}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_021" ID="{D68BBF2F-5551-453A-AACB-6D9D555121AA}" ShortID="377457083">
+							<Comment>Мэм, это опасно_ Офицеры должны сами подняться_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_021" ID="{7C2F00D2-BE33-4E3A-A6A8-FF7CCC444F02}">
+									<Comment>Мэм, это опасно_ Офицеры должны сами подняться_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_021.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="584114918"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_021" ID="{7C2F00D2-BE33-4E3A-A6A8-FF7CCC444F02}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_022" ID="{C4F69498-5DA2-4DB9-9508-7254524CF4B2}" ShortID="398526076">
+							<Comment>Согласитесь с ним_ Пусть спустится сам_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_022" ID="{7E8946A0-0F00-4AEE-BE41-1D6B5E550592}">
+									<Comment>Согласитесь с ним_ Пусть спустится сам_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_022.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="539319279"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_022" ID="{7E8946A0-0F00-4AEE-BE41-1D6B5E550592}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_023" ID="{5A3A27B7-50F4-46E7-9EE6-71068E6F6AAD}" ShortID="302097350">
+							<Comment>Продолжайте говорить про пиццу_ Не давайте человеку засомневаться_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_023" ID="{E3597DCA-8C0B-4B84-AD2A-6C88A81E57AF}">
+									<Comment>Продолжайте говорить про пиццу_ Не давайте человеку засомневаться_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_023.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="229391288"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_023" ID="{E3597DCA-8C0B-4B84-AD2A-6C88A81E57AF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_024" ID="{C8EA568D-3F40-4552-8D6D-71DA293EB86A}" ShortID="291057024">
+							<Comment>Мне нужно знать, в какой квартире вы находитесь_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_024" ID="{3C5B3E5F-9907-4E6D-B179-E6290ED8242E}">
+									<Comment>Мне нужно знать, в какой квартире вы находитесь_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_024.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="652507183"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_024" ID="{3C5B3E5F-9907-4E6D-B179-E6290ED8242E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_025" ID="{C949B742-7F58-413D-A749-F40F33A1DD82}" ShortID="291162697">
+							<Comment>Скажите, что кофе_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_025" ID="{29B6464B-1DCB-486F-831E-1AC5245E7181}">
+									<Comment>Скажите, что кофе_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_025.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="564759767"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_025" ID="{29B6464B-1DCB-486F-831E-1AC5245E7181}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_026" ID="{A81BB95C-81E1-485F-903D-E1DD6568BCEB}" ShortID="346091027">
+							<Comment>Скажите, что пиво_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_026" ID="{704A9CE5-064F-411F-8803-99DBC04C882E}">
+									<Comment>Скажите, что пиво_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_026.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="493031823"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_026" ID="{704A9CE5-064F-411F-8803-99DBC04C882E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_027" ID="{DAB31D34-FDDE-4666-A056-38AA0A69A092}" ShortID="518465369">
+							<Comment>Скажите, что газировка_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_027" ID="{54FD5D30-13EE-4070-A61E-04605DF1D31C}">
+									<Comment>Скажите, что газировка_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_027.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="124432793"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_027" ID="{54FD5D30-13EE-4070-A61E-04605DF1D31C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_028" ID="{3EFA57AC-03FC-44A4-9334-B57E756E7DC6}" ShortID="663857186">
+							<Comment>Отлично_ Теперь предложите поднять заказ_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_028" ID="{B249B6F2-9812-45B7-AF61-8A963DBF44B8}">
+									<Comment>Отлично_ Теперь предложите поднять заказ_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_028.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="518011966"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_028" ID="{B249B6F2-9812-45B7-AF61-8A963DBF44B8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_029" ID="{C176685E-8A9D-4418-B0DA-79FC3B63BC03}" ShortID="859425279">
+							<Comment>Ожидайте_ “Курьеры” будут в течение пары минут_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_029" ID="{87524B12-0FC8-4A88-B747-9BCC50237CD3}">
+									<Comment>Ожидайте_ “Курьеры” будут в течение пары минут_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_029.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="476578462"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_029" ID="{87524B12-0FC8-4A88-B747-9BCC50237CD3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_030" ID="{0F6CACF1-CDCA-4608-AABD-55C3877C5985}" ShortID="73644581">
+							<Comment>Всего доброго_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_030" ID="{C1679AA7-A072-42FD-9403-9D1D997801A6}">
+									<Comment>Всего доброго_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_030.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="997720055"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_030" ID="{C1679AA7-A072-42FD-9403-9D1D997801A6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_031" ID="{80719992-7818-4225-A0A2-E424C80E5C44}" ShortID="166842508">
+							<Comment>Не имею права вешать трубку_ Мы ждём___ “курьеров”_ Ещё чуть-чуть___</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_031" ID="{83DAACD6-3BFB-427E-9E74-284951EB2005}">
+									<Comment>Не имею права вешать трубку_ Мы ждём___ “курьеров”_ Ещё чуть-чуть___</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_031.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="274365312"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_031" ID="{83DAACD6-3BFB-427E-9E74-284951EB2005}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_032" ID="{7B82C028-1575-4FD3-8BA2-D439E3FA3F28}" ShortID="420852202">
+							<Comment>Елена, оператор службы спасения_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_032" ID="{CEFA2764-563D-4467-8CC2-9E9639AB3EB7}">
+									<Comment>Елена, оператор службы спасения_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_032.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1031288002"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_032" ID="{CEFA2764-563D-4467-8CC2-9E9639AB3EB7}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_033" ID="{97E94E12-DE31-4716-915E-6F336156F16F}" ShortID="814758996">
+							<Comment>Ваша подруга, она хотела вызвать скорую для___</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_033" ID="{E8B2732F-435E-46AA-9CDE-8653E2F87247}">
+									<Comment>Ваша подруга, она хотела вызвать скорую для___</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_033.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1066834369"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_033" ID="{E8B2732F-435E-46AA-9CDE-8653E2F87247}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_034" ID="{ACCC21C5-4150-48BF-9D10-E36DFA2FB290}" ShortID="9093580">
+							<Comment>Могу предположить, что вы урожаете девушке, с которой я говорила___</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_034" ID="{AEA71FD0-D6E5-4DC5-ABA4-B112F3201F52}">
+									<Comment>Могу предположить, что вы урожаете девушке, с которой я говорила___</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_034.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="36106589"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_034" ID="{AEA71FD0-D6E5-4DC5-ABA4-B112F3201F52}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_035" ID="{3441A7B6-8A5A-4ABA-8921-5CB73B9D84EB}" ShortID="637227606">
+							<Comment>Сэр, не делайте глупостей_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_035" ID="{AE4F775C-9A3E-470B-A468-D36C8EAC5B0D}">
+									<Comment>Сэр, не делайте глупостей_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_035.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="5971494"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_035" ID="{AE4F775C-9A3E-470B-A468-D36C8EAC5B0D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_036" ID="{4CCE40CB-F0EC-41EA-BE55-253A98524EDC}" ShortID="825022648">
+							<Comment>Джордж___ Не делай глупостей_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_036" ID="{66ACEC79-BC77-4234-B379-B28965541465}">
+									<Comment>Джордж___ Не делай глупостей_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_036.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="672264380"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_036" ID="{66ACEC79-BC77-4234-B379-B28965541465}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_037" ID="{2CB412EA-E05A-40D3-940D-589244C69498}" ShortID="69654332">
+							<Comment>Джордж, послушай_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_037" ID="{ED6427E2-C15F-44E8-A910-DCE9C92A2259}">
+									<Comment>Джордж, послушай_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_037.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="540010101"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_037" ID="{ED6427E2-C15F-44E8-A910-DCE9C92A2259}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_038" ID="{0A5D4651-7A61-4DA6-AA77-54F2BF138100}" ShortID="336409857">
+							<Comment>Единственное, что ты можешь сейчас сделать правильно -- это дождаться полиции смиренно и тихо_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_038" ID="{FD418D2D-E918-427C-8DFE-F6CAD975A53A}">
+									<Comment>Единственное, что ты можешь сейчас сделать правильно -- это дождаться полиции смиренно и тихо_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_038.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="998290830"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_038" ID="{FD418D2D-E918-427C-8DFE-F6CAD975A53A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_039" ID="{435B50A8-FA63-40A8-9EA4-48B319C8F1A1}" ShortID="761561572">
+							<Comment>В ином случае___ Тебе не сдобровать_ Я знаю, как действует полиция_ Будешь пиццу из блендера жрать_ Или -- что более вероятно -- только тюремную кашу_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_039" ID="{E8DA7F00-6922-49F1-BCA1-B7082B946BBF}">
+									<Comment>В ином случае___ Тебе не сдобровать_ Я знаю, как действует полиция_ Будешь пиццу из блендера жрать_ Или -- что более вероятно -- только тюремную кашу_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_039.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="296685128"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_039" ID="{E8DA7F00-6922-49F1-BCA1-B7082B946BBF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_040" ID="{2524731D-B775-4A22-BF1A-D34D77027EDB}" ShortID="518004174">
+							<Comment>Поверь_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_040" ID="{928C41DF-CF38-4E1E-AE3B-B4026CC17E18}">
+									<Comment>Поверь_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_040.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="38215245"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_040" ID="{928C41DF-CF38-4E1E-AE3B-B4026CC17E18}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_041" ID="{36BF11B2-B979-4794-ADE5-7D5CAFC52258}" ShortID="276548248">
+							<Comment>Усугубив ситуацию, вы сделайте хуже только себе_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_041" ID="{2A1E502C-FC56-4A6E-B80A-228FA1B71E76}">
+									<Comment>Усугубив ситуацию, вы сделайте хуже только себе_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_041.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="273202292"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_041" ID="{2A1E502C-FC56-4A6E-B80A-228FA1B71E76}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_042" ID="{0E2B5585-243C-4F76-AF9F-8638EBE64B7C}" ShortID="208241887">
+							<Comment>Необдуманные действия приведут лишь к увеличению срока, вы понимаете?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_042" ID="{41CAEC06-85A0-4351-BDB2-5FDC85901787}">
+									<Comment>Необдуманные действия приведут лишь к увеличению срока, вы понимаете?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_042.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="34738507"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_042" ID="{41CAEC06-85A0-4351-BDB2-5FDC85901787}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_043" ID="{8AB65691-5B5F-478E-AD00-7DB33B24FDFF}" ShortID="169002318">
+							<Comment>Алло?__</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_043" ID="{521C3B8B-5563-4E76-89B6-D503BC9B77CC}">
+									<Comment>Алло?__</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_043.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="543434018"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_043" ID="{521C3B8B-5563-4E76-89B6-D503BC9B77CC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_044" ID="{5785CC32-6F94-4B7C-ACD0-ED5FD6BB10A7}" ShortID="110812899">
+							<Comment>Или ты хочешь проверить?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_044" ID="{45A2F7E4-F00B-4B9C-B48B-AE03A1CEC0DB}">
+									<Comment>Или ты хочешь проверить?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_044.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="880024279"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_044" ID="{45A2F7E4-F00B-4B9C-B48B-AE03A1CEC0DB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_045" ID="{4405FD08-A021-402E-AD73-900A0AA6A809}" ShortID="981339584">
+							<Comment>Тогда сиди смирно, пока не придет полиция_ Тронешь девушку -- тебя тронут сильнее_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_045" ID="{D91085AF-255E-4579-AAE1-08CA3D3C2489}">
+									<Comment>Тогда сиди смирно, пока не придет полиция_ Тронешь девушку -- тебя тронут сильнее_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_045.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="293582298"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_045" ID="{D91085AF-255E-4579-AAE1-08CA3D3C2489}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_046" ID="{22CFC37B-41C1-409E-92F7-AAFAF7C01E92}" ShortID="254432923">
+							<Comment>Приятного вечера_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_046" ID="{E586F6B1-3CC8-43B1-A715-85E6FC951164}">
+									<Comment>Приятного вечера_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_046.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="16061684"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_046" ID="{E586F6B1-3CC8-43B1-A715-85E6FC951164}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_047" ID="{586A307F-70F6-4CFE-ACD3-A643EA24B827}" ShortID="913926407">
+							<Comment>Назовите номер квартиры_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_047" ID="{92AEDF24-E346-40C7-8E3B-961A3E1B2ECF}">
+									<Comment>Назовите номер квартиры_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_047.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="2173080"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_047" ID="{92AEDF24-E346-40C7-8E3B-961A3E1B2ECF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_048" ID="{CE4BD363-37D3-43B7-A427-95DBA129DEC1}" ShortID="412616">
+							<Comment>Значит, без номера квартиры_ Выиграйте время и ждите_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_048" ID="{50E1D739-7CFA-4EDE-A0C3-D65150848719}">
+									<Comment>Значит, без номера квартиры_ Выиграйте время и ждите_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_048.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="646486305"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_048" ID="{50E1D739-7CFA-4EDE-A0C3-D65150848719}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_049" ID="{2EDA45C3-5009-468E-B704-5F5C5666C1D9}" ShortID="570830429">
+							<Comment>Опишите человека, который вам угрожает_ Я передам описание полиции_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_049" ID="{8DD962D5-CD20-4558-97CA-EB645D90CE0C}">
+									<Comment>Опишите человека, который вам угрожает_ Я передам описание полиции_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_049.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="776642859"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_049" ID="{8DD962D5-CD20-4558-97CA-EB645D90CE0C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_050" ID="{75DBCBFD-E7A1-41DA-B7CD-38234C90C435}" ShortID="738362145">
+							<Comment>Ромах-роуд, 17, 112_ Поняла_ Информация передана полиции_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_050" ID="{E78D7AE8-BEBA-4401-A49C-115D754EA42C}">
+									<Comment>Ромах-роуд, 17, 112_ Поняла_ Информация передана полиции_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_050.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="318023455"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_050" ID="{E78D7AE8-BEBA-4401-A49C-115D754EA42C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_051" ID="{ECDF7BBF-11E5-4C45-BAB3-BC92115A6970}" ShortID="415300085">
+							<Comment>Я должна оставаться на связи_ Минута_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_051" ID="{0AF4BD4F-37FF-48ED-ACFF-B45BED4C503E}">
+									<Comment>Я должна оставаться на связи_ Минута_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_051.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="780641035"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_051" ID="{0AF4BD4F-37FF-48ED-ACFF-B45BED4C503E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_052" ID="{ACD7AB26-2042-4AF4-AB15-095E09DE0B03}" ShortID="1022687781">
+							<Comment>Здравствуйте! К двум пепперони попить чего-нибудь возьмёте?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_052" ID="{4F1B6E7F-8AF7-4745-A725-D812F82927E5}">
+									<Comment>Здравствуйте! К двум пепперони попить чего-нибудь возьмёте?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_052.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="413912485"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_052" ID="{4F1B6E7F-8AF7-4745-A725-D812F82927E5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_053" ID="{D713F30C-F5D1-476D-AB98-8A6771CD490B}" ShortID="999108338">
+							<Comment>Это 911_ Сэр, вам следует-</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_053" ID="{1A6B6054-6CB7-4C68-9A83-AC65AE7ED70C}">
+									<Comment>Это 911_ Сэр, вам следует-</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_053.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1031771645"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_053" ID="{1A6B6054-6CB7-4C68-9A83-AC65AE7ED70C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_054" ID="{B39874C8-9285-4645-A013-6F930830A921}" ShortID="739951343">
+							<Comment>Хорошо! Двадцать-восемьдесят пять с вас_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_054" ID="{56752501-721A-4A14-AF4F-A2D2A78620B0}">
+									<Comment>Хорошо! Двадцать-восемьдесят пять с вас_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_054.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="291601446"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_054" ID="{56752501-721A-4A14-AF4F-A2D2A78620B0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_055" ID="{C46ADD80-FFAC-40BE-8C61-B449C6A1B8DF}" ShortID="138654343">
+							<Comment>Найдётся! Передайте девушке, что курьер будет в течение минуты_ Ожидайте ваш заказ!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_055" ID="{E043E07E-7FCB-4C82-A931-7C49447EDEC9}">
+									<Comment>Найдётся! Передайте девушке, что курьер будет в течение минуты_ Ожидайте ваш заказ!</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_055.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="903623746"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_055" ID="{E043E07E-7FCB-4C82-A931-7C49447EDEC9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_056" ID="{9F238ED1-70CA-4798-B4DE-74F95BE7EF3B}" ShortID="158581898">
+							<Comment>911_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_056" ID="{6499E914-2767-4A72-A021-60D9F4609DF4}">
+									<Comment>911_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_056.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="955202200"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_056" ID="{6499E914-2767-4A72-A021-60D9F4609DF4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_057" ID="{11955530-AD01-4FF8-A203-BACD73FA7303}" ShortID="735400253">
+							<Comment>”Хэндклиффс и компания”</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_057" ID="{547F3AC4-7A8C-431F-93D8-A6434157FCF3}">
+									<Comment>”Хэндклиффс и компания”</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_057.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="962079411"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_057" ID="{547F3AC4-7A8C-431F-93D8-A6434157FCF3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_058" ID="{9D36E041-214F-437B-8EAC-63CCE06821FC}" ShortID="778968715">
+							<Comment>“Пицца в срок!”</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_058" ID="{3A7CAA58-434D-4DA7-8D85-8CC91A229B89}">
+									<Comment>“Пицца в срок!”</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_058.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="470389752"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_058" ID="{3A7CAA58-434D-4DA7-8D85-8CC91A229B89}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_059" ID="{987A47EA-0683-4478-A76E-5C0EE5FFF795}" ShortID="227743003">
+							<Comment>Девять простых, натуральных ингридиентов_ Один звонок_ Один сытный ужин_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_059" ID="{CC36D5B9-F743-4C59-8FBA-C6F7C43762F0}">
+									<Comment>Девять простых, натуральных ингридиентов_ Один звонок_ Один сытный ужин_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_059.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="154633889"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_059" ID="{CC36D5B9-F743-4C59-8FBA-C6F7C43762F0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_060" ID="{FEC5B891-1E8C-4FEC-81B7-B4CF9B71D642}" ShortID="59680098">
+							<Comment>”Курьеры” ожидают вас внизу_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_060" ID="{2B45375F-9D0C-4F1D-B8A0-B948C47E2609}">
+									<Comment>”Курьеры” ожидают вас внизу_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_060.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="674205567"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_060" ID="{2B45375F-9D0C-4F1D-B8A0-B948C47E2609}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_061" ID="{192BBC51-687F-48F5-8E3D-D04E3F229C31}" ShortID="546889183">
+							<Comment>Вы можете посмотреть в окно, что там происходит?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_061" ID="{0B09F85B-B08F-4795-B6EA-73DCDE9EEDEC}">
+									<Comment>Вы можете посмотреть в окно, что там происходит?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_061.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1000486384"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_061" ID="{0B09F85B-B08F-4795-B6EA-73DCDE9EEDEC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_062" ID="{4E179366-F711-44AF-A286-69E1F942CF77}" ShortID="666287213">
+							<Comment>Вы можете посмотреть в окно, что там происходит?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_062" ID="{23B651AA-CD27-4A59-9555-A8681D8610E3}">
+									<Comment>Вы можете посмотреть в окно, что там происходит?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_062.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="258908055"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_062" ID="{23B651AA-CD27-4A59-9555-A8681D8610E3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_063" ID="{5814831C-3C9A-4E8C-843D-F662A03F86D7}" ShortID="281728803">
+							<Comment>Справедливость_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_063" ID="{F716FE34-C123-4BCA-93BA-E171155F3CE8}">
+									<Comment>Справедливость_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_063.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="404724640"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_063" ID="{F716FE34-C123-4BCA-93BA-E171155F3CE8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_064" ID="{250908F3-1BE6-4D9A-8802-BE8D9F5F1D27}" ShortID="1035046810">
+							<Comment>Что там, мэм?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_064" ID="{5B075AD8-43CC-4EB9-830C-7A616A45751F}">
+									<Comment>Что там, мэм?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_064.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="551976228"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_064" ID="{5B075AD8-43CC-4EB9-830C-7A616A45751F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_065" ID="{6DA05A5B-EADA-40B0-8114-13BC8FEF6FC5}" ShortID="554344759">
+							<Comment>Отойдите от окна_ Не смотрите_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_065" ID="{EA4E27E1-50CE-4B35-8103-AAAFC6547764}">
+									<Comment>Отойдите от окна_ Не смотрите_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_065.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1067123178"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_065" ID="{EA4E27E1-50CE-4B35-8103-AAAFC6547764}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_066" ID="{1996E56E-7E2E-4A79-BE4E-967B13AAE1D4}" ShortID="533752678">
+							<Comment>Продолжайте наблюдать_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_066" ID="{C3B170F3-A97D-4FF1-9B61-A23284ECABA9}">
+									<Comment>Продолжайте наблюдать_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_066.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="52240455"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_066" ID="{C3B170F3-A97D-4FF1-9B61-A23284ECABA9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_067" ID="{BBB9D8DA-A5A5-4264-A1C7-711D1FE4B569}" ShortID="448891317">
+							<Comment>Какой ваш заказ?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_067" ID="{B64AF89F-B114-4A6A-90A5-4056A05F8FD8}">
+									<Comment>Какой ваш заказ?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_067.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="245283093"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_067" ID="{B64AF89F-B114-4A6A-90A5-4056A05F8FD8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_068" ID="{00B21170-E02E-4233-B215-CF4CD208FE19}" ShortID="271289089">
+							<Comment>Не отвлекать людей от работы_ Вы нуждаетесь в помощи?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_068" ID="{67EF617A-8694-4B2F-AD7D-5C473F36C4CA}">
+									<Comment>Не отвлекать людей от работы_ Вы нуждаетесь в помощи?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_068.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="580613758"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_068" ID="{67EF617A-8694-4B2F-AD7D-5C473F36C4CA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_069" ID="{8BD1038E-2F90-4D1E-8F53-F35A79075F45}" ShortID="622919829">
+							<Comment>Пицца на одного человека?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_069" ID="{46E684B6-1EBB-4345-ACCC-1BFA44B9D139}">
+									<Comment>Пицца на одного человека?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_069.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="878510800"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_069" ID="{46E684B6-1EBB-4345-ACCC-1BFA44B9D139}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_070" ID="{6EF182C9-A4BC-4FFD-8F5A-3F501C5A4E2B}" ShortID="913922540">
+							<Comment>Насколько острая пицца?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_070" ID="{17C3004B-230A-4A72-B697-7D6B1F2EB671}">
+									<Comment>Насколько острая пицца?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_070.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="656275110"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_070" ID="{17C3004B-230A-4A72-B697-7D6B1F2EB671}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_071" ID="{A0C447EC-1A22-4AD0-8A25-B9942EA3C3D7}" ShortID="644486079">
+							<Comment>Поняла вас_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_071" ID="{EE2B014C-9558-4538-AE6D-91442664ABE4}">
+									<Comment>Поняла вас_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_071.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1016481797"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_071" ID="{EE2B014C-9558-4538-AE6D-91442664ABE4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_072" ID="{BA3B6DF5-9B13-4575-A42E-5F9B24048CB5}" ShortID="141933648">
+							<Comment>Это Барбара! Оператор пиццерии___</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_072" ID="{099E4612-8557-4079-828F-70980432FECE}">
+									<Comment>Это Барбара! Оператор пиццерии___</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_072.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="743530057"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_072" ID="{099E4612-8557-4079-828F-70980432FECE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_073" ID="{0B9B385E-5314-4C78-9D05-244C90C58101}" ShortID="1004286226">
+							<Comment>На самом деле, это 911___ Зовут меня Елена_ Мы уже в пути_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_073" ID="{FF1A7CC6-6641-424F-A7F4-C823B62494D0}">
+									<Comment>На самом деле, это 911___ Зовут меня Елена_ Мы уже в пути_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_073.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="869512074"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_073" ID="{FF1A7CC6-6641-424F-A7F4-C823B62494D0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_074" ID="{207B2C38-EBD9-4950-BBD8-DCF2051E89E1}" ShortID="934862611">
+							<Comment>“Хэндклиффс и компания”_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_074" ID="{06A29D61-5AF3-4B79-89D0-35CAEE59AF2A}">
+									<Comment>“Хэндклиффс и компания”_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_074.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="938588621"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_074" ID="{06A29D61-5AF3-4B79-89D0-35CAEE59AF2A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_075" ID="{94F72C42-8746-430C-BECA-BBD1DE17286D}" ShortID="218880437">
+							<Comment>“Пицца в срок”_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_075" ID="{E3FBB92B-2BE7-4958-BDF6-CE353EB26FE9}">
+									<Comment>“Пицца в срок”_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_075.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="24784405"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_075" ID="{E3FBB92B-2BE7-4958-BDF6-CE353EB26FE9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_076" ID="{38269470-F945-4D77-8C54-5206EB12A40E}" ShortID="577619261">
+							<Comment>Вы не видели нашу вывеску с наручниками? Полицейские сирены на мопеде курьера?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_076" ID="{C208128B-178C-49F7-8DE3-4E651378A99E}">
+									<Comment>Вы не видели нашу вывеску с наручниками? Полицейские сирены на мопеде курьера?</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_076.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="265082146"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_076" ID="{C208128B-178C-49F7-8DE3-4E651378A99E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_077" ID="{C97AC9D8-B906-4315-84FB-38501734D196}" ShortID="316723387">
+							<Comment>А то!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_077" ID="{194D622D-ECDF-41EF-8961-42396132B19F}">
+									<Comment>А то!</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_077.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="922157062"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_077" ID="{194D622D-ECDF-41EF-8961-42396132B19F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_078" ID="{35C7521F-5D91-4126-8B43-142B1FC9114E}" ShortID="877213525">
+							<Comment>Мне нужен номер ваших аппартаментов_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_078" ID="{B2C6FCA3-DDF5-4D65-BD73-F0D199BB717F}">
+									<Comment>Мне нужен номер ваших аппартаментов_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_078.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1041700365"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_078" ID="{B2C6FCA3-DDF5-4D65-BD73-F0D199BB717F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_079" ID="{64553AF1-F630-451F-8E07-790593B3A52F}" ShortID="848626295">
+							<Comment>Отлично! В течение минуты приедут “курьеры”_ Лучше откройте им дверь сразу_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_079" ID="{C2CCAFDB-6704-423B-8A4A-B76D31EFE538}">
+									<Comment>Отлично! В течение минуты приедут “курьеры”_ Лучше откройте им дверь сразу_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_079.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1031974402"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_079" ID="{C2CCAFDB-6704-423B-8A4A-B76D31EFE538}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_080" ID="{2FC956DB-0B4A-4070-B865-9A7D4B2D719D}" ShortID="91469669">
+							<Comment>Всего доброго!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_080" ID="{CEAE1CA6-5D3E-4C41-9A13-DE9F18FFA19F}">
+									<Comment>Всего доброго!</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_080.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="135626150"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_080" ID="{CEAE1CA6-5D3E-4C41-9A13-DE9F18FFA19F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_081" ID="{5951DB06-C2AF-4298-9A16-F0659C32C728}" ShortID="914659474">
+							<Comment>Пожалуйста, не вешайте трубку!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_081" ID="{87581ED1-93EB-4FD2-BA5A-683F889D00AA}">
+									<Comment>Пожалуйста, не вешайте трубку!</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_081.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="414167620"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_081" ID="{87581ED1-93EB-4FD2-BA5A-683F889D00AA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_082" ID="{717F2A49-B747-4BCB-B188-52FA7B1CA582}" ShortID="431364883">
+							<Comment>Мы должны убедиться, что заказ прибыл вовремя, пицца -- горячая, а напитки -- холодные_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_082" ID="{E84D5F89-9A59-4177-8A2D-7866F1D735E9}">
+									<Comment>Мы должны убедиться, что заказ прибыл вовремя, пицца -- горячая, а напитки -- холодные_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_082.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="619873608"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_082" ID="{E84D5F89-9A59-4177-8A2D-7866F1D735E9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_083" ID="{1136D1D9-5F81-4D96-87C2-9FF9FA63558A}" ShortID="721711589">
+							<Comment>Пожалуйста, оцените мою работу, как оператора пиццерии_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_083" ID="{C64E7DDC-A2DA-4029-9659-DBDE89F1D8AD}">
+									<Comment>Пожалуйста, оцените мою работу, как оператора пиццерии_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_083.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="527889633"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_083" ID="{C64E7DDC-A2DA-4029-9659-DBDE89F1D8AD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_084" ID="{B6D10C36-61E7-4A0D-A695-EAA3C09E4909}" ShortID="836218683">
+							<Comment>Без проблем!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_084" ID="{49BE7947-ABCD-4EE5-89E1-D701D39DFAE6}">
+									<Comment>Без проблем!</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_084.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1028666652"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_084" ID="{49BE7947-ABCD-4EE5-89E1-D701D39DFAE6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_085" ID="{E1C3A41E-D1CA-486D-B6B1-848EAD7004D8}" ShortID="237837253">
+							<Comment>Всего доброго и приятного аппетита!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_085" ID="{6919DCD8-92BC-44D9-8B39-60D32868DA53}">
+									<Comment>Всего доброго и приятного аппетита!</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_085.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="775784823"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_085" ID="{6919DCD8-92BC-44D9-8B39-60D32868DA53}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_086" ID="{52CCF4D4-DC57-4909-8686-F5A459E419A8}" ShortID="144914008">
+							<Comment>Горячий кофе прямо из офиса! То есть ресторана___ Заработалась, простите_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_086" ID="{38A70E71-61DF-4AA9-A14B-C5EFD917C2FF}">
+									<Comment>Горячий кофе прямо из офиса! То есть ресторана___ Заработалась, простите_</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_086.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="935724550"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_086" ID="{38A70E71-61DF-4AA9-A14B-C5EFD917C2FF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_087" ID="{FFF23E76-3EDF-498B-B15A-C84D7458EE32}" ShortID="61579897">
+							<Comment>Освежающая содовая, прямо из холодильника!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_087" ID="{6DC5CCAD-67BB-47E1-8B1C-983EBE0992B1}">
+									<Comment>Освежающая содовая, прямо из холодильника!</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_087.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="807097102"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_087" ID="{6DC5CCAD-67BB-47E1-8B1C-983EBE0992B1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_elena_088" ID="{9C6101BC-4EA9-48DE-BC58-CAEC45F52D48}" ShortID="567193335">
+							<Comment>Пиво?__</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_elena_088" ID="{6A51ED74-C09A-4322-A3B5-79CBDF022539}">
+									<Comment>Пиво?__</Comment>
+									<Language>English</Language>
+									<AudioFile>pizza_elena_088.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="90871058"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_088" ID="{6A51ED74-C09A-4322-A3B5-79CBDF022539}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

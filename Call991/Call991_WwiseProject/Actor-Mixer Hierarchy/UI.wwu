@@ -4,9 +4,21 @@
 		<WorkUnit Name="UI" ID="{DA7FBD2A-0CB7-4DFB-B653-A74E1BF86E17}" PersistMode="Standalone">
 			<ChildrenList>
 				<ActorMixer Name="UI" ID="{300FC938-D6C4-46EF-A498-687AB524FDB5}" ShortID="401476297">
+					<PropertyList>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+							<ObjectRef Name="UI" ID="{694676F6-569B-40BF-850D-F29D592F2A13}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
@@ -58,7 +70,12 @@
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>27</Value>
+										<Value>29</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>26</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Pitch" Type="int32">
@@ -66,9 +83,8 @@
 										<ModifierInfo>
 											<Modifier Name="" ID="{674FB356-7CDF-43AE-ACC9-F8F6F1358871}">
 												<PropertyList>
-													<Property Name="Enabled" Type="bool" Value="True"/>
-													<Property Name="Max" Type="Real64" Value="100"/>
-													<Property Name="Min" Type="Real64" Value="-100"/>
+													<Property Name="Max" Type="Real64" Value="30"/>
+													<Property Name="Min" Type="Real64" Value="-30"/>
 												</PropertyList>
 											</Modifier>
 										</ModifierInfo>

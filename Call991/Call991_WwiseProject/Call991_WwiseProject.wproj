@@ -3,6 +3,8 @@
 	<ProjectInfo>
 		<Project Name="Call991_WwiseProject" ID="{80059B27-1FC5-40AC-AD21-D81F2F05C268}">
 			<Platforms>
+				<Platform Name="Android" ReferencePlatform="Android" ID="{561C64B0-B7A3-4CBF-82D8-A65AE6D735CF}"/>
+				<Platform Name="iOS" ReferencePlatform="iOS" ID="{D669D03F-1F2E-4472-A7D4-BBD8E11BDAEA}"/>
 				<Platform Name="Mac" ReferencePlatform="Mac" ID="{2CEC3B52-7779-47A5-8A96-0B015ACD6293}"/>
 				<Platform Name="Windows" ReferencePlatform="Windows" ID="{0662A66D-AC8A-4CED-BEAC-E474FC991FF4}"/>
 			</Platforms>
@@ -15,54 +17,85 @@
 			</LanguageList>
 			<PropertyList>
 				<Property Name="Color" Type="int16" Value="2"/>
-				<Property Name="DefaultLanguage" Type="string" Value="English"/>
+				<Property Name="DefaultLanguage" Type="string" Value="Russian"/>
 				<Property Name="ExternalSourcesInputPath" Type="string">
 					<ValueList>
+						<Value Platform="iOS"></Value>
 						<Value Platform="Mac"></Value>
+						<Value Platform="Android"></Value>
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="ExternalSourcesOutputPath" Type="string">
 					<ValueList>
+						<Value Platform="iOS">GeneratedSoundBanks\iOS</Value>
 						<Value Platform="Mac">GeneratedSoundBanks\Mac</Value>
+						<Value Platform="Android">GeneratedSoundBanks\Android</Value>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows</Value>
 					</ValueList>
 				</Property>
+				<Property Name="GlobalVoiceInstancesLimit" Type="int16">
+					<ValueList>
+						<Value Platform="iOS">256</Value>
+						<Value Platform="Mac">256</Value>
+						<Value Platform="Android">256</Value>
+						<Value Platform="Windows">256</Value>
+					</ValueList>
+				</Property>
+				<Property Name="LicenseKey" Type="string" Value="PHByb2plY3QgaWQ9IjE1MzA5IiBtYXNrPSJCQUZTNTYzOSIgZW5jPSIwIj48bGljZW5zZSBpZD0iMSIgbmFtZT0iV3dpc2UiIHR5cGU9IjIiIHBsYXRmb3Jtcz0iMiwzLDQsMTAsMTUsMjgsMjkiIGV4cGlyZXM9IjIwMjQtMDctMDEiICAvPjxsaWNlbnNlIGlkPSIyMSIgbmFtZT0iTWFpbnRlbmFuY2UiIHR5cGU9IjIiIHBsYXRmb3Jtcz0iMiwzLDQsMTAiIGV4cGlyZXM9IjIwMjQtMDctMDEiICAvPjxsaWNlbnNlIGlkPSI3MCIgbmFtZT0iSW5kaWUgTGljZW5zZSIgdHlwZT0iMiIgcGxhdGZvcm1zPSIyLDMsNCwxMCwxNSwyOCwyOSIgZXhwaXJlcz0iMjAyNC0wNy0wMSIgIC8+PC9wcm9qZWN0Pg==|QYvq9zl3VHy4/P7W2F7PjZ27oi9lNCqFr0j/4IuoqRrTNHSuudBYr51D2pc0y65NTyu8ZCNz+sdetPYvjUEui3z4Sq7KEKlZzlrcXQfVNP/DL9IrfUZsa9//hm6ST02q/LmcQo3rwjmyp3rL84uUMPKEmTPY4E1P5PMrOrVuq7kKUU/kN6WpO03t/cXs3Pke+nwJ+5Ow4BbDaAvjTv7H22MuTFUGxVJUnxgivA3Ym7qekL2+jZjN5/h+APgdy99nc1LKgP8yTsztkr9+vrwIFT9CAhsOE54qwYsisoWHSj4B0/EqZjk5nTcW+lvkWVxPYEILPzd62AXbLUawnITvGg=="/>
 				<Property Name="OverrideColor" Type="bool" Value="True"/>
 				<Property Name="SoundBankGenerateEstimatedDuration" Type="bool" Value="True"/>
 				<Property Name="SoundBankHeaderFilePath" Type="string" Value="GeneratedSoundBanks"/>
 				<Property Name="SoundBankPaths" Type="string">
 					<ValueList>
+						<Value Platform="iOS">GeneratedSoundBanks\iOS\</Value>
 						<Value Platform="Mac">GeneratedSoundBanks\Mac\</Value>
+						<Value Platform="Android">GeneratedSoundBanks\Android\</Value>
 						<Value Platform="Windows">GeneratedSoundBanks\Windows\</Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdDescription" Type="string">
 					<ValueList>
+						<Value Platform="iOS"></Value>
 						<Value Platform="Mac"></Value>
+						<Value Platform="Android"></Value>
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPostGenerateCustomCmdLines" Type="string">
 					<ValueList>
+						<Value Platform="iOS"></Value>
 						<Value Platform="Mac"></Value>
+						<Value Platform="Android"></Value>
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdDescription" Type="string">
 					<ValueList>
+						<Value Platform="iOS"></Value>
 						<Value Platform="Mac"></Value>
+						<Value Platform="Android"></Value>
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="SoundBankPreGenerateCustomCmdLines" Type="string">
 					<ValueList>
+						<Value Platform="iOS"></Value>
 						<Value Platform="Mac"></Value>
+						<Value Platform="Android"></Value>
 						<Value Platform="Windows"></Value>
 					</ValueList>
 				</Property>
 				<Property Name="UseActionNameForEvent" Type="bool" Value="False"/>
 				<Property Name="UseDefaultLanguage" Type="bool" Value="False"/>
+				<Property Name="VolumeThreshold" Type="Real64">
+					<ValueList>
+						<Value Platform="iOS">-80</Value>
+						<Value Platform="Mac">-80</Value>
+						<Value Platform="Android">-80</Value>
+						<Value Platform="Windows">-80</Value>
+					</ValueList>
+				</Property>
 				<Property Name="WwiseVersionWhenCreated" Type="string" Value="Branch=wwise_v2022.1|Build=8202|VersionName=v2022.1.4|Config=Release"/>
 			</PropertyList>
 			<MiscSettings>
@@ -11972,6 +12005,9 @@
 					</ObsOccCurve>
 				</ObsOccCurves>
 			</EnvironmentalSettings>
+			<LogCentralIgnoreList>
+				<IgnoreItem MessageId="NoActiveSource"/>
+			</LogCentralIgnoreList>
 			<DefaultConversion Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}"/>
 			<PhysicalFolderList>
 				<PhysicalFolder Path="Actor-Mixer Hierarchy">
