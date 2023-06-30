@@ -142,6 +142,9 @@ public class SoundTestSceneEntity : MonoBehaviour
         Debug.LogWarning("Test started");
         for (var i = 0; i < _keys.Count; i++)
         {
+            while (!audioManager.IsReady) 
+                yield return null;
+            
             _currentIndex = i;
             var key = _keys[i];
             PlayKey(key);

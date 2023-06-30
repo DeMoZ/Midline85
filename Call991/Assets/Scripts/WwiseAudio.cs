@@ -1,4 +1,4 @@
-using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using Configs;
@@ -10,6 +10,9 @@ using Event = AK.Wwise.Event;
 
 public class WwiseAudio : MonoBehaviour
 {
+    private const string DefaultAudioLanguage = "Russian";
+    private const string BankMaster = "Master";
+
     public struct Ctx
     {
         public ReactiveProperty<List<string>> LevelLanguages;
@@ -27,9 +30,13 @@ public class WwiseAudio : MonoBehaviour
     private GameObject _phraseGo;
     private List<uint> _playingVoices;
 
+    private bool _isBankLoaded;
+    private WaitForSeconds _waitForLoad = new(0.5f);
 
     private CompositeDisposable _disposables;
     private CancellationTokenSource _tokenSource;
+
+    public bool IsReady => _isBankLoaded;
 
     public void SetCtx(Ctx ctx)
     {
@@ -61,23 +68,35 @@ public class WwiseAudio : MonoBehaviour
 
         _tokenSource?.Cancel();
         _disposables?.Dispose();
+
+        AkBankManager.UnloadBank(BankMaster);
     }
 
     private void OnAudioLanguageChanged(string language)
     {
+        StartCoroutine(ChangeLanguageRoutine(language));
+    }
+
+    private IEnumerator ChangeLanguageRoutine(string language)
+    {
+        _isBankLoaded = false;
+        AkSoundEngine.StopAll();
+        AkBankManager.UnloadBank(BankMaster);
+        yield return _waitForLoad;
+
         var audioLanguage = language switch
         {
-            //"English" => "English(US)",
             "English" => "English",
-            "Spanish" => "Spanish(SP)",
-            //_ => "Russian(RU)"
-            _ => "Russian"
-            //_ => "English"
-            //_ => "English(US)"
-            
+            "Russian" => "Russian",
+            //"Spanish" => "Spanish",
+            _ => DefaultAudioLanguage
         };
 
         AkSoundEngine.SetCurrentLanguage(audioLanguage);
+        //AkBankManager.LoadBank(BankMaster, true, true);
+        AkBankManager.LoadBank(BankMaster, false, false);
+        yield return _waitForLoad;
+        _isBankLoaded = true;
         Debug.Log($"[{this}] Current Wwise language = {AkSoundEngine.GetCurrentLanguage()}");
     }
 
@@ -144,6 +163,8 @@ public class WwiseAudio : MonoBehaviour
 
     public uint? PlayPhrase(string sound)
     {
+        if (!_isBankLoaded) return null;
+
         var isNoKey = string.Equals(sound, AaGraphConstants.None) || string.IsNullOrEmpty(sound);
 
         if (!isNoKey)
