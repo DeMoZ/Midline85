@@ -45,7 +45,7 @@ namespace AaDialogueGraph.Editor
 
             var soundPopup = new SoundPopupField(sounds, sound)
             {
-                name = AaGraphConstants.SoundPopupField
+                name = AaGraphConstants.EventSoundPopupField
             };
             containerRow1.Add(soundPopup);
 

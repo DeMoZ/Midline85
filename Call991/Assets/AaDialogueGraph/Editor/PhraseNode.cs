@@ -60,7 +60,7 @@ namespace AaDialogueGraph.Editor
 
             var soundPopup = new SoundPopupField(sounds, sound)
             {
-                name = AaGraphConstants.SoundPopupField
+                name = AaGraphConstants.PhraseSoundPopupField
             };
 
             var soundLine = new LineGroup(new VisualElement[] { soundText, soundPopup });
@@ -100,7 +100,7 @@ namespace AaDialogueGraph.Editor
             var events = contentContainer.Query<EventAssetField>().ToList();
             
             var sounds = contentContainer.Query<SoundPopupField>().ToList();
-            var phraseSound = sounds.FirstOrDefault(s => s.name == AaGraphConstants.SoundPopupField);
+            var phraseSound = sounds.FirstOrDefault(s => s.name == AaGraphConstants.PhraseSoundPopupField);
 
             var errorFields = new StringBuilder();
 
@@ -122,8 +122,9 @@ namespace AaDialogueGraph.Editor
             titleContainer.Q<NodeTitleErrorField>().Label.text = errorFields.ToString();
         }
 
-        public string GetPhraseSound() => contentContainer.Query<SoundPopupField>().ToList()
-            .First(field => field.name == AaGraphConstants.SoundPopupField).Value;
+        public string GetPhraseSound() =>
+            contentContainer.Query<SoundPopupField>().ToList()
+                .First(field => field.name == AaGraphConstants.PhraseSoundPopupField).Value;
 
         public List<Phrase> GetPhrases() =>
             contentContainer.Query<PhraseAssetField>().ToList().Select(field => field.GetPhrase()).ToList();
