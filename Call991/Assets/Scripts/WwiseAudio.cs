@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -5,7 +6,6 @@ using Configs;
 using UI;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Audio;
 using Event = AK.Wwise.Event;
 
 public class WwiseAudio : MonoBehaviour
@@ -19,7 +19,7 @@ public class WwiseAudio : MonoBehaviour
         public PlayerProfile Profile;
 
         public GameSet GameSet;
-        public AudioMixer audioMixer;
+        public ReactiveCommand<GameScenes> OnSwitchScene;
     }
 
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
@@ -30,8 +30,8 @@ public class WwiseAudio : MonoBehaviour
     private GameObject _phraseGo;
     private List<uint> _playingVoices;
 
-    private bool _isBankLoaded;
-    private WaitForSeconds _waitForLoad = new(0.5f);
+    private static bool _isBankLoaded;
+    private WaitForSeconds _waitForLoad = new(0.7f);
 
     private CompositeDisposable _disposables;
     private CancellationTokenSource _tokenSource;
@@ -56,6 +56,12 @@ public class WwiseAudio : MonoBehaviour
 
         _ctx.Profile.AudioLanguageChanged.Subscribe(OnAudioLanguageChanged).AddTo(_disposables);
         _ctx.Profile.OnVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
+        _ctx.OnSwitchScene.Subscribe(OnSwitchScene).AddTo(_disposables);
+    }
+
+    private void OnSwitchScene(GameScenes scene)
+    {
+        Debug.LogWarning($"{this} received OnSwitchScene <color=green>{scene}</color>");
     }
 
     private void OnDestroy()
@@ -75,13 +81,25 @@ public class WwiseAudio : MonoBehaviour
     private void OnAudioLanguageChanged(string language)
     {
         StartCoroutine(ChangeLanguageRoutine(language));
+        //ChangeLanguageRoutine(language);
     }
+
+    private void OnBankLoaded(uint in_bankid, IntPtr in_inmemorybankptr, AKRESULT in_eloadresult, object in_cookie)
+    {
+        _isBankLoaded = true;
+        Debug.LogWarning($"[{this}] <color=red>!!!</color> Current Wwise language" +
+                         $" = {AkSoundEngine.GetCurrentLanguage()} {Time.time - _time}");
+    }
+
+    private float _time;
+    private AKRESULT _setLanguageResult;
 
     private IEnumerator ChangeLanguageRoutine(string language)
     {
         _isBankLoaded = false;
         AkSoundEngine.StopAll();
         AkBankManager.UnloadBank(BankMaster);
+        //AkBankManager.DoUnloadBanks(); - this doesnt work =(
         yield return _waitForLoad;
 
         var audioLanguage = language switch
@@ -92,12 +110,27 @@ public class WwiseAudio : MonoBehaviour
             _ => DefaultAudioLanguage
         };
 
-        AkSoundEngine.SetCurrentLanguage(audioLanguage);
-        //AkBankManager.LoadBank(BankMaster, true, true);
-        AkBankManager.LoadBank(BankMaster, false, false);
-        yield return _waitForLoad;
-        _isBankLoaded = true;
+        //AkSoundEngine.SetCurrentLanguage(audioLanguage);
+
+        _setLanguageResult = AKRESULT.AK_Fail;
+        while (_setLanguageResult != AKRESULT.AK_Success)
+        {
+            if (_setLanguageResult != AKRESULT.AK_Busy)
+                _setLanguageResult = AkSoundEngine.SetCurrentLanguage(audioLanguage);
+
+            yield return null;
+        }
+
         Debug.Log($"[{this}] Current Wwise language = {AkSoundEngine.GetCurrentLanguage()}");
+        yield return _waitForLoad;
+
+        //AkBankManager.LoadBank(BankMaster, true, true);
+        _time = Time.time;
+        AkBankManager.LoadBankAsync(BankMaster, OnBankLoaded);
+        Debug.Log($"[{this}] 0 loaded Current Wwise language. {Time.time - _time}");
+        //yield return _waitForLoad;
+        Debug.Log($"[{this}] 1 yield Current Wwise language. {Time.time - _time}");
+        //_isBankLoaded = true;
     }
 
     private void OnVolumeChanged((AudioSourceType source, float volume) value)
@@ -223,6 +256,12 @@ public class WwiseAudio : MonoBehaviour
 
     private void PlayButtonSound(Event wwiseEvent)
     {
-        wwiseEvent.Post(_menuButtonSoundGo);
+        if (_setLanguageResult == AKRESULT.AK_Busy)
+        {
+            Debug.LogWarning($"[{this}] Very busy");
+        }
+
+        if(IsReady)
+            wwiseEvent.Post(_menuButtonSoundGo);
     }
 }

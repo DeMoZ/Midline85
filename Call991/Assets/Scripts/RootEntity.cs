@@ -5,7 +5,6 @@ using I2.Loc;
 using UI;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -32,7 +31,6 @@ public class RootEntity : IDisposable
         _disposables = new CompositeDisposable();
         
         var gameSet = Resources.Load<GameSet>("GameSet");
-        var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
         var cursorSettings = Resources.Load<CursorSet>("CursorSet");
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
@@ -74,7 +72,7 @@ public class RootEntity : IDisposable
             LevelLanguages = levelLanguages,
             GameSet = gameSet,
             Profile = profile,
-            audioMixer = audioMixer,
+            OnSwitchScene = onSwitchScene,
         });
         // TODO Wwise_ctx.AudioManager.PlayMusic("Intro").Forget();
 
@@ -104,12 +102,11 @@ public class RootEntity : IDisposable
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
             ScenesHandler = scenesHandler,
+            GameSet = gameSet,
             OnSwitchScene = onSwitchScene,
             VideoManager = _ctx.VideoManager,
-            GameSet = gameSet,
             Blocker = blocker,
             CursorSettings = cursorSettings,
-            OverridenDialogue = _ctx.OverridenDialogue,
         }).AddTo(_disposables);
 
         _onStartApplicationSwitchScene.Execute();

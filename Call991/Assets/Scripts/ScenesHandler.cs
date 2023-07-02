@@ -104,10 +104,10 @@ public class ScenesHandler : IDisposable
     {
         var sceneEntity = new OpenSceneEntity(new OpenSceneEntity.Ctx
         {
-            gameSet = _ctx.GameSet,
-            onSwitchScene = _ctx.OnSwitchScene,
-            blocker = _ctx.Blocker,
-            cursorSettings = _ctx.CursorSettings,
+            GameSet = _ctx.GameSet,
+            OnSwitchScene = _ctx.OnSwitchScene,
+            Blocker = _ctx.Blocker,
+            CursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
 
         return sceneEntity;
@@ -186,5 +186,18 @@ public class ScenesHandler : IDisposable
         }).AddTo(_disposables);
 
         return switchSceneEntity;
+    }
+
+    public async Task<LoadingSceneEntity> CreateLoadingSceneEntity(bool toLevelScene, ReactiveProperty<string> onLoadingProcess)
+    {
+        await Task.Yield();
+        return new LoadingSceneEntity(new LoadingSceneEntity.Ctx
+        {
+            OnLoadingProcess = onLoadingProcess, // onLoadingProcess, TODO possible need a number.ToString()
+            ToLevelScene = toLevelScene,
+            FirstLoad = toLevelScene,
+            Blocker = _ctx.Blocker,
+            GameSet = _ctx.GameSet,
+        }).AddTo(_disposables);
     }
 }
