@@ -47,6 +47,7 @@ public class SoundTestSceneEntity : MonoBehaviour
 
         _keys = wwiseSoundsKeysList.GetKeys();
 
+        var onSwitchScene = new ReactiveCommand<GameScenes>();
         var levelLanguages = new ReactiveProperty<List<string>>(LocalizationManager.GetAllLanguages());
         var profile = new PlayerProfile();
 
@@ -54,6 +55,7 @@ public class SoundTestSceneEntity : MonoBehaviour
         {
             LevelLanguages = levelLanguages,
             Profile = profile,
+            OnSwitchScene = onSwitchScene,
         };
         audioManager.SetCtx(wwiseCtx);
         audioManager.CreatePhraseVoiceObject();

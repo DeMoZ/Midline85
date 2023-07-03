@@ -58,7 +58,7 @@ public class LevelScenePm : IDisposable
     private readonly ReactiveProperty<bool> _isPhraseSkipped = new();
     private readonly ReactiveProperty<bool> _isChoiceDone = new();
     private CancellationTokenSource _tokenSource;
-
+    
     /// <summary>
     /// Choice button selection with keyboard.
     /// </summary>
@@ -277,6 +277,13 @@ public class LevelScenePm : IDisposable
             var sprite = await _ctx.ContentLoader.GetNewspaperAsync(newspaperData);
             content[newspaperData.Guid] = sprite;
 
+            if (_tokenSource.IsCancellationRequested) return true;
+        }
+
+        // wait for wwise get ready
+        while (!_ctx.AudioManager.IsReady)
+        {
+            await Task.Delay(1);
             if (_tokenSource.IsCancellationRequested) return true;
         }
 
