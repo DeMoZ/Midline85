@@ -21,13 +21,19 @@ public class AaSelectable : Selectable
     public static event Action<Vector2, Sprite> OnMouseClickSelectable;
 
     private bool IsNormal => currentSelectionState == SelectionState.Normal;
-
+    
     private void Update()
     {
         if (_coolTimer > 0)
             _coolTimer -= Time.deltaTime;
     }
 
+    protected override void OnEnable()
+    {
+        _coolTimer = 0;
+        base.OnEnable();
+    }
+    
     public override void OnPointerExit(PointerEventData eventData)
     {
         DoStateTransition(SelectionState.Normal, _instant);
