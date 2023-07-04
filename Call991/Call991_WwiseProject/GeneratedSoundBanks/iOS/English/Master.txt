@@ -195,7 +195,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	415445313	sfx_stab			\SFX\sfx_stab	
 	472690308	psycho1_elena_041			\7 - Psycho\Elena\psycho1_elena_041	
 	472690309	psycho1_elena_040			\7 - Psycho\Elena\psycho1_elena_040	
-	488670904	sfx_decidetime_end			\SFX\sfx_decidetime_end	
+	488670904	sfx_decidetime_end			\GameSyncs\sfx_decidetime_end	
 	574050428	UI_Click_Menu			\UI\UI_Click_Menu	
 	606658506	sfx_keyboard			\SFX\sfx_keyboard	
 	607923225	sfx_dooropen			\SFX\sfx_dooropen	
@@ -205,6 +205,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	804835621	sfx_dporbell			\SFX\sfx_dporbell	
 	854511964	sfx_MChready			\SFX\sfx_MChready	
 	872101825	PauseVoice_Start_FADE			\Test\PauseVoice_Start_FADE	
+	953277036	Resume			\GameSyncs\Resume	
 	1044869488	pizzaep_mark_010			\4 - Interlude1 (After Pizza)\Mark\pizzaep_mark_010	
 	1044869489	pizzaep_mark_011			\4 - Interlude1 (After Pizza)\Mark\pizzaep_mark_011	
 	1044869490	pizzaep_mark_012			\4 - Interlude1 (After Pizza)\Mark\pizzaep_mark_012	
@@ -579,7 +580,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	3069465373	fire_p_lara_045			\5 - Chapter Two (Fire)\Lara\fire_p_lara_045	
 	3069465374	fire_p_lara_046			\5 - Chapter Two (Fire)\Lara\fire_p_lara_046	
 	3069465375	fire_p_lara_047			\5 - Chapter Two (Fire)\Lara\fire_p_lara_047	
-	3105726051	sfx_decidetime_start			\SFX\sfx_decidetime_start	
+	3092587493	Pause			\GameSyncs\Pause	
+	3105726051	sfx_decidetime_start			\GameSyncs\sfx_decidetime_start	
 	3115077999	sfx_susup			\SFX\sfx_susup	
 	3136575808	fire_p_lara_004			\5 - Chapter Two (Fire)\Lara\fire_p_lara_004	
 	3136575809	fire_p_lara_005			\5 - Chapter Two (Fire)\Lara\fire_p_lara_005	
@@ -745,15 +747,15 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	4206939811	MusicLevels			\Default Work Unit\MusicLevels	
 
 Switch	ID	Name	Switch Group			Notes
-	332193766	ChapterTwo	MusicLevels			
-	753355268	ChapterOne	MusicLevels			
-	901040268	BossFirst	MusicLevels			
-	1125500713	Intro	MusicLevels			
-	1146290300	BossTwo	MusicLevels			
-	2598995339	Training	MusicLevels			
-	3604647259	MainMenu	MusicLevels			
-	3809106084	Titles	MusicLevels			
-	4255629485	Psycho	MusicLevels			
+	86437395	MusicChapterOne	MusicLevels			
+	732903831	MusicTitles	MusicLevels			
+	1068983409	MusicBossTwo	MusicLevels			
+	1374984612	MusicIntro	MusicLevels			
+	1585032734	MusicPsycho	MusicLevels			
+	2404037190	MusicTutor	MusicLevels			
+	2832973428	MusicMainMenu	MusicLevels			
+	3630649973	MusicBossFirst	MusicLevels			
+	4263122705	MusicChapterTwo	MusicLevels			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	1112948642	DecideTime			\Default Work Unit\DecideTime	
@@ -793,12 +795,12 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1489820	pizzaep_mark_029	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_029_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_029	Главное -- все остались живы и невридимы_ Разве что мистеру Пепперони светит небольшой, но срок___	0
 	2173080	pizza_elena_047	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_047_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_047	Назовите номер квартиры_	0
-	3653274	pizza_girl_022	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_B4E0D854.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_022		18937
-	4875840	pizza_girl_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_0791DA17.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_010		32131
+	3653274	pizza_girl_022	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_77EF3E8C.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_022		18937
+	4875840	pizza_girl_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_4359AD8F.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_010		32131
 	5971494	pizza_elena_035	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_035_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_035	Сэр, не делайте глупостей_	0
 	6653513	sfx_susdown	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_susdown_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_susdown		18245
 	13943271	tutor_mark_041	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_041_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_041	Да_ Рукоять ножа торчит из моего бока_ Даже дышать больно_ Может, мне вынуть нож?	0
-	14683419	pizza_girl_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_903BBBCE.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_001		10201
+	14683419	pizza_girl_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_9A3659DF.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_001		10201
 	16061684	pizza_elena_046	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_046_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_046	Приятного вечера_	0
 	17829532	sfx_officeBG	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_officeBG_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_officeBG		171155
 	24784405	pizza_elena_075	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_075_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_075	“Пицца в срок”_	0
@@ -808,7 +810,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	38215245	pizza_elena_040	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_040_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_040	Поверь_	0
 	48706148	tutor_mark_039_1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_039_1_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_039_1	Рассказали бы, как вы предложили нож из раны вытащить, например_	0
 	52240455	pizza_elena_066	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_066_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_066	Продолжайте наблюдать_	0
-	53194032	pizza_girl_021	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_2BC09B99.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_021		11948
+	53194032	pizza_girl_021	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_1B1A2C06.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_021		11948
 	53857909	pizzaep_mark_023	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_023_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_023	В 84м у нас был такой звонок___	0
 	56981862	sfx_squadwalk_06	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_squadwalk_06_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_squadwalk\sfx_squadwalk_06		18261
 	61379478	pizzaep_mark_020	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_020_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_020	Хотя___ Нет, забудьте_ Правильно, что остановились_	0
@@ -824,13 +826,13 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	97385931	fire_p_const_013	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_013_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_013	Мы сразу на второй этаж!	0
 	100656263	fireep_mark_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_009_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_009	Однако мы должны обсудить ваши действия и ошибки, чтобы избежать их в будущем_	0
 	101510680	fire_p_const_018	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_018_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_018	Подвал заперт! Открываем! Пусто!	0
-	102449160	pizza_girl_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_5E4FBD19.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_011		20961
+	102449160	pizza_girl_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_111DB54E.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_011		20961
 	103843490	fireep_mark_034	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_034_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_034	Ответственные люди этим уже занимаются_ Запись звонка им уже передана_ Я ценю вашу преданность городу и ваши идеалы, но___	0
 	111454380	tutor_mark_016	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_016_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_016	Было бы за что_ Раз это дело обсудили___ Готовы приступить к работе? Или, может быть, хотите разогреться? Разыграем сценку, как в театре для младшеклашек_	0
 	111521760	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_clock_06_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4_01\New Music Track		15358
 	116570352	fireep_mark_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_014_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_014	Вы скоро установили адрес возгорания и вовремя вызвали пожарную бригаду_ Всё, как по учебнику_	0
 	130039209	fire_sfx_jackanger	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\fire.sfx.jackanger_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\fire_sfx_jackanger		69940
-	132716939	pizza_girl_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_0D5927AD.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_006		16522
+	132716939	pizza_girl_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_C78739A8.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_006		16522
 	135626150	pizza_elena_080	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_080_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_080	Всего доброго!	0
 	136195668	sfx_keyboard3	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_keyboard3_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_keyboard\sfx_keyboard3		53380
 	138275598	pizzaep_mark_033	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_033_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_033	Что ж___ Пока полиция пыталась проникнуть в дом, урод пустил в руки кулаки_ Даже не догадался смыться с места приступления_	0
@@ -843,7 +845,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	156641688	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_clock_05_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14852
 	157431535	tutor_mark_045	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_045_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_045	Момент упущен_ Вы пытались, но действительно полезной информации слишком мало_	0
 	166374291	pizza_elena_013	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_BB28FD32.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_013	Ещё как “доставляем”_ Что или кто вам угрожает?	19781
-	172173660	pizza_girl_023	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_5C5CDBDD.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_023		11529
+	172173660	pizza_girl_023	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_E2262CE0.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_023		11529
 	174600988	tutor_mark_033	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_033_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_033	Блестяще! Порядковый номер, закрепленный за конкретным адресом_ Скорая уже в пути, полиция тоже подключится к вопросу_	0
 	178061551	tutor_mark_008	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_008_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_008	Хорошо_ Первое и самое важное - не думайте подолгу над ответом_ Человек на том конце провода не будет ждать вас_ Время идёт - ляпнете ещё что-нибудь невпопад_	0
 	179894230	sfx_chair	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_chair_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_chair		13763
@@ -864,10 +866,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	238653922	tutor_mark_050	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_050_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_050	В каком-то парке, только успел выйти с офиса_ Можете прикинуть маршрут? Подумайте, но быстро_	0
 	240694961	sfx_psychopen_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_psychopen_01_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopen\sfx_psychopen_01		30843
 	241142014	fireep_mark_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_007_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_007	Но чтобы закрепить результат, пройдёмся по вашим решениям_	0
-	243447433	pizza_girl_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_57F902C8.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_002		8765
-	243520905	pizza_girl_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_49FA2F9B.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_014		18846
+	243447433	pizza_girl_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_978DC783.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_002		8765
+	243520905	pizza_girl_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_D4CEB6B0.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_014		18846
 	245283093	pizza_elena_067	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_067_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_067	Какой ваш заказ?	0
-	247726644	pizza_girl_024	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_F2E847BF.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_024		12382
+	247726644	pizza_girl_024	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_340F2D04.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_024		12382
 	255346539	fireep_mark_023	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_023_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_023	Вы были почти у цели_ Но не смогли обещать того, за что не готовы были поручиться_	0
 	258547841	sfx_keyboard1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_keyboard1_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_keyboard\sfx_keyboard1		27977
 	258908055	pizza_elena_062	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_062_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_062	Вы можете посмотреть в окно, что там происходит?	0
@@ -877,7 +879,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	266341967	pizzaep_mark_042	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_042_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_042	Вы курите?	0
 	267109977	tutor_mark_040	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_040_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_040	Короче, в кафетерии всегда есть свежая газета_ Полистывайте, чтоб быть в курсе_ До связи, мисс Хейворд_	0
 	269153981	fire_p_const_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_014_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_014	Детская -- пусто!	0
-	269976936	pizza_girl_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_00763778.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_007		30041
+	269976936	pizza_girl_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_B3A15A1C.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_007		30041
 	271146018	pizzaep_mark_018	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_018_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_018	Но попытка__ Интересная_	0
 	271748291	tutor_mark_034	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_034_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_034	Тогда я бы не стоял, пошатываясь, в тесной будке_ Здесь -- никого_ Улица пустая_ Это был второй вопрос_ Сейчас будьте бдительны_ Может, имеет смысл сменить курс?	0
 	273202292	pizza_elena_041	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_041_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_041	Усугубив ситуацию, вы сделайте хуже только себе_	0
@@ -893,7 +895,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	295073302	UI_Overlap	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\UI_Overlap_CE03F7EF.wem		\Actor-Mixer Hierarchy\UI\UI\UI_Overlap\UI_Overlap		6512
 	295810207	fire_p_const_008	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_008_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_008	Детская -- пусто!	0
 	296685128	pizza_elena_039	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_039_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_039	В ином случае___ Тебе не сдобровать_ Я знаю, как действует полиция_ Будешь пиццу из блендера жрать_ Или -- что более вероятно -- только тюремную кашу_	0
-	300957418	pizza_girl_029	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_5060533E.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_029		12404
+	300957418	pizza_girl_029	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_3EB17C36.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_029		12404
 	302183259	tutor_mark_048	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_048_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_048	Давайте-ка ещё разок_ Только в этот раз без трупов_	0
 	306085053	pizzaep_mark_039	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_039_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_039	Непредумышленное убийство_ Виновник будет наказан, но___ Жизнь несчастной жертвы не вернуть___	0
 	306262422	sfx_psychopen_04	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_psychopen_04_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopen\sfx_psychopen_04		36387
@@ -909,9 +911,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	355210548	sfx_phone1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_phone1_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_phone1		27765
 	358670761	fireep_mark_039	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_039_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_039	Иногда плохие вещи случаются сами собой, Елена_ Плохая проводка, дети заигрались___ Всё что угодно_	0
 	358993250	pizzaep_mark_019	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_019_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_019	Вовремя сообразили, что так делать не стоит___	0
-	366339659	pizza_girl_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_C2691274.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_005		14247
+	366339659	pizza_girl_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_1E1B3AC0.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_005		14247
 	366381878	pizza_elena_019	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_42665E48.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_019	К дому выслана полиция_ Ожидайте_	24453
-	366663270	pizza_girl_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_FDE72F9F.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_009		19180
+	366663270	pizza_girl_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_AB7A0BA2.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_009		19180
 	368340070	pizza_elena_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_060F1D80.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_007	Мэм___ Скажите “пепперони”, если вы в опасности_	22939
 	371962285	tutor_mark_020	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_020_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_020	Это первый вопрос_ Хороший_ Адреса я не знаю_ Телефонная будка_	0
 	372034663	sfx_MChwrite3	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_MChwrite3_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_MChwrite\sfx_MChwrite3		38224
@@ -943,7 +945,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	467409299	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_clock_01_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14460
 	470389752	pizza_elena_058	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_058_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_058	“Пицца в срок!”	0
 	470408159	tutor_mark_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_009_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_009	Второе: вы должны понимать людей, которые находятся в экстренной ситуации_ Несговорчивость, нервозы, крики - норма_ Иногда стоит отрезвить собеседника, но в рамках своих полномочий_	0
-	476957558	pizza_girl_008	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_E99FD2BE.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_008		20779
+	476957558	pizza_girl_008	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_FD57AB86.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_008		20779
 	480612217	sfx_recordend	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_recordend_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_recordend		22719
 	486423130	sfx_death	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_death_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_death		70741
 	487861590	pizza_elena_030	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_A9AFF972.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_030	Всего доброго_	8099
@@ -960,7 +962,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	538165567	sfx_stab	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_stab_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_stab		29883
 	540010101	pizza_elena_037	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_037_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_037	Джордж, послушай_	0
 	543434018	pizza_elena_043	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_043_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_043	Алло?__	0
-	545934473	pizza_girl_015	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_C56BE4CA.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_015		26054
+	545934473	pizza_girl_015	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_14BEBC7E.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_015		26054
 	548228939	tutor_mark_027	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_027_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_027	Только на кофе особо не налегайте_ Нам-то не жалко, а вам потом не усидеться будет_	0
 	551976228	pizza_elena_064	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_064_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_064	Что там, мэм?	0
 	552161696	pizzaep_mark_047	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_047_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_047	Вашей вины в его смерти нет_ Тут сложно сказать, кто оказался виноват_	0
@@ -974,7 +976,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	564720816	fireep_mark_004	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_004_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_004	Я___ Я понимаю_	0
 	570625899	sfx_MChwrite1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_MChwrite1_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_MChwrite\sfx_MChwrite1		30150
 	576443060	fireep_mark_025	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_025_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_025	Вот -- ваша главная ошибка_	0
-	577627770	pizza_girl_019	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_B8732917.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_019		11825
+	577627770	pizza_girl_019	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_87DF3BA3.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_019		11825
 	580514517	pizza_elena_027	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_D9FB8723.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_027	Скажите, что газировка_	8083
 	580613758	pizza_elena_068	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_068_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_068	Не отвлекать людей от работы_ Вы нуждаетесь в помощи?	0
 	581690082	TestVoiceLanguage	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\English_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\TestVoice\TestVoiceLanguage		6968
@@ -996,7 +998,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	648336965	fireep_mark_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_001_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_001	Да, Елена, присаживайтесь_	0
 	652908701	tutor_mark_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_002_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_002	Дальше просто Марк, пожалуйста_ Вы пришли раньше, чем нужно, взяли трубку сразу___ Может, вам ещё и кофе здешний нравится? Ладно, шучу -- его никто не любит_	0
 	656275110	pizza_elena_070	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_070_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_070	Насколько острая пицца?	0
-	662237771	pizza_girl_016	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_942CE643.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_016		42845
+	662237771	pizza_girl_016	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_3DCE2327.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_016		42845
 	670314128	fireep_mark_008	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_008_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_008	Я не буду вас ругать_ Я знаю, что вы сделали всё, что могли сделать_	0
 	670902734	tutor_mark_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_011_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_011	Да___ Третье_ Всегда задавайте вопросы! Адрес, что случилось и так далее_ Чем больше знаете вы, тем больше знает отдел и, соответственно, выше шансы помочь пострадавшему_	0
 	671453620	sfx_psychopaper_02	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_psychopaper_02_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopaper\sfx_psychopaper_02		18120
@@ -1010,15 +1012,15 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	685225328	sfx_MChready	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_MChready_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_MChready		6927
 	686957990	sfx_squadwalk_09	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_squadwalk_09_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_squadwalk\sfx_squadwalk_09		18365
 	691429476	sfx_3foot	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_3foot_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_3foot		18540
-	694513416	pizza_girl_018	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_568B6357.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_018		23653
+	694513416	pizza_girl_018	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_E4040645.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_018		23653
 	698941043	fireep_mark_037	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_037_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_037	Пожалуйста, давайте без теорий_	0
-	699723252	pizza_girl_025	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_6070D23B.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_025		8098
+	699723252	pizza_girl_025	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_8FF0AFD9.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_025		8098
 	704272256	pizzaep_mark_012	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_012_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_012	В первую очередь -- вы совсем сдурели угрожать людям по телефону?	0
 	706712192	pizza_elena_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_EF3970E7.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_011	Сколько вас?	8485
 	707059301	sfx_squadwalk_10	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_squadwalk_10_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_squadwalk\sfx_squadwalk_10		18383
 	710570897	fireep_mark_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_002_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_002	Отлично___ Отлично___	0
-	711849860	pizza_girl_020	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_F0EDFE51.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_020		21297
-	713497746	pizza_girl_028	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_36BB7045.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_028		13873
+	711849860	pizza_girl_020	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_6C383CA7.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_020		21297
+	713497746	pizza_girl_028	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_8540936A.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_028		13873
 	715546637	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_clock_05_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4\sfx_clock_01		15190
 	717290856	pizzaep_mark_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_006_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_006	Я даже не знаю, как это___ Интерпретировать с точки зрения правил___	0
 	718029907	tutor_mark_046	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_046_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_046	Как в кино?! Мисс Хейворд, вы только что убили человека_ Он умрёт не сразу, но шансов спасти бедолагу у нас уже нет_	0
@@ -1044,13 +1046,13 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	780641035	pizza_elena_051	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_051_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_051	Я должна оставаться на связи_ Минута_	0
 	784968286	tutor_mark_003	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_003_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_003	Нервничаете?	0
 	785053640	fire_p_const_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_007_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_007	Проверяем второй этаж!	0
-	785568614	pizza_girl_026	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_B9A8D4DE.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_026		5995
+	785568614	pizza_girl_026	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_D418C8FB.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_026		5995
 	788105422	pizza_elena_018	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_A0568E51.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_018	А теперь -- адрес, куда выслать наряд_	15992
 	790970064	fireep_mark_035	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_035_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_035	Вам бы лучше сосредоточиться не на расследованиях, а на людях_	0
 	791776463	pizza_elena_016	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_CFE9E80D.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_016	Ваш отец?	5725
 	794473829	fire_p_const_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_005_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_005	Гостинная -- пусто!	0
 	795229607	sfx_squadwalk_05	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_squadwalk_05_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_squadwalk\sfx_squadwalk_05		18116
-	796105531	pizza_girl_004	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_964CE9DE.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_004		24161
+	796105531	pizza_girl_004	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_7E98E284.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_004		24161
 	798395727	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_clock_04_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14589
 	803435834	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_clock_04_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4_01\New Music Track		15103
 	805303089	pizza_elena_028	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_0D0E3C4C.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_028	Отлично_ Теперь предложите поднять заказ_	13322
@@ -1064,7 +1066,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	823828587	fire_p_const_020	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_020_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_020	Мы продолжаем поиски! Скоро на выход! Конец связи!	0
 	824575542	pizzaep_mark_015	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_015_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_015	Мы -- не телефонные хулиганы, коллекторы___ Мы защищаем людей от террора, а не распространяем его!	0
 	829089325	pizza_elena_020	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_E44868C2.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_020	Без сирены_ Поняла_	13666
-	837715290	pizza_girl_012	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_F4EECDED.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_012		9267
+	837715290	pizza_girl_012	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_D372BC30.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_012		9267
 	838611190	UI_Click_Menu	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\UI_Click_Menu_0D8FC2A8.wem		\Actor-Mixer Hierarchy\UI\UI\UI_Click_Menu\UI_Click_Menu\UI_Click_Menu		11048
 	847847873	pizzaep_mark_026	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_026_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_026	Наш оператор догадался слишком поздно, что что-то и в голосе не то, и звуки посторонние присутствуют подозрительные___	0
 	849102996	pizzaep_mark_037	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_037_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_037	Одна маленькая деталь___ Может испортить весь звонок_	0
@@ -1073,7 +1075,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	869271244	sfx_psychopen_05	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\SFX\sfx_psychopen_05_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopen\sfx_psychopen_05		19364
 	869512074	pizza_elena_073	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_073_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_073	На самом деле, это 911___ Зовут меня Елена_ Мы уже в пути_	0
 	870987048	pizza_elena_015	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\1_25DE4177.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_015	Ваш муж? Парень?	14129
-	876642254	pizza_girl_013	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_36603D4C.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_013		8223
+	876642254	pizza_girl_013	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_ABAAD20B.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_013		8223
 	878510800	pizza_elena_069	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_069_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_069	Пицца на одного человека?	0
 	880024279	pizza_elena_044	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_044_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_044	Или ты хочешь проверить?	0
 	880415157	tutor_mark_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_010_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_010	А то им ещё голову сорвёт, начнут делать глупости и в критической ситуации это может привести___	0
@@ -1107,7 +1109,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	952217780	pizzaep_mark_046	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_046_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_046	Его застрелили офицеры полиции, когда этот пьяница напал на них с ножом_	0
 	955202200	pizza_elena_056	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_056_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_056	911_	0
 	962079411	pizza_elena_057	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_057_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_057	”Хэндклиффс и компания”	0
-	966935917	pizza_girl_030	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_21B31FAA.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_030		5818
+	966935917	pizza_girl_030	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_56946AE3.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_030		5818
 	969138103	fireep_mark_036	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\interlude2_mark_036_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_036	Итог___ Перед вами_	0
 	972403176	pizzaep_mark_028	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_028_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_028	Что касается результатов звонка___	0
 	976224671	tutor_mark_036	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_036_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_036	Всё так_ Есть место, есть выехавший наряд, а то и два_ Отличная работа_	0
@@ -1117,12 +1119,12 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1000486384	pizza_elena_061	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_061_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_061	Вы можете посмотреть в окно, что там происходит?	0
 	1001273360	tutor_mark_039	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_039_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_039	А вы что, за новостями не следите? Ещё как пишут_ Обсасывают любое курпное дело, либо чтобы похвалить, либо чтобы выкатить претензию и рассказать, как налоги горожан идут прямо в топку___	0
 	1008185064	fire_p_const_004	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_004_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_004	Подвал заперт! Открываем!__ Пусто! Дальше!	0
-	1011301567	pizza_girl_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_15F26ACD.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_017		17168
-	1012107534	pizza_girl_003	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_5EF0881E.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_003		17310
+	1011301567	pizza_girl_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_B63A8178.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_017		17168
+	1012107534	pizza_girl_003	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_F10EBEF6.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_003		17310
 	1013055498	pizzaep_mark_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_001_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_001	Добрый-добрый___ Садитесь, пожалуйста_ Есть кое-что, что я хочу обсудить с вами___ Касательно вашей работы_	0
 	1013990187	pizzaep_mark_027	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_027_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_027	Закончилось всё___ Печально_ Наша вина, что мы не распознали намёков___	0
 	1016481797	pizza_elena_071	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\pizza_elena_071_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_071	Поняла вас_	0
-	1016915968	pizza_girl_027	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_27272B2F.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_027		18583
+	1016915968	pizza_girl_027	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\girl2_03615E05.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_027		18583
 	1019460294	tutor_mark_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\p_mark_017_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_017	Ваша смена ещё даже не началась_ Есть один сценарий, к сожалению, довольно частый в неблагоприятных районах___	0
 	1020561483	pizzaep_mark_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\Interlude1_mark_010_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_010	Журналисты всё узнают, если ещё не_ Интересно, у нас сейчас в штате работает хотя бы одна Барбара? Не повезло ей_	0
 	1021025337	fire_p_const_015	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\iOS\Voices\English\fire_p_const_015_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_015	Чердак -- пусто!	0

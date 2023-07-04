@@ -19,6 +19,7 @@
 								<Value>39</Value>
 							</ValueList>
 						</Property>
+						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -666,20 +667,10 @@
 						</Sound>
 						<Sound Name="pizza_girl_015" ID="{E30EE3C2-1260-4686-B6E4-A37056DAA97B}" ShortID="80304220">
 							<PropertyList>
-								<Property Name="Highpass" Type="int16">
-									<ValueList>
-										<Value>32</Value>
-									</ValueList>
-								</Property>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>29</Value>
-									</ValueList>
-								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-11</Value>
+										<Value>-2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

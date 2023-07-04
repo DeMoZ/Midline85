@@ -6,13 +6,14 @@
 				<Sound Name="TestVoiceLanguage" ID="{2BDF95FF-96D3-4F7C-BC47-68D3A6D5C514}" ShortID="1065122858">
 					<PropertyList>
 						<Property Name="IsVoice" Type="bool" Value="True"/>
+						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+							<ObjectRef Name="Elena" ID="{BEC8E535-25ED-403B-9B08-49F0C157AB52}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>

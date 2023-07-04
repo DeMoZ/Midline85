@@ -9,19 +9,19 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="475605882" Type="User" Language="SFX" Hash="{D92AD172-5B02-892F-B082-68C72718D3C2}">
+		<SoundBank Id="475605882" Type="User" Language="SFX">
 			<ShortName>Fireep</ShortName>
 			<Path>Fireep.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="1036505783" Type="User" Language="SFX" Hash="{18CDFE09-4648-BBCF-9746-90D3DACF3D11}">
+		<SoundBank Id="1036505783" Type="User" Language="SFX">
 			<ShortName>Tutor</ShortName>
 			<Path>Tutor.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="1125500713" Type="User" Language="SFX" Hash="{7771A536-2196-77E4-EDD3-FAA4D9103E63}">
+		<SoundBank Id="1125500713" Type="User" Language="SFX">
 			<ShortName>Intro</ShortName>
 			<Path>Intro.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{58CC5012-835B-A0DB-EFCD-ACDDEB477CD8}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{ACC2190A-B034-06F4-BE2A-06F2B1114D91}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -71,6 +71,12 @@
 						<State Id="3004330733" Name="Decide"/>
 					</States>
 				</StateGroup>
+				<StateGroup Id="3237031728" Name="PauseState">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="3092587493" Name="Pause"/>
+					</States>
+				</StateGroup>
 			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="1021618141" Name="MusicState">
@@ -81,32 +87,32 @@
 				</SwitchGroup>
 				<SwitchGroup Id="4206939811" Name="MusicLevels">
 					<Switches>
-						<Switch Id="332193766" Name="ChapterTwo"/>
-						<Switch Id="753355268" Name="ChapterOne"/>
-						<Switch Id="901040268" Name="BossFirst"/>
-						<Switch Id="1125500713" Name="Intro"/>
-						<Switch Id="1146290300" Name="BossTwo"/>
-						<Switch Id="2598995339" Name="Training"/>
-						<Switch Id="3604647259" Name="MainMenu"/>
-						<Switch Id="3809106084" Name="Titles"/>
-						<Switch Id="4255629485" Name="Psycho"/>
+						<Switch Id="86437395" Name="MusicChapterOne"/>
+						<Switch Id="732903831" Name="MusicTitles"/>
+						<Switch Id="1068983409" Name="MusicBossTwo"/>
+						<Switch Id="1374984612" Name="MusicIntro"/>
+						<Switch Id="1585032734" Name="MusicPsycho"/>
+						<Switch Id="2404037190" Name="MusicTutor"/>
+						<Switch Id="2832973428" Name="MusicMainMenu"/>
+						<Switch Id="3630649973" Name="MusicBossFirst"/>
+						<Switch Id="4263122705" Name="MusicChapterTwo"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1488423865" Type="User" Language="SFX" Hash="{8E56670D-8200-5274-7B45-5E261B09E7A8}">
+		<SoundBank Id="1488423865" Type="User" Language="SFX">
 			<ShortName>Pizza</ShortName>
 			<Path>Pizza.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2354098058" Type="User" Language="SFX" Hash="{4F18D024-24EE-1A85-C5AD-42980E8CA805}">
+		<SoundBank Id="2354098058" Type="User" Language="SFX">
 			<ShortName>Pizzaep</ShortName>
 			<Path>Pizzaep.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="2678880713" Type="User" Language="SFX" Hash="{52458BE9-ED31-A275-2CD4-1353BE0F2A79}">
+		<SoundBank Id="2678880713" Type="User" Language="SFX">
 			<ShortName>Fire</ShortName>
 			<Path>Fire.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="Russian" Hash="{B0312D5D-FFA4-7FA9-1F72-77C19BC86947}">
+		<SoundBank Id="4056684167" Type="User" Language="Russian" Hash="{2B3AC8F9-8FEB-5E1A-02F9-A424FC944080}">
 			<ShortName>Master</ShortName>
 			<Path>Russian/Master.bnk</Path>
 			<Media>
@@ -4459,9 +4465,19 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="3991942870" Name="Music" DurationType="Infinite">
-					<MediaRefs>
-						<MediaRef Id="1063374230"/>
-					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="2832973428"/>
+							<MediaRefs>
+								<MediaRef Id="1063374230"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3092587493" Name="Pause" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="3237031728" Id="3092587493" Name="Pause"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="1942325192" Name="PauseVoice_Start" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="872101825" Name="PauseVoice_Start_FADE" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
@@ -6262,6 +6278,11 @@
 						<MediaRef Id="526168041"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="953277036" Name="Resume" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="3237031728" Id="748895195" Name="None"/>
+					</ActionSetState>
+				</Event>
 				<Event Id="227710560" Name="ResumeVoice_End" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2160510457" Name="ResumeVoice_End_FADE" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1434521176" Name="sfx_3foot" DurationType="OneShot" DurationMin="5.233333" DurationMax="5.233333">
@@ -6929,13 +6950,34 @@
 						<State Id="3004330733" Name="Decide"/>
 					</States>
 				</StateGroup>
+				<StateGroup Id="3237031728" Name="PauseState">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="3092587493" Name="Pause"/>
+					</States>
+				</StateGroup>
 			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="4206939811" Name="MusicLevels">
+					<Switches>
+						<Switch Id="86437395" Name="MusicChapterOne"/>
+						<Switch Id="732903831" Name="MusicTitles"/>
+						<Switch Id="1068983409" Name="MusicBossTwo"/>
+						<Switch Id="1374984612" Name="MusicIntro"/>
+						<Switch Id="1585032734" Name="MusicPsycho"/>
+						<Switch Id="2404037190" Name="MusicTutor"/>
+						<Switch Id="2832973428" Name="MusicMainMenu"/>
+						<Switch Id="3630649973" Name="MusicBossFirst"/>
+						<Switch Id="4263122705" Name="MusicChapterTwo"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 			<Triggers>
 				<Trigger Id="1182830809" Name="Clock"/>
 				<Trigger Id="1624638295" Name="TestTrigger"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="English" Hash="{59A4F036-A81F-908F-D89D-A8F12FCB2DEB}">
+		<SoundBank Id="4056684167" Type="User" Language="English" Hash="{16371FED-6E4B-7AAF-7F99-FE535C7ABF3B}">
 			<ShortName>Master</ShortName>
 			<Path>English/Master.bnk</Path>
 			<Media>
@@ -6949,11 +6991,11 @@
 				</File>
 				<File Id="3653274" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_B4E0D854.wem</CachePath>
+					<CachePath>Voices/English/girl2_77EF3E8C.wem</CachePath>
 				</File>
 				<File Id="4875840" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_0791DA17.wem</CachePath>
+					<CachePath>Voices/English/girl2_4359AD8F.wem</CachePath>
 				</File>
 				<File Id="5971494" Language="English" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena_035.wav</ShortName>
@@ -6969,7 +7011,7 @@
 				</File>
 				<File Id="14683419" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_903BBBCE.wem</CachePath>
+					<CachePath>Voices/English/girl2_9A3659DF.wem</CachePath>
 				</File>
 				<File Id="16061684" Language="English" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena_046.wav</ShortName>
@@ -7009,7 +7051,7 @@
 				</File>
 				<File Id="53194032" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_2BC09B99.wem</CachePath>
+					<CachePath>Voices/English/girl2_1B1A2C06.wem</CachePath>
 				</File>
 				<File Id="53857909" Language="English" Streaming="false" Location="Memory">
 					<ShortName>Interlude1_mark_023.wav</ShortName>
@@ -7073,7 +7115,7 @@
 				</File>
 				<File Id="102449160" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_5E4FBD19.wem</CachePath>
+					<CachePath>Voices/English/girl2_111DB54E.wem</CachePath>
 				</File>
 				<File Id="103843490" Language="English" Streaming="false" Location="Memory">
 					<ShortName>interlude2_mark_034.wav</ShortName>
@@ -7097,7 +7139,7 @@
 				</File>
 				<File Id="132716939" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_0D5927AD.wem</CachePath>
+					<CachePath>Voices/English/girl2_C78739A8.wem</CachePath>
 				</File>
 				<File Id="135626150" Language="English" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena_080.wav</ShortName>
@@ -7149,7 +7191,7 @@
 				</File>
 				<File Id="172173660" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_5C5CDBDD.wem</CachePath>
+					<CachePath>Voices/English/girl2_E2262CE0.wem</CachePath>
 				</File>
 				<File Id="174600988" Language="English" Streaming="false" Location="Memory">
 					<ShortName>p_mark_033.wav</ShortName>
@@ -7233,11 +7275,11 @@
 				</File>
 				<File Id="243447433" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_57F902C8.wem</CachePath>
+					<CachePath>Voices/English/girl2_978DC783.wem</CachePath>
 				</File>
 				<File Id="243520905" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_49FA2F9B.wem</CachePath>
+					<CachePath>Voices/English/girl2_D4CEB6B0.wem</CachePath>
 				</File>
 				<File Id="245283093" Language="English" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena_067.wav</ShortName>
@@ -7245,7 +7287,7 @@
 				</File>
 				<File Id="247726644" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_F2E847BF.wem</CachePath>
+					<CachePath>Voices/English/girl2_340F2D04.wem</CachePath>
 				</File>
 				<File Id="255346539" Language="English" Streaming="false" Location="Memory">
 					<ShortName>interlude2_mark_023.wav</ShortName>
@@ -7285,7 +7327,7 @@
 				</File>
 				<File Id="269976936" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_00763778.wem</CachePath>
+					<CachePath>Voices/English/girl2_B3A15A1C.wem</CachePath>
 				</File>
 				<File Id="271146018" Language="English" Streaming="false" Location="Memory">
 					<ShortName>Interlude1_mark_018.wav</ShortName>
@@ -7349,7 +7391,7 @@
 				</File>
 				<File Id="300957418" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_5060533E.wem</CachePath>
+					<CachePath>Voices/English/girl2_3EB17C36.wem</CachePath>
 				</File>
 				<File Id="302183259" Language="English" Streaming="false" Location="Memory">
 					<ShortName>p_mark_048.wav</ShortName>
@@ -7413,7 +7455,7 @@
 				</File>
 				<File Id="366339659" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_C2691274.wem</CachePath>
+					<CachePath>Voices/English/girl2_1E1B3AC0.wem</CachePath>
 				</File>
 				<File Id="366381878" Language="English" Streaming="false" Location="Memory">
 					<ShortName>1.wav</ShortName>
@@ -7421,7 +7463,7 @@
 				</File>
 				<File Id="366663270" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_FDE72F9F.wem</CachePath>
+					<CachePath>Voices/English/girl2_AB7A0BA2.wem</CachePath>
 				</File>
 				<File Id="368340070" Language="English" Streaming="false" Location="Memory">
 					<ShortName>1.wav</ShortName>
@@ -7549,7 +7591,7 @@
 				</File>
 				<File Id="476957558" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_E99FD2BE.wem</CachePath>
+					<CachePath>Voices/English/girl2_FD57AB86.wem</CachePath>
 				</File>
 				<File Id="480612217" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_recordend.wav</ShortName>
@@ -7617,7 +7659,7 @@
 				</File>
 				<File Id="545934473" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_C56BE4CA.wem</CachePath>
+					<CachePath>Voices/English/girl2_14BEBC7E.wem</CachePath>
 				</File>
 				<File Id="548228939" Language="English" Streaming="false" Location="Memory">
 					<ShortName>p_mark_027.wav</ShortName>
@@ -7673,7 +7715,7 @@
 				</File>
 				<File Id="577627770" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_B8732917.wem</CachePath>
+					<CachePath>Voices/English/girl2_87DF3BA3.wem</CachePath>
 				</File>
 				<File Id="580514517" Language="English" Streaming="false" Location="Memory">
 					<ShortName>1.wav</ShortName>
@@ -7761,7 +7803,7 @@
 				</File>
 				<File Id="662237771" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_942CE643.wem</CachePath>
+					<CachePath>Voices/English/girl2_3DCE2327.wem</CachePath>
 				</File>
 				<File Id="670314128" Language="English" Streaming="false" Location="Memory">
 					<ShortName>interlude2_mark_008.wav</ShortName>
@@ -7817,7 +7859,7 @@
 				</File>
 				<File Id="694513416" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_568B6357.wem</CachePath>
+					<CachePath>Voices/English/girl2_E4040645.wem</CachePath>
 				</File>
 				<File Id="698941043" Language="English" Streaming="false" Location="Memory">
 					<ShortName>interlude2_mark_037.wav</ShortName>
@@ -7825,7 +7867,7 @@
 				</File>
 				<File Id="699723252" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_6070D23B.wem</CachePath>
+					<CachePath>Voices/English/girl2_8FF0AFD9.wem</CachePath>
 				</File>
 				<File Id="704272256" Language="English" Streaming="false" Location="Memory">
 					<ShortName>Interlude1_mark_012.wav</ShortName>
@@ -7845,11 +7887,11 @@
 				</File>
 				<File Id="711849860" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_F0EDFE51.wem</CachePath>
+					<CachePath>Voices/English/girl2_6C383CA7.wem</CachePath>
 				</File>
 				<File Id="713497746" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_36BB7045.wem</CachePath>
+					<CachePath>Voices/English/girl2_8540936A.wem</CachePath>
 				</File>
 				<File Id="715546637" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_05.wav</ShortName>
@@ -7953,7 +7995,7 @@
 				</File>
 				<File Id="785568614" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_B9A8D4DE.wem</CachePath>
+					<CachePath>Voices/English/girl2_D418C8FB.wem</CachePath>
 				</File>
 				<File Id="788105422" Language="English" Streaming="false" Location="Memory">
 					<ShortName>1.wav</ShortName>
@@ -7977,7 +8019,7 @@
 				</File>
 				<File Id="796105531" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_964CE9DE.wem</CachePath>
+					<CachePath>Voices/English/girl2_7E98E284.wem</CachePath>
 				</File>
 				<File Id="798395727" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_04.wav</ShortName>
@@ -8033,7 +8075,7 @@
 				</File>
 				<File Id="837715290" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_F4EECDED.wem</CachePath>
+					<CachePath>Voices/English/girl2_D372BC30.wem</CachePath>
 				</File>
 				<File Id="838611190" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Click_Menu.wav</ShortName>
@@ -8069,7 +8111,7 @@
 				</File>
 				<File Id="876642254" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_36603D4C.wem</CachePath>
+					<CachePath>Voices/English/girl2_ABAAD20B.wem</CachePath>
 				</File>
 				<File Id="878510800" Language="English" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena_069.wav</ShortName>
@@ -8205,7 +8247,7 @@
 				</File>
 				<File Id="966935917" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_21B31FAA.wem</CachePath>
+					<CachePath>Voices/English/girl2_56946AE3.wem</CachePath>
 				</File>
 				<File Id="969138103" Language="English" Streaming="false" Location="Memory">
 					<ShortName>interlude2_mark_036.wav</ShortName>
@@ -8245,11 +8287,11 @@
 				</File>
 				<File Id="1011301567" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_15F26ACD.wem</CachePath>
+					<CachePath>Voices/English/girl2_B63A8178.wem</CachePath>
 				</File>
 				<File Id="1012107534" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_5EF0881E.wem</CachePath>
+					<CachePath>Voices/English/girl2_F10EBEF6.wem</CachePath>
 				</File>
 				<File Id="1013055498" Language="English" Streaming="false" Location="Memory">
 					<ShortName>Interlude1_mark_001.wav</ShortName>
@@ -8265,7 +8307,7 @@
 				</File>
 				<File Id="1016915968" Language="English" Streaming="false" Location="Memory">
 					<ShortName>girl2.wav</ShortName>
-					<CachePath>Voices/English/girl2_27272B2F.wem</CachePath>
+					<CachePath>Voices/English/girl2_03615E05.wem</CachePath>
 				</File>
 				<File Id="1019460294" Language="English" Streaming="false" Location="Memory">
 					<ShortName>p_mark_017.wav</ShortName>
@@ -9187,9 +9229,19 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="3991942870" Name="Music" DurationType="Infinite">
-					<MediaRefs>
-						<MediaRef Id="1063374230"/>
-					</MediaRefs>
+					<SwitchContainers>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="2832973428"/>
+							<MediaRefs>
+								<MediaRef Id="1063374230"/>
+							</MediaRefs>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3092587493" Name="Pause" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="3237031728" Id="3092587493" Name="Pause"/>
+					</ActionSetState>
 				</Event>
 				<Event Id="1942325192" Name="PauseVoice_Start" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="872101825" Name="PauseVoice_Start_FADE" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
@@ -10708,6 +10760,11 @@
 				<Event Id="90527402" Name="psycho1_psycho_055" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="90527401" Name="psycho1_psycho_056" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="90527400" Name="psycho1_psycho_057" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="953277036" Name="Resume" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<ActionSetState>
+						<ActionSetStateEntry GroupId="3237031728" Id="748895195" Name="None"/>
+					</ActionSetState>
+				</Event>
 				<Event Id="227710560" Name="ResumeVoice_End" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="2160510457" Name="ResumeVoice_End_FADE" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1434521176" Name="sfx_3foot" DurationType="OneShot" DurationMin="5.233333" DurationMax="5.233333">
@@ -11375,16 +11432,37 @@
 						<State Id="3004330733" Name="Decide"/>
 					</States>
 				</StateGroup>
+				<StateGroup Id="3237031728" Name="PauseState">
+					<States>
+						<State Id="748895195" Name="None"/>
+						<State Id="3092587493" Name="Pause"/>
+					</States>
+				</StateGroup>
 			</StateGroups>
+			<SwitchGroups>
+				<SwitchGroup Id="4206939811" Name="MusicLevels">
+					<Switches>
+						<Switch Id="86437395" Name="MusicChapterOne"/>
+						<Switch Id="732903831" Name="MusicTitles"/>
+						<Switch Id="1068983409" Name="MusicBossTwo"/>
+						<Switch Id="1374984612" Name="MusicIntro"/>
+						<Switch Id="1585032734" Name="MusicPsycho"/>
+						<Switch Id="2404037190" Name="MusicTutor"/>
+						<Switch Id="2832973428" Name="MusicMainMenu"/>
+						<Switch Id="3630649973" Name="MusicBossFirst"/>
+						<Switch Id="4263122705" Name="MusicChapterTwo"/>
+					</Switches>
+				</SwitchGroup>
+			</SwitchGroups>
 			<Triggers>
 				<Trigger Id="1182830809" Name="Clock"/>
 				<Trigger Id="1624638295" Name="TestTrigger"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="4255629485" Type="User" Language="SFX" Hash="{FEF72F16-08F0-4F36-2D85-E076597B7FE9}">
+		<SoundBank Id="4255629485" Type="User" Language="SFX">
 			<ShortName>Psycho</ShortName>
 			<Path>Psycho.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{18106A90-8047-876B-68F4-60FDB9D4538A}</FileHash>
+	<FileHash>{9DAD6CBF-89F6-23B0-7C5A-9C1938D49906}</FileHash>
 </SoundBanksInfo>

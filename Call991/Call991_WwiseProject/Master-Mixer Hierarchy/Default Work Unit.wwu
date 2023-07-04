@@ -52,6 +52,9 @@
 							</ObjectLists>
 						</Bus>
 						<Bus Name="Voice" ID="{EE780549-5C4C-41A4-9E07-AD7B89BE0162}">
+							<PropertyList>
+								<Property Name="RecoveryTime" Type="Real64" Value="0.3"/>
+							</PropertyList>
 							<ChildrenList>
 								<Bus Name="Elena" ID="{BEC8E535-25ED-403B-9B08-49F0C157AB52}">
 									<PropertyList>
@@ -131,19 +134,115 @@
 									</PropertyList>
 								</Bus>
 							</ChildrenList>
-						</Bus>
-						<Bus Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}">
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{6CCDC7F9-3894-4DBF-928B-6A6D3DF4CED5}" ShortID="1069304827">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="VoiceVolume" ID="{CF377C28-7C30-4E03-A041-E05D5924E3FB}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{45C92210-B189-45B6-8E28-F8A2B6CBA8AA}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 							<DuckingList>
 								<DuckItem>
-									<BusRef Name="Voice" ID="{EE780549-5C4C-41A4-9E07-AD7B89BE0162}"/>
+									<BusRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}"/>
 									<DuckingParam>
-										<Volume>-6</Volume>
-										<FadeInTime>1</FadeInTime>
+										<Volume>-3</Volume>
+										<FadeInTime>0.300000011920929</FadeInTime>
 										<FadeOutTime>1</FadeOutTime>
 										<FadeCurve>FadeSCurve</FadeCurve>
 									</DuckingParam>
 								</DuckItem>
 							</DuckingList>
+						</Bus>
+						<Bus Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}">
+							<StateInfo>
+								<StateGroupList>
+									<StateGroupInfo MusicSyncType="3">
+										<StateGroupRef Name="PauseState" ID="{8C73515C-9C0D-44C8-87E8-49464A0C471B}"/>
+									</StateGroupInfo>
+								</StateGroupList>
+								<CustomStateList>
+									<CustomState>
+										<StateRef Name="Pause" ID="{6B10F0AB-F56F-4DB6-AF76-475129B487A4}"/>
+										<CustomState Name="" ID="{9B80F75A-5887-498A-9859-B5CF1098FB81}" ShortID="374606415">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64" Value="-15"/>
+												<Property Name="Highpass" Type="int16" Value="1"/>
+											</PropertyList>
+										</CustomState>
+									</CustomState>
+								</CustomStateList>
+							</StateInfo>
+							<ObjectLists>
+								<ObjectList Name="RTPC">
+									<Reference>
+										<Local>
+											<RTPC Name="" ID="{41D4B63F-E235-4A3A-A117-5E66D7DC0C06}" ShortID="61045265">
+												<PropertyList>
+													<Property Name="PropertyName" Type="string" Value="Volume"/>
+												</PropertyList>
+												<ReferenceList>
+													<Reference Name="ControlInput">
+														<ObjectRef Name="MusicVolume" ID="{DF0B38E3-C9E2-4214-BC3D-B9D76DA3AB39}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
+													</Reference>
+													<Reference Name="Curve">
+														<Custom>
+															<Curve Name="" ID="{863EF3FE-8361-4757-8621-A9E49F26F07C}">
+																<PropertyList>
+																	<Property Name="Flags" Type="int32" Value="3"/>
+																</PropertyList>
+																<PointList>
+																	<Point>
+																		<XPos>0</XPos>
+																		<YPos>-200</YPos>
+																		<Flags>5</Flags>
+																	</Point>
+																	<Point>
+																		<XPos>100</XPos>
+																		<YPos>0</YPos>
+																		<Flags>37</Flags>
+																	</Point>
+																</PointList>
+															</Curve>
+														</Custom>
+													</Reference>
+												</ReferenceList>
+											</RTPC>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
 						</Bus>
 					</ChildrenList>
 					<ObjectLists>

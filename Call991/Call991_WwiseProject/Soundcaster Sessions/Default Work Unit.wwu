@@ -57,22 +57,26 @@
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
-						<CurrentSwitchRef Name="BossTwo" ID="{93CF7F86-7416-42E2-825A-64014444391B}"/>
+						<CurrentSwitchRef Name="MusicBossTwo" ID="{93CF7F86-7416-42E2-825A-64014444391B}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="DecideTime" ID="{3B13216A-B6CC-437E-9AC5-A594665C9A10}">
 					<ModuleList>
 						<Module>
-							<ObjectRef Name="sfx_decidetime_start" ID="{CAAC3E1F-FE76-40AC-8121-779AB59F904A}" WorkUnitID="{0AE552EE-7DEA-4036-9B32-2B1686337B1C}"/>
+							<ObjectRef Name="sfx_decidetime_start" ID="{CAAC3E1F-FE76-40AC-8121-779AB59F904A}" WorkUnitID="{9C18E631-A293-4591-981B-170CBFF87971}"/>
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="sfx_decidetime_end" ID="{68F894D1-13B9-4C14-A401-5D1A5EA1DF00}" WorkUnitID="{0AE552EE-7DEA-4036-9B32-2B1686337B1C}"/>
+							<ObjectRef Name="sfx_decidetime_end" ID="{68F894D1-13B9-4C14-A401-5D1A5EA1DF00}" WorkUnitID="{9C18E631-A293-4591-981B-170CBFF87971}"/>
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Music" ID="{8CC448A1-D5F6-487C-A950-4C978728F7B5}" WorkUnitID="{FA8A0DE3-5A0A-48DA-80D6-3F2931AF931D}"/>
 							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+							<Position X="2" Y="0"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
@@ -83,11 +87,50 @@
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="None" ID="{BAC572F6-8CE2-430D-9FC0-6A57004E9C92}"/>
+						<CurrentStateRef Name="None" ID="{6F07BEEF-C35A-4BC5-A905-58F59B626AF0}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
-						<CurrentSwitchRef Name="MainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
+						<CurrentSwitchRef Name="MusicMainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
 					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="PauseTest" ID="{6664BE05-CB7D-4F74-899B-09370D6C0184}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Music" ID="{8CC448A1-D5F6-487C-A950-4C978728F7B5}" WorkUnitID="{FA8A0DE3-5A0A-48DA-80D6-3F2931AF931D}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Pause" ID="{F53047A5-ED52-4355-807D-71EB83D7D8CB}" WorkUnitID="{9C18E631-A293-4591-981B-170CBFF87971}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Resume" ID="{FC70B6BD-D66F-4146-84DC-FD2F599F308F}" WorkUnitID="{9C18E631-A293-4591-981B-170CBFF87971}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="pizza_george_050" ID="{FA5A2B0B-EE96-4914-9788-E6A20FFAB0F7}" WorkUnitID="{F607301D-A532-44B0-9551-6140F2C6CA1D}"/>
+							<Position X="0" Y="5"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MusicVolume" ID="{DF0B38E3-C9E2-4214-BC3D-B9D76DA3AB39}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="MasterVolume" ID="{AB433F8B-E57C-45DE-A538-20975B206D11}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="VoiceVolume" ID="{CF377C28-7C30-4E03-A041-E05D5924E3FB}"/>
+							<Value>100</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="None" ID="{6F07BEEF-C35A-4BC5-A905-58F59B626AF0}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>

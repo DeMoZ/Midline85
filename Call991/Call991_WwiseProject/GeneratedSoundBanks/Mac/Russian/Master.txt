@@ -195,7 +195,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	415445313	sfx_stab			\SFX\sfx_stab	
 	472690308	psycho1_elena_041			\7 - Psycho\Elena\psycho1_elena_041	
 	472690309	psycho1_elena_040			\7 - Psycho\Elena\psycho1_elena_040	
-	488670904	sfx_decidetime_end			\SFX\sfx_decidetime_end	
+	488670904	sfx_decidetime_end			\GameSyncs\sfx_decidetime_end	
 	574050428	UI_Click_Menu			\UI\UI_Click_Menu	
 	606658506	sfx_keyboard			\SFX\sfx_keyboard	
 	607923225	sfx_dooropen			\SFX\sfx_dooropen	
@@ -205,6 +205,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	804835621	sfx_dporbell			\SFX\sfx_dporbell	
 	854511964	sfx_MChready			\SFX\sfx_MChready	
 	872101825	PauseVoice_Start_FADE			\Test\PauseVoice_Start_FADE	
+	953277036	Resume			\GameSyncs\Resume	
 	1044869488	pizzaep_mark_010			\4 - Interlude1 (After Pizza)\Mark\pizzaep_mark_010	
 	1044869489	pizzaep_mark_011			\4 - Interlude1 (After Pizza)\Mark\pizzaep_mark_011	
 	1044869490	pizzaep_mark_012			\4 - Interlude1 (After Pizza)\Mark\pizzaep_mark_012	
@@ -579,7 +580,8 @@ Event	ID	Name			Wwise Object Path	Notes
 	3069465373	fire_p_lara_045			\5 - Chapter Two (Fire)\Lara\fire_p_lara_045	
 	3069465374	fire_p_lara_046			\5 - Chapter Two (Fire)\Lara\fire_p_lara_046	
 	3069465375	fire_p_lara_047			\5 - Chapter Two (Fire)\Lara\fire_p_lara_047	
-	3105726051	sfx_decidetime_start			\SFX\sfx_decidetime_start	
+	3092587493	Pause			\GameSyncs\Pause	
+	3105726051	sfx_decidetime_start			\GameSyncs\sfx_decidetime_start	
 	3115077999	sfx_susup			\SFX\sfx_susup	
 	3136575808	fire_p_lara_004			\5 - Chapter Two (Fire)\Lara\fire_p_lara_004	
 	3136575809	fire_p_lara_005			\5 - Chapter Two (Fire)\Lara\fire_p_lara_005	
@@ -745,15 +747,15 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	4206939811	MusicLevels			\Default Work Unit\MusicLevels	
 
 Switch	ID	Name	Switch Group			Notes
-	332193766	ChapterTwo	MusicLevels			
-	753355268	ChapterOne	MusicLevels			
-	901040268	BossFirst	MusicLevels			
-	1125500713	Intro	MusicLevels			
-	1146290300	BossTwo	MusicLevels			
-	2598995339	Training	MusicLevels			
-	3604647259	MainMenu	MusicLevels			
-	3809106084	Titles	MusicLevels			
-	4255629485	Psycho	MusicLevels			
+	86437395	MusicChapterOne	MusicLevels			
+	732903831	MusicTitles	MusicLevels			
+	1068983409	MusicBossTwo	MusicLevels			
+	1374984612	MusicIntro	MusicLevels			
+	1585032734	MusicPsycho	MusicLevels			
+	2404037190	MusicTutor	MusicLevels			
+	2832973428	MusicMainMenu	MusicLevels			
+	3630649973	MusicBossFirst	MusicLevels			
+	4263122705	MusicChapterTwo	MusicLevels			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	1112948642	DecideTime			\Default Work Unit\DecideTime	

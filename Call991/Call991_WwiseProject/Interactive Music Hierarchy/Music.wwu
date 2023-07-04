@@ -427,12 +427,19 @@
 					</ObjectLists>
 				</MusicSegment>
 				<MusicSwitchContainer Name="MusicLevels" ID="{EFEB9A0F-73D9-4F08-8023-845DB00895C4}" ShortID="966635705">
+					<PropertyList>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-10</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Music" ID="{EE3E2FE1-347F-42A2-BE52-4BEB38BA452F}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 						</Reference>
 						<Reference Name="OutputBus">
-							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+							<ObjectRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 						</Reference>
 					</ReferenceList>
 					<ChildrenList>
@@ -794,8 +801,7 @@
 								<CustomState Name="" ID="{DFCB47E2-83F1-4557-89A9-09D62E8A2761}" ShortID="803231543">
 									<PropertyList>
 										<Property Name="Highpass" Type="int16" Value="43"/>
-										<Property Name="Lowpass" Type="int16" Value="39"/>
-										<Property Name="Volume" Type="Real64" Value="-11"/>
+										<Property Name="Lowpass" Type="int16" Value="58"/>
 									</PropertyList>
 								</CustomState>
 							</CustomState>
@@ -828,7 +834,7 @@
 						</Entry>
 						<Entry>
 							<Path>
-								<PathElementRef Name="MainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
+								<PathElementRef Name="MusicMainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
 							</Path>
 							<AudioNodeInfo>
 								<AudioNodeRef Name="0 - MainMenu" ID="{AC692AD0-DB4F-4E3D-BABE-6E88EA4FB86E}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
