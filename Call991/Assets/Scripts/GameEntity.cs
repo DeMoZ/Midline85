@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class GameEntity : MonoBehaviour
 {
     private static GameEntity _instance;
-    [SerializeField] private WwiseAudio audioManager;
+    [SerializeField] private WwiseAudio wwisePrefab;
     [SerializeField] private VideoManager videoManager;
 
     [Space] [SerializeField] private Image videoFade;
@@ -61,6 +61,8 @@ public class GameEntity : MonoBehaviour
             ? testDialogue.GetDialogue() 
             : new OverridenDialogue(false,false,false,null);
 
+        var audioManager = Instantiate(wwisePrefab, transform);
+        
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             AudioManager = audioManager,

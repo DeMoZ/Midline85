@@ -22,7 +22,7 @@ public class SoundTestSceneEntity : MonoBehaviour
     [SerializeField] private Button stopButton = default;
     [SerializeField] private Transform buttonParent = default;
     [SerializeField] private Button buttonPrefab = default;
-    [SerializeField] private WwiseAudio audioManager = default;
+    [SerializeField] private WwiseAudio wwisePrefab = default;
     [Space(30)] [SerializeField] private WwiseSoundsKeysList wwiseSoundsKeysList = default;
 
     private List<string> _keys;
@@ -31,6 +31,7 @@ public class SoundTestSceneEntity : MonoBehaviour
     private Coroutine _testRoutine;
     private List<Button> _buttons = new();
     private int _currentIndex;
+    private WwiseAudio _audioManager;
 
     void Start()
     {
@@ -57,8 +58,10 @@ public class SoundTestSceneEntity : MonoBehaviour
             Profile = profile,
             OnSwitchScene = onSwitchScene,
         };
-        audioManager.SetCtx(wwiseCtx);
-        audioManager.CreatePhraseVoiceObject();
+
+        _audioManager = Instantiate(wwisePrefab, transform);
+        _audioManager.SetCtx(wwiseCtx);
+        _audioManager.CreatePhraseVoiceObject();
 
         foreach (var language in levelLanguages.Value)
         {
@@ -110,9 +113,9 @@ public class SoundTestSceneEntity : MonoBehaviour
     private void PlayKey(string key)
     {
         if (_lastSoundUint.HasValue)
-            audioManager.StopPhrase(_lastSoundUint.Value);
+            _audioManager.StopPhrase(_lastSoundUint.Value);
 
-        _lastSoundUint = audioManager.PlayPhrase(key);
+        _lastSoundUint = _audioManager.PlayPhrase(key);
 
         if (_lastSoundUint == null)
             Debug.LogError($"NONE sound for phrase {key}");
@@ -144,7 +147,7 @@ public class SoundTestSceneEntity : MonoBehaviour
         Debug.LogWarning("Test started");
         for (var i = 0; i < _keys.Count; i++)
         {
-            while (!audioManager.IsReady) 
+            while (!_audioManager.IsReady) 
                 yield return null;
             
             _currentIndex = i;
