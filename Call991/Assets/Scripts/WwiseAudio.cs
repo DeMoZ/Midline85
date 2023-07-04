@@ -12,6 +12,8 @@ public class WwiseAudio : MonoBehaviour
 {
     private const string DefaultAudioLanguage = "Russian";
     private const string BankMaster = "Master";
+    private const string PauseEvent = "Pause";
+    private const string ResumeEvent = "Resume";
 
     public struct Ctx
     {
@@ -28,7 +30,7 @@ public class WwiseAudio : MonoBehaviour
     private Ctx _ctx;
     private GameObject _menuButtonSoundGo;
     private GameObject _phraseGo;
-    private List<uint> _playingVoices;
+    private GameObject _sfxGo;
 
     private static bool _isBankLoaded;
     private WaitForSeconds _waitForLoad = new(0.7f);
@@ -59,6 +61,18 @@ public class WwiseAudio : MonoBehaviour
         _ctx.OnSwitchScene.Subscribe(OnSwitchScene).AddTo(_disposables);
     }
 
+    public void CreateLevelVoiceObjects()
+    {
+        CreatePhraseVoiceObject();
+        CreateSfxVoiceObject();
+    }
+    
+    public void DestroyLevelVoiceObjects()
+    {
+        Destroy(_phraseGo);
+        Destroy(_sfxGo);
+    }
+    
     private void OnSwitchScene(GameScenes scene)
     {
         Debug.LogWarning($"{this} received OnSwitchScene <color=green>{scene}</color>");
@@ -178,90 +192,75 @@ public class WwiseAudio : MonoBehaviour
         //     _phraseAudioSource.volume = _ctx.playerProfile.PhraseVolume;
     }
 
-    // [Obsolete]
-    // public uint? PlayPhrase(List<string> sounds)
-    // {
-    //     var phraseSound = GetWwiseAudioKey(sounds);
-    //     var isNoKey = string.Equals(phraseSound, AaGraphConstants.None) || string.IsNullOrEmpty(phraseSound);
-    //
-    //     if (!isNoKey)
-    //     {
-    //         var voiceId = AkSoundEngine.PostEvent(phraseSound, _phraseGo);
-    //         _playingVoices.Add(voiceId);
-    //         return voiceId;
-    //     }
-    //
-    //     return null;
-    // }
-
     public uint? PlayPhrase(string sound)
     {
         if (!_isBankLoaded) return null;
+        if (PlaySound(sound, _phraseGo, out var soundId)) return soundId;
+        return null;
+    }
+    
+    public uint? PlaySfx(string sound)
+    {
+        if (!_isBankLoaded) return null;
+        if (PlaySound(sound, _sfxGo, out var soundId)) return soundId;
+        return null;
+    }
 
+    private bool PlaySound(string sound, GameObject soundGo, out uint soundId)
+    {
         var isNoKey = string.Equals(sound, AaGraphConstants.None) || string.IsNullOrEmpty(sound);
 
         if (!isNoKey)
         {
-            var voiceId = AkSoundEngine.PostEvent(sound, _phraseGo);
-            _playingVoices.Add(voiceId);
-            return voiceId;
+            soundId = AkSoundEngine.PostEvent(sound, soundGo);
+            return true;
         }
 
-        return null;
+        soundId = new uint();
+        return false;
     }
 
-    public void StopPhrase(uint voiceId)
-    {
+    public void StopPhrase(uint voiceId) => 
         AkSoundEngine.StopPlayingID(voiceId);
-    }
 
-    public void PausePhrases()
-    {
-        foreach (var voiceId in _playingVoices)
-            AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Pause, voiceId);
-    }
+    public void PausePhrasesAndSfx() => 
+        AkSoundEngine.PostEvent(PauseEvent, _phraseGo);
 
-    public void UnPausePhrases()
-    {
-        foreach (var voiceId in _playingVoices)
-            AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Resume, voiceId);
-    }
+    public void ResumePhrasesAndSfx() => 
+        AkSoundEngine.PostEvent(ResumeEvent, _phraseGo);
 
-    public void CreatePhraseVoiceObject()
+    private void CreatePhraseVoiceObject()
     {
-        _playingVoices = new();
         _phraseGo = new GameObject("PhraseVoiceGO");
         _phraseGo.transform.parent = gameObject.transform;
     }
-
-    public void ClearPhraseVoiceObject()
+    
+    private void CreateSfxVoiceObject()
     {
-        foreach (var voiceId in _playingVoices)
-            AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Stop, voiceId);
-
-        _playingVoices.Clear();
-        Destroy(_phraseGo);
+        _phraseGo = new GameObject("SfxVoiceGO");
+        _phraseGo.transform.parent = gameObject.transform;
     }
-
-    // private string GetWwiseAudioKey(List<string> data)
-    // {
-    //     if (_ctx.LevelLanguages.Value == null || _ctx.LevelLanguages.Value.Count == 0) return null;
-    //
-    //     var index = _ctx.LevelLanguages.Value.IndexOf(_ctx.Profile.AudioLanguage);
-    //
-    //     if (index == -1) return null;
-    //
-    //     return data[index];
-    // }
 
     private void PlayButtonSound(Event wwiseEvent)
     {
-        if (_setLanguageResult == AKRESULT.AK_Busy)
-        {
+        if (_setLanguageResult == AKRESULT.AK_Busy) 
             Debug.LogWarning($"[{this}] Very busy");
-        }
 
         if(IsReady)
             wwiseEvent.Post(_menuButtonSoundGo);
     }
+    
+    #region Rabish
+    /*public void _PausePhrases()
+    {
+        foreach (var voiceId in _playingVoices)
+            AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Pause, voiceId);
+    }*/
+
+    /*public void _UnPausePhrases()
+    {
+        foreach (var voiceId in _playingVoices)
+            AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Resume, voiceId);
+    }*/
+    #endregion
 }

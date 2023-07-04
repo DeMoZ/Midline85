@@ -72,7 +72,7 @@ public class LevelScenePm : IDisposable
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
 
-        _ctx.AudioManager.CreatePhraseVoiceObject();
+        _ctx.AudioManager.CreateLevelVoiceObjects();
 
         _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
@@ -103,11 +103,11 @@ public class LevelScenePm : IDisposable
 
         if (pause)
         {
-            _ctx.AudioManager.PausePhrases();
+            _ctx.AudioManager.PausePhrasesAndSfx();
         }
         else
         {
-            _ctx.AudioManager.UnPausePhrases();
+            _ctx.AudioManager.ResumePhrasesAndSfx();
             _selectionPlaced = false;
         }
     }
@@ -546,7 +546,7 @@ private Choice RandomSelectButton(List<Choice> choices)
 
     public void Dispose()
     {
-        _ctx.AudioManager.ClearPhraseVoiceObject();
+        _ctx.AudioManager.DestroyLevelVoiceObjects();
 
         _tokenSource.Cancel();
         _disposables.Dispose();

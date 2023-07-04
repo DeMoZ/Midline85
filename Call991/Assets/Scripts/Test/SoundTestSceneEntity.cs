@@ -61,7 +61,7 @@ public class SoundTestSceneEntity : MonoBehaviour
 
         _audioManager = Instantiate(wwisePrefab, transform);
         _audioManager.SetCtx(wwiseCtx);
-        _audioManager.CreatePhraseVoiceObject();
+        _audioManager.CreateLevelVoiceObjects();
 
         foreach (var language in levelLanguages.Value)
         {
