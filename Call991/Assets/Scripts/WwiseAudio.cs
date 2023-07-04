@@ -12,8 +12,12 @@ public class WwiseAudio : MonoBehaviour
 {
     private const string DefaultAudioLanguage = "Russian";
     private const string BankMaster = "Master";
+    
+    // Hardcoded events
     private const string PauseEvent = "Pause";
     private const string ResumeEvent = "Resume";
+    private const string SfxDecideTimeStart = "sfx_decidetime_start";
+    private const string SfxDecideTimeEnd = "sfx_decidetime_end";
 
     public struct Ctx
     {
@@ -205,6 +209,18 @@ public class WwiseAudio : MonoBehaviour
         if (PlaySound(sound, _sfxGo, out var soundId)) return soundId;
         return null;
     }
+    
+    public void PlayTimerSfx()
+    {
+        if (!_isBankLoaded) return;
+        PlaySound(SfxDecideTimeStart, _sfxGo, out var soundId);
+    }
+    
+    public void StopTimerSfx()
+    {
+        if (!_isBankLoaded) return;
+        PlaySound(SfxDecideTimeEnd, _sfxGo, out var soundId);
+    }
 
     private bool PlaySound(string sound, GameObject soundGo, out uint soundId)
     {
@@ -223,11 +239,17 @@ public class WwiseAudio : MonoBehaviour
     public void StopPhrase(uint voiceId) => 
         AkSoundEngine.StopPlayingID(voiceId);
 
-    public void PausePhrasesAndSfx() => 
+    public void PausePhrasesAndSfx()
+    {
         AkSoundEngine.PostEvent(PauseEvent, _phraseGo);
+        AkSoundEngine.PostEvent(PauseEvent, _sfxGo); // ?
+    }
 
-    public void ResumePhrasesAndSfx() => 
+    public void ResumePhrasesAndSfx()
+    {
         AkSoundEngine.PostEvent(ResumeEvent, _phraseGo);
+        AkSoundEngine.PostEvent(ResumeEvent, _sfxGo); // ?
+    }
 
     private void CreatePhraseVoiceObject()
     {
@@ -237,8 +259,8 @@ public class WwiseAudio : MonoBehaviour
     
     private void CreateSfxVoiceObject()
     {
-        _phraseGo = new GameObject("SfxVoiceGO");
-        _phraseGo.transform.parent = gameObject.transform;
+        _sfxGo = new GameObject("SfxVoiceGO");
+        _sfxGo.transform.parent = gameObject.transform;
     }
 
     private void PlayButtonSound(Event wwiseEvent)

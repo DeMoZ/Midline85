@@ -362,7 +362,7 @@ public class LevelScenePm : IDisposable
 
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
     {
-        //_ctx.AudioManager.PlayUiSound(SoundUiTypes.Timer);
+        _ctx.AudioManager.PlayTimerSfx();
 
         for (var i = 0; i < data.Count; i++)
         {
@@ -378,7 +378,8 @@ public class LevelScenePm : IDisposable
             AutoChoice(data);
         }
 
-        //_ctx.AudioManager.StopTimer();
+        _ctx.AudioManager.StopTimerSfx();
+
         //_ctx.AudioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
         _ctx.countDown.Stop(_ctx.GameSet.fastButtonFadeDuration);
 
