@@ -4,6 +4,32 @@
 		<WorkUnit Name="Default Work Unit" ID="{949E1A0E-0E65-4D1B-A3A5-BBDBCA12928F}" PersistMode="Standalone">
 			<ChildrenList>
 				<SoundcasterSession Name="Test" ID="{9AA9FF1A-681D-4297-A6A4-B0F549681FAE}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="PauseVoice_Start" ID="{10BF4603-B776-40D8-8680-B095568557F2}" WorkUnitID="{8E791B7C-733B-4306-B74A-CF49F25E98D6}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="PauseVoice_Start_FADE" ID="{944FDD65-DBCC-40EB-9D38-F07A2BF206D9}" WorkUnitID="{8E791B7C-733B-4306-B74A-CF49F25E98D6}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="pizza_george_055" ID="{274DDDF5-6EAB-4B77-B8EE-C8EB54CD56EC}" WorkUnitID="{F607301D-A532-44B0-9551-6140F2C6CA1D}"/>
+							<Position X="0" Y="4"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="ResumeVoice_End" ID="{BD4983EF-3389-41CE-9D22-834D6E489C9A}" WorkUnitID="{8E791B7C-733B-4306-B74A-CF49F25E98D6}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="ResumeVoice_End_FADE" ID="{269273C7-B98A-4F3A-B428-86F545DD2CEF}" WorkUnitID="{8E791B7C-733B-4306-B74A-CF49F25E98D6}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="pizza_george_043" ID="{511B9B77-5635-4FC0-BF00-EBE90B84E26B}" WorkUnitID="{F607301D-A532-44B0-9551-6140F2C6CA1D}"/>
+							<Position X="1" Y="4"/>
+						</Module>
+					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
 							<GameParameterRef Name="MusicVolume" ID="{DF0B38E3-C9E2-4214-BC3D-B9D76DA3AB39}"/>
@@ -26,9 +52,41 @@
 							<Value>100</Value>
 						</RTPCValue>
 					</RTPCValueList>
-					<CurrentStateList ShowAll="true"/>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Normal" ID="{9247448B-0C00-4174-A62E-F874BA5EFD2D}"/>
+					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
+						<CurrentSwitchRef Name="BossTwo" ID="{93CF7F86-7416-42E2-825A-64014444391B}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="DecideTime" ID="{3B13216A-B6CC-437E-9AC5-A594665C9A10}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="sfx_decidetime_start" ID="{CAAC3E1F-FE76-40AC-8121-779AB59F904A}" WorkUnitID="{0AE552EE-7DEA-4036-9B32-2B1686337B1C}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="sfx_decidetime_end" ID="{68F894D1-13B9-4C14-A401-5D1A5EA1DF00}" WorkUnitID="{0AE552EE-7DEA-4036-9B32-2B1686337B1C}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Music" ID="{8CC448A1-D5F6-487C-A950-4C978728F7B5}" WorkUnitID="{FA8A0DE3-5A0A-48DA-80D6-3F2931AF931D}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MasterVolume" ID="{AB433F8B-E57C-45DE-A538-20975B206D11}"/>
+							<Value>100</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="None" ID="{BAC572F6-8CE2-430D-9FC0-6A57004E9C92}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
+						<CurrentSwitchRef Name="MainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>

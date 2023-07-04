@@ -6128,6 +6128,18 @@
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="pizza_elena" ID="{DE5F899A-6206-4520-84D3-376D940E6746}" ShortID="626039162">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>44</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>39</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -6159,9 +6171,28 @@
 										<MediaID ID="380967281"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_001" ID="{A3CB9B03-3CD7-45AF-8460-9322DE137F0F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="453026647"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{6984FC4F-80A5-4E7B-97EB-A7651B697E2D}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="4.06767621282456"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="805997701"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_001" ID="{523D7319-2AE5-46FB-BDC5-1AC7317ED9BD}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_001" ID="{A3CB9B03-3CD7-45AF-8460-9322DE137F0F}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{6984FC4F-80A5-4E7B-97EB-A7651B697E2D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_002" ID="{2F5D929F-D130-4391-87F4-A983160A9114}" ShortID="666461926">
@@ -6186,9 +6217,29 @@
 										<MediaID ID="781956103"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_002" ID="{A842E37E-1DAF-4D9B-B5CE-CC8BE4BA67E6}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="719766929"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{20E3854E-A037-4E87-A8A3-299AA6F90328}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_002" ID="{C7662F31-3BE6-46DF-AEA2-3AB5531A79ED}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{20E3854E-A037-4E87-A8A3-299AA6F90328}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_002" ID="{A842E37E-1DAF-4D9B-B5CE-CC8BE4BA67E6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_003" ID="{5473FA7C-1AF5-4B89-8AA1-852789C83B43}" ShortID="890549798">
@@ -6213,9 +6264,29 @@
 										<MediaID ID="10928421"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_003" ID="{64D92E53-C49C-4576-BD0A-C7B63F3B77D3}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_003.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="852236513"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{459F2E6A-50F6-4A17-B858-BB74A281FAA8}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="6.52567140752604"/>
+										<Property Name="TrimEnd" Type="Real64" Value="9.76129431136124"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="778290056"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_003" ID="{7714D36B-E273-4CE4-AB2E-A009361AB4E1}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_003" ID="{64D92E53-C49C-4576-BD0A-C7B63F3B77D3}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{459F2E6A-50F6-4A17-B858-BB74A281FAA8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_004" ID="{F05C4A73-6D38-448C-BE55-E5EE56C27BFF}" ShortID="145118629">
@@ -6240,9 +6311,29 @@
 										<MediaID ID="76041179"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_004" ID="{3E836F62-8A50-4241-917C-B63ED26B555C}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1071922202"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{36AABF24-1323-4D80-89A8-04C04AB0623A}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="9.87163667058861"/>
+										<Property Name="TrimEnd" Type="Real64" Value="13.1086674503654"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="937820595"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_004" ID="{C38596B5-91BA-4529-A88F-D06B8553D043}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{36AABF24-1323-4D80-89A8-04C04AB0623A}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_004" ID="{3E836F62-8A50-4241-917C-B63ED26B555C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_005" ID="{EC8AE353-28D7-4D02-9E15-75A813499631}" ShortID="64156633">
@@ -6267,9 +6358,29 @@
 										<MediaID ID="23784575"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_005" ID="{BB9A64AC-6ED9-4365-9A05-6B65B1BCE055}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="464350882"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{39EE8E02-AC65-457E-9A96-7E2FCD71F06F}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="13.3152034590543"/>
+										<Property Name="TrimEnd" Type="Real64" Value="14.7443694950278"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="942824092"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_005" ID="{96CCD3A6-5BF7-4EC0-80C1-F723D04D7F6A}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{39EE8E02-AC65-457E-9A96-7E2FCD71F06F}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_005" ID="{BB9A64AC-6ED9-4365-9A05-6B65B1BCE055}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_006" ID="{EF970FF1-4736-4ACB-A51B-F899A2944D77}" ShortID="521885086">
@@ -6294,9 +6405,29 @@
 										<MediaID ID="640186321"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_006" ID="{D98480AE-C189-4374-AE54-0078A8432E3D}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="453037608"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{CBBECFEF-2079-49C3-8076-3742C52ABDB4}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="15.1156265338271"/>
+										<Property Name="TrimEnd" Type="Real64" Value="18.5101928115531"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="493278105"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_006" ID="{A9C3FA38-2448-46A5-A554-FFF96BACEF85}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_006" ID="{D98480AE-C189-4374-AE54-0078A8432E3D}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{CBBECFEF-2079-49C3-8076-3742C52ABDB4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_007" ID="{2AED7DEF-1DC7-476E-9F44-D8DC58F8C684}" ShortID="95492817">
@@ -6321,9 +6452,29 @@
 										<MediaID ID="763632330"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_007" ID="{169E1233-B762-43A2-A36E-014599B87149}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_007.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="281855211"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{5014FCB7-FD7A-4B4F-A9EF-7BA74DA601EB}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="18.6236087788741"/>
+										<Property Name="TrimEnd" Type="Real64" Value="21.5009694720091"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="368340070"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_007" ID="{8FE496D5-3EE1-4AC0-BEAD-2113C580D7A8}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_007" ID="{169E1233-B762-43A2-A36E-014599B87149}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{5014FCB7-FD7A-4B4F-A9EF-7BA74DA601EB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_008" ID="{C7E750E4-DA63-4D01-B030-EA72A73C1A44}" ShortID="14933535">
@@ -6348,9 +6499,29 @@
 										<MediaID ID="1008027546"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_008" ID="{F7EBEC8F-A88F-4D05-B253-819B904B8D0E}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_008.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="706537216"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{5109F5FE-E861-4CE5-829B-46F87E5A36C0}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="21.5236618913042"/>
+										<Property Name="TrimEnd" Type="Real64" Value="22.6451845998957"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="186510234"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_008" ID="{9CC7A642-26C1-4053-954B-A97D8D6BFF5D}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_008" ID="{F7EBEC8F-A88F-4D05-B253-819B904B8D0E}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{5109F5FE-E861-4CE5-829B-46F87E5A36C0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_009" ID="{33163522-2EC8-4884-8BD1-25DC58D2D08E}" ShortID="378147906">
@@ -6375,9 +6546,29 @@
 										<MediaID ID="1039554305"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_009" ID="{05AF5573-08BB-4CAB-8A62-F2FE4A759916}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="715870214"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{D160275B-889F-413D-89F9-7457C12F8DFF}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="22.9379299783674"/>
+										<Property Name="TrimEnd" Type="Real64" Value="23.9871297948067"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1049852900"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_009" ID="{49673DA5-C118-42D9-9ACC-75563A248776}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{D160275B-889F-413D-89F9-7457C12F8DFF}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_009" ID="{05AF5573-08BB-4CAB-8A62-F2FE4A759916}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_010" ID="{E0BB5EFB-E8DB-48AB-998D-E6F42B156EDF}" ShortID="770754976">
@@ -6402,9 +6593,29 @@
 										<MediaID ID="182563741"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_010" ID="{431EB1AA-787B-4E3E-98A3-F1E379327274}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_010.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1035177949"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{CACFB481-E1BB-467E-8490-D7B88E46A0D4}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="24.3227855902731"/>
+										<Property Name="TrimEnd" Type="Real64" Value="25.9134364780887"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="418714564"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_010" ID="{CDFCA79B-2768-4627-BFC1-2DA94CE4450D}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{CACFB481-E1BB-467E-8490-D7B88E46A0D4}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_010" ID="{431EB1AA-787B-4E3E-98A3-F1E379327274}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_011" ID="{D881EC77-951E-43CE-A3C8-47DF0EA492B9}" ShortID="375286900">
@@ -6429,9 +6640,29 @@
 										<MediaID ID="563734747"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_011" ID="{3F90846D-7983-453A-85F0-EE576A231D08}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_011.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1033524406"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{9D0B85EC-3FB7-4361-A0C8-B81348FCCFEC}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="26.1972885681797"/>
+										<Property Name="TrimEnd" Type="Real64" Value="27.2779993265312"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="706712192"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_011" ID="{9F15A8CE-22C3-4128-9A23-D0CA6335E0AC}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_011" ID="{3F90846D-7983-453A-85F0-EE576A231D08}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{9D0B85EC-3FB7-4361-A0C8-B81348FCCFEC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_012" ID="{E04CC684-6269-423E-AB27-5F151E3A759E}" ShortID="38585192">
@@ -6456,9 +6687,29 @@
 										<MediaID ID="921218049"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_012" ID="{E05B087F-8F60-4036-8738-745A17FEEEC5}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_012.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="977728036"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{DCA34DC1-5F79-4AE6-944E-E55E4D39AB4F}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="27.2576624863269"/>
+										<Property Name="TrimEnd" Type="Real64" Value="30.6220294968625"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="413837338"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_012" ID="{093DB920-B173-4106-B0D2-434609A370AF}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_012" ID="{E05B087F-8F60-4036-8738-745A17FEEEC5}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{DCA34DC1-5F79-4AE6-944E-E55E4D39AB4F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_013" ID="{E2CD6AD6-4DE9-4AB8-B2DE-F8F92A7D1D7E}" ShortID="90940198">
@@ -6483,9 +6734,29 @@
 										<MediaID ID="22043793"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_013" ID="{A47331A9-D3C4-4FCB-9496-85D3A9797989}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_013.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="417068263"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{327C274A-A47E-4872-9980-CD62E0970485}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="30.8246066689332"/>
+										<Property Name="TrimEnd" Type="Real64" Value="33.2744643805295"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="166374291"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_013" ID="{624C82B4-8516-463C-AAAF-9D20E222E868}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{327C274A-A47E-4872-9980-CD62E0970485}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_013" ID="{A47331A9-D3C4-4FCB-9496-85D3A9797989}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_014" ID="{4E6936F9-12A7-434B-B066-A1146ECD14C9}" ShortID="175989962">
@@ -6510,9 +6781,29 @@
 										<MediaID ID="1067116826"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_014" ID="{5D628D8A-7750-44CA-A312-1A10817A254F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_014.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="822202257"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{B15F2291-923B-4F45-BED7-A320DDCF385F}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="33.4915612137207"/>
+										<Property Name="TrimEnd" Type="Real64" Value="35.1139797296632"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="222493390"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_014" ID="{C2C9DAAE-564B-4013-8D9F-C1D3B6366D3A}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_014" ID="{5D628D8A-7750-44CA-A312-1A10817A254F}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{B15F2291-923B-4F45-BED7-A320DDCF385F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_015" ID="{FF78C328-1817-4062-A099-DA0F84CF0E1B}" ShortID="341749618">
@@ -6537,9 +6828,29 @@
 										<MediaID ID="34150028"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_015" ID="{EC78F11C-4287-4629-A47E-E9273CD51C1B}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_015.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="655285868"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{B5117D94-8242-47A8-AF03-D1A4BF5A190F}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="35.1409448189175"/>
+										<Property Name="TrimEnd" Type="Real64" Value="36.6956565176537"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="870987048"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_015" ID="{8CC562E9-D638-4513-854D-AE3CB0266CFA}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_015" ID="{EC78F11C-4287-4629-A47E-E9273CD51C1B}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{B5117D94-8242-47A8-AF03-D1A4BF5A190F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_016" ID="{AF83B06D-3873-4FBE-AD8D-643E3CB158D9}" ShortID="104239208">
@@ -6564,9 +6875,29 @@
 										<MediaID ID="34495873"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_016" ID="{009D2C7E-8E6B-4926-89FE-2DBA355E6CBE}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="657784629"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{F28EC024-481A-4D9E-823F-D2F8EB6FC3E3}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="36.709202668394"/>
+										<Property Name="TrimEnd" Type="Real64" Value="37.3724156670037"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="791776463"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_016" ID="{456873CF-EDA7-4B20-98D2-222CBBB2FCF3}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{F28EC024-481A-4D9E-823F-D2F8EB6FC3E3}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_016" ID="{009D2C7E-8E6B-4926-89FE-2DBA355E6CBE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_017" ID="{C7C3B849-D523-40DF-B546-819B70FFE0BA}" ShortID="444672160">
@@ -6591,9 +6922,29 @@
 										<MediaID ID="331322786"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_017" ID="{8D8BE24F-7429-40BB-BD5F-BACEDFE57F1F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_017.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="807742281"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{A5618551-F417-4D06-8D58-1D369998DCEB}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="37.5699518093435"/>
+										<Property Name="TrimEnd" Type="Real64" Value="39.0162875714587"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="925045068"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_017" ID="{368DBB74-85F8-40D9-B417-64814BDF6696}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_017" ID="{8D8BE24F-7429-40BB-BD5F-BACEDFE57F1F}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{A5618551-F417-4D06-8D58-1D369998DCEB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_018" ID="{06EE61EA-2603-4CE4-B089-38F52CE92B8F}" ShortID="643092190">
@@ -6618,9 +6969,29 @@
 										<MediaID ID="232790685"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_018" ID="{9AAAD002-389D-4834-990E-CC656173A6AF}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_018.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="823747396"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{1A51BA63-2867-4517-B5B2-CB3BD00A2F45}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="39.3524466165086"/>
+										<Property Name="TrimEnd" Type="Real64" Value="41.2203749392106"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="788105422"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_018" ID="{B54DAF35-A9F7-480A-8A9A-5F5213A09E35}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_018" ID="{9AAAD002-389D-4834-990E-CC656173A6AF}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{1A51BA63-2867-4517-B5B2-CB3BD00A2F45}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_019" ID="{8ACDC951-A173-4CF5-AE12-A90C33BE9B1C}" ShortID="594539493">
@@ -6645,9 +7016,29 @@
 										<MediaID ID="132019410"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_019" ID="{CF49E70B-4C31-4845-98F2-E107B85AA34F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="126402444"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{49F1CC4D-6F13-4FC8-98A8-400B96534A80}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="41.4805274441262"/>
+										<Property Name="TrimEnd" Type="Real64" Value="44.4093085740461"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="366381878"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_019" ID="{42BC10BF-C67A-4093-98D4-DBD566C437F0}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_019" ID="{CF49E70B-4C31-4845-98F2-E107B85AA34F}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{49F1CC4D-6F13-4FC8-98A8-400B96534A80}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_020" ID="{8234947D-AF6F-431B-8401-530FEC9FA1B8}" ShortID="277994611">
@@ -6672,9 +7063,29 @@
 										<MediaID ID="7406227"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_020" ID="{07E70EF5-2224-414E-BADA-757CCD856CAB}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_020.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="366913625"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{7BBF99F7-1C48-4E05-9629-47293EE1F157}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="44.665007439144"/>
+										<Property Name="TrimEnd" Type="Real64" Value="46.283433685274"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="829089325"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_020" ID="{959D90EE-2711-497E-8F9E-FF9D15C82510}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_020" ID="{07E70EF5-2224-414E-BADA-757CCD856CAB}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{7BBF99F7-1C48-4E05-9629-47293EE1F157}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_021" ID="{D68BBF2F-5551-453A-AACB-6D9D555121AA}" ShortID="377457083">
@@ -6699,9 +7110,29 @@
 										<MediaID ID="584114918"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_021" ID="{FA721D1E-4A96-4026-A827-1E28F3E38ABA}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_021.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="370429963"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{023F442D-D2DB-48B1-A208-B34192B67D6D}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="46.5756032277047"/>
+										<Property Name="TrimEnd" Type="Real64" Value="50.0002920966012"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="769429185"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_021" ID="{7C2F00D2-BE33-4E3A-A6A8-FF7CCC444F02}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_021" ID="{FA721D1E-4A96-4026-A827-1E28F3E38ABA}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{023F442D-D2DB-48B1-A208-B34192B67D6D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_022" ID="{C4F69498-5DA2-4DB9-9508-7254524CF4B2}" ShortID="398526076">
@@ -6726,9 +7157,29 @@
 										<MediaID ID="539319279"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_022" ID="{74A9535B-4B19-431F-B6E8-BE50F5099F11}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_022.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="998266675"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{972B6BCC-13CA-45DF-8A26-D89ED4FF8DA2}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="50.2107158569336"/>
+										<Property Name="TrimEnd" Type="Real64" Value="52.7119763088332"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="744047357"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_022" ID="{7E8946A0-0F00-4AEE-BE41-1D6B5E550592}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_022" ID="{74A9535B-4B19-431F-B6E8-BE50F5099F11}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{972B6BCC-13CA-45DF-8A26-D89ED4FF8DA2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_023" ID="{5A3A27B7-50F4-46E7-9EE6-71068E6F6AAD}" ShortID="302097350">
@@ -6753,9 +7204,29 @@
 										<MediaID ID="229391288"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_023" ID="{BA98BA68-4B0E-4A0E-9D59-96BAAB31D330}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_023.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="941533460"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{B23E1A4B-E84C-4B38-90A4-3820FCC534A4}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="52.9251208807605"/>
+										<Property Name="TrimEnd" Type="Real64" Value="56.5937710343489"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="523656849"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_023" ID="{E3597DCA-8C0B-4B84-AD2A-6C88A81E57AF}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{B23E1A4B-E84C-4B38-90A4-3820FCC534A4}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_023" ID="{BA98BA68-4B0E-4A0E-9D59-96BAAB31D330}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_024" ID="{C8EA568D-3F40-4552-8D6D-71DA293EB86A}" ShortID="291057024">
@@ -6780,9 +7251,29 @@
 										<MediaID ID="652507183"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_024" ID="{2043E4E1-2B6F-4473-80EF-BB0F9995CC9A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_024.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1024394252"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{B860BBBD-0E4C-4362-A93D-FDF4F5C0F348}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="56.9338813595298"/>
+										<Property Name="TrimEnd" Type="Real64" Value="58.5263974229719"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="809448015"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_024" ID="{3C5B3E5F-9907-4E6D-B179-E6290ED8242E}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{B860BBBD-0E4C-4362-A93D-FDF4F5C0F348}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_024" ID="{2043E4E1-2B6F-4473-80EF-BB0F9995CC9A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_025" ID="{C949B742-7F58-413D-A749-F40F33A1DD82}" ShortID="291162697">
@@ -6807,9 +7298,29 @@
 										<MediaID ID="564759767"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_025" ID="{11FA44A0-165C-4B18-B97B-6BA3B630909C}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_025.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="68270636"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{2AF968BD-DFEB-45B3-9249-A111F00C01E7}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="58.7180506419634"/>
+										<Property Name="TrimEnd" Type="Real64" Value="59.600787143113"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="289441963"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_025" ID="{29B6464B-1DCB-486F-831E-1AC5245E7181}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_025" ID="{11FA44A0-165C-4B18-B97B-6BA3B630909C}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{2AF968BD-DFEB-45B3-9249-A111F00C01E7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_026" ID="{A81BB95C-81E1-485F-903D-E1DD6568BCEB}" ShortID="346091027">
@@ -6834,9 +7345,29 @@
 										<MediaID ID="493031823"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_026" ID="{134E60FF-CB09-4D08-9479-8FC9B5C179BA}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_026.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="918737171"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{CF907EF1-241B-4534-8690-F37217A6F9B9}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="59.6647449320983"/>
+										<Property Name="TrimEnd" Type="Real64" Value="60.3663535675274"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="313711455"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_026" ID="{704A9CE5-064F-411F-8803-99DBC04C882E}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{CF907EF1-241B-4534-8690-F37217A6F9B9}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_026" ID="{134E60FF-CB09-4D08-9479-8FC9B5C179BA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_027" ID="{DAB31D34-FDDE-4666-A056-38AA0A69A092}" ShortID="518465369">
@@ -6861,9 +7392,29 @@
 										<MediaID ID="124432793"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_027" ID="{ACD63FB3-B6EA-4F73-94CD-58381AA514C5}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_027.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="853818320"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{71E4D8B8-205C-4FA3-B530-A2DD424FC5F7}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="60.311663366289"/>
+										<Property Name="TrimEnd" Type="Real64" Value="61.2601750519358"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="580514517"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_027" ID="{54FD5D30-13EE-4070-A61E-04605DF1D31C}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_027" ID="{ACD63FB3-B6EA-4F73-94CD-58381AA514C5}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{71E4D8B8-205C-4FA3-B530-A2DD424FC5F7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_028" ID="{3EFA57AC-03FC-44A4-9334-B57E756E7DC6}" ShortID="663857186">
@@ -6888,9 +7439,29 @@
 										<MediaID ID="518011966"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_028" ID="{3E735D85-6C35-4663-A1F5-49B07CBA592A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_028.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="43215606"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{98204861-DC5F-4464-A8A0-F718BCAAA5B2}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="62.4879342859877"/>
+										<Property Name="TrimEnd" Type="Real64" Value="64.0205259241455"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="805303089"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_028" ID="{B249B6F2-9812-45B7-AF61-8A963DBF44B8}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{98204861-DC5F-4464-A8A0-F718BCAAA5B2}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_028" ID="{3E735D85-6C35-4663-A1F5-49B07CBA592A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_029" ID="{C176685E-8A9D-4418-B0DA-79FC3B63BC03}" ShortID="859425279">
@@ -6915,9 +7486,29 @@
 										<MediaID ID="476578462"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_029" ID="{EDC744A3-26EC-4647-9488-C5DD74C4572B}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_029.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="278350950"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{E85844C7-BF1D-40D2-9592-424D9AB68D79}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="64.1269021902588"/>
+										<Property Name="TrimEnd" Type="Real64" Value="67.5845808405742"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1041766798"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_029" ID="{87524B12-0FC8-4A88-B747-9BCC50237CD3}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_029" ID="{EDC744A3-26EC-4647-9488-C5DD74C4572B}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{E85844C7-BF1D-40D2-9592-424D9AB68D79}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_030" ID="{0F6CACF1-CDCA-4608-AABD-55C3877C5985}" ShortID="73644581">
@@ -6942,9 +7533,29 @@
 										<MediaID ID="997720055"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_030" ID="{D6CD8E3B-2B09-43A9-872E-79F7FD2C73EC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_030.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="417357004"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{FD3FDE28-9361-4583-876A-261A649E31E4}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="67.7332825897602"/>
+										<Property Name="TrimEnd" Type="Real64" Value="68.6890283306936"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="487861590"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_030" ID="{C1679AA7-A072-42FD-9403-9D1D997801A6}" Platform="Linked"/>
+								<ActiveSource Name="1" ID="{FD3FDE28-9361-4583-876A-261A649E31E4}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_030" ID="{D6CD8E3B-2B09-43A9-872E-79F7FD2C73EC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_031" ID="{80719992-7818-4225-A0A2-E424C80E5C44}" ShortID="166842508">
@@ -6969,8 +7580,28 @@
 										<MediaID ID="274365312"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_031" ID="{A60F34AE-19D9-4CC2-A0B0-853D041ECC09}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_031.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="126788591"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{E2A4A198-A2EF-43F0-9918-FAAF602A4EB2}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_031" ID="{A60F34AE-19D9-4CC2-A0B0-853D041ECC09}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_031" ID="{83DAACD6-3BFB-427E-9E74-284951EB2005}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -6996,8 +7627,28 @@
 										<MediaID ID="1031288002"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_032" ID="{80FB1211-19C4-456F-BE88-8BF38804F276}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_032.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="920865388"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{80A1B421-ECAF-426A-B1A3-3C6418C8B4DF}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_032" ID="{80FB1211-19C4-456F-BE88-8BF38804F276}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_032" ID="{CEFA2764-563D-4467-8CC2-9E9639AB3EB7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7023,9 +7674,29 @@
 										<MediaID ID="1066834369"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_033" ID="{F912B964-03F6-443E-AF0B-FD52B817B6F2}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_033.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="920247342"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{E22F2630-3864-4214-9D12-0753E2B2BA97}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_033" ID="{E8B2732F-435E-46AA-9CDE-8653E2F87247}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_033" ID="{F912B964-03F6-443E-AF0B-FD52B817B6F2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_034" ID="{ACCC21C5-4150-48BF-9D10-E36DFA2FB290}" ShortID="9093580">
@@ -7050,8 +7721,28 @@
 										<MediaID ID="36106589"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_034" ID="{13881FC1-80C8-4AD2-9DBA-BC3E4AA65DEF}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_034.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="706546954"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{3AD8AB5A-A790-4009-98A5-51F1D3845E04}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_034" ID="{13881FC1-80C8-4AD2-9DBA-BC3E4AA65DEF}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_034" ID="{AEA71FD0-D6E5-4DC5-ABA4-B112F3201F52}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7077,9 +7768,29 @@
 										<MediaID ID="5971494"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_035" ID="{DC88FA6C-3505-491A-93F1-887B014567F8}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_035.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="399355387"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{F16C919C-7E26-40DD-A55E-1781D2359D87}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_035" ID="{AE4F775C-9A3E-470B-A468-D36C8EAC5B0D}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_035" ID="{DC88FA6C-3505-491A-93F1-887B014567F8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_036" ID="{4CCE40CB-F0EC-41EA-BE55-253A98524EDC}" ShortID="825022648">
@@ -7104,8 +7815,28 @@
 										<MediaID ID="672264380"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_036" ID="{FDF0D768-A991-464F-AEA2-0FD13B0D76B1}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_036.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="94805620"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{B8724F74-4399-41B5-A792-1EDCEB04382C}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_036" ID="{FDF0D768-A991-464F-AEA2-0FD13B0D76B1}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_036" ID="{66ACEC79-BC77-4234-B379-B28965541465}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7131,9 +7862,29 @@
 										<MediaID ID="540010101"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_037" ID="{7ED08BFD-3C55-4273-87F0-5269BB23F2ED}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_037.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="31387954"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{FD4FAB48-F2A0-42BF-BA69-CF84275A8002}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_037" ID="{ED6427E2-C15F-44E8-A910-DCE9C92A2259}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_037" ID="{7ED08BFD-3C55-4273-87F0-5269BB23F2ED}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_038" ID="{0A5D4651-7A61-4DA6-AA77-54F2BF138100}" ShortID="336409857">
@@ -7158,9 +7909,29 @@
 										<MediaID ID="998290830"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_038" ID="{7B63D152-9A9D-4DD8-B173-D1CFA192D646}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_038.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="795718381"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{4C562258-BE3D-4393-87A4-E557099F3532}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_038" ID="{FD418D2D-E918-427C-8DFE-F6CAD975A53A}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_038" ID="{7B63D152-9A9D-4DD8-B173-D1CFA192D646}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_039" ID="{435B50A8-FA63-40A8-9EA4-48B319C8F1A1}" ShortID="761561572">
@@ -7185,9 +7956,29 @@
 										<MediaID ID="296685128"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_039" ID="{F3261D8E-AA55-4948-96E8-0DAEB4D5EB76}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_039.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="513776742"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{1F608F1D-A5D9-45CB-B810-F84CE7979FE9}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_039" ID="{E8DA7F00-6922-49F1-BCA1-B7082B946BBF}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_039" ID="{F3261D8E-AA55-4948-96E8-0DAEB4D5EB76}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_040" ID="{2524731D-B775-4A22-BF1A-D34D77027EDB}" ShortID="518004174">
@@ -7212,8 +8003,28 @@
 										<MediaID ID="38215245"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_040" ID="{40A3F576-4130-47E1-8551-25EEFBB635DD}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_040.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="87876411"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="1" ID="{9B93B84E-ABC5-411E-99AA-B496103B8D8D}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.38067334785606"/>
+										<Property Name="TrimEnd" Type="Real64" Value="6.34019187107024"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="64731262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_040" ID="{40A3F576-4130-47E1-8551-25EEFBB635DD}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_040" ID="{928C41DF-CF38-4E1E-AE3B-B4026CC17E18}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7239,9 +8050,17 @@
 										<MediaID ID="273202292"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_041" ID="{517CC1E2-1791-4517-A1E0-1030BA5EFD29}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_041.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="286050262"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_041" ID="{2A1E502C-FC56-4A6E-B80A-228FA1B71E76}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_041" ID="{517CC1E2-1791-4517-A1E0-1030BA5EFD29}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_042" ID="{0E2B5585-243C-4F76-AF9F-8638EBE64B7C}" ShortID="208241887">
@@ -7266,9 +8085,17 @@
 										<MediaID ID="34738507"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_042" ID="{DEB160DE-A1A7-4D75-9C1E-14FA45D638E7}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_042.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="394890552"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_042" ID="{41CAEC06-85A0-4351-BDB2-5FDC85901787}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_042" ID="{DEB160DE-A1A7-4D75-9C1E-14FA45D638E7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_043" ID="{8AB65691-5B5F-478E-AD00-7DB33B24FDFF}" ShortID="169002318">
@@ -7293,9 +8120,17 @@
 										<MediaID ID="543434018"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_043" ID="{98CF66AE-CC07-4896-B9FF-93CC45DA65DD}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_043.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1027871298"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_043" ID="{521C3B8B-5563-4E76-89B6-D503BC9B77CC}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_043" ID="{98CF66AE-CC07-4896-B9FF-93CC45DA65DD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_044" ID="{5785CC32-6F94-4B7C-ACD0-ED5FD6BB10A7}" ShortID="110812899">
@@ -7320,8 +8155,16 @@
 										<MediaID ID="880024279"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_044" ID="{529AAEB0-233F-4855-9BC9-C7A196865F5F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_044.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="681524381"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_044" ID="{529AAEB0-233F-4855-9BC9-C7A196865F5F}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_044" ID="{45A2F7E4-F00B-4B9C-B48B-AE03A1CEC0DB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7347,8 +8190,16 @@
 										<MediaID ID="293582298"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_045" ID="{779C9D1B-A12D-454A-A1E9-D9FACED20E88}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_045.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="500299772"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_045" ID="{779C9D1B-A12D-454A-A1E9-D9FACED20E88}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_045" ID="{D91085AF-255E-4579-AAE1-08CA3D3C2489}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7374,8 +8225,16 @@
 										<MediaID ID="16061684"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_046" ID="{730C9E89-07EC-4884-BA20-05E299665282}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_046.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="358293529"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_046" ID="{730C9E89-07EC-4884-BA20-05E299665282}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_046" ID="{E586F6B1-3CC8-43B1-A715-85E6FC951164}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7401,9 +8260,17 @@
 										<MediaID ID="2173080"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_047" ID="{A69A7FD6-6798-4652-B72F-F6526D5343D7}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_047.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="526700440"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_047" ID="{92AEDF24-E346-40C7-8E3B-961A3E1B2ECF}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_047" ID="{A69A7FD6-6798-4652-B72F-F6526D5343D7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_048" ID="{CE4BD363-37D3-43B7-A427-95DBA129DEC1}" ShortID="412616">
@@ -7428,9 +8295,17 @@
 										<MediaID ID="646486305"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_048" ID="{55130FF3-E66B-4529-B7FA-7D7E40DB680F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_048.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="372407862"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_048" ID="{50E1D739-7CFA-4EDE-A0C3-D65150848719}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_048" ID="{55130FF3-E66B-4529-B7FA-7D7E40DB680F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_049" ID="{2EDA45C3-5009-468E-B704-5F5C5666C1D9}" ShortID="570830429">
@@ -7455,8 +8330,16 @@
 										<MediaID ID="776642859"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_049" ID="{27D4321A-4531-4A0E-9754-43A0478A846E}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_049.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1033553577"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_049" ID="{27D4321A-4531-4A0E-9754-43A0478A846E}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_049" ID="{8DD962D5-CD20-4558-97CA-EB645D90CE0C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7482,8 +8365,16 @@
 										<MediaID ID="318023455"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_050" ID="{A5E18E6C-D973-4D83-8E20-C039342C8C00}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_050.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="656321103"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_050" ID="{A5E18E6C-D973-4D83-8E20-C039342C8C00}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_050" ID="{E78D7AE8-BEBA-4401-A49C-115D754EA42C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7509,8 +8400,16 @@
 										<MediaID ID="780641035"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_051" ID="{B3A3D31A-10DF-4B6F-B6FE-7D318672A0D6}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_051.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="513668886"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_051" ID="{B3A3D31A-10DF-4B6F-B6FE-7D318672A0D6}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_051" ID="{0AF4BD4F-37FF-48ED-ACFF-B45BED4C503E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7536,9 +8435,17 @@
 										<MediaID ID="413912485"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_052" ID="{CA2E51EB-3722-467E-BDA6-0216F74EB983}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_052.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="323316674"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_052" ID="{4F1B6E7F-8AF7-4745-A725-D812F82927E5}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_052" ID="{CA2E51EB-3722-467E-BDA6-0216F74EB983}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_053" ID="{D713F30C-F5D1-476D-AB98-8A6771CD490B}" ShortID="999108338">
@@ -7563,9 +8470,17 @@
 										<MediaID ID="1031771645"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_053" ID="{70AAD696-DDE2-4265-AF11-EF91131B3918}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_053.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="477767509"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_053" ID="{1A6B6054-6CB7-4C68-9A83-AC65AE7ED70C}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_053" ID="{70AAD696-DDE2-4265-AF11-EF91131B3918}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_054" ID="{B39874C8-9285-4645-A013-6F930830A921}" ShortID="739951343">
@@ -7590,9 +8505,17 @@
 										<MediaID ID="291601446"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_054" ID="{11BC7E57-9991-45FF-B480-5DCCDB0F2EBC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_054.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="894122174"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_054" ID="{56752501-721A-4A14-AF4F-A2D2A78620B0}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_054" ID="{11BC7E57-9991-45FF-B480-5DCCDB0F2EBC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_055" ID="{C46ADD80-FFAC-40BE-8C61-B449C6A1B8DF}" ShortID="138654343">
@@ -7617,8 +8540,16 @@
 										<MediaID ID="903623746"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_055" ID="{C8A83974-2585-4D8D-92F9-607ABE92720C}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_055.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="523655074"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_055" ID="{C8A83974-2585-4D8D-92F9-607ABE92720C}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_055" ID="{E043E07E-7FCB-4C82-A931-7C49447EDEC9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7644,8 +8575,16 @@
 										<MediaID ID="955202200"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_056" ID="{91A3930C-F61A-4FEE-80A9-28BA4A633B22}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_056.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="220352500"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_056" ID="{91A3930C-F61A-4FEE-80A9-28BA4A633B22}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_056" ID="{6499E914-2767-4A72-A021-60D9F4609DF4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7671,8 +8610,16 @@
 										<MediaID ID="962079411"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_057" ID="{482495B9-0FDC-42EB-A964-FA133CF5E6EC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_057.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1042778206"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_057" ID="{482495B9-0FDC-42EB-A964-FA133CF5E6EC}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_057" ID="{547F3AC4-7A8C-431F-93D8-A6434157FCF3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7698,9 +8645,17 @@
 										<MediaID ID="470389752"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_058" ID="{9A190570-4989-49A5-A8A6-B74CD9CA6E14}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_058.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="461597599"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_058" ID="{3A7CAA58-434D-4DA7-8D85-8CC91A229B89}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_058" ID="{9A190570-4989-49A5-A8A6-B74CD9CA6E14}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_059" ID="{987A47EA-0683-4478-A76E-5C0EE5FFF795}" ShortID="227743003">
@@ -7725,8 +8680,16 @@
 										<MediaID ID="154633889"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_059" ID="{7C8E5AB7-7E6C-42C6-A365-DC8484A2E73D}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_059.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="963250688"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_059" ID="{7C8E5AB7-7E6C-42C6-A365-DC8484A2E73D}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_059" ID="{CC36D5B9-F743-4C59-8FBA-C6F7C43762F0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7752,8 +8715,16 @@
 										<MediaID ID="674205567"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_060" ID="{B8FDF223-60CE-4224-9741-0ED6CF138C05}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_060.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="124691207"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_060" ID="{B8FDF223-60CE-4224-9741-0ED6CF138C05}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_060" ID="{2B45375F-9D0C-4F1D-B8A0-B948C47E2609}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7779,9 +8750,17 @@
 										<MediaID ID="1000486384"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_061" ID="{11C2BFC4-CAC2-4EF2-B36A-07860E68B2EE}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_061.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="639655049"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_061" ID="{0B09F85B-B08F-4795-B6EA-73DCDE9EEDEC}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_061" ID="{11C2BFC4-CAC2-4EF2-B36A-07860E68B2EE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_062" ID="{4E179366-F711-44AF-A286-69E1F942CF77}" ShortID="666287213">
@@ -7806,8 +8785,16 @@
 										<MediaID ID="258908055"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_062" ID="{EE506D33-94F9-436E-A3CA-85701D7A48C8}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_062.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="459969713"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_062" ID="{EE506D33-94F9-436E-A3CA-85701D7A48C8}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_062" ID="{23B651AA-CD27-4A59-9555-A8681D8610E3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7833,9 +8820,17 @@
 										<MediaID ID="404724640"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_063" ID="{41DFBD89-6A2A-43C7-AFDB-7A84C8D2F5B0}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_063.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="424548819"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_063" ID="{F716FE34-C123-4BCA-93BA-E171155F3CE8}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_063" ID="{41DFBD89-6A2A-43C7-AFDB-7A84C8D2F5B0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_064" ID="{250908F3-1BE6-4D9A-8802-BE8D9F5F1D27}" ShortID="1035046810">
@@ -7860,8 +8855,16 @@
 										<MediaID ID="551976228"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_064" ID="{474ADFA9-1482-4029-8EF6-C321713B0A6A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_064.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="506088152"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_064" ID="{474ADFA9-1482-4029-8EF6-C321713B0A6A}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_064" ID="{5B075AD8-43CC-4EB9-830C-7A616A45751F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7887,8 +8890,16 @@
 										<MediaID ID="1067123178"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_065" ID="{7F91A9D2-1BF6-429A-8831-FDDFD32D6D30}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_065.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="340696577"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_065" ID="{7F91A9D2-1BF6-429A-8831-FDDFD32D6D30}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_065" ID="{EA4E27E1-50CE-4B35-8103-AAAFC6547764}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7914,8 +8925,16 @@
 										<MediaID ID="52240455"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_066" ID="{BB547985-D50A-4F6A-9A54-B74ECC0B52C8}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_066.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="163430109"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_066" ID="{BB547985-D50A-4F6A-9A54-B74ECC0B52C8}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_066" ID="{C3B170F3-A97D-4FF1-9B61-A23284ECABA9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7941,8 +8960,16 @@
 										<MediaID ID="245283093"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_067" ID="{AEB2C60B-7623-4455-A4C0-7FE0FED04378}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_067.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="13287397"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_067" ID="{AEB2C60B-7623-4455-A4C0-7FE0FED04378}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_067" ID="{B64AF89F-B114-4A6A-90A5-4056A05F8FD8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7968,8 +8995,16 @@
 										<MediaID ID="580613758"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_068" ID="{0BD3C245-B022-4684-AB10-28DF4F53828A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_068.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="348769336"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_068" ID="{0BD3C245-B022-4684-AB10-28DF4F53828A}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_068" ID="{67EF617A-8694-4B2F-AD7D-5C473F36C4CA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7995,9 +9030,17 @@
 										<MediaID ID="878510800"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_069" ID="{FE1437DB-F08D-4C1A-A204-779623C1F461}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_069.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="900921827"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_069" ID="{46E684B6-1EBB-4345-ACCC-1BFA44B9D139}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_069" ID="{FE1437DB-F08D-4C1A-A204-779623C1F461}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_070" ID="{6EF182C9-A4BC-4FFD-8F5A-3F501C5A4E2B}" ShortID="913922540">
@@ -8022,9 +9065,17 @@
 										<MediaID ID="656275110"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_070" ID="{82D16BDE-4B17-4BE1-B97A-FF53E4BBE3E9}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_070.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="225952549"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_070" ID="{17C3004B-230A-4A72-B697-7D6B1F2EB671}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_070" ID="{82D16BDE-4B17-4BE1-B97A-FF53E4BBE3E9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_071" ID="{A0C447EC-1A22-4AD0-8A25-B9942EA3C3D7}" ShortID="644486079">
@@ -8049,8 +9100,16 @@
 										<MediaID ID="1016481797"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_071" ID="{11ABEB20-AF50-4363-9060-D3D9720B8D65}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_071.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="157347453"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_071" ID="{11ABEB20-AF50-4363-9060-D3D9720B8D65}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_071" ID="{EE2B014C-9558-4538-AE6D-91442664ABE4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8076,9 +9135,17 @@
 										<MediaID ID="743530057"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_072" ID="{EF111CD8-CA03-4A2D-93B4-207E0C055E85}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_072.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="799807575"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_072" ID="{099E4612-8557-4079-828F-70980432FECE}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_072" ID="{EF111CD8-CA03-4A2D-93B4-207E0C055E85}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_073" ID="{0B9B385E-5314-4C78-9D05-244C90C58101}" ShortID="1004286226">
@@ -8103,8 +9170,16 @@
 										<MediaID ID="869512074"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_073" ID="{F1E8336C-0D8E-46D2-936B-5A7B0A421326}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_073.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1012478684"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_073" ID="{F1E8336C-0D8E-46D2-936B-5A7B0A421326}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_073" ID="{FF1A7CC6-6641-424F-A7F4-C823B62494D0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8130,9 +9205,17 @@
 										<MediaID ID="938588621"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_074" ID="{70436FFB-8A5A-49F2-99C0-4EB542AD9101}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_074.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="181284061"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_074" ID="{06A29D61-5AF3-4B79-89D0-35CAEE59AF2A}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_074" ID="{70436FFB-8A5A-49F2-99C0-4EB542AD9101}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_075" ID="{94F72C42-8746-430C-BECA-BBD1DE17286D}" ShortID="218880437">
@@ -8157,9 +9240,17 @@
 										<MediaID ID="24784405"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_075" ID="{D6B58566-2300-4B29-A37F-145E09F4FF51}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_075.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1046627873"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_075" ID="{E3FBB92B-2BE7-4958-BDF6-CE353EB26FE9}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_075" ID="{D6B58566-2300-4B29-A37F-145E09F4FF51}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_076" ID="{38269470-F945-4D77-8C54-5206EB12A40E}" ShortID="577619261">
@@ -8184,8 +9275,16 @@
 										<MediaID ID="265082146"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_076" ID="{7E64D51B-3412-4337-A453-7ECCFFB33D5E}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_076.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="363214225"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_076" ID="{7E64D51B-3412-4337-A453-7ECCFFB33D5E}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_076" ID="{C208128B-178C-49F7-8DE3-4E651378A99E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8211,9 +9310,17 @@
 										<MediaID ID="922157062"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_077" ID="{10CD71F1-15DB-4F09-B464-3AD64669CA37}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_077.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1042958642"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_077" ID="{194D622D-ECDF-41EF-8961-42396132B19F}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_077" ID="{10CD71F1-15DB-4F09-B464-3AD64669CA37}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_078" ID="{35C7521F-5D91-4126-8B43-142B1FC9114E}" ShortID="877213525">
@@ -8238,8 +9345,16 @@
 										<MediaID ID="1041700365"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_078" ID="{F226DB68-9A02-4727-8C26-66225ABAD49A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_078.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="160138940"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_078" ID="{F226DB68-9A02-4727-8C26-66225ABAD49A}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_078" ID="{B2C6FCA3-DDF5-4D65-BD73-F0D199BB717F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8265,8 +9380,16 @@
 										<MediaID ID="1031974402"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_079" ID="{91E49C73-FD84-496F-A072-04278D87C55E}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_079.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="823987682"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_079" ID="{91E49C73-FD84-496F-A072-04278D87C55E}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_079" ID="{C2CCAFDB-6704-423B-8A4A-B76D31EFE538}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8292,8 +9415,16 @@
 										<MediaID ID="135626150"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_080" ID="{7CC6AC66-3527-4F7F-825C-355DD4D27DA7}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_080.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="320516926"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_080" ID="{7CC6AC66-3527-4F7F-825C-355DD4D27DA7}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_080" ID="{CEAE1CA6-5D3E-4C41-9A13-DE9F18FFA19F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8319,8 +9450,16 @@
 										<MediaID ID="414167620"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_081" ID="{4F79B4C1-5C37-42C2-85EF-B2716983C3D8}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_081.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="197007664"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_081" ID="{4F79B4C1-5C37-42C2-85EF-B2716983C3D8}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_081" ID="{87581ED1-93EB-4FD2-BA5A-683F889D00AA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8346,9 +9485,17 @@
 										<MediaID ID="619873608"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_082" ID="{B4B4B7CF-3324-435B-8F51-ED11EF170ABF}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_082.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="17817769"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_082" ID="{E84D5F89-9A59-4177-8A2D-7866F1D735E9}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_082" ID="{B4B4B7CF-3324-435B-8F51-ED11EF170ABF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_083" ID="{1136D1D9-5F81-4D96-87C2-9FF9FA63558A}" ShortID="721711589">
@@ -8373,8 +9520,16 @@
 										<MediaID ID="527889633"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_083" ID="{8C2CE44A-255A-43DE-807A-21D5727533D1}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_083.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="947448138"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_083" ID="{8C2CE44A-255A-43DE-807A-21D5727533D1}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_083" ID="{C64E7DDC-A2DA-4029-9659-DBDE89F1D8AD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8382,6 +9537,11 @@
 							<Comment>Без проблем!</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8400,9 +9560,17 @@
 										<MediaID ID="1028666652"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_084" ID="{F89B5E74-1EEC-4035-BC03-8DDD7E3D3A47}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_084.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="203955067"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_084" ID="{49BE7947-ABCD-4EE5-89E1-D701D39DFAE6}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_084" ID="{F89B5E74-1EEC-4035-BC03-8DDD7E3D3A47}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_085" ID="{E1C3A41E-D1CA-486D-B6B1-848EAD7004D8}" ShortID="237837253">
@@ -8427,15 +9595,28 @@
 										<MediaID ID="775784823"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_085" ID="{5B965FF7-749F-417D-88AB-AF0C2C4768FB}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_085.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="687010567"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_085" ID="{6919DCD8-92BC-44D9-8B39-60D32868DA53}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_085" ID="{5B965FF7-749F-417D-88AB-AF0C2C4768FB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_086" ID="{52CCF4D4-DC57-4909-8686-F5A459E419A8}" ShortID="144914008">
 							<Comment>Горячий кофе прямо из офиса! То есть ресторана___ Заработалась, простите_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8454,15 +9635,28 @@
 										<MediaID ID="935724550"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_086" ID="{A18D69A6-EF7C-43B1-8994-3B87EE1BA686}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_086.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="371283145"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_086" ID="{38A70E71-61DF-4AA9-A14B-C5EFD917C2FF}" Platform="Linked"/>
+								<ActiveSource Name="pizza_elena_086" ID="{A18D69A6-EF7C-43B1-8994-3B87EE1BA686}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_087" ID="{FFF23E76-3EDF-498B-B15A-C84D7458EE32}" ShortID="61579897">
 							<Comment>Освежающая содовая, прямо из холодильника!</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8481,15 +9675,30 @@
 										<MediaID ID="807097102"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_087" ID="{35C1FB35-BF21-41D4-B088-0701E915A2E0}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_087.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="187497635"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_087" ID="{35C1FB35-BF21-41D4-B088-0701E915A2E0}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_087" ID="{6DC5CCAD-67BB-47E1-8B1C-983EBE0992B1}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_088" ID="{9C6101BC-4EA9-48DE-BC58-CAEC45F52D48}" ShortID="567193335">
 							<Comment>Пиво?__</Comment>
 							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8508,8 +9717,16 @@
 										<MediaID ID="90871058"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_elena_088" ID="{F4197822-6AA2-4FDB-BD3B-35D73525D68E}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_elena_088.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="135396838"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_elena_088" ID="{F4197822-6AA2-4FDB-BD3B-35D73525D68E}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_088" ID="{6A51ED74-C09A-4322-A3B5-79CBDF022539}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>

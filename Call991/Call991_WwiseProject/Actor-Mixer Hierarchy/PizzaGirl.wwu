@@ -8,6 +8,18 @@
 			</PropertyList>
 			<ChildrenList>
 				<ActorMixer Name="pizza_girl" ID="{E26F95C0-5B7F-49B0-9378-8E046F87E1A5}" ShortID="500505017">
+					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>44</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>39</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -44,10 +56,27 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{4D223B92-5223-4C3E-A5DC-E78F92F34977}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.170045131471385"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.38242207730942"/>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>-1.8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="14683419"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="girl2" ID="{4D223B92-5223-4C3E-A5DC-E78F92F34977}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_001" ID="{C52C47A9-0B9F-471C-BDBA-DD12D7F2641A}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{7DEF2DC9-57CC-405A-8E2B-F028E1C4C8F5}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_002" ID="{286895EA-7A4C-49C4-A573-B8A26BD8B337}" ShortID="939471734">
@@ -77,9 +106,21 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{0D2C997C-4402-43BB-A9BD-42F260E5BF06}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="1.50070985329982"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.52231696231648"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="243447433"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{B843C40D-4A3A-454E-BD71-6A9C05E6C0D7}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{0D2C997C-4402-43BB-A9BD-42F260E5BF06}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_002" ID="{AC9B71BB-8206-4842-B3E3-1DCDD3E2B5BC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -110,10 +151,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{DF36EAAF-DC65-453F-855E-11C9275B7DD6}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="2.70247811202718"/>
+										<Property Name="TrimEnd" Type="Real64" Value="4.67755811984867"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1012107534"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{AD51590F-72C4-4AB2-832E-98F63683FA21}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_003" ID="{F6CAA772-6BE2-47FC-8F65-885A7B5D2884}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{DF36EAAF-DC65-453F-855E-11C9275B7DD6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_004" ID="{46BA9706-D7BF-4DBB-A7B3-AAC38F728A06}" ShortID="974169732">
@@ -143,9 +196,21 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{1DC46F93-EF87-4BE8-B3F3-1AAF6F023626}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="4.79041983458133"/>
+										<Property Name="TrimEnd" Type="Real64" Value="7.89636299400267"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="796105531"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{E2315770-96B8-4EA1-AD7D-10274A2A68E6}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{1DC46F93-EF87-4BE8-B3F3-1AAF6F023626}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_004" ID="{68B8D5B7-5A69-49C4-A18C-B193ABC25CD5}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -176,9 +241,21 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{D32AA5E9-8321-4D87-BB85-7EB27014EB3F}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="8.03555910883961"/>
+										<Property Name="TrimEnd" Type="Real64" Value="9.87523313403533"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="366339659"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{0211ADAA-CD25-415A-A21C-D033C381269B}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{D32AA5E9-8321-4D87-BB85-7EB27014EB3F}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_005" ID="{4C2708F2-58B6-462A-A981-A6E285D925CF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -209,10 +286,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{D70C852D-4A99-496A-9EE5-D6DA9C05289A}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="10.0616034594945"/>
+										<Property Name="TrimEnd" Type="Real64" Value="12.0447231417033"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="132716939"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_006" ID="{FC036B19-8D1B-4519-B01D-10873E288237}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{B9AD5C37-EDDD-4A1D-A966-165FF2C3C6AA}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{D70C852D-4A99-496A-9EE5-D6DA9C05289A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_007" ID="{029225F5-C87D-488A-AA30-55368E1D77F8}" ShortID="438113269">
@@ -242,10 +331,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{31797538-43B5-4DD6-8CCC-498A7DBABB1F}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="12.1399029586631"/>
+										<Property Name="TrimEnd" Type="Real64" Value="15.8452303612507"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="269976936"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="girl2" ID="{31797538-43B5-4DD6-8CCC-498A7DBABB1F}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_007" ID="{979ADC64-F524-488D-A267-0C232674388C}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{C0B203E4-7390-4D46-AB16-9A51B7C5A391}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_008" ID="{AA1D26C7-C984-449A-99EB-6E24D260B6DD}" ShortID="521373975">
@@ -275,10 +376,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{BAC4D4A1-4EB6-433E-828A-630F1B779C02}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="16.3969284800585"/>
+										<Property Name="TrimEnd" Type="Real64" Value="19.0912484303088"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="476957558"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{423FC909-A614-4380-946D-152F889E30AA}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_008" ID="{FE15462F-C92A-4A7C-A341-6FA40815F021}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{BAC4D4A1-4EB6-433E-828A-630F1B779C02}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_009" ID="{1E138B31-9D46-4EAB-8C29-3269168B60AA}" ShortID="1047002874">
@@ -308,10 +421,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{A1B674B9-E5C4-4FF9-8EF2-388709F3829B}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="19.3191681356565"/>
+										<Property Name="TrimEnd" Type="Real64" Value="21.8514106540269"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="366663270"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{4B06704E-C7F5-42A6-9C60-C404EE2531F9}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_009" ID="{C873B764-91DD-418D-AFE1-5C3AFEF94FA0}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{A1B674B9-E5C4-4FF9-8EF2-388709F3829B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_010" ID="{7310C929-0E7F-4FCD-9936-62162C559234}" ShortID="414576520">
@@ -341,10 +466,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{C623C2A3-1E66-4A25-8E76-44FAF334FB6A}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="22.0294317013419"/>
+										<Property Name="TrimEnd" Type="Real64" Value="25.8256893787131"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="4875840"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_010" ID="{5F63C833-AADF-44F4-9A16-7D35048D2D55}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{1E22EDB7-61C9-4738-86FA-F6F7761D9064}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{C623C2A3-1E66-4A25-8E76-44FAF334FB6A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_011" ID="{6AFA125A-2C56-4702-A30E-64244DF02EE7}" ShortID="693653774">
@@ -374,9 +511,21 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{0F436EA8-A171-46E7-A436-3CB7DCA2C9CE}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="26.0779966153168"/>
+										<Property Name="TrimEnd" Type="Real64" Value="28.7984844378266"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="102449160"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{FC7FD801-4371-4D32-99E1-2C9BE5486341}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{0F436EA8-A171-46E7-A436-3CB7DCA2C9CE}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_011" ID="{C41D5FF4-9318-496B-8107-4253669375B9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -407,10 +556,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{2980AEBB-6C55-4257-8FEE-908FBAA9E439}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="28.8930822213475"/>
+										<Property Name="TrimEnd" Type="Real64" Value="30.0499020359693"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="837715290"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_012" ID="{C46401AE-34DF-4196-B207-2D16CD977272}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{A2F18BDE-3C08-4DD8-9608-63665018DA8D}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{2980AEBB-6C55-4257-8FEE-908FBAA9E439}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_013" ID="{8E70E9F1-AC73-4358-9B5A-7F4A27CE897D}" ShortID="200225081">
@@ -440,10 +601,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{D1F415D5-7B64-4DA0-8830-074572382795}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="30.0871563557136"/>
+										<Property Name="TrimEnd" Type="Real64" Value="31.1052616702785"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="876642254"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_013" ID="{89D730B1-C75F-45A4-9285-AE691664D292}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{CD6868B2-76D5-4AC0-BDC3-A9A1A3793149}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{D1F415D5-7B64-4DA0-8830-074572382795}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_014" ID="{FCEB0893-6CC0-4BF4-B338-6D477B75A7B8}" ShortID="775640342">
@@ -473,15 +646,42 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{5F0B9BC5-4AEF-4FAD-AD7B-6E82FD780D17}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="31.2375374700685"/>
+										<Property Name="TrimEnd" Type="Real64" Value="33.7099983725627"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="243520905"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{374BC264-3DFB-48A5-9C5E-3CE1D1907771}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{5F0B9BC5-4AEF-4FAD-AD7B-6E82FD780D17}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_014" ID="{9CF094F0-06BD-418A-86DB-543C61FAB029}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_015" ID="{E30EE3C2-1260-4686-B6E4-A37056DAA97B}" ShortID="80304220">
 							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>29</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -506,10 +706,22 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{F3ECB689-F673-433E-9AA5-577A09913758}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="33.9889356596765"/>
+										<Property Name="TrimEnd" Type="Real64" Value="37.3210309546288"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="545934473"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_015" ID="{EFD9E268-FE59-4283-818A-4EEDF59FA509}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{12A0529D-0D28-4255-8090-30CE2E34B5DC}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{F3ECB689-F673-433E-9AA5-577A09913758}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_016" ID="{1320A2CD-E441-4794-A975-1D322418ECFF}" ShortID="146831626">
@@ -539,10 +751,23 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{9E783AE7-BF2D-4ED5-9BA0-E3CB95204781}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.0182042496574013"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="37.3951892429737"/>
+										<Property Name="TrimEnd" Type="Real64" Value="43.0800012697062"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="662237771"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_016" ID="{90298121-016E-4D41-A000-E768B56FE1D4}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{49A6AF28-F038-421F-A29A-34F4C2D19501}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{9E783AE7-BF2D-4ED5-9BA0-E3CB95204781}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_017" ID="{390E8A63-3535-4D0A-BA5D-A19FB47C29EB}" ShortID="765325747">
@@ -572,9 +797,23 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{42458C15-D78C-4B4E-BFB9-F8D7A98D64BA}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="43.0913708205163"/>
+										<Property Name="TrimEnd" Type="Real64" Value="45.5224203565018"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1011301567"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{86B6D11E-49A3-4D10-B725-B46B4BF4FCBF}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{42458C15-D78C-4B4E-BFB9-F8D7A98D64BA}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_017" ID="{63043C6A-0E59-4ADB-AA87-B29556C9BF98}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -605,9 +844,23 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{A9B872BF-142E-47C7-AD21-80DAA7424F23}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="46.2395786987762"/>
+										<Property Name="TrimEnd" Type="Real64" Value="49.3177202538595"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="694513416"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{AB360FAA-A108-43C2-80FC-B4DE935E2426}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{A9B872BF-142E-47C7-AD21-80DAA7424F23}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_018" ID="{A6D233DD-C1A7-4038-98D0-04371A7F3B22}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -638,10 +891,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{3D1378E3-C3E8-462F-91A5-D5E6B292F512}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="49.3133197719293"/>
+										<Property Name="TrimEnd" Type="Real64" Value="50.6884531022205"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="577627770"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_019" ID="{90943F4D-BE67-4F39-9737-D29BE38C5D86}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{A7AE9B88-CAA6-455C-9F8C-344C85094AD2}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{3D1378E3-C3E8-462F-91A5-D5E6B292F512}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_020" ID="{4587A89E-D169-40CD-9D96-298D3F8D0B13}" ShortID="9625302">
@@ -671,10 +938,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{86BD9598-C9DD-4D5B-8C17-21DD080A3332}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="50.6776001967435"/>
+										<Property Name="TrimEnd" Type="Real64" Value="53.7665566697351"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="711849860"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_020" ID="{4AE9AB91-9609-415E-92F3-8796E9ABE7C2}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{B4B864C8-369F-4E70-835D-27197D525947}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{86BD9598-C9DD-4D5B-8C17-21DD080A3332}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_021" ID="{DD2D63A3-DDAF-4B4E-BC93-12CE6F2568F1}" ShortID="45822975">
@@ -704,10 +985,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{F7E0604A-FF9C-4901-91FB-E245E4213917}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="54.0636726702498"/>
+										<Property Name="TrimEnd" Type="Real64" Value="55.4990729579318"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="53194032"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_021" ID="{75DC6323-F47A-42E1-B8F7-BE7ABCE63AD8}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{AF8403D7-B90C-47D4-835D-A9230600BA43}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{F7E0604A-FF9C-4901-91FB-E245E4213917}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_022" ID="{50B9E611-0A0A-4666-9FC0-FD64D1ACE895}" ShortID="1068434303">
@@ -737,10 +1032,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{3B3A586F-96D4-450B-A247-72A335A72954}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="55.801263248947"/>
+										<Property Name="TrimEnd" Type="Real64" Value="58.4600952573488"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="3653274"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_022" ID="{42F4C30C-FEF6-4E9B-938D-D7D17A59200A}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{087CF62D-5D08-478D-926A-096C14D1DDA2}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{3B3A586F-96D4-450B-A247-72A335A72954}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_023" ID="{73A1E11F-5456-4144-917B-56CD267B1CB0}" ShortID="292532754">
@@ -770,10 +1079,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{05850CE6-B461-4380-B92A-7986018D4D3D}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="58.4733160921704"/>
+										<Property Name="TrimEnd" Type="Real64" Value="59.8289514004669"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="172173660"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_023" ID="{DC31EC39-FDE5-488A-8C59-4AE3C3A0B836}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{1C53B884-86E9-4E10-BD85-E6EFE723DAB4}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{05850CE6-B461-4380-B92A-7986018D4D3D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_024" ID="{3C57B602-AB9B-4992-99AA-C5F971F97173}" ShortID="433011984">
@@ -803,9 +1126,23 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{5850D950-5197-47DC-9B0F-397B6AC89F98}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="59.8640753498234"/>
+										<Property Name="TrimEnd" Type="Real64" Value="61.4351182149498"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="247726644"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{06B7C127-121C-4F0F-AED3-AC68B41CEA92}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{5850D950-5197-47DC-9B0F-397B6AC89F98}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_024" ID="{52D471B0-8D28-495D-87AA-E07BDDB0A7BF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -836,10 +1173,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{2A45EBB2-828B-4214-9215-82137A275971}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="61.4249723842262"/>
+										<Property Name="TrimEnd" Type="Real64" Value="62.4473599417601"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="699723252"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_025" ID="{EA43C57E-1C89-4B91-BCC6-49AA3EE9E4BD}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{66B37B92-5BCC-4FFD-9226-98261B1EDA0B}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{2A45EBB2-828B-4214-9215-82137A275971}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_026" ID="{8C34BC7F-4EA3-47E1-BE01-412242D947DD}" ShortID="193208501">
@@ -869,9 +1220,23 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{77BD0A08-EDD6-4D18-A349-DF2DB387B7E2}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="62.5176003083082"/>
+										<Property Name="TrimEnd" Type="Real64" Value="63.2824398551656"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="785568614"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{3FD50992-5966-4900-9C28-D2430FE3DEAC}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{77BD0A08-EDD6-4D18-A349-DF2DB387B7E2}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_026" ID="{8F65FF9D-1473-4278-8F22-569B7B1248B4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -902,10 +1267,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{9BAAD1C1-923C-4503-8657-B404BCC7369D}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="63.3642100438988"/>
+										<Property Name="TrimEnd" Type="Real64" Value="65.8695730375175"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1016915968"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_girl_027" ID="{219E709C-D16A-4858-B493-C4DAD9E05AA2}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{5930E5DA-F659-4F7A-811B-105426BF5443}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{9BAAD1C1-923C-4503-8657-B404BCC7369D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_028" ID="{A4BBF25B-9609-442A-B041-E55E7DBE2F04}" ShortID="738775157">
@@ -935,10 +1314,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{FF41ED68-A469-403A-A3C2-94EA490E520A}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="66.1294343550625"/>
+										<Property Name="TrimEnd" Type="Real64" Value="67.9683085219864"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="713497746"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="girl2" ID="{FF41ED68-A469-403A-A3C2-94EA490E520A}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_028" ID="{357382E9-B015-403B-B3EB-E32B2C7B7F9B}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{AD4831EC-F867-48EE-9041-30E15D6F93FB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_029" ID="{57EAF758-C182-4EB1-A176-61F30089CB8B}" ShortID="861092911">
@@ -968,9 +1361,23 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{18152C62-F468-44C7-929F-D21E643E5CE0}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="68.0948003944021"/>
+										<Property Name="TrimEnd" Type="Real64" Value="69.6602372978295"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="300957418"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{418DD817-A20D-4B28-85BE-3852B6A84525}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{18152C62-F468-44C7-929F-D21E643E5CE0}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_029" ID="{39CA14AE-313E-4DEA-B088-9EFDC9ADE4A9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1001,10 +1408,24 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="girl2" ID="{A906C0A8-E3C7-42A8-BE11-E8E706668D27}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0268449882175332"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.169167006201121"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="69.6488107510892"/>
+										<Property Name="TrimEnd" Type="Real64" Value="70.368683195731"/>
+									</PropertyList>
+									<Language>English</Language>
+									<AudioFile>girl2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="966935917"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{8DA8BB09-3590-47D6-B22F-5D70688E177E}" Platform="Linked"/>
 								<ActiveSource Name="pizza_girl_030" ID="{E996392F-DFAE-4943-BBEC-BC0D8FB9C5AA}" Platform="Linked"/>
+								<ActiveSource Name="girl2" ID="{A906C0A8-E3C7-42A8-BE11-E8E706668D27}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_girl_031" ID="{8B861265-3625-4314-A1CA-4E1E6B9BC8E8}" ShortID="769967758">

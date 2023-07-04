@@ -110,9 +110,16 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_033a" ID="{805E861F-4183-4D75-B697-E7DFE492CF59}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.033.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="301966201"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_george_033" ID="{76E3C24F-C919-4473-BC8A-95136C046A12}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_033a" ID="{805E861F-4183-4D75-B697-E7DFE492CF59}" Platform="Linked"/>
 								<ActiveSource Name="English" ID="{87EC07B6-FE77-4075-8D3E-2C72349B0B34}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1133,10 +1140,17 @@
 										<MediaID ID="581690082"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_016a" ID="{03B3640D-B760-465D-B3C2-0FA905D3BB3A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="28034739"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_016a" ID="{03B3640D-B760-465D-B3C2-0FA905D3BB3A}" Platform="Linked"/>
 								<ActiveSource Name="English" ID="{3991307E-6A65-4577-840F-90C91C127D96}" Platform="Linked"/>
-								<ActiveSource Name="pizza_george_016" ID="{47ACB387-CFE3-4A51-AB1C-ABD2BB57ECB5}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_george_017" ID="{136F2695-4024-412F-9CD2-2AC493DC1562}" ShortID="3861451">
@@ -1797,6 +1811,72 @@
 							<ActiveSourceList>
 								<ActiveSource Name="English" ID="{AA32B77B-D20E-476C-8899-BEF116F2BDD5}" Platform="Linked"/>
 								<ActiveSource Name="pizza_george_053" ID="{AF87ADF5-567F-493D-B1BB-0A54FD985B58}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_054" ID="{BE05B622-B53D-4B3A-9894-7A429C6845BF}" ShortID="746061498">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="English" ID="{4019827E-8B26-48D8-A97B-DEA445D0D667}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_054" ID="{CB2E93F8-4F1C-4E66-AFA8-AE4846EBCFFC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.054.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="353583943"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{4019827E-8B26-48D8-A97B-DEA445D0D667}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_054" ID="{CB2E93F8-4F1C-4E66-AFA8-AE4846EBCFFC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_055" ID="{74325BD0-70E4-4FE3-BBAB-EA5C305FF0C2}" ShortID="604088094">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="English" ID="{7C1EFC6D-DC0D-49F0-AF15-E1B36E5F6194}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_055" ID="{4B2E645A-F0AD-4E0F-8B8D-F17D50A032F7}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.055.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="660466607"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_055" ID="{4B2E645A-F0AD-4E0F-8B8D-F17D50A032F7}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{7C1EFC6D-DC0D-49F0-AF15-E1B36E5F6194}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

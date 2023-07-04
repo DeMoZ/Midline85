@@ -14,6 +14,64 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="PauseVoice_Start" ID="{10BF4603-B776-40D8-8680-B095568557F2}">
+					<ChildrenList>
+						<Action Name="" ID="{4BD1906D-BB56-4E9F-92D5-228E5D0F8668}" ShortID="767460406">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" WorkUnitID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ResumeVoice_End" ID="{BD4983EF-3389-41CE-9D22-834D6E489C9A}">
+					<ChildrenList>
+						<Action Name="" ID="{491164EE-C2D0-425E-AE9E-D7BD44463E21}" ShortID="430248147">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" WorkUnitID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PauseVoice_Start_FADE" ID="{944FDD65-DBCC-40EB-9D38-F07A2BF206D9}">
+					<ChildrenList>
+						<Action Name="" ID="{679D558B-4E54-4FB1-B8BC-289E40BF82EA}" ShortID="139426128">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" WorkUnitID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ResumeVoice_End_FADE" ID="{269273C7-B98A-4F3A-B428-86F545DD2CEF}">
+					<ChildrenList>
+						<Action Name="" ID="{F92A2E5F-65FC-437F-BAF6-40D05F5B5040}" ShortID="197733151">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" WorkUnitID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

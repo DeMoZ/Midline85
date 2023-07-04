@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{0F4DC913-1349-47EC-A474-140416FA3BE9}" SchemaVersion="110">
 	<States>
-		<WorkUnit Name="Default Work Unit" ID="{0F4DC913-1349-47EC-A474-140416FA3BE9}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{0F4DC913-1349-47EC-A474-140416FA3BE9}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="DecideTime" ID="{F1DF4E96-FEB3-4300-86C5-77769687C56B}">
+					<ChildrenList>
+						<State Name="None" ID="{BAC572F6-8CE2-430D-9FC0-6A57004E9C92}"/>
+						<State Name="Decide" ID="{1A521F93-8E30-42C8-AC4B-356D0B0FD0F5}"/>
+						<State Name="Normal" ID="{9247448B-0C00-4174-A62E-F874BA5EFD2D}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
 	</States>
 </WwiseDocument>
