@@ -112,6 +112,14 @@
 							<ObjectRef Name="pizza_george_050" ID="{FA5A2B0B-EE96-4914-9788-E6A20FFAB0F7}" WorkUnitID="{F607301D-A532-44B0-9551-6140F2C6CA1D}"/>
 							<Position X="0" Y="5"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="sfx_decidetime_start" ID="{CAAC3E1F-FE76-40AC-8121-779AB59F904A}" WorkUnitID="{9C18E631-A293-4591-981B-170CBFF87971}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="sfx_decidetime_end" ID="{68F894D1-13B9-4C14-A401-5D1A5EA1DF00}" WorkUnitID="{9C18E631-A293-4591-981B-170CBFF87971}"/>
+							<Position X="2" Y="3"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
@@ -128,9 +136,13 @@
 						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="None" ID="{BAC572F6-8CE2-430D-9FC0-6A57004E9C92}"/>
 						<CurrentStateRef Name="None" ID="{6F07BEEF-C35A-4BC5-A905-58F59B626AF0}"/>
 					</CurrentStateList>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
+						<CurrentSwitchRef Name="MusicMainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>

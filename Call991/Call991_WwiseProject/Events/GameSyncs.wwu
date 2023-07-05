@@ -27,6 +27,40 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{4882BFBA-FFC4-481D-9722-3D12A3341E10}" ShortID="78426623">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clock" ID="{02145684-ADCB-4D7D-9C22-81C6EF16F2DC}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{8C09A3A1-F7A3-4C98-819E-0940801804FC}" ShortID="946298583">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clock_End" ID="{558DF7E2-7B87-48E5-B295-8B9798347C01}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{BB1CB931-E5D8-4DA7-9BAE-9F37EBDBD7B4}" ShortID="1036745575">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="FadeOutCurve" Type="int16" Value="7"/>
+								<Property Name="FadeTime" Type="Real64" Value="1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DecideTime_Loop" ID="{142BCE99-40DC-479E-AC0C-F86B05D77FBB}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 						<Action Name="" ID="{D669AB42-2864-4467-8952-258EBF9093EF}" ShortID="853563785">
 							<PropertyList>
 								<Property Name="ActionType" Type="int16" Value="22"/>
@@ -60,6 +94,40 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="SFX" ID="{6161410C-9B9B-4D8A-ABE0-21B7ED5207F1}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{19057883-6F7F-4C24-8CF4-F70576D713CF}" ShortID="769866879">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clock" ID="{02145684-ADCB-4D7D-9C22-81C6EF16F2DC}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{3866A23B-E585-48B4-A4E8-88E59367004F}" ShortID="349753812">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="FadeTime" Type="Real64" Value="0.1"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Clock_End" ID="{558DF7E2-7B87-48E5-B295-8B9798347C01}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{397918DA-E60A-4CAD-81E2-B41489E57FCC}" ShortID="698259590">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="FadeInCurve" Type="int16" Value="5"/>
+								<Property Name="FadeTime" Type="Real64" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="DecideTime_Loop" ID="{142BCE99-40DC-479E-AC0C-F86B05D77FBB}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
