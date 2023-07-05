@@ -113,9 +113,9 @@ public class SoundTestSceneEntity : MonoBehaviour
     private void PlayKey(string key)
     {
         if (_lastSoundUint.HasValue)
-            _audioManager.StopPhrase(_lastSoundUint.Value);
+            _audioManager.StopVoice(_lastSoundUint.Value);
 
-        _lastSoundUint = _audioManager.PlayPhrase(key);
+        _lastSoundUint = _audioManager.PlayVoice(key);
 
         if (_lastSoundUint == null)
             Debug.LogError($"NONE sound for phrase {key}");

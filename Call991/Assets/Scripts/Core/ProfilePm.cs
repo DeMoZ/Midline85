@@ -11,16 +11,17 @@ public class PlayerProfile : IDisposable
     private const string PlayerDataKey = "PlayerData";
 
     private const string DefaultTextLanguage = "English";
+
     //private const string DefaultAudioLanguage = "English";
     private const string DefaultAudioLanguage = "Russian";
 
     private string _textLanguage;
     private string _audioLanguage;
 
-    private float _phraseVolume;
-    private float _uiVolume;
-    private float _timerVolume;
+    private float _masterVolume;
+    private float _voiceVolume;
     private float _musicVolume;
+    private float _sfxVolume;
 
     private CompositeDisposable _disposables;
 
@@ -61,12 +62,13 @@ public class PlayerProfile : IDisposable
 
     private void LoadVolumes()
     {
-        _phraseVolume = LoadVolume(AudioSourceType.Phrases);
-        _uiVolume = LoadVolume(AudioSourceType.Effects);
-        _timerVolume = LoadVolume(AudioSourceType.Effects);
+        _masterVolume = LoadVolume(AudioSourceType.Master);
+        _voiceVolume = LoadVolume(AudioSourceType.Voice);
         _musicVolume = LoadVolume(AudioSourceType.Music);
+        _sfxVolume = LoadVolume(AudioSourceType.Sfx);
 
-        // Debug.LogError($"on load: phrase = {_phraseVolume}; ui = {_uiVolume}; timer = {_timerVolume}; mus = {_musicVolume}");
+        Debug.Log($"<color=yellow>volumes on load:</color> master = {_masterVolume}; voice = {_voiceVolume}; " +
+                  $"\nmusic = {_musicVolume}; sfx = {_sfxVolume};");
     }
 
     public void Clear()
@@ -95,33 +97,23 @@ public class PlayerProfile : IDisposable
         }
     }
 
-    public float PhraseVolume
+    public float MasterVolume
     {
-        get => _phraseVolume;
+        get => _masterVolume;
         private set
         {
-            _phraseVolume = value;
-            SaveVolume(AudioSourceType.Phrases, value);
+            _masterVolume = value;
+            SaveVolume(AudioSourceType.Master, value);
         }
     }
 
-    public float UiVolume
+    public float VoiceVolume
     {
-        get => _uiVolume;
+        get => _voiceVolume;
         private set
         {
-            _uiVolume = value;
-            SaveVolume(AudioSourceType.Effects, value);
-        }
-    }
-
-    public float TimerVolume
-    {
-        get => _timerVolume;
-        private set
-        {
-            _timerVolume = value;
-            SaveVolume(AudioSourceType.Effects, value);
+            _voiceVolume = value;
+            SaveVolume(AudioSourceType.Voice, value);
         }
     }
 
@@ -135,20 +127,34 @@ public class PlayerProfile : IDisposable
         }
     }
 
+    public float SfxVolume
+    {
+        get => _sfxVolume;
+        private set
+        {
+            _sfxVolume = value;
+            SaveVolume(AudioSourceType.Sfx, value);
+        }
+    }
+
     private void SaveVolume((AudioSourceType type, float volume) value)
     {
         switch (value.type)
         {
-            case AudioSourceType.Phrases:
-                PhraseVolume = value.volume;
+            case AudioSourceType.Master:
+                MasterVolume = value.volume;
                 break;
-            case AudioSourceType.Effects:
-                UiVolume = value.volume;
-                TimerVolume = value.volume;
+            case AudioSourceType.Voice:
+                VoiceVolume = value.volume;
                 break;
             case AudioSourceType.Music:
                 MusicVolume = value.volume;
                 break;
+            case AudioSourceType.Sfx:
+                SfxVolume = value.volume;
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 
@@ -165,13 +171,13 @@ public class PlayerProfile : IDisposable
     }
 
     private float LoadVolume(AudioSourceType sourceType) =>
-        PlayerPrefs.GetFloat(sourceType.ToString(), 1);
+        PlayerPrefs.GetFloat(sourceType.ToString(), 100);
 
 #if UNITY_EDITOR
     public void SaveLanguages(string textLanguage, string audioLanguage)
     {
-        PlayerPrefs.SetString(TextLanguageKey, textLanguage.ToString());
-        PlayerPrefs.SetString(AudioLanguageKey, audioLanguage.ToString());
+        PlayerPrefs.SetString(TextLanguageKey, textLanguage);
+        PlayerPrefs.SetString(AudioLanguageKey, audioLanguage);
     }
 #endif
     public void Dispose()

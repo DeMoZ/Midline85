@@ -305,7 +305,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.OnShowPhrase.Execute(uiPhrase);
 
-        var voiceId = _ctx.AudioManager.PlayPhrase(data.PhraseSound);
+        var voiceId = _ctx.AudioManager.PlayVoice(data.PhraseSound);
 
         if (voiceId == null)
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
@@ -313,7 +313,7 @@ public class LevelScenePm : IDisposable
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
 
-        if (voiceId != null) _ctx.AudioManager.StopPhrase(voiceId.Value);
+        if (voiceId != null) _ctx.AudioManager.StopVoice(voiceId.Value);
 
         _ctx.OnHidePhrase.Execute(uiPhrase);
     }

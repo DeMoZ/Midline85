@@ -6,7 +6,7 @@ using Configs;
 using UI;
 using UniRx;
 using UnityEngine;
-using Event = AK.Wwise.Event;
+using Wwise = AK.Wwise;
 
 public class WwiseAudio : MonoBehaviour
 {
@@ -16,8 +16,6 @@ public class WwiseAudio : MonoBehaviour
     // Hardcoded events
     private const string PauseEvent = "Pause";
     private const string ResumeEvent = "Resume";
-    private const string SfxDecideTimeStart = "sfx_decidetime_start";
-    private const string SfxDecideTimeEnd = "sfx_decidetime_end";
 
     public struct Ctx
     {
@@ -30,15 +28,28 @@ public class WwiseAudio : MonoBehaviour
 
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
     [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
-
+    [Space]
+    [SerializeField] private GameObject musicGo = default;
+    [SerializeField] private GameObject sfxGo = default;
+    [Space]
+    [SerializeField] private Wwise.RTPC MasterVolume = default;
+    [SerializeField] private Wwise.RTPC VoiceVolume = default;
+    [SerializeField] private Wwise.RTPC MusicVolume = default;
+    [SerializeField] private Wwise.RTPC SfxVolume = default;
+    [Space]
+    [SerializeField] private Wwise.Event SfxDecideTimeStart = default;
+    [SerializeField] private Wwise.Event SfxDecideTimeEnd = default;
+    [Space]
+    [SerializeField] private Wwise.Event TestMusicEvent = default;
+    
     private Ctx _ctx;
-    private GameObject _menuButtonSoundGo;
-    private GameObject _phraseGo;
-    private GameObject _sfxGo;
+    private GameObject _voiceGo;
 
     private static bool _isBankLoaded;
-    private WaitForSeconds _waitForLoad = new(0.7f);
-
+    private WaitForSeconds _waitForLoad = new(1f);
+    private float _time;
+    private AKRESULT _setLanguageResult;
+    
     private CompositeDisposable _disposables;
     private CancellationTokenSource _tokenSource;
 
@@ -48,9 +59,6 @@ public class WwiseAudio : MonoBehaviour
     {
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-
-        _menuButtonSoundGo = new GameObject("MenuButtonsSound");
-        _menuButtonSoundGo.transform.parent = transform.parent;
 
         _ctx = ctx;
 
@@ -67,14 +75,18 @@ public class WwiseAudio : MonoBehaviour
 
     public void CreateLevelVoiceObjects()
     {
-        CreatePhraseVoiceObject();
-        CreateSfxVoiceObject();
+        _voiceGo = new GameObject("VoiceGo")
+        {
+            transform =
+            {
+                parent = gameObject.transform
+            }
+        };
     }
     
     public void DestroyLevelVoiceObjects()
     {
-        Destroy(_phraseGo);
-        Destroy(_sfxGo);
+        Destroy(_voiceGo);
     }
     
     private void OnSwitchScene(GameScenes scene)
@@ -105,12 +117,9 @@ public class WwiseAudio : MonoBehaviour
     private void OnBankLoaded(uint in_bankid, IntPtr in_inmemorybankptr, AKRESULT in_eloadresult, object in_cookie)
     {
         _isBankLoaded = true;
-        Debug.LogWarning($"[{this}] <color=red>!!!</color> Current Wwise language" +
-                         $" = {AkSoundEngine.GetCurrentLanguage()} {Time.time - _time}");
+        Debug.Log($"[{this}] Current Wwise language" +
+                         $" = <color=green>{AkSoundEngine.GetCurrentLanguage()}</color> {Time.time - _time}");
     }
-
-    private float _time;
-    private AKRESULT _setLanguageResult;
 
     private IEnumerator ChangeLanguageRoutine(string language)
     {
@@ -139,87 +148,85 @@ public class WwiseAudio : MonoBehaviour
             yield return null;
         }
 
-        Debug.Log($"[{this}] Current Wwise language = {AkSoundEngine.GetCurrentLanguage()}");
+        Debug.Log($"[{this}] Current Wwise language = <color=yellow>{AkSoundEngine.GetCurrentLanguage()}</color>");
         yield return _waitForLoad;
 
         //AkBankManager.LoadBank(BankMaster, true, true);
         _time = Time.time;
         AkBankManager.LoadBankAsync(BankMaster, OnBankLoaded);
-        Debug.Log($"[{this}] 0 loaded Current Wwise language. {Time.time - _time}");
-        //yield return _waitForLoad;
-        Debug.Log($"[{this}] 1 yield Current Wwise language. {Time.time - _time}");
-        //_isBankLoaded = true;
+        yield return _waitForLoad;
+
+        PlayMusic(TestMusicEvent.ToString());
     }
 
     private void OnVolumeChanged((AudioSourceType source, float volume) value)
     {
-        /*switch (value.source)
+        switch (value.source)
         {
-            case AudioSourceType.Phrases:
-                SetPhraseVolume();
+            case AudioSourceType.Master:
+                MasterVolume.SetGlobalValue(value.volume);
                 break;
-            case AudioSourceType.Effects:
-                uiAudioSource.volume = value.volume;
-                timerAudioSource.volume = value.volume;
+            case AudioSourceType.Voice:
+                VoiceVolume.SetGlobalValue(value.volume);
                 break;
             case AudioSourceType.Music:
-                musicAudioSource.volume = value.volume;
+                MusicVolume.SetGlobalValue(value.volume);
                 break;
-        }*/
+            case AudioSourceType.Sfx:
+                //SfxVolume.SetValue(_sfxGo, value.volume);
+                SfxVolume.SetGlobalValue(value.volume);
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
     }
-
-    public void StopTimer()
-    {
-        // timerAudioSource.Stop();
-        // timerAudioSource.clip = null;
-    }
-
-
+    
     public void OnSceneSwitch()
     {
-        // _loopSounds ??= new Dictionary<string, LoopAudioSource>();
-        //
-        // foreach (var loop in _loopSounds)
-        // {
-        //     if (loop.Value != null)
-        //         loop.Value.Destroy();
-        // }
-        //
-        // _loopSounds.Clear();
-        // timerAudioSource.Stop();
-        // timerAudioSource.clip = null;
+        
     }
-
-    private void SetPhraseVolume()
-    {
-        // if (_phraseAudioSource != null)
-        //     _phraseAudioSource.volume = _ctx.playerProfile.PhraseVolume;
-    }
-
-    public uint? PlayPhrase(string sound)
+    
+    public uint? PlayVoice(string sound)
     {
         if (!_isBankLoaded) return null;
-        if (PlaySound(sound, _phraseGo, out var soundId)) return soundId;
+        if (PlaySound(sound, _voiceGo, out var soundId)) return soundId;
         return null;
+    }
+    
+    public void StopVoice(uint voiceId) => 
+        AkSoundEngine.StopPlayingID(voiceId);
+
+    public void PlayMusic(string music)
+    {
+        //var isNoKey = string.Equals(music, AaGraphConstants.None) || string.IsNullOrEmpty(music);
+
+        // if (!isNoKey)
+        // {
+        // var musicId = AkSoundEngine.PostEvent(music, musicGo);
+        // return true;
+        // }
+        
+        AkSoundEngine.PostEvent(music, musicGo);
+        //wwiseEvent.Post(sfxGo);
     }
     
     public uint? PlaySfx(string sound)
     {
         if (!_isBankLoaded) return null;
-        if (PlaySound(sound, _sfxGo, out var soundId)) return soundId;
+        if (PlaySound(sound, sfxGo, out var soundId)) return soundId;
         return null;
     }
     
     public void PlayTimerSfx()
     {
         if (!_isBankLoaded) return;
-        PlaySound(SfxDecideTimeStart, _sfxGo, out var soundId);
+        PlaySound(SfxDecideTimeStart.ToString(), sfxGo, out var soundId);
     }
     
     public void StopTimerSfx()
     {
         if (!_isBankLoaded) return;
-        PlaySound(SfxDecideTimeEnd, _sfxGo, out var soundId);
+        PlaySound(SfxDecideTimeEnd.ToString(), sfxGo, out var soundId);
     }
 
     private bool PlaySound(string sound, GameObject soundGo, out uint soundId)
@@ -236,40 +243,25 @@ public class WwiseAudio : MonoBehaviour
         return false;
     }
 
-    public void StopPhrase(uint voiceId) => 
-        AkSoundEngine.StopPlayingID(voiceId);
-
     public void PausePhrasesAndSfx()
     {
-        AkSoundEngine.PostEvent(PauseEvent, _phraseGo);
-        AkSoundEngine.PostEvent(PauseEvent, _sfxGo); // ?
+        AkSoundEngine.PostEvent(PauseEvent, _voiceGo);
+        AkSoundEngine.PostEvent(PauseEvent, sfxGo); // ?
     }
 
     public void ResumePhrasesAndSfx()
     {
-        AkSoundEngine.PostEvent(ResumeEvent, _phraseGo);
-        AkSoundEngine.PostEvent(ResumeEvent, _sfxGo); // ?
+        AkSoundEngine.PostEvent(ResumeEvent, _voiceGo);
+        AkSoundEngine.PostEvent(ResumeEvent, sfxGo); // ?
     }
 
-    private void CreatePhraseVoiceObject()
-    {
-        _phraseGo = new GameObject("PhraseVoiceGO");
-        _phraseGo.transform.parent = gameObject.transform;
-    }
-    
-    private void CreateSfxVoiceObject()
-    {
-        _sfxGo = new GameObject("SfxVoiceGO");
-        _sfxGo.transform.parent = gameObject.transform;
-    }
-
-    private void PlayButtonSound(Event wwiseEvent)
+    private void PlayButtonSound(Wwise.Event wwiseEvent)
     {
         if (_setLanguageResult == AKRESULT.AK_Busy) 
             Debug.LogWarning($"[{this}] Very busy");
 
         if(IsReady)
-            wwiseEvent.Post(_menuButtonSoundGo);
+            wwiseEvent.Post(sfxGo);
     }
     
     #region Rabish
