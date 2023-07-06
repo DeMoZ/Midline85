@@ -7,12 +7,13 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class RootEntity : IDisposable
 {
     public struct Ctx
     {
-        public WwiseAudio AudioManager;
+        public WwiseAudio AudioManagerPrefab;
         public VideoManager VideoManager;
         public OverridenDialogue OverridenDialogue;
         public Image VideoFade;
@@ -67,14 +68,14 @@ public class RootEntity : IDisposable
             IsPauseAllowed = isPauseAllowed,
         }).AddTo(_disposables);
 
-        _ctx.AudioManager.SetCtx(new WwiseAudio.Ctx
+        var audioManager = Object.Instantiate(_ctx.AudioManagerPrefab);
+        audioManager.SetCtx(new WwiseAudio.Ctx
         {
             LevelLanguages = levelLanguages,
             GameSet = gameSet,
             Profile = profile,
             OnSwitchScene = onSwitchScene,
         });
-        // TODO Wwise_ctx.AudioManager.PlayMusic("Intro").Forget();
 
         _ctx.VideoManager.SetCtx(new VideoManager.Ctx
         {
@@ -89,7 +90,7 @@ public class RootEntity : IDisposable
             OnStartApplicationSwitchScene = _onStartApplicationSwitchScene,
             OnSwitchScene = onSwitchScene,
             Profile = profile,
-            AudioManager = _ctx.AudioManager,
+            AudioManager = audioManager,
             VideoManager = _ctx.VideoManager,
             Blocker = blocker,
             ObjectEvents = objectEvents,

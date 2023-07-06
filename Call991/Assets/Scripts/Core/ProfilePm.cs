@@ -68,7 +68,7 @@ public class PlayerProfile : IDisposable
         _sfxVolume = LoadVolume(AudioSourceType.Sfx);
 
         Debug.Log($"<color=yellow>volumes on load:</color> master = {_masterVolume}; voice = {_voiceVolume}; " +
-                  $"\nmusic = {_musicVolume}; sfx = {_sfxVolume};");
+                  $"music = {_musicVolume}; sfx = {_sfxVolume};");
     }
 
     public void Clear()

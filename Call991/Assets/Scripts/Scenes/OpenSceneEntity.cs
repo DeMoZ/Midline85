@@ -11,6 +11,7 @@ public class OpenSceneEntity : IGameScene
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public Blocker Blocker;
         public CursorSet CursorSettings;
+        public WwiseAudio AudioManager;
     }
 
     private readonly Ctx _ctx;
@@ -41,10 +42,11 @@ public class OpenSceneEntity : IGameScene
         
         _ui.SetCtx(new UiOpening.Ctx
         {
-            gameSet = _ctx.GameSet,
-            onClickStartGame = onClickStartGame,
-            blocker = _ctx.Blocker,
-            cursorSettings = _ctx.CursorSettings,
+            GameSet = _ctx.GameSet,
+            OnClickStartGame = onClickStartGame,
+            Blocker = _ctx.Blocker,
+            CursorSettings = _ctx.CursorSettings,
+            AudioManager = _ctx.AudioManager,
         });
     }
 

@@ -18,7 +18,9 @@ namespace UI
         [SerializeField] private UiMenu menu = default;
         [SerializeField] private UiMenuSettings menuSettings = default;
         [SerializeField] private UiMenuCredits menuCredits = default;
-
+        
+        [Space] [SerializeField] private AK.Wwise.Switch sceneMusic = default;
+        
         private Ctx _ctx;
         private CompositeDisposable _disposables;
 
@@ -61,8 +63,9 @@ namespace UI
 
             EnableMenu(menu.GetType());
             await Task.Yield();
+            _ctx.AudioManager.PlayMusic(sceneMusic);
         }
-
+        
         private void OnClickSettings() =>
             EnableMenu(menuSettings.GetType());
 

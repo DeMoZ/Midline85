@@ -61,11 +61,9 @@ public class GameEntity : MonoBehaviour
             ? testDialogue.GetDialogue() 
             : new OverridenDialogue(false,false,false,null);
 
-        var audioManager = Instantiate(wwisePrefab, transform);
-        
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
-            AudioManager = audioManager,
+            AudioManagerPrefab = wwisePrefab,
             VideoManager = videoManager,
             VideoFade = videoFade,
             ScreenFade = screenFade,

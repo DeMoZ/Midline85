@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Threading.Tasks;
 using Configs;
 using UI;
 using UniRx;
@@ -10,13 +11,6 @@ using Wwise = AK.Wwise;
 
 public class WwiseAudio : MonoBehaviour
 {
-    private const string DefaultAudioLanguage = "Russian";
-    private const string BankMaster = "Master";
-    
-    // Hardcoded events
-    private const string PauseEvent = "Pause";
-    private const string ResumeEvent = "Resume";
-
     public struct Ctx
     {
         public ReactiveProperty<List<string>> LevelLanguages;
@@ -25,7 +19,15 @@ public class WwiseAudio : MonoBehaviour
         public GameSet GameSet;
         public ReactiveCommand<GameScenes> OnSwitchScene;
     }
+    private const string DefaultAudioLanguage = "Russian";
+    private const string BankMaster = "Master";
+    
+    // Hardcoded events
+    private const string PauseEvent = "Pause";
+    private const string ResumeEvent = "Resume";
 
+    private const float WaitSeconds = 1f;
+    
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
     [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
     [Space]
@@ -40,13 +42,12 @@ public class WwiseAudio : MonoBehaviour
     [Space]
     [SerializeField] private Wwise.Event SfxDecideTimeStart = default;
     [SerializeField] private Wwise.Event SfxDecideTimeEnd = default;
-    
-    //[SerializeField] private Wwise.Event TestMusicEvent = default;
-    
+    [SerializeField] private Wwise.Event MusicEvent = default;
+
     private Ctx _ctx;
 
     private static bool _isBankLoaded;
-    private WaitForSeconds _waitForLoad = new(1f);
+    private WaitForSeconds _waitForLoad;
     private float _time;
     private AKRESULT _setLanguageResult;
     
@@ -59,7 +60,7 @@ public class WwiseAudio : MonoBehaviour
     {
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-
+        _waitForLoad = new WaitForSeconds(WaitSeconds);
         _ctx = ctx;
 
         menuButtonAudioSettings.OnHover += PlayButtonSound;
@@ -71,8 +72,25 @@ public class WwiseAudio : MonoBehaviour
         _ctx.Profile.AudioLanguageChanged.Subscribe(OnAudioLanguageChanged).AddTo(_disposables);
         _ctx.Profile.OnVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
         _ctx.OnSwitchScene.Subscribe(OnSwitchScene).AddTo(_disposables);
+
+        Initialize();
     }
 
+    private async void Initialize()
+    {
+        await Task.Delay((int)(WaitSeconds * 1000));
+        if (_tokenSource.IsCancellationRequested) return;
+        
+        AkBankManager.LoadBankAsync(BankMaster);
+        await Task.Delay((int)(WaitSeconds * 1000));
+        if (_tokenSource.IsCancellationRequested) return;
+        
+        MusicEvent.Post(musicGo);
+        _isBankLoaded = true;
+        
+        // PlayMusic(MusicEventSwitch); // Test
+    }
+    
     private void OnSwitchScene(GameScenes scene)
     {
         Debug.LogWarning($"{this} received OnSwitchScene <color=green>{scene}</color>");
@@ -108,9 +126,10 @@ public class WwiseAudio : MonoBehaviour
     private IEnumerator ChangeLanguageRoutine(string language)
     {
         _isBankLoaded = false;
-        AkSoundEngine.StopAll();
-        AkBankManager.UnloadBank(BankMaster);
+        //AkSoundEngine.StopAll();
+        //AkBankManager.UnloadBank(BankMaster);
         //AkBankManager.DoUnloadBanks(); - this doesnt work =(
+        
         yield return _waitForLoad;
 
         var audioLanguage = language switch
@@ -137,10 +156,8 @@ public class WwiseAudio : MonoBehaviour
 
         //AkBankManager.LoadBank(BankMaster, true, true);
         _time = Time.time;
-        AkBankManager.LoadBankAsync(BankMaster, OnBankLoaded);
-        yield return _waitForLoad;
-
-        //PlayMusic(TestMusicEvent.ToString());
+        //AkBankManager.LoadBankAsync(BankMaster, OnBankLoaded); // TODO load level bank
+        _isBankLoaded = true; // TODO Remove!!!
     }
 
     private void OnVolumeChanged((AudioSourceType source, float volume) value)
@@ -180,18 +197,9 @@ public class WwiseAudio : MonoBehaviour
     public void StopVoice(uint voiceId) => 
         AkSoundEngine.StopPlayingID(voiceId);
 
-    public void PlayMusic(string music)
+    public void PlayMusic(Wwise.Switch wSwitch)
     {
-        //var isNoKey = string.Equals(music, AaGraphConstants.None) || string.IsNullOrEmpty(music);
-
-        // if (!isNoKey)
-        // {
-        // var musicId = AkSoundEngine.PostEvent(music, musicGo);
-        // return true;
-        // }
-        
-        AkSoundEngine.PostEvent(music, musicGo);
-        //wwiseEvent.Post(sfxGo);
+       wSwitch.SetValue(musicGo);
     }
     
     public uint? PlaySfx(string sound)

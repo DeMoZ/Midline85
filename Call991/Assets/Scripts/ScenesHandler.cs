@@ -108,6 +108,7 @@ public class ScenesHandler : IDisposable
             OnSwitchScene = _ctx.OnSwitchScene,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
+            AudioManager = _ctx.AudioManager,
         }).AddTo(_disposables);
 
         return sceneEntity;
