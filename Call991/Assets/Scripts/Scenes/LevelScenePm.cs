@@ -71,9 +71,7 @@ public class LevelScenePm : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-
-        _ctx.AudioManager.CreateLevelVoiceObjects();
-
+        
         _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
 
@@ -547,8 +545,6 @@ private Choice RandomSelectButton(List<Choice> choices)
 
     public void Dispose()
     {
-        _ctx.AudioManager.DestroyLevelVoiceObjects();
-
         _tokenSource.Cancel();
         _disposables.Dispose();
     }

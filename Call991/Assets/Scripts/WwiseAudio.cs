@@ -29,6 +29,7 @@ public class WwiseAudio : MonoBehaviour
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
     [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
     [Space]
+    [SerializeField] private GameObject voiceGo = default;
     [SerializeField] private GameObject musicGo = default;
     [SerializeField] private GameObject sfxGo = default;
     [Space]
@@ -43,7 +44,6 @@ public class WwiseAudio : MonoBehaviour
     [SerializeField] private Wwise.Event TestMusicEvent = default;
     
     private Ctx _ctx;
-    private GameObject _voiceGo;
 
     private static bool _isBankLoaded;
     private WaitForSeconds _waitForLoad = new(1f);
@@ -73,22 +73,6 @@ public class WwiseAudio : MonoBehaviour
         _ctx.OnSwitchScene.Subscribe(OnSwitchScene).AddTo(_disposables);
     }
 
-    public void CreateLevelVoiceObjects()
-    {
-        _voiceGo = new GameObject("VoiceGo")
-        {
-            transform =
-            {
-                parent = gameObject.transform
-            }
-        };
-    }
-    
-    public void DestroyLevelVoiceObjects()
-    {
-        Destroy(_voiceGo);
-    }
-    
     private void OnSwitchScene(GameScenes scene)
     {
         Debug.LogWarning($"{this} received OnSwitchScene <color=green>{scene}</color>");
@@ -189,7 +173,7 @@ public class WwiseAudio : MonoBehaviour
     public uint? PlayVoice(string sound)
     {
         if (!_isBankLoaded) return null;
-        if (PlaySound(sound, _voiceGo, out var soundId)) return soundId;
+        if (PlaySound(sound, voiceGo, out var soundId)) return soundId;
         return null;
     }
     
@@ -245,13 +229,13 @@ public class WwiseAudio : MonoBehaviour
 
     public void PausePhrasesAndSfx()
     {
-        AkSoundEngine.PostEvent(PauseEvent, _voiceGo);
+        AkSoundEngine.PostEvent(PauseEvent, voiceGo);
         AkSoundEngine.PostEvent(PauseEvent, sfxGo); // ?
     }
 
     public void ResumePhrasesAndSfx()
     {
-        AkSoundEngine.PostEvent(ResumeEvent, _voiceGo);
+        AkSoundEngine.PostEvent(ResumeEvent, voiceGo);
         AkSoundEngine.PostEvent(ResumeEvent, sfxGo); // ?
     }
 
