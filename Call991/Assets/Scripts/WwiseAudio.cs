@@ -40,8 +40,8 @@ public class WwiseAudio : MonoBehaviour
     [Space]
     [SerializeField] private Wwise.Event SfxDecideTimeStart = default;
     [SerializeField] private Wwise.Event SfxDecideTimeEnd = default;
-    [Space]
-    [SerializeField] private Wwise.Event TestMusicEvent = default;
+    
+    //[SerializeField] private Wwise.Event TestMusicEvent = default;
     
     private Ctx _ctx;
 
@@ -140,7 +140,7 @@ public class WwiseAudio : MonoBehaviour
         AkBankManager.LoadBankAsync(BankMaster, OnBankLoaded);
         yield return _waitForLoad;
 
-        PlayMusic(TestMusicEvent.ToString());
+        //PlayMusic(TestMusicEvent.ToString());
     }
 
     private void OnVolumeChanged((AudioSourceType source, float volume) value)
@@ -151,14 +151,14 @@ public class WwiseAudio : MonoBehaviour
                 MasterVolume.SetGlobalValue(value.volume);
                 break;
             case AudioSourceType.Voice:
-                VoiceVolume.SetGlobalValue(value.volume);
+                VoiceVolume.SetValue(voiceGo, value.volume);
+                //VoiceVolume.SetGlobalValue(value.volume); // also works
                 break;
             case AudioSourceType.Music:
-                MusicVolume.SetGlobalValue(value.volume);
+                MusicVolume.SetValue(musicGo, value.volume);
                 break;
             case AudioSourceType.Sfx:
-                //SfxVolume.SetValue(_sfxGo, value.volume);
-                SfxVolume.SetGlobalValue(value.volume);
+                SfxVolume.SetValue(sfxGo, value.volume);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
