@@ -44,6 +44,7 @@ namespace Configs
 
         [Space] [Title("DialogueGraph settings")]
         public WwiseMusicSwitchesList MusicSwitchesKeys;
+        public WwiseRtpcList RtpcKeys;
         public LevelKeysList LevelKeys;
         public PersonKeysList PersonsKeys;
         public PopupKeysList CountKeys;

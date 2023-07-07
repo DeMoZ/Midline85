@@ -10,10 +10,13 @@ namespace AaDialogueGraph.Editor
     public class DialogueGraphView : GraphView
     {
         private readonly List<string> _musics;
+        private readonly List<string> _rtcps;
 
-        public DialogueGraphView(AaReactive<LanguageOperation> languageOperation, List<string> musics)
+        public DialogueGraphView(AaReactive<LanguageOperation> languageOperation, 
+            List<string> musics, List<string> rtpcs)
         {
             _musics = musics;
+            _rtcps = rtpcs;
             var backgroundStyle = (StyleSheet)EditorGUIUtility.Load("AaDialogueGraph/Styles/GraphViewStyle.uss");
             if (backgroundStyle)
                 styleSheets.Add(backgroundStyle);
@@ -60,7 +63,7 @@ namespace AaDialogueGraph.Editor
             var languages = GetLanguages();
             var soundAsset = GetSoundAsset();
             var node = new PhraseNode();
-            node.Set(new PhraseNodeData(), languages, soundAsset, _musics, Guid.NewGuid().ToString());
+            node.Set(new PhraseNodeData(), languages, soundAsset, _musics, _rtcps, Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);
@@ -95,7 +98,7 @@ namespace AaDialogueGraph.Editor
         {
             var sounds = GetSoundAsset();
             var node = new EventNode();
-            node.Set(new EventNodeData(), Guid.NewGuid().ToString(), sounds, _musics);
+            node.Set(new EventNodeData(), Guid.NewGuid().ToString(), sounds, _musics, _rtcps);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
@@ -104,7 +107,7 @@ namespace AaDialogueGraph.Editor
         {
             var sounds = GetSoundAsset();
             var node = new EndNode();
-            node.Set(new EndNodeData(), Guid.NewGuid().ToString(), sounds, _musics);
+            node.Set(new EndNodeData(), Guid.NewGuid().ToString(), sounds, _musics, _rtcps);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
@@ -114,7 +117,7 @@ namespace AaDialogueGraph.Editor
             var languages = GetLanguages();
             var sounds = GetSoundAsset();
             var node = new NewspaperNode();
-            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString(), sounds, _musics);
+            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString(), sounds, _musics, _rtcps);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);

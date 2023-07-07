@@ -190,11 +190,12 @@ MonoBehaviour:
       HideOnEnd: 1
     EventVisualData:
     - Type: 2
-      PhraseEvent: 
+      PhraseEvent: NONE
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 1
+      Value: 0
     PhraseSound: NONE
     Phrases:
     - 
@@ -322,11 +323,12 @@ MonoBehaviour:
       HideOnEnd: 1
     EventVisualData:
     - Type: 2
-      PhraseEvent: 
+      PhraseEvent: NONE
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 1
+      Value: 0
     PhraseSound: NONE
     Phrases:
     - 
@@ -2506,8 +2508,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 586
       y: 40
-      width: 295
-      height: 481
+      width: 347
+      height: 532
     PhraseSketchText: "\u0435 001 911"
     PersonVisualData:
       Person: ELENA
@@ -2518,23 +2520,33 @@ MonoBehaviour:
       HideOnEnd: 1
     EventVisualData:
     - Type: 0
-      PhraseEvent: MusicLevels / MusicTitles
+      PhraseEvent: MusicLevels / MusicPizza
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
+    - Type: 1
+      PhraseEvent: BossRTPC
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 1
+      Value: 31
     - Type: 2
+      PhraseEvent: NONE
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
       PhraseEvent: 
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
-    - Type: 3
-      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
+      Value: 0
     PhraseSound: elena_1
     Phrases:
     - Phrases/Lvl_7/Ru/p.elena.001.asset
@@ -3268,6 +3280,7 @@ MonoBehaviour:
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
     Records:
     - Sprite: RecordIcons/iconKids.png
       Key: achive_killKids
@@ -3288,6 +3301,7 @@ MonoBehaviour:
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
     Records:
     - Sprite: RecordIcons/iconKids.png
       Key: achive_killKids
@@ -3308,12 +3322,14 @@ MonoBehaviour:
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
     - Type: 2
-      PhraseEvent: 
+      PhraseEvent: NONE
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
   - Guid: 7c98582c-14a2-4f5c-8cba-32fb86f2be0b
     Rect:
       serializedVersion: 2
@@ -3328,18 +3344,21 @@ MonoBehaviour:
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
     - Type: 1
       PhraseEvent: NONE
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
     - Type: 2
-      PhraseEvent: 
+      PhraseEvent: NONE
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
   NewspaperNodeData:
   - Guid: 7bce324e-534a-4666-8460-f807c756fb73
     Rect:
@@ -3355,6 +3374,7 @@ MonoBehaviour:
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
     Sprites:
     - Phrases/Lvl_7/En/newspaper.png
     - 

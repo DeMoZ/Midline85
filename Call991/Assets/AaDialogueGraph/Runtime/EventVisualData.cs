@@ -16,6 +16,7 @@ namespace AaDialogueGraph
         public bool Stop;
 
         public float Delay;
+        public float Value;
 
         public T GetEventObject<T>() where T : UnityEngine.Object
         {

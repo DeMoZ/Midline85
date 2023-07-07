@@ -286,7 +286,8 @@ namespace AaDialogueGraph.Editor
     {
         private Action _onChange;
 
-        public void Set(List<EventVisualData> data, Action onChange, List<string> sounds, List<string> musics)
+        public void Set(List<EventVisualData> data, Action onChange, List<string> sounds, List<string> musics,
+            List<string> rtpcs)
         {
             _onChange = onChange;
             var headerContent = new VisualElement();
@@ -306,8 +307,20 @@ namespace AaDialogueGraph.Editor
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
-            addMusicEventAssetButton.text = "Music";
+            addMusicEventAssetButton.text = PhraseEventType.Music.ToString();
             headerContent.Add(addMusicEventAssetButton);
+            
+            var addRtpcEventAssetButton = new Button(() =>
+            {
+                // add RTPC
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.RTPC, };
+                var eventVisual = new RtpcEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, rtpcs);
+                contentContainer.Add(eventVisual);
+                _onChange?.Invoke();
+            });
+            addRtpcEventAssetButton.text = PhraseEventType.RTPC.ToString();
+            headerContent.Add(addRtpcEventAssetButton);
             
             var addSoundEventAssetButton = new Button(() =>
             {
@@ -355,6 +368,12 @@ namespace AaDialogueGraph.Editor
                         var musicEventVisual = new MusicEventVisual();
                         musicEventVisual.Set(item, OnDeleteEvent, _onChange, musics);
                         contentContainer.Add(musicEventVisual);
+                        break;
+                    
+                    case PhraseEventType.RTPC:
+                        var rtpcventVisual = new RtpcEventVisual();
+                        rtpcventVisual.Set(item, OnDeleteEvent, _onChange, rtpcs);
+                        contentContainer.Add(rtpcventVisual);
                         break;
                     case PhraseEventType.AudioClip:
                         var soundEventVisual = new SoundEventVisual();

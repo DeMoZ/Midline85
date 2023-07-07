@@ -13,6 +13,7 @@ namespace AaDialogueGraph.Editor
     public partial class GraphSaveUtility
     {
         private List<string> _musics;
+        private List<string> _rtpcs;
 
         public bool LoadGraph(ref string path)
         {
@@ -42,6 +43,7 @@ namespace AaDialogueGraph.Editor
             
             var gameSet = Resources.Load<GameSet>("GameSet");
             _musics = gameSet.MusicSwitchesKeys.GetKeys();
+            _rtpcs = gameSet.RtpcKeys.GetKeys();
                 
             ClearGraph();
             CreateEntryNode();
@@ -97,7 +99,7 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.PhraseNodeData)
             {
                 var node = new PhraseNode();
-                node.Set(data, languages,  sounds, _musics, data.Guid);
+                node.Set(data, languages,  sounds, _musics, _rtpcs, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -141,7 +143,7 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.EndNodeData)
             {
                 var node = new EndNode();
-                node.Set(data, data.Guid, sounds, _musics);
+                node.Set(data, data.Guid, sounds, _musics, _rtpcs);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -153,7 +155,7 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.EventNodeData)
             {
                 var node = new EventNode();
-                node.Set(data, data.Guid, sounds, _musics);
+                node.Set(data, data.Guid, sounds, _musics, _rtpcs);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -166,7 +168,7 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.NewspaperNodeData)
             {
                 var node = new NewspaperNode();
-                node.Set(data, languages, data.Guid, sounds, _musics);
+                node.Set(data, languages, data.Guid, sounds, _musics, _rtpcs);
                 _targetGraphView.AddElement(node);
             }
         }

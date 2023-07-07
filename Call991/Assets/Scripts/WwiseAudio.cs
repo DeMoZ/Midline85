@@ -44,6 +44,9 @@ public class WwiseAudio : MonoBehaviour
     [SerializeField] private Wwise.Event SfxDecideTimeEnd = default;
     [SerializeField] private Wwise.Event MusicEvent = default;
 
+
+    [SerializeField] private Wwise.RTPC testrtpc;
+    
     private Ctx _ctx;
 
     private static bool _isBankLoaded;
@@ -172,7 +175,9 @@ public class WwiseAudio : MonoBehaviour
                 //VoiceVolume.SetGlobalValue(value.volume); // also works
                 break;
             case AudioSourceType.Music:
-                MusicVolume.SetValue(musicGo, value.volume);
+                //MusicVolume.SetValue(musicGo, value.volume);
+                Debug.LogWarning($"music {MusicVolume}, value {value.volume}");
+                MusicVolume.SetGlobalValue(value.volume);
                 break;
             case AudioSourceType.Sfx:
                 SfxVolume.SetValue(sfxGo, value.volume);
