@@ -18,6 +18,70 @@ namespace AaDialogueGraph.Editor
         }
     }
 
+    public class MusicEventVisual : VisualEvent
+    {
+        public void Set(EventVisualData data, Action<VisualEvent> onDelete, Action onChange, List<string> musics)
+        {
+            if (data.Type != PhraseEventType.Music) return;
+
+            Type = data.Type;
+            
+            contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
+            {
+                text = "X",
+            });
+
+            var containerColumn = new VisualElement();
+            contentContainer.Add(containerColumn);
+
+            var containerRow1 = new VisualElement();
+            containerRow1.style.flexDirection = FlexDirection.Row;
+            containerColumn.Add(containerRow1);
+
+            musics = musics == null || musics.Count < 1 ? new List<string> { AaGraphConstants.None } : musics;
+            var sound = !string.IsNullOrEmpty(data.PhraseEvent)
+                ? data.PhraseEvent
+                : AaGraphConstants.None;
+
+            var soundPopup = new SoundPopupField(musics, sound)
+            {
+                name = AaGraphConstants.EventMusicPopupField
+            };
+            containerRow1.Add(soundPopup);
+
+            var containerRow2 = new VisualElement();
+            containerRow2.style.flexDirection = FlexDirection.Row;
+            containerColumn.Add(containerRow2);
+
+            var delayContainer = new VisualElement();
+            delayContainer.AddToClassList("aa-Toggle_content-container");
+            delayContainer.style.flexDirection = FlexDirection.Row;
+            containerRow2.Add(delayContainer);
+            var delayLabel = new Label { text = "Delay" };
+            delayLabel.tooltip = "Time in seconds before the event happen";
+            delayContainer.Add(delayLabel);
+
+            var delay = new FloatField
+            {
+                value = data?.Delay ?? 0,
+            };
+            delayContainer.Add(delay);
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+            contentContainer.AddToClassList("aa-EventVisual_content-container");
+        }
+
+        public override EventVisualData GetData()
+        {
+            return new EventVisualData
+            {
+                PhraseEvent = contentContainer.Q<SoundPopupField>().Value,
+                Type = PhraseEventType.Music,
+                Delay = contentContainer.Q<FloatField>().value,
+            };
+        }
+    }
+    
     public class SoundEventVisual : VisualEvent
     {
         public void Set(EventVisualData data, Action<VisualEvent> onDelete, Action onChange, List<string> sounds)

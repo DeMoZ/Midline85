@@ -18,9 +18,11 @@ namespace AaDialogueGraph.Editor
 
         public virtual List<VisualEvent> GetEventsVisual()
         {
+            var musics = contentContainer.Query<MusicEventVisual>().ToList();
             var sounds = contentContainer.Query<SoundEventVisual>().ToList();
             var objects = contentContainer.Query<ObjectEventVisual>().ToList();
             var events = new List<VisualEvent>();
+            events.AddRange(musics);
             events.AddRange(sounds);
             events.AddRange(objects);
 

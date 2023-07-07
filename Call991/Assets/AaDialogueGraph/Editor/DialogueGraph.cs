@@ -1,3 +1,4 @@
+using Configs;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -29,8 +30,9 @@ namespace AaDialogueGraph.Editor
         private void ConstructGraph()
         {
             _languageOperation = new();
-
-            _graphView = new DialogueGraphView(_languageOperation)
+            var gameSet = Resources.Load<GameSet>("GameSet");
+            var musics = gameSet.MusicSwitchesKeys.GetKeys();
+            _graphView = new DialogueGraphView(_languageOperation, musics)
             {
                 name = AaGraphConstants.DialogueGraph,
             };

@@ -38,10 +38,7 @@ namespace Configs
         [Space] public float levelWarningTotalDelay = 4f;
         public float levelWarningLineDelay = 1f;
         public float levelWarningLineFadeTime = 0.5f;
-
-        [Space][Title("InteractiveVideoRef")]
-        public string interactiveVideoRef;
-
+        
         [Space][Title("ScriptableObject with all the levels")]
         public GameLevelsSo GameLevels;
 

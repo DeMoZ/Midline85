@@ -5,7 +5,7 @@ namespace AaDialogueGraph.Editor
 {
     public class EventNode : AaNode
     {
-        public void Set(EventNodeData data, string guid, List<string> sounds)
+        public void Set(EventNodeData data, string guid, List<string> sounds, List<string> musics)
         {
             Guid = guid;
             title = AaGraphConstants.EventNode;
@@ -18,7 +18,7 @@ namespace AaDialogueGraph.Editor
             contentFolder.AddToClassList("aa-EventAsset_content-container");
 
             var phraseEvents = new AaNodeEvents();
-            phraseEvents.Set(data.EventVisualData, CheckNodeContent, sounds);
+            phraseEvents.Set(data.EventVisualData, CheckNodeContent, sounds, musics);
             contentFolder.Add(phraseEvents);
             
             CreateInPort();

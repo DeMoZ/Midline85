@@ -286,7 +286,7 @@ namespace AaDialogueGraph.Editor
     {
         private Action _onChange;
 
-        public void Set(List<EventVisualData> data, Action onChange, List<string> sounds/* = null*/)
+        public void Set(List<EventVisualData> data, Action onChange, List<string> sounds, List<string> musics)
         {
             _onChange = onChange;
             var headerContent = new VisualElement();
@@ -297,6 +297,18 @@ namespace AaDialogueGraph.Editor
             //label.AddToClassList("aa-BlackText");
             headerContent.Add(label);
 
+            var addMusicEventAssetButton = new Button(() =>
+            {
+                // add music
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.Music, };
+                var eventVisual = new MusicEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, musics);
+                contentContainer.Add(eventVisual);
+                _onChange?.Invoke();
+            });
+            addMusicEventAssetButton.text = "Music";
+            headerContent.Add(addMusicEventAssetButton);
+            
             var addSoundEventAssetButton = new Button(() =>
             {
                 // add sound
@@ -337,17 +349,26 @@ namespace AaDialogueGraph.Editor
 
             data?.ForEach(item =>
             {
-                if(item.Type == PhraseEventType.AudioClip)
+                switch (item.Type)
                 {
-                    var soundEventVisual = new SoundEventVisual();
-                    soundEventVisual.Set(item, OnDeleteEvent, _onChange, sounds);
-                    contentContainer.Add(soundEventVisual);
-                }
-                else
-                {
-                    var objectEventVisual = new ObjectEventVisual();
-                    objectEventVisual.Set(item, OnDeleteEvent, _onChange);
-                    contentContainer.Add(objectEventVisual);
+                    case PhraseEventType.Music:
+                        var musicEventVisual = new MusicEventVisual();
+                        musicEventVisual.Set(item, OnDeleteEvent, _onChange, musics);
+                        contentContainer.Add(musicEventVisual);
+                        break;
+                    case PhraseEventType.AudioClip:
+                        var soundEventVisual = new SoundEventVisual();
+                        soundEventVisual.Set(item, OnDeleteEvent, _onChange, sounds);
+                        contentContainer.Add(soundEventVisual);
+                        break;
+                    case PhraseEventType.VideoClip:
+                    case PhraseEventType.GameObject:
+                        var objectEventVisual = new ObjectEventVisual();
+                        objectEventVisual.Set(item, OnDeleteEvent, _onChange);
+                        contentContainer.Add(objectEventVisual);
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
             });
         }

@@ -12,6 +12,8 @@ namespace AaDialogueGraph.Editor
 {
     public partial class GraphSaveUtility
     {
+        private List<string> _musics;
+
         public bool LoadGraph(ref string path)
         {
             var fileName = EditorUtility.OpenFilePanel("Dialogue Graph", "Assets/Resources/", "asset");
@@ -37,7 +39,10 @@ namespace AaDialogueGraph.Editor
                 path = NoGraphName;
                 return false;
             }
-
+            
+            var gameSet = Resources.Load<GameSet>("GameSet");
+            _musics = gameSet.MusicSwitchesKeys.GetKeys();
+                
             ClearGraph();
             CreateEntryNode();
             CreatePhraseNodes();
@@ -92,7 +97,7 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.PhraseNodeData)
             {
                 var node = new PhraseNode();
-                node.Set(data, languages,  sounds, data.Guid);
+                node.Set(data, languages,  sounds, _musics, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -136,7 +141,7 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.EndNodeData)
             {
                 var node = new EndNode();
-                node.Set(data, data.Guid, sounds);
+                node.Set(data, data.Guid, sounds, _musics);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -148,7 +153,7 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.EventNodeData)
             {
                 var node = new EventNode();
-                node.Set(data, data.Guid, sounds);
+                node.Set(data, data.Guid, sounds, _musics);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -161,7 +166,7 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.NewspaperNodeData)
             {
                 var node = new NewspaperNode();
-                node.Set(data, languages, data.Guid, sounds);
+                node.Set(data, languages, data.Guid, sounds, _musics);
                 _targetGraphView.AddElement(node);
             }
         }

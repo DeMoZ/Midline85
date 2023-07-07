@@ -65,8 +65,7 @@ namespace AaDialogueGraph.Editor
         {
             Value = val;
             string textValue = new LocalizedString(val);
-            textValue = textValue.Split(" ")[0];
-            return textValue;
+            return string.IsNullOrEmpty(textValue)? null : textValue.Split(" ")[0];
         }
     }
     

@@ -12,7 +12,7 @@ namespace AaDialogueGraph.Editor
 
         public string PhraseSketchText => _phraseSketchTxt;
 
-        public void Set(PhraseNodeData data, List<string> languages, List<string> sounds, string guid)
+        public void Set(PhraseNodeData data, List<string> languages, List<string> sounds, List<string> musics, string guid)
         {
             Guid = guid;
 
@@ -45,7 +45,7 @@ namespace AaDialogueGraph.Editor
             contentFolder.Add(phraseVisual);
 
             var phraseEvents = new AaNodeEvents();
-            phraseEvents.Set(data.EventVisualData, CheckNodeContent, sounds);
+            phraseEvents.Set(data.EventVisualData, CheckNodeContent, sounds, musics);
             contentFolder.Add(phraseEvents);
 
             var phraseContainer = new ElementsTable();

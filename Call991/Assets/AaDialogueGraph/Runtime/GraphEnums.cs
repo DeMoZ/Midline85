@@ -25,6 +25,7 @@ public enum PhraseEventLayer
 
 public enum PhraseEventType
 {
+    Music,
     AudioClip,
     VideoClip,
     GameObject,
