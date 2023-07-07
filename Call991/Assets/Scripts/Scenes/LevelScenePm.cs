@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
+using AK.Wwise;
 using Configs;
 using Core;
 using Data;
@@ -58,7 +59,7 @@ public class LevelScenePm : IDisposable
     private readonly ReactiveProperty<bool> _isPhraseSkipped = new();
     private readonly ReactiveProperty<bool> _isChoiceDone = new();
     private CancellationTokenSource _tokenSource;
-    
+
     /// <summary>
     /// Choice button selection with keyboard.
     /// </summary>
@@ -71,7 +72,7 @@ public class LevelScenePm : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-        
+
         _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
 
@@ -143,7 +144,7 @@ public class LevelScenePm : IDisposable
         _choices = data.OfType<ChoiceNodeData>().ToList();
         var observables = new IObservable<Unit>[] { };
 
-        GetEvents(out List<EventVisualData> soundEvents, out List<EventVisualData> objectEvents,
+        GetEvents(out var soundEvents, out var objectEvents, out var musicEvents,
             phrases, ends, events, newspapers);
 
         var content = new Dictionary<string, object>();
@@ -164,6 +165,12 @@ public class LevelScenePm : IDisposable
         {
             var end = ends.First();
             RunEndNode(end);
+        }
+
+        foreach (var musicData in musicEvents)
+        {
+            var routine = Observable.FromCoroutine(() => RunMusic(musicData));
+            observables = observables.Concat(new[] { routine }).ToArray();
         }
 
         foreach (var phraseData in phrases)
@@ -210,12 +217,14 @@ public class LevelScenePm : IDisposable
     }
 
     private void GetEvents(out List<EventVisualData> soundEvents, out List<EventVisualData> objectEvents,
+        out List<EventVisualData> musicEvents,
         IEnumerable<PhraseNodeData> phrases, IEnumerable<EndNodeData> ends, IEnumerable<EventNodeData> events,
         IEnumerable<NewspaperNodeData> newspapers)
     {
         var allEvents = new List<EventVisualData>();
         soundEvents = new List<EventVisualData>();
         objectEvents = new List<EventVisualData>();
+        musicEvents = new List<EventVisualData>();
 
         foreach (var phrase in phrases.Where(phrase => phrase.EventVisualData.Any()))
             allEvents.AddRange(phrase.EventVisualData);
@@ -231,10 +240,21 @@ public class LevelScenePm : IDisposable
 
         foreach (var anEvent in allEvents)
         {
-            if (anEvent.Type == PhraseEventType.AudioClip)
-                soundEvents.Add(anEvent);
-            else
-                objectEvents.Add(anEvent);
+            switch (anEvent.Type)
+            {
+                case PhraseEventType.Music:
+                    musicEvents.Add(anEvent);
+                    break;
+                case PhraseEventType.AudioClip:
+                    soundEvents.Add(anEvent);
+                    break;
+                case PhraseEventType.VideoClip:
+                case PhraseEventType.GameObject:
+                    objectEvents.Add(anEvent);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
     }
 
@@ -322,6 +342,23 @@ public class LevelScenePm : IDisposable
         yield return null;
     }
 
+    private IEnumerator RunMusic(EventVisualData music)
+    {
+        yield return new WaitForSeconds(music.Delay);
+
+        var musicName = music.PhraseEvent;
+        
+        if(string.IsNullOrEmpty(musicName) || musicName.Equals(AaGraphConstants.None)) yield break;
+
+        var keys = _ctx.GameSet.MusicSwitchesKeys.GetKeys(); 
+        
+        if(!keys.Contains(musicName)) yield break;
+
+        var index = keys.IndexOf(musicName);
+        var musicSwitch = _ctx.GameSet.MusicSwitchesKeys.WwiseSwitches[index];
+        _ctx.AudioManager.PlayMusic(musicSwitch);
+    }
+
     private IEnumerator RunDialogueEvent(EventVisualData data, Dictionary<string, object> content)
     {
         foreach (var t in Timer(data.Delay, _isPhraseSkipped)) yield return t;
@@ -332,11 +369,6 @@ public class LevelScenePm : IDisposable
     {
         switch (data.Type)
         {
-            case PhraseEventType.AudioClip:
-                var audioClip = content[data.PhraseEvent] as AudioClip;
-                if (audioClip == null) break;
-                //_ctx.AudioManager.PlayEventSound(data, audioClip);
-                break;
             case PhraseEventType.VideoClip:
                 var videoClip = content[data.PhraseEvent] as VideoClip;
                 if (videoClip == null) break;
