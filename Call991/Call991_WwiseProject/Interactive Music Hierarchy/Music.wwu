@@ -1987,20 +1987,15 @@
 						</MusicSwitchContainer>
 						<MusicSwitchContainer Name="MusicLevels" ID="{EFEB9A0F-73D9-4F08-8023-845DB00895C4}" ShortID="966635705">
 							<PropertyList>
-								<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
 										<Value>1</Value>
 									</ValueList>
 								</Property>
-								<Property Name="UseMaxSoundPerInstance" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5</Value>
+										<Value>-13</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2015,11 +2010,8 @@
 							<ChildrenList>
 								<MusicPlaylistContainer Name="MainMenu" ID="{AC692AD0-DB4F-4E3D-BABE-6E88EA4FB86E}" ShortID="278259203">
 									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>-17</Value>
-											</ValueList>
-										</Property>
+										<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+										<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2131,6 +2123,11 @@
 										<MusicSegment Name="MP3 mus_MusicMenu_Main_Ding Dong_96_ver_1" ID="{ED0CA487-094C-447C-82CE-D864BEA20D77}" ShortID="640963126">
 											<PropertyList>
 												<Property Name="EndPosition" Type="Real64" Value="160011.678004535"/>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
 												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 												<Property Name="Tempo" Type="Real64" Value="96"/>
 											</PropertyList>
@@ -2218,6 +2215,108 @@
 												</ObjectList>
 											</ObjectLists>
 										</MusicSegment>
+										<MusicSegment Name="mus_MusicMenu_Main_Broken Dreams_40_ver_1" ID="{700AD9E6-7337-46EE-8556-82B8F1EA5041}" ShortID="528994621">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="87000"/>
+												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+												<Property Name="Tempo" Type="Real64" Value="40"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<MusicTrack Name="mus_MusicMenu_Main_Broken Dreams_40_ver_1" ID="{1F266255-5796-41CA-89CF-B3FB4C6CEBF3}" ShortID="593350687">
+													<PropertyList>
+														<Property Name="IsStreamingEnabled" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+														<Property Name="IsZeroLatency" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="mus_MusicMenu_Main_Broken Dreams_40_ver_1" ID="{10795363-78B7-4B53-8989-FED0A4512164}">
+															<Language>SFX</Language>
+															<AudioFile>mus_MusicMenu_Main_Broken Dreams_40_ver.1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="854376089"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{D6F1519E-B281-4825-88FD-12B1F31B8F1F}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<ObjectLists>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{E2B54A14-EF1F-4107-9B82-A90F31D70F4E}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="mus_MusicMenu_Main_Broken Dreams_40_ver_1" ID="{70C12FA8-52B4-458B-8DDB-6AB8BD4FE1B0}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="86764.7083333333"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="mus_MusicMenu_Main_Broken Dreams_40_ver_1" ID="{10795363-78B7-4B53-8989-FED0A4512164}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Cues">
+													<Reference>
+														<Local>
+															<MusicCue Name="Entry Cue" ID="{7790C61A-EA25-4D63-BF87-80FD43139FEC}">
+																<PropertyList>
+																	<Property Name="TimeMs" Type="Real64" Value="6000"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+													<Reference>
+														<Local>
+															<MusicCue Name="Exit Cue" ID="{CC6D9920-6175-41BF-8E53-4442E0FE9BF9}">
+																<PropertyList>
+																	<Property Name="CueType" Type="int16" Value="1"/>
+																	<Property Name="TimeMs" Type="Real64" Value="78000"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicSegment>
 									</ChildrenList>
 									<TransitionList>
 										<MusicTransition Name="Root" ID="{D0D67FF6-7AFA-4294-8356-04B81FB60287}">
@@ -2243,6 +2342,12 @@
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<SegmentRef Name="MP3 mus_MusicMenu_Main_Ding Dong_96_ver_1" ID="{ED0CA487-094C-447C-82CE-D864BEA20D77}"/>
+												</MusicPlaylistItem>
+												<MusicPlaylistItem Name="" ID="{568302E6-DFDF-4A0A-9B14-F66245EF3B85}" ShortID="732801190">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="mus_MusicMenu_Main_Broken Dreams_40_ver_1" ID="{700AD9E6-7337-46EE-8556-82B8F1EA5041}"/>
 												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
@@ -2378,7 +2483,7 @@
 										<MusicPlaylistItem Name="" ID="{5D24CB5A-AC8A-45E6-A471-3967AA708315}" ShortID="587265343"/>
 									</Playlist>
 								</MusicPlaylistContainer>
-								<MusicSwitchContainer Name="Pizza" ID="{B4ED79E9-30E1-4F45-9C07-7F7C5FCC7E2C}" ShortID="89328958">
+								<MusicPlaylistContainer Name="Pizza" ID="{55499C6B-6E47-40C5-B8AF-05951D618B48}" ShortID="814780623">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -2388,27 +2493,58 @@
 										</Reference>
 									</ReferenceList>
 									<ChildrenList>
-										<MusicPlaylistContainer Name="DEMO EpidemicSound" ID="{7F1782E7-97A3-4901-AD42-FDF22CE933E9}" ShortID="382630031">
+										<MusicSegment Name="MP3mus_MusicPizza_Club_Pizza_115_ver_3" ID="{7DEFD19C-9223-4967-9022-0CEF2F1DD005}" ShortID="938632665">
+											<PropertyList>
+												<Property Name="EndPosition" Type="Real64" Value="246343.193248896"/>
+												<Property Name="Inclusion" Type="bool">
+													<ValueList>
+														<Value>False</Value>
+													</ValueList>
+												</Property>
+												<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+												<Property Name="MaxSoundPerInstance" Type="int16">
+													<ValueList>
+														<Value>1</Value>
+													</ValueList>
+												</Property>
+												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+												<Property Name="Tempo" Type="Real64" Value="115"/>
+												<Property Name="UseMaxSoundPerInstance" Type="bool">
+													<ValueList>
+														<Value>True</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
-													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+													<ObjectRef Name="Music" ID="{EE3E2FE1-347F-42A2-BE52-4BEB38BA452F}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 												</Reference>
 												<Reference Name="OutputBus">
-													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+													<ObjectRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<MusicSegment Name="DEMO EpidemicSound" ID="{8FFB4E02-9F01-411A-8E38-3ABB842C49FC}" ShortID="282272376">
+												<MusicTrack Name="mus_MusicPizza_Club_Pizza_115_ver_3" ID="{41E0ABE9-20DF-40F7-B10B-2234A2DA2F62}" ShortID="309803324">
 													<PropertyList>
-														<Property Name="EndPosition" Type="Real64" Value="233760.979166667"/>
+														<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+														<Property Name="Highpass" Type="int16">
+															<ValueList>
+																<Value>14</Value>
+															</ValueList>
+														</Property>
+														<Property Name="Lowpass" Type="int16">
+															<ValueList>
+																<Value>21</Value>
+															</ValueList>
+														</Property>
 														<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
 														<Property Name="MaxSoundPerInstance" Type="int16">
 															<ValueList>
 																<Value>1</Value>
 															</ValueList>
 														</Property>
-														<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-														<Property Name="Tempo" Type="Real64" Value="70"/>
+														<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+														<Property Name="OverrideEffect" Type="bool" Value="True"/>
 														<Property Name="UseMaxSoundPerInstance" Type="bool">
 															<ValueList>
 																<Value>True</Value>
@@ -2416,7 +2552,7 @@
 														</Property>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-7</Value>
+																<Value>1</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -2424,350 +2560,104 @@
 														<Reference Name="Conversion">
 															<ObjectRef Name="Music" ID="{EE3E2FE1-347F-42A2-BE52-4BEB38BA452F}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 														</Reference>
+														<Reference Name="Effect0">
+															<Custom>
+																<Effect Name="Parametric EQ (Custom)" ID="{A9CC56B8-5DD0-4D0F-BF6F-305B0F5180EF}" ShortID="442869206" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+																	<PropertyList>
+																		<Property Name="FilterTypeBand3" Type="int32" Value="6"/>
+																		<Property Name="FrequencyBand2" Type="Real32" Value="2148"/>
+																		<Property Name="FrequencyBand3" Type="Real32" Value="3478"/>
+																		<Property Name="GainBand2" Type="Real32" Value="5"/>
+																		<Property Name="GainBand3" Type="Real32" Value="8"/>
+																		<Property Name="OnOffBand1" Type="bool" Value="False"/>
+																		<Property Name="OutputLevel" Type="Real32" Value="6.5"/>
+																		<Property Name="QFactorBand2" Type="Real32" Value="3.1"/>
+																	</PropertyList>
+																</Effect>
+															</Custom>
+														</Reference>
+														<Reference Name="Effect1" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+															<ObjectRef Name="Room_Medium_High_Absorbtion" ID="{E22DBBB6-7656-4B93-A28D-C003FD416889}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+														</Reference>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<MusicTrack Name="ES_The Taste of Fear STEMS BASS" ID="{4777FDDA-F448-42A2-BB61-FDB6DE76D933}" ShortID="136299897">
-															<ReferenceList>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="ES_The Taste of Fear STEMS BASS" ID="{A88A57CC-A16E-41E0-819D-26D76D003DDD}">
-																	<Language>SFX</Language>
-																	<AudioFile>ES_The Taste of Fear STEMS BASS.wav</AudioFile>
-																	<MediaIDList>
-																		<MediaID ID="261315776"/>
-																	</MediaIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<TransitionList>
-																<MusicTransition Name="Root" ID="{B962134D-08C3-4B20-ADE7-9EF9C9E7848E}">
-																	<PropertyList>
-																		<Property Name="IsFolder" Type="bool" Value="True"/>
-																	</PropertyList>
-																	<TransitionInfo/>
-																</MusicTransition>
-															</TransitionList>
-															<ObjectLists>
-																<ObjectList Name="RTPC">
-																	<Reference>
-																		<Local>
-																			<RTPC Name="" ID="{2816D98A-CDCE-4120-B63C-348AA896AF7C}" ShortID="211852086">
-																				<PropertyList>
-																					<Property Name="PropertyName" Type="string" Value="Volume"/>
-																				</PropertyList>
-																				<ReferenceList>
-																					<Reference Name="ControlInput">
-																						<ObjectRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
-																					</Reference>
-																					<Reference Name="Curve">
-																						<Custom>
-																							<Curve Name="" ID="{9A5555D4-C51A-4D33-A8E5-D80F4AA18424}">
-																								<PropertyList>
-																									<Property Name="Flags" Type="int32" Value="3"/>
-																								</PropertyList>
-																								<PointList>
-																									<Point>
-																										<XPos>0</XPos>
-																										<YPos>-200</YPos>
-																										<Flags>5</Flags>
-																									</Point>
-																									<Point>
-																										<XPos>50.0578</XPos>
-																										<YPos>-200</YPos>
-																										<Flags>0</Flags>
-																									</Point>
-																									<Point>
-																										<XPos>100</XPos>
-																										<YPos>0</YPos>
-																										<Flags>37</Flags>
-																									</Point>
-																								</PointList>
-																							</Curve>
-																						</Custom>
-																					</Reference>
-																				</ReferenceList>
-																			</RTPC>
-																		</Local>
-																	</Reference>
-																</ObjectList>
-																<ObjectList Name="Sequences">
-																	<Reference>
-																		<Local>
-																			<MusicTrackSequence Name="" ID="{C7D497A0-D1CF-4F62-9AB3-A7CD2C42039C}">
-																				<ObjectLists>
-																					<ObjectList Name="Clips">
-																						<Reference>
-																							<Local>
-																								<MusicClip Name="ES_The Taste of Fear STEMS BASS" ID="{D217F2F4-6949-48D1-BA02-20AEFD51C6F5}">
-																									<PropertyList>
-																										<Property Name="EndTrimOffset" Type="Real64" Value="145713.9375"/>
-																										<Property Name="FadeInMode" Type="int16" Value="0"/>
-																										<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																									</PropertyList>
-																									<AudioSourceRef Name="ES_The Taste of Fear STEMS BASS" ID="{A88A57CC-A16E-41E0-819D-26D76D003DDD}"/>
-																								</MusicClip>
-																							</Local>
-																						</Reference>
-																					</ObjectList>
-																				</ObjectLists>
-																			</MusicTrackSequence>
-																		</Local>
-																	</Reference>
-																</ObjectList>
-															</ObjectLists>
-														</MusicTrack>
-														<MusicTrack Name="ES_The Taste of Fear STEMS INSTRUMENTS" ID="{E680FC60-438F-4618-BD8D-D8F1BE58F3D8}" ShortID="143033364">
-															<ReferenceList>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="ES_The Taste of Fear STEMS INSTRUMENTS" ID="{AD0C21FB-7F29-47D4-AF35-5516BACD554A}">
-																	<Language>SFX</Language>
-																	<AudioFile>ES_The Taste of Fear STEMS INSTRUMENTS.wav</AudioFile>
-																	<MediaIDList>
-																		<MediaID ID="841289588"/>
-																	</MediaIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<TransitionList>
-																<MusicTransition Name="Root" ID="{1C24620E-FA73-473C-9A07-134325FD6CEC}">
-																	<PropertyList>
-																		<Property Name="IsFolder" Type="bool" Value="True"/>
-																	</PropertyList>
-																	<TransitionInfo/>
-																</MusicTransition>
-															</TransitionList>
-															<ObjectLists>
-																<ObjectList Name="RTPC">
-																	<Reference>
-																		<Local>
-																			<RTPC Name="" ID="{0E4D9E66-E1DF-4C50-B4F0-4B0B89F212E4}" ShortID="895822124">
-																				<PropertyList>
-																					<Property Name="PropertyName" Type="string" Value="Volume"/>
-																				</PropertyList>
-																				<ReferenceList>
-																					<Reference Name="ControlInput">
-																						<ObjectRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
-																					</Reference>
-																					<Reference Name="Curve">
-																						<Custom>
-																							<Curve Name="" ID="{CAB61CEB-E7E3-465A-98FB-A0D640B020C2}">
-																								<PropertyList>
-																									<Property Name="Flags" Type="int32" Value="3"/>
-																								</PropertyList>
-																								<PointList>
-																									<Point>
-																										<XPos>0</XPos>
-																										<YPos>-6.0206</YPos>
-																										<Flags>5</Flags>
-																									</Point>
-																									<Point>
-																										<XPos>100</XPos>
-																										<YPos>0</YPos>
-																										<Flags>37</Flags>
-																									</Point>
-																								</PointList>
-																							</Curve>
-																						</Custom>
-																					</Reference>
-																				</ReferenceList>
-																			</RTPC>
-																		</Local>
-																	</Reference>
-																</ObjectList>
-																<ObjectList Name="Sequences">
-																	<Reference>
-																		<Local>
-																			<MusicTrackSequence Name="" ID="{87AFEA20-CA5D-4BF7-8E6B-035A009EF69A}">
-																				<ObjectLists>
-																					<ObjectList Name="Clips">
-																						<Reference>
-																							<Local>
-																								<MusicClip Name="ES_The Taste of Fear STEMS INSTRUMENTS" ID="{0E362252-3AA9-4A4C-A372-49B6DBDCB032}">
-																									<PropertyList>
-																										<Property Name="EndTrimOffset" Type="Real64" Value="145713.9375"/>
-																										<Property Name="FadeInMode" Type="int16" Value="0"/>
-																										<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																									</PropertyList>
-																									<AudioSourceRef Name="ES_The Taste of Fear STEMS INSTRUMENTS" ID="{AD0C21FB-7F29-47D4-AF35-5516BACD554A}"/>
-																								</MusicClip>
-																							</Local>
-																						</Reference>
-																					</ObjectList>
-																				</ObjectLists>
-																			</MusicTrackSequence>
-																		</Local>
-																	</Reference>
-																</ObjectList>
-															</ObjectLists>
-														</MusicTrack>
-														<MusicTrack Name="ES_The Taste of Fear STEMS MELODY" ID="{F02DC7A6-0150-402E-840A-3E2490B56D3E}" ShortID="437949587">
-															<ReferenceList>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="ES_The Taste of Fear STEMS MELODY" ID="{A44CD4CD-B28E-4D5D-8FEF-98B5DFA341A7}">
-																	<Language>SFX</Language>
-																	<AudioFile>ES_The Taste of Fear STEMS MELODY.wav</AudioFile>
-																	<MediaIDList>
-																		<MediaID ID="808777921"/>
-																	</MediaIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<TransitionList>
-																<MusicTransition Name="Root" ID="{722544AF-EA7C-45C8-8BEA-4B5E768EA27D}">
-																	<PropertyList>
-																		<Property Name="IsFolder" Type="bool" Value="True"/>
-																	</PropertyList>
-																	<TransitionInfo/>
-																</MusicTransition>
-															</TransitionList>
-															<ObjectLists>
-																<ObjectList Name="RTPC">
-																	<Reference>
-																		<Local>
-																			<RTPC Name="" ID="{47EE97AE-0B89-40F7-8729-938756FCBA7D}" ShortID="938205437">
-																				<PropertyList>
-																					<Property Name="PropertyName" Type="string" Value="Volume"/>
-																				</PropertyList>
-																				<ReferenceList>
-																					<Reference Name="ControlInput">
-																						<ObjectRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
-																					</Reference>
-																					<Reference Name="Curve">
-																						<Custom>
-																							<Curve Name="" ID="{A3D43EC4-8182-4D79-8832-654569CD5D09}">
-																								<PropertyList>
-																									<Property Name="Flags" Type="int32" Value="3"/>
-																								</PropertyList>
-																								<PointList>
-																									<Point>
-																										<XPos>0</XPos>
-																										<YPos>-200</YPos>
-																										<Flags>5</Flags>
-																									</Point>
-																									<Point>
-																										<XPos>30.28902</XPos>
-																										<YPos>-200</YPos>
-																										<Flags>0</Flags>
-																										<SegmentShape>SCurve</SegmentShape>
-																									</Point>
-																									<Point>
-																										<XPos>62.312</XPos>
-																										<YPos>0</YPos>
-																										<Flags>0</Flags>
-																									</Point>
-																									<Point>
-																										<XPos>100</XPos>
-																										<YPos>0</YPos>
-																										<Flags>37</Flags>
-																									</Point>
-																								</PointList>
-																							</Curve>
-																						</Custom>
-																					</Reference>
-																				</ReferenceList>
-																			</RTPC>
-																		</Local>
-																	</Reference>
-																</ObjectList>
-																<ObjectList Name="Sequences">
-																	<Reference>
-																		<Local>
-																			<MusicTrackSequence Name="" ID="{5DA63AF0-7DD8-4B60-A118-09859099A396}">
-																				<ObjectLists>
-																					<ObjectList Name="Clips">
-																						<Reference>
-																							<Local>
-																								<MusicClip Name="ES_The Taste of Fear STEMS MELODY" ID="{C02975B9-620A-4FA6-BD03-D078CB6B45FC}">
-																									<PropertyList>
-																										<Property Name="EndTrimOffset" Type="Real64" Value="145713.9375"/>
-																										<Property Name="FadeInMode" Type="int16" Value="0"/>
-																										<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																									</PropertyList>
-																									<AudioSourceRef Name="ES_The Taste of Fear STEMS MELODY" ID="{A44CD4CD-B28E-4D5D-8FEF-98B5DFA341A7}"/>
-																								</MusicClip>
-																							</Local>
-																						</Reference>
-																					</ObjectList>
-																				</ObjectLists>
-																			</MusicTrackSequence>
-																		</Local>
-																	</Reference>
-																</ObjectList>
-															</ObjectLists>
-														</MusicTrack>
+														<AudioFileSource Name="mus_MusicPizza_Club_Pizza_115_ver_3" ID="{A1593C83-ED0C-44A0-88E7-D3CD90E11962}">
+															<Language>SFX</Language>
+															<AudioFile>mus_MusicPizza_Club_Pizza_115_ver.3.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="909650477"/>
+															</MediaIDList>
+														</AudioFileSource>
 													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{6DB94ED8-7024-41B4-93F5-27A32381A80E}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<ReferenceList/>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
 													<ObjectLists>
-														<ObjectList Name="Cues">
+														<ObjectList Name="Sequences">
 															<Reference>
 																<Local>
-																	<MusicCue Name="Entry Cue" ID="{66ED9F08-6F35-4D82-B578-4A547CED73C0}">
-																		<PropertyList>
-																			<Property Name="TimeMs" Type="Real64" Value="6857.14285714286"/>
-																		</PropertyList>
-																	</MusicCue>
-																</Local>
-															</Reference>
-															<Reference>
-																<Local>
-																	<MusicCue Name="Exit Cue" ID="{4B51F04B-B7FC-40FF-9232-A76765D3431A}">
-																		<PropertyList>
-																			<Property Name="CueType" Type="int16" Value="1"/>
-																			<Property Name="TimeMs" Type="Real64" Value="130285.714285714"/>
-																		</PropertyList>
-																	</MusicCue>
+																	<MusicTrackSequence Name="" ID="{8C8043C4-ABB6-4EF1-850F-BA7C5D4E5394}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="mus_MusicPizza_Club_Pizza_115_ver_3" ID="{F42CAA63-2B69-4F2E-AFC9-852516F38BCA}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="233760.979166667"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="mus_MusicPizza_Club_Pizza_115_ver_3" ID="{A1593C83-ED0C-44A0-88E7-D3CD90E11962}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
 																</Local>
 															</Reference>
 														</ObjectList>
 													</ObjectLists>
-												</MusicSegment>
+												</MusicTrack>
 											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{FAE0CED6-6F39-403F-B473-0DB258A10D88}">
-													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
-													</PropertyList>
-													<ChildrenList>
-														<MusicTransition Name="Transition" ID="{12A76897-049A-42A1-8D23-5E5372EE4753}">
-															<TransitionInfo/>
-														</MusicTransition>
-													</ChildrenList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<Playlist>
-												<MusicPlaylistItem Name="" ID="{CCEE966C-A3DC-4434-BC8A-B7E0B43AE241}" ShortID="74447780">
-													<PropertyList>
-														<Property Name="LoopCount" Type="int16" Value="0"/>
-													</PropertyList>
-													<ChildrenList>
-														<MusicPlaylistItem Name="" ID="{BE574547-966B-43A7-8812-279410CCE8E8}" ShortID="363055900">
-															<PropertyList>
-																<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-															</PropertyList>
-															<SegmentRef Name="DEMO EpidemicSound" ID="{8FFB4E02-9F01-411A-8E38-3ABB842C49FC}"/>
-														</MusicPlaylistItem>
-													</ChildrenList>
-												</MusicPlaylistItem>
-											</Playlist>
-										</MusicPlaylistContainer>
-										<MusicPlaylistContainer Name="MP3mus_MusicPizza_Club_Pizza_115_ver_3" ID="{00B724EE-2694-4617-B52A-B2C71009BD4B}" ShortID="421057339">
+											<ObjectLists>
+												<ObjectList Name="Cues">
+													<Reference>
+														<Local>
+															<MusicCue Name="Entry Cue" ID="{7DAF983A-D3B2-425F-9B85-BA740EAEED61}">
+																<PropertyList>
+																	<Property Name="TimeMs" Type="Real64" Value="1043.47826086957"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+													<Reference>
+														<Local>
+															<MusicCue Name="Exit Cue" ID="{D417D276-B009-4526-8919-F840C2EE68AF}">
+																<PropertyList>
+																	<Property Name="CueType" Type="int16" Value="1"/>
+																	<Property Name="TimeMs" Type="Real64" Value="230115.883250459"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicSegment>
+										<MusicSegment Name="DEMO ES_The Taste of Fear" ID="{D11B8A58-B13F-4012-B81E-1261148E0E7E}" ShortID="784083106">
 											<PropertyList>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-17</Value>
-													</ValueList>
-												</Property>
+												<Property Name="EndPosition" Type="Real64" Value="146107.6701243"/>
+												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
+												<Property Name="Tempo" Type="Real64" Value="105"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2778,18 +2668,186 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<MusicSegment Name="MP3mus_MusicPizza_Club_Pizza_115_ver_3" ID="{7DEFD19C-9223-4967-9022-0CEF2F1DD005}" ShortID="938632665">
+												<MusicTrack Name="ES_The Taste of Fear STEMS BASS" ID="{BEA6F2AD-2D71-4534-8137-A65D8D176CB9}" ShortID="959954557">
 													<PropertyList>
-														<Property Name="EndPosition" Type="Real64" Value="246343.193248896"/>
-														<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
-														<Property Name="MaxSoundPerInstance" Type="int16">
+														<Property Name="IsStreamingEnabled" Type="bool">
 															<ValueList>
-																<Value>1</Value>
+																<Value>True</Value>
 															</ValueList>
 														</Property>
-														<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-														<Property Name="Tempo" Type="Real64" Value="115"/>
-														<Property Name="UseMaxSoundPerInstance" Type="bool">
+														<Property Name="IsZeroLatency" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="ES_The Taste of Fear STEMS BASS" ID="{E63DD065-8D1F-43FD-BB3B-241FBD9A428E}">
+															<Language>SFX</Language>
+															<AudioFile>ES_The Taste of Fear STEMS BASS.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="261315776"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{754CE058-4259-49BF-9F29-14A2E4565074}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<ReferenceList/>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<ObjectLists>
+														<ObjectList Name="RTPC">
+															<Reference>
+																<Local>
+																	<RTPC Name="" ID="{41057C1C-4C11-418E-8A74-007DC6FDCF45}" ShortID="570094504">
+																		<PropertyList>
+																			<Property Name="PropertyName" Type="string" Value="Volume"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="ControlInput">
+																				<ObjectRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
+																			</Reference>
+																			<Reference Name="Curve">
+																				<Custom>
+																					<Curve Name="" ID="{18EBCD64-28E7-4DB8-BED8-70B1BC969729}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="3"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>0.001</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>0</Flags>
+																								<SegmentShape>SCurve</SegmentShape>
+																							</Point>
+																							<Point>
+																								<XPos>59.97639</XPos>
+																								<YPos>-5.34406</YPos>
+																								<Flags>0</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>100</XPos>
+																								<YPos>0</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</RTPC>
+																</Local>
+															</Reference>
+														</ObjectList>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{3C9CA861-91AA-4AD3-B869-84F3F57978F4}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="ES_The Taste of Fear STEMS BASS" ID="{769838C8-873F-4075-811B-85F8819D29FC}">
+																							<PropertyList>
+																								<Property Name="BeginTrimOffset" Type="Real64" Value="6857.14285714286"/>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="145713.9375"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																								<Property Name="PlayAt" Type="Real64" Value="-6857.14285714286"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="ES_The Taste of Fear STEMS BASS" ID="{E63DD065-8D1F-43FD-BB3B-241FBD9A428E}"/>
+																							<PropertyCurveList>
+																								<PropertyCurve PropertyName="Highpass">
+																									<Curve Name="" ID="{48D9DB2C-348B-465B-82F4-9662526F7008}">
+																										<PropertyList>
+																											<Property Name="Flags" Type="int32" Value="1"/>
+																										</PropertyList>
+																										<PointList>
+																											<Point>
+																												<XPos>6.85714</XPos>
+																												<YPos>0</YPos>
+																												<Flags>5</Flags>
+																											</Point>
+																											<Point>
+																												<XPos>145.7139375</XPos>
+																												<YPos>0</YPos>
+																												<Flags>37</Flags>
+																											</Point>
+																										</PointList>
+																									</Curve>
+																								</PropertyCurve>
+																								<PropertyCurve PropertyName="Lowpass">
+																									<Curve Name="" ID="{F0C8CDBA-93B1-42FE-8D35-D69792203543}">
+																										<PropertyList>
+																											<Property Name="Flags" Type="int32" Value="1"/>
+																										</PropertyList>
+																										<PointList>
+																											<Point>
+																												<XPos>6.85714</XPos>
+																												<YPos>0</YPos>
+																												<Flags>5</Flags>
+																											</Point>
+																											<Point>
+																												<XPos>145.7139375</XPos>
+																												<YPos>0</YPos>
+																												<Flags>37</Flags>
+																											</Point>
+																										</PointList>
+																									</Curve>
+																								</PropertyCurve>
+																								<PropertyCurve PropertyName="Volume">
+																									<Curve Name="" ID="{384CCACE-A1C3-4EAB-AC36-565D2FDF5153}">
+																										<PropertyList>
+																											<Property Name="Flags" Type="int32" Value="3"/>
+																										</PropertyList>
+																										<PointList>
+																											<Point>
+																												<XPos>6.85714</XPos>
+																												<YPos>0</YPos>
+																												<Flags>5</Flags>
+																											</Point>
+																											<Point>
+																												<XPos>145.7139375</XPos>
+																												<YPos>0</YPos>
+																												<Flags>37</Flags>
+																											</Point>
+																										</PointList>
+																									</Curve>
+																								</PropertyCurve>
+																							</PropertyCurveList>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+												<MusicTrack Name="ES_The Taste of Fear STEMS INSTRUMENTS" ID="{AD811DD0-4295-46FE-B58A-E0853C006B17}" ShortID="384613706">
+													<PropertyList>
+														<Property Name="IsStreamingEnabled" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+														<Property Name="IsZeroLatency" Type="bool">
 															<ValueList>
 																<Value>True</Value>
 															</ValueList>
@@ -2797,210 +2855,362 @@
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
-															<ObjectRef Name="Music" ID="{EE3E2FE1-347F-42A2-BE52-4BEB38BA452F}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 														</Reference>
 														<Reference Name="OutputBus">
-															<ObjectRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<MusicTrack Name="mus_MusicPizza_Club_Pizza_115_ver_3" ID="{41E0ABE9-20DF-40F7-B10B-2234A2DA2F62}" ShortID="309803324">
-															<PropertyList>
-																<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-																<Property Name="Highpass" Type="int16">
-																	<ValueList>
-																		<Value>14</Value>
-																	</ValueList>
-																</Property>
-																<Property Name="Lowpass" Type="int16">
-																	<ValueList>
-																		<Value>21</Value>
-																	</ValueList>
-																</Property>
-																<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
-																<Property Name="MaxSoundPerInstance" Type="int16">
-																	<ValueList>
-																		<Value>1</Value>
-																	</ValueList>
-																</Property>
-																<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
-																<Property Name="OverrideEffect" Type="bool" Value="True"/>
-																<Property Name="UseMaxSoundPerInstance" Type="bool">
-																	<ValueList>
-																		<Value>True</Value>
-																	</ValueList>
-																</Property>
-																<Property Name="Volume" Type="Real64">
-																	<ValueList>
-																		<Value>1</Value>
-																	</ValueList>
-																</Property>
-															</PropertyList>
-															<ReferenceList>
-																<Reference Name="Conversion">
-																	<ObjectRef Name="Music" ID="{EE3E2FE1-347F-42A2-BE52-4BEB38BA452F}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-																</Reference>
-																<Reference Name="Effect0">
-																	<Custom>
-																		<Effect Name="Parametric EQ (Custom)" ID="{A9CC56B8-5DD0-4D0F-BF6F-305B0F5180EF}" ShortID="442869206" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-																			<PropertyList>
-																				<Property Name="FilterTypeBand3" Type="int32" Value="6"/>
-																				<Property Name="FrequencyBand2" Type="Real32" Value="2148"/>
-																				<Property Name="FrequencyBand3" Type="Real32" Value="3478"/>
-																				<Property Name="GainBand2" Type="Real32" Value="5"/>
-																				<Property Name="GainBand3" Type="Real32" Value="8"/>
-																				<Property Name="OnOffBand1" Type="bool" Value="False"/>
-																				<Property Name="OutputLevel" Type="Real32" Value="6.5"/>
-																				<Property Name="QFactorBand2" Type="Real32" Value="3.1"/>
-																			</PropertyList>
-																		</Effect>
-																	</Custom>
-																</Reference>
-																<Reference Name="Effect1" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
-																	<ObjectRef Name="Room_Medium_High_Absorbtion" ID="{E22DBBB6-7656-4B93-A28D-C003FD416889}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-																</Reference>
-																<Reference Name="OutputBus">
-																	<ObjectRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-																</Reference>
-															</ReferenceList>
-															<ChildrenList>
-																<AudioFileSource Name="mus_MusicPizza_Club_Pizza_115_ver_3" ID="{A1593C83-ED0C-44A0-88E7-D3CD90E11962}">
-																	<Language>SFX</Language>
-																	<AudioFile>mus_MusicPizza_Club_Pizza_115_ver.3.wav</AudioFile>
-																	<MediaIDList>
-																		<MediaID ID="909650477"/>
-																	</MediaIDList>
-																</AudioFileSource>
-															</ChildrenList>
-															<TransitionList>
-																<MusicTransition Name="Root" ID="{6DB94ED8-7024-41B4-93F5-27A32381A80E}">
-																	<PropertyList>
-																		<Property Name="IsFolder" Type="bool" Value="True"/>
-																	</PropertyList>
-																	<TransitionInfo/>
-																</MusicTransition>
-															</TransitionList>
-															<ObjectLists>
-																<ObjectList Name="Sequences">
-																	<Reference>
-																		<Local>
-																			<MusicTrackSequence Name="" ID="{8C8043C4-ABB6-4EF1-850F-BA7C5D4E5394}">
-																				<ObjectLists>
-																					<ObjectList Name="Clips">
-																						<Reference>
-																							<Local>
-																								<MusicClip Name="mus_MusicPizza_Club_Pizza_115_ver_3" ID="{F42CAA63-2B69-4F2E-AFC9-852516F38BCA}">
-																									<PropertyList>
-																										<Property Name="EndTrimOffset" Type="Real64" Value="233760.979166667"/>
-																										<Property Name="FadeInMode" Type="int16" Value="0"/>
-																										<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																									</PropertyList>
-																									<AudioSourceRef Name="mus_MusicPizza_Club_Pizza_115_ver_3" ID="{A1593C83-ED0C-44A0-88E7-D3CD90E11962}"/>
-																								</MusicClip>
-																							</Local>
-																						</Reference>
-																					</ObjectList>
-																				</ObjectLists>
-																			</MusicTrackSequence>
-																		</Local>
-																	</Reference>
-																</ObjectList>
-															</ObjectLists>
-														</MusicTrack>
+														<AudioFileSource Name="ES_The Taste of Fear STEMS INSTRUMENTS" ID="{C8EAA8D2-33A0-4492-9624-086BD003F0BC}">
+															<Language>SFX</Language>
+															<AudioFile>ES_The Taste of Fear STEMS INSTRUMENTS.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="841289588"/>
+															</MediaIDList>
+														</AudioFileSource>
 													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{3F89FDBA-9ABA-4A36-9E67-86FCB5E23586}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<ReferenceList/>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
 													<ObjectLists>
-														<ObjectList Name="Cues">
+														<ObjectList Name="RTPC">
 															<Reference>
 																<Local>
-																	<MusicCue Name="Entry Cue" ID="{7DAF983A-D3B2-425F-9B85-BA740EAEED61}">
+																	<RTPC Name="" ID="{BED2D0C4-68B9-4427-B564-AD26D5CDCB1A}" ShortID="445892734">
 																		<PropertyList>
-																			<Property Name="TimeMs" Type="Real64" Value="1043.47826086957"/>
+																			<Property Name="PropertyName" Type="string" Value="Volume"/>
 																		</PropertyList>
-																	</MusicCue>
+																		<ReferenceList>
+																			<Reference Name="ControlInput">
+																				<ObjectRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
+																			</Reference>
+																			<Reference Name="Curve">
+																				<Custom>
+																					<Curve Name="" ID="{0F8604B1-C538-4348-B8DC-C8917B61968B}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="3"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>80.63754</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>0</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>100</XPos>
+																								<YPos>0</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</RTPC>
 																</Local>
 															</Reference>
+														</ObjectList>
+														<ObjectList Name="Sequences">
 															<Reference>
 																<Local>
-																	<MusicCue Name="Exit Cue" ID="{D417D276-B009-4526-8919-F840C2EE68AF}">
-																		<PropertyList>
-																			<Property Name="CueType" Type="int16" Value="1"/>
-																			<Property Name="TimeMs" Type="Real64" Value="230115.883250459"/>
-																		</PropertyList>
-																	</MusicCue>
+																	<MusicTrackSequence Name="" ID="{FECFDE76-289F-4A54-83FB-A104F8449ABF}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="ES_The Taste of Fear STEMS INSTRUMENTS" ID="{E2D1DB1A-4CD1-474D-8180-1CF1F29BFD97}">
+																							<PropertyList>
+																								<Property Name="BeginTrimOffset" Type="Real64" Value="6857.14285714286"/>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="145713.9375"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																								<Property Name="PlayAt" Type="Real64" Value="-6857.14285714286"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="ES_The Taste of Fear STEMS INSTRUMENTS" ID="{C8EAA8D2-33A0-4492-9624-086BD003F0BC}"/>
+																							<PropertyCurveList>
+																								<PropertyCurve PropertyName="Highpass">
+																									<Curve Name="" ID="{74A949BE-FA63-448B-86D2-59E8F14CBFE4}">
+																										<PropertyList>
+																											<Property Name="Flags" Type="int32" Value="1"/>
+																										</PropertyList>
+																										<PointList>
+																											<Point>
+																												<XPos>6.85714</XPos>
+																												<YPos>0</YPos>
+																												<Flags>5</Flags>
+																											</Point>
+																											<Point>
+																												<XPos>145.7139375</XPos>
+																												<YPos>0</YPos>
+																												<Flags>37</Flags>
+																											</Point>
+																										</PointList>
+																									</Curve>
+																								</PropertyCurve>
+																								<PropertyCurve PropertyName="Lowpass">
+																									<Curve Name="" ID="{8EC280F8-D910-4CDA-B58B-5F0EFC5009CF}">
+																										<PropertyList>
+																											<Property Name="Flags" Type="int32" Value="1"/>
+																										</PropertyList>
+																										<PointList>
+																											<Point>
+																												<XPos>6.85714</XPos>
+																												<YPos>0</YPos>
+																												<Flags>5</Flags>
+																											</Point>
+																											<Point>
+																												<XPos>145.7139375</XPos>
+																												<YPos>0</YPos>
+																												<Flags>37</Flags>
+																											</Point>
+																										</PointList>
+																									</Curve>
+																								</PropertyCurve>
+																								<PropertyCurve PropertyName="Volume">
+																									<Curve Name="" ID="{DF1A31AF-FFB1-4156-AC15-AA2F1CC7759E}">
+																										<PropertyList>
+																											<Property Name="Flags" Type="int32" Value="3"/>
+																										</PropertyList>
+																										<PointList>
+																											<Point>
+																												<XPos>6.85714</XPos>
+																												<YPos>0</YPos>
+																												<Flags>5</Flags>
+																											</Point>
+																											<Point>
+																												<XPos>145.7139375</XPos>
+																												<YPos>0</YPos>
+																												<Flags>37</Flags>
+																											</Point>
+																										</PointList>
+																									</Curve>
+																								</PropertyCurve>
+																							</PropertyCurveList>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
 																</Local>
 															</Reference>
 														</ObjectList>
 													</ObjectLists>
-												</MusicSegment>
-											</ChildrenList>
-											<TransitionList>
-												<MusicTransition Name="Root" ID="{67E81ECB-2399-48F8-9EC7-7D1E5612EFCA}">
+												</MusicTrack>
+												<MusicTrack Name="ES_The Taste of Fear STEMS MELODY" ID="{74742A93-B5B0-476F-928D-C597467A3CAB}" ShortID="1015109384">
 													<PropertyList>
-														<Property Name="IsFolder" Type="bool" Value="True"/>
+														<Property Name="IsStreamingEnabled" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+														<Property Name="IsZeroLatency" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
+													<ReferenceList>
+														<Reference Name="Conversion">
+															<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+														</Reference>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+														</Reference>
+													</ReferenceList>
 													<ChildrenList>
-														<MusicTransition Name="Transition" ID="{06A8F568-BD91-45E7-83FA-6B0F0A1015B7}">
+														<AudioFileSource Name="ES_The Taste of Fear STEMS MELODY" ID="{D97E2A45-17ED-4AB2-8569-1B7D4D889A07}">
+															<Language>SFX</Language>
+															<AudioFile>ES_The Taste of Fear STEMS MELODY.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="808777921"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{35330D6D-16C2-416E-A378-6BE72CB2AE2D}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<ReferenceList/>
 															<TransitionInfo/>
 														</MusicTransition>
-													</ChildrenList>
-													<TransitionInfo/>
-												</MusicTransition>
-											</TransitionList>
-											<Playlist>
-												<MusicPlaylistItem Name="" ID="{88F567C4-2101-4D72-A0C1-1CACB44BADE1}" ShortID="237566561">
-													<PropertyList>
-														<Property Name="LoopCount" Type="int16" Value="0"/>
-													</PropertyList>
-													<ChildrenList>
-														<MusicPlaylistItem Name="" ID="{99A192FF-F19A-43C0-B595-76E58D8C5029}" ShortID="879624425">
-															<PropertyList>
-																<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-															</PropertyList>
-															<SegmentRef Name="MP3mus_MusicPizza_Club_Pizza_115_ver_3" ID="{7DEFD19C-9223-4967-9022-0CEF2F1DD005}"/>
-														</MusicPlaylistItem>
-													</ChildrenList>
-												</MusicPlaylistItem>
-											</Playlist>
-										</MusicPlaylistContainer>
+													</TransitionList>
+													<ObjectLists>
+														<ObjectList Name="RTPC">
+															<Reference>
+																<Local>
+																	<RTPC Name="" ID="{2AE0CBF5-5CE2-4621-9FF0-40FF438315E7}" ShortID="829432998">
+																		<PropertyList>
+																			<Property Name="PropertyName" Type="string" Value="Volume"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="ControlInput">
+																				<ObjectRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
+																			</Reference>
+																			<Reference Name="Curve">
+																				<Custom>
+																					<Curve Name="" ID="{DE22F8CF-8ABC-4802-973A-2F53F4C48022}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="3"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0</XPos>
+																								<YPos>-0.13062</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>100</XPos>
+																								<YPos>0</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</RTPC>
+																</Local>
+															</Reference>
+														</ObjectList>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{6F325726-3D32-4C7D-AF53-5DFFF2EF3D00}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="ES_The Taste of Fear STEMS MELODY" ID="{B05C2ACC-4102-422D-B3CB-4C106054204A}">
+																							<PropertyList>
+																								<Property Name="BeginTrimOffset" Type="Real64" Value="6857.14285714286"/>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="145713.9375"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																								<Property Name="PlayAt" Type="Real64" Value="-6857.14285714286"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="ES_The Taste of Fear STEMS MELODY" ID="{D97E2A45-17ED-4AB2-8569-1B7D4D889A07}"/>
+																							<PropertyCurveList>
+																								<PropertyCurve PropertyName="Lowpass">
+																									<Curve Name="" ID="{D60116FE-080B-448C-89F2-4B238A5EC592}">
+																										<PropertyList>
+																											<Property Name="Flags" Type="int32" Value="1"/>
+																										</PropertyList>
+																										<PointList>
+																											<Point>
+																												<XPos>6.85714</XPos>
+																												<YPos>0</YPos>
+																												<Flags>5</Flags>
+																											</Point>
+																											<Point>
+																												<XPos>145.7139375</XPos>
+																												<YPos>0</YPos>
+																												<Flags>37</Flags>
+																											</Point>
+																										</PointList>
+																									</Curve>
+																								</PropertyCurve>
+																								<PropertyCurve PropertyName="Volume">
+																									<Curve Name="" ID="{C82EA164-C723-4170-A745-D40A9F9C9239}">
+																										<PropertyList>
+																											<Property Name="Flags" Type="int32" Value="3"/>
+																										</PropertyList>
+																										<PointList>
+																											<Point>
+																												<XPos>6.85714</XPos>
+																												<YPos>0</YPos>
+																												<Flags>5</Flags>
+																											</Point>
+																											<Point>
+																												<XPos>145.7139375</XPos>
+																												<YPos>0</YPos>
+																												<Flags>37</Flags>
+																											</Point>
+																										</PointList>
+																									</Curve>
+																								</PropertyCurve>
+																							</PropertyCurveList>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+											</ChildrenList>
+											<ObjectLists>
+												<ObjectList Name="Cues">
+													<Reference>
+														<Local>
+															<MusicCue Name="Entry Cue" ID="{5A0EBB4B-3E81-4758-9EC1-FB56D948D89F}">
+																<PropertyList>
+																	<Property Name="TimeMs" Type="Real64" Value="7.38964445190504E-13"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+													<Reference>
+														<Local>
+															<MusicCue Name="Exit Cue" ID="{C34B20DB-BD24-4E0C-87A6-A6D76349D935}">
+																<PropertyList>
+																	<Property Name="CueType" Type="int16" Value="1"/>
+																	<Property Name="TimeMs" Type="Real64" Value="123428.571428571"/>
+																</PropertyList>
+															</MusicCue>
+														</Local>
+													</Reference>
+												</ObjectList>
+											</ObjectLists>
+										</MusicSegment>
 									</ChildrenList>
 									<TransitionList>
-										<MusicTransition Name="Root" ID="{E3DBA68E-1C55-49A6-83CE-07B2B24C97F1}">
+										<MusicTransition Name="Root" ID="{A7E56DFB-D5B0-46A3-B7C1-374ECC14C409}">
 											<PropertyList>
 												<Property Name="IsFolder" Type="bool" Value="True"/>
 											</PropertyList>
+											<ReferenceList/>
 											<ChildrenList>
-												<MusicTransition Name="Transition" ID="{D321E215-CCAC-4B45-BA70-0418B5DD6999}">
-													<PropertyList>
-														<Property Name="ExitSourceAt" Type="int16" Value="0"/>
-													</PropertyList>
+												<MusicTransition Name="Transition" ID="{8B468FC9-DEBD-49B0-A1FF-DE0177507511}">
+													<ReferenceList/>
 													<TransitionInfo/>
 												</MusicTransition>
 											</ChildrenList>
 											<TransitionInfo/>
 										</MusicTransition>
 									</TransitionList>
-									<ArgumentList>
-										<ArgumentRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
-									</ArgumentList>
-									<EntryList>
-										<Entry>
-											<Path>
-												<PathElementRef Name="Main" ID="{4458D52F-689C-432B-8CA7-69A77C5103F3}"/>
-											</Path>
-											<AudioNodeInfo>
-												<AudioNodeRef Name="DEMO EpidemicSound" ID="{7F1782E7-97A3-4901-AD42-FDF22CE933E9}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
-											</AudioNodeInfo>
-										</Entry>
-										<Entry>
-											<Path>
-												<PathElementRef Name="Club" ID="{82B0E300-0030-4281-B84A-DD26930D08EB}"/>
-											</Path>
-											<AudioNodeInfo>
-												<AudioNodeRef Name="MP3mus_MusicPizza_Club_Pizza_115_ver_3" ID="{00B724EE-2694-4617-B52A-B2C71009BD4B}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
-											</AudioNodeInfo>
-										</Entry>
-									</EntryList>
-								</MusicSwitchContainer>
+									<Playlist>
+										<MusicPlaylistItem Name="" ID="{9487D87D-5E08-41D4-82DC-DDB1EF193067}" ShortID="210051712">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+											<ChildrenList>
+												<MusicPlaylistItem Name="" ID="{BC785C18-70D9-48B3-A1D0-B5992449565E}" ShortID="973390199">
+													<PropertyList>
+														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
+													</PropertyList>
+													<SegmentRef Name="DEMO ES_The Taste of Fear" ID="{D11B8A58-B13F-4012-B81E-1261148E0E7E}"/>
+												</MusicPlaylistItem>
+											</ChildrenList>
+										</MusicPlaylistItem>
+									</Playlist>
+								</MusicPlaylistContainer>
 							</ChildrenList>
 							<StateInfo>
 								<StateGroupList>
@@ -3031,7 +3241,22 @@
 									</PropertyList>
 									<ChildrenList>
 										<MusicTransition Name="Transition" ID="{01A6D6C9-C2E9-44B7-8B39-FA7F276C43BB}">
-											<TransitionInfo/>
+											<PropertyList>
+												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
+												<Property Name="ExitSourceAt" Type="int16" Value="2"/>
+												<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
+											</PropertyList>
+											<TransitionInfo>
+												<SourceFadeOut>
+													<MusicFade Name="Source Fade-out" ID="{D76D6AA6-6278-4902-91B6-A8E0DC9F4205}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="5"/>
+															<Property Name="FadeTime" Type="Real64" Value="3.3"/>
+															<Property Name="FadeType" Type="int16" Value="1"/>
+														</PropertyList>
+													</MusicFade>
+												</SourceFadeOut>
+											</TransitionInfo>
 										</MusicTransition>
 									</ChildrenList>
 									<TransitionInfo/>
@@ -3039,13 +3264,11 @@
 							</TransitionList>
 							<ArgumentList>
 								<ArgumentRef Name="MusicLevels" ID="{224AAC3C-AFC9-425F-8A48-299C2B18687F}"/>
-								<ArgumentRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
 							</ArgumentList>
 							<EntryList>
 								<Entry>
 									<Path>
 										<PathElementRef Name="MusicMainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
-										<PathElementRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
 									</Path>
 									<AudioNodeInfo>
 										<AudioNodeRef Name="MainMenu" ID="{AC692AD0-DB4F-4E3D-BABE-6E88EA4FB86E}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
@@ -3054,7 +3277,6 @@
 								<Entry>
 									<Path>
 										<PathElementRef Name="MusicBoss" ID="{93CF7F86-7416-42E2-825A-64014444391B}"/>
-										<PathElementRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
 									</Path>
 									<AudioNodeInfo>
 										<AudioNodeRef Name="Boss" ID="{3F4F1516-1C12-4328-ACFB-C4AF6AC5695F}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
@@ -3063,7 +3285,6 @@
 								<Entry>
 									<Path>
 										<PathElementRef Name="MusicFire" ID="{D9732EE3-78C3-4678-9A0F-7EA1DD2A4556}"/>
-										<PathElementRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
 									</Path>
 									<AudioNodeInfo>
 										<AudioNodeRef Name="Fire" ID="{DA462745-5BE4-434C-9739-5E14BEFD5728}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
@@ -3072,16 +3293,14 @@
 								<Entry>
 									<Path>
 										<PathElementRef Name="MusicPizza" ID="{744FDCB0-AD81-4440-8133-BA2E2C6D61E9}"/>
-										<PathElementRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
 									</Path>
 									<AudioNodeInfo>
-										<AudioNodeRef Name="Pizza" ID="{B4ED79E9-30E1-4F45-9C07-7F7C5FCC7E2C}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
+										<AudioNodeRef Name="Pizza" ID="{55499C6B-6E47-40C5-B8AF-05951D618B48}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
 									</AudioNodeInfo>
 								</Entry>
 								<Entry>
 									<Path>
 										<PathElementRef Name="MusicPsycho" ID="{23E84BC5-4455-4B56-BE9C-F2AEB44C78F9}"/>
-										<PathElementRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
 									</Path>
 									<AudioNodeInfo>
 										<AudioNodeRef Name="Psycho" ID="{B0119934-523E-451A-B489-3BA351C35820}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
@@ -3090,7 +3309,6 @@
 								<Entry>
 									<Path>
 										<PathElementRef Name="MusicTitles" ID="{4F4191C9-5289-4A9C-85A0-95130695EE7B}"/>
-										<PathElementRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
 									</Path>
 									<AudioNodeInfo>
 										<AudioNodeRef Name="Titles" ID="{0E75CA62-C5AC-4CD9-A982-3CE7D586F7FC}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
@@ -3099,7 +3317,6 @@
 								<Entry>
 									<Path>
 										<PathElementRef Name="MusicTutor" ID="{3E1A7CD0-88D8-4219-BEE8-A8C1E8294497}"/>
-										<PathElementRef Name="MusicPizza_ClubToMain" ID="{575EA994-95F6-4FC8-BFAA-8FFE2B9BF5F1}"/>
 									</Path>
 									<AudioNodeInfo>
 										<AudioNodeRef Name="Tutor" ID="{6ACBE9B3-C317-4E73-9114-FE8369E800CD}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}" Platform="Linked"/>
@@ -3192,6 +3409,44 @@
 								</ObjectList>
 							</ObjectLists>
 						</MusicSegment>
+						<MusicSwitchContainer Name="New Music Switch Container" ID="{43A3BEC3-A553-46EA-A58F-23143715D1E9}" ShortID="506852241">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<TransitionList>
+								<MusicTransition Name="Root" ID="{DC149E3C-28E5-4DBA-8939-CF566D452A48}">
+									<PropertyList>
+										<Property Name="IsFolder" Type="bool" Value="True"/>
+									</PropertyList>
+									<ReferenceList/>
+									<ChildrenList>
+										<MusicTransition Name="Transition" ID="{3B72A68B-7238-4CA0-AB43-892E22E64B3C}">
+											<ReferenceList/>
+											<TransitionInfo/>
+										</MusicTransition>
+									</ChildrenList>
+									<TransitionInfo/>
+								</MusicTransition>
+							</TransitionList>
+							<ArgumentList>
+								<ArgumentRef Name="MusicLevels" ID="{224AAC3C-AFC9-425F-8A48-299C2B18687F}"/>
+							</ArgumentList>
+							<EntryList>
+								<Entry>
+									<Path>
+										<PathElementRef Name="MusicPizza" ID="{744FDCB0-AD81-4440-8133-BA2E2C6D61E9}"/>
+									</Path>
+									<AudioNodeInfo>
+										<NoObject Platform="Linked"/>
+									</AudioNodeInfo>
+								</Entry>
+							</EntryList>
+						</MusicSwitchContainer>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

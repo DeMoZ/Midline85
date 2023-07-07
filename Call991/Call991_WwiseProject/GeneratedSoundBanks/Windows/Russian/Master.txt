@@ -747,15 +747,13 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	4206939811	MusicLevels			\Default Work Unit\MusicLevels	
 
 Switch	ID	Name	Switch Group			Notes
-	86437395	MusicChapterOne	MusicLevels			
 	732903831	MusicTitles	MusicLevels			
-	1068983409	MusicBossTwo	MusicLevels			
-	1374984612	MusicIntro	MusicLevels			
+	1218626300	MusicPizza	MusicLevels			
 	1585032734	MusicPsycho	MusicLevels			
+	1646520530	MusicFire	MusicLevels			
 	2404037190	MusicTutor	MusicLevels			
 	2832973428	MusicMainMenu	MusicLevels			
-	3630649973	MusicBossFirst	MusicLevels			
-	4263122705	MusicChapterTwo	MusicLevels			
+	2935806393	MusicBoss	MusicLevels			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	1112948642	DecideTime			\Default Work Unit\DecideTime	
@@ -766,7 +764,10 @@ State	ID	Name	State Group			Notes
 	3004330733	Decide	DecideTime			
 
 Custom State	ID	Name	State Group	Owner		Notes
-	803231543	Decide	DecideTime	\Interactive Music Hierarchy\Music\MusicLevels		
+	803231543	Decide	DecideTime	\Interactive Music Hierarchy\Music\Music\MusicLevels		
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	4215286884	PizzaRTPC			\Default Work Unit\Music\PizzaRTPC	
 
 Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	54971648	DecideTimeEnvelope			\Default Work Unit\DecideTimeEnvelope	
@@ -867,7 +868,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	105559924	elena_2	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\elena_2_rus_CCB47829.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\elena\elena_2		43273
 	110122033	psycho1_psycho_043	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_psycho_043_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Joshua\psycho1_psycho\psycho1_psycho_043		33770
 	111454380	tutor_mark_016	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_016_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_016	Было бы за что_ Раз это дело обсудили___ Готовы приступить к работе? Или, может быть, хотите разогреться? Разыграем сценку, как в театре для младшеклашек_	0
-	111521760	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_06_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4_01\New Music Track		15468
+	111521760	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_06_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4_01\New Music Track		15468
 	114636168	fire_p_lara_021	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_lara_021_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Lara\fire_p_lara\fire_p_lara_021		10163
 	116570352	fireep_mark_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_014_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_014	Вы скоро установили адрес возгорания и вовремя вызвали пожарную бригаду_ Всё, как по учебнику_	0
 	116577260	psycho1_elena_021	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_021_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_021		5628
@@ -896,7 +897,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	154219608	fireep_mark_030	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_030_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_030	Расследование ведётся_ Лару вновь опросят, если это будет необходимо_ Сосредоточьтесь на своей работе_	0
 	154849329	tutor_mark_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_007_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_007	У нас ещё есть немного времени___ Если необходимо, можем освежить в памяти основные правила_ Не сомневаюсь, что вы ещё помните долгие лекции в Академии, но повторить лишним не будет, верно?	0
 	156552766	pizza_girl_004	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_girl_004_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_004		19677
-	156641688	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_05_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14892
+	156641688	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_05_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14892
 	157026983	psycho1_psycho_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_psycho_002_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Joshua\psycho1_psycho\psycho1_psycho_002		10748
 	157347453	pizza_elena_071	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_071_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_071	Поняла вас_	4400
 	157431535	tutor_mark_045	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_045_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_045	Момент упущен_ Вы пытались, но действительно полезной информации слишком мало_	0
@@ -968,6 +969,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	258547841	sfx_keyboard1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_keyboard1_39629727.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_keyboard\sfx_keyboard1		38875
 	260799022	fire_p_jack_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_jack_005_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\JackRU\fire_p_jack\fire_p_jack_005		31268
 	260974663	psycho1_psycho_008	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_psycho_008_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Joshua\psycho1_psycho\psycho1_psycho_008		12053
+	261315776	ES_The Taste of Fear STEMS BASS	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\ES_The Taste of Fear STEMS BASS_DFD762D4.wem		\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS BASS		3774
 	264474113	pizza_girl_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_girl_002_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_002		8623
 	264976793	tutor_mark_052	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_052_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_052	Пятое_ Достаточно очевидное_ Компьютер в вашем офисе нужен для того, чтобы передавать информацию в соответствующие отделы_ Для более скорой кооперации ваши коллеги «в полях» могут сами достучаться до вас по телефону прямо на месте выезда_ Не зря нам закупили новенькие «Оратолы»_ Удобные, жаль со связью иногда беда_	0
 	265238802	fireep_mark_041	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_041_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_041	На этом точно всё_ Свободны_	0
@@ -1094,7 +1096,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	417357004	pizza_elena_030	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_030_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_030	Всего доброго_	5319
 	421631499	pizzaep_mark_038	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\Interlude1_mark_038_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_038	Полиции не хватило буквально полминуты___ Ублюдок разбушевался_ Мне жаль, Елена_ Девушку не удалось спасти_	0
 	422816161	fire_p_lara_012	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_lara_012_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Lara\fire_p_lara\fire_p_lara_012		19899
-	424267818	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_03_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4\sfx_clock_01		15245
+	424267818	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_03_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4\sfx_clock_01		15245
 	424528751	fire_p_elena_037	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_elena_037_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fire_p_elena\fire_p_elena_037		21872
 	424548819	pizza_elena_063	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_063_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_063	Справедливость_	6962
 	426932061	tutor_elena_027	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\tutor_elena_027_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\tutor_elena\tutor_elena_027		3534
@@ -1131,12 +1133,12 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	456848118	tutor_mark_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_001_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_001	Приветствую, Елена! Это начальство беспокоит_ Вы уже на рабочем месте?	0
 	457071235	tutor_elena_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\tutor_elena_010_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\tutor_elena\tutor_elena_010		9991
 	459969713	pizza_elena_062	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_062_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_062	Вы можете посмотреть в окно, что там происходит?	15659
-	460218632	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_02_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4_01\New Music Track		14346
+	460218632	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_02_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4_01\New Music Track		14346
 	461597599	pizza_elena_058	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_058_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_058	“Пицца в срок!”	6567
 	464350882	pizza_elena_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_005_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_005	Вашей жизни что-то угрожает?	10594
 	464461994	fireep_mark_032	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_032_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_032	Вы действительно думаете, что это маньяк, разгуливающий по Хаксли-стрит с канистой бензина?	0
 	466929508	fireep_mark_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_017_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_017	Впредь старайтесь узнавать подобную информацию как можно ранее_	0
-	467409299	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_01_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14539
+	467409299	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_01_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14539
 	469153106	pizzaep_elena_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizzaep_elena_009_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizzaep_elena\pizzaep_elena_009		25857
 	470408159	tutor_mark_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_009_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_009	Второе: вы должны понимать людей, которые находятся в экстренной ситуации_ Несговорчивость, нервозы, крики - норма_ Иногда стоит отрезвить собеседника, но в рамках своих полномочий_	0
 	472821234	psycho1_elena_029	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_029_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_029		26844
@@ -1195,7 +1197,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	557407172	tutor_mark_019	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_019_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_019	Времени у нас немного_ Расспросить обо всём не получится_ У нас с вами -- всего три вопроса на двоих_ Действуйте_	0
 	557509382	psycho1_elena_031	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_031_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_031		6225
 	557946625	psycho1_psycho_012	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_psycho_012_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Joshua\psycho1_psycho\psycho1_psycho_012		23428
-	558708138	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_03_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14643
+	558708138	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_03_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14643
 	560014366	tutor_elena_029	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\tutor_elena_029_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\tutor_elena\tutor_elena_029		3574
 	561594164	sfx_MChwrite4	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_MChwrite4_39629727.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_MChwrite\sfx_MChwrite4		47129
 	562141503	fireep_mark_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_006_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_006	Я не собираюсь тут вас перехваливать, конечно___	0
@@ -1238,7 +1240,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	614742550	tutor_mark_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_005_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_005	Держать нос поверху - так и надо!	0
 	615299506	fireep_elena_030	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fireep_elena_030_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fireep_elena\fireep_elena_030		9732
 	615363615	fireep_mark_026	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_026_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_026	На этом всё_ Свободны_	0
-	615727251	sfx_decidetime	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_decidetime_F9660FE8.wem		\Interactive Music Hierarchy\Music\DecideTime_Loop\SFX_DecideTime_Var1\sfx_decidetime		68393
+	615727251	sfx_decidetime	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_decidetime_F9660FE8.wem		\Interactive Music Hierarchy\Music\DecideTime\DecideTime_Loop\SFX_DecideTime_Var1\sfx_decidetime		68393
 	619576391	psycho1_elena_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_017_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_017		24218
 	619849221	fire_p_jack_034	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_jack_034_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\JackRU\fire_p_jack\fire_p_jack_034		9863
 	619995316	elena_6	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\elena_6_rus_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\elena\elena_6		8292
@@ -1274,7 +1276,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	670902734	tutor_mark_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_011_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_011	Да___ Третье_ Всегда задавайте вопросы! Адрес, что случилось и так далее_ Чем больше знаете вы, тем больше знает отдел и, соответственно, выше шансы помочь пострадавшему_	0
 	671453620	sfx_psychopaper_02	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_psychopaper_02_39629727.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopaper\sfx_psychopaper_02		25203
 	671503866	fire_p_lara_047	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_lara_047_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Lara\fire_p_lara\fire_p_lara_047		41570
-	671663743	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_01_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4\sfx_clock_01		15090
+	671663743	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_01_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4\sfx_clock_01		15090
 	672872258	pizza_george_023	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_george_023_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\George\pizza_george\pizza_george_023		8688
 	673429948	pizzaep_mark_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\Interlude1_mark_014_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_014	Да, я знаю! И вы молодец, что её разглядели! Но! Есть правила, мисс Хейворд_	0
 	673669984	tutor_mark_012	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_012_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_012	Один правильно заданный вопрос в последствии может изменить ход всего разговора_ У вас, как выпускницы академии, есть полезная привычка записывать всё любопытное и полезное_ Не бросайте её здесь_ Это понятно?	0
@@ -1310,7 +1312,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	710546286	fire_p_elena_018	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_elena_018_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fire_p_elena\fire_p_elena_018		5013
 	710570897	fireep_mark_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_002_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_002	Отлично___ Отлично___	0
 	714694386	pizza_girl_033	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_girl_033_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_033		15220
-	715546637	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_05_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4\sfx_clock_01		15213
+	715546637	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_05_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4\sfx_clock_01		15213
 	715870214	pizza_elena_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_009_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_009	Назовите адрес_	6342
 	715998301	fire_p_lara_043	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_lara_043_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Lara\fire_p_lara\fire_p_lara_043		38483
 	717290856	pizzaep_mark_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\Interlude1_mark_006_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_006	Я даже не знаю, как это___ Интерпретировать с точки зрения правил___	0
@@ -1367,13 +1369,14 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	794463117	fire_p_elena_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_elena_006_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fire_p_elena\fire_p_elena_006		2596
 	795229607	sfx_squadwalk_05	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_squadwalk_05_39629727.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_squadwalk\sfx_squadwalk_05		33782
 	795718381	pizza_elena_038	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_038_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_038	Единственное, что ты можешь сейчас сделать правильно -- это дождаться полиции смиренно и тихо_	34609
-	798395727	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_04_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14671
+	798395727	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_04_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14671
 	799807575	pizza_elena_072	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_072_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_072	Это Барбара! Оператор пиццерии___	10287
 	802387754	pizza_girl_049	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_girl_049_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_049		15065
-	803435834	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_04_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4_01\New Music Track		15170
+	803435834	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_04_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4_01\New Music Track		15170
 	803597231	fireep_elena_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fireep_elena_007_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fireep_elena\fireep_elena_007		7696
 	804748920	tutor_elena_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\tutor_elena_011_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\tutor_elena\tutor_elena_011		9302
 	807742281	pizza_elena_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_017_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_017	К вам ворвались в дом?	6404
+	808777921	ES_The Taste of Fear STEMS MELODY	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\ES_The Taste of Fear STEMS MELODY_DFD762D4.wem		\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS MELODY		1924
 	809737166	UI_Click_Game	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\UI_Click_Game_43B69968.wem		\Actor-Mixer Hierarchy\UI\UI\UI_Click_Game\UI_Click_Game		124912
 	809999364	fire_p_lara_028	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_lara_028_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Lara\fire_p_lara\fire_p_lara_028		20021
 	812016437	psycho1_elena_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_001_rus_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_001		17859
@@ -1402,6 +1405,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	839303872	fire_p_jack_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_jack_001_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\JackRU\fire_p_jack\fire_p_jack_001		21990
 	840226677	fireep_elena_024	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fireep_elena_024_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fireep_elena\fireep_elena_024		84902
 	840930805	fire_p_lara_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_lara_014_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Lara\fire_p_lara\fire_p_lara_014		21237
+	841289588	ES_The Taste of Fear STEMS INSTRUMENTS	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\ES_The Taste of Fear STEMS INSTRUMENTS_DFD762D4.wem		\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS INSTRUMENTS		1924
 	844974590	fire_p_elena_041	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_elena_041_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fire_p_elena\fire_p_elena_041		8208
 	847847873	pizzaep_mark_026	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\Interlude1_mark_026_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_026	Наш оператор догадался слишком поздно, что что-то и в голосе не то, и звуки посторонние присутствуют подозрительные___	0
 	848576812	pizzaep_elena_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizzaep_elena_014_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizzaep_elena\pizzaep_elena_014		6388
@@ -1411,6 +1415,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	852712170	sfx_goout	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_goout_39629727.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_goout		67393
 	853769782	pizza_girl_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_girl_011_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_011		14093
 	853818320	pizza_elena_027	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_027_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_027	Скажите, что газировка_	9645
+	854376089	mus_MusicMenu_Main_Broken Dreams_40_ver_1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\mus_MusicMenu_Main_Broken Dreams_40_ver.1_9CB3EEEB.wem		\Interactive Music Hierarchy\Music\Music\MusicLevels\MainMenu\mus_MusicMenu_Main_Broken Dreams_40_ver_1\mus_MusicMenu_Main_Broken Dreams_40_ver_1		3565
 	855812814	fire_p_jack_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_jack_017_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\JackRU\fire_p_jack\fire_p_jack_017		30226
 	865390090	tutor_mark_038	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_038_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_038	Они и без тебя сенсации себе найдут_	0
 	866661180	psycho1_elena_013	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_013_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_013		8480
@@ -1517,7 +1522,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1019460294	tutor_mark_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\p_mark_017_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_017	Ваша смена ещё даже не началась_ Есть один сценарий, к сожалению, довольно частый в неблагоприятных районах___	0
 	1020561483	pizzaep_mark_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\Interlude1_mark_010_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_010	Журналисты всё узнают, если ещё не_ Интересно, у нас сейчас в штате работает хотя бы одна Барбара? Не повезло ей_	0
 	1020584959	psycho1_elena_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_011_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_011		15288
-	1022027099	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_06_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14844
+	1022027099	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_06_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14844
 	1024194668	psycho1_psycho_055	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_psycho_055_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Joshua\psycho1_psycho\psycho1_psycho_055		35749
 	1024369374	fire_p_lara_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_lara_010_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Lara\fire_p_lara\fire_p_lara_010		31751
 	1024394252	pizza_elena_024	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_024_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_024	Мне нужно знать, в какой квартире вы находитесь_	15840
@@ -1525,7 +1530,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1027875116	psycho1_elena_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_007_rus_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_007		1820
 	1027894244	fire_p_jack_013	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_jack_013_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\JackRU\fire_p_jack\fire_p_jack_013		68904
 	1028677134	psycho1_psycho_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_psycho_014_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Joshua\psycho1_psycho\psycho1_psycho_014		27862
-	1029744961	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_02_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		13818
+	1029744961	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_clock_02_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		13818
 	1030719134	psycho1_psycho_032	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_psycho_032_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Joshua\psycho1_psycho\psycho1_psycho_032		22951
 	1031250025	fireep_elena_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fireep_elena_010_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fireep_elena\fireep_elena_010		16551
 	1032114260	fire_p_elena_061	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\fire_p_elena_061_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\fire_p_elena\fire_p_elena_061		16115
@@ -1555,11 +1560,16 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1057984132	sfx_neon	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\sfx_neon_39629727.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_neon		80116
 	1058946282	pizza_girl_040	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_girl_040_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_040		13900
 	1061418152	psycho1_psycho_031	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_psycho_031_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Joshua\psycho1_psycho\psycho1_psycho_031		16704
-	1063374230	02_ A New Day	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\02. A New Day_07E195FA.wem		\Interactive Music Hierarchy\Music\MusicLevels\0 - MainMenu\02_ A New Day\02_ A New Day		48333696
 	1065388779	fireep_mark_024	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\English\interlude2_mark_024_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_024	Вам стоило___ Удерживать внимание Джека на пожаре_	0
 	1066624077	pizza_george_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_george_009_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\George\pizza_george\pizza_george_009		14761
 	1071922202	pizza_elena_004	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_elena_004_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_004	Вы ошиблись номером_ Это служба 911_	17099
 	1072552343	pizza_george_046	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\pizza_george_046_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\George\pizza_george\pizza_george_046		14483
 	1072744454	psycho1_elena_039	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_039_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_039		8809
 	1073181094	psycho1_elena_035	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\Voices\Russian\psycho1_elena_035_39629727.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\psycho1_elena\psycho1_elena_035		5441
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	261315776	ES_The Taste of Fear STEMS BASS	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\ES_The Taste of Fear STEMS BASS_DFD762D4.wem	261315776.wem	\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS BASS	
+	808777921	ES_The Taste of Fear STEMS MELODY	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\ES_The Taste of Fear STEMS MELODY_DFD762D4.wem	808777921.wem	\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS MELODY	
+	841289588	ES_The Taste of Fear STEMS INSTRUMENTS	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\ES_The Taste of Fear STEMS INSTRUMENTS_DFD762D4.wem	841289588.wem	\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS INSTRUMENTS	
+	854376089	mus_MusicMenu_Main_Broken Dreams_40_ver_1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Windows\SFX\mus_MusicMenu_Main_Broken Dreams_40_ver.1_9CB3EEEB.wem	854376089.wem	\Interactive Music Hierarchy\Music\Music\MusicLevels\MainMenu\mus_MusicMenu_Main_Broken Dreams_40_ver_1\mus_MusicMenu_Main_Broken Dreams_40_ver_1	
 

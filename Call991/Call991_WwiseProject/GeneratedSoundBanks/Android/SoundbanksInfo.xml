@@ -21,7 +21,7 @@
 			<ShortName>Intro</ShortName>
 			<Path>Intro.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{ACC2190A-B034-06F4-BE2A-06F2B1114D91}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{E7AD7F3D-7566-4D90-C053-8AC4B02F2CA8}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -58,10 +58,15 @@
 			</Busses>
 			<GameParameters>
 				<GameParameter Id="414646191" Name="VoiceVolume"/>
+				<GameParameter Id="492410064" Name="PsychoRTPC"/>
 				<GameParameter Id="988953028" Name="SFXVolume"/>
 				<GameParameter Id="2346531308" Name="MusicVolume"/>
+				<GameParameter Id="2896520340" Name="FireRTPC"/>
 				<GameParameter Id="2918011349" Name="MasterVolume"/>
+				<GameParameter Id="3437703146" Name="TutorRTPC"/>
+				<GameParameter Id="3612665531" Name="BossRTPC"/>
 				<GameParameter Id="3881602766" Name="TestGameRTPC"/>
+				<GameParameter Id="4215286884" Name="PizzaRTPC"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="1112948642" Name="DecideTime">
@@ -87,15 +92,13 @@
 				</SwitchGroup>
 				<SwitchGroup Id="4206939811" Name="MusicLevels">
 					<Switches>
-						<Switch Id="86437395" Name="MusicChapterOne"/>
 						<Switch Id="732903831" Name="MusicTitles"/>
-						<Switch Id="1068983409" Name="MusicBossTwo"/>
-						<Switch Id="1374984612" Name="MusicIntro"/>
+						<Switch Id="1218626300" Name="MusicPizza"/>
 						<Switch Id="1585032734" Name="MusicPsycho"/>
+						<Switch Id="1646520530" Name="MusicFire"/>
 						<Switch Id="2404037190" Name="MusicTutor"/>
 						<Switch Id="2832973428" Name="MusicMainMenu"/>
-						<Switch Id="3630649973" Name="MusicBossFirst"/>
-						<Switch Id="4263122705" Name="MusicChapterTwo"/>
+						<Switch Id="2935806393" Name="MusicBoss"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
@@ -112,7 +115,7 @@
 			<ShortName>Fire</ShortName>
 			<Path>Fire.bnk</Path>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="Russian" Hash="{92BBD3D9-155C-5DEB-422B-AED8304C52A5}">
+		<SoundBank Id="4056684167" Type="User" Language="Russian" Hash="{8523E27E-DC42-CE29-B73B-7091FF58A8D3}">
 			<ShortName>Master</ShortName>
 			<Path>Russian/Master.bnk</Path>
 			<Media>
@@ -815,6 +818,12 @@
 				<File Id="260974663" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>psycho1_psycho_008.wav</ShortName>
 					<CachePath>Voices/Russian/psycho1_psycho_008_E9045315.wem</CachePath>
+				</File>
+				<File Id="261315776" Language="SFX" Streaming="true" Location="Memory">
+					<ShortName>ES_The Taste of Fear STEMS BASS.wav</ShortName>
+					<Path>Media/261315776.wem</Path>
+					<CachePath>SFX/ES_The Taste of Fear STEMS BASS_DFD762D4.wem</CachePath>
+					<PrefetchSize>3787</PrefetchSize>
 				</File>
 				<File Id="264474113" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_girl_002.wav</ShortName>
@@ -2440,6 +2449,12 @@
 					<ShortName>pizza_elena_017.wav</ShortName>
 					<CachePath>Voices/Russian/pizza_elena_017_E9045315.wem</CachePath>
 				</File>
+				<File Id="808777921" Language="SFX" Streaming="true" Location="Memory">
+					<ShortName>ES_The Taste of Fear STEMS MELODY.wav</ShortName>
+					<Path>Media/808777921.wem</Path>
+					<CachePath>SFX/ES_The Taste of Fear STEMS MELODY_DFD762D4.wem</CachePath>
+					<PrefetchSize>1924</PrefetchSize>
+				</File>
 				<File Id="809737166" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Click_Game.wav</ShortName>
 					<CachePath>SFX/UI_Click_Game_5CA1A40D.wem</CachePath>
@@ -2552,6 +2567,12 @@
 					<ShortName>fire_p_lara_014.wav</ShortName>
 					<CachePath>Voices/Russian/fire_p_lara_014_E9045315.wem</CachePath>
 				</File>
+				<File Id="841289588" Language="SFX" Streaming="true" Location="Memory">
+					<ShortName>ES_The Taste of Fear STEMS INSTRUMENTS.wav</ShortName>
+					<Path>Media/841289588.wem</Path>
+					<CachePath>SFX/ES_The Taste of Fear STEMS INSTRUMENTS_DFD762D4.wem</CachePath>
+					<PrefetchSize>1924</PrefetchSize>
+				</File>
 				<File Id="844974590" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>fire_p_elena_041.wav</ShortName>
 					<CachePath>Voices/Russian/fire_p_elena_041_E9045315.wem</CachePath>
@@ -2587,6 +2608,12 @@
 				<File Id="853818320" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena_027.wav</ShortName>
 					<CachePath>Voices/Russian/pizza_elena_027_E9045315.wem</CachePath>
+				</File>
+				<File Id="854376089" Language="SFX" Streaming="true" Location="Memory">
+					<ShortName>mus_MusicMenu_Main_Broken Dreams_40_ver.1.wav</ShortName>
+					<Path>Media/854376089.wem</Path>
+					<CachePath>SFX/mus_MusicMenu_Main_Broken Dreams_40_ver.1_9CB3EEEB.wem</CachePath>
+					<PrefetchSize>3581</PrefetchSize>
 				</File>
 				<File Id="855812814" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>fire_p_jack_017.wav</ShortName>
@@ -3163,10 +3190,6 @@
 				<File Id="1061418152" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>psycho1_psycho_031.wav</ShortName>
 					<CachePath>Voices/Russian/psycho1_psycho_031_E9045315.wem</CachePath>
-				</File>
-				<File Id="1063374230" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>02. A New Day.wav</ShortName>
-					<CachePath>SFX/02. A New Day_07E195FA.wem</CachePath>
 				</File>
 				<File Id="1065388779" Language="Russian" Streaming="false" Location="Memory" UsingReferenceLanguage="true">
 					<ShortName>interlude2_mark_024.wav</ShortName>
@@ -4469,7 +4492,15 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="2832973428"/>
 							<MediaRefs>
-								<MediaRef Id="1063374230"/>
+								<MediaRef Id="854376089"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="1218626300"/>
+							<MediaRefs>
+								<MediaRef Id="261315776"/>
+								<MediaRef Id="808777921"/>
+								<MediaRef Id="841289588"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -6942,6 +6973,9 @@
 					</MediaRefs>
 				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="4215286884" Name="PizzaRTPC"/>
+			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="1112948642" Name="DecideTime">
 					<States>
@@ -6960,15 +6994,13 @@
 			<SwitchGroups>
 				<SwitchGroup Id="4206939811" Name="MusicLevels">
 					<Switches>
-						<Switch Id="86437395" Name="MusicChapterOne"/>
 						<Switch Id="732903831" Name="MusicTitles"/>
-						<Switch Id="1068983409" Name="MusicBossTwo"/>
-						<Switch Id="1374984612" Name="MusicIntro"/>
+						<Switch Id="1218626300" Name="MusicPizza"/>
 						<Switch Id="1585032734" Name="MusicPsycho"/>
+						<Switch Id="1646520530" Name="MusicFire"/>
 						<Switch Id="2404037190" Name="MusicTutor"/>
 						<Switch Id="2832973428" Name="MusicMainMenu"/>
-						<Switch Id="3630649973" Name="MusicBossFirst"/>
-						<Switch Id="4263122705" Name="MusicChapterTwo"/>
+						<Switch Id="2935806393" Name="MusicBoss"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
@@ -6977,7 +7009,7 @@
 				<Trigger Id="1624638295" Name="TestTrigger"/>
 			</Triggers>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="English" Hash="{A221B2FD-53F5-AB37-46D5-0E112471ED70}">
+		<SoundBank Id="4056684167" Type="User" Language="English" Hash="{0C8C1591-B186-043D-6554-8907BB607966}">
 			<ShortName>Master</ShortName>
 			<Path>English/Master.bnk</Path>
 			<Media>
@@ -7300,6 +7332,12 @@
 				<File Id="258908055" Language="English" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena_062.wav</ShortName>
 					<CachePath>Voices/English/pizza_elena_062_E9045315.wem</CachePath>
+				</File>
+				<File Id="261315776" Language="SFX" Streaming="true" Location="Memory">
+					<ShortName>ES_The Taste of Fear STEMS BASS.wav</ShortName>
+					<Path>Media/261315776.wem</Path>
+					<CachePath>SFX/ES_The Taste of Fear STEMS BASS_DFD762D4.wem</CachePath>
+					<PrefetchSize>3787</PrefetchSize>
 				</File>
 				<File Id="264976793" Language="English" Streaming="false" Location="Memory">
 					<ShortName>p_mark_052.wav</ShortName>
@@ -8041,6 +8079,12 @@
 					<ShortName>pizza_elena_087.wav</ShortName>
 					<CachePath>Voices/English/pizza_elena_087_E9045315.wem</CachePath>
 				</File>
+				<File Id="808777921" Language="SFX" Streaming="true" Location="Memory">
+					<ShortName>ES_The Taste of Fear STEMS MELODY.wav</ShortName>
+					<Path>Media/808777921.wem</Path>
+					<CachePath>SFX/ES_The Taste of Fear STEMS MELODY_DFD762D4.wem</CachePath>
+					<PrefetchSize>1924</PrefetchSize>
+				</File>
 				<File Id="809448015" Language="English" Streaming="false" Location="Memory">
 					<ShortName>1.wav</ShortName>
 					<CachePath>Voices/English/1_B821AF34.wem</CachePath>
@@ -8081,6 +8125,12 @@
 					<ShortName>UI_Click_Menu.wav</ShortName>
 					<CachePath>SFX/UI_Click_Menu_0D8FC2A8.wem</CachePath>
 				</File>
+				<File Id="841289588" Language="SFX" Streaming="true" Location="Memory">
+					<ShortName>ES_The Taste of Fear STEMS INSTRUMENTS.wav</ShortName>
+					<Path>Media/841289588.wem</Path>
+					<CachePath>SFX/ES_The Taste of Fear STEMS INSTRUMENTS_DFD762D4.wem</CachePath>
+					<PrefetchSize>1924</PrefetchSize>
+				</File>
 				<File Id="847847873" Language="English" Streaming="false" Location="Memory">
 					<ShortName>Interlude1_mark_026.wav</ShortName>
 					<CachePath>Voices/English/Interlude1_mark_026_E9045315.wem</CachePath>
@@ -8092,6 +8142,12 @@
 				<File Id="852712170" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_goout.wav</ShortName>
 					<CachePath>SFX/sfx_goout_42CA4BAA.wem</CachePath>
+				</File>
+				<File Id="854376089" Language="SFX" Streaming="true" Location="Memory">
+					<ShortName>mus_MusicMenu_Main_Broken Dreams_40_ver.1.wav</ShortName>
+					<Path>Media/854376089.wem</Path>
+					<CachePath>SFX/mus_MusicMenu_Main_Broken Dreams_40_ver.1_9CB3EEEB.wem</CachePath>
+					<PrefetchSize>3581</PrefetchSize>
 				</File>
 				<File Id="865390090" Language="English" Streaming="false" Location="Memory">
 					<ShortName>p_mark_038.wav</ShortName>
@@ -8380,10 +8436,6 @@
 				<File Id="1057984132" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_neon.wav</ShortName>
 					<CachePath>SFX/sfx_neon_42CA4BAA.wem</CachePath>
-				</File>
-				<File Id="1063374230" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>02. A New Day.wav</ShortName>
-					<CachePath>SFX/02. A New Day_07E195FA.wem</CachePath>
 				</File>
 				<File Id="1065388779" Language="English" Streaming="false" Location="Memory">
 					<ShortName>interlude2_mark_024.wav</ShortName>
@@ -9233,7 +9285,15 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="2832973428"/>
 							<MediaRefs>
-								<MediaRef Id="1063374230"/>
+								<MediaRef Id="854376089"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="1218626300"/>
+							<MediaRefs>
+								<MediaRef Id="261315776"/>
+								<MediaRef Id="808777921"/>
+								<MediaRef Id="841289588"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -11424,6 +11484,9 @@
 					</MediaRefs>
 				</Event>
 			</Events>
+			<GameParameters>
+				<GameParameter Id="4215286884" Name="PizzaRTPC"/>
+			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="1112948642" Name="DecideTime">
 					<States>
@@ -11442,15 +11505,13 @@
 			<SwitchGroups>
 				<SwitchGroup Id="4206939811" Name="MusicLevels">
 					<Switches>
-						<Switch Id="86437395" Name="MusicChapterOne"/>
 						<Switch Id="732903831" Name="MusicTitles"/>
-						<Switch Id="1068983409" Name="MusicBossTwo"/>
-						<Switch Id="1374984612" Name="MusicIntro"/>
+						<Switch Id="1218626300" Name="MusicPizza"/>
 						<Switch Id="1585032734" Name="MusicPsycho"/>
+						<Switch Id="1646520530" Name="MusicFire"/>
 						<Switch Id="2404037190" Name="MusicTutor"/>
 						<Switch Id="2832973428" Name="MusicMainMenu"/>
-						<Switch Id="3630649973" Name="MusicBossFirst"/>
-						<Switch Id="4263122705" Name="MusicChapterTwo"/>
+						<Switch Id="2935806393" Name="MusicBoss"/>
 					</Switches>
 				</SwitchGroup>
 			</SwitchGroups>
@@ -11464,5 +11525,5 @@
 			<Path>Psycho.bnk</Path>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{5BFDFF04-FD60-7B6F-2632-69D466E6F7AB}</FileHash>
+	<FileHash>{391BEAD9-EB69-4D89-1127-EDA517D99125}</FileHash>
 </SoundBanksInfo>

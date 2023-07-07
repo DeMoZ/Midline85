@@ -747,15 +747,13 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	4206939811	MusicLevels			\Default Work Unit\MusicLevels	
 
 Switch	ID	Name	Switch Group			Notes
-	86437395	MusicChapterOne	MusicLevels			
 	732903831	MusicTitles	MusicLevels			
-	1068983409	MusicBossTwo	MusicLevels			
-	1374984612	MusicIntro	MusicLevels			
+	1218626300	MusicPizza	MusicLevels			
 	1585032734	MusicPsycho	MusicLevels			
+	1646520530	MusicFire	MusicLevels			
 	2404037190	MusicTutor	MusicLevels			
 	2832973428	MusicMainMenu	MusicLevels			
-	3630649973	MusicBossFirst	MusicLevels			
-	4263122705	MusicChapterTwo	MusicLevels			
+	2935806393	MusicBoss	MusicLevels			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	1112948642	DecideTime			\Default Work Unit\DecideTime	
@@ -766,7 +764,10 @@ State	ID	Name	State Group			Notes
 	3004330733	Decide	DecideTime			
 
 Custom State	ID	Name	State Group	Owner		Notes
-	803231543	Decide	DecideTime	\Interactive Music Hierarchy\Music\MusicLevels		
+	803231543	Decide	DecideTime	\Interactive Music Hierarchy\Music\Music\MusicLevels		
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	4215286884	PizzaRTPC			\Default Work Unit\Music\PizzaRTPC	
 
 Modulator Envelope	ID	Name			Wwise Object Path	Notes
 	54971648	DecideTimeEnvelope			\Default Work Unit\DecideTimeEnvelope	
@@ -829,7 +830,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	102449160	pizza_girl_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\girl2_111DB54E.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_011		20961
 	103843490	fireep_mark_034	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_034_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_034	Ответственные люди этим уже занимаются_ Запись звонка им уже передана_ Я ценю вашу преданность городу и ваши идеалы, но___	0
 	111454380	tutor_mark_016	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_016_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_016	Было бы за что_ Раз это дело обсудили___ Готовы приступить к работе? Или, может быть, хотите разогреться? Разыграем сценку, как в театре для младшеклашек_	0
-	111521760	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_06_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4_01\New Music Track		15358
+	111521760	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_06_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4_01\New Music Track		15358
 	116570352	fireep_mark_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_014_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_014	Вы скоро установили адрес возгорания и вовремя вызвали пожарную бригаду_ Всё, как по учебнику_	0
 	130039209	fire_sfx_jackanger	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\fire.sfx.jackanger_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\fire_sfx_jackanger		69940
 	132716939	pizza_girl_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\girl2_C78739A8.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_006		16522
@@ -842,7 +843,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	154219608	fireep_mark_030	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_030_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_030	Расследование ведётся_ Лару вновь опросят, если это будет необходимо_ Сосредоточьтесь на своей работе_	0
 	154633889	pizza_elena_059	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_059_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_059	Девять простых, натуральных ингридиентов_ Один звонок_ Один сытный ужин_	0
 	154849329	tutor_mark_007	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_007_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_007	У нас ещё есть немного времени___ Если необходимо, можем освежить в памяти основные правила_ Не сомневаюсь, что вы ещё помните долгие лекции в Академии, но повторить лишним не будет, верно?	0
-	156641688	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_05_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14852
+	156641688	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_05_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14852
 	157431535	tutor_mark_045	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_045_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_045	Момент упущен_ Вы пытались, но действительно полезной информации слишком мало_	0
 	166374291	pizza_elena_013	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\1_BB28FD32.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_013	Ещё как “доставляем”_ Что или кто вам угрожает?	19781
 	172173660	pizza_girl_023	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\girl2_E2262CE0.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_023		11529
@@ -873,6 +874,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	255346539	fireep_mark_023	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_023_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_023	Вы были почти у цели_ Но не смогли обещать того, за что не готовы были поручиться_	0
 	258547841	sfx_keyboard1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_keyboard1_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_keyboard\sfx_keyboard1		27977
 	258908055	pizza_elena_062	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_062_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_062	Вы можете посмотреть в окно, что там происходит?	0
+	261315776	ES_The Taste of Fear STEMS BASS	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\ES_The Taste of Fear STEMS BASS_DFD762D4.wem		\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS BASS		3787
 	264976793	tutor_mark_052	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_052_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_052	Пятое_ Достаточно очевидное_ Компьютер в вашем офисе нужен для того, чтобы передавать информацию в соответствующие отделы_ Для более скорой кооперации ваши коллеги «в полях» могут сами достучаться до вас по телефону прямо на месте выезда_ Не зря нам закупили новенькие «Оратолы»_ Удобные, жаль со связью иногда беда_	0
 	265082146	pizza_elena_076	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_076_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_076	Вы не видели нашу вывеску с наручниками? Полицейские сирены на мопеде курьера?	0
 	265238802	fireep_mark_041	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_041_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_041	На этом точно всё_ Свободны_	0
@@ -929,7 +931,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	416248703	sfx_psychopen_03	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_psychopen_03_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopen\sfx_psychopen_03		38754
 	418714564	pizza_elena_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\1_A03B449A.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_010	Насколько опасна ситуация?	13373
 	421631499	pizzaep_mark_038	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_038_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_038	Полиции не хватило буквально полминуты___ Ублюдок разбушевался_ Мне жаль, Елена_ Девушку не удалось спасти_	0
-	424267818	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_03_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4\sfx_clock_01		15199
+	424267818	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_03_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4\sfx_clock_01		15199
 	428141939	tutor_mark_039_3	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_039_3_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_039_3	Бесплатно прорекламировали бы “Хаус оф пицца”, например_	0
 	433406750	fireep_mark_033	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_033_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_033	Я вот что скажу, Елена___	0
 	436830072	sfx_squadwalk_08	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_squadwalk_08_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_squadwalk\sfx_squadwalk_08		18653
@@ -939,10 +941,10 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	446721764	pizzaep_mark_043	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_043_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_043	Не начинайте_ Легче вам от сигарет не станет_	0
 	455624802	fireep_mark_012	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_012_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_012	И вы воспользовались этой информацией, чтобы попытаться переубедить Джека_	0
 	456848118	tutor_mark_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_001_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_001	Приветствую, Елена! Это начальство беспокоит_ Вы уже на рабочем месте?	0
-	460218632	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_02_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4_01\New Music Track		14305
+	460218632	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_02_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4_01\New Music Track		14305
 	464461994	fireep_mark_032	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_032_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_032	Вы действительно думаете, что это маньяк, разгуливающий по Хаксли-стрит с канистой бензина?	0
 	466929508	fireep_mark_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_017_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_017	Впредь старайтесь узнавать подобную информацию как можно ранее_	0
-	467409299	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_01_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14460
+	467409299	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_01_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14460
 	470389752	pizza_elena_058	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_058_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_058	“Пицца в срок!”	0
 	470408159	tutor_mark_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_009_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_009	Второе: вы должны понимать людей, которые находятся в экстренной ситуации_ Несговорчивость, нервозы, крики - норма_ Иногда стоит отрезвить собеседника, но в рамках своих полномочий_	0
 	476957558	pizza_girl_008	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\girl2_FD57AB86.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_008		20779
@@ -969,7 +971,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	556527615	pizzaep_mark_045	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_045_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_045	Этот___ Молодой человек___ Вы же знаете, что произошло?	0
 	556797177	pizzaep_mark_021	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_021_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_021	В частности - про телефонные розыгрыши или ошибки в наборе___	0
 	557407172	tutor_mark_019	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_019_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_019	Времени у нас немного_ Расспросить обо всём не получится_ У нас с вами -- всего три вопроса на двоих_ Действуйте_	0
-	558708138	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_03_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14612
+	558708138	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_03_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14612
 	561594164	sfx_MChwrite4	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_MChwrite4_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_MChwrite\sfx_MChwrite4		33069
 	562141503	fireep_mark_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_006_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_006	Я не собираюсь тут вас перехваливать, конечно___	0
 	564090032	pizzaep_mark_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_009_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_009	Однако, боюсь, что такая практика может привести к репутационным потерям_ Наши дела не должны подрывать доверие граждан_	0
@@ -990,7 +992,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	613532639	tutor_mark_021	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_021_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_021	Ищите ориентиры, похвально_ За дождём плохо видно_ Что-то неоновое_ Деревья ещё_ Это был второй вопрос_ А сейчас задайте решающий_	0
 	614742550	tutor_mark_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_005_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_005	Держать нос поверху - так и надо!	0
 	615363615	fireep_mark_026	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_026_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_026	На этом всё_ Свободны_	0
-	615727251	sfx_decidetime	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_decidetime_F9660FE8.wem		\Interactive Music Hierarchy\Music\DecideTime_Loop\SFX_DecideTime_Var1\sfx_decidetime		68522
+	615727251	sfx_decidetime	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_decidetime_F9660FE8.wem		\Interactive Music Hierarchy\Music\DecideTime\DecideTime_Loop\SFX_DecideTime_Var1\sfx_decidetime		68522
 	619873608	pizza_elena_082	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_082_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_082	Мы должны убедиться, что заказ прибыл вовремя, пицца -- горячая, а напитки -- холодные_	0
 	621984620	fireep_mark_022	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_022_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_022	Всё могло пойти через одно место___ А так___ Дом сгорел -- не такое большое горе, какое могло бы быть_	0
 	634566053	pizzaep_mark_048	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_048_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_048	Могли бы_ Но вина на вас нулевая, Елена_ Продолжайте свою работу и учтите -- люди способны и на большие глупости_ Одна из ваших задач -- их предотвратить_	0
@@ -1002,7 +1004,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	670314128	fireep_mark_008	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_008_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_008	Я не буду вас ругать_ Я знаю, что вы сделали всё, что могли сделать_	0
 	670902734	tutor_mark_011	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_011_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_011	Да___ Третье_ Всегда задавайте вопросы! Адрес, что случилось и так далее_ Чем больше знаете вы, тем больше знает отдел и, соответственно, выше шансы помочь пострадавшему_	0
 	671453620	sfx_psychopaper_02	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_psychopaper_02_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopaper\sfx_psychopaper_02		18120
-	671663743	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_01_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4\sfx_clock_01		15051
+	671663743	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_01_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4\sfx_clock_01		15051
 	672264380	pizza_elena_036	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_036_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_036	Джордж___ Не делай глупостей_	0
 	672601194	fire_p_const_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\fire_p_const_017_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_017	Кухня -- пусто!	0
 	673429948	pizzaep_mark_014	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_014_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_014	Да, я знаю! И вы молодец, что её разглядели! Но! Есть правила, мисс Хейворд_	0
@@ -1021,7 +1023,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	710570897	fireep_mark_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_002_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_002	Отлично___ Отлично___	0
 	711849860	pizza_girl_020	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\girl2_6C383CA7.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_020		21297
 	713497746	pizza_girl_028	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\girl2_8540936A.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_028		13873
-	715546637	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_05_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4\sfx_clock_01		15190
+	715546637	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_05_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4\sfx_clock_01		15190
 	717290856	pizzaep_mark_006	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_006_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_006	Я даже не знаю, как это___ Интерпретировать с точки зрения правил___	0
 	718029907	tutor_mark_046	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_046_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_046	Как в кино?! Мисс Хейворд, вы только что убили человека_ Он умрёт не сразу, но шансов спасти бедолагу у нас уже нет_	0
 	722065635	fire_p_const_016	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\fire_p_const_016_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_016	Есть контакт! Мы взяли! Папашу успокойте! Конец связи!	0
@@ -1053,11 +1055,12 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	794473829	fire_p_const_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\fire_p_const_005_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_005	Гостинная -- пусто!	0
 	795229607	sfx_squadwalk_05	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_squadwalk_05_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_squadwalk\sfx_squadwalk_05		18116
 	796105531	pizza_girl_004	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\girl2_7E98E284.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_004		24161
-	798395727	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_04_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14589
-	803435834	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_04_5C601E52.wem		\Interactive Music Hierarchy\Music\Clock\Clock 1-4_01\New Music Track		15103
+	798395727	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_04_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14589
+	803435834	New Music Track	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_04_5C601E52.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock\Clock 1-4_01\New Music Track		15103
 	805303089	pizza_elena_028	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\1_0D0E3C4C.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_028	Отлично_ Теперь предложите поднять заказ_	13322
 	805997701	pizza_elena_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\1_1BA859B5.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_001	911, оператор Елена_ Чем могу помочь?	32629
 	807097102	pizza_elena_087	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_087_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_087	Освежающая содовая, прямо из холодильника!	0
+	808777921	ES_The Taste of Fear STEMS MELODY	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\ES_The Taste of Fear STEMS MELODY_DFD762D4.wem		\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS MELODY		1924
 	809448015	pizza_elena_024	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\1_B821AF34.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_024	Мне нужно знать, в какой квартире вы находитесь_	13619
 	809737166	UI_Click_Game	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\UI_Click_Game_5CA1A40D.wem		\Actor-Mixer Hierarchy\UI\UI\UI_Click_Game\UI_Click_Game		4012
 	817989674	sfx_carfar	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_carfar_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_carfar		197868
@@ -1068,9 +1071,11 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	829089325	pizza_elena_020	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\1_E44868C2.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_020	Без сирены_ Поняла_	13666
 	837715290	pizza_girl_012	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\girl2_D372BC30.wem		\Actor-Mixer Hierarchy\Voice\Voice\PizzaGirl\pizza_girl\pizza_girl_012		9267
 	838611190	UI_Click_Menu	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\UI_Click_Menu_0D8FC2A8.wem		\Actor-Mixer Hierarchy\UI\UI\UI_Click_Menu\UI_Click_Menu\UI_Click_Menu		11048
+	841289588	ES_The Taste of Fear STEMS INSTRUMENTS	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\ES_The Taste of Fear STEMS INSTRUMENTS_DFD762D4.wem		\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS INSTRUMENTS		1924
 	847847873	pizzaep_mark_026	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_026_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_026	Наш оператор догадался слишком поздно, что что-то и в голосе не то, и звуки посторонние присутствуют подозрительные___	0
 	849102996	pizzaep_mark_037	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_037_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_037	Одна маленькая деталь___ Может испортить весь звонок_	0
 	852712170	sfx_goout	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_goout_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_goout		56590
+	854376089	mus_MusicMenu_Main_Broken Dreams_40_ver_1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\mus_MusicMenu_Main_Broken Dreams_40_ver.1_9CB3EEEB.wem		\Interactive Music Hierarchy\Music\Music\MusicLevels\MainMenu\mus_MusicMenu_Main_Broken Dreams_40_ver_1\mus_MusicMenu_Main_Broken Dreams_40_ver_1		3581
 	865390090	tutor_mark_038	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_038_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_038	Они и без тебя сенсации себе найдут_	0
 	869271244	sfx_psychopen_05	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_psychopen_05_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopen\sfx_psychopen_05		19364
 	869512074	pizza_elena_073	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_073_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_073	На самом деле, это 911___ Зовут меня Елена_ Мы уже в пути_	0
@@ -1128,9 +1133,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1019460294	tutor_mark_017	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\p_mark_017_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_tutor\tutor_mark_017	Ваша смена ещё даже не началась_ Есть один сценарий, к сожалению, довольно частый в неблагоприятных районах___	0
 	1020561483	pizzaep_mark_010	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\Interlude1_mark_010_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_pizzaep\pizzaep_mark_010	Журналисты всё узнают, если ещё не_ Интересно, у нас сейчас в штате работает хотя бы одна Барбара? Не повезло ей_	0
 	1021025337	fire_p_const_015	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\fire_p_const_015_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Konstantin\Konstantin\fire_p_const_015	Чердак -- пусто!	0
-	1022027099	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_06_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		14745
+	1022027099	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_06_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		14745
 	1028666652	pizza_elena_084	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_084_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_084	Без проблем!	0
-	1029744961	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_02_5AE31F0F.wem		\Interactive Music Hierarchy\Music\Clock_End\Clock_Last\sfx_clock_01		13762
+	1029744961	sfx_clock_01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_clock_02_5AE31F0F.wem		\Interactive Music Hierarchy\Music\DecideTime\Clock_End\Clock_Last\sfx_clock_01		13762
 	1031288002	pizza_elena_032	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_032_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_032	Елена, оператор службы спасения_	0
 	1031771645	pizza_elena_053	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_053_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_053	Это 911_ Сэр, вам следует-	0
 	1031974402	pizza_elena_079	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_079_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_079	Отлично! В течение минуты приедут “курьеры”_ Лучше откройте им дверь сразу_	0
@@ -1143,8 +1148,13 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	1049852900	pizza_elena_009	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\1_F6C9B693.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_009	Назовите адрес_	8977
 	1057008722	sfx_psychopaper_03	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_psychopaper_03_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_psychopaper\sfx_psychopaper_03		8302
 	1057984132	sfx_neon	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\sfx_neon_42CA4BAA.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_neon		47748
-	1063374230	02_ A New Day	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\02. A New Day_07E195FA.wem		\Interactive Music Hierarchy\Music\MusicLevels\0 - MainMenu\02_ A New Day\02_ A New Day		48333696
 	1065388779	fireep_mark_024	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\interlude2_mark_024_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Mark\Mark_fireep\fireep_mark_024	Вам стоило___ Удерживать внимание Джека на пожаре_	0
 	1066834369	pizza_elena_033	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_033_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_033	Ваша подруга, она хотела вызвать скорую для___	0
 	1067123178	pizza_elena_065	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\Voices\English\pizza_elena_065_E9045315.wem		\Actor-Mixer Hierarchy\Voice\Voice\Elena\pizza_elena\pizza_elena_065	Отойдите от окна_ Не смотрите_	0
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	261315776	ES_The Taste of Fear STEMS BASS	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\ES_The Taste of Fear STEMS BASS_DFD762D4.wem	261315776.wem	\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS BASS	
+	808777921	ES_The Taste of Fear STEMS MELODY	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\ES_The Taste of Fear STEMS MELODY_DFD762D4.wem	808777921.wem	\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS MELODY	
+	841289588	ES_The Taste of Fear STEMS INSTRUMENTS	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\ES_The Taste of Fear STEMS INSTRUMENTS_DFD762D4.wem	841289588.wem	\Interactive Music Hierarchy\Music\Music\MusicLevels\Pizza\DEMO ES_The Taste of Fear\ES_The Taste of Fear STEMS INSTRUMENTS	
+	854376089	mus_MusicMenu_Main_Broken Dreams_40_ver_1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Android\SFX\mus_MusicMenu_Main_Broken Dreams_40_ver.1_9CB3EEEB.wem	854376089.wem	\Interactive Music Hierarchy\Music\Music\MusicLevels\MainMenu\mus_MusicMenu_Main_Broken Dreams_40_ver_1\mus_MusicMenu_Main_Broken Dreams_40_ver_1	
 
