@@ -57,7 +57,7 @@
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
-						<CurrentSwitchRef Name="MusicBossTwo" ID="{93CF7F86-7416-42E2-825A-64014444391B}"/>
+						<CurrentSwitchRef Name="MusicBoss" ID="{93CF7F86-7416-42E2-825A-64014444391B}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="DecideTime" ID="{3B13216A-B6CC-437E-9AC5-A594665C9A10}">
@@ -123,12 +123,32 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
+							<GameParameterRef Name="TutorRTPC" ID="{59124745-7F35-415E-8B8F-E0234663D7F0}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="MusicVolume" ID="{DF0B38E3-C9E2-4214-BC3D-B9D76DA3AB39}"/>
 							<Value>100</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="MasterVolume" ID="{AB433F8B-E57C-45DE-A538-20975B206D11}"/>
 							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="FireRTPC" ID="{A59B13D3-8B53-478E-8BEB-C6665537CDC1}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="BossRTPC" ID="{D44C5DF5-2E18-4AF7-A183-A2BF002ECCF0}"/>
+							<Value>0</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="PsychoRTPC" ID="{4B7EAB06-9D42-4CEC-BA9F-B94215EE6D87}"/>
+							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
 							<GameParameterRef Name="VoiceVolume" ID="{CF377C28-7C30-4E03-A041-E05D5924E3FB}"/>
@@ -141,7 +161,8 @@
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
-						<CurrentSwitchRef Name="MusicMainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
+						<CurrentSwitchRef Name="MusicPizza" ID="{744FDCB0-AD81-4440-8133-BA2E2C6D61E9}"/>
+						<CurrentSwitchRef Name="Main" ID="{4458D52F-689C-432B-8CA7-69A77C5103F3}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 			</ChildrenList>
