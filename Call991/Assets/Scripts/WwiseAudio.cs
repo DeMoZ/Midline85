@@ -204,7 +204,15 @@ public class WwiseAudio : MonoBehaviour
 
     public void PlayMusic(Wwise.Switch wSwitch)
     {
-       wSwitch.SetValue(musicGo);
+        Debug.Log($"[{this}] <color=green>PlayMusic</color> switch = <color=yellow>{wSwitch}</color>;");
+        wSwitch.SetValue(musicGo);
+    }
+    
+    public void PlayRtpc(Wwise.RTPC rtpc, int value)
+    {
+        Debug.Log($"[{this}] <color=green>PlayRtpc</color> rtpc = <color=yellow>{rtpc};</color> " +
+                  $"value = <color=yellow>{value}</color>;");
+        rtpc.SetGlobalValue(value);
     }
     
     public uint? PlaySfx(string sound)

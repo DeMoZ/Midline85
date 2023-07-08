@@ -93,7 +93,16 @@ public class LevelScenePm : IDisposable
         InitButtons();
         _ctx.OnShowLevelUi.Execute();
         _ctx.cursorSettings.EnableCursor(true);
+        ResetAllRtpcs();
         ExecuteDialogue();
+    }
+
+    private void ResetAllRtpcs()
+    {
+        foreach (var rtpc in _ctx.GameSet.RtpcKeys.WwiseRtpcs)
+        {
+            _ctx.AudioManager.PlayRtpc(rtpc, 0);
+        }
     }
 
     private void SetPause(bool pause)
@@ -145,7 +154,7 @@ public class LevelScenePm : IDisposable
         var observables = new IObservable<Unit>[] { };
 
         GetEvents(out var soundEvents, out var objectEvents, out var musicEvents,
-            phrases, ends, events, newspapers);
+            out var rtpcEvents, phrases, ends, events, newspapers);
 
         var content = new Dictionary<string, object>();
 
@@ -170,6 +179,12 @@ public class LevelScenePm : IDisposable
         foreach (var musicData in musicEvents)
         {
             var routine = Observable.FromCoroutine(() => RunMusic(musicData));
+            observables = observables.Concat(new[] { routine }).ToArray();
+        }
+
+        foreach (var rtpcData in rtpcEvents)
+        {
+            var routine = Observable.FromCoroutine(() => RunRtpc(rtpcData));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
@@ -217,7 +232,7 @@ public class LevelScenePm : IDisposable
     }
 
     private void GetEvents(out List<EventVisualData> soundEvents, out List<EventVisualData> objectEvents,
-        out List<EventVisualData> musicEvents,
+        out List<EventVisualData> musicEvents, out List<EventVisualData> rtpcEvents,
         IEnumerable<PhraseNodeData> phrases, IEnumerable<EndNodeData> ends, IEnumerable<EventNodeData> events,
         IEnumerable<NewspaperNodeData> newspapers)
     {
@@ -225,6 +240,7 @@ public class LevelScenePm : IDisposable
         soundEvents = new List<EventVisualData>();
         objectEvents = new List<EventVisualData>();
         musicEvents = new List<EventVisualData>();
+        rtpcEvents = new List<EventVisualData>();
 
         foreach (var phrase in phrases.Where(phrase => phrase.EventVisualData.Any()))
             allEvents.AddRange(phrase.EventVisualData);
@@ -244,6 +260,9 @@ public class LevelScenePm : IDisposable
             {
                 case PhraseEventType.Music:
                     musicEvents.Add(anEvent);
+                    break;
+                case PhraseEventType.RTPC:
+                    rtpcEvents.Add(anEvent);
                     break;
                 case PhraseEventType.AudioClip:
                     soundEvents.Add(anEvent);
@@ -347,16 +366,27 @@ public class LevelScenePm : IDisposable
         yield return new WaitForSeconds(music.Delay);
 
         var musicName = music.PhraseEvent;
-        
-        if(string.IsNullOrEmpty(musicName) || musicName.Equals(AaGraphConstants.None)) yield break;
 
-        var keys = _ctx.GameSet.MusicSwitchesKeys.GetKeys(); 
-        
-        if(!keys.Contains(musicName)) yield break;
+        if (string.IsNullOrEmpty(musicName) || musicName.Equals(AaGraphConstants.None)) yield break;
 
-        var index = keys.IndexOf(musicName);
-        var musicSwitch = _ctx.GameSet.MusicSwitchesKeys.WwiseSwitches[index];
-        _ctx.AudioManager.PlayMusic(musicSwitch);
+        if (_ctx.GameSet.MusicSwitchesKeys.TryGetSwitchByName(musicName, out var musicSwitch))
+            _ctx.AudioManager.PlayMusic(musicSwitch);
+        else
+            Debug.LogError($"Switch name {musicName} not found in GameSet.MusicSwitchesKeys");
+    }
+
+    private IEnumerator RunRtpc(EventVisualData rtpcData)
+    {
+        yield return new WaitForSeconds(rtpcData.Delay);
+
+        var rtpcName = rtpcData.PhraseEvent;
+
+        if (string.IsNullOrEmpty(rtpcName) || rtpcName.Equals(AaGraphConstants.None)) yield break;
+
+        if (_ctx.GameSet.RtpcKeys.TryGetRtpcByName(rtpcName, out var rtpc))
+            _ctx.AudioManager.PlayRtpc(rtpc, (int)rtpcData.Value);
+        else
+            Debug.LogError($"RTPC name {rtpcName} not found in GameSet.RtpcKeys");
     }
 
     private IEnumerator RunDialogueEvent(EventVisualData data, Dictionary<string, object> content)

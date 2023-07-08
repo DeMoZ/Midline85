@@ -8,11 +8,9 @@ namespace Configs
     [CreateAssetMenu(menuName = "AaDialogueGraph/WwiseMusicList", fileName = "MusicList")]
     public class WwiseMusicSwitchesList : ScriptableObject
     {
-        [SerializeField] private List<AK.Wwise.Switch> wwiseSwitches = new ();
+        [SerializeField] private List<AK.Wwise.Switch> wwiseSwitches = new();
 
         public List<Switch> WwiseSwitches => wwiseSwitches;
-        
-        public virtual List<string> Keys => GetKeys();
 
         [Button("Test See Keys")]
         public List<string> GetKeys()
@@ -25,6 +23,21 @@ namespace Configs
             }
 
             return result;
+        }
+
+        public bool TryGetSwitchByName(string sName, out Switch wSwitch)
+        {
+            foreach (var sw in wwiseSwitches)
+            {
+                if(sw.Name.Equals(sName))
+                {
+                    wSwitch = sw;
+                    return true;
+                }
+            }
+
+            wSwitch = null;
+            return false;
         }
     }
 }

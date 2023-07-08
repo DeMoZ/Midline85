@@ -12,8 +12,6 @@ namespace Configs
 
         public List<RTPC> WwiseRtpcs => wwiseRtpcs;
         
-        public virtual List<string> Keys => GetKeys();
-
         [Button("Test See Keys")]
         public List<string> GetKeys()
         {
@@ -25,6 +23,21 @@ namespace Configs
             }
 
             return result;
+        }
+        
+        public bool TryGetRtpcByName(string sName, out RTPC wRtpc)
+        {
+            foreach (var element in wwiseRtpcs)
+            {
+                if (element.Name.Equals(sName))
+                {
+                    wRtpc = element;
+                    return true;
+                }
+            }
+
+            wRtpc = null;
+            return false;
         }
     }
 }
