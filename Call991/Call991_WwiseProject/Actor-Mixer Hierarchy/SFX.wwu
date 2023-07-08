@@ -20,6 +20,7 @@
 								<Value>1</Value>
 							</ValueList>
 						</Property>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="UseMaxSoundPerInstance" Type="bool">
 							<ValueList>
 								<Value>True</Value>
@@ -96,6 +97,23 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_3foot" ID="{523824F9-F4B6-42FF-A119-7738D58DBDB3}" ShortID="1063706807">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>11</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -183,28 +201,6 @@
 								<ActiveSource Name="sfx_death" ID="{1B7C7091-FFFC-432C-89DE-EE846E830DC9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="sfx_dooropen" ID="{E62AA732-59AB-47B6-B4A2-1A423A14B8CB}" ShortID="993300220">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="sfx_dooropen" ID="{D8C8D649-92B1-45E2-AFDD-3F4720638EEF}">
-									<Language>SFX</Language>
-									<AudioFile>sfx_dooropen.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="332980137"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="sfx_dooropen" ID="{D8C8D649-92B1-45E2-AFDD-3F4720638EEF}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="sfx_dporbell" ID="{39F9611B-9D7B-4AAC-8F36-CE38A9110C1D}" ShortID="353909231">
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -228,6 +224,18 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_goout" ID="{66C2EFEE-D9F9-4EAF-8E22-7A4569706803}" ShortID="196267724">
+							<PropertyList>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -1511,7 +1519,402 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<Sound Name="sfx_DropPhone" ID="{65F06323-E357-40F6-80D5-E4F10229F1FD}" ShortID="621453708">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_DropPhone" ID="{62E38463-FB27-49D7-813F-82E8B98A34EF}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_DropPhone.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="696658388"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_DropPhone" ID="{62E38463-FB27-49D7-813F-82E8B98A34EF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_HitTable1" ID="{6FDFA051-2EAE-498D-8205-DAB7FF68E5A9}" ShortID="415790660">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_HitTable1" ID="{82063DBA-089B-4E57-9C15-4FA806FC4A68}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_HitTable1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1017381543"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_HitTable1" ID="{82063DBA-089B-4E57-9C15-4FA806FC4A68}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_HitTable2" ID="{5500FC0A-1495-4D5D-A927-0E945F0C76C9}" ShortID="45928281">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_HitTable2" ID="{0E2A3029-78F1-4FEB-8B31-F95F209337D6}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_HitTable2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="280131666"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_HitTable2" ID="{0E2A3029-78F1-4FEB-8B31-F95F209337D6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_HitTable3" ID="{7DF7CD85-78F6-4B40-8AC9-2B3DDDA809EC}" ShortID="231393177">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_HitTable3" ID="{C22FEDF3-7B62-43C8-96BC-7EFAF4BEC473}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_HitTable3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="640290147"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_HitTable3" ID="{C22FEDF3-7B62-43C8-96BC-7EFAF4BEC473}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_PhoneRing" ID="{8A44B72F-0FBC-4C24-8001-DEA169E196CF}" ShortID="1023126203">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_PhoneRing" ID="{3495E763-ABBD-4839-9ADC-22A047F46786}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_PhoneRing.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="52512394"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_PhoneRing" ID="{3495E763-ABBD-4839-9ADC-22A047F46786}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_WalkGeorge" ID="{B8FBBA56-46AF-4C0B-AEC2-9EC45DC89FBE}" ShortID="131325637">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_WalkGeorge" ID="{B0E020A7-C7AD-4409-886B-B31D5E073520}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_WalkGeorge.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="541812845"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_WalkGeorge" ID="{B0E020A7-C7AD-4409-886B-B31D5E073520}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_dooropen" ID="{A134036C-3831-4955-A2F9-B36F7FFE41ED}" ShortID="688862962">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4.4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_dooropen" ID="{ACAA8B0C-6B35-466C-BA1F-34C2B59CB0C8}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_dooropen.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="67360942"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_dooropen" ID="{ACAA8B0C-6B35-466C-BA1F-34C2B59CB0C8}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_dooropen2" ID="{99800A48-B019-4E6B-B807-33E5355D9904}" ShortID="995142852">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>13</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Inclusion" Type="bool">
+									<ValueList>
+										<Value>False</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4.4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_dooropen" ID="{A7A3A6D9-E43B-4165-9054-703542089FAC}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.30381157856886"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.52761596548004"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_dooropen.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="254575965"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_dooropen" ID="{A7A3A6D9-E43B-4165-9054-703542089FAC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_grabphone2" ID="{DDD8639D-7C7E-46FF-9D58-B9391F4CAA31}" ShortID="428875942">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>16</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_grabphone2" ID="{01ED742F-67F0-4D9E-A519-AA8A88BC1CBD}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_grabphone2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1066042399"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_grabphone2" ID="{01ED742F-67F0-4D9E-A519-AA8A88BC1CBD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_getup" ID="{20EBF3A2-5072-433F-B116-6BE86A1A698D}" ShortID="828498997">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>16</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_getup" ID="{FA9AFB7E-C98C-451B-BF60-F91573175203}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_getup.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="956929528"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_getup" ID="{FA9AFB7E-C98C-451B-BF60-F91573175203}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_PhonePutDown" ID="{F15C3AAD-9A05-4CDB-A9DB-C0D38DD93099}" ShortID="155050536">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_PhonePutDown" ID="{FC0DFB30-72AB-42A3-9CA8-AD736CF873AC}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_PhonePutDown.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="896979105"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_PhonePutDown" ID="{FC0DFB30-72AB-42A3-9CA8-AD736CF873AC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_scratch" ID="{39545205-98B2-4647-A67E-EA66B760FFE7}" ShortID="619049623">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_scratch" ID="{99829984-C4A7-4658-B1E7-68D4597789DB}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_scratch.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="166758232"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_scratch" ID="{99829984-C4A7-4658-B1E7-68D4597789DB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{9BC457EE-07A9-4BEE-9D92-64FD32717A70}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="25"/>
+								<Property Name="PanY" Type="Real64" Value="25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

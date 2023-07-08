@@ -80,6 +80,22 @@
 						</GameParameter>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Voice" ID="{343F0CEC-9B02-488F-B249-D1CA4913C61C}" ShortID="87181040">
+					<ChildrenList>
+						<GameParameter Name="Distance" ID="{745F7111-97B9-4B85-AFC0-5E606C984E46}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Clipping" ID="{8EB31983-A9EC-4A3D-87B8-EABCD38E374B}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>

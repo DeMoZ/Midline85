@@ -2232,12 +2232,24 @@
 											<ChildrenList>
 												<MusicTrack Name="mus_MusicMenu_Main_Broken Dreams_40_ver_1" ID="{1F266255-5796-41CA-89CF-B3FB4C6CEBF3}" ShortID="593350687">
 													<PropertyList>
+														<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 														<Property Name="IsStreamingEnabled" Type="bool">
 															<ValueList>
 																<Value>True</Value>
 															</ValueList>
 														</Property>
 														<Property Name="IsZeroLatency" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+														<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+														<Property Name="MaxSoundPerInstance" Type="int16">
+															<ValueList>
+																<Value>1</Value>
+															</ValueList>
+														</Property>
+														<Property Name="UseMaxSoundPerInstance" Type="bool">
 															<ValueList>
 																<Value>True</Value>
 															</ValueList>
@@ -2597,7 +2609,6 @@
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
-															<ReferenceList/>
 															<TransitionInfo/>
 														</MusicTransition>
 													</TransitionList>
@@ -2670,12 +2681,24 @@
 											<ChildrenList>
 												<MusicTrack Name="ES_The Taste of Fear STEMS BASS" ID="{BEA6F2AD-2D71-4534-8137-A65D8D176CB9}" ShortID="959954557">
 													<PropertyList>
+														<Property Name="IgnoreParentMaxSoundInstance" Type="bool" Value="True"/>
 														<Property Name="IsStreamingEnabled" Type="bool">
 															<ValueList>
 																<Value>True</Value>
 															</ValueList>
 														</Property>
 														<Property Name="IsZeroLatency" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
+														<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+														<Property Name="MaxSoundPerInstance" Type="int16">
+															<ValueList>
+																<Value>1</Value>
+															</ValueList>
+														</Property>
+														<Property Name="UseMaxSoundPerInstance" Type="bool">
 															<ValueList>
 																<Value>True</Value>
 															</ValueList>
@@ -2700,7 +2723,6 @@
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
-															<ReferenceList/>
 															<TransitionInfo/>
 														</MusicTransition>
 													</TransitionList>
@@ -2852,6 +2874,17 @@
 																<Value>True</Value>
 															</ValueList>
 														</Property>
+														<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+														<Property Name="MaxSoundPerInstance" Type="int16">
+															<ValueList>
+																<Value>1</Value>
+															</ValueList>
+														</Property>
+														<Property Name="UseMaxSoundPerInstance" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -2875,7 +2908,6 @@
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
-															<ReferenceList/>
 															<TransitionInfo/>
 														</MusicTransition>
 													</TransitionList>
@@ -3021,6 +3053,17 @@
 																<Value>True</Value>
 															</ValueList>
 														</Property>
+														<Property Name="MaxReachedBehavior" Type="int16" Value="1"/>
+														<Property Name="MaxSoundPerInstance" Type="int16">
+															<ValueList>
+																<Value>1</Value>
+															</ValueList>
+														</Property>
+														<Property Name="UseMaxSoundPerInstance" Type="bool">
+															<ValueList>
+																<Value>True</Value>
+															</ValueList>
+														</Property>
 													</PropertyList>
 													<ReferenceList>
 														<Reference Name="Conversion">
@@ -3044,7 +3087,6 @@
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
-															<ReferenceList/>
 															<TransitionInfo/>
 														</MusicTransition>
 													</TransitionList>
@@ -3185,10 +3227,8 @@
 											<PropertyList>
 												<Property Name="IsFolder" Type="bool" Value="True"/>
 											</PropertyList>
-											<ReferenceList/>
 											<ChildrenList>
 												<MusicTransition Name="Transition" ID="{8B468FC9-DEBD-49B0-A1FF-DE0177507511}">
-													<ReferenceList/>
 													<TransitionInfo/>
 												</MusicTransition>
 											</ChildrenList>
@@ -3423,10 +3463,8 @@
 									<PropertyList>
 										<Property Name="IsFolder" Type="bool" Value="True"/>
 									</PropertyList>
-									<ReferenceList/>
 									<ChildrenList>
 										<MusicTransition Name="Transition" ID="{3B72A68B-7238-4CA0-AB43-892E22E64B3C}">
-											<ReferenceList/>
 											<TransitionInfo/>
 										</MusicTransition>
 									</ChildrenList>

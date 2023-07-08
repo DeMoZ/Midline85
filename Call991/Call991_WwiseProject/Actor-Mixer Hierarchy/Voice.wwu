@@ -16,6 +16,7 @@
 								<Value>100</Value>
 							</ValueList>
 						</Property>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="UseMaxSoundPerInstance" Type="bool">
 							<ValueList>
 								<Value>True</Value>
@@ -42,6 +43,13 @@
 						<WorkUnit Name="TestVoice" ID="{ED7C04B1-58B8-4F2E-9507-9DD0AAB10A70}" PersistMode="Reference"/>
 						<WorkUnit Name="PizzaGirl" ID="{2005F596-292B-4A18-9309-0AA188F73415}" PersistMode="Reference"/>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{ED010A58-EC57-4A83-9F98-5D8B488BA3E1}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

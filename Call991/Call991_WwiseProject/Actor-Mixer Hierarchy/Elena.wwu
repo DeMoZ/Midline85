@@ -10,6 +10,8 @@
 				<ActorMixer Name="elena" ID="{524CF297-85A2-4DB1-9D32-ED3ED9EAF7E6}" ShortID="935981775">
 					<PropertyList>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="OverridePositioning" Type="bool" Value="True"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -220,10 +222,19 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{19D52E8F-BA63-4676-8C66-982EA5F578BA}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="-25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="psycho1_elena" ID="{4C01C7DF-C3A6-404C-AF45-8B50BBB89301}" ShortID="516808510">
 					<PropertyList>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="OverridePositioning" Type="bool" Value="True"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -1592,10 +1603,19 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{7E88997D-A53D-4F00-B043-6E4109EDE778}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="-25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="fire_p_elena" ID="{B10576A7-6123-4C70-8F16-6C3C9D581A4B}" ShortID="334053992">
 					<PropertyList>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="OverridePositioning" Type="bool" Value="True"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -3851,10 +3871,19 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{6E9F649B-FEF2-45D1-A0D2-5E10E43BB425}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="-25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="fireep_elena" ID="{4BB947F3-325E-432C-ADA3-F3CEE41789A8}" ShortID="424331330">
 					<PropertyList>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="OverridePositioning" Type="bool" Value="True"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -4666,10 +4695,19 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{A59A1188-08E8-438E-954B-A52CDEB70F9C}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="-25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="pizzaep_elena" ID="{BCF8D99B-99D7-4BFD-B116-6E664B92131F}" ShortID="769887099">
 					<PropertyList>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="OverridePositioning" Type="bool" Value="True"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -5106,6 +5144,13 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{C7CB40B2-13D3-4455-BBB8-7F5A6CE2B39F}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="-25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="tutor_elena" ID="{CD796330-654F-47F6-AF82-F7127CCD32FC}" ShortID="646882028">
 					<PropertyList>
@@ -6158,6 +6203,8 @@
 							</ValueList>
 						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="OverridePositioning" Type="bool" Value="True"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -9750,6 +9797,13 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{11A62A0F-112F-405B-9D9C-AE2B387DC7B1}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="-25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>

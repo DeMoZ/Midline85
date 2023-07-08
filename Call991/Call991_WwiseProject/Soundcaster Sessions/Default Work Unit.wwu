@@ -57,7 +57,7 @@
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
-						<CurrentSwitchRef Name="MusicBoss" ID="{93CF7F86-7416-42E2-825A-64014444391B}"/>
+						<CurrentSwitchRef Name="MusicPizza" ID="{744FDCB0-AD81-4440-8133-BA2E2C6D61E9}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="DecideTime" ID="{3B13216A-B6CC-437E-9AC5-A594665C9A10}">
@@ -84,6 +84,10 @@
 							<GameParameterRef Name="MasterVolume" ID="{AB433F8B-E57C-45DE-A538-20975B206D11}"/>
 							<Value>100</Value>
 						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}"/>
+							<Value>100</Value>
+						</RTPCValue>
 					</RTPCValueList>
 					<CurrentStateList ShowAll="true">
 						<CurrentStateRef Name="None" ID="{BAC572F6-8CE2-430D-9FC0-6A57004E9C92}"/>
@@ -91,7 +95,7 @@
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
-						<CurrentSwitchRef Name="MusicMainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
+						<CurrentSwitchRef Name="MusicPizza" ID="{744FDCB0-AD81-4440-8133-BA2E2C6D61E9}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="PauseTest" ID="{6664BE05-CB7D-4F74-899B-09370D6C0184}">
@@ -147,6 +151,10 @@
 							<Value>0</Value>
 						</RTPCValue>
 						<RTPCValue>
+							<GameParameterRef Name="Distance" ID="{745F7111-97B9-4B85-AFC0-5E606C984E46}"/>
+							<Value>5.3</Value>
+						</RTPCValue>
+						<RTPCValue>
 							<GameParameterRef Name="PsychoRTPC" ID="{4B7EAB06-9D42-4CEC-BA9F-B94215EE6D87}"/>
 							<Value>0</Value>
 						</RTPCValue>
@@ -161,6 +169,32 @@
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="One" ID="{06016756-19A3-4736-93E1-3EE819447762}"/>
+						<CurrentSwitchRef Name="MusicPizza" ID="{744FDCB0-AD81-4440-8133-BA2E2C6D61E9}"/>
+					</CurrentSwitchList>
+				</SoundcasterSession>
+				<SoundcasterSession Name="MusicSwitch" ID="{141C6A32-3BCD-444D-882F-168FBBAC6218}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Music" ID="{8CC448A1-D5F6-487C-A950-4C978728F7B5}" WorkUnitID="{FA8A0DE3-5A0A-48DA-80D6-3F2931AF931D}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true">
+						<RTPCValue>
+							<GameParameterRef Name="MusicVolume" ID="{DF0B38E3-C9E2-4214-BC3D-B9D76DA3AB39}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}"/>
+							<Value>100</Value>
+						</RTPCValue>
+						<RTPCValue>
+							<GameParameterRef Name="Distance" ID="{745F7111-97B9-4B85-AFC0-5E606C984E46}"/>
+							<Value>5.3</Value>
+						</RTPCValue>
+					</RTPCValueList>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
 						<CurrentSwitchRef Name="MusicPizza" ID="{744FDCB0-AD81-4440-8133-BA2E2C6D61E9}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
