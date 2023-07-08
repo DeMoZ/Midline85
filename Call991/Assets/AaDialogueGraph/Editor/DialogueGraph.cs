@@ -31,10 +31,11 @@ namespace AaDialogueGraph.Editor
         {
             _languageOperation = new();
             var gameSet = Resources.Load<GameSet>("GameSet");
+            var voices = gameSet.VoicesSet.GetKeys();
             var musics = gameSet.MusicSwitchesKeys.GetKeys();
             var rtcps = gameSet.RtpcKeys.GetKeys();
             
-            _graphView = new DialogueGraphView(_languageOperation, musics, rtcps)
+            _graphView = new DialogueGraphView(_languageOperation, voices, musics, rtcps)
             {
                 name = AaGraphConstants.DialogueGraph,
             };

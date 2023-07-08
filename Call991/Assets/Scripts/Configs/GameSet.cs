@@ -43,6 +43,7 @@ namespace Configs
         public GameLevelsSo GameLevels;
 
         [Space] [Title("DialogueGraph settings")]
+        public WwiseVoicesSet VoicesSet;
         public WwiseMusicSwitchesList MusicSwitchesKeys;
         public WwiseRtpcList RtpcKeys;
         public LevelKeysList LevelKeys;

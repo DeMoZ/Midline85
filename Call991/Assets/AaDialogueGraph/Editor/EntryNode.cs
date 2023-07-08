@@ -23,15 +23,15 @@ namespace AaDialogueGraph.Editor
             var levelKey = new LevelIdPopupField(AaKeys.LevelIdKeys, levelId);
             contentContainer.Add(levelKey);
 
-            var soundLabel = new Label("Sounds");
-            var soundAsset = string.IsNullOrEmpty(data.SoundAsset)
-                ? null
-                : NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(data.SoundAsset);
-            
-            var soundField = new SoundAssetField();
-            soundField.Set(soundAsset);
-            var soundAssetLineGroup = new LineGroup(new VisualElement[] { soundLabel, soundField });
-            contentContainer.Add(soundAssetLineGroup);
+            // var soundLabel = new Label("Sounds");
+            // var soundAsset = string.IsNullOrEmpty(data.SoundAsset)
+            //     ? null
+            //     : NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(data.SoundAsset);
+            //
+            // var soundField = new SoundAssetField();
+            // soundField.Set(soundAsset);
+            // var soundAssetLineGroup = new LineGroup(new VisualElement[] { soundLabel, soundField });
+            // contentContainer.Add(soundAssetLineGroup);
             
             var btnLabel = new Label("btn.Filter");
             var buttonFilterField = new ButtonFilterTextField

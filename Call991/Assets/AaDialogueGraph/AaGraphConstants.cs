@@ -47,7 +47,7 @@ public static class AaGraphConstants
 
     public const string None = "NONE";
     
-    public const string PhraseSoundPopupField = "PhraseSoundPopupField";
+    public const string VoicePopupField = "VoicePopupField";
     public const string EventSoundPopupField = "EventSoundPopupField";
     public const string EventMusicPopupField = "EventMusicPopupField";
     public const string EventRtpcPopupField = "EventRtpcPopupField";

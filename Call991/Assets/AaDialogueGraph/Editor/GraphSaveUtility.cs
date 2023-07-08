@@ -103,14 +103,14 @@ namespace AaDialogueGraph.Editor
 
         private EntryNodeData EntryNodeToData(EntryNode node)
         {
-            var soundAsset = node.Q<SoundAssetField>().GetSoundAsset();
+            //var soundAsset = node.Q<SoundAssetField>().GetSoundAsset();
             var data = new EntryNodeData
             {
                 Guid = node.Guid,
                 Rect = node.GetPosition(),
                 LevelId = node.Q<LevelIdPopupField>().Value,
                 ButtonFilter = node.Q<ButtonFilterTextField>().value,
-                SoundAsset = EditorNodeUtils.GetPathByObject(soundAsset),
+                //SoundAsset = EditorNodeUtils.GetPathByObject(soundAsset),
             };
 
             var languageFields = node.Query<LanguagePopupField>().ToList();

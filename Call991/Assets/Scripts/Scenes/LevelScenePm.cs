@@ -341,8 +341,8 @@ public class LevelScenePm : IDisposable
         };
 
         _ctx.OnShowPhrase.Execute(uiPhrase);
-
-        var voiceId = _ctx.AudioManager.PlayVoice(data.PhraseSound);
+        var voice = _ctx.GameSet.VoicesSet.GetVoiceByPath(data.PhraseSound);
+        var voiceId = _ctx.AudioManager.PlayVoice(voice);
 
         if (voiceId == null)
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");

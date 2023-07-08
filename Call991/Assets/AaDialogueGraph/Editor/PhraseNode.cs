@@ -13,7 +13,7 @@ namespace AaDialogueGraph.Editor
         public string PhraseSketchText => _phraseSketchTxt;
 
         public void Set(PhraseNodeData data, List<string> languages, 
-            List<string> sounds, List<string> musics, List<string> rtpcs, string guid)
+            List<string> voices, List<string> musics, List<string> rtpcs, List<string> sounds, string guid)
         {
             Guid = guid;
 
@@ -54,14 +54,14 @@ namespace AaDialogueGraph.Editor
             var soundText = new Label("Phrase Sound");
             soundText.AddToClassList("aa-BlackText");
 
-            sounds = sounds == null || sounds.Count < 1 ? new List<string> { AaGraphConstants.None } : sounds;
+            voices = voices == null || voices.Count < 1 ? new List<string> { AaGraphConstants.None } : voices;
             var sound = !string.IsNullOrEmpty(data.PhraseSound)
                 ? data.PhraseSound
                 : AaGraphConstants.None;
 
-            var soundPopup = new SoundPopupField(sounds, sound)
+            var soundPopup = new SoundPopupField(voices, sound)
             {
-                name = AaGraphConstants.PhraseSoundPopupField
+                name = AaGraphConstants.VoicePopupField
             };
 
             var soundLine = new LineGroup(new VisualElement[] { soundText, soundPopup });
@@ -101,7 +101,7 @@ namespace AaDialogueGraph.Editor
             var events = contentContainer.Query<EventAssetField>().ToList();
             
             var sounds = contentContainer.Query<SoundPopupField>().ToList();
-            var phraseSound = sounds.FirstOrDefault(s => s.name == AaGraphConstants.PhraseSoundPopupField);
+            var phraseSound = sounds.FirstOrDefault(s => s.name == AaGraphConstants.VoicePopupField);
 
             var errorFields = new StringBuilder();
 
@@ -125,7 +125,7 @@ namespace AaDialogueGraph.Editor
 
         public string GetPhraseSound() =>
             contentContainer.Query<SoundPopupField>().ToList()
-                .First(field => field.name == AaGraphConstants.PhraseSoundPopupField).Value;
+                .First(field => field.name == AaGraphConstants.VoicePopupField).Value;
 
         public List<Phrase> GetPhrases() =>
             contentContainer.Query<PhraseAssetField>().ToList().Select(field => field.GetPhrase()).ToList();
