@@ -137,7 +137,7 @@ public class ScenesHandler : IDisposable
     {
         var level = _ctx.OverridenDialogue.Dialogue != null
             ? _ctx.OverridenDialogue.Dialogue
-            : _ctx.GameSet.GameLevels.TestLevel;
+            : _ctx.GameSet.GameLevels.Levels[0];
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
 
