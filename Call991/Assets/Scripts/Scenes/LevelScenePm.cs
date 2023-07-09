@@ -5,7 +5,6 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
-using AK.Wwise;
 using Configs;
 using Core;
 using Data;
@@ -38,6 +37,7 @@ public class LevelScenePm : IDisposable
 
         public ReactiveCommand OnAfterEnter;
         public GameSet GameSet;
+        public string LevelId;
 
         public ReactiveCommand<(Container<bool> task, Sprite sprite)> OnShowNewspaper;
 
@@ -88,17 +88,29 @@ public class LevelScenePm : IDisposable
         _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
-    private void OnAfterEnter()
+    private async void OnAfterEnter()
     {
         InitButtons();
         _ctx.OnShowLevelUi.Execute();
         _ctx.cursorSettings.EnableCursor(true);
-        ResetAllRtpcs();
+        
+        await PrepareAudioManager();
+        if (_tokenSource.IsCancellationRequested) return;
+        
         ExecuteDialogue();
     }
 
-    private void ResetAllRtpcs()
+    private async Task PrepareAudioManager()
     {
+        _ctx.AudioManager.LoadBank(_ctx.LevelId);
+        
+        // wait for wwise get ready
+        while (!_ctx.AudioManager.IsReady)
+        {
+            await Task.Delay(1);
+            if (_tokenSource.IsCancellationRequested) return;
+        }
+        
         foreach (var rtpc in _ctx.GameSet.RtpcKeys.WwiseRtpcs)
         {
             _ctx.AudioManager.PlayRtpc(rtpc, 0);
@@ -609,6 +621,7 @@ private Choice RandomSelectButton(List<Choice> choices)
     {
         _tokenSource.Cancel();
         _disposables.Dispose();
+        _ctx.AudioManager.UnLoadBank();
     }
 
     private static void PrintArray(List<string> array)

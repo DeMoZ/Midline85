@@ -90,6 +90,7 @@ public class LevelSceneEntity : IGameScene
             OnNext = onNext,
         }).AddTo(_disposables);
 
+        var levelId = _ctx.LevelData.GetEntryNode().LevelId;
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
             FindNext = findNext,
@@ -106,6 +107,7 @@ public class LevelSceneEntity : IGameScene
             OnHidePhrase = onHidePhrase,
             OnAfterEnter = onAfterEnter,
             GameSet = _ctx.GameSet,
+            LevelId = levelId,
             buttons = buttons,
             countDown = countDown,
             AudioManager = _ctx.AudioManager,

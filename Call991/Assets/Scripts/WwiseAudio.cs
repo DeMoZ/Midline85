@@ -56,6 +56,7 @@ public class WwiseAudio : MonoBehaviour
     
     private CompositeDisposable _disposables;
     private CancellationTokenSource _tokenSource;
+    private string _currentBank;
 
     public bool IsReady => _isBankLoaded;
 
@@ -92,6 +93,26 @@ public class WwiseAudio : MonoBehaviour
         _isBankLoaded = true;
         
         // PlayMusic(MusicEventSwitch); // Test
+    }
+    
+    public async void LoadBank(string levelId)
+    {
+        Debug.LogWarning($"[{this}] loading bank {levelId}");
+        _isBankLoaded = false;
+        _currentBank = levelId;
+        AkBankManager.LoadBankAsync(levelId);
+        await Task.Delay((int)(WaitSeconds * 1000));
+        _isBankLoaded = true;
+    }
+    
+    public async void UnLoadBank()
+    {
+        if (string.IsNullOrEmpty(_currentBank)) return;
+        
+        _isBankLoaded = false;
+        AkBankManager.UnloadBank(_currentBank);
+        await Task.Delay((int)(WaitSeconds * 1000));
+        _isBankLoaded = true;
     }
     
     private void OnSwitchScene(GameScenes scene)
