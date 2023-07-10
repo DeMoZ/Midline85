@@ -1,0 +1,69 @@
+Event	ID	Name			Wwise Object Path	Notes
+	183767048	elena_1			\VoiceRU\Intro\Elena\elena_1	
+	183767050	elena_3			\VoiceRU\Intro\Elena\elena_3	
+	183767051	elena_2			\VoiceRU\Intro\Elena\elena_2	
+	183767052	elena_5			\VoiceRU\Intro\Elena\elena_5	
+	183767053	elena_4			\VoiceRU\Intro\Elena\elena_4	
+	183767055	elena_6			\VoiceRU\Intro\Elena\elena_6	
+	405579864	psycho1_elena_001			\VoiceRU\psycho1_elena_001	
+	405579866	psycho1_elena_003			\VoiceRU\psycho1_elena_003	
+	405579867	psycho1_elena_002			\VoiceRU\psycho1_elena_002	
+	405579868	psycho1_elena_005			\VoiceRU\psycho1_elena_005	
+	405579869	psycho1_elena_004			\VoiceRU\psycho1_elena_004	
+	574050428	UI_Click_Menu			\UI\UI_Click_Menu	
+	1463049803	UI_Overlap			\UI\UI_Overlap	
+	1717033963	sfx_jacket			\SFX\sfx_jacket	
+	3276085083	TestVoiceLanguage			\Default Work Unit\TestVoiceLanguage	
+	3815197131	UI_Click_Game			\UI\UI_Click_Game	
+	3991942870	Music			\Music\Music	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	1021618141	MusicState			\Default Work Unit\MusicState	
+
+Switch	ID	Name	Switch Group			Notes
+	678209053	Two	MusicState			
+	1064933119	One	MusicState			
+
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3881602766	TestGameRTPC			\Default Work Unit\TestGameRTPC	
+
+Trigger	ID	Name			Wwise Object Path	Notes
+	1624638295	TestTrigger			\Default Work Unit\TestTrigger	
+
+Effect plug-ins	ID	Name	Type				Notes
+	3435419520	New_Guitar_Distortion	Wwise Guitar Distortion			
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	297430488	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_001\Sine	
+	316226564	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_003\Sine	
+	375040400	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_005\Sine	
+	382336288	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_6\Sine	
+	608652408	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_2\Sine	
+	626032263	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_1\Sine	
+	633876268	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_3\Sine	
+	920888939	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_5\Sine	
+	998548385	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_4\Sine	
+	1067751530	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_004\Sine	
+	1073562381	Sine	Wwise Sine		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_002\Sine	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	104576181	elena_5	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\elena.5_ECF75A22.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_5		253426
+	219082802	elena_3	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\elena.3_2CCD5255.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_3		72506
+	275931472	psycho1_elena_005	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\psycho1.elena.005_10C4C929.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_005		166496
+	283080326	elena_2	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\elena.2_62A70331.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_2		463942
+	295073302	UI_Overlap	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\SFX\UI_Overlap_BFB259A6.wem		\Actor-Mixer Hierarchy\UI\UI_Overlap\UI_Overlap		19312
+	302530676	-07-glued-01	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\SFX\-07-glued-01_D79FB2B7.wem		\Interactive Music Hierarchy\Music\Trigger\TestTrigger\-07-glued-01		92890
+	319898978	sfx_jacket	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\SFX\sfx_jacket_10C4C929.wem		\Actor-Mixer Hierarchy\SFX\SFX\sfx_jacket		1027296
+	345689351	TestVoiceLanguage	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\English_10C4C929.wem		\Actor-Mixer Hierarchy\VoiceRU\TestVoice\TestVoiceLanguage		252108
+	358267263	elena_4	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\elena.4_6E7298CA.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_4		248966
+	391722621	elena_1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\elena.1_0AC09AE8.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_1		1655834
+	556255674	psycho1_elena_003	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\psycho1.elena.003_10C4C929.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_003		147296
+	738939156	psycho1_elena_001	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\psycho1.elena.001_F0A9930B.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_001		268896
+	809737166	UI_Click_Game	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\SFX\UI_Click_Game_181DC7AA.wem		\Actor-Mixer Hierarchy\UI\UI_Click_Game\UI_Click_Game		249712
+	838611190	UI_Click_Menu	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\SFX\UI_Click_Menu_DA80F35B.wem		\Actor-Mixer Hierarchy\UI\UI_Click_Menu\UI_Click_Menu\UI_Click_Menu		21984
+	855236198	valhalla_light_130bpm_a7	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\SFX\valhalla_light_130bpm_a7_D79FB2B7.wem		\Interactive Music Hierarchy\Music\MusicSwitch\PlaylistTwo\Two\valhalla_light_130bpm_a7		3908036
+	941794527	psycho1_elena_002	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\psycho1.elena.002_10C4C929.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_002		147296
+	941949314	elena_6	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\elena.6_D98D01C8.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\elena\elena_6		94370
+	987752079	valhalla_light_130bpm_a1	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\SFX\valhalla_light_130bpm_a1_D79FB2B7.wem		\Interactive Music Hierarchy\Music\MusicSwitch\PlaylistOne\One\valhalla_light_130bpm_a1		3908036
+	996282113	psycho1_elena_004	Z:\!Production\Midline85\Call991\Call991_WwiseProject\.cache\Mac\Voices\English(US)\psycho1.elena.004_10C4C929.wem		\Actor-Mixer Hierarchy\VoiceRU\Elena\psycho1_elena\psycho1_elena_004		163296
+
