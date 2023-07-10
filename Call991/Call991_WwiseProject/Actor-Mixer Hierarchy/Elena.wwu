@@ -48,6 +48,9 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<SourcePlugin Name="Sine" ID="{F11D78AD-4478-4C0C-9666-724110199581}" ShortID="367542691" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineGain" Type="Real32" Value="-12.9"/>
+									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
 							</ChildrenList>
@@ -84,6 +87,12 @@
 								<SourcePlugin Name="Sine" ID="{77A61E26-0322-44E7-A74B-AAFA9171514B}" ShortID="531146332" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
 									<PropertyList>
 										<Property Name="SineFrequency" Type="Real32" Value="311"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+								<SourcePlugin Name="Sine_01" ID="{30066692-B44B-48E5-980E-F2544A4DFF8B}" ShortID="923338112" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineGain" Type="Real32" Value="-12.9"/>
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
@@ -3914,9 +3923,17 @@
 										<MediaID ID="833383169"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{771D69E8-5E87-4E53-9414-CF7ABC282C06}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_001" ID="{222A6765-461B-4A59-AD38-28B2B2527639}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{771D69E8-5E87-4E53-9414-CF7ABC282C06}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_002" ID="{65D569C1-99AB-4850-A3A6-752449203B84}" ShortID="773015303">
@@ -3939,9 +3956,17 @@
 										<MediaID ID="177711868"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{341096BF-7E20-4102-B567-5ABF8F066AF7}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_002" ID="{9D161812-F013-432C-9C1A-743998EF4D83}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{341096BF-7E20-4102-B567-5ABF8F066AF7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_003" ID="{1BD5A934-9CDA-4847-BAEE-90E8172C34A6}" ShortID="124363588">
@@ -3964,9 +3989,17 @@
 										<MediaID ID="14974577"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{2CD230BA-080D-450B-BD4C-33B5F2E1D0FD}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_003" ID="{756CF767-A7C1-4EE2-832E-CA3424F033A3}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{2CD230BA-080D-450B-BD4C-33B5F2E1D0FD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_004" ID="{07DACE43-CEB3-43F3-B5B2-339FFA507AB0}" ShortID="872842808">
@@ -3989,8 +4022,16 @@
 										<MediaID ID="771871612"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{FDCA2D41-9A85-4032-93EE-0067379550C1}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{FDCA2D41-9A85-4032-93EE-0067379550C1}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_004" ID="{EFB51176-B7AF-452B-A853-679169D416AD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4014,9 +4055,17 @@
 										<MediaID ID="37799672"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{239C31B9-FC71-49F3-B19D-C0FB78C03A1F}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_005" ID="{B990EB14-DBDF-47D6-9BB2-D4A0620A11FC}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{239C31B9-FC71-49F3-B19D-C0FB78C03A1F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_006" ID="{1D438171-B72E-4A10-8A05-BE14D5E76064}" ShortID="757517059">
@@ -4039,9 +4088,17 @@
 										<MediaID ID="667423794"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{B9A8E9BC-6A18-4FA5-A670-5294BAAC6066}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_006" ID="{2F3EBBAD-9795-4162-BC71-751CD6229BE6}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{B9A8E9BC-6A18-4FA5-A670-5294BAAC6066}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_007" ID="{30B50CB3-10E0-4779-9706-EF2F0B82D27E}" ShortID="18209078">
@@ -4064,9 +4121,17 @@
 										<MediaID ID="803597231"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{F4A6DCFC-3AB3-4453-80E6-A203D6C4E1EB}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_007" ID="{7152192A-8276-4B6C-98DA-EA79D1AA2B8F}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{F4A6DCFC-3AB3-4453-80E6-A203D6C4E1EB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_008" ID="{7CAA55C7-9A16-4C4E-A7A1-78EF2666BF4C}" ShortID="417214271">
@@ -4089,9 +4154,17 @@
 										<MediaID ID="645005498"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{6DD572E7-F59E-4EBE-960B-3895DD276C42}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_008" ID="{60ADC913-2F45-4276-982F-0C6DC656CC35}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{6DD572E7-F59E-4EBE-960B-3895DD276C42}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_009" ID="{320F74A6-F1BE-4A4B-94DE-3D9C011A5E44}" ShortID="113543286">
@@ -4114,8 +4187,16 @@
 										<MediaID ID="941642845"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{DA2C99DD-561D-424D-9320-5799B2FCEDDB}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{DA2C99DD-561D-424D-9320-5799B2FCEDDB}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_009" ID="{8A2046DF-7B7C-40B2-99DE-F3A2B53000F3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4139,9 +4220,17 @@
 										<MediaID ID="1031250025"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{9FD044F5-E8C5-4E12-B89C-05E2B3841020}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_010" ID="{97EEB2BE-A71F-40D2-BC08-58235AE89DF2}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{9FD044F5-E8C5-4E12-B89C-05E2B3841020}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_011" ID="{90C15448-FFBC-4EFF-9569-3BF359D1A4E2}" ShortID="533725663">
@@ -4164,8 +4253,16 @@
 										<MediaID ID="325239009"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{700DEE67-DBA3-42F5-9197-1974D14AE364}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{700DEE67-DBA3-42F5-9197-1974D14AE364}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_011" ID="{E4D4CFF9-0D56-40DF-B6B4-39C4E31CC692}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4189,9 +4286,17 @@
 										<MediaID ID="7829222"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{6822E084-F2F4-41B0-8031-7EE694A4FC8E}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_012" ID="{09679020-EFAE-42D2-9767-2CDB416BF735}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{6822E084-F2F4-41B0-8031-7EE694A4FC8E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_013" ID="{39B18E10-A80D-4160-AF0F-012975C0AD7E}" ShortID="879488038">
@@ -4214,8 +4319,16 @@
 										<MediaID ID="317667772"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{C1469E2D-A909-4593-89E1-07F0380ECAEC}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{C1469E2D-A909-4593-89E1-07F0380ECAEC}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_013" ID="{D3AACA8C-6A89-482B-83BF-72B11961E73C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4239,9 +4352,17 @@
 										<MediaID ID="51284758"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{12D91975-958C-4A27-A97C-31894E44DCCD}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_014" ID="{13BB3124-F336-4D4D-A193-B814987E19B9}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{12D91975-958C-4A27-A97C-31894E44DCCD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_015" ID="{834C7225-130B-4E9D-AF1C-66B2A159090B}" ShortID="752088192">
@@ -4264,8 +4385,16 @@
 										<MediaID ID="963795091"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{A7D52E8A-0358-4CD7-AC03-EBB0FED6E896}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{A7D52E8A-0358-4CD7-AC03-EBB0FED6E896}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_015" ID="{BF55B4CA-5B5F-48EC-991E-1B4DAEC38018}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4289,8 +4418,16 @@
 										<MediaID ID="518198993"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{A19E9FC0-02F7-4455-B75C-4B7D16694227}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{A19E9FC0-02F7-4455-B75C-4B7D16694227}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_016" ID="{0AD860D5-D581-4A6B-8E2D-37E0715E889A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4314,9 +4451,17 @@
 										<MediaID ID="995502942"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{948D5FA7-7EAC-452D-95DC-E0FCAE538186}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_017" ID="{02BE933B-04BD-47D9-89A5-28066690343D}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{948D5FA7-7EAC-452D-95DC-E0FCAE538186}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_018" ID="{307C8829-3BFB-49B3-9906-E34A5132B09E}" ShortID="422677613">
@@ -4339,8 +4484,16 @@
 										<MediaID ID="589809690"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{4CF9CA5E-2A57-473C-A8C3-496BA4FFF4CE}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{4CF9CA5E-2A57-473C-A8C3-496BA4FFF4CE}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_018" ID="{E22A82EC-EE90-4702-B7FD-D280B98E2074}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4364,9 +4517,17 @@
 										<MediaID ID="675047794"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{2514EEF1-2ACD-488D-B0BB-29BEC64407FB}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_019" ID="{FB2F3F58-D08C-4615-AA38-F0F1BDA8A8AD}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{2514EEF1-2ACD-488D-B0BB-29BEC64407FB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_020" ID="{762C0533-D033-4506-AF3F-938E18D86518}" ShortID="1008276996">
@@ -4389,8 +4550,16 @@
 										<MediaID ID="725003744"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{8694EC45-33F2-45E8-A343-4FCD354B4FEC}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{8694EC45-33F2-45E8-A343-4FCD354B4FEC}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_020" ID="{7DB3BAB4-D26B-4495-B20C-4C3A6B0D8C62}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4414,9 +4583,17 @@
 										<MediaID ID="258330256"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{051FF9CE-4B4F-4A50-BF28-99F290758062}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_021" ID="{A14D6826-66D5-46D6-926C-542E358AE0A0}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{051FF9CE-4B4F-4A50-BF28-99F290758062}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_022" ID="{CB53CE9E-BD62-40C6-A521-C8A6A67E5B7A}" ShortID="898741046">
@@ -4439,8 +4616,16 @@
 										<MediaID ID="368651800"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{2CE0AF41-C2A6-42E5-B5C1-1A5C116568DE}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{2CE0AF41-C2A6-42E5-B5C1-1A5C116568DE}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_022" ID="{11E594FB-BC27-4F48-B174-61DBB49692E3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4464,9 +4649,17 @@
 										<MediaID ID="955460769"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{18D891CA-E442-4DD3-93FF-39808F628B8A}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_023" ID="{913B086D-18E5-4F1C-AD67-6A6FC11A7ED5}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{18D891CA-E442-4DD3-93FF-39808F628B8A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_024" ID="{9A3F75C8-0416-4A38-8955-11C6277BDF37}" ShortID="12783482">
@@ -4489,8 +4682,16 @@
 										<MediaID ID="840226677"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{75D34364-E22C-434F-95CA-B7DE4C18C9D7}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{75D34364-E22C-434F-95CA-B7DE4C18C9D7}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_024" ID="{A701A5C7-37AF-42E3-BE4C-285671BF345F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4514,9 +4715,17 @@
 										<MediaID ID="341323545"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{D6AFB55D-6076-462A-B3FA-15A721A579BD}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_025" ID="{C485374C-78B8-4417-8070-DA6B613E11E4}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{D6AFB55D-6076-462A-B3FA-15A721A579BD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_026" ID="{4A2859DE-37E3-4E42-921C-E420B35385C0}" ShortID="409324763">
@@ -4539,9 +4748,17 @@
 										<MediaID ID="116903513"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{4E0EEA71-BA7F-4ABE-8706-881D818F77C0}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_026" ID="{EB8F613A-BE68-4AE9-9F2A-16C719F099E8}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{4E0EEA71-BA7F-4ABE-8706-881D818F77C0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_027" ID="{49E21849-3B78-421D-A5C7-8E65604E6085}" ShortID="727146790">
@@ -4564,9 +4781,17 @@
 										<MediaID ID="53949267"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{CF071E5A-B5A1-450B-86FF-FA0D8062AA82}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_027" ID="{FEEE560E-F9FC-460E-A0E5-7C9A99E62CFD}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{CF071E5A-B5A1-450B-86FF-FA0D8062AA82}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_028" ID="{60D24369-2D71-48FC-A1CC-B0D52CEC5164}" ShortID="255994290">
@@ -4589,9 +4814,17 @@
 										<MediaID ID="504690757"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{7A2ED0E9-E672-48B8-8AF0-8A926808C71F}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_028" ID="{4ED8B318-3041-438B-A193-CAE573E04BC1}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{7A2ED0E9-E672-48B8-8AF0-8A926808C71F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_029" ID="{FEF10935-941A-4364-96FE-43653D1626BE}" ShortID="964685107">
@@ -4614,8 +4847,16 @@
 										<MediaID ID="944948383"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{C1C1DF21-7839-437D-BA4D-EDF1C5B66DAD}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{C1C1DF21-7839-437D-BA4D-EDF1C5B66DAD}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_029" ID="{162EEBDE-ABAF-48F4-9325-EF351C0272F4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4639,9 +4880,17 @@
 										<MediaID ID="615299506"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{10B83B6E-05EC-4DC8-8531-BFD36ABF05B4}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_030" ID="{CD8FBE41-B0D5-4776-9E97-670220D3870E}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{10B83B6E-05EC-4DC8-8531-BFD36ABF05B4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_031" ID="{96FBD485-E375-4CE5-B99B-35052DC2B64A}" ShortID="57656086">
@@ -4664,9 +4913,17 @@
 										<MediaID ID="14535943"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{6D5EB47F-9B3C-4A52-AE75-8BF9DE1FAC71}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="fireep_elena_031" ID="{1E558F03-46DA-4A96-9CDC-352AA85A54C3}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{6D5EB47F-9B3C-4A52-AE75-8BF9DE1FAC71}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fireep_elena_032" ID="{8C9BF0A5-1F5C-45ED-ABCE-95CDBAF49A14}" ShortID="961632299">
@@ -4689,8 +4946,16 @@
 										<MediaID ID="622632305"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{74C59A52-DA0D-4AA5-8376-F7A683324558}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{74C59A52-DA0D-4AA5-8376-F7A683324558}" Platform="Linked"/>
 								<ActiveSource Name="fireep_elena_032" ID="{A904675F-E3D5-4DA5-9DA4-4BB71CF43678}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4738,9 +5003,17 @@
 										<MediaID ID="918555475"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{60B755F7-C248-4446-9AB6-D4CF508B9BF1}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_001" ID="{5D566437-3C01-4BD7-AF17-B39F5F693984}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{60B755F7-C248-4446-9AB6-D4CF508B9BF1}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_002" ID="{B058C1C9-2487-4C22-AB14-BF12AD78E420}" ShortID="746140912">
@@ -4763,8 +5036,16 @@
 										<MediaID ID="746744111"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{7B437B69-E8BA-4785-BBFE-1638574EAE85}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{7B437B69-E8BA-4785-BBFE-1638574EAE85}" Platform="Linked"/>
 								<ActiveSource Name="pizzaep_elena_002" ID="{45BAD486-4197-4DF5-8742-DF1222B3ED56}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4788,8 +5069,16 @@
 										<MediaID ID="323579060"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{5BC8E7C5-037D-4281-8744-76A0F484E77B}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{5BC8E7C5-037D-4281-8744-76A0F484E77B}" Platform="Linked"/>
 								<ActiveSource Name="pizzaep_elena_003" ID="{A72D60E4-61A9-457D-9196-788BB99771A9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4813,8 +5102,16 @@
 										<MediaID ID="548752387"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{277B96A0-B2D9-43AB-BF57-94871E851719}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{277B96A0-B2D9-43AB-BF57-94871E851719}" Platform="Linked"/>
 								<ActiveSource Name="pizzaep_elena_004" ID="{CE0557B3-DD8F-48C6-9C54-6BDCE1E7B90D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -4838,9 +5135,17 @@
 										<MediaID ID="570545857"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{33C074F9-B569-40C2-A4C8-22A23630C5A6}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_005" ID="{04046AB5-2B8D-4AFE-B146-EC8501AF11C1}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{33C074F9-B569-40C2-A4C8-22A23630C5A6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_006" ID="{E8E3909A-05B2-4F43-A76D-CF99A6665BF5}" ShortID="60767608">
@@ -4863,9 +5168,17 @@
 										<MediaID ID="661266208"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{893721C2-7F5A-486D-8C0A-8AA2BF04F5CF}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_006" ID="{4BDC8B47-8BE5-40AB-93BF-CBD8B9A922D1}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{893721C2-7F5A-486D-8C0A-8AA2BF04F5CF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_007" ID="{F10FE50A-EE97-4D1F-B6DF-DD7654787A67}" ShortID="1048208868">
@@ -4888,9 +5201,17 @@
 										<MediaID ID="1042882916"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{08627AFA-A6DD-4729-9716-6A792EEBC9C5}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_007" ID="{D0A71287-8C0F-4100-8F21-F5532C87EF19}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{08627AFA-A6DD-4729-9716-6A792EEBC9C5}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_008" ID="{E22818F2-04A5-47D6-8BE7-F846F42F5571}" ShortID="916018591">
@@ -4913,9 +5234,17 @@
 										<MediaID ID="640577194"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{B79B554F-3EB8-4C9E-8BD5-12627914B15D}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_008" ID="{EDC6A437-E4CA-4BCD-9F96-22B9A2EDE86D}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{B79B554F-3EB8-4C9E-8BD5-12627914B15D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_009" ID="{5387B384-84A9-4F64-AE67-78B5B49232A6}" ShortID="635049363">
@@ -4938,9 +5267,17 @@
 										<MediaID ID="469153106"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{0048E2E6-15AB-4F54-A031-4E79D7145232}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_009" ID="{D846DCE4-E694-43E8-BF5A-E78CF5E3BDE2}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{0048E2E6-15AB-4F54-A031-4E79D7145232}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_010" ID="{D439AD9C-BFF2-48DA-A4CB-2FB5672AD2E8}" ShortID="698814087">
@@ -4963,9 +5300,17 @@
 										<MediaID ID="57976363"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{11FD64A7-0392-42B0-AB5D-C62F6E98B8CF}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_010" ID="{EC0F7521-BAD8-4309-A52F-57E82D09BD51}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{11FD64A7-0392-42B0-AB5D-C62F6E98B8CF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_011" ID="{5152F565-34D2-4408-A630-D43E0F217649}" ShortID="20468348">
@@ -4988,9 +5333,17 @@
 										<MediaID ID="677793881"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{84E26CE1-2F5A-400D-B448-E5BA92055029}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_011" ID="{8E24A058-3DDF-4822-9702-357DAAB61CF4}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{84E26CE1-2F5A-400D-B448-E5BA92055029}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_012" ID="{FD42D233-D316-4D3B-99B2-AE43BE964E65}" ShortID="693841465">
@@ -5013,9 +5366,17 @@
 										<MediaID ID="382818288"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{74E3387E-8E76-4070-BEBC-B164088E78BF}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_012" ID="{38EEFA70-041B-4853-9C0C-46F0FE61AA89}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{74E3387E-8E76-4070-BEBC-B164088E78BF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_013" ID="{47ED30FC-5CCE-43CE-BD8C-7753D2E076D8}" ShortID="505318620">
@@ -5038,9 +5399,17 @@
 										<MediaID ID="734885854"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{C34E39F7-98C3-4D86-B1EA-CDFEEE8C714C}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_013" ID="{71E2CB9D-4BBE-4FEA-86E2-02B8AA0A66D6}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{C34E39F7-98C3-4D86-B1EA-CDFEEE8C714C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_014" ID="{FCC65ABB-7670-46B9-8D42-A2FC6F9E13A1}" ShortID="147887893">
@@ -5063,9 +5432,17 @@
 										<MediaID ID="848576812"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{F0A97D7E-D566-4E89-AA3D-395604EFAE4F}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizzaep_elena_014" ID="{84D0B309-2CC9-4991-9C53-A87B7F564604}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{F0A97D7E-D566-4E89-AA3D-395604EFAE4F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_015" ID="{3FDC6D0D-E6FB-4E0A-AE38-889C112E98BE}" ShortID="1027893718">
@@ -5088,8 +5465,16 @@
 										<MediaID ID="72958545"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{02951C0E-016B-4670-9658-A96523863C8F}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{02951C0E-016B-4670-9658-A96523863C8F}" Platform="Linked"/>
 								<ActiveSource Name="pizzaep_elena_015" ID="{0235386A-3647-4940-9CA0-DEAC946D8087}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -5113,8 +5498,16 @@
 										<MediaID ID="9404507"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{318D8126-2EAF-49C0-9012-35433686F0D6}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{318D8126-2EAF-49C0-9012-35433686F0D6}" Platform="Linked"/>
 								<ActiveSource Name="pizzaep_elena_016" ID="{BC7BF940-4AF7-46D2-B33D-DCDA6F15DCC4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -5138,8 +5531,16 @@
 										<MediaID ID="972393960"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{7B68D4D5-8BE8-46CA-812F-A65EB88AE6C5}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{7B68D4D5-8BE8-46CA-812F-A65EB88AE6C5}" Platform="Linked"/>
 								<ActiveSource Name="pizzaep_elena_017" ID="{A28E33E6-3C6B-40E3-AF3C-7CD082586DBE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -5155,6 +5556,8 @@
 				<ActorMixer Name="tutor_elena" ID="{CD796330-654F-47F6-AF82-F7127CCD32FC}" ShortID="646882028">
 					<PropertyList>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="OverridePositioning" Type="bool" Value="True"/>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -6189,6 +6592,13 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{3C08BB3F-4502-4064-9EF8-150E0E2882ED}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="-25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="pizza_elena" ID="{DE5F899A-6206-4520-84D3-376D940E6746}" ShortID="626039162">
 					<PropertyList>
@@ -7665,10 +8075,17 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{F5EBE598-ED74-4E77-B5A0-A9E18C1E9D31}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{F5EBE598-ED74-4E77-B5A0-A9E18C1E9D31}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_031" ID="{A60F34AE-19D9-4CC2-A0B0-853D041ECC09}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_031" ID="{83DAACD6-3BFB-427E-9E74-284951EB2005}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_032" ID="{7B82C028-1575-4FD3-8BA2-D439E3FA3F28}" ShortID="420852202">
@@ -7712,10 +8129,17 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{5AE2A220-C528-4839-819B-66081C463C63}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_032" ID="{80FB1211-19C4-456F-BE88-8BF38804F276}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_032" ID="{CEFA2764-563D-4467-8CC2-9E9639AB3EB7}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{5AE2A220-C528-4839-819B-66081C463C63}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_033" ID="{97E94E12-DE31-4716-915E-6F336156F16F}" ShortID="814758996">
@@ -7759,9 +8183,16 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{E204032B-E3F2-4A73-89A4-38A04991A15A}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_033" ID="{E8B2732F-435E-46AA-9CDE-8653E2F87247}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{E204032B-E3F2-4A73-89A4-38A04991A15A}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_033" ID="{F912B964-03F6-443E-AF0B-FD52B817B6F2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7806,10 +8237,17 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{AF100F8E-F74E-4606-9D0A-BA31ED043F9D}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{AF100F8E-F74E-4606-9D0A-BA31ED043F9D}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_034" ID="{13881FC1-80C8-4AD2-9DBA-BC3E4AA65DEF}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_034" ID="{AEA71FD0-D6E5-4DC5-ABA4-B112F3201F52}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_035" ID="{3441A7B6-8A5A-4ABA-8921-5CB73B9D84EB}" ShortID="637227606">
@@ -7853,10 +8291,17 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{1BF38AB1-88C7-4CE6-B175-329A044C3C2F}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_035" ID="{AE4F775C-9A3E-470B-A468-D36C8EAC5B0D}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_035" ID="{DC88FA6C-3505-491A-93F1-887B014567F8}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{1BF38AB1-88C7-4CE6-B175-329A044C3C2F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_036" ID="{4CCE40CB-F0EC-41EA-BE55-253A98524EDC}" ShortID="825022648">
@@ -7900,10 +8345,17 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{96BC1DA4-E740-41D5-A989-A6A44C91A583}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_036" ID="{FDF0D768-A991-464F-AEA2-0FD13B0D76B1}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_036" ID="{66ACEC79-BC77-4234-B379-B28965541465}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{96BC1DA4-E740-41D5-A989-A6A44C91A583}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_037" ID="{2CB412EA-E05A-40D3-940D-589244C69498}" ShortID="69654332">
@@ -7947,9 +8399,16 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{FD32F7D0-D671-4378-9210-0D0C6B8BB7BB}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_037" ID="{ED6427E2-C15F-44E8-A910-DCE9C92A2259}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{FD32F7D0-D671-4378-9210-0D0C6B8BB7BB}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_037" ID="{7ED08BFD-3C55-4273-87F0-5269BB23F2ED}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7994,10 +8453,17 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{A9BC25FD-8B77-4465-AA25-823A74EF8F74}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_038" ID="{FD418D2D-E918-427C-8DFE-F6CAD975A53A}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_038" ID="{7B63D152-9A9D-4DD8-B173-D1CFA192D646}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{A9BC25FD-8B77-4465-AA25-823A74EF8F74}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_039" ID="{435B50A8-FA63-40A8-9EA4-48B319C8F1A1}" ShortID="761561572">
@@ -8041,9 +8507,16 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{30F3566B-2DCD-4DF0-BA8C-4CEE1260630D}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_039" ID="{E8DA7F00-6922-49F1-BCA1-B7082B946BBF}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{30F3566B-2DCD-4DF0-BA8C-4CEE1260630D}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_039" ID="{F3261D8E-AA55-4948-96E8-0DAEB4D5EB76}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8088,10 +8561,17 @@
 										<MediaID ID="64731262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{552A6FA5-D4BA-46F6-81CC-3F8590033F96}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_040" ID="{40A3F576-4130-47E1-8551-25EEFBB635DD}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_040" ID="{928C41DF-CF38-4E1E-AE3B-B4026CC17E18}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{552A6FA5-D4BA-46F6-81CC-3F8590033F96}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_041" ID="{36BF11B2-B979-4794-ADE5-7D5CAFC52258}" ShortID="276548248">
@@ -8123,9 +8603,16 @@
 										<MediaID ID="286050262"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{ABA3A8BB-959E-4748-BF72-9170190E7952}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_041" ID="{2A1E502C-FC56-4A6E-B80A-228FA1B71E76}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{ABA3A8BB-959E-4748-BF72-9170190E7952}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_041" ID="{517CC1E2-1791-4517-A1E0-1030BA5EFD29}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8158,9 +8645,16 @@
 										<MediaID ID="394890552"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{353886D2-B9C5-4ED8-9501-D9AD69BAF85C}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_042" ID="{41CAEC06-85A0-4351-BDB2-5FDC85901787}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{353886D2-B9C5-4ED8-9501-D9AD69BAF85C}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_042" ID="{DEB160DE-A1A7-4D75-9C1E-14FA45D638E7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8193,10 +8687,17 @@
 										<MediaID ID="1027871298"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{D92712D8-D662-48F6-ABD3-F2C072B6F0C5}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_043" ID="{521C3B8B-5563-4E76-89B6-D503BC9B77CC}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_043" ID="{98CF66AE-CC07-4896-B9FF-93CC45DA65DD}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{D92712D8-D662-48F6-ABD3-F2C072B6F0C5}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_044" ID="{5785CC32-6F94-4B7C-ACD0-ED5FD6BB10A7}" ShortID="110812899">
@@ -8228,10 +8729,17 @@
 										<MediaID ID="681524381"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{D5E26986-432B-405C-B8A1-5BCDDC4F2E3D}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{D5E26986-432B-405C-B8A1-5BCDDC4F2E3D}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_044" ID="{529AAEB0-233F-4855-9BC9-C7A196865F5F}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_044" ID="{45A2F7E4-F00B-4B9C-B48B-AE03A1CEC0DB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_045" ID="{4405FD08-A021-402E-AD73-900A0AA6A809}" ShortID="981339584">
@@ -8263,10 +8771,17 @@
 										<MediaID ID="500299772"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{15B11458-ED2F-41E1-9879-8331F625BC3B}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_045" ID="{779C9D1B-A12D-454A-A1E9-D9FACED20E88}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_045" ID="{D91085AF-255E-4579-AAE1-08CA3D3C2489}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{15B11458-ED2F-41E1-9879-8331F625BC3B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_046" ID="{22CFC37B-41C1-409E-92F7-AAFAF7C01E92}" ShortID="254432923">
@@ -8298,10 +8813,17 @@
 										<MediaID ID="358293529"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{BC096FFE-8E72-44F8-B14D-E76BD47303BF}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_046" ID="{730C9E89-07EC-4884-BA20-05E299665282}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_046" ID="{E586F6B1-3CC8-43B1-A715-85E6FC951164}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{BC096FFE-8E72-44F8-B14D-E76BD47303BF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_047" ID="{586A307F-70F6-4CFE-ACD3-A643EA24B827}" ShortID="913926407">
@@ -8333,10 +8855,17 @@
 										<MediaID ID="526700440"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{9B2911DA-2ED0-453F-8A33-2435A53A6447}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_047" ID="{92AEDF24-E346-40C7-8E3B-961A3E1B2ECF}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_047" ID="{A69A7FD6-6798-4652-B72F-F6526D5343D7}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{9B2911DA-2ED0-453F-8A33-2435A53A6447}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_048" ID="{CE4BD363-37D3-43B7-A427-95DBA129DEC1}" ShortID="412616">
@@ -8368,9 +8897,16 @@
 										<MediaID ID="372407862"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{33CDBA19-CE4C-4907-9CE4-B3E60576DD58}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_048" ID="{50E1D739-7CFA-4EDE-A0C3-D65150848719}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{33CDBA19-CE4C-4907-9CE4-B3E60576DD58}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_048" ID="{55130FF3-E66B-4529-B7FA-7D7E40DB680F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8403,10 +8939,17 @@
 										<MediaID ID="1033553577"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{D4639BE0-2EE6-476D-A690-4E851B4C0558}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_049" ID="{27D4321A-4531-4A0E-9754-43A0478A846E}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_049" ID="{8DD962D5-CD20-4558-97CA-EB645D90CE0C}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{D4639BE0-2EE6-476D-A690-4E851B4C0558}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_050" ID="{75DBCBFD-E7A1-41DA-B7CD-38234C90C435}" ShortID="738362145">
@@ -8438,10 +8981,17 @@
 										<MediaID ID="656321103"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{4954E16E-DB95-4957-8B02-66C33B943842}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_050" ID="{A5E18E6C-D973-4D83-8E20-C039342C8C00}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_050" ID="{E78D7AE8-BEBA-4401-A49C-115D754EA42C}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{4954E16E-DB95-4957-8B02-66C33B943842}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_051" ID="{ECDF7BBF-11E5-4C45-BAB3-BC92115A6970}" ShortID="415300085">
@@ -8473,10 +9023,17 @@
 										<MediaID ID="513668886"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{2F0AFA65-06CF-421E-AEAD-9E6AB8304DD1}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_051" ID="{B3A3D31A-10DF-4B6F-B6FE-7D318672A0D6}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_051" ID="{0AF4BD4F-37FF-48ED-ACFF-B45BED4C503E}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{2F0AFA65-06CF-421E-AEAD-9E6AB8304DD1}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_052" ID="{ACD7AB26-2042-4AF4-AB15-095E09DE0B03}" ShortID="1022687781">
@@ -8508,9 +9065,16 @@
 										<MediaID ID="323316674"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{BC2BDB67-5D9C-455A-A456-04805135D2BF}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_052" ID="{4F1B6E7F-8AF7-4745-A725-D812F82927E5}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{BC2BDB67-5D9C-455A-A456-04805135D2BF}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_052" ID="{CA2E51EB-3722-467E-BDA6-0216F74EB983}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8543,10 +9107,17 @@
 										<MediaID ID="477767509"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{1154CEAB-A535-4E49-8E13-099F098B88B9}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_053" ID="{1A6B6054-6CB7-4C68-9A83-AC65AE7ED70C}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_053" ID="{70AAD696-DDE2-4265-AF11-EF91131B3918}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{1154CEAB-A535-4E49-8E13-099F098B88B9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_054" ID="{B39874C8-9285-4645-A013-6F930830A921}" ShortID="739951343">
@@ -8578,9 +9149,16 @@
 										<MediaID ID="894122174"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{CDAA4928-5FF3-4489-BB95-49246E551481}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_054" ID="{56752501-721A-4A14-AF4F-A2D2A78620B0}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{CDAA4928-5FF3-4489-BB95-49246E551481}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_054" ID="{11BC7E57-9991-45FF-B480-5DCCDB0F2EBC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8613,10 +9191,17 @@
 										<MediaID ID="523655074"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{15C30A6C-6F66-4500-9C9F-82ADD397D6C2}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{15C30A6C-6F66-4500-9C9F-82ADD397D6C2}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_055" ID="{C8A83974-2585-4D8D-92F9-607ABE92720C}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_055" ID="{E043E07E-7FCB-4C82-A931-7C49447EDEC9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_056" ID="{9F238ED1-70CA-4798-B4DE-74F95BE7EF3B}" ShortID="158581898">
@@ -8648,10 +9233,17 @@
 										<MediaID ID="220352500"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{90E9A490-52F2-4B7F-8B08-50346597C993}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_056" ID="{91A3930C-F61A-4FEE-80A9-28BA4A633B22}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_056" ID="{6499E914-2767-4A72-A021-60D9F4609DF4}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{90E9A490-52F2-4B7F-8B08-50346597C993}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_057" ID="{11955530-AD01-4FF8-A203-BACD73FA7303}" ShortID="735400253">
@@ -8683,10 +9275,17 @@
 										<MediaID ID="1042778206"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{E00E07ED-76D0-466B-98E6-A21555356F01}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_057" ID="{482495B9-0FDC-42EB-A964-FA133CF5E6EC}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_057" ID="{547F3AC4-7A8C-431F-93D8-A6434157FCF3}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{E00E07ED-76D0-466B-98E6-A21555356F01}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_058" ID="{9D36E041-214F-437B-8EAC-63CCE06821FC}" ShortID="778968715">
@@ -8718,9 +9317,16 @@
 										<MediaID ID="461597599"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{87031B3A-39B2-4AFC-9CD0-A4744CD1D17A}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_058" ID="{3A7CAA58-434D-4DA7-8D85-8CC91A229B89}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{87031B3A-39B2-4AFC-9CD0-A4744CD1D17A}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_058" ID="{9A190570-4989-49A5-A8A6-B74CD9CA6E14}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8753,10 +9359,17 @@
 										<MediaID ID="963250688"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{19175E3B-4535-4809-AF47-D6FA7A539CC4}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{19175E3B-4535-4809-AF47-D6FA7A539CC4}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_059" ID="{7C8E5AB7-7E6C-42C6-A365-DC8484A2E73D}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_059" ID="{CC36D5B9-F743-4C59-8FBA-C6F7C43762F0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_060" ID="{FEC5B891-1E8C-4FEC-81B7-B4CF9B71D642}" ShortID="59680098">
@@ -8788,10 +9401,17 @@
 										<MediaID ID="124691207"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{2F6DF26F-9946-4549-B2DF-A8B24EF7245A}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_060" ID="{B8FDF223-60CE-4224-9741-0ED6CF138C05}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_060" ID="{2B45375F-9D0C-4F1D-B8A0-B948C47E2609}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{2F6DF26F-9946-4549-B2DF-A8B24EF7245A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_061" ID="{192BBC51-687F-48F5-8E3D-D04E3F229C31}" ShortID="546889183">
@@ -8823,9 +9443,16 @@
 										<MediaID ID="639655049"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{7F67C82A-0231-4AD2-9E4C-705DC2F27CAD}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_061" ID="{0B09F85B-B08F-4795-B6EA-73DCDE9EEDEC}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{7F67C82A-0231-4AD2-9E4C-705DC2F27CAD}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_061" ID="{11C2BFC4-CAC2-4EF2-B36A-07860E68B2EE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8858,10 +9485,17 @@
 										<MediaID ID="459969713"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{BC5C6C01-7F2C-4978-A492-AAC36E0ED0A1}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{BC5C6C01-7F2C-4978-A492-AAC36E0ED0A1}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_062" ID="{EE506D33-94F9-436E-A3CA-85701D7A48C8}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_062" ID="{23B651AA-CD27-4A59-9555-A8681D8610E3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_063" ID="{5814831C-3C9A-4E8C-843D-F662A03F86D7}" ShortID="281728803">
@@ -8893,9 +9527,16 @@
 										<MediaID ID="424548819"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{9AF7AC7C-B89A-415A-94E8-098B06F23E51}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_063" ID="{F716FE34-C123-4BCA-93BA-E171155F3CE8}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{9AF7AC7C-B89A-415A-94E8-098B06F23E51}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_063" ID="{41DFBD89-6A2A-43C7-AFDB-7A84C8D2F5B0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -8928,10 +9569,17 @@
 										<MediaID ID="506088152"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{6D8F6269-0ABE-49FC-BCB1-0A678BB12DA7}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{6D8F6269-0ABE-49FC-BCB1-0A678BB12DA7}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_064" ID="{474ADFA9-1482-4029-8EF6-C321713B0A6A}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_064" ID="{5B075AD8-43CC-4EB9-830C-7A616A45751F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_065" ID="{6DA05A5B-EADA-40B0-8114-13BC8FEF6FC5}" ShortID="554344759">
@@ -8963,10 +9611,17 @@
 										<MediaID ID="340696577"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{3C3AA5C4-8427-4E9A-A15C-42FF655B969B}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{3C3AA5C4-8427-4E9A-A15C-42FF655B969B}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_065" ID="{7F91A9D2-1BF6-429A-8831-FDDFD32D6D30}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_065" ID="{EA4E27E1-50CE-4B35-8103-AAAFC6547764}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_066" ID="{1996E56E-7E2E-4A79-BE4E-967B13AAE1D4}" ShortID="533752678">
@@ -8998,10 +9653,17 @@
 										<MediaID ID="163430109"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{703D4471-8CBC-4E28-B286-7CC61C77F0B8}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{703D4471-8CBC-4E28-B286-7CC61C77F0B8}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_066" ID="{BB547985-D50A-4F6A-9A54-B74ECC0B52C8}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_066" ID="{C3B170F3-A97D-4FF1-9B61-A23284ECABA9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_067" ID="{BBB9D8DA-A5A5-4264-A1C7-711D1FE4B569}" ShortID="448891317">
@@ -9033,10 +9695,17 @@
 										<MediaID ID="13287397"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{5EDC6668-5D84-429B-A0DA-A928D06D73F7}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_067" ID="{AEB2C60B-7623-4455-A4C0-7FE0FED04378}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_067" ID="{B64AF89F-B114-4A6A-90A5-4056A05F8FD8}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{5EDC6668-5D84-429B-A0DA-A928D06D73F7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_068" ID="{00B21170-E02E-4233-B215-CF4CD208FE19}" ShortID="271289089">
@@ -9068,10 +9737,17 @@
 										<MediaID ID="348769336"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{F0CD6CA7-CAC5-4878-BF03-856233BC3574}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_068" ID="{0BD3C245-B022-4684-AB10-28DF4F53828A}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_068" ID="{67EF617A-8694-4B2F-AD7D-5C473F36C4CA}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{F0CD6CA7-CAC5-4878-BF03-856233BC3574}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_069" ID="{8BD1038E-2F90-4D1E-8F53-F35A79075F45}" ShortID="622919829">
@@ -9103,9 +9779,16 @@
 										<MediaID ID="900921827"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{14E47805-66AF-4473-A941-0DF08B934D7C}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_069" ID="{46E684B6-1EBB-4345-ACCC-1BFA44B9D139}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{14E47805-66AF-4473-A941-0DF08B934D7C}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_069" ID="{FE1437DB-F08D-4C1A-A204-779623C1F461}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -9138,9 +9821,16 @@
 										<MediaID ID="225952549"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{35B05930-05CC-469E-B68B-44340423C638}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_070" ID="{17C3004B-230A-4A72-B697-7D6B1F2EB671}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{35B05930-05CC-469E-B68B-44340423C638}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_070" ID="{82D16BDE-4B17-4BE1-B97A-FF53E4BBE3E9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -9173,10 +9863,17 @@
 										<MediaID ID="157347453"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{7C8B95B6-254B-4DCC-9864-892C882A288A}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_071" ID="{11ABEB20-AF50-4363-9060-D3D9720B8D65}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_071" ID="{EE2B014C-9558-4538-AE6D-91442664ABE4}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{7C8B95B6-254B-4DCC-9864-892C882A288A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_072" ID="{BA3B6DF5-9B13-4575-A42E-5F9B24048CB5}" ShortID="141933648">
@@ -9208,10 +9905,17 @@
 										<MediaID ID="799807575"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{6ADFE5DB-11C8-4D16-9367-9F791454119D}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_072" ID="{099E4612-8557-4079-828F-70980432FECE}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_072" ID="{EF111CD8-CA03-4A2D-93B4-207E0C055E85}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{6ADFE5DB-11C8-4D16-9367-9F791454119D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_073" ID="{0B9B385E-5314-4C78-9D05-244C90C58101}" ShortID="1004286226">
@@ -9243,10 +9947,17 @@
 										<MediaID ID="1012478684"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{237FE772-8EE1-4961-9A66-BB131DE51130}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_073" ID="{F1E8336C-0D8E-46D2-936B-5A7B0A421326}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_073" ID="{FF1A7CC6-6641-424F-A7F4-C823B62494D0}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{237FE772-8EE1-4961-9A66-BB131DE51130}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_074" ID="{207B2C38-EBD9-4950-BBD8-DCF2051E89E1}" ShortID="934862611">
@@ -9278,9 +9989,16 @@
 										<MediaID ID="181284061"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{8B197B09-F5EE-4787-AFEC-C676218C43D9}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_074" ID="{06A29D61-5AF3-4B79-89D0-35CAEE59AF2A}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{8B197B09-F5EE-4787-AFEC-C676218C43D9}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_074" ID="{70436FFB-8A5A-49F2-99C0-4EB542AD9101}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -9313,10 +10031,17 @@
 										<MediaID ID="1046627873"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{FCBA697A-2063-45D8-97B9-692B823F73BE}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_075" ID="{E3FBB92B-2BE7-4958-BDF6-CE353EB26FE9}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_075" ID="{D6B58566-2300-4B29-A37F-145E09F4FF51}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{FCBA697A-2063-45D8-97B9-692B823F73BE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_076" ID="{38269470-F945-4D77-8C54-5206EB12A40E}" ShortID="577619261">
@@ -9348,10 +10073,17 @@
 										<MediaID ID="363214225"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{CBEFEB99-3555-4FF4-8854-4B7191FE5B9E}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_076" ID="{7E64D51B-3412-4337-A453-7ECCFFB33D5E}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_076" ID="{C208128B-178C-49F7-8DE3-4E651378A99E}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{CBEFEB99-3555-4FF4-8854-4B7191FE5B9E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_077" ID="{C97AC9D8-B906-4315-84FB-38501734D196}" ShortID="316723387">
@@ -9383,9 +10115,16 @@
 										<MediaID ID="1042958642"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{BDB8B77D-A11F-4724-869C-757DD092DF1B}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_077" ID="{194D622D-ECDF-41EF-8961-42396132B19F}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{BDB8B77D-A11F-4724-869C-757DD092DF1B}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_077" ID="{10CD71F1-15DB-4F09-B464-3AD64669CA37}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -9418,10 +10157,17 @@
 										<MediaID ID="160138940"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{F7494D23-737F-4CD4-83ED-11445E1ABCC3}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{F7494D23-737F-4CD4-83ED-11445E1ABCC3}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_078" ID="{F226DB68-9A02-4727-8C26-66225ABAD49A}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_078" ID="{B2C6FCA3-DDF5-4D65-BD73-F0D199BB717F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_079" ID="{64553AF1-F630-451F-8E07-790593B3A52F}" ShortID="848626295">
@@ -9453,10 +10199,17 @@
 										<MediaID ID="823987682"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{F616C307-A21B-47F4-88DA-23AB7B50AD61}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{F616C307-A21B-47F4-88DA-23AB7B50AD61}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_079" ID="{91E49C73-FD84-496F-A072-04278D87C55E}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_079" ID="{C2CCAFDB-6704-423B-8A4A-B76D31EFE538}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_080" ID="{2FC956DB-0B4A-4070-B865-9A7D4B2D719D}" ShortID="91469669">
@@ -9488,10 +10241,17 @@
 										<MediaID ID="320516926"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{385606C4-587F-4DBF-BB2B-7A4353F26B3E}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_080" ID="{7CC6AC66-3527-4F7F-825C-355DD4D27DA7}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_080" ID="{CEAE1CA6-5D3E-4C41-9A13-DE9F18FFA19F}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{385606C4-587F-4DBF-BB2B-7A4353F26B3E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_081" ID="{5951DB06-C2AF-4298-9A16-F0659C32C728}" ShortID="914659474">
@@ -9523,10 +10283,17 @@
 										<MediaID ID="197007664"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{4359558B-79D0-452A-AF52-9DE630657732}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="English" ID="{4359558B-79D0-452A-AF52-9DE630657732}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_081" ID="{4F79B4C1-5C37-42C2-85EF-B2716983C3D8}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_081" ID="{87581ED1-93EB-4FD2-BA5A-683F889D00AA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_082" ID="{717F2A49-B747-4BCB-B188-52FA7B1CA582}" ShortID="431364883">
@@ -9558,10 +10325,17 @@
 										<MediaID ID="17817769"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{914846DC-988F-49A3-936E-550404962765}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_082" ID="{E84D5F89-9A59-4177-8A2D-7866F1D735E9}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_082" ID="{B4B4B7CF-3324-435B-8F51-ED11EF170ABF}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{914846DC-988F-49A3-936E-550404962765}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_083" ID="{1136D1D9-5F81-4D96-87C2-9FF9FA63558A}" ShortID="721711589">
@@ -9593,10 +10367,17 @@
 										<MediaID ID="947448138"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{CECBFAFB-4D4E-444F-A7B4-4D3C6B8EB222}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_083" ID="{8C2CE44A-255A-43DE-807A-21D5727533D1}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_083" ID="{C64E7DDC-A2DA-4029-9659-DBDE89F1D8AD}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{CECBFAFB-4D4E-444F-A7B4-4D3C6B8EB222}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_084" ID="{B6D10C36-61E7-4A0D-A695-EAA3C09E4909}" ShortID="836218683">
@@ -9633,10 +10414,17 @@
 										<MediaID ID="203955067"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{30EBB3E1-3FA6-4308-B1D3-7781EF5A5FCC}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_084" ID="{49BE7947-ABCD-4EE5-89E1-D701D39DFAE6}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_084" ID="{F89B5E74-1EEC-4035-BC03-8DDD7E3D3A47}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{30EBB3E1-3FA6-4308-B1D3-7781EF5A5FCC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_085" ID="{E1C3A41E-D1CA-486D-B6B1-848EAD7004D8}" ShortID="237837253">
@@ -9668,9 +10456,16 @@
 										<MediaID ID="687010567"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{1AE1EEAF-C772-420B-8889-6497C4E3B3F4}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_085" ID="{6919DCD8-92BC-44D9-8B39-60D32868DA53}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{1AE1EEAF-C772-420B-8889-6497C4E3B3F4}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_085" ID="{5B965FF7-749F-417D-88AB-AF0C2C4768FB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -9708,10 +10503,17 @@
 										<MediaID ID="371283145"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{B5E8CDEB-CEE2-436C-AF52-A8DB5CD5979F}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizza_elena_086" ID="{38A70E71-61DF-4AA9-A14B-C5EFD917C2FF}" Platform="Linked"/>
 								<ActiveSource Name="pizza_elena_086" ID="{A18D69A6-EF7C-43B1-8994-3B87EE1BA686}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{B5E8CDEB-CEE2-436C-AF52-A8DB5CD5979F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_087" ID="{FFF23E76-3EDF-498B-B15A-C84D7458EE32}" ShortID="61579897">
@@ -9748,10 +10550,17 @@
 										<MediaID ID="187497635"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{63F52E5E-F666-4138-BF32-039839AE4CA3}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="581690082"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_087" ID="{35C1FB35-BF21-41D4-B088-0701E915A2E0}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_087" ID="{6DC5CCAD-67BB-47E1-8B1C-983EBE0992B1}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{63F52E5E-F666-4138-BF32-039839AE4CA3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizza_elena_088" ID="{9C6101BC-4EA9-48DE-BC58-CAEC45F52D48}" ShortID="567193335">
@@ -9790,10 +10599,17 @@
 										<MediaID ID="135396838"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="English" ID="{0F3164F5-4CD7-46F5-814A-3F8B9AA2CBEB}">
+									<Language>English</Language>
+									<AudioFile>English.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="425770353"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="pizza_elena_088" ID="{F4197822-6AA2-4FDB-BD3B-35D73525D68E}" Platform="Linked"/>
-								<ActiveSource Name="pizza_elena_088" ID="{6A51ED74-C09A-4322-A3B5-79CBDF022539}" Platform="Linked"/>
+								<ActiveSource Name="English" ID="{0F3164F5-4CD7-46F5-814A-3F8B9AA2CBEB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
