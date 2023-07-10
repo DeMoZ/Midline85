@@ -102,14 +102,14 @@ public class LevelScenePm : IDisposable
 
     private async Task PrepareAudioManager()
     {
-        _ctx.AudioManager.LoadBank(_ctx.LevelId);
-        
+        await _ctx.AudioManager.LoadBank(_ctx.LevelId);
+        if (_tokenSource.IsCancellationRequested) return;
         // wait for wwise get ready
-        while (!_ctx.AudioManager.IsReady)
-        {
-            await Task.Delay(1);
-            if (_tokenSource.IsCancellationRequested) return;
-        }
+        // while (!_ctx.AudioManager.IsReady)
+        // {
+        //     await Task.Delay(1);
+        //     if (_tokenSource.IsCancellationRequested) return;
+        // }
         
         foreach (var rtpc in _ctx.GameSet.RtpcKeys.WwiseRtpcs)
         {

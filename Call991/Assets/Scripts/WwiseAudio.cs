@@ -77,10 +77,10 @@ public class WwiseAudio : MonoBehaviour
         _ctx.Profile.OnVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
         _ctx.OnSwitchScene.Subscribe(OnSwitchScene).AddTo(_disposables);
 
-        Initialize();
+       // Initialize();
     }
 
-    private async void Initialize()
+    public async void Initialize()
     {
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenSource.IsCancellationRequested) return;
@@ -89,13 +89,14 @@ public class WwiseAudio : MonoBehaviour
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenSource.IsCancellationRequested) return;
         
+        Debug.Log($"[{this}] <color=green>Initialize completed</color> play music {MusicEvent}");
         MusicEvent.Post(musicGo);
-        _isBankLoaded = true;
+        //_isBankLoaded = true;
         
         // PlayMusic(MusicEventSwitch); // Test
     }
     
-    public async void LoadBank(string levelId)
+    public async Task LoadBank(string levelId)
     {
         Debug.LogWarning($"[{this}] loading bank {levelId}");
         _isBankLoaded = false;
@@ -223,8 +224,15 @@ public class WwiseAudio : MonoBehaviour
     public void StopVoice(uint voiceId) => 
         AkSoundEngine.StopPlayingID(voiceId);
 
-    public void PlayMusic(Wwise.Switch wSwitch)
+    public async void PlayMusic(Wwise.Switch wSwitch)
     {
+        while (!_isBankLoaded)
+        {
+            await Task.Delay(1);
+            if (_tokenSource.IsCancellationRequested) return;
+        }
+        if (_tokenSource.IsCancellationRequested) return;
+        
         Debug.Log($"[{this}] <color=green>PlayMusic</color> switch = <color=yellow>{wSwitch}</color>;");
         wSwitch.SetValue(musicGo);
     }

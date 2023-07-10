@@ -1,5 +1,8 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
 using Configs;
 using I2.Loc;
 using TMPro;
@@ -23,7 +26,8 @@ public class SoundTestSceneEntity : MonoBehaviour
     [SerializeField] private Transform buttonParent = default;
     [SerializeField] private Button buttonPrefab = default;
     [SerializeField] private WwiseAudio wwisePrefab = default;
-    [Space(30)] [SerializeField] private WwiseSoundsKeysList wwiseSoundsKeysList = default;
+    //[Space(30)] [SerializeField] private WwiseSoundsKeysList wwiseSoundsKeysList = default;
+    [Space(30)] [SerializeField] private WwiseVoicesList wwiseSoundsKeysList = default;
 
     private List<string> _keys;
     private uint? _lastSoundUint;
@@ -32,16 +36,21 @@ public class SoundTestSceneEntity : MonoBehaviour
     private List<Button> _buttons = new();
     private int _currentIndex;
     private WwiseAudio _audioManager;
+    private CancellationTokenSource _tokenSource;
 
-    void Start()
+    async void Start()
     {
-        Initialization();
+        _tokenSource = new CancellationTokenSource();
+        
+        await Initialization();
+        if (_tokenSource.IsCancellationRequested) return;
+        
         CreateButtons();
 
         _testRoutine = StartCoroutine(RunTest());
     }
 
-    private void Initialization()
+    private async Task Initialization()
     {
         var cursorSettings = Resources.Load<CursorSet>("CursorSet");
         cursorSettings.ApplyCursor(CursorType.Normal);
@@ -61,6 +70,23 @@ public class SoundTestSceneEntity : MonoBehaviour
 
         _audioManager = Instantiate(wwisePrefab, transform);
         _audioManager.SetCtx(wwiseCtx);
+        _audioManager.Initialize();
+        while (!_audioManager.IsReady)
+        {
+            await Task.Delay(1);
+            if (_tokenSource.IsCancellationRequested) return;
+        }
+
+        if (_tokenSource.IsCancellationRequested) return;
+
+        if (wwiseSoundsKeysList == null)
+        {
+            Debug.LogWarning($"voices list \"wwiseSoundsKeysList\" is not set in inspector");
+        }
+
+        var bank = wwiseSoundsKeysList.Path.Split("/")[0];
+        await _audioManager.LoadBank(bank);
+        if (_tokenSource.IsCancellationRequested) return;
 
         foreach (var language in levelLanguages.Value)
         {
@@ -156,5 +182,10 @@ public class SoundTestSceneEntity : MonoBehaviour
         }
 
         Debug.LogWarning($"End test");
+    }
+
+    private void OnDestroy()
+    {
+        _tokenSource.Cancel();
     }
 }

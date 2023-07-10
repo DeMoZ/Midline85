@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Configs;
+using Core;
 using I2.Loc;
 using UI;
 using UniRx;
@@ -76,6 +77,7 @@ public class RootEntity : IDisposable
             Profile = profile,
             OnSwitchScene = onSwitchScene,
         });
+        audioManager.Initialize();
 
         _ctx.VideoManager.SetCtx(new VideoManager.Ctx
         {
