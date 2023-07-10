@@ -23,6 +23,8 @@ public class SoundTestSceneEntity : MonoBehaviour
     [SerializeField] private Transform topParent = default;
     [SerializeField] private Button startButton = default;
     [SerializeField] private Button stopButton = default;
+    [SerializeField] private Button pauseButton = default;
+    [SerializeField] private Button resumeButton = default;
     [SerializeField] private Transform buttonParent = default;
     [SerializeField] private Button buttonPrefab = default;
     [SerializeField] private WwiseAudio wwisePrefab = default;
@@ -97,6 +99,8 @@ public class SoundTestSceneEntity : MonoBehaviour
 
         startButton.onClick.AddListener(StartRoutine);
         stopButton.onClick.AddListener(StopRoutine);
+        pauseButton.onClick.AddListener(()=>_audioManager.PausePhrasesAndSfx());
+        resumeButton.onClick.AddListener(()=>_audioManager.ResumePhrasesAndSfx());
     }
 
     private void StartRoutine()

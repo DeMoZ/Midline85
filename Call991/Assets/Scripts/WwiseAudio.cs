@@ -19,41 +19,49 @@ public class WwiseAudio : MonoBehaviour
         public GameSet GameSet;
         public ReactiveCommand<GameScenes> OnSwitchScene;
     }
+
     private const string DefaultAudioLanguage = "Russian";
     private const string BankMaster = "Master";
-    
+
     // Hardcoded events
     private const string PauseEvent = "Pause";
     private const string ResumeEvent = "Resume";
 
     private const float WaitSeconds = 1f;
-    
+
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
     [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
-    [Space]
+    [Space] 
     [SerializeField] private GameObject voiceGo = default;
     [SerializeField] private GameObject musicGo = default;
     [SerializeField] private GameObject sfxGo = default;
-    [Space]
+    [Space] 
     [SerializeField] private Wwise.RTPC MasterVolume = default;
     [SerializeField] private Wwise.RTPC VoiceVolume = default;
     [SerializeField] private Wwise.RTPC MusicVolume = default;
     [SerializeField] private Wwise.RTPC SfxVolume = default;
-    [Space]
+    [Space] 
     [SerializeField] private Wwise.Event SfxDecideTimeStart = default;
     [SerializeField] private Wwise.Event SfxDecideTimeEnd = default;
     [SerializeField] private Wwise.Event MusicEvent = default;
 
+    [Space(30)][Header("test only")] [SerializeField] private Wwise.RTPC testRtpc;
+    [SerializeField] private Wwise.RTPC testEvent;
+    [SerializeField] private Wwise.Switch testSwitch;
+    [SerializeField] private Wwise.State testState;
+    [SerializeField] private Wwise.Trigger testTrigger;
+    [SerializeField] private Wwise.AuxBus testAuxBus;
+    [SerializeField] private Wwise.Bank testBank;
+                        [SerializeField] private Wwise.BaseType testBaseType;
+                        [SerializeField] private Wwise.CallbackFlags testCallbackFlags;
 
-    [SerializeField] private Wwise.RTPC testrtpc;
-    
     private Ctx _ctx;
 
     private static bool _isBankLoaded;
     private WaitForSeconds _waitForLoad;
     private float _time;
     private AKRESULT _setLanguageResult;
-    
+
     private CompositeDisposable _disposables;
     private CancellationTokenSource _tokenSource;
     private string _currentBank;
@@ -77,45 +85,45 @@ public class WwiseAudio : MonoBehaviour
         _ctx.Profile.OnVolumeSet.Subscribe(OnVolumeChanged).AddTo(_disposables);
         _ctx.OnSwitchScene.Subscribe(OnSwitchScene).AddTo(_disposables);
 
-       // Initialize();
+        // Initialize();
     }
 
     public async void Initialize()
     {
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenSource.IsCancellationRequested) return;
-        
+
         AkBankManager.LoadBankAsync(BankMaster);
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenSource.IsCancellationRequested) return;
-        
+
         Debug.Log($"[{this}] <color=green>Initialize completed</color> play music {MusicEvent}");
         MusicEvent.Post(musicGo);
         //_isBankLoaded = true;
-        
+
         // PlayMusic(MusicEventSwitch); // Test
     }
-    
+
     public async Task LoadBank(string levelId)
     {
-        Debug.LogWarning($"[{this}] loading bank {levelId}");
+        Debug.Log($"[{this}] loading <color=green>bank</color> <color=yellow>{levelId}</color>");
         _isBankLoaded = false;
         _currentBank = levelId;
         AkBankManager.LoadBankAsync(levelId);
         await Task.Delay((int)(WaitSeconds * 1000));
         _isBankLoaded = true;
     }
-    
+
     public async void UnLoadBank()
     {
         if (string.IsNullOrEmpty(_currentBank)) return;
-        
+
         _isBankLoaded = false;
         AkBankManager.UnloadBank(_currentBank);
         await Task.Delay((int)(WaitSeconds * 1000));
         _isBankLoaded = true;
     }
-    
+
     private void OnSwitchScene(GameScenes scene)
     {
         Debug.LogWarning($"{this} received OnSwitchScene <color=green>{scene}</color>");
@@ -145,7 +153,7 @@ public class WwiseAudio : MonoBehaviour
     {
         _isBankLoaded = true;
         Debug.Log($"[{this}] Current Wwise language" +
-                         $" = <color=green>{AkSoundEngine.GetCurrentLanguage()}</color> {Time.time - _time}");
+                  $" = <color=green>{AkSoundEngine.GetCurrentLanguage()}</color> {Time.time - _time}");
     }
 
     private IEnumerator ChangeLanguageRoutine(string language)
@@ -154,7 +162,7 @@ public class WwiseAudio : MonoBehaviour
         //AkSoundEngine.StopAll();
         //AkBankManager.UnloadBank(BankMaster);
         //AkBankManager.DoUnloadBanks(); - this doesnt work =(
-        
+
         yield return _waitForLoad;
 
         var audioLanguage = language switch
@@ -208,20 +216,19 @@ public class WwiseAudio : MonoBehaviour
                 throw new ArgumentOutOfRangeException();
         }
     }
-    
+
     public void OnSceneSwitch()
     {
-        
     }
-    
+
     public uint? PlayVoice(string sound)
     {
         if (!_isBankLoaded) return null;
         if (PlaySound(sound, voiceGo, out var soundId)) return soundId;
         return null;
     }
-    
-    public void StopVoice(uint voiceId) => 
+
+    public void StopVoice(uint voiceId) =>
         AkSoundEngine.StopPlayingID(voiceId);
 
     public async void PlayMusic(Wwise.Switch wSwitch)
@@ -231,32 +238,33 @@ public class WwiseAudio : MonoBehaviour
             await Task.Delay(1);
             if (_tokenSource.IsCancellationRequested) return;
         }
+
         if (_tokenSource.IsCancellationRequested) return;
-        
+
         Debug.Log($"[{this}] <color=green>PlayMusic</color> switch = <color=yellow>{wSwitch}</color>;");
         wSwitch.SetValue(musicGo);
     }
-    
+
     public void PlayRtpc(Wwise.RTPC rtpc, int value)
     {
         Debug.Log($"[{this}] <color=green>PlayRtpc</color> rtpc = <color=yellow>{rtpc};</color> " +
                   $"value = <color=yellow>{value}</color>;");
         rtpc.SetGlobalValue(value);
     }
-    
+
     public uint? PlaySfx(string sound)
     {
         if (!_isBankLoaded) return null;
         if (PlaySound(sound, sfxGo, out var soundId)) return soundId;
         return null;
     }
-    
+
     public void PlayTimerSfx()
     {
         if (!_isBankLoaded) return;
         PlaySound(SfxDecideTimeStart.ToString(), sfxGo, out var soundId);
     }
-    
+
     public void StopTimerSfx()
     {
         if (!_isBankLoaded) return;
@@ -291,14 +299,15 @@ public class WwiseAudio : MonoBehaviour
 
     private void PlayButtonSound(Wwise.Event wwiseEvent)
     {
-        if (_setLanguageResult == AKRESULT.AK_Busy) 
+        if (_setLanguageResult == AKRESULT.AK_Busy)
             Debug.LogWarning($"[{this}] Very busy");
 
-        if(IsReady)
+        if (IsReady)
             wwiseEvent.Post(sfxGo);
     }
-    
+
     #region Rabish
+
     /*public void _PausePhrases()
     {
         foreach (var voiceId in _playingVoices)
@@ -310,5 +319,6 @@ public class WwiseAudio : MonoBehaviour
         foreach (var voiceId in _playingVoices)
             AkSoundEngine.ExecuteActionOnPlayingID(AkActionOnEventType.AkActionOnEventType_Resume, voiceId);
     }*/
+
     #endregion
 }
