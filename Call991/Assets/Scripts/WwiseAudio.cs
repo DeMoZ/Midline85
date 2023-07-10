@@ -21,39 +21,35 @@ public class WwiseAudio : MonoBehaviour
     }
 
     private const string DefaultAudioLanguage = "Russian";
-    private const string BankMaster = "Master";
-
-    // Hardcoded events
-    private const string PauseEvent = "Pause";
-    private const string ResumeEvent = "Resume";
-
     private const float WaitSeconds = 1f;
 
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
     [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
-    [Space] 
-    [SerializeField] private GameObject voiceGo = default;
+    [Space] [SerializeField] private GameObject voiceGo = default;
     [SerializeField] private GameObject musicGo = default;
     [SerializeField] private GameObject sfxGo = default;
-    [Space] 
-    [SerializeField] private Wwise.RTPC MasterVolume = default;
+    [Space] [SerializeField] private Wwise.Bank BankMaster = default;
+    [SerializeField] private Wwise.Bank BankMain = default;
+    [Space] [SerializeField] private Wwise.RTPC MasterVolume = default;
     [SerializeField] private Wwise.RTPC VoiceVolume = default;
     [SerializeField] private Wwise.RTPC MusicVolume = default;
     [SerializeField] private Wwise.RTPC SfxVolume = default;
-    [Space] 
-    [SerializeField] private Wwise.Event SfxDecideTimeStart = default;
+    [Space] [SerializeField] private Wwise.Event SfxDecideTimeStart = default;
     [SerializeField] private Wwise.Event SfxDecideTimeEnd = default;
+    [SerializeField] private Wwise.Event PauseEvent = default;
+    [SerializeField] private Wwise.Event ResumeEvent = default;
     [SerializeField] private Wwise.Event MusicEvent = default;
 
-    [Space(30)][Header("test only")] [SerializeField] private Wwise.RTPC testRtpc;
-    [SerializeField] private Wwise.RTPC testEvent;
-    [SerializeField] private Wwise.Switch testSwitch;
-    [SerializeField] private Wwise.State testState;
-    [SerializeField] private Wwise.Trigger testTrigger;
-    [SerializeField] private Wwise.AuxBus testAuxBus;
-    [SerializeField] private Wwise.Bank testBank;
-                        [SerializeField] private Wwise.BaseType testBaseType;
-                        [SerializeField] private Wwise.CallbackFlags testCallbackFlags;
+    // [Space(30)] [Header("test only")] [SerializeField]
+    // private Wwise.RTPC testRtpc;
+    // [SerializeField] private Wwise.RTPC testEvent;
+    // [SerializeField] private Wwise.Switch testSwitch;
+    // [SerializeField] private Wwise.State testState;
+    // [SerializeField] private Wwise.Trigger testTrigger;
+    // [SerializeField] private Wwise.AuxBus testAuxBus;
+    // [SerializeField] private Wwise.Bank testBank;
+    // [SerializeField] private Wwise.BaseType testBaseType;
+    // [SerializeField] private Wwise.CallbackFlags testCallbackFlags;
 
     private Ctx _ctx;
 
@@ -93,15 +89,18 @@ public class WwiseAudio : MonoBehaviour
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenSource.IsCancellationRequested) return;
 
-        AkBankManager.LoadBankAsync(BankMaster);
+        Debug.Log($"[{this}] loading <color=green>bank</color> <color=yellow>{BankMaster}</color>");
+        BankMaster.LoadAsync();
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenSource.IsCancellationRequested) return;
 
+        Debug.Log($"[{this}] loading <color=green>bank</color> <color=yellow>{BankMain}</color>");
+        BankMain.LoadAsync();
+        await Task.Delay((int)(WaitSeconds * 1000));
+        if (_tokenSource.IsCancellationRequested) return;
+        
         Debug.Log($"[{this}] <color=green>Initialize completed</color> play music {MusicEvent}");
         MusicEvent.Post(musicGo);
-        //_isBankLoaded = true;
-
-        // PlayMusic(MusicEventSwitch); // Test
     }
 
     public async Task LoadBank(string levelId)
@@ -140,22 +139,15 @@ public class WwiseAudio : MonoBehaviour
         _tokenSource?.Cancel();
         _disposables?.Dispose();
 
-        AkBankManager.UnloadBank(BankMaster);
+        BankMaster.Unload();
+        BankMain.Unload();
     }
 
     private void OnAudioLanguageChanged(string language)
     {
         StartCoroutine(ChangeLanguageRoutine(language));
-        //ChangeLanguageRoutine(language);
     }
-
-    private void OnBankLoaded(uint in_bankid, IntPtr in_inmemorybankptr, AKRESULT in_eloadresult, object in_cookie)
-    {
-        _isBankLoaded = true;
-        Debug.Log($"[{this}] Current Wwise language" +
-                  $" = <color=green>{AkSoundEngine.GetCurrentLanguage()}</color> {Time.time - _time}");
-    }
-
+    
     private IEnumerator ChangeLanguageRoutine(string language)
     {
         _isBankLoaded = false;
@@ -171,6 +163,9 @@ public class WwiseAudio : MonoBehaviour
             "Russian" => "Russian",
             //"Spanish" => "Spanish",
             _ => DefaultAudioLanguage
+
+            //"English" => "English",
+            //_ => "English"
         };
 
         //AkSoundEngine.SetCurrentLanguage(audioLanguage);
@@ -187,9 +182,7 @@ public class WwiseAudio : MonoBehaviour
         Debug.Log($"[{this}] Current Wwise language = <color=yellow>{AkSoundEngine.GetCurrentLanguage()}</color>");
         yield return _waitForLoad;
 
-        //AkBankManager.LoadBank(BankMaster, true, true);
         _time = Time.time;
-        //AkBankManager.LoadBankAsync(BankMaster, OnBankLoaded); // TODO load level bank
         _isBankLoaded = true; // TODO Remove!!!
     }
 
@@ -202,12 +195,11 @@ public class WwiseAudio : MonoBehaviour
                 break;
             case AudioSourceType.Voice:
                 VoiceVolume.SetValue(voiceGo, value.volume);
-                //VoiceVolume.SetGlobalValue(value.volume); // also works
                 break;
             case AudioSourceType.Music:
                 //MusicVolume.SetValue(musicGo, value.volume);
                 Debug.LogWarning($"music {MusicVolume}, value {value.volume}");
-                MusicVolume.SetGlobalValue(value.volume);
+                MusicVolume.SetValue(musicGo, value.volume); // todo why not work?
                 break;
             case AudioSourceType.Sfx:
                 SfxVolume.SetValue(sfxGo, value.volume);
@@ -287,14 +279,14 @@ public class WwiseAudio : MonoBehaviour
 
     public void PausePhrasesAndSfx()
     {
-        AkSoundEngine.PostEvent(PauseEvent, voiceGo);
-        AkSoundEngine.PostEvent(PauseEvent, sfxGo); // ?
+        PauseEvent.Post(voiceGo);
+        PauseEvent.Post(sfxGo);
     }
 
     public void ResumePhrasesAndSfx()
     {
-        AkSoundEngine.PostEvent(ResumeEvent, voiceGo);
-        AkSoundEngine.PostEvent(ResumeEvent, sfxGo); // ?
+        ResumeEvent.Post(voiceGo);
+        ResumeEvent.Post(sfxGo);
     }
 
     private void PlayButtonSound(Wwise.Event wwiseEvent)
