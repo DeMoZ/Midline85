@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
-  m_Name: AfterChapter_1
+  m_Name: Level_1_Afterchapter
   m_EditorClassIdentifier: 
   EntryNodeData:
     Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
@@ -1359,8 +1359,15 @@ MonoBehaviour:
       x: 2929
       y: 423
       width: 150
-      height: 179
+      height: 205
     ForkCaseData:
+    - Words: []
+      Ends:
+      - EndType: 0
+        OrKeys:
+        - PIZZA.END.GOOD
+      Counts: []
+      ForkExitName: d73c52a4-7b27-4a18-b897-21fb9d908e39
     - Words: []
       Ends:
       - EndType: 0
@@ -1402,13 +1409,7 @@ MonoBehaviour:
       y: 200
       width: 100
       height: 107
-    EventVisualData:
-    - Type: 2
-      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
+    EventVisualData: []
   NewspaperNodeData: []
   NodeLinks:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
@@ -1622,6 +1623,9 @@ MonoBehaviour:
     BaseExitName: 5e254333-48b1-491f-883e-814862851730
     TargetNodeGuid: 89cd6da9-65d9-4b34-b2b7-987ec231a6a5
   - BaseNodeGuid: 115e051c-a4da-4610-91b1-ad974dfcb6a5
+    BaseExitName: d73c52a4-7b27-4a18-b897-21fb9d908e39
+    TargetNodeGuid: 05d6d80f-83f0-46a8-9ff6-8703987a21ba
+  - BaseNodeGuid: 115e051c-a4da-4610-91b1-ad974dfcb6a5
     BaseExitName: 79190807-5f1f-4425-820f-ccaf6ada6ef3
     TargetNodeGuid: d6131284-f767-4091-8257-855d7ad886d4
   - BaseNodeGuid: 115e051c-a4da-4610-91b1-ad974dfcb6a5
@@ -1642,6 +1646,3 @@ MonoBehaviour:
   - BaseNodeGuid: 85887f27-6842-45d1-8cd5-d05173716c3f
     BaseExitName: 
     TargetNodeGuid: eecdb8c2-0579-4a1b-beeb-a2da4b8d9e83
-  - BaseNodeGuid: 115e051c-a4da-4610-91b1-ad974dfcb6a5
-    BaseExitName: 
-    TargetNodeGuid: 05d6d80f-83f0-46a8-9ff6-8703987a21ba
