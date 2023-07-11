@@ -25,17 +25,19 @@ public class WwiseAudio : MonoBehaviour
 
     [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
     [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
+
     [Space] [SerializeField] private GameObject voiceGo = default;
     [SerializeField] private GameObject musicGo = default;
     [SerializeField] private GameObject sfxGo = default;
 
     [Space] [SerializeField] private Wwise.Bank BankMaster = default;
+    [SerializeField] private Wwise.Bank BankMain = default;
 
-    //[SerializeField] private Wwise.Bank BankMain = default;
     [Space] [SerializeField] private Wwise.RTPC MasterVolume = default;
     [SerializeField] private Wwise.RTPC VoiceVolume = default;
     [SerializeField] private Wwise.RTPC MusicVolume = default;
     [SerializeField] private Wwise.RTPC SfxVolume = default;
+
     [Space] [SerializeField] private Wwise.Event SfxDecideTimeStart = default;
     [SerializeField] private Wwise.Event SfxDecideTimeEnd = default;
     [SerializeField] private Wwise.Event PauseEvent = default;
@@ -63,7 +65,9 @@ public class WwiseAudio : MonoBehaviour
     private AKRESULT _setLanguageResult;
 
     private CompositeDisposable _disposables;
+
     private CancellationTokenSource _tokenMaster;
+
     //private CancellationTokenSource _tokenBank;
     private string _currentBank;
 
@@ -97,10 +101,10 @@ public class WwiseAudio : MonoBehaviour
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenMaster.IsCancellationRequested) return;
 
-        // Debug.Log($"[{this}] loading <color=green>bank</color> <color=yellow>{BankMain}</color>");
-        // BankMain.LoadAsync();
-        // await Task.Delay((int)(WaitSeconds * 1000));
-        // if (_tokenMaster.IsCancellationRequested) return;
+        Debug.Log($"[{this}] loading <color=green>bank</color> <color=yellow>{BankMain}</color>");
+        BankMain.LoadAsync();
+        await Task.Delay((int)(WaitSeconds * 1000));
+        if (_tokenMaster.IsCancellationRequested) return;
 
         _isMasterLoaded = true;
 
