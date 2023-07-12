@@ -77,10 +77,23 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Folder Name="SFX" ID="{87C558EA-C59D-495D-8EBF-EB3AAAB9A0AD}" ShortID="1053790485"/>
+				<Folder Name="SFX" ID="{87C558EA-C59D-495D-8EBF-EB3AAAB9A0AD}" ShortID="1053790485">
+					<PropertyList>
+						<Property Name="Inclusion" Type="bool">
+							<ValueList>
+								<Value>False</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+				</Folder>
 				<Folder Name="Mark" ID="{6771E665-E5A6-49F2-B702-CB3D86C53A54}" ShortID="207151878">
 					<PropertyList>
 						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="Inclusion" Type="bool">
+							<ValueList>
+								<Value>False</Value>
+							</ValueList>
+						</Property>
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 				</Folder>

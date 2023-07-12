@@ -40,17 +40,17 @@
 										<MediaID ID="17172999"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{234FEAE3-5A8E-4047-BCDA-439063E5021B}">
+								<SourcePlugin Name="Sine" ID="{8F547B4B-67AF-49A3-8F84-CA15E44CB257}" ShortID="902870121" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_001" ID="{BDAE4B10-F09E-489E-9D02-AECD2B70EB33}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{234FEAE3-5A8E-4047-BCDA-439063E5021B}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{8F547B4B-67AF-49A3-8F84-CA15E44CB257}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_002" ID="{5A4872BE-3D18-4D8D-A665-3A158447CB43}" ShortID="349545829">
@@ -73,16 +73,16 @@
 										<MediaID ID="157026983"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{C03BDA7B-0EC1-4C2A-9DA6-9FFF485BC689}">
+								<SourcePlugin Name="Sine" ID="{1F278553-71D7-4271-91EC-FDAA2C04E4C7}" ShortID="625026242" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{C03BDA7B-0EC1-4C2A-9DA6-9FFF485BC689}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{1F278553-71D7-4271-91EC-FDAA2C04E4C7}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_002" ID="{FED67BB0-89AB-4FA1-AE51-43FD26AD738A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -106,17 +106,17 @@
 										<MediaID ID="10706823"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{63383DED-3562-46BA-B2A8-F18067F6C73F}">
+								<SourcePlugin Name="Sine" ID="{8DD7DF4F-35BF-4BF1-A068-0491A106F63E}" ShortID="437438931" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_003" ID="{9DAE6533-6D57-4C39-9F44-6A5169E0D2F8}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{63383DED-3562-46BA-B2A8-F18067F6C73F}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{8DD7DF4F-35BF-4BF1-A068-0491A106F63E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_004" ID="{185B25C8-7CE8-49C7-9BC9-2F7B83E0CD0C}" ShortID="294769892">
@@ -139,17 +139,17 @@
 										<MediaID ID="58572530"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{1B9110AB-8B9C-41C0-B193-C252CC407A22}">
+								<SourcePlugin Name="Sine" ID="{8B0964EE-A1DE-49CD-A273-46E636428F96}" ShortID="765771480" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{1B9110AB-8B9C-41C0-B193-C252CC407A22}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_004" ID="{F6989DD7-1391-4050-9C2C-A64A2CDAE079}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{8B0964EE-A1DE-49CD-A273-46E636428F96}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_005" ID="{E6EF383C-E339-4B75-A09D-C853B3A35D8B}" ShortID="438028938">
@@ -172,17 +172,17 @@
 										<MediaID ID="15282759"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{77B354C3-59F7-493F-ABD0-469C278AA2C5}">
+								<SourcePlugin Name="Sine" ID="{5F846921-F0FF-4314-8B62-2CABB24907D4}" ShortID="171371871" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{5F846921-F0FF-4314-8B62-2CABB24907D4}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_005" ID="{0359E275-6A29-4EC4-A1CE-097FF21F149A}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{77B354C3-59F7-493F-ABD0-469C278AA2C5}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_006" ID="{2C64749A-1CDF-4877-B313-7C6D930786BB}" ShortID="906976278">
@@ -205,17 +205,17 @@
 										<MediaID ID="340841299"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{4FD543D8-1861-474F-8280-EDB7D47EA434}">
+								<SourcePlugin Name="Sine" ID="{C40A930D-9ECE-4F90-B11E-A01D5562119F}" ShortID="855812154" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{C40A930D-9ECE-4F90-B11E-A01D5562119F}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_006" ID="{F4A9C397-8D00-411D-B303-47A94150FC98}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{4FD543D8-1861-474F-8280-EDB7D47EA434}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_007" ID="{68CF3483-F211-4543-8CE9-5A9DA72D2E5D}" ShortID="414237484">
@@ -238,17 +238,17 @@
 										<MediaID ID="218590294"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{4AA0C315-5AA0-4B83-B609-2F8F03F07736}">
+								<SourcePlugin Name="Sine" ID="{3B7B82E6-E238-4522-BF36-F7C0D8ECFF6D}" ShortID="92704994" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{4AA0C315-5AA0-4B83-B609-2F8F03F07736}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_007" ID="{8F91FB41-0EBA-4DFC-8CF7-090C87227830}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{3B7B82E6-E238-4522-BF36-F7C0D8ECFF6D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_008" ID="{007A109B-1CD9-48F2-BF55-F7BF2E1DF55F}" ShortID="198234199">
@@ -271,16 +271,16 @@
 										<MediaID ID="260974663"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{A9919C9D-FC64-4A7E-82D1-0385FEF0CCC6}">
+								<SourcePlugin Name="Sine" ID="{88002B63-101F-482B-9E6D-402AC307A6D9}" ShortID="922975778" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{A9919C9D-FC64-4A7E-82D1-0385FEF0CCC6}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{88002B63-101F-482B-9E6D-402AC307A6D9}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_008" ID="{93BE62CC-0FCD-4987-99BF-E6CD915C320F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -304,17 +304,17 @@
 										<MediaID ID="946478593"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{585159F4-930F-41FD-86AA-4D92AB5015C6}">
+								<SourcePlugin Name="Sine" ID="{1F3FEDF8-59EF-4C61-B1B4-ADDAB4EBD425}" ShortID="972097998" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_009" ID="{B26F794D-5E99-41CF-950E-62F345C8711A}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{585159F4-930F-41FD-86AA-4D92AB5015C6}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{1F3FEDF8-59EF-4C61-B1B4-ADDAB4EBD425}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_010" ID="{FF047747-E035-4832-9338-8AC24FCCC48A}" ShortID="586478442">
@@ -337,17 +337,17 @@
 										<MediaID ID="271533031"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{7AFD7441-E821-457C-93E6-4FBDADAB244C}">
+								<SourcePlugin Name="Sine" ID="{684E2AC6-4275-4D80-9204-095B91EC3458}" ShortID="1043134842" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_010" ID="{BEDF8F1A-A9CB-49E6-B0F4-E6079F6E1886}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{7AFD7441-E821-457C-93E6-4FBDADAB244C}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{684E2AC6-4275-4D80-9204-095B91EC3458}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_011" ID="{9A2ADAFF-0712-4BAF-8145-18B0AF7C4238}" ShortID="599880734">
@@ -370,16 +370,16 @@
 										<MediaID ID="779689285"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{9E640E75-049B-4242-96C9-CEF128D42537}">
+								<SourcePlugin Name="Sine" ID="{03677D41-1318-42C3-9015-A834D59FB0CC}" ShortID="583519182" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{9E640E75-049B-4242-96C9-CEF128D42537}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{03677D41-1318-42C3-9015-A834D59FB0CC}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_011" ID="{2BECFEE2-A730-4558-A99A-539C93EB3C89}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -403,16 +403,16 @@
 										<MediaID ID="557946625"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{F248251E-05A8-4F37-A59A-52323652B22C}">
+								<SourcePlugin Name="Sine" ID="{D1AEEC89-DDB6-4B60-A281-175EEA572325}" ShortID="656589474" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{F248251E-05A8-4F37-A59A-52323652B22C}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{D1AEEC89-DDB6-4B60-A281-175EEA572325}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_012" ID="{14A3E9A8-75E6-46B7-B03B-2C9556CEB551}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -436,17 +436,17 @@
 										<MediaID ID="270317243"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{5FAE7930-DA9E-41FF-959A-8B09F2F242B8}">
+								<SourcePlugin Name="Sine" ID="{D1371C87-E079-479F-AA58-36E33897B33F}" ShortID="680834785" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_013" ID="{045E1228-DD5A-4753-9551-9AF4ECBA5A6F}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{5FAE7930-DA9E-41FF-959A-8B09F2F242B8}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{D1371C87-E079-479F-AA58-36E33897B33F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_014" ID="{611AECAB-BBC6-42BF-A8FF-DA8DA0D7C3D2}" ShortID="910186655">
@@ -469,17 +469,17 @@
 										<MediaID ID="1028677134"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{0649B8FA-1424-42AE-BABD-05A0D2C1548C}">
+								<SourcePlugin Name="Sine" ID="{ABC38BB7-96DF-4E5C-B786-BF4A71C1AF7A}" ShortID="520817853" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{ABC38BB7-96DF-4E5C-B786-BF4A71C1AF7A}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_014" ID="{688F43FA-ABB9-40F5-AE8D-DFC57C0D8ABA}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{0649B8FA-1424-42AE-BABD-05A0D2C1548C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_015" ID="{B9698B81-BA0B-4465-8F31-8B4F373D6FE4}" ShortID="879172001">
@@ -502,17 +502,17 @@
 										<MediaID ID="39513094"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{2777924D-B0C1-45F8-92E5-3D68810CA9C5}">
+								<SourcePlugin Name="Sine" ID="{D253FBCF-6BCE-4D90-AC2F-1970BF4C0AC7}" ShortID="312929742" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{2777924D-B0C1-45F8-92E5-3D68810CA9C5}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_015" ID="{1A76AE51-A96F-494E-BF5D-624C7F699194}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{D253FBCF-6BCE-4D90-AC2F-1970BF4C0AC7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_016" ID="{FBE5DA85-9EE7-4EC1-B3AE-A949BF02052B}" ShortID="701532220">
@@ -535,17 +535,17 @@
 										<MediaID ID="754469495"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{BBA04E3B-167B-413A-BE56-507846C31036}">
+								<SourcePlugin Name="Sine" ID="{1DAB5E83-AF77-4112-B489-26FC56DDF950}" ShortID="974363302" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_016" ID="{65528232-DA6C-4FF4-A2BF-3AED84BEB21F}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{BBA04E3B-167B-413A-BE56-507846C31036}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{1DAB5E83-AF77-4112-B489-26FC56DDF950}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_017" ID="{5E800C38-EE98-42D8-9F0D-0D0AA1DAE18E}" ShortID="60164947">
@@ -568,16 +568,16 @@
 										<MediaID ID="1035506973"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{E4A5950C-3E86-4A13-BEB1-446871377FB0}">
+								<SourcePlugin Name="Sine" ID="{F5621F66-BBBD-4E77-97D5-CB78C0A62652}" ShortID="724115206" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{E4A5950C-3E86-4A13-BEB1-446871377FB0}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{F5621F66-BBBD-4E77-97D5-CB78C0A62652}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_017" ID="{D79D79E6-F9A9-4D66-9D61-C4B865723BD2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -601,17 +601,17 @@
 										<MediaID ID="309012901"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{7535F7E1-DE6A-4D3A-8854-FE91C05565FB}">
+								<SourcePlugin Name="Sine" ID="{501AC48D-1876-4BE4-997E-BA2AAA7885DC}" ShortID="292319702" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{501AC48D-1876-4BE4-997E-BA2AAA7885DC}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_018" ID="{BF4F9EC6-0993-486A-849C-07B639836BE4}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{7535F7E1-DE6A-4D3A-8854-FE91C05565FB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_019" ID="{9FBF4F31-38E6-4887-80AF-DC7FF67729E7}" ShortID="501581973">
@@ -634,17 +634,17 @@
 										<MediaID ID="729645995"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{6B7548DF-CF32-4D94-828B-F61B0820A201}">
+								<SourcePlugin Name="Sine" ID="{96096E4B-51D7-4EDC-B807-B8243CED85EA}" ShortID="653371189" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_019" ID="{9C1CFA3A-86E4-4AE8-9DA1-75F970B6D924}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{6B7548DF-CF32-4D94-828B-F61B0820A201}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{96096E4B-51D7-4EDC-B807-B8243CED85EA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_020" ID="{F7CD23F1-60A4-4C14-B10A-8E4DA39EB606}" ShortID="97936430">
@@ -667,17 +667,17 @@
 										<MediaID ID="526929349"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{15BA146A-55CB-4096-82C0-427798DE234B}">
+								<SourcePlugin Name="Sine" ID="{5BE02979-55A4-4C66-83E4-FA59B0F3931B}" ShortID="184457073" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_020" ID="{598A4C51-9A6D-49F8-8FD8-5B73E1B79E80}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{15BA146A-55CB-4096-82C0-427798DE234B}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{5BE02979-55A4-4C66-83E4-FA59B0F3931B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_021" ID="{8375747A-0F37-4A49-92B2-C6D25FD7F9FD}" ShortID="42003664">
@@ -700,17 +700,17 @@
 										<MediaID ID="288219369"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{F6B8C5AB-5A6C-4722-BDA2-45593448E9C7}">
+								<SourcePlugin Name="Sine" ID="{62460ED6-BB16-4D28-8FE5-26C9EABE5E28}" ShortID="436358612" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_021" ID="{EED44B29-9F4D-497D-A701-24686FDB65A4}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{F6B8C5AB-5A6C-4722-BDA2-45593448E9C7}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{62460ED6-BB16-4D28-8FE5-26C9EABE5E28}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_022" ID="{D1987003-243F-4DC1-8E2B-A641B387311E}" ShortID="616810795">
@@ -733,16 +733,16 @@
 										<MediaID ID="871671068"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{55C0718A-2D28-4B0F-A43D-7AEAF2589D5F}">
+								<SourcePlugin Name="Sine" ID="{D312FB21-576A-4945-BA8F-835216FEC637}" ShortID="384739800" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{55C0718A-2D28-4B0F-A43D-7AEAF2589D5F}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{D312FB21-576A-4945-BA8F-835216FEC637}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_022" ID="{B201149E-8969-48F5-B325-AC58344A2495}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -766,16 +766,16 @@
 										<MediaID ID="869388649"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{B1664979-9AEE-45F6-B68C-AD05FB3F5D66}">
+								<SourcePlugin Name="Sine" ID="{CEB83465-D8A9-4A75-9F2B-D4D6A55B3EE6}" ShortID="828110261" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{B1664979-9AEE-45F6-B68C-AD05FB3F5D66}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{CEB83465-D8A9-4A75-9F2B-D4D6A55B3EE6}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_023" ID="{3A398C96-D12C-49C6-A45F-AE2B55101625}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -799,17 +799,17 @@
 										<MediaID ID="769419977"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{23A8B778-EBB7-4F66-AD47-4C95B82ACC0B}">
+								<SourcePlugin Name="Sine" ID="{BA780FD6-9DE0-4827-B7D3-AE367511FBF3}" ShortID="1068515982" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_024" ID="{254A8D1C-D049-4242-A681-1F28C74DEB8A}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{23A8B778-EBB7-4F66-AD47-4C95B82ACC0B}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{BA780FD6-9DE0-4827-B7D3-AE367511FBF3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_025" ID="{281D29B1-47BD-4CCB-9D95-18C04954A2FB}" ShortID="987754623">
@@ -832,16 +832,16 @@
 										<MediaID ID="704800865"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{BF1DBE45-31AF-4B0B-88B9-FDEA2C102D4A}">
+								<SourcePlugin Name="Sine" ID="{FE08FF20-B5C8-4944-BB72-0300DE71EA60}" ShortID="782310899" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{BF1DBE45-31AF-4B0B-88B9-FDEA2C102D4A}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{FE08FF20-B5C8-4944-BB72-0300DE71EA60}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_025" ID="{D6C4904C-916F-46C1-B99F-8379A4931930}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -865,17 +865,17 @@
 										<MediaID ID="918735790"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{88B7225F-97A8-4E2D-849D-157688397B26}">
+								<SourcePlugin Name="Sine" ID="{D3B42D9E-8166-40C2-BBF0-D6F4671CA1A4}" ShortID="305588100" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_026" ID="{63DA5F34-E2E7-4020-A9E2-A08025BE0A2E}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{88B7225F-97A8-4E2D-849D-157688397B26}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{D3B42D9E-8166-40C2-BBF0-D6F4671CA1A4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_027" ID="{2992ACF7-DCAF-4DFA-9FB8-10550813765C}" ShortID="197937010">
@@ -898,17 +898,17 @@
 										<MediaID ID="159833852"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{D1B0C8AE-E399-4263-9E65-8ADFF536BA61}">
+								<SourcePlugin Name="Sine" ID="{E7BDFFEF-6D2C-4117-94E3-1F12A183990D}" ShortID="793264722" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_027" ID="{44624659-B6B4-4391-BB59-8FBC7294E3D1}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{D1B0C8AE-E399-4263-9E65-8ADFF536BA61}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{E7BDFFEF-6D2C-4117-94E3-1F12A183990D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_028" ID="{71A30705-A770-4E86-8150-CF8B7B6F34EA}" ShortID="394833934">
@@ -931,17 +931,17 @@
 										<MediaID ID="448370982"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{AB85E4A2-BDA6-4605-919C-008A0F63E5CF}">
+								<SourcePlugin Name="Sine" ID="{57C898EB-236A-40C1-BAAA-CBA46BE06AC8}" ShortID="507754409" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_028" ID="{1069F650-645D-49DE-93CE-A88A57BA89ED}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{AB85E4A2-BDA6-4605-919C-008A0F63E5CF}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{57C898EB-236A-40C1-BAAA-CBA46BE06AC8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_029" ID="{052C331E-99FF-4B6C-8802-38F4CAF487F2}" ShortID="302505525">
@@ -964,17 +964,17 @@
 										<MediaID ID="217201908"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{210DF65C-8E0A-4E20-87AD-E2ADBA6B65EC}">
+								<SourcePlugin Name="Sine" ID="{4A26EC53-A433-4B2E-A98C-A09321DBEB20}" ShortID="886485509" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_029" ID="{BC21F851-00CB-4DFE-AD47-9F3FB0BC7716}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{210DF65C-8E0A-4E20-87AD-E2ADBA6B65EC}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{4A26EC53-A433-4B2E-A98C-A09321DBEB20}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_030" ID="{7407238C-0538-46E6-B082-2F55E7212CEE}" ShortID="855495787">
@@ -997,17 +997,17 @@
 										<MediaID ID="649056387"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{A7A4F9C1-F5CD-4E87-9A7C-41526709A23F}">
+								<SourcePlugin Name="Sine" ID="{5852AE2B-7CB9-424C-A0C0-51B285D619A8}" ShortID="782455015" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_030" ID="{D9108009-9A32-4F34-95EB-6A57451325AC}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{A7A4F9C1-F5CD-4E87-9A7C-41526709A23F}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{5852AE2B-7CB9-424C-A0C0-51B285D619A8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_031" ID="{39A503F5-F78E-4B49-A3F4-81D37E088859}" ShortID="315297637">
@@ -1030,17 +1030,17 @@
 										<MediaID ID="1061418152"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{F417F508-7A20-4077-9716-9A708B972ABE}">
+								<SourcePlugin Name="Sine" ID="{76179E68-4F13-4D20-B731-3A96E8E6D2FF}" ShortID="249881194" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{F417F508-7A20-4077-9716-9A708B972ABE}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_031" ID="{556B5D64-D643-4B51-9A45-BF4F2F1F4AC1}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{76179E68-4F13-4D20-B731-3A96E8E6D2FF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_032" ID="{1866F693-94E7-4FCD-B78F-52D4523F8715}" ShortID="639776839">
@@ -1063,17 +1063,17 @@
 										<MediaID ID="1030719134"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{019584F2-3530-4F16-939D-76DC15CCC3E9}">
+								<SourcePlugin Name="Sine" ID="{530C4F5D-86B5-4F63-9F70-11F280B35C24}" ShortID="20306438" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_032" ID="{7EC75922-A29C-4E21-A0CA-5A4D979F7BE9}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{019584F2-3530-4F16-939D-76DC15CCC3E9}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{530C4F5D-86B5-4F63-9F70-11F280B35C24}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_033" ID="{6D8A098C-F801-41E1-918F-C449C8376496}" ShortID="715315067">
@@ -1096,17 +1096,17 @@
 										<MediaID ID="954748702"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{1FE3F969-3F26-49E2-A42F-25DD740FFAD5}">
+								<SourcePlugin Name="Sine" ID="{E4FFC8AC-D442-4E88-A328-8044A91D34A9}" ShortID="887794790" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_033" ID="{5F75CE01-0E06-4DA4-BB4E-8A35DBAC4428}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{1FE3F969-3F26-49E2-A42F-25DD740FFAD5}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{E4FFC8AC-D442-4E88-A328-8044A91D34A9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_034" ID="{04637AC0-BEF7-434B-91CF-2A3D4F0B87B6}" ShortID="866908178">
@@ -1129,17 +1129,17 @@
 										<MediaID ID="328954071"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{856C0C92-4263-4D9D-9D88-66E0F679B8BE}">
+								<SourcePlugin Name="Sine" ID="{4EBF92BA-0976-470D-86D4-AAFE16C09283}" ShortID="18829731" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_034" ID="{0A538A79-AE52-4E39-AE36-41030AE13FDF}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{856C0C92-4263-4D9D-9D88-66E0F679B8BE}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{4EBF92BA-0976-470D-86D4-AAFE16C09283}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_035" ID="{C04AC5FE-B0EA-42C7-9805-A4CA1674B024}" ShortID="973357382">
@@ -1162,16 +1162,16 @@
 										<MediaID ID="608212303"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{E0A77515-52CB-47FF-8BF0-F1FD93B31F46}">
+								<SourcePlugin Name="Sine" ID="{F351D7A1-404D-46FD-90F5-C4A31EC38B41}" ShortID="738717859" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{E0A77515-52CB-47FF-8BF0-F1FD93B31F46}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{F351D7A1-404D-46FD-90F5-C4A31EC38B41}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_035" ID="{65CA64C6-3196-457D-88C6-70DC1902A3FA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1195,17 +1195,17 @@
 										<MediaID ID="657429866"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{EE14EB9C-0686-4E59-B3AF-C5CAB7C36E01}">
+								<SourcePlugin Name="Sine" ID="{F994F460-A87D-4B88-BBEC-A4E14A56881A}" ShortID="107683026" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_036" ID="{7F122F0A-5832-4088-94B1-3193F2EFA4E7}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{EE14EB9C-0686-4E59-B3AF-C5CAB7C36E01}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{F994F460-A87D-4B88-BBEC-A4E14A56881A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_037" ID="{D7D70810-0ACC-4B04-8A56-65291EBE1C68}" ShortID="1028678981">
@@ -1228,17 +1228,17 @@
 										<MediaID ID="724285953"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{43ED739D-10B1-4A89-96CC-78ED721C2CA4}">
+								<SourcePlugin Name="Sine" ID="{6A76AACB-D91B-48B3-801A-021ECAD9D375}" ShortID="4513586" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{43ED739D-10B1-4A89-96CC-78ED721C2CA4}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_037" ID="{6F4AEDCA-73BD-4B40-BCC1-9DE3B13586D5}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{6A76AACB-D91B-48B3-801A-021ECAD9D375}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_038" ID="{1FD2005B-25FE-437A-A6C8-8FD9CE5F12DA}" ShortID="692531821">
@@ -1261,16 +1261,16 @@
 										<MediaID ID="663444983"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{631A6310-9C5F-4365-8A97-D3DDA9DD1F09}">
+								<SourcePlugin Name="Sine" ID="{EF218E86-2C04-4503-991C-4EC1AF78F79B}" ShortID="959183123" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{631A6310-9C5F-4365-8A97-D3DDA9DD1F09}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{EF218E86-2C04-4503-991C-4EC1AF78F79B}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_038" ID="{DA353BF3-264C-46FB-8323-2891D27FB314}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1294,16 +1294,16 @@
 										<MediaID ID="24799937"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{3F6AA39E-5527-4C16-8DFA-FE0D2AD7C128}">
+								<SourcePlugin Name="Sine" ID="{A5406C01-5F81-4C39-A53A-73709E80C9A1}" ShortID="351399769" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{3F6AA39E-5527-4C16-8DFA-FE0D2AD7C128}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{A5406C01-5F81-4C39-A53A-73709E80C9A1}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_039" ID="{7AB8C4EB-DF92-47A3-BEAD-F976E099688B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1327,17 +1327,17 @@
 										<MediaID ID="309626456"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{697B126B-8B31-47FA-B617-178903BCCF9F}">
+								<SourcePlugin Name="Sine" ID="{0E6635D5-6954-4254-B9AD-870C42A11BBE}" ShortID="28762302" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{697B126B-8B31-47FA-B617-178903BCCF9F}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_040" ID="{C9F6F780-913C-470A-8E8E-74F4D274F191}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{0E6635D5-6954-4254-B9AD-870C42A11BBE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_041" ID="{C417BB5D-1C49-4FEC-AFC0-BCC8C3F3BEC1}" ShortID="415934638">
@@ -1360,17 +1360,17 @@
 										<MediaID ID="189567588"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{A358EEBC-5D7B-42D0-813A-0C55D64443B8}">
+								<SourcePlugin Name="Sine" ID="{487D3E6B-B8B8-4F70-A5F2-93B6BBE8F05F}" ShortID="469243034" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_041" ID="{597A2D6B-659B-49FA-AA87-9CBFCE16DDE2}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{A358EEBC-5D7B-42D0-813A-0C55D64443B8}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{487D3E6B-B8B8-4F70-A5F2-93B6BBE8F05F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_042" ID="{661C711F-342C-43F0-80CD-5F844F5A5745}" ShortID="973365982">
@@ -1393,17 +1393,17 @@
 										<MediaID ID="1036988360"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{4535A30C-E0A8-4A38-88E4-28A98F75F715}">
+								<SourcePlugin Name="Sine" ID="{1C9BD871-65BD-47EC-AFAF-EC31E738E7BE}" ShortID="965194868" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{4535A30C-E0A8-4A38-88E4-28A98F75F715}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_042" ID="{684BC451-DDCA-4530-9A2F-352F2AAFBA67}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{1C9BD871-65BD-47EC-AFAF-EC31E738E7BE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_043" ID="{7F827CEC-E000-4BEB-9841-AEB0615BD2C6}" ShortID="51056524">
@@ -1426,16 +1426,16 @@
 										<MediaID ID="110122033"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{E308E841-B41A-485C-B7E4-AFD2859230ED}">
+								<SourcePlugin Name="Sine" ID="{7058DD9E-E597-491A-AF6F-D0EABA09D011}" ShortID="980871613" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{E308E841-B41A-485C-B7E4-AFD2859230ED}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{7058DD9E-E597-491A-AF6F-D0EABA09D011}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_043" ID="{5013A5EF-2E27-47D9-B255-594F0EFC8182}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1459,17 +1459,17 @@
 										<MediaID ID="958619692"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{84BFB224-5FF9-469C-8C51-94E0E4E4834B}">
+								<SourcePlugin Name="Sine" ID="{5E5D0CFD-30C4-402C-884F-68DAF5E5E58A}" ShortID="858690011" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{84BFB224-5FF9-469C-8C51-94E0E4E4834B}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_044" ID="{239A92E4-07AC-4382-A23E-4D81D8495069}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{5E5D0CFD-30C4-402C-884F-68DAF5E5E58A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_045" ID="{6DE7F224-60A8-498B-A0F5-E1FCAAF17564}" ShortID="656894913">
@@ -1492,17 +1492,17 @@
 										<MediaID ID="380439518"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{CDD1CA6C-5705-4908-ABE9-F2DE19F1D055}">
+								<SourcePlugin Name="Sine" ID="{8504F209-B7A7-42A8-B6A4-9CC7AB409B8D}" ShortID="758172164" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{8504F209-B7A7-42A8-B6A4-9CC7AB409B8D}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_045" ID="{0A6EC422-1254-4817-B093-AF6825741151}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{CDD1CA6C-5705-4908-ABE9-F2DE19F1D055}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_046" ID="{8607400A-727E-4324-9105-6A4B3048A9F7}" ShortID="96711350">
@@ -1525,16 +1525,16 @@
 										<MediaID ID="182570697"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{4B8BD79A-7D35-4044-B0CA-8E9CDA8D28C6}">
+								<SourcePlugin Name="Sine" ID="{5C05657C-C6D3-46CA-8D66-76E39ED18366}" ShortID="233156914" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{4B8BD79A-7D35-4044-B0CA-8E9CDA8D28C6}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{5C05657C-C6D3-46CA-8D66-76E39ED18366}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_046" ID="{BF9D92D1-097F-48C2-B2F1-B8654A1AE2B8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1558,16 +1558,16 @@
 										<MediaID ID="1051908430"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{3DDC5674-BDF9-4D6B-AC52-1F16FA86666B}">
+								<SourcePlugin Name="Sine" ID="{9CF03614-7734-4DE4-BEA2-F7EDC1191432}" ShortID="236538807" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{3DDC5674-BDF9-4D6B-AC52-1F16FA86666B}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{9CF03614-7734-4DE4-BEA2-F7EDC1191432}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_047" ID="{7CACE3DC-78CF-4332-9195-C917AF4A3124}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1591,17 +1591,17 @@
 										<MediaID ID="336808263"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{AB8D973D-D181-4BC8-8931-565AC57F39E6}">
+								<SourcePlugin Name="Sine" ID="{D121C4E2-62C8-4F6B-9C91-9C4434D27692}" ShortID="219755363" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{AB8D973D-D181-4BC8-8931-565AC57F39E6}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_048" ID="{40D93C94-4CE5-4534-8D1D-D7C408114A4B}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{D121C4E2-62C8-4F6B-9C91-9C4434D27692}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_049" ID="{4999BFCD-E766-4310-8C60-B9AF2E926BD0}" ShortID="70960644">
@@ -1624,17 +1624,17 @@
 										<MediaID ID="643188016"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{8EDFB9AF-1B9F-4831-BE42-A478CEEFFF98}">
+								<SourcePlugin Name="Sine" ID="{9B9154C3-6533-4250-B3C7-4C6E5E6C83DB}" ShortID="967130931" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_049" ID="{BEB04E9D-5206-42AA-A081-81734F62C3C1}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{8EDFB9AF-1B9F-4831-BE42-A478CEEFFF98}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{9B9154C3-6533-4250-B3C7-4C6E5E6C83DB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_050" ID="{417E5035-3DB2-4A3B-ACD8-7E3A482085BC}" ShortID="102181106">
@@ -1657,16 +1657,16 @@
 										<MediaID ID="610722133"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{6A7FC53D-1A0C-4468-A3A3-3CDF01B2D5C7}">
+								<SourcePlugin Name="Sine" ID="{83E64050-3CD6-475B-860A-B6C88382CEB5}" ShortID="373900482" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{6A7FC53D-1A0C-4468-A3A3-3CDF01B2D5C7}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{83E64050-3CD6-475B-860A-B6C88382CEB5}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_050" ID="{C1423F98-1551-432C-9DB8-D066BEAF94B0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1690,17 +1690,17 @@
 										<MediaID ID="357984118"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{C1694CC3-EDC7-4043-B71D-978056520318}">
+								<SourcePlugin Name="Sine" ID="{9BCCCFBB-4EFE-47D9-8A7F-7266E7564438}" ShortID="555281007" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_051" ID="{BDD7E204-232C-438C-A066-00E98611DBF0}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{C1694CC3-EDC7-4043-B71D-978056520318}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{9BCCCFBB-4EFE-47D9-8A7F-7266E7564438}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_052" ID="{AD6923D6-3083-49DA-BE9C-63F8735CA25B}" ShortID="924353670">
@@ -1723,16 +1723,16 @@
 										<MediaID ID="698217337"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{973B8D23-963C-4100-8371-638942BA66B7}">
+								<SourcePlugin Name="Sine" ID="{EF9957C4-7696-4163-B029-A3A66E320DEA}" ShortID="188928394" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{973B8D23-963C-4100-8371-638942BA66B7}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{EF9957C4-7696-4163-B029-A3A66E320DEA}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_052" ID="{634302E2-B31A-4C9D-8FCB-644962B34A66}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1756,16 +1756,16 @@
 										<MediaID ID="398944006"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{C3D29B53-764E-4149-A394-4D5A74912B1A}">
+								<SourcePlugin Name="Sine" ID="{B993051E-CD0F-4819-94D6-4C9E524E6365}" ShortID="831914107" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{C3D29B53-764E-4149-A394-4D5A74912B1A}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{B993051E-CD0F-4819-94D6-4C9E524E6365}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_053" ID="{552CDB59-B5BE-45DB-A6E5-69C9F7B45E33}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1789,17 +1789,17 @@
 										<MediaID ID="11255863"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{EA1BAE54-DE15-4F1F-9164-F1E9EDAF8C45}">
+								<SourcePlugin Name="Sine" ID="{ADEFEFCF-77AC-4D5F-A821-CFDAA5BDD8D3}" ShortID="171547683" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{EA1BAE54-DE15-4F1F-9164-F1E9EDAF8C45}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_054" ID="{D59DE89B-C1F4-45F9-8105-A0E40B14127A}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{ADEFEFCF-77AC-4D5F-A821-CFDAA5BDD8D3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_055" ID="{D3F1504C-33C3-4EFC-B05D-02058820F407}" ShortID="94497256">
@@ -1822,17 +1822,17 @@
 										<MediaID ID="1024194668"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{68FC6C94-F818-4AFD-987E-7F611799DBBD}">
+								<SourcePlugin Name="Sine" ID="{F82C19A9-34BE-4F40-B495-8666659B0C6B}" ShortID="981006504" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_055" ID="{8CEC9435-0DF5-40A9-8FB2-2FABA5985337}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{68FC6C94-F818-4AFD-987E-7F611799DBBD}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{F82C19A9-34BE-4F40-B495-8666659B0C6B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_056" ID="{4755384C-068A-4E60-814F-87C6D39E651F}" ShortID="117024409">
@@ -1855,17 +1855,17 @@
 										<MediaID ID="972476927"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{2AEC0382-2F6B-4CBE-AC26-2F6BE84AE1A9}">
+								<SourcePlugin Name="Sine" ID="{AD5C43D5-56D4-429A-AD57-121E31F2B859}" ShortID="554279554" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="psycho1_psycho_056" ID="{E22F4715-9DE9-4449-BA04-41E213D204BB}" Platform="Linked"/>
-								<ActiveSource Name="English" ID="{2AEC0382-2F6B-4CBE-AC26-2F6BE84AE1A9}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{AD5C43D5-56D4-429A-AD57-121E31F2B859}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_057" ID="{278394A9-7A1E-4696-8E44-050CD0660C52}" ShortID="729847955">
@@ -1888,17 +1888,17 @@
 										<MediaID ID="526168041"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="English" ID="{3152DE80-633B-4BCD-BB0F-256EC85BCE3F}">
+								<SourcePlugin Name="Sine" ID="{46B117BD-ADFF-401E-AF01-5A4D1362D452}" ShortID="380164286" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
 									<Language>English</Language>
-									<AudioFile>English.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="581690082"/>
-									</MediaIDList>
-								</AudioFileSource>
+								</SourcePlugin>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="English" ID="{3152DE80-633B-4BCD-BB0F-256EC85BCE3F}" Platform="Linked"/>
 								<ActiveSource Name="psycho1_psycho_057" ID="{B86C1C89-4931-47C2-8424-AD974DF90FC0}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{46B117BD-ADFF-401E-AF01-5A4D1362D452}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
