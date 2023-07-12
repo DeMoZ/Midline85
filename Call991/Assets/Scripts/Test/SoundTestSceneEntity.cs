@@ -8,7 +8,6 @@ using TMPro;
 using UI;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SoundTestSceneEntity : MonoBehaviour
@@ -25,11 +24,14 @@ public class SoundTestSceneEntity : MonoBehaviour
     [SerializeField] private Button stopButton = default;
     [SerializeField] private Button pauseButton = default;
     [SerializeField] private Button resumeButton = default;
+    [SerializeField] private Slider musicVolumeSlider = default;
+    [SerializeField][Range(0,100)] private float startMusicVolume = 50f;
+    
     [SerializeField] private Transform musicButtonsParent = default;
     [SerializeField] private Transform voiceButtonsParent = default;
     [SerializeField] private Button buttonPrefab = default;
     [SerializeField] private WwiseAudio wwisePrefab = default;
-   
+
     [Space(30)] [SerializeField] private WwiseMusicSwitchesList wwiseMusicKeysList = default;
 
     [Space(30)] [SerializeField] private WwiseVoicesList wwiseVoicesKeysList = default;
@@ -104,6 +106,13 @@ public class SoundTestSceneEntity : MonoBehaviour
         stopButton.onClick.AddListener(StopRoutine);
         pauseButton.onClick.AddListener(()=>_audioManager.PausePhrasesAndSfx());
         resumeButton.onClick.AddListener(()=>_audioManager.ResumePhrasesAndSfx());
+        musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        musicVolumeSlider.value = startMusicVolume;
+    }
+
+    private void SetMusicVolume(float volume)
+    {
+        _audioManager.OnVolumeChanged((AudioSourceType.Music, volume));
     }
 
     private void StartRoutine()

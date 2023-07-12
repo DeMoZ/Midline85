@@ -217,7 +217,7 @@ public class WwiseAudio : MonoBehaviour
         _isLanguageLoaded = true;
     }
 
-    private void OnVolumeChanged((AudioSourceType source, float volume) value)
+    public void OnVolumeChanged((AudioSourceType source, float volume) value)
     {
         switch (value.source)
         {
@@ -229,11 +229,9 @@ public class WwiseAudio : MonoBehaviour
                 break;
             case AudioSourceType.Music:
                 Debug.LogWarning($"music {MusicVolume.Name}, value {value.volume}");
-                //MusicVolume.SetValue(musicGo, value.volume); // todo why not work?
+                MusicVolume.SetValue(musicGo, value.volume); // todo why not work?
                 //MusicVolume.SetGlobalValue(value.volume); // todo why not work?
-
-                //Wwise.Event MusicEvent = "Music";
-                AkSoundEngine.SetRTPCValue(MusicVolume.Name, value.volume);
+                //AkSoundEngine.SetRTPCValue(MusicVolume.Name, value.volume); // todo why not work?
                 break;
             case AudioSourceType.Sfx:
                 SfxVolume.SetValue(sfxGo, value.volume);
