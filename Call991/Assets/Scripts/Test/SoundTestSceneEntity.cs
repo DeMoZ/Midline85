@@ -24,8 +24,13 @@ public class SoundTestSceneEntity : MonoBehaviour
     [SerializeField] private Button stopButton = default;
     [SerializeField] private Button pauseButton = default;
     [SerializeField] private Button resumeButton = default;
+    
+    [SerializeField] private Slider masterVolumeSlider = default;
+    [SerializeField][Range(0,100)] private float startMasterVolume = 93f;
     [SerializeField] private Slider musicVolumeSlider = default;
     [SerializeField][Range(0,100)] private float startMusicVolume = 50f;
+    [SerializeField] private Slider voiceVolumeSlider = default;
+    [SerializeField][Range(0,100)] private float startVoiceVolume = 100f;
     
     [SerializeField] private Transform musicButtonsParent = default;
     [SerializeField] private Transform voiceButtonsParent = default;
@@ -106,13 +111,26 @@ public class SoundTestSceneEntity : MonoBehaviour
         stopButton.onClick.AddListener(StopRoutine);
         pauseButton.onClick.AddListener(()=>_audioManager.PausePhrasesAndSfx());
         resumeButton.onClick.AddListener(()=>_audioManager.ResumePhrasesAndSfx());
+        
+        masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
         musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
+        voiceVolumeSlider.onValueChanged.AddListener(SetVoiceVolume);
+        masterVolumeSlider.value = startMasterVolume;
         musicVolumeSlider.value = startMusicVolume;
+        voiceVolumeSlider.value = startVoiceVolume;
     }
 
+    private void SetMasterVolume(float volume)
+    {
+        _audioManager.OnVolumeChanged((AudioSourceType.Master, volume));
+    }
     private void SetMusicVolume(float volume)
     {
         _audioManager.OnVolumeChanged((AudioSourceType.Music, volume));
+    }
+    private void SetVoiceVolume(float volume)
+    {
+        _audioManager.OnVolumeChanged((AudioSourceType.Voice, volume));
     }
 
     private void StartRoutine()
