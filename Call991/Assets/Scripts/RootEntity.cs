@@ -77,7 +77,7 @@ public class RootEntity : IDisposable
             Profile = profile,
             OnSwitchScene = onSwitchScene,
         });
-        audioManager.Initialize();
+        audioManager.Initialize().Forget();
 
         _ctx.VideoManager.SetCtx(new VideoManager.Ctx
         {

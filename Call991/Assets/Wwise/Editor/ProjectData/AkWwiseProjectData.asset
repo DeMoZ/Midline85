@@ -556,7 +556,7 @@ MonoBehaviour:
     ParentPath: SoundBanks/Default Work Unit
     guid: fcbd83871106814e89e3bdcbcfba4617
     GuidInternal: 
-    m_lastTime: -8585125864899992254
+    m_lastTime: -8585125056632132204
     List:
     - name: L1_Intro
       guid: 835be93c7152b74b869d5cd79a288a53
@@ -656,20 +656,33 @@ MonoBehaviour:
         ObjectType: 7
         guid: f2567ac5e97a364c9c16d1ac995347f7
       Path: SoundBanks/Default Work Unit/L7_Psycho
-    - name: Master
-      guid: 054152ee2d449a4db78ea51a4756699e
-      id: 4056684167
+  - PhysicalPath: SoundBanks/MainUnit.wwu
+    PathAndIcons:
+    - ElementName: SoundBanks
+      ObjectType: 5
+      guid: 00000000000000000000000000000000
+    - ElementName: MainUnit
+      ObjectType: 12
+      guid: 70b5e8973d724647b842aa18fed18bd0
+    ParentPath: SoundBanks/MainUnit
+    guid: 70b5e8973d724647b842aa18fed18bd0
+    GuidInternal: 
+    m_lastTime: -8585125056632129986
+    List:
+    - name: Main
+      guid: 32c649f6b6f45a41ac48c368a89824b6
+      id: 3161908922
       PathAndIcons:
       - ElementName: SoundBanks
         ObjectType: 5
         guid: 00000000000000000000000000000000
-      - ElementName: Default Work Unit
+      - ElementName: MainUnit
         ObjectType: 12
-        guid: fcbd83871106814e89e3bdcbcfba4617
-      - ElementName: Master
+        guid: 70b5e8973d724647b842aa18fed18bd0
+      - ElementName: Main
         ObjectType: 7
-        guid: 054152ee2d449a4db78ea51a4756699e
-      Path: SoundBanks/Default Work Unit/Master
+        guid: 32c649f6b6f45a41ac48c368a89824b6
+      Path: SoundBanks/MainUnit/Main
   EventWwu:
   - PhysicalPath: Events/1 - Intro.wwu
     PathAndIcons:

@@ -53,7 +53,7 @@ public class WwiseAudio : MonoBehaviour
     // [SerializeField] private Wwise.AuxBus testAuxBus;
     // [SerializeField] private Wwise.Bank testBank;
     // [SerializeField] private Wwise.BaseType testBaseType;
-    // [SerializeField] private Wwise.CallbackFlags testCallbackFlags;
+    [SerializeField] private Wwise.CallbackFlags testCallbackFlags;
 
     private Ctx _ctx;
 
@@ -91,7 +91,7 @@ public class WwiseAudio : MonoBehaviour
         _ctx.OnSwitchScene.Subscribe(OnSwitchScene).AddTo(_disposables);
     }
 
-    public async void Initialize()
+    public async Task Initialize()
     {
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenMaster.IsCancellationRequested) return;
@@ -109,7 +109,16 @@ public class WwiseAudio : MonoBehaviour
         _isMasterLoaded = true;
 
         Debug.Log($"[{this}] <color=green>Initialize completed</color> play music {MusicEvent}");
-        MusicEvent.Post(musicGo);
+        //MusicEvent.Post(musicGo);
+        AkSoundEngine.PostEvent("Music", musicGo);
+
+        //MusicEvent.Post(musicGo,testCallbackFlags, OnMusic);
+    }
+
+    private void OnMusic(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
+    {
+        Debug.Log(
+            $"[{this}] <color=red>!!!!!!!!</color> in_cookie = {in_cookie}; in_type = {in_type}; in_info = {in_info}");
     }
 
     public async Task LoadBank(string levelId)
@@ -219,9 +228,12 @@ public class WwiseAudio : MonoBehaviour
                 VoiceVolume.SetValue(voiceGo, value.volume);
                 break;
             case AudioSourceType.Music:
-                //MusicVolume.SetValue(musicGo, value.volume);
-                Debug.LogWarning($"music {MusicVolume}, value {value.volume}");
-                MusicVolume.SetValue(musicGo, value.volume); // todo why not work?
+                Debug.LogWarning($"music {MusicVolume.Name}, value {value.volume}");
+                //MusicVolume.SetValue(musicGo, value.volume); // todo why not work?
+                //MusicVolume.SetGlobalValue(value.volume); // todo why not work?
+
+                //Wwise.Event MusicEvent = "Music";
+                AkSoundEngine.SetRTPCValue(MusicVolume.Name, value.volume);
                 break;
             case AudioSourceType.Sfx:
                 SfxVolume.SetValue(sfxGo, value.volume);
@@ -257,6 +269,22 @@ public class WwiseAudio : MonoBehaviour
 
         Debug.Log($"[{this}] <color=green>PlayMusic</color> switch = <color=yellow>{wSwitch}</color>;");
         wSwitch.SetValue(musicGo);
+    }
+
+    public async void PlayMusic(string wSwitch)
+    {
+        while (!_isBankLoaded)
+        {
+            await Task.Delay(1);
+            if (_tokenMaster.IsCancellationRequested) return;
+        }
+
+        if (_tokenMaster.IsCancellationRequested) return;
+
+        Debug.Log($"[{this}] <color=green>PlayMusic</color> switch = <color=yellow>{wSwitch}</color>;");
+        //wSwitch.SetValue(musicGo);
+        var parts = wSwitch.Split(" / ");
+        AkSoundEngine.SetSwitch(parts[0], parts[1], musicGo);
     }
 
     public void PlayRtpc(Wwise.RTPC rtpc, int value)

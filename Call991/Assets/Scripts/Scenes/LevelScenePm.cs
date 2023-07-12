@@ -358,7 +358,9 @@ public class LevelScenePm : IDisposable
 
         if (voiceId == null)
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
-
+        else
+            Debug.Log($"Sound for phrase {data.PhraseSketchText}");
+        
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
 
