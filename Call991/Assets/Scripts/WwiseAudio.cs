@@ -269,7 +269,6 @@ public class WwiseAudio : MonoBehaviour
             await Task.Delay(1);
             if (_tokenMaster.IsCancellationRequested) return;
         }
-
         if (_tokenMaster.IsCancellationRequested) return;
 
         Debug.Log($"[{this}] <color=green>PlayMusic</color> switch = <color=yellow>{wSwitch}</color>;");
@@ -284,6 +283,23 @@ public class WwiseAudio : MonoBehaviour
         rtpc.SetGlobalValue(value);
     }
 
+    public async void PlayRtpc(string wSwitch, int value)
+    {
+        while (!_isMasterLoaded)
+        {
+            await Task.Delay(1);
+            if (_tokenMaster.IsCancellationRequested) return;
+        }
+        if (_tokenMaster.IsCancellationRequested) return;
+        
+        var parts = wSwitch.Split(" / Music");
+        var rtpc = $"{parts[1]}RTPC";
+        Debug.Log($"[{this}] <color=green>PlayRtpc</color> RTPC = <color=yellow>{rtpc}</color>;" +
+                  $" value = <color=yellow>{value}</color>;");
+        
+        AkSoundEngine.SetRTPCValue(rtpc, value);
+    }
+    
     public uint? PlaySfx(string sound)
     {
         if (!_isBankLoaded) return null;

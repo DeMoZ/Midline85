@@ -8,6 +8,7 @@ using TMPro;
 using UI;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SoundTestSceneEntity : MonoBehaviour
@@ -24,29 +25,32 @@ public class SoundTestSceneEntity : MonoBehaviour
     [SerializeField] private Button stopButton = default;
     [SerializeField] private Button pauseButton = default;
     [SerializeField] private Button resumeButton = default;
-    
+
     [SerializeField] private Slider masterVolumeSlider = default;
-    [SerializeField][Range(0,100)] private float startMasterVolume = 93f;
+    [SerializeField] [Range(0, 100)] private float startMasterVolume = 93f;
     [SerializeField] private Slider musicVolumeSlider = default;
-    [SerializeField][Range(0,100)] private float startMusicVolume = 50f;
+    [SerializeField] [Range(0, 100)] private float startMusicVolume = 50f;
     [SerializeField] private Slider voiceVolumeSlider = default;
-    [SerializeField][Range(0,100)] private float startVoiceVolume = 100f;
-    
+    [SerializeField] [Range(0, 100)] private float startVoiceVolume = 100f;
+
     [SerializeField] private Transform musicButtonsParent = default;
     [SerializeField] private Transform voiceButtonsParent = default;
-    [SerializeField] private Button buttonPrefab = default;
+
+    [SerializeField] private TestMusicButtonWithSlider musicButtonPrefab = default;
+    [SerializeField] private Button voiceButtonPrefab = default;
+
     [SerializeField] private WwiseAudio wwisePrefab = default;
 
     [Space(30)] [SerializeField] private WwiseMusicSwitchesList wwiseMusicKeysList = default;
 
     [Space(30)] [SerializeField] private WwiseVoicesList wwiseVoicesKeysList = default;
-    
+
     private List<string> _musicKeys;
     private List<string> _voicesKeys;
     private uint? _lastSoundUint;
     private WaitForSeconds _waitForSeconds = new(1);
     private Coroutine _testRoutine;
-    private List<Button> _musicButtons = new();
+    private List<TestMusicButtonWithSlider> _musicButtons = new();
     private List<Button> _voiceButtons = new();
     private int _currentIndex;
     private WwiseAudio _audioManager;
@@ -56,10 +60,10 @@ public class SoundTestSceneEntity : MonoBehaviour
     async void Start()
     {
         _tokenSource = new CancellationTokenSource();
-        
+
         await Initialization();
         if (_tokenSource.IsCancellationRequested) return;
-        
+
         CreateButtons();
 
         //_testRoutine = StartCoroutine(RunTest());
@@ -72,7 +76,7 @@ public class SoundTestSceneEntity : MonoBehaviour
 
         _musicKeys = wwiseMusicKeysList.GetKeys();
         _voicesKeys = wwiseVoicesKeysList.GetKeys();
-    
+
         var onSwitchScene = new ReactiveCommand<GameScenes>();
         var levelLanguages = new ReactiveProperty<List<string>>(LocalizationManager.GetAllLanguages());
         _profile = new PlayerProfile();
@@ -103,16 +107,16 @@ public class SoundTestSceneEntity : MonoBehaviour
 
         foreach (var language in levelLanguages.Value)
         {
-            var topBtn = Instantiate(buttonPrefab, topParent);
+            var topBtn = Instantiate(voiceButtonPrefab, topParent);
             topBtn.GetComponentInChildren<TMP_Text>().text = language;
             topBtn.onClick.AddListener(() => _profile.AudioLanguageChanged.Value = language);
         }
 
         startButton.onClick.AddListener(StartRoutine);
         stopButton.onClick.AddListener(StopRoutine);
-        pauseButton.onClick.AddListener(()=>_audioManager.PausePhrasesAndSfx());
-        resumeButton.onClick.AddListener(()=>_audioManager.ResumePhrasesAndSfx());
-        
+        pauseButton.onClick.AddListener(() => _audioManager.PausePhrasesAndSfx());
+        resumeButton.onClick.AddListener(() => _audioManager.ResumePhrasesAndSfx());
+
         masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
         musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
         voiceVolumeSlider.onValueChanged.AddListener(SetVoiceVolume);
@@ -125,10 +129,12 @@ public class SoundTestSceneEntity : MonoBehaviour
     {
         _profile.OnVolumeSet.Execute((AudioSourceType.Master, volume));
     }
+
     private void SetMusicVolume(float volume)
     {
         _profile.OnVolumeSet.Execute((AudioSourceType.Music, volume));
     }
+
     private void SetVoiceVolume(float volume)
     {
         _profile.OnVolumeSet.Execute((AudioSourceType.Voice, volume));
@@ -155,18 +161,19 @@ public class SoundTestSceneEntity : MonoBehaviour
         for (var i = 0; i < _musicKeys.Count; i++)
         {
             var key = _musicKeys[i];
-            var btn = Instantiate(buttonPrefab, musicButtonsParent);
-            var txt = btn.GetComponentInChildren<TMP_Text>();
+            var btn = Instantiate(musicButtonPrefab, musicButtonsParent);
+            var txt = btn.Button.GetComponentInChildren<TMP_Text>();
             txt.text = key;
-            btn.onClick.AddListener(() => PlayMusicButtonKey(key));
+            btn.Button.onClick.AddListener(() => PlayMusicButtonKey(key));
+            btn.Slider.onValueChanged.AddListener(value => SetMusicRtpc(key, value));
 
             _musicButtons.Add(btn);
         }
-        
+
         for (var i = 0; i < _voicesKeys.Count; i++)
         {
             var key = _voicesKeys[i];
-            var btn = Instantiate(buttonPrefab, voiceButtonsParent);
+            var btn = Instantiate(voiceButtonPrefab, voiceButtonsParent);
             var txt = btn.GetComponentInChildren<TMP_Text>();
             txt.text = key;
             btn.onClick.AddListener(() => PlayVoiceButtonKey(key));
@@ -177,13 +184,18 @@ public class SoundTestSceneEntity : MonoBehaviour
 
     private void PlayMusicButtonKey(string key)
     {
-        Debug.Log($"Play Music pressed {key}"); 
+        Debug.Log($"Play Music pressed {key}");
         //_audioManager.PlayMusic(key); // переключает One/Two
 
-       if( wwiseMusicKeysList.TryGetSwitchByName(key, out var sw)) 
-           _audioManager.PlayMusic(sw);
-       else
-           Debug.LogError($"Switch not found for key {key} in keys list"); 
+        if (wwiseMusicKeysList.TryGetSwitchByName(key, out var sw))
+            _audioManager.PlayMusic(sw);
+        else
+            Debug.LogError($"Switch not found for key {key} in keys list");
+    }
+
+    private void SetMusicRtpc(string key, float value)
+    {
+        _audioManager.PlayRtpc(key, (int)value);
     }
 
     private void PlayVoiceButtonKey(string key)
@@ -229,9 +241,9 @@ public class SoundTestSceneEntity : MonoBehaviour
         Debug.LogWarning("Test started");
         for (var i = 0; i < _voicesKeys.Count; i++)
         {
-            while (!_audioManager.IsReady) 
+            while (!_audioManager.IsReady)
                 yield return null;
-            
+
             _currentIndex = i;
             var key = _voicesKeys[i];
             PlayKey(key);
