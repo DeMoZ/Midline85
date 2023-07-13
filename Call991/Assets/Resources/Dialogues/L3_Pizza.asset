@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
-  m_Name: Level_2_Pizza
+  m_Name: L3_Pizza
   m_EditorClassIdentifier: 
   EntryNodeData:
     Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
@@ -43,7 +43,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSound: NONE
+    PhraseSound: L3_Pizza/Girl/pizza_girl_001
     Phrases:
     - 
     - 
@@ -2928,33 +2928,6 @@ MonoBehaviour:
     Phrases:
     - 
     - 
-  - Guid: 7804c480-c760-4e2f-9274-457d75a39293
-    Rect:
-      serializedVersion: 2
-      x: 404
-      y: 204
-      width: 100
-      height: 96
-    PhraseSketchText: 911
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 2
-      HideOnEnd: 1
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData:
-    - Type: 2
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    PhraseSound: NONE
-    Phrases:
-    - 
-    - 
   - Guid: 916aa670-2217-468d-a307-5b74607bfcb1
     Rect:
       serializedVersion: 2
@@ -3990,6 +3963,33 @@ MonoBehaviour:
     Phrases:
     - 
     - 
+  - Guid: 7804c480-c760-4e2f-9274-457d75a39293
+    Rect:
+      serializedVersion: 2
+      x: 404
+      y: 204
+      width: 100
+      height: 96
+    PhraseSketchText: 911
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData:
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSound: L3_Pizza/Elena/pizza_elena_001
+    Phrases:
+    - 
+    - 
   ChoiceNodeData:
   - Guid: 002670f8-042a-4b01-a76f-ac0593eeac3b
     Rect:
@@ -4886,42 +4886,13 @@ MonoBehaviour:
         CountKey: PIZZA.EMOTIONS
         Range: {x: 0, y: 0}
       ForkExitName: 0b1729b0-d905-4e0c-b0da-c5b1bfa53671
-  - Guid: 2610fab5-44bf-4700-aeaa-8bbc5c9f6e4b
-    Rect:
-      serializedVersion: 2
-      x: 7288
-      y: 1261
-      width: 150
-      height: 179
-    ForkCaseData:
-    - Words: []
-      Ends: []
-      Counts:
-      - CountType: 0
-        CountKey: PIZZA.EMOTIONS
-        Range: {x: 1, y: 2}
-      ForkExitName: 8eed3c5a-dac7-43db-9412-004a19670aa1
-    - Words: []
-      Ends: []
-      Counts:
-      - CountType: 0
-        CountKey: PIZZA.EMOTIONS
-        Range: {x: 3, y: 100}
-      ForkExitName: 23bd7986-e449-4191-962a-a4d29aa39c76
-    - Words: []
-      Ends: []
-      Counts:
-      - CountType: 0
-        CountKey: PIZZA.EMOTIONS
-        Range: {x: 0, y: 0}
-      ForkExitName: fe852624-4140-400b-9376-e912f6bc2e4d
   - Guid: 7b911497-2f6c-453c-9aad-2fbfb67e9b07
     Rect:
       serializedVersion: 2
       x: 10973
       y: 3140
       width: 150
-      height: 179
+      height: 153
     ForkCaseData:
     - Words: []
       Ends: []
@@ -4937,20 +4908,13 @@ MonoBehaviour:
         CountKey: PIZZA.EMOTIONS
         Range: {x: 3, y: 100}
       ForkExitName: c6cdafa7-2b66-4023-a7d4-73247721cae0
-    - Words: []
-      Ends: []
-      Counts:
-      - CountType: 0
-        CountKey: PIZZA.EMOTIONS
-        Range: {x: 0, y: 0}
-      ForkExitName: a81c8e10-60ae-49c9-a904-b50d4a8606c1
   - Guid: 0e650e50-be42-45ca-a1a3-231ce1291458
     Rect:
       serializedVersion: 2
       x: 9887
       y: 2669
       width: 150
-      height: 179
+      height: 153
     ForkCaseData:
     - Words: []
       Ends: []
@@ -4966,13 +4930,28 @@ MonoBehaviour:
         CountKey: FIRE.EMOTIONS
         Range: {x: 3, y: 100}
       ForkExitName: 4690ee45-40a4-40da-9f3e-2f7999d14852
+  - Guid: 2610fab5-44bf-4700-aeaa-8bbc5c9f6e4b
+    Rect:
+      serializedVersion: 2
+      x: 7288
+      y: 1261
+      width: 150
+      height: 153
+    ForkCaseData:
     - Words: []
       Ends: []
       Counts:
       - CountType: 0
-        CountKey: FIRE.EMOTIONS
-        Range: {x: 0, y: 0}
-      ForkExitName: d3e16d2a-6ee9-4a59-922b-d70813f16937
+        CountKey: PIZZA.EMOTIONS
+        Range: {x: 1, y: 2}
+      ForkExitName: 8eed3c5a-dac7-43db-9412-004a19670aa1
+    - Words: []
+      Ends: []
+      Counts:
+      - CountType: 0
+        CountKey: PIZZA.EMOTIONS
+        Range: {x: 3, y: 100}
+      ForkExitName: 23bd7986-e449-4191-962a-a4d29aa39c76
   CountNodeData:
   - Guid: 40119944-350d-433d-9bf5-9db89412d323
     Rect:
@@ -5135,101 +5114,11 @@ MonoBehaviour:
     End: PIZZA.END.NEUT2
     EventVisualData: []
     Records: []
-  - Guid: 6ca9166a-0bef-44a2-85e6-ac12d0470406
-    Rect:
-      serializedVersion: 2
-      x: 7585
-      y: 1385
-      width: 127
-      height: 96
-    End: PIZZA.END.BAD
-    EventVisualData: []
-    Records: []
-  - Guid: 3af79023-990f-4a25-97de-1c7466757a11
-    Rect:
-      serializedVersion: 2
-      x: 7588
-      y: 1268
-      width: 141
-      height: 96
-    End: PIZZA.END.NEUT2
-    EventVisualData: []
-    Records: []
-  - Guid: e1a6a448-1e2f-4dbd-9737-3938d0759abc
-    Rect:
-      serializedVersion: 2
-      x: 11155
-      y: 3421
-      width: 137
-      height: 96
-    End: PIZZA.END.GOOD
-    EventVisualData: []
-    Records: []
-  - Guid: 6627a8db-b675-417e-a57d-bedf4f802564
-    Rect:
-      serializedVersion: 2
-      x: 11172
-      y: 3288
-      width: 127
-      height: 96
-    End: PIZZA.END.BAD
-    EventVisualData: []
-    Records: []
-  - Guid: 2c1dbb7c-a805-414e-bc5a-d805192c0b9c
-    Rect:
-      serializedVersion: 2
-      x: 11177
-      y: 3162
-      width: 133
-      height: 96
-    End: FIRE.END.NEUT2
-    EventVisualData: []
-    Records: []
   - Guid: 7ee9ec8f-a84a-4acb-ba97-060b1af31bb8
     Rect:
       serializedVersion: 2
       x: 12007
       y: 2933
-      width: 137
-      height: 96
-    End: PIZZA.END.GOOD
-    EventVisualData: []
-    Records: []
-  - Guid: 63874b3c-6f20-4e6f-84f7-c4d574c922ae
-    Rect:
-      serializedVersion: 2
-      x: 10173
-      y: 2647
-      width: 127
-      height: 96
-    End: PIZZA.END.BAD
-    EventVisualData: []
-    Records: []
-  - Guid: a669b9a6-e685-45c9-b6cd-2eed56153174
-    Rect:
-      serializedVersion: 2
-      x: 10164
-      y: 2787
-      width: 137
-      height: 96
-    End: PIZZA.END.GOOD
-    EventVisualData: []
-    Records: []
-  - Guid: 5e1bf8a0-4380-4ddb-b1c1-4423f5f8444e
-    Rect:
-      serializedVersion: 2
-      x: 10078
-      y: 2552
-      width: 133
-      height: 96
-    End: FIRE.END.NEUT2
-    EventVisualData: []
-    Records: []
-  - Guid: d879327f-2bfd-4cb4-ae86-f28e5c4a0f3d
-    Rect:
-      serializedVersion: 2
-      x: 7587
-      y: 1548
       width: 137
       height: 96
     End: PIZZA.END.GOOD
@@ -5263,6 +5152,96 @@ MonoBehaviour:
       width: 127
       height: 96
     End: PIZZA.END.BAD
+    EventVisualData: []
+    Records: []
+  - Guid: d879327f-2bfd-4cb4-ae86-f28e5c4a0f3d
+    Rect:
+      serializedVersion: 2
+      x: 7578
+      y: 1261
+      width: 137
+      height: 96
+    End: PIZZA.END.GOOD
+    EventVisualData: []
+    Records: []
+  - Guid: 3af79023-990f-4a25-97de-1c7466757a11
+    Rect:
+      serializedVersion: 2
+      x: 7578
+      y: 1368
+      width: 141
+      height: 96
+    End: PIZZA.END.NEUT2
+    EventVisualData: []
+    Records: []
+  - Guid: 6ca9166a-0bef-44a2-85e6-ac12d0470406
+    Rect:
+      serializedVersion: 2
+      x: 7578
+      y: 1477
+      width: 127
+      height: 96
+    End: PIZZA.END.BAD
+    EventVisualData: []
+    Records: []
+  - Guid: a669b9a6-e685-45c9-b6cd-2eed56153174
+    Rect:
+      serializedVersion: 2
+      x: 10095
+      y: 2605
+      width: 137
+      height: 96
+    End: PIZZA.END.GOOD
+    EventVisualData: []
+    Records: []
+  - Guid: 5e1bf8a0-4380-4ddb-b1c1-4423f5f8444e
+    Rect:
+      serializedVersion: 2
+      x: 10099
+      y: 2713
+      width: 133
+      height: 96
+    End: FIRE.END.NEUT2
+    EventVisualData: []
+    Records: []
+  - Guid: 63874b3c-6f20-4e6f-84f7-c4d574c922ae
+    Rect:
+      serializedVersion: 2
+      x: 10105
+      y: 2827
+      width: 127
+      height: 96
+    End: PIZZA.END.BAD
+    EventVisualData: []
+    Records: []
+  - Guid: 6627a8db-b675-417e-a57d-bedf4f802564
+    Rect:
+      serializedVersion: 2
+      x: 11169
+      y: 3349
+      width: 127
+      height: 96
+    End: PIZZA.END.BAD
+    EventVisualData: []
+    Records: []
+  - Guid: 2c1dbb7c-a805-414e-bc5a-d805192c0b9c
+    Rect:
+      serializedVersion: 2
+      x: 11169
+      y: 3252
+      width: 133
+      height: 96
+    End: FIRE.END.NEUT2
+    EventVisualData: []
+    Records: []
+  - Guid: e1a6a448-1e2f-4dbd-9737-3938d0759abc
+    Rect:
+      serializedVersion: 2
+      x: 11169
+      y: 3140
+      width: 137
+      height: 96
+    End: PIZZA.END.GOOD
     EventVisualData: []
     Records: []
   EventNodeData:
@@ -6383,27 +6362,18 @@ MonoBehaviour:
   - BaseNodeGuid: 2610fab5-44bf-4700-aeaa-8bbc5c9f6e4b
     BaseExitName: 23bd7986-e449-4191-962a-a4d29aa39c76
     TargetNodeGuid: 6ca9166a-0bef-44a2-85e6-ac12d0470406
-  - BaseNodeGuid: 2610fab5-44bf-4700-aeaa-8bbc5c9f6e4b
-    BaseExitName: fe852624-4140-400b-9376-e912f6bc2e4d
-    TargetNodeGuid: d879327f-2bfd-4cb4-ae86-f28e5c4a0f3d
   - BaseNodeGuid: 7b911497-2f6c-453c-9aad-2fbfb67e9b07
     BaseExitName: 3fbddec0-b7c5-49c9-97e2-d2ebf3dde3f5
     TargetNodeGuid: 2c1dbb7c-a805-414e-bc5a-d805192c0b9c
   - BaseNodeGuid: 7b911497-2f6c-453c-9aad-2fbfb67e9b07
     BaseExitName: c6cdafa7-2b66-4023-a7d4-73247721cae0
     TargetNodeGuid: 6627a8db-b675-417e-a57d-bedf4f802564
-  - BaseNodeGuid: 7b911497-2f6c-453c-9aad-2fbfb67e9b07
-    BaseExitName: a81c8e10-60ae-49c9-a904-b50d4a8606c1
-    TargetNodeGuid: e1a6a448-1e2f-4dbd-9737-3938d0759abc
   - BaseNodeGuid: 0e650e50-be42-45ca-a1a3-231ce1291458
     BaseExitName: 8304df05-4863-4da6-9428-255e18e59058
     TargetNodeGuid: 5e1bf8a0-4380-4ddb-b1c1-4423f5f8444e
   - BaseNodeGuid: 0e650e50-be42-45ca-a1a3-231ce1291458
     BaseExitName: 4690ee45-40a4-40da-9f3e-2f7999d14852
     TargetNodeGuid: 63874b3c-6f20-4e6f-84f7-c4d574c922ae
-  - BaseNodeGuid: 0e650e50-be42-45ca-a1a3-231ce1291458
-    BaseExitName: d3e16d2a-6ee9-4a59-922b-d70813f16937
-    TargetNodeGuid: a669b9a6-e685-45c9-b6cd-2eed56153174
   - BaseNodeGuid: 40119944-350d-433d-9bf5-9db89412d323
     BaseExitName: 
     TargetNodeGuid: 8f331949-928e-42ba-a828-43ff61988124
@@ -6500,3 +6470,12 @@ MonoBehaviour:
   - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
     BaseExitName: 
     TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
+  - BaseNodeGuid: 2610fab5-44bf-4700-aeaa-8bbc5c9f6e4b
+    BaseExitName: 
+    TargetNodeGuid: d879327f-2bfd-4cb4-ae86-f28e5c4a0f3d
+  - BaseNodeGuid: 0e650e50-be42-45ca-a1a3-231ce1291458
+    BaseExitName: 
+    TargetNodeGuid: a669b9a6-e685-45c9-b6cd-2eed56153174
+  - BaseNodeGuid: 7b911497-2f6c-453c-9aad-2fbfb67e9b07
+    BaseExitName: 
+    TargetNodeGuid: e1a6a448-1e2f-4dbd-9737-3938d0759abc
