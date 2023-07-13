@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
-  m_Name: Level_1_Tutorial
+  m_Name: L2_Tutor
   m_EditorClassIdentifier: 
   EntryNodeData:
     Guid: dc2bfe2c-45f3-47ba-8288-383b7ba3e972
@@ -27,26 +27,6 @@ MonoBehaviour:
     ButtonFilter: tutorial
     SoundAsset: 
   PhraseNodeData:
-  - Guid: cb7d4641-d69c-46be-907d-97821b8b13c8
-    Rect:
-      serializedVersion: 2
-      x: 757
-      y: 200
-      width: 186
-      height: 96
-    PhraseSketchText: "p.mark.001 \L\L\u041F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E"
-    PersonVisualData:
-      Person: UNKNOWN
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: NONE
-    Phrases:
-    - 
-    - 
   - Guid: 4b07de23-3b94-4d61-ac00-eaa8fe9ceb81
     Rect:
       serializedVersion: 2
@@ -64,7 +44,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSound: NONE
+    PhraseSound: L2_Tutor/Elena/tutor_elena_002
     Phrases:
     - 
     - 
@@ -85,48 +65,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSound: NONE
-    Phrases:
-    - 
-    - 
-  - Guid: 349cc6d7-c423-4e3f-80a9-8bc53a73921d
-    Rect:
-      serializedVersion: 2
-      x: 1398
-      y: 200
-      width: 193
-      height: 96
-    PhraseSketchText: "p.mark.003 \u041D\u0435\u0440\u0432\u043D\u0438\u0447\u0430\u0435\u0442\u0435?"
-    PersonVisualData:
-      Person: MARK
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: NONE
-    Phrases:
-    - 
-    - 
-  - Guid: 84fae8bb-71ea-4b81-919e-6c94095a0bff
-    Rect:
-      serializedVersion: 2
-      x: 1771
-      y: 120
-      width: 183
-      height: 96
-    PhraseSketchText: "p.elena.003\L\L \u0415\u0441\u043B\u0438 \u0442\u043E\u043B\u044C\u043A\u043E\\n
-      \u0441\u0430\u043C\u0443\u044E \u043C\u0430\u043B\u043E\u0441\u0442\u044C..."
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 2
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: NONE
+    PhraseSound: L2_Tutor/Mark/tutor_mark_002
     Phrases:
     - 
     - 
@@ -146,41 +85,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSound: NONE
-    Phrases:
-    - 
-    - 
-  - Guid: b484e7f5-847a-441d-87f0-850ce5b355cd
-    Rect:
-      serializedVersion: 2
-      x: 551
-      y: 200
-      width: 190
-      height: 96
-    PhraseSketchText: "p.elena.001 911, \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440"
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 2
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData:
-    - Type: 1
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 2
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    PhraseSound: NONE
+    PhraseSound: L2_Tutor/Elena/tutor_elena_004
     Phrases:
     - 
     - 
@@ -201,7 +106,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSound: NONE
+    PhraseSound: L2_Tutor/Mark/tutor_mark_004
     Phrases:
     - 
     - 
@@ -210,8 +115,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1893
       y: 271
-      width: 315
-      height: 96
+      width: 347
+      height: 328
     PhraseSketchText: "p.mark.005 \L\L\u0414\u0435\u0440\u0436\u0430\u0442\u044C
       \u043D\u043E\u0441 \u043F\u043E\u0432\u0435\u0440\u0445\u0443 - \u0442\u0430\u043A
       \u0438 \u043D\u0430\u0434\u043E!"
@@ -223,7 +128,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSound: NONE
+    PhraseSound: L2_Tutor/Mark/tutor_mark_005
     Phrases:
     - 
     - 
@@ -1740,6 +1645,94 @@ MonoBehaviour:
     Phrases:
     - 
     - 
+  - Guid: b484e7f5-847a-441d-87f0-850ce5b355cd
+    Rect:
+      serializedVersion: 2
+      x: 551
+      y: 200
+      width: 181
+      height: 96
+    PhraseSketchText: "p.elena.001 911, \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440"
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData:
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSound: L2_Tutor/Elena/tutor_elena_001
+    Phrases:
+    - 
+    - 
+  - Guid: cb7d4641-d69c-46be-907d-97821b8b13c8
+    Rect:
+      serializedVersion: 2
+      x: 757
+      y: 200
+      width: 177
+      height: 96
+    PhraseSketchText: "p.mark.001 \L\L\u041F\u0440\u0438\u0432\u0435\u0442\u0441\u0442\u0432\u0443\u044E"
+    PersonVisualData:
+      Person: UNKNOWN
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L2_Tutor/Mark/tutor_mark_001
+    Phrases:
+    - 
+    - 
+  - Guid: 349cc6d7-c423-4e3f-80a9-8bc53a73921d
+    Rect:
+      serializedVersion: 2
+      x: 1398
+      y: 200
+      width: 193
+      height: 96
+    PhraseSketchText: "p.mark.003 \u041D\u0435\u0440\u0432\u043D\u0438\u0447\u0430\u0435\u0442\u0435?"
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L2_Tutor/Mark/tutor_mark_003
+    Phrases:
+    - 
+    - 
+  - Guid: 84fae8bb-71ea-4b81-919e-6c94095a0bff
+    Rect:
+      serializedVersion: 2
+      x: 1771
+      y: 120
+      width: 183
+      height: 96
+    PhraseSketchText: "p.elena.003\L\L \u0415\u0441\u043B\u0438 \u0442\u043E\u043B\u044C\u043A\u043E\\n
+      \u0441\u0430\u043C\u0443\u044E \u043C\u0430\u043B\u043E\u0441\u0442\u044C..."
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L2_Tutor/Elena/tutor_elena_003
+    Phrases:
+    - 
+    - 
   ChoiceNodeData:
   - Guid: 2a941637-0af7-4e4e-a395-f875bafda642
     Rect:
@@ -2053,15 +2046,8 @@ MonoBehaviour:
       width: 100
       height: 107
     EventVisualData:
-    - Type: 1
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 2
-      PhraseEvent: NONE
+    - Type: 0
+      PhraseEvent: MusicLevels / MusicTutor
       Layer: 0
       Loop: 0
       Stop: 0
@@ -2070,8 +2056,8 @@ MonoBehaviour:
   - Guid: 5b4a0230-f7c3-427e-9645-3801d7ef6bf3
     Rect:
       serializedVersion: 2
-      x: 440
-      y: 200
+      x: 438
+      y: 293
       width: 100
       height: 107
     EventVisualData:
@@ -2093,8 +2079,8 @@ MonoBehaviour:
   - Guid: 3d3121c9-e858-4933-8d77-32ebaf43ed30
     Rect:
       serializedVersion: 2
-      x: 326
-      y: 200
+      x: 324
+      y: 293
       width: 100
       height: 96
     EventVisualData:
@@ -2133,9 +2119,6 @@ MonoBehaviour:
   - BaseNodeGuid: b7268794-0d12-4549-b892-a54bb14871d3
     BaseExitName: 
     TargetNodeGuid: fb7b55de-9940-4b73-bf9d-f26482ee39db
-  - BaseNodeGuid: b484e7f5-847a-441d-87f0-850ce5b355cd
-    BaseExitName: 
-    TargetNodeGuid: cb7d4641-d69c-46be-907d-97821b8b13c8
   - BaseNodeGuid: 4f239d17-3a3b-4f99-b649-069d7dd49745
     BaseExitName: 
     TargetNodeGuid: a1c3d359-fdf7-4bf2-871b-dd9128619147
@@ -2397,6 +2380,9 @@ MonoBehaviour:
   - BaseNodeGuid: 12c47a5c-627a-4d38-9043-b54d988afee9
     BaseExitName: 
     TargetNodeGuid: 5a500d06-f231-4e58-b6ff-4bea3dea1b0b
+  - BaseNodeGuid: b484e7f5-847a-441d-87f0-850ce5b355cd
+    BaseExitName: 
+    TargetNodeGuid: cb7d4641-d69c-46be-907d-97821b8b13c8
   - BaseNodeGuid: 2a941637-0af7-4e4e-a395-f875bafda642
     BaseExitName: 
     TargetNodeGuid: b7268794-0d12-4549-b892-a54bb14871d3
@@ -2471,7 +2457,7 @@ MonoBehaviour:
     TargetNodeGuid: 12c47a5c-627a-4d38-9043-b54d988afee9
   - BaseNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
     BaseExitName: 
-    TargetNodeGuid: 3d3121c9-e858-4933-8d77-32ebaf43ed30
+    TargetNodeGuid: b484e7f5-847a-441d-87f0-850ce5b355cd
   - BaseNodeGuid: 5b4a0230-f7c3-427e-9645-3801d7ef6bf3
     BaseExitName: 
     TargetNodeGuid: b484e7f5-847a-441d-87f0-850ce5b355cd
