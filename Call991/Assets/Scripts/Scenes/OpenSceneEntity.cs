@@ -7,10 +7,11 @@ public class OpenSceneEntity : IGameScene
 {
     public struct Ctx
     {
-        public GameSet gameSet;
-        public ReactiveCommand<GameScenes> onSwitchScene;
-        public Blocker blocker;
-        public CursorSet cursorSettings;
+        public GameSet GameSet;
+        public ReactiveCommand<GameScenes> OnSwitchScene;
+        public Blocker Blocker;
+        public CursorSet CursorSettings;
+        public WwiseAudio AudioManager;
     }
 
     private readonly Ctx _ctx;
@@ -36,15 +37,16 @@ public class OpenSceneEntity : IGameScene
         var onClickStartGame = new ReactiveCommand().AddTo(_disposables);
         onClickStartGame.Subscribe(_=>
         {
-            _ctx.onSwitchScene.Execute(GameScenes.Menu);
+            _ctx.OnSwitchScene.Execute(GameScenes.Menu);
         }).AddTo(_disposables);
         
         _ui.SetCtx(new UiOpening.Ctx
         {
-            gameSet = _ctx.gameSet,
-            onClickStartGame = onClickStartGame,
-            blocker = _ctx.blocker,
-            cursorSettings = _ctx.cursorSettings,
+            GameSet = _ctx.GameSet,
+            OnClickStartGame = onClickStartGame,
+            Blocker = _ctx.Blocker,
+            CursorSettings = _ctx.CursorSettings,
+            AudioManager = _ctx.AudioManager,
         });
     }
 

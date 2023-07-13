@@ -10,7 +10,7 @@ namespace AaDialogueGraph
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
         public List<EventVisualData> EventVisualData;
-        public List<string> PhraseSounds;
+        public string PhraseSound;
         public List<string> Phrases;
     }
 

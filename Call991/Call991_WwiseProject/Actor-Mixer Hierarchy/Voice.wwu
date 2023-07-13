@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" SchemaVersion="110">
+	<AudioObjects>
+		<WorkUnit Name="Voice" ID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" PersistMode="Standalone">
+			<ChildrenList>
+				<ActorMixer Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" ShortID="446055270">
+					<PropertyList>
+						<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+						<Property Name="MaxSoundPerInstance" Type="int16">
+							<ValueList>
+								<Value>3</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Priority" Type="int16">
+							<ValueList>
+								<Value>100</Value>
+							</ValueList>
+						</Property>
+						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+						<Property Name="UseMaxSoundPerInstance" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<WorkUnit Name="Elena" ID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}" PersistMode="Reference"/>
+						<WorkUnit Name="George" ID="{E32DBAD9-EB0D-4D2F-96F0-1877E7B0B790}" PersistMode="Reference"/>
+						<WorkUnit Name="JackRU" ID="{9B495928-C118-4EE9-90B4-AAD61DB528CA}" PersistMode="Reference"/>
+						<WorkUnit Name="Joshua" ID="{071EA3A4-D273-4B59-B3A7-B6F962AC8232}" PersistMode="Reference"/>
+						<WorkUnit Name="Police" ID="{1BE42397-C648-4A82-9B75-C08D620D87C7}" PersistMode="Reference"/>
+						<WorkUnit Name="Mark" ID="{91A60CF8-B0ED-4A90-B0F7-3B8861BF650E}" PersistMode="Reference"/>
+						<WorkUnit Name="Konstantin" ID="{2C2838BD-AE14-4AA9-9335-CD786FA9A820}" PersistMode="Reference"/>
+						<WorkUnit Name="Lara" ID="{76F04BCA-5AF7-4CF8-8061-675B6B245B51}" PersistMode="Reference"/>
+						<WorkUnit Name="TestVoice" ID="{ED7C04B1-58B8-4F2E-9507-9DD0AAB10A70}" PersistMode="Reference"/>
+						<WorkUnit Name="PizzaGirl" ID="{2005F596-292B-4A18-9309-0AA188F73415}" PersistMode="Reference"/>
+					</ChildrenList>
+					<PositioningInfo>
+						<Panner Name="" ID="{ED010A58-EC57-4A83-9F98-5D8B488BA3E1}">
+							<PropertyList>
+								<Property Name="PanX" Type="Real64" Value="25"/>
+							</PropertyList>
+						</Panner>
+					</PositioningInfo>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

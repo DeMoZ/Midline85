@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}" SchemaVersion="110">
+	<GameParameters>
+		<WorkUnit Name="Default Work Unit" ID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="TestGameRTPC" ID="{C522716D-3A42-4243-8EB5-2E5B841C63F8}">
+					<PropertyList>
+						<Property Name="InitialValue" Type="Real64" Value="0"/>
+					</PropertyList>
+				</GameParameter>
+				<Folder Name="Volume" ID="{76361B14-7258-4331-82DA-F51146843AE6}" ShortID="788927625">
+					<ChildrenList>
+						<GameParameter Name="MasterVolume" ID="{AB433F8B-E57C-45DE-A538-20975B206D11}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+								<Property Name="SlewRateDown" Type="Real64" Value="10"/>
+								<Property Name="SlewRateUp" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="MusicVolume" ID="{DF0B38E3-C9E2-4214-BC3D-B9D76DA3AB39}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+								<Property Name="SlewRateDown" Type="Real64" Value="10"/>
+								<Property Name="SlewRateUp" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="SFXVolume" ID="{CF2A2445-22E0-43FF-961F-7151AC0E08B0}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="VoiceVolume" ID="{CF377C28-7C30-4E03-A041-E05D5924E3FB}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="100"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Music" ID="{1205C711-1D11-4915-AA82-6DC566B0E656}" ShortID="487381235">
+					<ChildrenList>
+						<GameParameter Name="BossRTPC" ID="{D44C5DF5-2E18-4AF7-A183-A2BF002ECCF0}">
+							<PropertyList>
+								<Property Name="FilterTimeDown" Type="Real64" Value="1"/>
+								<Property Name="FilterTimeUp" Type="Real64" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="RTPCRamping" Type="int16" Value="2"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="FireRTPC" ID="{A59B13D3-8B53-478E-8BEB-C6665537CDC1}">
+							<PropertyList>
+								<Property Name="FilterTimeDown" Type="Real64" Value="1"/>
+								<Property Name="FilterTimeUp" Type="Real64" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="RTPCRamping" Type="int16" Value="2"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}">
+							<PropertyList>
+								<Property Name="FilterTimeDown" Type="Real64" Value="2"/>
+								<Property Name="FilterTimeUp" Type="Real64" Value="2"/>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="RTPCRamping" Type="int16" Value="2"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="PsychoRTPC" ID="{4B7EAB06-9D42-4CEC-BA9F-B94215EE6D87}">
+							<PropertyList>
+								<Property Name="FilterTimeDown" Type="Real64" Value="1"/>
+								<Property Name="FilterTimeUp" Type="Real64" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="RTPCRamping" Type="int16" Value="2"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="TutorRTPC" ID="{59124745-7F35-415E-8B8F-E0234663D7F0}">
+							<PropertyList>
+								<Property Name="FilterTimeDown" Type="Real64" Value="1"/>
+								<Property Name="FilterTimeUp" Type="Real64" Value="1"/>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="RTPCRamping" Type="int16" Value="2"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="Voice" ID="{343F0CEC-9B02-488F-B249-D1CA4913C61C}" ShortID="87181040">
+					<ChildrenList>
+						<GameParameter Name="Distance" ID="{745F7111-97B9-4B85-AFC0-5E606C984E46}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+						<GameParameter Name="Clipping" ID="{8EB31983-A9EC-4A3D-87B8-EABCD38E374B}">
+							<PropertyList>
+								<Property Name="InitialValue" Type="Real64" Value="0"/>
+								<Property Name="Max" Type="Real64" Value="10"/>
+							</PropertyList>
+						</GameParameter>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</GameParameters>
+</WwiseDocument>

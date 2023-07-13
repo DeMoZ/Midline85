@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{ED7C04B1-58B8-4F2E-9507-9DD0AAB10A70}" SchemaVersion="110" RootDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" ParentDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}">
+	<AudioObjects>
+		<WorkUnit Name="TestVoice" ID="{ED7C04B1-58B8-4F2E-9507-9DD0AAB10A70}" OwnerID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" PersistMode="Nested">
+			<ChildrenList>
+				<Sound Name="TestVoiceLanguage" ID="{2BDF95FF-96D3-4F7C-BC47-68D3A6D5C514}" ShortID="1065122858">
+					<PropertyList>
+						<Property Name="IsVoice" Type="bool" Value="True"/>
+						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Elena" ID="{BEC8E535-25ED-403B-9B08-49F0C157AB52}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<AudioFileSource Name="Russia" ID="{791C1064-3F42-4A73-8321-9430801A1E2C}">
+							<Language>Russian</Language>
+							<AudioFile>Russia.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="935448666"/>
+							</MediaIDList>
+						</AudioFileSource>
+						<AudioFileSource Name="English" ID="{D55C36DE-6F37-486A-8903-FE90461D7574}">
+							<Language>English</Language>
+							<AudioFile>English.wav</AudioFile>
+							<MediaIDList>
+								<MediaID ID="581690082"/>
+							</MediaIDList>
+						</AudioFileSource>
+					</ChildrenList>
+					<ActiveSourceList>
+						<ActiveSource Name="Russia" ID="{791C1064-3F42-4A73-8321-9430801A1E2C}" Platform="Linked"/>
+						<ActiveSource Name="English" ID="{D55C36DE-6F37-486A-8903-FE90461D7574}" Platform="Linked"/>
+					</ActiveSourceList>
+				</Sound>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

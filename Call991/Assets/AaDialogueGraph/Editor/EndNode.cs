@@ -7,7 +7,7 @@ namespace AaDialogueGraph.Editor
 {
     public class EndNode : AaNode
     {
-        public void Set(EndNodeData data, string guid)
+        public void Set(EndNodeData data, string guid, List<string> sounds, List<string> musics, List<string> rtpcs)
         {
             Guid = guid;
             NodeType = AaNodeType.CountNode;
@@ -20,7 +20,7 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(foldout);
 
             var events = new AaNodeEvents();
-            events.Set(data.EventVisualData, () => { });
+            events.Set(data.EventVisualData, () => { }, sounds, musics, rtpcs);
             foldout.Add(events);
 
             var recordsContainer = new VisualElement();
@@ -83,9 +83,6 @@ namespace AaDialogueGraph.Editor
             }    
             return records;
         }
-        
-        public List<EventVisual> GetEventsVisual() =>
-            contentContainer.Query<EventVisual>().ToList();
     }
 
     public class RecordGroup : VisualElement

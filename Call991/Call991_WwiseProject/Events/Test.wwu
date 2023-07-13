@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{8E791B7C-733B-4306-B74A-CF49F25E98D6}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="Test" ID="{8E791B7C-733B-4306-B74A-CF49F25E98D6}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="TestVoiceLanguage" ID="{7E969093-95A8-4D79-81F2-7739EFE4E3AE}">
+					<ChildrenList>
+						<Action Name="" ID="{BC4947F5-F58B-47E4-8AD8-F7A9ADBA256A}" ShortID="352101876">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="TestVoiceLanguage" ID="{2BDF95FF-96D3-4F7C-BC47-68D3A6D5C514}" WorkUnitID="{ED7C04B1-58B8-4F2E-9507-9DD0AAB10A70}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PauseVoice_Start" ID="{10BF4603-B776-40D8-8680-B095568557F2}">
+					<ChildrenList>
+						<Action Name="" ID="{4BD1906D-BB56-4E9F-92D5-228E5D0F8668}" ShortID="767460406">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" WorkUnitID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ResumeVoice_End" ID="{BD4983EF-3389-41CE-9D22-834D6E489C9A}">
+					<ChildrenList>
+						<Action Name="" ID="{491164EE-C2D0-425E-AE9E-D7BD44463E21}" ShortID="430248147">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" WorkUnitID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="PauseVoice_Start_FADE" ID="{944FDD65-DBCC-40EB-9D38-F07A2BF206D9}">
+					<ChildrenList>
+						<Action Name="" ID="{679D558B-4E54-4FB1-B8BC-289E40BF82EA}" ShortID="139426128">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="7"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" WorkUnitID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="ResumeVoice_End_FADE" ID="{269273C7-B98A-4F3A-B428-86F545DD2CEF}">
+					<ChildrenList>
+						<Action Name="" ID="{F92A2E5F-65FC-437F-BAF6-40D05F5B5040}" ShortID="197733151">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="9"/>
+								<Property Name="FadeTime" Type="Real64" Value="1.5"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" WorkUnitID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

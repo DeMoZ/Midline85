@@ -1,0 +1,713 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{2C2838BD-AE14-4AA9-9335-CD786FA9A820}" SchemaVersion="110" RootDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" ParentDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}">
+	<AudioObjects>
+		<WorkUnit Name="Konstantin" ID="{2C2838BD-AE14-4AA9-9335-CD786FA9A820}" OwnerID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" PersistMode="Nested">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="14"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<ActorMixer Name="Konstantin" ID="{DC2AAFD4-4419-4D6B-BCDE-2A66B5E31B0A}" ShortID="132681310">
+					<PropertyList>
+						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="Pitch" Type="int32">
+							<ValueList>
+								<Value>60</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Konstantin" ID="{04D58EDE-0133-4ACA-9EF1-C1482DA76015}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="fire_p_const_001" ID="{C62DDF8C-2120-4C3C-8C21-D46994FA8251}" ShortID="216541027">
+							<Comment>Константин, пожарная бригада_ Коллега, это правда, что в горящем доме еще и отец семейства?</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_001" ID="{C1CFBF01-5ADD-4056-80FC-7C5789A02574}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="368131583"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{288DADF3-8345-4B2F-9502-E6CCD6DEA58D}" ShortID="77551574" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_001" ID="{C1CFBF01-5ADD-4056-80FC-7C5789A02574}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{288DADF3-8345-4B2F-9502-E6CCD6DEA58D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_002" ID="{5E9A2870-DC01-4475-989B-DD8872CC28A8}" ShortID="229571515">
+							<Comment>Мы постараемся его найти, но чёрт___ Времени у нас -- считай, ничего_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_002" ID="{5CA62693-9C42-4BCB-852C-C5B002D10024}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="22930463"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{F200ED2C-B94D-41D0-A278-34F64139B03B}" ShortID="403457416" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{F200ED2C-B94D-41D0-A278-34F64139B03B}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_002" ID="{5CA62693-9C42-4BCB-852C-C5B002D10024}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_003" ID="{7DB88A13-3F25-4B35-BF60-72853C67297A}" ShortID="894198898">
+							<Comment>На кухне -- пусто! Вижу следы с веранды!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_003" ID="{EAFEC068-50C0-4E8E-ADE9-F09FA0C18DA0}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_003.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="532444830"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{701F0AC1-96C1-40A2-9D2D-F4EBFA5B3759}" ShortID="672647768" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_003" ID="{EAFEC068-50C0-4E8E-ADE9-F09FA0C18DA0}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{701F0AC1-96C1-40A2-9D2D-F4EBFA5B3759}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_011" ID="{9426A3A8-3691-43AC-A995-1BABC3AAD46F}" ShortID="109087390">
+							<Comment>Константин, пожарная бригада_ Коллеги, приятно познакомиться, бла-бла_ Мы с парнями внутри_ Ищем детей_</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_011" ID="{9FA26590-13C2-465E-9B9F-4747B72CF765}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_011.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="476786180"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{76443B22-7E6D-41EC-8666-907C8AB6404C}" ShortID="861778408" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{76443B22-7E6D-41EC-8666-907C8AB6404C}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_011" ID="{9FA26590-13C2-465E-9B9F-4747B72CF765}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_015" ID="{68D187C0-081C-45AD-98DB-3F72AD0B2F40}" ShortID="789513989">
+							<Comment>Чердак -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_015" ID="{8A6E641E-9D0A-4404-92A3-CAE9BD39BAD1}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_015.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="364234286"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{E343B0F1-14D1-413C-8DB5-31925530EEC4}" ShortID="822565007" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_015" ID="{8A6E641E-9D0A-4404-92A3-CAE9BD39BAD1}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{E343B0F1-14D1-413C-8DB5-31925530EEC4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_017" ID="{056117D7-2DB1-4B13-AB13-3DDF025A976F}" ShortID="236047104">
+							<Comment>Кухня -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_017" ID="{FF30682D-FB95-4127-A8A5-425B5E1E08B2}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_017.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="434519958"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{2A614971-6670-4E66-B3EE-8BA478096481}" ShortID="677660730" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_017" ID="{FF30682D-FB95-4127-A8A5-425B5E1E08B2}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{2A614971-6670-4E66-B3EE-8BA478096481}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_018" ID="{0F624965-62EB-4FB0-BAB2-8A99F3EEBB24}" ShortID="1043700751">
+							<Comment>Подвал заперт! Открываем! Пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_018" ID="{6531F628-30E9-4865-A168-A5743C336CBF}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_018.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1015867436"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{186BB920-5939-4872-9246-1045A5567D9D}" ShortID="834728333" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{186BB920-5939-4872-9246-1045A5567D9D}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_018" ID="{6531F628-30E9-4865-A168-A5743C336CBF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_013" ID="{0B32119B-B758-4518-A597-BD11A16564DA}" ShortID="190568067">
+							<Comment>Мы сразу на второй этаж!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_013" ID="{92C3DFB4-4AA1-4253-B00F-62B8DFB6500C}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_013.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="623773175"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{D75195BC-D9D8-40F1-A5F4-A2C256E6F092}" ShortID="841183913" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_013" ID="{92C3DFB4-4AA1-4253-B00F-62B8DFB6500C}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{D75195BC-D9D8-40F1-A5F4-A2C256E6F092}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_005" ID="{A1547F06-63A5-4838-AC46-0CEA898B9039}" ShortID="245688240">
+							<Comment>Гостинная -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_005" ID="{E8A02E6C-D8D1-45EA-8C65-5AE1C4AF93EC}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="43568697"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{2D35366A-C6C5-4A82-BC6E-A094E7D16065}" ShortID="992342575" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{2D35366A-C6C5-4A82-BC6E-A094E7D16065}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_005" ID="{E8A02E6C-D8D1-45EA-8C65-5AE1C4AF93EC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_008" ID="{70BD33C2-C34C-45DD-8E02-DCA43ADB8D69}" ShortID="703120710">
+							<Comment>Детская -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_008" ID="{F3FC0EB3-8829-4686-A4BF-1CBA0A3E2786}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_008.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="686318290"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{FB010E1A-1006-4073-8F50-6E185B2857A3}" ShortID="581083527" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{FB010E1A-1006-4073-8F50-6E185B2857A3}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_008" ID="{F3FC0EB3-8829-4686-A4BF-1CBA0A3E2786}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_009" ID="{6A59E6BA-A917-4062-BB66-24A53EBEF6B9}" ShortID="473693291">
+							<Comment>Чердак -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_009" ID="{62BEA001-D237-4E8E-9F04-56C0D5FCF105}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="84413893"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{A157B785-8AF9-4BC2-A3CC-F04C31345CEA}" ShortID="410773910" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_009" ID="{62BEA001-D237-4E8E-9F04-56C0D5FCF105}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{A157B785-8AF9-4BC2-A3CC-F04C31345CEA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_006" ID="{3CFE7463-F290-40D6-ADE2-73090A1C3DD6}" ShortID="641172170">
+							<Comment>Мы продолжаем поиски! Но скоро на выход! Конец связи!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_006" ID="{24581E61-EDED-4F66-BCB4-884915719CF1}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="477999435"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{7857FD66-A253-43CB-91AE-1D275B2AB3B9}" ShortID="492028623" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_006" ID="{24581E61-EDED-4F66-BCB4-884915719CF1}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{7857FD66-A253-43CB-91AE-1D275B2AB3B9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_007" ID="{53909792-8D16-4BBD-ABDA-D0350A4B8CFD}" ShortID="37549412">
+							<Comment>Проверяем второй этаж!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_007" ID="{6FCCCAEE-A976-41C2-A90D-779053F11E29}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_007.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="608881928"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{96B36BBF-DE21-4991-952F-137330722B92}" ShortID="333937865" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{96B36BBF-DE21-4991-952F-137330722B92}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_007" ID="{6FCCCAEE-A976-41C2-A90D-779053F11E29}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_019" ID="{ABC31ED8-0ED2-466D-9F02-6CBC217502E8}" ShortID="141083685">
+							<Comment>Гостинная -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_019" ID="{2FD7BBD8-1C3C-4AB7-8919-97A3EAB349D0}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="739606204"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{1EE95358-D574-4C7D-87E9-9E36E79BCA9B}" ShortID="690213385" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{1EE95358-D574-4C7D-87E9-9E36E79BCA9B}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_019" ID="{2FD7BBD8-1C3C-4AB7-8919-97A3EAB349D0}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_014" ID="{E5B5707E-5ABB-47BB-B4B4-EE07D0AD73F9}" ShortID="889265475">
+							<Comment>Детская -- пусто!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_014" ID="{36A5B1F2-EBF2-43E8-AD04-31BB21365FD1}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_014.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="433909689"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{37FE57E1-E9DF-4A2C-B29B-63299EF5611A}" ShortID="61811556" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{37FE57E1-E9DF-4A2C-B29B-63299EF5611A}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_014" ID="{36A5B1F2-EBF2-43E8-AD04-31BB21365FD1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_020" ID="{E2B902FA-FFBC-4F30-A0CA-4FB41FE54699}" ShortID="432092858">
+							<Comment>Мы продолжаем поиски! Скоро на выход! Конец связи!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_020" ID="{DBADA595-BC10-43A0-9F90-6458E1EB45CC}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_020.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="764266938"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{CFD37A45-2D78-42CF-ADD6-A56ECF2ACC9C}" ShortID="1026139837" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{CFD37A45-2D78-42CF-ADD6-A56ECF2ACC9C}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_020" ID="{DBADA595-BC10-43A0-9F90-6458E1EB45CC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_012" ID="{DCBD6226-9C6A-46B2-807A-76670D6A3553}" ShortID="245544244">
+							<Comment>Дому -- пиздец, время у нас -- минута, если не меньше_ Вперёд-вперёд-вперёд!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_012" ID="{DDAE58D5-EFA0-4C55-AF21-7C39CFC77F2E}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_012.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="84109581"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{E44BC21A-D7F5-4FCF-83CF-1F4425F7D22C}" ShortID="361552936" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{E44BC21A-D7F5-4FCF-83CF-1F4425F7D22C}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_012" ID="{DDAE58D5-EFA0-4C55-AF21-7C39CFC77F2E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_016" ID="{8D548E4F-9711-4FBD-B98F-24338B594A31}" ShortID="356750038">
+							<Comment>Есть контакт! Мы взяли! Папашу успокойте! Конец связи!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_016" ID="{D76F10DC-C226-4C25-B136-6164E85C87CE}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="9470088"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{F9A78A9C-2DCE-4126-81A4-ACF2B809F15E}" ShortID="143364999" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{F9A78A9C-2DCE-4126-81A4-ACF2B809F15E}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_016" ID="{D76F10DC-C226-4C25-B136-6164E85C87CE}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_004" ID="{60193045-E37D-41A8-AE19-ADD11B05421F}" ShortID="134111167">
+							<Comment>Подвал заперт! Открываем!__ Пусто! Дальше!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_004" ID="{AC8E24DE-DB74-4F11-9420-7BD8D1A77CBD}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="49316564"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{D8AB07B9-BE56-4CE2-8C77-8100A30013BD}" ShortID="58059057" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{D8AB07B9-BE56-4CE2-8C77-8100A30013BD}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_const_004" ID="{AC8E24DE-DB74-4F11-9420-7BD8D1A77CBD}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="fire_p_const_010" ID="{AE52BEEB-3533-4472-916F-5EFD275F20C7}" ShortID="567888859">
+							<Comment>Есть контакт! Мы взяли! Ищем отца -- и выходим!</Comment>
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="fire_p_const_010" ID="{93F43235-9530-4859-9C2E-68C98E039FD5}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_const_010.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="684550741"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{77045C82-3472-4206-90B4-ED98BA3F53F6}" ShortID="673830471" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="fire_p_const_010" ID="{93F43235-9530-4859-9C2E-68C98E039FD5}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{77045C82-3472-4206-90B4-ED98BA3F53F6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>
