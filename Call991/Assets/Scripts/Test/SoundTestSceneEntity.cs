@@ -51,6 +51,7 @@ public class SoundTestSceneEntity : MonoBehaviour
     private int _currentIndex;
     private WwiseAudio _audioManager;
     private CancellationTokenSource _tokenSource;
+    private PlayerProfile _profile;
 
     async void Start()
     {
@@ -74,12 +75,12 @@ public class SoundTestSceneEntity : MonoBehaviour
     
         var onSwitchScene = new ReactiveCommand<GameScenes>();
         var levelLanguages = new ReactiveProperty<List<string>>(LocalizationManager.GetAllLanguages());
-        var profile = new PlayerProfile();
+        _profile = new PlayerProfile();
 
         var wwiseCtx = new WwiseAudio.Ctx
         {
             LevelLanguages = levelLanguages,
-            Profile = profile,
+            Profile = _profile,
             OnSwitchScene = onSwitchScene,
         };
 
@@ -104,7 +105,7 @@ public class SoundTestSceneEntity : MonoBehaviour
         {
             var topBtn = Instantiate(buttonPrefab, topParent);
             topBtn.GetComponentInChildren<TMP_Text>().text = language;
-            topBtn.onClick.AddListener(() => profile.AudioLanguageChanged.Value = language);
+            topBtn.onClick.AddListener(() => _profile.AudioLanguageChanged.Value = language);
         }
 
         startButton.onClick.AddListener(StartRoutine);
@@ -122,15 +123,15 @@ public class SoundTestSceneEntity : MonoBehaviour
 
     private void SetMasterVolume(float volume)
     {
-        _audioManager.OnVolumeChanged((AudioSourceType.Master, volume));
+        _profile.OnVolumeSet.Execute((AudioSourceType.Master, volume));
     }
     private void SetMusicVolume(float volume)
     {
-        _audioManager.OnVolumeChanged((AudioSourceType.Music, volume));
+        _profile.OnVolumeSet.Execute((AudioSourceType.Music, volume));
     }
     private void SetVoiceVolume(float volume)
     {
-        _audioManager.OnVolumeChanged((AudioSourceType.Voice, volume));
+        _profile.OnVolumeSet.Execute((AudioSourceType.Voice, volume));
     }
 
     private void StartRoutine()

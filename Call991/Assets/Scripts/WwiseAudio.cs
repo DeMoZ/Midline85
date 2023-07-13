@@ -31,7 +31,7 @@ public class WwiseAudio : MonoBehaviour
     [SerializeField] private GameObject sfxGo = default;
 
     [Space] [SerializeField] private Wwise.Bank BankMaster = default;
-    [SerializeField] private Wwise.Bank BankMain = default;
+    // [SerializeField] private Wwise.Bank BankMain = default;
 
     [Space] [SerializeField] private Wwise.RTPC MasterVolume = default;
     [SerializeField] private Wwise.RTPC VoiceVolume = default;
@@ -101,24 +101,18 @@ public class WwiseAudio : MonoBehaviour
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenMaster.IsCancellationRequested) return;
 
-        Debug.Log($"[{this}] loading <color=green>bank</color> <color=yellow>{BankMain}</color>");
-        BankMain.LoadAsync();
-        await Task.Delay((int)(WaitSeconds * 1000));
-        if (_tokenMaster.IsCancellationRequested) return;
+        // Debug.Log($"[{this}] loading <color=green>bank</color> <color=yellow>{BankMain}</color>");
+        // BankMain.LoadAsync();
+        // await Task.Delay((int)(WaitSeconds * 1000));
+        // if (_tokenMaster.IsCancellationRequested) return;
 
         _isMasterLoaded = true;
 
         Debug.Log($"[{this}] <color=green>Initialize completed</color> play music {MusicEvent}");
-        //MusicEvent.Post(musicGo);
-        AkSoundEngine.PostEvent("Music", musicGo);
-
+        MusicEvent.Post(musicGo);
+        //PlayMusic(MusicEvent);
+        //AkSoundEngine.PostEvent("Music", musicGo);
         //MusicEvent.Post(musicGo,testCallbackFlags, OnMusic);
-    }
-
-    private void OnMusic(object in_cookie, AkCallbackType in_type, AkCallbackInfo in_info)
-    {
-        Debug.Log(
-            $"[{this}] <color=red>!!!!!!!!</color> in_cookie = {in_cookie}; in_type = {in_type}; in_info = {in_info}");
     }
 
     public async Task LoadBank(string levelId)
@@ -217,8 +211,11 @@ public class WwiseAudio : MonoBehaviour
         _isLanguageLoaded = true;
     }
 
-    public void OnVolumeChanged((AudioSourceType source, float volume) value)
+    private void OnVolumeChanged((AudioSourceType source, float volume) value)
     {
+        //MusicVolume.SetValue(musicGo, value.volume);
+        //MusicVolume.SetGlobalValue(value.volume);
+        //AkSoundEngine.SetRTPCValue(MusicVolume.Name, value.volume);
         switch (value.source)
         {
             case AudioSourceType.Master:
@@ -228,10 +225,7 @@ public class WwiseAudio : MonoBehaviour
                 VoiceVolume.SetValue(voiceGo, value.volume);
                 break;
             case AudioSourceType.Music:
-                Debug.LogWarning($"music {MusicVolume.Name}, value {value.volume}");
-                MusicVolume.SetValue(musicGo, value.volume); // todo why not work?
-                //MusicVolume.SetGlobalValue(value.volume); // todo why not work?
-                //AkSoundEngine.SetRTPCValue(MusicVolume.Name, value.volume); // todo why not work?
+                MusicVolume.SetValue(musicGo, value.volume);
                 break;
             case AudioSourceType.Sfx:
                 SfxVolume.SetValue(sfxGo, value.volume);
@@ -257,12 +251,11 @@ public class WwiseAudio : MonoBehaviour
 
     public async void PlayMusic(Wwise.Switch wSwitch)
     {
-        while (!_isBankLoaded)
+        while (!_isMasterLoaded)
         {
             await Task.Delay(1);
             if (_tokenMaster.IsCancellationRequested) return;
         }
-
         if (_tokenMaster.IsCancellationRequested) return;
 
         Debug.Log($"[{this}] <color=green>PlayMusic</color> switch = <color=yellow>{wSwitch}</color>;");
@@ -271,7 +264,7 @@ public class WwiseAudio : MonoBehaviour
 
     public async void PlayMusic(string wSwitch)
     {
-        while (!_isBankLoaded)
+        while (!_isMasterLoaded)
         {
             await Task.Delay(1);
             if (_tokenMaster.IsCancellationRequested) return;
@@ -280,7 +273,6 @@ public class WwiseAudio : MonoBehaviour
         if (_tokenMaster.IsCancellationRequested) return;
 
         Debug.Log($"[{this}] <color=green>PlayMusic</color> switch = <color=yellow>{wSwitch}</color>;");
-        //wSwitch.SetValue(musicGo);
         var parts = wSwitch.Split(" / ");
         AkSoundEngine.SetSwitch(parts[0], parts[1], musicGo);
     }
