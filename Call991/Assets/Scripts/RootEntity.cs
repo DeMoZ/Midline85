@@ -15,7 +15,8 @@ public class RootEntity : IDisposable
     public struct Ctx
     {
         public WwiseAudio AudioManagerPrefab;
-        public VideoManager VideoManager;
+        public VideoManager VideoManagerPrefab;
+        public RectTransform VideoManagerParent;
         public OverridenDialogue OverridenDialogue;
         public Image VideoFade;
         public Image ScreenFade;
@@ -31,7 +32,7 @@ public class RootEntity : IDisposable
         Debug.Log($"[RootEntity][time] Loading scene start.. {Time.realtimeSinceStartup}");
         _ctx = ctx;
         _disposables = new CompositeDisposable();
-        
+
         var gameSet = Resources.Load<GameSet>("GameSet");
         var cursorSettings = Resources.Load<CursorSet>("CursorSet");
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
@@ -79,7 +80,8 @@ public class RootEntity : IDisposable
         });
         audioManager.Initialize().Forget();
 
-        _ctx.VideoManager.SetCtx(new VideoManager.Ctx
+        var videoManager = Object.Instantiate(_ctx.VideoManagerPrefab, _ctx.VideoManagerParent);
+        videoManager.SetCtx(new VideoManager.Ctx
         {
         });
 
@@ -93,7 +95,7 @@ public class RootEntity : IDisposable
             OnSwitchScene = onSwitchScene,
             Profile = profile,
             AudioManager = audioManager,
-            VideoManager = _ctx.VideoManager,
+            VideoManager = videoManager,
             Blocker = blocker,
             ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,
@@ -107,7 +109,7 @@ public class RootEntity : IDisposable
             ScenesHandler = scenesHandler,
             GameSet = gameSet,
             OnSwitchScene = onSwitchScene,
-            VideoManager = _ctx.VideoManager,
+            VideoManager = videoManager,
             Blocker = blocker,
             CursorSettings = cursorSettings,
         }).AddTo(_disposables);

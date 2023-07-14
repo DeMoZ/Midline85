@@ -1,9 +1,18 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.Video;
+
+[System.Serializable]
+public class VideoSet
+{
+    public float Delay;
+    public bool Loop;
+    public bool Stop;
+    public VideoClip Clip;
+}
 
 public class VideoManager : MonoBehaviour
 {
@@ -11,11 +20,7 @@ public class VideoManager : MonoBehaviour
     {
     }
 
-    [SerializeField] private VideoPlayer videoPlayer = default;
-    [SerializeField] private VideoPlayer vfxPlayer = default;
-
-    [SerializeField] private RawImage videoImage = default;
-    [SerializeField] private RawImage vfxImage = default;
+    [SerializeField] private List<VideoPlayer> videoPlayers = default;
 
     private Ctx _ctx;
     private string _currentVideoPath;
@@ -28,64 +33,79 @@ public class VideoManager : MonoBehaviour
 
     private async Task PrepareVideo()
     {
-        videoPlayer.Stop();
-        videoPlayer.Prepare();
-
-        while (!videoPlayer.isPrepared)
-            await Task.Yield();
+        // videoPlayer.Stop();
+        // videoPlayer.Prepare();
+        //
+        // while (!videoPlayer.isPrepared)
+        //     await Task.Yield();
     }
 
     public void PlayPreparedVideo()
     {
-        videoPlayer.Play();
-        videoPlayer.isLooping = true;
+        // videoPlayer.Play();
+        // videoPlayer.isLooping = true;
     }
 
     public void EnableVideo(bool enable)
     {
-        videoImage.gameObject.SetActive(enable);
+        // videoImage.gameObject.SetActive(enable);
     }
 
-    public void EnableVideoPlayer(bool enable)
+    public void StopPlayers()
     {
-        videoPlayer.gameObject.SetActive(enable);
-        vfxPlayer.gameObject.SetActive(enable);
-        videoImage.gameObject.SetActive(enable);
-        vfxImage.gameObject.SetActive(enable);
+        foreach (var player in videoPlayers)
+        {
+            StopVideo(player);
+        }
     }
-    
-    public void PlayVideo(VideoClip videoClip)
+
+    private void StopVideo(VideoPlayer player)
     {
-        videoPlayer.clip = videoClip;
-        videoPlayer.isLooping = true;
+        player.Stop();
+        player.gameObject.SetActive(false);
+        player.clip = null;
     }
-    
+
+    public void PlayVideo(VideoSet data, int layer)
+    {
+        layer = Mathf.Clamp(layer, 0, videoPlayers.Count - 1);
+        var player = videoPlayers[layer];
+
+        if (data.Stop)
+        {
+            StopVideo(player);
+        }
+        else
+        {
+            player.clip = data.Clip;
+            player.isLooping = data.Loop;
+            player.gameObject.SetActive(true);
+            player.Play();
+        }
+    }
+
+    public void StopVideo(int layer)
+    {
+        
+    }
+
     public void PlayVideo(EventVisualData data, VideoClip videoClip)
     {
-        // TODO layers should be added to mixer
-        switch (data.Layer)
+        var layer = Mathf.Clamp((int)data.Layer, 0, videoPlayers.Count - 1);
+        var player = videoPlayers[layer];
+
+        if (data.Stop)
         {
-            case PhraseEventLayer.Effects: // case PhraseEventTypes.LoopSfx:
-                videoPlayer.clip = videoClip;
-                videoPlayer.isLooping = data.Loop;
-                throw new NotImplementedException();
-                break;
-            case PhraseEventLayer.Single1: // case PhraseEventTypes.Video:
-                videoPlayer.clip = videoClip;
-                videoPlayer.isLooping = data.Loop;
-                break;
-            case PhraseEventLayer.Single2: //case PhraseEventTypes.Video: should be second video layer
-                videoPlayer.clip = videoClip;
-                videoPlayer.isLooping = data.Loop;
-                throw new NotImplementedException();
-                break;
-            case PhraseEventLayer.Multiple: // on that layer can be several musics at the same time
-                videoPlayer.clip = videoClip;
-                videoPlayer.isLooping = data.Loop;
-                throw new NotImplementedException();
-                break;
-            default:
-                throw new ArgumentOutOfRangeException();
+            player.Stop();
+            player.gameObject.SetActive(false);
+            player.clip = null;
+        }
+        else
+        {
+            player.clip = videoClip;
+            player.isLooping = data.Loop;
+            player.gameObject.SetActive(true);
+            player.Play();
         }
     }
 }
