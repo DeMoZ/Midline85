@@ -7,7 +7,8 @@ public class GameEntity : MonoBehaviour
 {
     private static GameEntity _instance;
     [SerializeField] private WwiseAudio wwisePrefab;
-    [SerializeField] private VideoManager videoManager;
+    [SerializeField] private VideoManager videoManagerPrefab;
+    [SerializeField] private RectTransform videoManagerParent;
 
     [Space] [SerializeField] private Image videoFade;
     [SerializeField] private Image screenFade;
@@ -33,8 +34,6 @@ public class GameEntity : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
-
-        
     }
 
     private async void Start()
@@ -64,7 +63,8 @@ public class GameEntity : MonoBehaviour
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             AudioManagerPrefab = wwisePrefab,
-            VideoManager = videoManager,
+            VideoManagerPrefab = videoManagerPrefab,
+            VideoManagerParent = videoManagerParent,
             VideoFade = videoFade,
             ScreenFade = screenFade,
             ClicksParent = clicksParent,

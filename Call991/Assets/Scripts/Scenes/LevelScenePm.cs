@@ -415,7 +415,7 @@ public class LevelScenePm : IDisposable
         {
             case PhraseEventType.VideoClip:
                 var videoClip = content[data.PhraseEvent] as VideoClip;
-                if (videoClip == null) break;
+                if (videoClip == null && !data.Stop) break;
                 _ctx.videoManager.PlayVideo(data, videoClip);
                 break;
             case PhraseEventType.GameObject:
