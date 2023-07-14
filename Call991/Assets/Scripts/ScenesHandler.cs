@@ -173,7 +173,7 @@ public class ScenesHandler : IDisposable
 
     public IGameScene LoadingSceneEntity(ReactiveProperty<string> onLoadingProcess, GameScenes scene)
     {
-        _ctx.VideoManager.EnableVideo(false);
+        _ctx.VideoManager.StopPlayers();
 
         var toLevelScene = scene == GameScenes.Level;
 

@@ -5,7 +5,7 @@ using AaDialogueGraph;
 using UnityEngine;
 using UnityEngine.Video;
 
-[System.Serializable]
+[Serializable]
 public class VideoSet
 {
     public float Delay;
@@ -33,6 +33,7 @@ public class VideoManager : MonoBehaviour
 
     private async Task PrepareVideo()
     {
+        await Task.Delay(1);
         // videoPlayer.Stop();
         // videoPlayer.Prepare();
         //
@@ -46,11 +47,6 @@ public class VideoManager : MonoBehaviour
         // videoPlayer.isLooping = true;
     }
 
-    public void EnableVideo(bool enable)
-    {
-        // videoImage.gameObject.SetActive(enable);
-    }
-
     public void StopPlayers()
     {
         foreach (var player in videoPlayers)
@@ -58,14 +54,7 @@ public class VideoManager : MonoBehaviour
             StopVideo(player);
         }
     }
-
-    private void StopVideo(VideoPlayer player)
-    {
-        player.Stop();
-        player.gameObject.SetActive(false);
-        player.clip = null;
-    }
-
+    
     public void PlayVideo(VideoSet data, int layer)
     {
         layer = Mathf.Clamp(layer, 0, videoPlayers.Count - 1);
@@ -84,11 +73,6 @@ public class VideoManager : MonoBehaviour
         }
     }
 
-    public void StopVideo(int layer)
-    {
-        
-    }
-
     public void PlayVideo(EventVisualData data, VideoClip videoClip)
     {
         var layer = Mathf.Clamp((int)data.Layer, 0, videoPlayers.Count - 1);
@@ -96,9 +80,7 @@ public class VideoManager : MonoBehaviour
 
         if (data.Stop)
         {
-            player.Stop();
-            player.gameObject.SetActive(false);
-            player.clip = null;
+            StopVideo(player);
         }
         else
         {
@@ -107,5 +89,13 @@ public class VideoManager : MonoBehaviour
             player.gameObject.SetActive(true);
             player.Play();
         }
+    }
+    
+    private void StopVideo(VideoPlayer player)
+    {
+        Debug.Log($"[{this}] Stop videoPlayer {player.gameObject.name}");
+        player.Stop();
+        player.gameObject.SetActive(false);
+        player.clip = null;
     }
 }
