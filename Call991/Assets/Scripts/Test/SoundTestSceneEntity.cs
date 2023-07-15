@@ -8,7 +8,6 @@ using TMPro;
 using UI;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class SoundTestSceneEntity : MonoBehaviour
@@ -25,13 +24,24 @@ public class SoundTestSceneEntity : MonoBehaviour
     [SerializeField] private Button stopButton = default;
     [SerializeField] private Button pauseButton = default;
     [SerializeField] private Button resumeButton = default;
+    [SerializeField] private Button startTimerButton = default;
+    [SerializeField] private Button stopTimerButton = default;
+    [SerializeField] private Button hoverButton = default;
+    [SerializeField] private Button clickMenuButton = default;
+    [SerializeField] private Button clickLevelButton = default;
+    [Space]
+    [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
+    [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
 
+    [Space]
     [SerializeField] private Slider masterVolumeSlider = default;
     [SerializeField] [Range(0, 100)] private float startMasterVolume = 93f;
     [SerializeField] private Slider musicVolumeSlider = default;
     [SerializeField] [Range(0, 100)] private float startMusicVolume = 50f;
     [SerializeField] private Slider voiceVolumeSlider = default;
     [SerializeField] [Range(0, 100)] private float startVoiceVolume = 100f;
+    [SerializeField] private Slider sfxVolumeSlider = default;
+    [SerializeField] [Range(0, 100)] private float startSfxVolume = 87;
 
     [SerializeField] private Transform musicButtonsParent = default;
     [SerializeField] private Transform voiceButtonsParent = default;
@@ -116,13 +126,20 @@ public class SoundTestSceneEntity : MonoBehaviour
         stopButton.onClick.AddListener(StopRoutine);
         pauseButton.onClick.AddListener(() => _audioManager.PausePhrasesAndSfx());
         resumeButton.onClick.AddListener(() => _audioManager.ResumePhrasesAndSfx());
+        startTimerButton.onClick.AddListener(() => _audioManager.PlayTimerSfx());
+        stopTimerButton.onClick.AddListener(() => _audioManager.StopTimerSfx());
+        hoverButton.onClick.AddListener(() => menuButtonAudioSettings.PlayHoverSound());
+        clickMenuButton.onClick.AddListener(() => menuButtonAudioSettings.PlayClickSound());
+        clickLevelButton.onClick.AddListener(() => levelButtonAudioSettings.PlayClickSound());
 
         masterVolumeSlider.onValueChanged.AddListener(SetMasterVolume);
         musicVolumeSlider.onValueChanged.AddListener(SetMusicVolume);
         voiceVolumeSlider.onValueChanged.AddListener(SetVoiceVolume);
+        sfxVolumeSlider.onValueChanged.AddListener(SetSfxVolume);
         masterVolumeSlider.value = startMasterVolume;
         musicVolumeSlider.value = startMusicVolume;
         voiceVolumeSlider.value = startVoiceVolume;
+        sfxVolumeSlider.value = startSfxVolume;
     }
 
     private void SetMasterVolume(float volume)
@@ -138,6 +155,11 @@ public class SoundTestSceneEntity : MonoBehaviour
     private void SetVoiceVolume(float volume)
     {
         _profile.OnVolumeSet.Execute((AudioSourceType.Voice, volume));
+    }
+    
+    private void SetSfxVolume(float volume)
+    {
+        _profile.OnVolumeSet.Execute((AudioSourceType.Sfx, volume));
     }
 
     private void StartRoutine()
