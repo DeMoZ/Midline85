@@ -8,6 +8,7 @@ using UnityEngine.Video;
 [Serializable]
 public class VideoSet
 {
+    public PhraseEventLayer Layer;
     public float Delay;
     public bool Loop;
     public bool Stop;
@@ -55,9 +56,9 @@ public class VideoManager : MonoBehaviour
         }
     }
     
-    public void PlayVideo(VideoSet data, int layer)
+    public void PlayVideo(VideoSet data)
     {
-        layer = Mathf.Clamp(layer, 0, videoPlayers.Count - 1);
+        var layer = Mathf.Clamp((int)data.Layer, 0, videoPlayers.Count - 1);
         var player = videoPlayers[layer];
 
         if (data.Stop)

@@ -10,12 +10,10 @@ public class VideoTestSceneEntity : MonoBehaviour
 
     [Space] [SerializeField] private List<VideoSet> _playVideoAsLayers;
     private VideoManager _videoManager;
-    private Coroutine[] _playRoutine;
+    private float _time;
 
     private void Start()
     {
-        _playRoutine = new Coroutine[_playVideoAsLayers.Count];
-
         _videoManager = Instantiate(videoManagerPrefab, videoManagerParent);
         _videoManager.SetCtx(new VideoManager.Ctx
         {
@@ -28,23 +26,24 @@ public class VideoTestSceneEntity : MonoBehaviour
     private void PlayVideos()
     {
         if (!_videoManager) return;
+        _time = Time.time;
 
-        for (var i = 0; i < _playVideoAsLayers.Count; i++)
+        StopAllCoroutines();
+
+        foreach (var vSet in _playVideoAsLayers)
         {
-            if (_playRoutine[i] != null)
-                StopCoroutine(_playRoutine[i]);
-
-            if (_playVideoAsLayers[i] == null) continue;
-
-            _playRoutine[i] = StartCoroutine(PlayRoutine(_playVideoAsLayers[i], i));
+            StartCoroutine(PlayRoutine(vSet));
         }
     }
 
-    private IEnumerator PlayRoutine(VideoSet videoSet, int layer)
+    private IEnumerator PlayRoutine(VideoSet videoSet)
     {
         yield return new WaitForSeconds(videoSet.Delay);
-        _videoManager.PlayVideo(videoSet, layer);
-        _playRoutine[layer] = null;
+
+        Debug.Log($"time <color=yellow>{Time.time - _time}</color>; " +
+                  $"Play video <color=yellow>{(videoSet.Clip ? videoSet.Clip.name : AaGraphConstants.None)}</color>;" +
+                  $" delay = {videoSet.Delay}; layer = {videoSet.Layer}");
+        _videoManager.PlayVideo(videoSet);
     }
 
 
@@ -53,12 +52,6 @@ public class VideoTestSceneEntity : MonoBehaviour
     {
         if (!_videoManager) return;
 
-        foreach (var routine in _playRoutine)
-        {
-            if(routine != null)
-                StopCoroutine(routine);
-        }
-        
         _videoManager.StopPlayers();
     }
 }
