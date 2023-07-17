@@ -10,7 +10,7 @@ namespace Data
     {
         public struct Ctx
         {
-            public List<string> Languages;
+            public List<string> LevelLanguages;
             public PlayerProfile Profile;
         }
 
@@ -23,9 +23,9 @@ namespace Data
 
         public async Task<Phrase> GetPhraseAsync(PhraseNodeData data)
         {
-            if (_ctx.Languages == null || _ctx.Languages.Count == 0) return null;
+            if (_ctx.LevelLanguages == null || _ctx.LevelLanguages.Count == 0) return null;
 
-            var index = _ctx.Languages.IndexOf(_ctx.Profile.TextLanguage);
+            var index = _ctx.LevelLanguages.IndexOf(_ctx.Profile.TextLanguage);
 
             if (index == -1) return null;
 
@@ -41,31 +41,32 @@ namespace Data
             return result;
         }
 
-        public async Task<AudioClip> GetVoiceAsync(PhraseNodeData data)
-        {
-            if (_ctx.Languages == null || _ctx.Languages.Count == 0) return null;
+        // [Obsolete]
+        // public async Task<AudioClip> GetVoiceAsync(PhraseNodeData data)
+        // {
+        //     if (_ctx.LevelLanguages == null || _ctx.LevelLanguages.Count == 0) return null;
+        //
+        //     var index = _ctx.LevelLanguages.IndexOf(_ctx.Profile.AudioLanguage);
+        //
+        //     if (index == -1) return null;
+        //
+        //     AudioClip result = null;
+        //
+        //     result = await NodeUtils.GetObjectByPathAsync<AudioClip>(data.PhraseSounds[index]);
+        //
+        //     if (result == null)
+        //     {
+        //         result = await NodeUtils.GetObjectByPathAsync<AudioClip>(data.PhraseSounds[0]);
+        //     }
+        //
+        //     return result;
+        // }
 
-            var index = _ctx.Languages.IndexOf(_ctx.Profile.AudioLanguage);
-
-            if (index == -1) return null;
-
-            AudioClip result = null;
-
-            result = await NodeUtils.GetObjectByPathAsync<AudioClip>(data.PhraseSounds[index]);
-
-            if (result == null)
-            {
-                result = await NodeUtils.GetObjectByPathAsync<AudioClip>(data.PhraseSounds[0]);
-            }
-
-            return result;
-        }
-        
         public async Task<Sprite> GetNewspaperAsync(NewspaperNodeData data)
         {
-            if (_ctx.Languages == null || _ctx.Languages.Count == 0) return null;
+            if (_ctx.LevelLanguages == null || _ctx.LevelLanguages.Count == 0) return null;
 
-            var index = _ctx.Languages.IndexOf(_ctx.Profile.AudioLanguage);
+            var index = _ctx.LevelLanguages.IndexOf(_ctx.Profile.AudioLanguage);
 
             if (index == -1) return null;
 

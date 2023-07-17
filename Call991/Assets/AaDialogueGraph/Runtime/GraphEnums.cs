@@ -17,14 +17,17 @@ public enum LanguageOperationType
 
 public enum PhraseEventLayer
 {
-    Effects,
-    Single1,
-    Single2,
-    Multiple,
+    Layer0 = 0,
+    Layer1,
+    Layer2,
+    Layer3,
+    Layer4,
 }
 
 public enum PhraseEventType
 {
+    Music,
+    RTPC,
     AudioClip,
     VideoClip,
     GameObject,

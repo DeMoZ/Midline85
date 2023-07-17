@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Configs;
 using UI;
@@ -13,7 +14,7 @@ public class ScenesHandler : IDisposable
         public ReactiveCommand OnStartApplicationSwitchScene;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public AudioManager AudioManager;
+        public WwiseAudio AudioManager;
         public GameSet GameSet;
         public VideoManager VideoManager;
         public Blocker Blocker;
@@ -21,6 +22,7 @@ public class ScenesHandler : IDisposable
         public ObjectEvents ObjectEvents;
         public OverridenDialogue OverridenDialogue;
         public ReactiveProperty<bool> IsPauseAllowed;
+        public ReactiveProperty<List<string>> LevelLanguages;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -102,10 +104,11 @@ public class ScenesHandler : IDisposable
     {
         var sceneEntity = new OpenSceneEntity(new OpenSceneEntity.Ctx
         {
-            gameSet = _ctx.GameSet,
-            onSwitchScene = _ctx.OnSwitchScene,
-            blocker = _ctx.Blocker,
-            cursorSettings = _ctx.CursorSettings,
+            GameSet = _ctx.GameSet,
+            OnSwitchScene = _ctx.OnSwitchScene,
+            Blocker = _ctx.Blocker,
+            CursorSettings = _ctx.CursorSettings,
+            AudioManager = _ctx.AudioManager,
         }).AddTo(_disposables);
 
         return sceneEntity;
@@ -134,7 +137,7 @@ public class ScenesHandler : IDisposable
     {
         var level = _ctx.OverridenDialogue.Dialogue != null
             ? _ctx.OverridenDialogue.Dialogue
-            : _ctx.GameSet.GameLevels.TestLevel;
+            : _ctx.GameSet.GameLevels.Levels[0];
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
 
@@ -155,6 +158,7 @@ public class ScenesHandler : IDisposable
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
             IsPauseAllowed = _ctx.IsPauseAllowed,
+            LevelLanguages = _ctx.LevelLanguages,
         }).AddTo(_disposables);
 
         await constructorTask.Value;
@@ -169,7 +173,7 @@ public class ScenesHandler : IDisposable
 
     public IGameScene LoadingSceneEntity(ReactiveProperty<string> onLoadingProcess, GameScenes scene)
     {
-        _ctx.VideoManager.EnableVideo(false);
+        _ctx.VideoManager.StopPlayers();
 
         var toLevelScene = scene == GameScenes.Level;
 
@@ -183,5 +187,18 @@ public class ScenesHandler : IDisposable
         }).AddTo(_disposables);
 
         return switchSceneEntity;
+    }
+
+    public async Task<LoadingSceneEntity> CreateLoadingSceneEntity(bool toLevelScene, ReactiveProperty<string> onLoadingProcess)
+    {
+        await Task.Yield();
+        return new LoadingSceneEntity(new LoadingSceneEntity.Ctx
+        {
+            OnLoadingProcess = onLoadingProcess, // onLoadingProcess, TODO possible need a number.ToString()
+            ToLevelScene = toLevelScene,
+            FirstLoad = toLevelScene,
+            Blocker = _ctx.Blocker,
+            GameSet = _ctx.GameSet,
+        }).AddTo(_disposables);
     }
 }

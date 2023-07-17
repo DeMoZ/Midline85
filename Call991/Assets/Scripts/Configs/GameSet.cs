@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -39,29 +38,22 @@ namespace Configs
         [Space] public float levelWarningTotalDelay = 4f;
         public float levelWarningLineDelay = 1f;
         public float levelWarningLineFadeTime = 0.5f;
-
-        [Space][Title("InteractiveVideoRef")]
-        public string interactiveVideoRef;
-
+        
         [Space][Title("ScriptableObject with all the levels")]
         public GameLevelsSo GameLevels;
 
         [Space] [Title("DialogueGraph settings")]
+        public WwiseVoicesSet VoicesSet;
+        public WwiseMusicSwitchesList MusicSwitchesKeys;
+        public WwiseRtpcList RtpcKeys;
+        public LevelKeysList LevelKeys;
         public PersonKeysList PersonsKeys;
         public PopupKeysList CountKeys;
         public PopupKeysList EndsKeys;
         public ChoiceKeysList ChoiceKeys;
         public RecordKeysList RecordKeys;
         public LanguagesKeysList LanguagesKeys;
-        public LevelKeysList LevelKeys;
         
-        [Space][Title("Button Sounds")]
-        public AudioClip menuBtnClip;
-        public AudioClip choiceBtnClip;
-        public AudioClip timerClip;
-        
-        [Space]
-        public Dictionary<string, List<string>> musics;
         
         private void OnValidate()
         {

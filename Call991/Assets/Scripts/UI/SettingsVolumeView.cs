@@ -1,4 +1,4 @@
-using System;
+using System.Globalization;
 using TMPro;
 using UI;
 using UniRx;
@@ -12,8 +12,7 @@ public class SettingsVolumeView : MenuButtonView
     [SerializeField] private Image handleImage = default;
     [SerializeField] private AudioSourceType source = default;
 
-    [SerializeField] [Range(0.01f, 0.5f)] private float step = 0.05f;
-    private decimal _stepD;
+    [SerializeField] [Range(1f, 5f)] private float step = 5f;
     private ReactiveCommand<(AudioSourceType, float)> _onVolumeSet;
 
     private CompositeDisposable _disposables;
@@ -23,7 +22,6 @@ public class SettingsVolumeView : MenuButtonView
         _disposables?.Dispose();
 
         _disposables = new CompositeDisposable();
-        _stepD = new decimal(step);
         _onVolumeSet = onVolumeSet;
         _slider.value = volume;
         SetSliderText(volume);
@@ -54,15 +52,13 @@ public class SettingsVolumeView : MenuButtonView
 
     private void SetSliderValue(float value)
     {
-        // rounding the value to the nearest step
-        value = (float) (Math.Round(new decimal(value) / _stepD) * _stepD);
         SetSliderText(value);
         _onVolumeSet?.Execute((source, value));
     }
 
     private void SetSliderText(float value)
     {
-        _sliderText.text = ((int) (value * 100)).ToString();
+        _sliderText.text = value.ToString(CultureInfo.InvariantCulture);
     }
 
     protected override void OnDestroy()

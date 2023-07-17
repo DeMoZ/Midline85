@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{A04D454E-A551-4A76-822E-AFD142169134}" SchemaVersion="110">
+	<Events>
+		<WorkUnit Name="UI" ID="{A04D454E-A551-4A76-822E-AFD142169134}" PersistMode="Standalone">
+			<ChildrenList>
+				<Event Name="UI_Overlap" ID="{EB9BA9A0-3DDE-4D39-B95E-EBFF201B49CC}">
+					<ChildrenList>
+						<Action Name="" ID="{EF117E73-921C-4D71-AA92-A3C2A2AD6A33}" ShortID="205483378">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Overlap" ID="{8265D42A-5153-4AAE-85BE-1B4854E45692}" WorkUnitID="{DA7FBD2A-0CB7-4DFB-B653-A74E1BF86E17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Click_Menu" ID="{EEFCEB74-979D-402E-A8F3-7A1BB645DADE}">
+					<ChildrenList>
+						<Action Name="" ID="{3A7F90EF-D239-4E3A-BF39-53342640F0E5}" ShortID="382572061">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Click_Menu" ID="{4F193116-967F-441B-AA0F-E37FCCCB59D1}" WorkUnitID="{DA7FBD2A-0CB7-4DFB-B653-A74E1BF86E17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="UI_Click_Game" ID="{79664E87-865E-4E79-B274-4FCA307227CA}">
+					<ChildrenList>
+						<Action Name="" ID="{1703E312-06A1-454C-84D1-139A69A0C2A6}" ShortID="1019443382">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Click_Game" ID="{7DB51E90-3343-44DE-8982-F624C1F7CEF9}" WorkUnitID="{DA7FBD2A-0CB7-4DFB-B653-A74E1BF86E17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

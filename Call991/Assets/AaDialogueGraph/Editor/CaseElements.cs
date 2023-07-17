@@ -65,8 +65,7 @@ namespace AaDialogueGraph.Editor
         {
             Value = val;
             string textValue = new LocalizedString(val);
-            textValue = textValue.Split(" ")[0];
-            return textValue;
+            return string.IsNullOrEmpty(textValue)? null : textValue.Split(" ")[0];
         }
     }
     
@@ -153,6 +152,20 @@ namespace AaDialogueGraph.Editor
     public class LevelIdPopupField : KeyPopupField
     {
         public LevelIdPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
+        {
+        }
+
+        protected override void CreateElements(List<string> keys, string currentChoice = null)
+        {
+            var popup = new NoEnumPopup();
+            popup.Set(keys, currentChoice, val => KeyToTextTitle(val));
+            contentContainer.Add(popup);
+        }
+    }
+    
+    public class SoundPopupField : KeyPopupField
+    {
+        public SoundPopupField(List<string> keys, string currentChoice = null) : base(keys, currentChoice)
         {
         }
 

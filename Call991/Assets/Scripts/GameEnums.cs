@@ -29,7 +29,6 @@ public enum SoundUiTypes
 {
     ChoiceButton,
     MenuButton,
-    Timer
 }
 
 public enum PhraseEventTypes

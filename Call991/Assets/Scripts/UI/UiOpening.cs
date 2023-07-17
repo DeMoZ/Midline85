@@ -1,3 +1,4 @@
+using System;
 using System.Threading.Tasks;
 using Configs;
 using UniRx;
@@ -9,10 +10,11 @@ namespace UI
     {
         public struct Ctx
         {
-            public GameSet gameSet;
-            public ReactiveCommand onClickStartGame;
-            public Blocker blocker;
-            public CursorSet cursorSettings;
+            public GameSet GameSet;
+            public ReactiveCommand OnClickStartGame;
+            public Blocker Blocker;
+            public CursorSet CursorSettings;
+            public WwiseAudio AudioManager;
         }
 
         [SerializeField] private GameObject openingUi1 = default;
@@ -20,6 +22,8 @@ namespace UI
         [SerializeField] private GameObject openingUi3 = default;
         [SerializeField] private MenuButtonView startBtn = default;
         [SerializeField] private ClickAnyButton anyButton = default;
+
+        [Space] [SerializeField] private AK.Wwise.Switch sceneMusic = default;
 
         private Ctx _ctx;
 
@@ -34,23 +38,24 @@ namespace UI
             openingUi3.gameObject.SetActive(false);
 
             OnStateOne();
+            _ctx.AudioManager.PlayMusic(sceneMusic);
         }
 
         public void OnClickStart()
         {
-            _ctx.onClickStartGame.Execute();
+            _ctx.OnClickStartGame.Execute();
         }
-        
+
         private async void OnStateOne()
         {
             openingUi1.gameObject.SetActive(true);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(false);
-            
-            await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.logoFadeInTime);
-            await Task.Delay((int) (_ctx.gameSet.logoHoldTime * 1000));
-            await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.logoFadeOutTime);
-            
+
+            await _ctx.Blocker.FadeScreenBlocker(false, _ctx.GameSet.logoFadeInTime);
+            await Task.Delay((int)(_ctx.GameSet.logoHoldTime * 1000));
+            await _ctx.Blocker.FadeScreenBlocker(true, _ctx.GameSet.logoFadeOutTime);
+
             OnStateTwo();
         }
 
@@ -60,9 +65,9 @@ namespace UI
             openingUi2.gameObject.SetActive(true);
             openingUi3.gameObject.SetActive(false);
 
-            await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.warningFadeInTime);
-            await Task.Delay((int) (_ctx.gameSet.warningHoldTime * 1000));
-            await _ctx.blocker.FadeScreenBlocker(true, _ctx.gameSet.warningFadeOutTime);
+            await _ctx.Blocker.FadeScreenBlocker(false, _ctx.GameSet.warningFadeInTime);
+            await Task.Delay((int)(_ctx.GameSet.warningHoldTime * 1000));
+            await _ctx.Blocker.FadeScreenBlocker(true, _ctx.GameSet.warningFadeOutTime);
 
             OnStateThree();
         }
@@ -72,9 +77,9 @@ namespace UI
             openingUi1.gameObject.SetActive(false);
             openingUi2.gameObject.SetActive(false);
             openingUi3.gameObject.SetActive(true);
-            _ctx.cursorSettings.ApplyCursor();
-            _ctx.cursorSettings.EnableCursor(true);
-            await _ctx.blocker.FadeScreenBlocker(false, _ctx.gameSet.startFadeInTime);
+            _ctx.CursorSettings.ApplyCursor();
+            _ctx.CursorSettings.EnableCursor(true);
+            await _ctx.Blocker.FadeScreenBlocker(false, _ctx.GameSet.startFadeInTime);
         }
 
         private void OnDestroy()

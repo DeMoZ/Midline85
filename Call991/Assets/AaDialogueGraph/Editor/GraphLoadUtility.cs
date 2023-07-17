@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Configs;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -11,6 +12,10 @@ namespace AaDialogueGraph.Editor
 {
     public partial class GraphSaveUtility
     {
+        private List<string> _voices;
+        private List<string> _musics;
+        private List<string> _rtpcs;
+
         public bool LoadGraph(ref string path)
         {
             var fileName = EditorUtility.OpenFilePanel("Dialogue Graph", "Assets/Resources/", "asset");
@@ -36,7 +41,12 @@ namespace AaDialogueGraph.Editor
                 path = NoGraphName;
                 return false;
             }
-
+            
+            var gameSet = Resources.Load<GameSet>("GameSet");
+            _voices = gameSet.VoicesSet.GetKeys();
+            _musics = gameSet.MusicSwitchesKeys.GetKeys();
+            _rtpcs = gameSet.RtpcKeys.GetKeys();
+                
             ClearGraph();
             CreateEntryNode();
             CreatePhraseNodes();
@@ -77,12 +87,21 @@ namespace AaDialogueGraph.Editor
             }
         }
 
+        // private List<string> GetWwiseSoundsFromStartNode()
+        // {
+        //     return (string.IsNullOrEmpty(_containerCash.EntryNodeData.SoundAsset) ? null : 
+        //         NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(_containerCash.EntryNodeData.SoundAsset))?.Keys;
+        // }
+        
         private void CreatePhraseNodes()
         {
+            var languages = _containerCash.EntryNodeData.Languages;
+            var sounds = new List<string>{"NONE"};// GetWwiseSoundsFromStartNode();
+            
             foreach (var data in _containerCash.PhraseNodeData)
             {
                 var node = new PhraseNode();
-                node.Set(data, _containerCash.EntryNodeData.Languages, data.Guid);
+                node.Set(data, languages,  _voices, _musics, _rtpcs, sounds, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -121,30 +140,37 @@ namespace AaDialogueGraph.Editor
 
         private void CreateEndNodes()
         {
+            var sounds = new List<string>{"NONE"};// GetWwiseSoundsFromStartNode();
+
             foreach (var data in _containerCash.EndNodeData)
             {
                 var node = new EndNode();
-                node.Set(data, data.Guid);
+                node.Set(data, data.Guid, sounds, _musics, _rtpcs);
                 _targetGraphView.AddElement(node);
             }
         }
 
         private void CreateEventNodes()
         {
+            var sounds = new List<string>{"NONE"};// GetWwiseSoundsFromStartNode();
+            
             foreach (var data in _containerCash.EventNodeData)
             {
                 var node = new EventNode();
-                node.Set(data, data.Guid);
+                node.Set(data, data.Guid, sounds, _musics, _rtpcs);
                 _targetGraphView.AddElement(node);
             }
         }
 
         private void CreateNewspaperNodes()
         {
+            var languages = _containerCash.EntryNodeData.Languages;
+            var sounds = new List<string>{"NONE"};// GetWwiseSoundsFromStartNode();
+            
             foreach (var data in _containerCash.NewspaperNodeData)
             {
                 var node = new NewspaperNode();
-                node.Set(data, _containerCash.EntryNodeData.Languages, data.Guid);
+                node.Set(data, languages, data.Guid, _voices, _musics, _rtpcs);
                 _targetGraphView.AddElement(node);
             }
         }

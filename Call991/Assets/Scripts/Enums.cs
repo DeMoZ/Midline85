@@ -15,7 +15,8 @@ public enum DialogAppearType
 
 public enum AudioSourceType
 {
-    Phrases,
-    Effects,
-    Music
+    Master,
+    Voice,
+    Music,
+    Sfx,
 }

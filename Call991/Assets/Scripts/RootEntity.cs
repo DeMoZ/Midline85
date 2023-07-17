@@ -1,20 +1,22 @@
 ﻿using System;
+using System.Collections.Generic;
 using Configs;
 using Core;
 using I2.Loc;
 using UI;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Object = UnityEngine.Object;
 
 public class RootEntity : IDisposable
 {
     public struct Ctx
     {
-        public AudioManager AudioManager;
-        public VideoManager VideoManager;
+        public WwiseAudio AudioManagerPrefab;
+        public VideoManager VideoManagerPrefab;
+        public RectTransform VideoManagerParent;
         public OverridenDialogue OverridenDialogue;
         public Image VideoFade;
         public Image ScreenFade;
@@ -31,15 +33,13 @@ public class RootEntity : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
 
-        var musicPath = "Sounds/Music";
-
         var gameSet = Resources.Load<GameSet>("GameSet");
-        var audioMixer = Resources.Load<AudioMixer>("AudioMixer");
         var cursorSettings = Resources.Load<CursorSet>("CursorSet");
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
 
+        var levelLanguages = new ReactiveProperty<List<string>>();
         var isPauseAllowed = new ReactiveProperty<bool>(true);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
         var onScreenFade = new ReactiveCommand<(bool show, float time)>();
@@ -70,16 +70,18 @@ public class RootEntity : IDisposable
             IsPauseAllowed = isPauseAllowed,
         }).AddTo(_disposables);
 
-        _ctx.AudioManager.SetCtx(new AudioManager.Ctx
+        var audioManager = Object.Instantiate(_ctx.AudioManagerPrefab);
+        audioManager.SetCtx(new WwiseAudio.Ctx
         {
+            LevelLanguages = levelLanguages,
             GameSet = gameSet,
-            playerProfile = profile,
-            audioMixer = audioMixer,
-            musicPath = musicPath,
+            Profile = profile,
+            OnSwitchScene = onSwitchScene,
         });
-        _ctx.AudioManager.PlayMusic("Intro").Forget();
+        audioManager.Initialize().Forget();
 
-        _ctx.VideoManager.SetCtx(new VideoManager.Ctx
+        var videoManager = Object.Instantiate(_ctx.VideoManagerPrefab, _ctx.VideoManagerParent);
+        videoManager.SetCtx(new VideoManager.Ctx
         {
         });
 
@@ -92,24 +94,24 @@ public class RootEntity : IDisposable
             OnStartApplicationSwitchScene = _onStartApplicationSwitchScene,
             OnSwitchScene = onSwitchScene,
             Profile = profile,
-            AudioManager = _ctx.AudioManager,
-            VideoManager = _ctx.VideoManager,
+            AudioManager = audioManager,
+            VideoManager = videoManager,
             Blocker = blocker,
             ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,
             OverridenDialogue = _ctx.OverridenDialogue,
             IsPauseAllowed = isPauseAllowed,
+            LevelLanguages = levelLanguages,
         }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
             ScenesHandler = scenesHandler,
-            OnSwitchScene = onSwitchScene,
-            VideoManager = _ctx.VideoManager,
             GameSet = gameSet,
+            OnSwitchScene = onSwitchScene,
+            VideoManager = videoManager,
             Blocker = blocker,
             CursorSettings = cursorSettings,
-            OverridenDialogue = _ctx.OverridenDialogue,
         }).AddTo(_disposables);
 
         _onStartApplicationSwitchScene.Execute();

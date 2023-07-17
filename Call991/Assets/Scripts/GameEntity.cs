@@ -6,8 +6,9 @@ using UnityEngine.UI;
 public class GameEntity : MonoBehaviour
 {
     private static GameEntity _instance;
-    [SerializeField] private AudioManager audioManager;
-    [SerializeField] private VideoManager videoManager;
+    [SerializeField] private WwiseAudio wwisePrefab;
+    [SerializeField] private VideoManager videoManagerPrefab;
+    [SerializeField] private RectTransform videoManagerParent;
 
     [Space] [SerializeField] private Image videoFade;
     [SerializeField] private Image screenFade;
@@ -16,7 +17,7 @@ public class GameEntity : MonoBehaviour
 
     private CompositeDisposable _disposables;
 
-    private async void Awake()
+    private void Awake()
     {
         if (_instance == null)
         {
@@ -33,11 +34,14 @@ public class GameEntity : MonoBehaviour
         DontDestroyOnLoad(gameObject);
 
         Debug.Log($"[EntryRoot][time] Loading scene start.. {Time.realtimeSinceStartup}");
-
-        await CreateAppSettings();
-        CreateRootEntity();
     }
 
+    private async void Start()
+    {
+        await CreateAppSettings();
+        CreateRootEntity();
+    } 
+    
     private async Task CreateAppSettings()
     {
         Application.targetFrameRate = 60;
@@ -58,8 +62,9 @@ public class GameEntity : MonoBehaviour
 
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
-            AudioManager = audioManager,
-            VideoManager = videoManager,
+            AudioManagerPrefab = wwisePrefab,
+            VideoManagerPrefab = videoManagerPrefab,
+            VideoManagerParent = videoManagerParent,
             VideoFade = videoFade,
             ScreenFade = screenFade,
             ClicksParent = clicksParent,

@@ -9,7 +9,7 @@ public class MenuSceneEntity : IGameScene
         public Container<Task> ConstructorTask;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public AudioManager AudioManager;
+        public WwiseAudio AudioManager;
         public VideoManager videoManager;
     }
 
@@ -37,8 +37,8 @@ public class MenuSceneEntity : IGameScene
     {
         // await Task.Yield();
         await Task.Delay(10);
-        await _ctx.AudioManager.PlayMusic("Intro");
-        // todo load from addressables black screen above the scene;
+        // TODO Wwise await _ctx.AudioManager.PlayMusic("Intro");
+       
         // scene doesnt exist here
         // so just load and show on enter. Is it instant?
     }

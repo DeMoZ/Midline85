@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -8,7 +7,8 @@ namespace AaDialogueGraph.Editor
 {
     public class NewspaperNode : AaNode
     {
-        public void Set(NewspaperNodeData data, List<string> languages, string guid)
+        public void Set(NewspaperNodeData data, List<string> languages, string guid, 
+            List<string> sounds, List<string> musics, List<string> rtcps)
         {
             Guid = guid;
             title = AaGraphConstants.NewspaperNode;
@@ -18,9 +18,9 @@ namespace AaDialogueGraph.Editor
             extensionContainer.Add(contentFolder);
             contentFolder.AddToClassList("aa-NewspaperNode_extension-container");
             
-            var phraseEvents = new AaNodeEvents();
-            phraseEvents.Set(data.EventVisualData, CheckNodeContent);
-            contentFolder.Add(phraseEvents);
+            var nodeEvents = new AaNodeEvents();
+            nodeEvents.Set(data.EventVisualData, CheckNodeContent, sounds, musics, rtcps);
+            contentFolder.Add(nodeEvents);
 
             var phraseContainer = new ElementsTable();
             var phraseAssetsLabel = new Label("Images");
@@ -55,9 +55,6 @@ namespace AaDialogueGraph.Editor
            
         }
 
-        public List<EventVisual> GetEventsVisual() =>
-            contentContainer.Query<EventVisual>().ToList();
-        
         public List<Sprite> GetSprites() =>
             contentContainer.Query<SpriteField>().ToList().Select(field => field.GetSprite()).ToList();
     }
