@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
-  m_Name: Level_Psychotherapist_First_Call
+  m_Name: L7_Psycho
   m_EditorClassIdentifier: 
   EntryNodeData:
     Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
@@ -18,57 +18,33 @@ MonoBehaviour:
       serializedVersion: 2
       x: -200
       y: 201
-      width: 184
+      width: 186
       height: 189
-    LevelId: Level_2
+    LevelId: L7_Psycho
     Languages:
     - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
     - English
     ButtonFilter: psy;zza.022;zza.052
+    SoundAsset: 
   PhraseNodeData:
-  - Guid: e8ad4823-707c-494d-9793-b801e8bd962e
-    Rect:
-      serializedVersion: 2
-      x: 956
-      y: 102
-      width: 182
-      height: 96
-    PhraseSketchText: "e.002 \u041C\u0435\u043D\u044F \u0437\u043E\u0432\u0443\u0442
-      \u0415\u043B\u0435\u043D\u0430"
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 2
-      HideOnEnd: 1
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
-    Phrases:
-    - 
-    - 
   - Guid: f4bf18d5-e46e-48a6-a915-c66047004659
     Rect:
       serializedVersion: 2
       x: 1184
       y: 100
-      width: 203
-      height: 96
+      width: 347
+      height: 328
     PhraseSketchText: "p.002 \u042F \u0437\u043D\u0430\u044E, \u043A\u0430\u043A
       \u0432\u0430\u0441 \u0437\u043E\u0432\u0443\u0442"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: UNKNOWN
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -88,9 +64,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -99,21 +73,19 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1628
       y: 309
-      width: 195
-      height: 96
+      width: 347
+      height: 328
     PhraseSketchText: "p.003 \u0412\u043D\u0443\u0442\u0440\u0435\u043D\u043D\u0438\u0435
       \u043D\u043E\u043C\u0435\u0440\u0430"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: UNKNOWN
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -122,20 +94,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 568
       y: 203
-      width: 165
+      width: 156
       height: 96
     PhraseSketchText: "p.001 \u0417\u0434\u0430\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: UNKNOWN
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: L7_Psycho/Joshua/psycho1_psycho_001
     Phrases:
     - 
     - 
@@ -148,16 +118,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.004 \u0414\u0436\u043E\u0448\u0443\u0430 \u0413\u0440\u044D\u043C"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -177,9 +145,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -199,9 +165,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -221,9 +185,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -236,16 +198,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.005 \u0414\u0440\u0443\u0436\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0441\u0442\u044C"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -259,16 +219,14 @@ MonoBehaviour:
     PhraseSketchText: "p.011 \u0412\u043E\u0441\u0435\u043C\u044C\u0434\u0435\u0441\u044F\u0442
       \u0447\u0435\u0442\u0432\u0435\u0440\u0442\u044B\u0439"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -277,20 +235,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 2498
       y: 288
-      width: 156
+      width: 141
       height: 96
     PhraseSketchText: "p.006 \u0417\u0440\u044F \u0432\u044B \u0442\u0430\u043A"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -303,16 +259,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.012  \u041D\u043E \u0437\u0430 \u0438\u0441\u0442\u043E\u0440\u0438\u0447\u0435\u0441\u043A\u0438\u043C"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -321,20 +275,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 3085
       y: 230
-      width: 156
+      width: 145
       height: 96
     PhraseSketchText: "p.007 \u041C\u043E\u044F \u0437\u0430\u0434\u0430\u0447\u0430"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -347,16 +299,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.008 \u041C\u0430\u0440\u043A \u043F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0430\u043B"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -376,9 +326,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -399,9 +347,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -415,16 +361,14 @@ MonoBehaviour:
     PhraseSketchText: "p.009 \u0422\u043E\u0433\u0434\u0430 \u043F\u043E\u0447\u0435\u043C\u0443
       \u0432\u044B"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -433,20 +377,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 3880
       y: 323
-      width: 156
+      width: 143
       height: 96
     PhraseSketchText: "p.010 \u041F\u0430\u043C\u044F\u0442\u044C \u0432\u0430\u0441"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -460,16 +402,14 @@ MonoBehaviour:
     PhraseSketchText: "p.014 \u041E\u0442\u0432\u0435\u0447\u0430\u0439\u0442\u0435
       \u0447\u0435\u0441\u0442\u043D\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -482,16 +422,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.013 \u042F \u0437\u0430\u0434\u0430\u043C \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -511,9 +449,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -534,9 +470,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -549,16 +483,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.016 \u0411\u043E\u044E\u0441\u044C, \u0447\u0442\u043E \u043D\u0435\u0442"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -578,9 +510,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -593,16 +523,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.015 \u0425\u043E\u0440\u043E\u0448\u043E, \u0415\u043B\u0435\u043D\u0430"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -622,9 +550,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -644,9 +570,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -655,20 +579,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 6170
       y: 417
-      width: 156
+      width: 119
       height: 96
     PhraseSketchText: "p.018 \u0412\u043E\u0442 \u043A\u0430\u043A"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -677,20 +599,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 6164
       y: -118
-      width: 156
+      width: 141
       height: 96
     PhraseSketchText: "p.017 \u042D\u0442\u043E \u0440\u0430\u0434\u0443\u0435\u0442"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -711,9 +631,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -733,9 +651,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -755,9 +671,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -777,9 +691,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -799,9 +711,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -821,9 +731,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -843,9 +751,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -854,20 +760,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 6859
       y: -482
-      width: 156
+      width: 136
       height: 96
     PhraseSketchText: "p.019 \u0412\u043A\u0443\u0441\u043D\u044B\u0439..."
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -881,16 +785,14 @@ MonoBehaviour:
     PhraseSketchText: "p.026 \u0423 \u0432\u0430\u0441 \u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E
       \u0438\u043D\u0441\u0442\u0440\u0443\u043C\u0435\u043D\u0442\u043E\u0432"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -910,9 +812,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -925,16 +825,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.020 \u0417\u043D\u0430\u0435\u0442\u0435, \u0415\u043B\u0435\u043D\u0430"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -947,16 +845,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.021 \u0412\u0441\u0435\u0433\u043E \u0434\u043E\u0431\u0440\u043E\u0433\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -969,16 +865,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.024 \u0414\u043E\u0432\u043E\u043B\u044C\u043D\u043E \u0440\u043E\u043C\u0430\u043D\u0442\u0438\u0447\u043D\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -992,16 +886,14 @@ MonoBehaviour:
     PhraseSketchText: "p.025 \u0418 \u0438\u043C\u0435\u043D\u043D\u043E \u044D\u0442\u043E
       \u0442\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1014,16 +906,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.028 \u0412\u0430\u0448 \u043E\u0442\u0432\u0435\u0442 \u043F\u0440\u0438\u043D\u044F\u0442"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1032,20 +922,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 6859
       y: -297
-      width: 156
+      width: 141
       height: 96
     PhraseSketchText: "p.022 \u041A\u0430\u043A \u043F\u043E \u043C\u043D\u0435"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1058,16 +946,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.023 \u041E\u0434\u043D\u0430\u043A\u043E, \u043E\u0442\u0432\u0435\u0442"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1081,16 +967,14 @@ MonoBehaviour:
     PhraseSketchText: "p.027 \u0412\u044B \u043F\u0440\u043E\u0448\u043B\u0438 \u0447\u0435\u0440\u0435\u0437
       5 \u043B\u0435\u0442"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1104,16 +988,14 @@ MonoBehaviour:
     PhraseSketchText: "p.029 \u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439
       \u0432\u043E\u043F\u0440\u043E\u0441"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1133,9 +1015,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1155,9 +1035,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1166,20 +1044,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 8210
       y: 72
-      width: 156
+      width: 152
       height: 96
     PhraseSketchText: "p.030 \u0412\u0430\u043C \u0447\u0443\u0434\u044F\u0442\u0441\u044F"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1199,9 +1075,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1221,9 +1095,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1232,20 +1104,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 8904
       y: -62
-      width: 156
+      width: 154
       height: 96
     PhraseSketchText: "p.031 \u041D\u0435 \u0441\u043A\u0430\u0437\u0430\u043B \u0431\u044B"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1259,16 +1129,14 @@ MonoBehaviour:
     PhraseSketchText: "p.033 \u0421\u043B\u0435\u0434\u0443\u044E\u0449\u0438\u0439
       \u0432\u043E\u043F\u0440\u043E\u0441"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1277,20 +1145,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 8903
       y: 147
-      width: 156
+      width: 131
       height: 96
     PhraseSketchText: "p.032 \u041A\u043E\u043C\u0443 \u043A\u0430\u043A"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1311,9 +1177,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1333,9 +1197,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1349,16 +1211,14 @@ MonoBehaviour:
     PhraseSketchText: "p.037 \u0410 \u0447\u0435\u0433\u043E \u0432\u0430\u043C \u043D\u0435
       \u0445\u0432\u0430\u0442\u0430\u0435\u0442?"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1378,9 +1238,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1400,9 +1258,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1411,20 +1267,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 10724
       y: 104
-      width: 156
+      width: 125
       height: 96
     PhraseSketchText: "p.040 \u0420\u0430\u0441\u0442\u0438\u0442\u0435"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1437,16 +1291,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.041 \u041B\u0434\u0430\u043D\u043E, \u0434\u0430\u0432\u0430\u0439\u0442\u0435"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1455,20 +1307,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 11174
       y: 2
-      width: 156
+      width: 139
       height: 96
     PhraseSketchText: "p.042 \u0412\u044B \u0433\u043E\u0442\u043E\u0432\u044B"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1481,16 +1331,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.036 \u0412\u044B\u043D\u0443\u0436\u0434\u0435\u043D \u0441\u043E\u0433\u043B\u0430\u0441\u0438\u0442\u044C\u0441\u044F"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1499,20 +1347,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 10709
       y: 265
-      width: 156
+      width: 131
       height: 96
     PhraseSketchText: "p.038 \u0418 \u0431\u0443\u0434\u0435\u0442\u0435"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1532,9 +1378,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1543,20 +1387,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 10728
       y: -52
-      width: 156
+      width: 114
       height: 96
     PhraseSketchText: "p.039 \u041F\u043E\u043D\u044F\u043B"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1569,16 +1411,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.035 \u0425\u043C\u043C \u0434\u043E\u043F\u0443\u0441\u0442\u0438\u043C"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1591,16 +1431,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.034 \u0412\u044B \u044D\u0442\u043E \u0441\u0435\u0440\u044C\u0435\u0437\u043D\u043E?"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1620,9 +1458,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1642,9 +1478,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1653,20 +1487,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 11901
       y: 121
-      width: 156
+      width: 128
       height: 96
     PhraseSketchText: "p.044 \u0418 \u0435\u0441\u043B\u0438..."
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1675,20 +1507,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 11894
       y: -151
-      width: 156
+      width: 133
       height: 96
     PhraseSketchText: "p.043 \u0412\u043D\u0435\u0437\u0430\u043F\u043D\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 2
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1708,9 +1538,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1730,9 +1558,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1752,9 +1578,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1774,9 +1598,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1796,9 +1618,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1807,20 +1627,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 12643
       y: -344
-      width: 156
+      width: 128
       height: 96
     PhraseSketchText: "p.046 \u041A\u0430\u0436\u0435\u0442\u0441\u044F"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1829,20 +1647,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 12644
       y: -508
-      width: 156
+      width: 150
       height: 96
     PhraseSketchText: "p.045 \u041D\u0435 \u0441\u043B\u0438\u0448\u043A\u043E\u043C"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1851,20 +1667,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 12647
       y: 139
-      width: 156
+      width: 123
       height: 96
     PhraseSketchText: "p.048 \u0425\u043E\u0440\u043E\u0448\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1873,20 +1687,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 12642
       y: 309
-      width: 156
+      width: 110
       height: 96
     PhraseSketchText: "p.049 \u0410 \u0432\u044B?"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1895,20 +1707,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 12660
       y: -33
-      width: 156
+      width: 121
       height: 96
     PhraseSketchText: "p.047 \u041E\u0434\u043D\u0430\u043A\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1921,16 +1731,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.050 \u0412\u0430\u0448\u0438 \u0440\u0430\u0441\u0441\u0443\u0436\u0434\u0435\u043D\u0438\u044F"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1943,16 +1751,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.051 \u0411\u0443\u0434\u044C\u0442\u0435 \u043E\u0441\u0442\u043E\u0440\u043E\u0436\u043D\u044B"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1965,16 +1771,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.052 \u042D\u0442\u043E \u043D\u0435 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -1994,9 +1798,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2016,9 +1818,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2038,9 +1838,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2053,16 +1851,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.053 \u0414\u0430 \u043A\u0442\u043E \u0436 \u0437\u043D\u0430\u0435\u0442"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2082,9 +1878,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2097,16 +1891,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.056 \u041F\u0440\u043E\u0441\u0442\u043E \u0440\u0430\u0441\u0441\u0443\u0436\u0434\u0430\u044E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2115,20 +1907,18 @@ MonoBehaviour:
       serializedVersion: 2
       x: 14492
       y: -20
-      width: 156
+      width: 148
       height: 96
     PhraseSketchText: "p.055 \u0414\u0430, \u043A\u043E\u043D\u0435\u0447\u043D\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2142,16 +1932,14 @@ MonoBehaviour:
     PhraseSketchText: "p.057 \u041D\u0430\u0448\u0435 \u0432\u0440\u0435\u043C\u044F
       \u0432\u044B\u0448\u043B\u043E"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 1
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2164,16 +1952,14 @@ MonoBehaviour:
       height: 96
     PhraseSketchText: "p.054 \u041F\u041E\u043A\u0430 \u043D\u0435 \u0431\u0435\u0440\u0443\u0441\u044C"
     PersonVisualData:
-      Person: PSYCHOTHERAPIST
+      Person: JOSHUA
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2193,9 +1979,7 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSounds:
-    - 
-    - 
+    PhraseSound: NONE
     Phrases:
     - 
     - 
@@ -2204,8 +1988,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 417
       y: 203
-      width: 341
-      height: 359
+      width: 100
+      height: 96
     PhraseSketchText: e.001 911
     PersonVisualData:
       Person: ELENA
@@ -2215,15 +1999,35 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData:
-    - Type: 2
+    - Type: 4
       PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
-    PhraseSounds:
+      Value: 0
+    PhraseSound: L7_Psycho/Elena/psycho1_elena_001
+    Phrases:
     - 
     - 
+  - Guid: e8ad4823-707c-494d-9793-b801e8bd962e
+    Rect:
+      serializedVersion: 2
+      x: 956
+      y: 102
+      width: 347
+      height: 328
+    PhraseSketchText: "e.002 \u041C\u0435\u043D\u044F \u0437\u043E\u0432\u0443\u0442
+      \u0415\u043B\u0435\u043D\u0430"
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L7_Psycho/Elena/psycho1_elena_002
     Phrases:
     - 
     - 
@@ -2772,61 +2576,59 @@ MonoBehaviour:
     EventVisualData: []
     Records: []
   EventNodeData:
-  - Guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
-    Rect:
-      serializedVersion: 2
-      x: 66
-      y: 203
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 2
-      PhraseEvent: Dialogues/EventPrefabs/WarningMessage.prefab
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-    - Type: 1
-      PhraseEvent: Videos/Interactive.mp4
-      Layer: 1
-      Loop: 0
-      Stop: 0
-      Delay: 0
   - Guid: ee5149b1-7503-4918-af70-39ed506d7431
     Rect:
       serializedVersion: 2
-      x: 288
-      y: 199
+      x: 287
+      y: 299
       width: 100
       height: 107
     EventVisualData:
-    - Type: 2
-      PhraseEvent: Dialogues/EventPrefabs/IntroINCENDIES.prefab
+    - Type: 1
+      PhraseEvent: NONE
       Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
-    - Type: 1
-      PhraseEvent: Videos/Chapter7Title.mp4
-      Layer: 1
+      Value: 0
+    - Type: 2
+      PhraseEvent: NONE
+      Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
+  - Guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+    Rect:
+      serializedVersion: 2
+      x: 64
+      y: 207
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: MusicLevels / MusicPsycho
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
   NewspaperNodeData:
   - Guid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
     Rect:
       serializedVersion: 2
-      x: 178
-      y: 204
+      x: 177
+      y: 304
       width: 100
       height: 96
     EventVisualData:
     - Type: 0
-      PhraseEvent: Sounds/Music/7 Chapter_ 1 Track.mp3
-      Layer: 1
+      PhraseEvent: NONE
+      Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
     Sprites:
     - Phrases/Lvl_7/Ru/newspaper.png
     - 
@@ -2846,9 +2648,6 @@ MonoBehaviour:
   - BaseNodeGuid: 4a4f7716-6d53-4ea0-bc2f-2a552692500e
     BaseExitName: 
     TargetNodeGuid: 86a30202-33c5-419e-9f1f-290b72856303
-  - BaseNodeGuid: 31a83617-6966-4d3f-a100-0b152c0b6778
-    BaseExitName: 
-    TargetNodeGuid: 18f6d4aa-6aca-4693-8bbf-00b0ce764953
   - BaseNodeGuid: 18f6d4aa-6aca-4693-8bbf-00b0ce764953
     BaseExitName: 
     TargetNodeGuid: 970b13ce-fa3b-4ed8-ac51-6bf738cc82a9
@@ -3197,6 +2996,9 @@ MonoBehaviour:
   - BaseNodeGuid: 9e23a079-50a4-490f-91a4-f2c6bdd131b5
     BaseExitName: 
     TargetNodeGuid: 91d17a02-aa1c-4aa0-b103-06aeae1e285b
+  - BaseNodeGuid: 31a83617-6966-4d3f-a100-0b152c0b6778
+    BaseExitName: 
+    TargetNodeGuid: 18f6d4aa-6aca-4693-8bbf-00b0ce764953
   - BaseNodeGuid: 8c845948-67a0-426a-960d-5c467747acfd
     BaseExitName: 
     TargetNodeGuid: e591cd1a-d620-4233-aa76-35faa5a62667
@@ -3317,10 +3119,10 @@ MonoBehaviour:
   - BaseNodeGuid: 7788521d-5696-40a8-8b5a-843b77f74ddb
     BaseExitName: 125333e5-cbe4-4519-9d69-0e0872fdecfc
     TargetNodeGuid: ab4d8476-3ad8-4dfd-bbf3-31b6dc5d1ce4
-  - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
-    BaseExitName: 
-    TargetNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
   - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
+    BaseExitName: 
+    TargetNodeGuid: 31a83617-6966-4d3f-a100-0b152c0b6778
+  - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
     BaseExitName: 
     TargetNodeGuid: 31a83617-6966-4d3f-a100-0b152c0b6778
   - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
