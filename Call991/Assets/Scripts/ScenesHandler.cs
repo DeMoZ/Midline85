@@ -122,9 +122,9 @@ public class ScenesHandler : IDisposable
         var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
         {
             OnSwitchScene = _ctx.OnSwitchScene,
+            GameSet = _ctx.GameSet,
             Profile = _ctx.Profile,
             AudioManager = _ctx.AudioManager,
-            videoManager = _ctx.VideoManager,
             ConstructorTask = constructorTask,
         }).AddTo(_disposables);
 

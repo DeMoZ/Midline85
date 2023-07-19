@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Configs;
 using UI;
 using UniRx;
 
@@ -8,9 +9,9 @@ public class MenuSceneEntity : IGameScene
     {
         public Container<Task> ConstructorTask;
         public ReactiveCommand<GameScenes> OnSwitchScene;
+        public GameSet GameSet;
         public PlayerProfile Profile;
         public WwiseAudio AudioManager;
-        public VideoManager videoManager;
     }
 
     private Ctx _ctx;
@@ -59,10 +60,11 @@ public class MenuSceneEntity : IGameScene
         
         _ui.SetCtx(new UiMenuScene.Ctx
         {
-            OnClickPlayGame = _onClickPlayGame,
+            //OnClickPlayGame = _onClickPlayGame,
             OnClickNewGame = _onClickNewGame,
             Profile = _ctx.Profile,
             AudioManager = _ctx.AudioManager,
+            GameSet = _ctx.GameSet,
         });
     }
 

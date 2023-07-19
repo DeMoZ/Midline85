@@ -13,13 +13,15 @@ public class MenuScenePm : IDisposable
     }
 
     private Ctx _ctx;
+    private CompositeDisposable _disposables;
 
     public MenuScenePm(Ctx ctx)
     {
         _ctx = ctx;
+        _disposables = new CompositeDisposable();
 
-        _ctx.OnClickPlayGame.Subscribe(_ => OnClickPlayGame());
-        _ctx.OnClickNewGame.Subscribe(_ => OnClickNewGame());
+        _ctx.OnClickPlayGame.Subscribe(_ => OnClickPlayGame()).AddTo(_disposables);
+        _ctx.OnClickNewGame.Subscribe(_ => OnClickNewGame()).AddTo(_disposables);
     }
 
     private void OnClickPlayGame()
@@ -35,12 +37,8 @@ public class MenuScenePm : IDisposable
         _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
-    private void OnClickSettings()
-    {
-        Debug.Log("[MenuScenePm] OnClickSettings");
-    }
-
     public void Dispose()
     {
+        _disposables.Dispose();
     }
 }

@@ -11,7 +11,6 @@ namespace UI
         {
             public ReactiveCommand onClickToMenu;
             public PlayerProfile profile;
-            public WwiseAudio audioManager;
         }
 
         [SerializeField] private MenuButtonView toMenuBtn = default;

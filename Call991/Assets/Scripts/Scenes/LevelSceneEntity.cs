@@ -131,7 +131,6 @@ public class LevelSceneEntity : IGameScene
             OnShowNewspaper = onShowNewspaper,
             OnShowLevelUi = onShowLevelUi,
             OnClickPauseButton = onClickPauseButton,
-            AudioManager = _ctx.AudioManager,
             Profile = _ctx.Profile,
             IsPauseAllowed = _ctx.IsPauseAllowed,
         });

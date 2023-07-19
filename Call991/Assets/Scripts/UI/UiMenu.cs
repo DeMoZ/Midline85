@@ -7,11 +7,11 @@ namespace UI
     {
         public struct Ctx
         {
-            public WwiseAudio audioManager;
-            public ReactiveCommand onClickPlayGame;
+            //public ReactiveCommand onClickPlayGame;
             public ReactiveCommand onClickNewGame;
             public ReactiveCommand onClickSettings;
             public ReactiveCommand onClickCredits;
+            public ReactiveCommand OnClickSelectLevel;
         }
 
         [SerializeField] private MenuButtonView playBtn = default;
@@ -34,8 +34,8 @@ namespace UI
         
         private void OnClickPlay()
         {
-            Debug.Log("[UiMenuScene] OnClickPlay");
-            _ctx.onClickPlayGame.Execute();
+            Debug.Log("[UiMenuScene] OnClickSelectLevel");
+            _ctx.OnClickSelectLevel.Execute();
         }
         
         private void OnClickNewGame()
