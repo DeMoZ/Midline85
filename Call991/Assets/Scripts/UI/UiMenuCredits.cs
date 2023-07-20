@@ -7,7 +7,7 @@ namespace UI
     {
         public struct Ctx
         {
-            public ReactiveCommand onClickToMenu;
+            public ReactiveCommand OnClickToMenu;
         }
 
         [SerializeField] private MenuButtonView returnBtn = default;
@@ -25,7 +25,7 @@ namespace UI
         
         public void OnClickToMenu()
         {
-            _ctx.onClickToMenu?.Execute();
+            _ctx.OnClickToMenu?.Execute();
         }
         
         private void OnDestroy()

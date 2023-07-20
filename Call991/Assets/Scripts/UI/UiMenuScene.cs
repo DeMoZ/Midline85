@@ -63,17 +63,18 @@ namespace UI
                 OnLevelPlay = _ctx.OnLevelPlay,
                 OnLevelSelect = _ctx.OnLevelSelect,
                 DialogueLogger = _ctx.DialogueLogger,
+                OnClickToMenu = _onClickToMenu,
             });
             
             menuSettings.SetCtx(new UiMenuSettings.Ctx
             {
-                onClickToMenu = _onClickToMenu,
-                profile = _ctx.Profile,
+                OnClickToMenu = _onClickToMenu,
+                Profile = _ctx.Profile,
             });
 
             menuCredits.SetCtx(new UiMenuCredits.Ctx
             {
-                onClickToMenu = _onClickToMenu,
+                OnClickToMenu = _onClickToMenu,
             });
 
             EnableMenu(menu.GetType());

@@ -15,10 +15,12 @@ namespace UI
             public DialogueLoggerPm DialogueLogger;
             public ReactiveCommand<int> OnLevelSelect;
             public ReactiveCommand<int> OnLevelPlay;
+            public ReactiveCommand OnClickToMenu;
         }
 
         [SerializeField] private MenuButtonView levelButtonPrefab;
         [SerializeField] private RectTransform buttonsParent;
+        [SerializeField] private MenuButtonView toMenuTutorialBtn = default;
 
         private Ctx _ctx;
         private List<MenuButtonView> _buttons;
@@ -28,8 +30,14 @@ namespace UI
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
+            toMenuTutorialBtn.OnClick += OnClickToMenu;
         }
 
+        public void OnClickToMenu()
+        {
+            _ctx.OnClickToMenu.Execute();
+        }
+        
         public void Populate()
         {
             foreach (Transform child in buttonsParent)

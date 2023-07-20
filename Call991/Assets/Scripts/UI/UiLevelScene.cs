@@ -94,8 +94,8 @@ namespace UI
 
             menuSettings.SetCtx(new UiMenuSettings.Ctx
             {
-                onClickToMenu = _onClickToMenu,
-                profile = _ctx.Profile,
+                OnClickToMenu = _onClickToMenu,
+                Profile = _ctx.Profile,
             });
 
             _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
