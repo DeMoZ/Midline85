@@ -13,6 +13,7 @@ public class MenuSceneEntity : IGameScene
         public PlayerProfile Profile;
         public WwiseAudio AudioManager;
         public DialogueLoggerPm DialogueLogger;
+        public ReactiveProperty<int> PlayLevelIndex;
     }
 
     private Ctx _ctx;
@@ -55,6 +56,7 @@ public class MenuSceneEntity : IGameScene
             OnLevelSelect = _onLevelSelect,
             OnClickNewGame = _onClickNewGame,
             
+            PlayLevelIndex = _ctx.PlayLevelIndex,
             OnSwitchScene = _ctx.OnSwitchScene,
             Profile = _ctx.Profile,
         });
