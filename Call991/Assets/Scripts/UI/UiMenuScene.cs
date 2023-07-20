@@ -10,11 +10,13 @@ namespace UI
     {
         public struct Ctx
         {
-            //public ReactiveCommand OnClickPlayGame;
+            public ReactiveCommand<int> OnLevelSelect;
+            public ReactiveCommand<int> OnLevelPlay;
             public ReactiveCommand OnClickNewGame;
             public PlayerProfile Profile;
             public WwiseAudio AudioManager;
             public GameSet GameSet;
+            public DialogueLoggerPm DialogueLogger;
         }
 
         [SerializeField] private UiMenu menu = default;
@@ -30,7 +32,7 @@ namespace UI
         private ReactiveCommand _onClickSettings;
         private ReactiveCommand _onClickCredits;
         private ReactiveCommand _onClickToMenu;
-        private ReactiveCommand _onClickSelectLevel;
+        private ReactiveCommand _onClickContinue;
 
         public async void SetCtx(Ctx ctx)
         {
@@ -40,25 +42,27 @@ namespace UI
             _onClickSettings = new ReactiveCommand();
             _onClickCredits = new ReactiveCommand();
             _onClickToMenu = new ReactiveCommand();
-            _onClickSelectLevel = new ReactiveCommand();
+            _onClickContinue = new ReactiveCommand();
             
             _onClickSettings.Subscribe(_ => OnClickSettings()).AddTo(_disposables);
             _onClickCredits.Subscribe(_ => OnClickCredits()).AddTo(_disposables);
             _onClickToMenu.Subscribe(_ => OnClickToMenu()).AddTo(_disposables);
-            _onClickSelectLevel.Subscribe(_ => OnClickSelectLevel()).AddTo(_disposables);
+            _onClickContinue.Subscribe(_ => OnClickSelectLevel()).AddTo(_disposables);
 
             menu.SetCtx(new UiMenu.Ctx
             {
-                OnClickSelectLevel = _onClickSelectLevel,
-                onClickNewGame = _ctx.OnClickNewGame,
-                onClickSettings = _onClickSettings,
-                onClickCredits = _onClickCredits,
+                OnClickContinue = _onClickContinue,
+                OnClickNewGame = _ctx.OnClickNewGame,
+                OnClickSettings = _onClickSettings,
+                OnClickCredits = _onClickCredits,
             });
 
             menuSelectLevel.SetCtx(new UiMenuSelectLevel.Ctx
             {
                 GameSet = _ctx.GameSet,
-                Profile = _ctx.Profile,
+                OnLevelPlay = _ctx.OnLevelPlay,
+                OnLevelSelect = _ctx.OnLevelSelect,
+                DialogueLogger = _ctx.DialogueLogger,
             });
             
             menuSettings.SetCtx(new UiMenuSettings.Ctx

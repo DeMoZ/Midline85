@@ -25,6 +25,7 @@ public class LevelSceneEntity : IGameScene
         public ObjectEvents ObjectEvents;
         public OverridenDialogue OverridenDialogue;
         public ReactiveProperty<bool> IsPauseAllowed;
+        public DialogueLoggerPm DialogueLogger;
     }
 
     private Ctx _ctx;
@@ -88,6 +89,7 @@ public class LevelSceneEntity : IGameScene
             LevelData = _ctx.LevelData,
             FindNext = findNext,
             OnNext = onNext,
+            DialogueLogger = _ctx.DialogueLogger,
         }).AddTo(_disposables);
 
         var levelId = _ctx.LevelData.GetEntryNode().LevelId;

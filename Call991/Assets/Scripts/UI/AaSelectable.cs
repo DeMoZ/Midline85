@@ -84,7 +84,7 @@ public class AaSelectable : Selectable
         base.DoStateTransition(state, instant);
     }
 
-    protected virtual void SetDisabled()
+    public virtual void SetDisabled()
     {
     }
 
@@ -93,7 +93,7 @@ public class AaSelectable : Selectable
         cursorSettings?.ApplyCursor(CursorType.CanClick);
     }
 
-    protected virtual void SetNormal()
+    public virtual void SetNormal()
     {
         cursorSettings?.ApplyCursor(CursorType.Normal);
     }

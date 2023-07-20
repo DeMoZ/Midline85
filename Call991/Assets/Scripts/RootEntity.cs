@@ -84,7 +84,8 @@ public class RootEntity : IDisposable
         videoManager.SetCtx(new VideoManager.Ctx
         {
         });
-
+        
+        var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
@@ -102,6 +103,7 @@ public class RootEntity : IDisposable
             OverridenDialogue = _ctx.OverridenDialogue,
             IsPauseAllowed = isPauseAllowed,
             LevelLanguages = levelLanguages,
+            DialogueLogger = dialogueLoggerPm,
         }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

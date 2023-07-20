@@ -26,9 +26,16 @@ public class DialogueLoggerPm : IDisposable
     private Dictionary<string, string> _savedChoices;
     private Dictionary<string, string> _savedEnds;
     private Dictionary<string, int> _savedCounts;
+    private bool _isIntitialized;
 
-    public DialogueLoggerPm(string levelId)
+    public DialogueLoggerPm()
     {
+       
+    }
+
+    public void Init(string levelId)
+    {
+        _isIntitialized = true;
         _currentLevelId = levelId;
         Load();
     }
@@ -112,6 +119,36 @@ public class DialogueLoggerPm : IDisposable
         Debug.Log("-- <color=green>Progress saved</color> --");
     }
 
+    public List<LevelInfo> LoadLevelsInfo()
+    {
+        List<LevelInfo> info = new List<LevelInfo>();
+        
+        var stringData = PlayerPrefs.GetString(GameProgress, string.Empty);
+        var cash = string.IsNullOrEmpty(stringData)
+            ? new GameContainer()
+            : JsonConvert.DeserializeObject<GameContainer>(stringData);
+
+        foreach (var level in cash.LevelProgress)
+        {
+            var hasRecord = level.Value.EndsCash.Count > 0;
+            info.Add(new LevelInfo
+            {
+                Key = level.Key,
+                HasRecord = hasRecord,
+            });
+            
+            //-----
+            // Debug.LogWarning($"Level {level.Key}");
+            // Debug.LogWarning($"Has record {hasRecord}");
+            // foreach (var record in level.Value.EndsCash)
+            // {
+            //     Debug.LogWarning($"Record {record.Key}; {record.Value}");    
+            // }
+        }
+
+        return info;
+    }
+    
     private void Load()
     {
         _logCash = new Dictionary<string, string>();
@@ -141,6 +178,8 @@ public class DialogueLoggerPm : IDisposable
 
     public void Dispose()
     {
+        if (!_isIntitialized) return; 
+        
         Save();
     }
 }
@@ -158,4 +197,10 @@ public class LevelContainer
     public Dictionary<string, string> ChoicesCash = new();
     public Dictionary<string, string> EndsCash = new();
     public Dictionary<string, int> CountsCash = new();
+}
+
+public class LevelInfo
+{
+    public string Key;
+    public bool HasRecord;
 }

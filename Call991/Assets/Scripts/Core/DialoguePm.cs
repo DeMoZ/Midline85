@@ -13,19 +13,21 @@ public class DialoguePm : IDisposable
         public LevelData LevelData;
         public ReactiveCommand<List<AaNodeData>> OnNext;
         public ReactiveCommand<List<AaNodeData>> FindNext;
+        public DialogueLoggerPm DialogueLogger;
     }
 
     private readonly Ctx _ctx;
     private List<AaNodeData> _currentNodes = new();
     private CompositeDisposable _disposables;
-    private DialogueLoggerPm _dialogueLoggerPm;
+    
 
     public DialoguePm(Ctx ctx)
     {
         _ctx = ctx;
         _disposables = new CompositeDisposable();
         var entryNode = _ctx.LevelData.GetEntryNode();
-        _dialogueLoggerPm = new DialogueLoggerPm(entryNode.LevelId).AddTo(_disposables);
+        
+        _ctx.DialogueLogger.Init(entryNode.LevelId);
 
         _currentNodes.Add(entryNode);
         _ctx.FindNext.Subscribe(OnFindNext).AddTo(_disposables);
@@ -40,7 +42,7 @@ public class DialoguePm : IDisposable
     /// <param name="data"></param>
     private void OnFindNext(List<AaNodeData> data)
     {
-        _dialogueLoggerPm.AddLog(data);
+        _ctx.DialogueLogger.AddLog(data);
         _currentNodes = FindNext(data.Any() ? data : _currentNodes);
 
         if (_currentNodes.Any())
@@ -108,12 +110,12 @@ public class DialoguePm : IDisposable
                         result.AddRange(GetForkExitNode(nodeData));
                         break;
                     case CountNodeData nodeData:
-                        _dialogueLoggerPm.AddLog(nodeData);
-                        _dialogueLoggerPm.AddCount(nodeData.Choice, nodeData.Value);
+                        _ctx.DialogueLogger.AddLog(nodeData);
+                        _ctx.DialogueLogger.AddCount(nodeData.Choice, nodeData.Value);
                         result.AddRange(GetNext(nodeData));
                         break;
                     case EndNodeData nodeData:
-                        _dialogueLoggerPm.AddLog(nodeData);
+                        _ctx.DialogueLogger.AddLog(nodeData);
                         result.Add(nodeData);
                         break;
                     case EntryNodeData:
@@ -170,11 +172,11 @@ public class DialoguePm : IDisposable
             switch (caseData.CaseType)
             {
                 case CaseType.AndWord:
-                    andWord = _dialogueLoggerPm.ContainsChoice(caseData.OrKeys);
+                    andWord = _ctx.DialogueLogger.ContainsChoice(caseData.OrKeys);
                     if (andWord) continue;
                     break;
                 case CaseType.NoWord:
-                    noWord = _dialogueLoggerPm.ContainsChoice(caseData.OrKeys);
+                    noWord = _ctx.DialogueLogger.ContainsChoice(caseData.OrKeys);
                     if (noWord) continue;
                     break;
                 default:
@@ -196,11 +198,11 @@ public class DialoguePm : IDisposable
             switch (endData.EndType)
             {
                 case EndType.AndEnd:
-                    andEnd = _dialogueLoggerPm.ContainsEnd(endData.OrKeys);
+                    andEnd = _ctx.DialogueLogger.ContainsEnd(endData.OrKeys);
                     if (andEnd) continue;
                     break;
                 case EndType.NoEnd:
-                    noEnd = _dialogueLoggerPm.ContainsEnd(endData.OrKeys);
+                    noEnd = _ctx.DialogueLogger.ContainsEnd(endData.OrKeys);
                     if (noEnd) continue;
                     break;
                 default:
@@ -216,7 +218,7 @@ public class DialoguePm : IDisposable
 
         foreach (var count in data.Counts)
         {
-            var value = _dialogueLoggerPm.GetCount(count.CountKey);
+            var value = _ctx.DialogueLogger.GetCount(count.CountKey);
             if (value < count.Range.x || value > count.Range.y)
             {
                 inCase = false;

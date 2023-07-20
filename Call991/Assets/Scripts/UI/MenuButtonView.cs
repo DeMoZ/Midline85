@@ -11,15 +11,26 @@ namespace UI
         
         [SerializeField] protected Color textDefaultColor = default;
         [SerializeField] protected Color textHoverColor = default;
+        [SerializeField] protected Color textDisabledColor = default;
         [SerializeField] private TextMeshProUGUI text = default;
 
-        protected override void SetDisabled()
+        public string Text
+        {
+            get => text.text;
+            set => text.text = value;
+        }
+
+        public override void SetDisabled()
         {
             base.SetDisabled();
-            SetButtonState(false);
+
+            defaultButton?.gameObject.SetActive(false);
+            hoverButton?.gameObject.SetActive(false);
+            text.color = textDisabledColor;
+            interactable = false;
         }
         
-        protected override void SetNormal()
+        public override void SetNormal()
         {
             base.SetNormal();
             SetButtonState(false);
@@ -33,6 +44,8 @@ namespace UI
 
         protected virtual void SetButtonState(bool toHover)
         {
+            if (!interactable) return;
+            
             defaultButton?.gameObject.SetActive(!toHover);
             hoverButton?.gameObject.SetActive(toHover);
             text.color = toHover ? textHoverColor : textDefaultColor;

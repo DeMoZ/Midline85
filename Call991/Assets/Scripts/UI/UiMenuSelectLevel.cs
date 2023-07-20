@@ -1,4 +1,8 @@
+using System.Collections.Generic;
+using System.Linq;
 using Configs;
+using I2.Loc;
+using UniRx;
 using UnityEngine;
 
 namespace UI
@@ -8,13 +12,17 @@ namespace UI
         public struct Ctx
         {
             public GameSet GameSet;
-            public PlayerProfile Profile;
+            public DialogueLoggerPm DialogueLogger;
+            public ReactiveCommand<int> OnLevelSelect;
+            public ReactiveCommand<int> OnLevelPlay;
         }
-        
-        [SerializeField] private MenuButtonView menuButtonPrefab;
+
+        [SerializeField] private MenuButtonView levelButtonPrefab;
         [SerializeField] private RectTransform buttonsParent;
-        
+
         private Ctx _ctx;
+        private List<MenuButtonView> _buttons;
+        private LocalizedString _localize;
 
         // every time the screen is shown i need to repopulate the levels buttons with correct state
         public void SetCtx(Ctx ctx)
@@ -24,14 +32,68 @@ namespace UI
 
         public void Populate()
         {
-            foreach (Transform child in buttonsParent) 
+            foreach (Transform child in buttonsParent)
                 Destroy(child.gameObject);
-            
-            foreach (var level in _ctx.GameSet.GameLevels.Levels)
+
+            var progressData = _ctx.DialogueLogger.LoadLevelsInfo();
+            _buttons = new List<MenuButtonView>();
+            int lastFinished = -1;
+
+            for (var i = 0; i < _ctx.GameSet.GameLevels.Levels.Count; i++)
             {
-                var btn = Instantiate(menuButtonPrefab, buttonsParent);
-                //btn.OnClick 
+                var level = _ctx.GameSet.GameLevels.Levels[i];
+
+                var btn = Instantiate(levelButtonPrefab, buttonsParent);
+                _localize = level.name;
+                btn.Text = _localize;
+                var info = progressData.FirstOrDefault(l => l.Key == level.name);
+
+                if (info != null)
+                {
+                    if (info.HasRecord)
+                    {
+                        lastFinished = i;
+                        btn.SetNormal();
+                    }
+                    else if (lastFinished == i - 1)
+                    {
+                        btn.SetNormal();
+                    }
+                    else
+                    {
+                        SetButtonDisabled(btn);
+                    }
+                }
+                else
+                {
+                    SetButtonDisabled(btn);
+                }
+
+                _buttons.Add(btn);
+
+                var index = i;
+                btn.OnSelectObj += _ => OnLevelSelect(index);
+                btn.OnClick += () => OnLevelClick(index);
             }
+        }
+
+        private void SetButtonDisabled(MenuButtonView btn)
+        {
+#if !UNITY_EDITOR
+            btn.SetDisabled();
+#endif
+        }
+
+        private void OnLevelClick(int index)
+        {
+            Debug.LogWarning($"Level {index} clicked");
+            _ctx.OnLevelPlay?.Execute(index);
+        }
+
+        private void OnLevelSelect(int index)
+        {
+            Debug.LogWarning($"Level {index} selected");
+            _ctx.OnLevelSelect?.Execute(index);
         }
     }
 }

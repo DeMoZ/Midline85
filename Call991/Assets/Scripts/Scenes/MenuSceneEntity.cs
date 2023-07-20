@@ -12,19 +12,22 @@ public class MenuSceneEntity : IGameScene
         public GameSet GameSet;
         public PlayerProfile Profile;
         public WwiseAudio AudioManager;
+        public DialogueLoggerPm DialogueLogger;
     }
 
     private Ctx _ctx;
     private UiMenuScene _ui;
 
-    private ReactiveCommand _onClickPlayGame;
+    private ReactiveCommand<int> _onLevelSelect;
+    private ReactiveCommand<int> _onLevelPlay;
     private ReactiveCommand _onClickNewGame;
 
     public MenuSceneEntity(Ctx ctx)
     {
         _ctx = ctx;
 
-        _onClickPlayGame = new ReactiveCommand();
+        _onLevelPlay = new ReactiveCommand<int>();
+        _onLevelSelect = new ReactiveCommand<int>();
         _onClickNewGame = new ReactiveCommand();
         AsyncConstructor();
     }
@@ -48,23 +51,25 @@ public class MenuSceneEntity : IGameScene
     {
         var menuScenePm = new MenuScenePm(new MenuScenePm.Ctx
         {
-            OnClickPlayGame = _onClickPlayGame,
+            OnLevelPlay = _onLevelPlay,
+            OnLevelSelect = _onLevelSelect,
             OnClickNewGame = _onClickNewGame,
+            
             OnSwitchScene = _ctx.OnSwitchScene,
             Profile = _ctx.Profile,
         });
         
-        // Find UI or instantiate from Addressable
-        // _ui = Addressable.Instantiate();
         _ui = UnityEngine.GameObject.FindObjectOfType<UiMenuScene>();
-        
+
         _ui.SetCtx(new UiMenuScene.Ctx
         {
-            //OnClickPlayGame = _onClickPlayGame,
+            OnLevelSelect = _onLevelSelect,
+            OnLevelPlay = _onLevelPlay,
             OnClickNewGame = _onClickNewGame,
             Profile = _ctx.Profile,
             AudioManager = _ctx.AudioManager,
             GameSet = _ctx.GameSet,
+            DialogueLogger = _ctx.DialogueLogger,
         });
     }
 
