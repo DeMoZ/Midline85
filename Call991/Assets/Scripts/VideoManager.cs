@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Video;
 
 [Serializable]
@@ -98,5 +99,8 @@ public class VideoManager : MonoBehaviour
         player.Stop();
         player.gameObject.SetActive(false);
         player.clip = null;
+
+        var texture = (RenderTexture) player.GetComponent<RawImage>().texture;
+        texture.Release();
     }
 }

@@ -43,7 +43,7 @@ public class LevelScenePm : IDisposable
 
         public ReactiveCommand OnSkipPhrase;
         public ReactiveCommand<bool> OnClickPauseButton;
-        public VideoManager videoManager;
+        public VideoManager VideoManager;
         public Blocker Blocker;
         public CursorSet cursorSettings;
         public OverridenDialogue OverridenDialogue;
@@ -416,7 +416,7 @@ public class LevelScenePm : IDisposable
             case PhraseEventType.VideoClip:
                 var videoClip = content[data.PhraseEvent] as VideoClip;
                 if (videoClip == null && !data.Stop) break;
-                _ctx.videoManager.PlayVideo(data, videoClip);
+                _ctx.VideoManager.PlayVideo(data, videoClip);
                 break;
             case PhraseEventType.GameObject:
                 var prefab = content[data.PhraseEvent] as GameObject;
@@ -621,6 +621,7 @@ private Choice RandomSelectButton(List<Choice> choices)
 
     public void Dispose()
     {
+        _ctx.VideoManager.StopPlayers();
         _tokenSource.Cancel();
         _disposables.Dispose();
         _ctx.AudioManager.UnLoadBank();

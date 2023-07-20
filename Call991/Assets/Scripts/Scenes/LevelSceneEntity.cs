@@ -117,7 +117,7 @@ public class LevelSceneEntity : IGameScene
             OnShowNewspaper = onShowNewspaper,
             OnSkipPhrase = onSkipPhrase,
             OnClickPauseButton = onClickPauseButton,
-            videoManager = _ctx.VideoManager,
+            VideoManager = _ctx.VideoManager,
             Blocker = _ctx.Blocker,
             cursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
