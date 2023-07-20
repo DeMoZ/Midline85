@@ -78,13 +78,13 @@ namespace UI
             OnChoiceDone?.Invoke(this);
         }
 
-        protected override void SetDisabled()
+        public override void SetDisabled()
         {
             base.SetDisabled();
             SetButtonState(false);
         }
 
-        protected override void SetNormal()
+        public override void SetNormal()
         {
             base.SetNormal();
             SetButtonState(false);

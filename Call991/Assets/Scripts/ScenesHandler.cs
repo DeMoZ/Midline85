@@ -23,6 +23,8 @@ public class ScenesHandler : IDisposable
         public OverridenDialogue OverridenDialogue;
         public ReactiveProperty<bool> IsPauseAllowed;
         public ReactiveProperty<List<string>> LevelLanguages;
+        public DialogueLoggerPm DialogueLogger;
+        public ReactiveProperty<int> PlayLevelIndex;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -121,11 +123,13 @@ public class ScenesHandler : IDisposable
         var constructorTask = new Container<Task>();
         var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
         {
+            PlayLevelIndex = _ctx.PlayLevelIndex,
             OnSwitchScene = _ctx.OnSwitchScene,
+            GameSet = _ctx.GameSet,
             Profile = _ctx.Profile,
             AudioManager = _ctx.AudioManager,
-            videoManager = _ctx.VideoManager,
             ConstructorTask = constructorTask,
+            DialogueLogger = _ctx.DialogueLogger,
         }).AddTo(_disposables);
 
         _ctx.CursorSettings.EnableCursor(true);
@@ -137,7 +141,7 @@ public class ScenesHandler : IDisposable
     {
         var level = _ctx.OverridenDialogue.Dialogue != null
             ? _ctx.OverridenDialogue.Dialogue
-            : _ctx.GameSet.GameLevels.Levels[0];
+            : _ctx.GameSet.GameLevels.Levels[_ctx.PlayLevelIndex.Value];
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
 
@@ -159,6 +163,7 @@ public class ScenesHandler : IDisposable
             CursorSettings = _ctx.CursorSettings,
             IsPauseAllowed = _ctx.IsPauseAllowed,
             LevelLanguages = _ctx.LevelLanguages,
+            DialogueLogger = _ctx.DialogueLogger,
         }).AddTo(_disposables);
 
         await constructorTask.Value;

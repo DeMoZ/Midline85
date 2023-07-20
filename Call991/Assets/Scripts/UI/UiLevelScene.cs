@@ -37,7 +37,6 @@ namespace UI
             public ReactiveCommand<bool> OnClickPauseButton;
             public ReactiveProperty<bool> IsPauseAllowed;
 
-            public WwiseAudio AudioManager;
             public PlayerProfile Profile;
         }
 
@@ -95,9 +94,8 @@ namespace UI
 
             menuSettings.SetCtx(new UiMenuSettings.Ctx
             {
-                audioManager = _ctx.AudioManager,
-                onClickToMenu = _onClickToMenu,
-                profile = _ctx.Profile,
+                OnClickToMenu = _onClickToMenu,
+                Profile = _ctx.Profile,
             });
 
             _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);

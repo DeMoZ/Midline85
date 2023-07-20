@@ -182,7 +182,7 @@ MonoBehaviour:
   - {fileID: 4290020120183386348}
   - {fileID: 4397566110233464802}
   - {fileID: 4290020120038283559}
-  playBtn: {fileID: 4290020118894744816}
+  continueBtn: {fileID: 4290020118894744816}
   newGameBtn: {fileID: 7985199731667210310}
   settingsBtn: {fileID: 4290020120183386348}
   creditsBtn: {fileID: 4397566110233464802}
@@ -270,6 +270,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7985199731242092629}
     m_Modifications:
+    - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
+        type: 3}
+      propertyPath: m_text
+      value: New Game
+      objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_fontColor.a
@@ -733,6 +738,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: TutorialEnter
       objectReference: {fileID: 0}
+    - target: {fileID: 3975164521111961318, guid: ca10ee16bbc564b238242b681c97122a,
+        type: 3}
+      propertyPath: m_text
+      value: Select
+      objectReference: {fileID: 0}
     - target: {fileID: 5111026526574385387, guid: ca10ee16bbc564b238242b681c97122a,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -785,7 +795,7 @@ PrefabInstance:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_text
-      value: "\u0422\u0438\u0442\u0440\u044B"
+      value: Credits
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1117,17 +1127,17 @@ PrefabInstance:
     - target: {fileID: 9015870715017497645, guid: a0e6330eec1bc4c0fbda23e2a2e95c92,
         type: 3}
       propertyPath: m_fontColor.b
-      value: 0.8509804
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015870715017497645, guid: a0e6330eec1bc4c0fbda23e2a2e95c92,
         type: 3}
       propertyPath: m_fontColor.g
-      value: 0.8509804
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9015870715017497645, guid: a0e6330eec1bc4c0fbda23e2a2e95c92,
         type: 3}
       propertyPath: m_fontColor.r
-      value: 0.8509804
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0e6330eec1bc4c0fbda23e2a2e95c92, type: 3}
@@ -1159,7 +1169,7 @@ PrefabInstance:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_text
-      value: "\u0412\u044B\u0445\u043E\u0434"
+      value: Exit
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1371,7 +1381,7 @@ PrefabInstance:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_text
-      value: "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B"
+      value: Options
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1582,6 +1592,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
+      propertyPath: m_text
+      value: Continue
+      objectReference: {fileID: 0}
+    - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
+        type: 3}
       propertyPath: m_fontColor.a
       value: 1
       objectReference: {fileID: 0}
@@ -1613,12 +1628,12 @@ PrefabInstance:
     - target: {fileID: 6149689793516317500, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_Name
-      value: Play
+      value: Continue
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317500, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1643,7 +1658,7 @@ PrefabInstance:
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1653,7 +1668,7 @@ PrefabInstance:
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1703,12 +1718,12 @@ PrefabInstance:
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 561
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -65.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1728,7 +1743,7 @@ PrefabInstance:
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: mTerm
-      value: menu_newGame
+      value: menu_continue
       objectReference: {fileID: 0}
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}

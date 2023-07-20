@@ -9,9 +9,8 @@ namespace UI
     {
         public struct Ctx
         {
-            public ReactiveCommand onClickToMenu;
-            public PlayerProfile profile;
-            public WwiseAudio audioManager;
+            public ReactiveCommand OnClickToMenu;
+            public PlayerProfile Profile;
         }
 
         [SerializeField] private MenuButtonView toMenuBtn = default;
@@ -34,10 +33,10 @@ namespace UI
             SetTextDropdown();
             SetAudioDropdown();
 
-            masterVolume.Init(_ctx.profile.OnVolumeSet, _ctx.profile.MasterVolume);
-            voiceVolume.Init(_ctx.profile.OnVolumeSet, _ctx.profile.VoiceVolume);
-            musicVolume.Init(_ctx.profile.OnVolumeSet, _ctx.profile.MusicVolume);
-            sfxVolume.Init(_ctx.profile.OnVolumeSet, _ctx.profile.SfxVolume);
+            masterVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.MasterVolume);
+            voiceVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.VoiceVolume);
+            musicVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.MusicVolume);
+            sfxVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.SfxVolume);
 
             toMenuBtn.OnClick += OnClickToMenu;
             toMenuTutorialBtn.OnClick += OnClickToMenu;
@@ -45,7 +44,7 @@ namespace UI
 
         public void OnClickToMenu()
         {
-            _ctx.onClickToMenu.Execute();
+            _ctx.OnClickToMenu.Execute();
         }
 
         private void SetTextDropdown()
@@ -95,7 +94,7 @@ namespace UI
             var text = textLanguage.Options[index].text;
             LocalizationManager.CurrentLanguage = text;
 
-            _ctx.profile.TextLanguage = text;
+            _ctx.Profile.TextLanguage = text;
         }
     }
 }

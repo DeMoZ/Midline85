@@ -39,13 +39,14 @@ public class RootEntity : IDisposable
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
 
+        var playLevelIndex = new ReactiveProperty<int>(0);
         var levelLanguages = new ReactiveProperty<List<string>>();
         var isPauseAllowed = new ReactiveProperty<bool>(true);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
         var onScreenFade = new ReactiveCommand<(bool show, float time)>();
         var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
         var onShowWarning = new ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)>();
-
+        
         var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
         {
             OnScreenFade = onScreenFade,
@@ -84,7 +85,8 @@ public class RootEntity : IDisposable
         videoManager.SetCtx(new VideoManager.Ctx
         {
         });
-
+        
+        var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
@@ -102,6 +104,8 @@ public class RootEntity : IDisposable
             OverridenDialogue = _ctx.OverridenDialogue,
             IsPauseAllowed = isPauseAllowed,
             LevelLanguages = levelLanguages,
+            DialogueLogger = dialogueLoggerPm,
+            PlayLevelIndex = playLevelIndex,
         }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

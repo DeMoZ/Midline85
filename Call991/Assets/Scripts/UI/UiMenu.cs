@@ -7,53 +7,52 @@ namespace UI
     {
         public struct Ctx
         {
-            public WwiseAudio audioManager;
-            public ReactiveCommand onClickPlayGame;
-            public ReactiveCommand onClickNewGame;
-            public ReactiveCommand onClickSettings;
-            public ReactiveCommand onClickCredits;
+            public ReactiveCommand OnClickContinue;
+            public ReactiveCommand OnClickNewGame;
+            public ReactiveCommand OnClickSettings;
+            public ReactiveCommand OnClickCredits;
         }
 
-        [SerializeField] private MenuButtonView playBtn = default;
+        [SerializeField] private MenuButtonView continueBtn = default;
         [SerializeField] private MenuButtonView newGameBtn = default;
         [SerializeField] private MenuButtonView settingsBtn = default;
         [SerializeField] private MenuButtonView creditsBtn = default;
         [SerializeField] private MenuButtonView exitBtn = default;
-        
+
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            playBtn.OnClick += OnClickPlay;
+            continueBtn.OnClick += OnClickPlay;
             newGameBtn.OnClick += OnClickNewGame;
             settingsBtn.OnClick += OnClickSettings;
             creditsBtn.OnClick += OnClickCredits;
             exitBtn.OnClick += OnClickExit;
         }
-        
+
         private void OnClickPlay()
         {
-            Debug.Log("[UiMenuScene] OnClickPlay");
-            _ctx.onClickPlayGame.Execute();
+            Debug.Log("[UiMenuScene] OnClickContinue");
+            _ctx.OnClickContinue.Execute();
         }
-        
+
         private void OnClickNewGame()
         {
             Debug.Log("[UiMenuScene] OnClickNewGame");
-            _ctx.onClickNewGame.Execute();
+            _ctx.OnClickNewGame.Execute();
         }
 
         private void OnClickSettings()
         {
             Debug.Log("[UiMenuScene] OnClickSettings");
-            _ctx.onClickSettings.Execute();
+            _ctx.OnClickSettings.Execute();
         }
 
         private void OnClickCredits()
         {
             Debug.Log("[UiMenuScene] OnClickCredits");
-            _ctx.onClickCredits.Execute();
+            _ctx.OnClickCredits.Execute();
         }
 
         private void OnClickExit()
@@ -63,7 +62,7 @@ namespace UI
 
         public void OnDestroy()
         {
-            playBtn.OnClick -= OnClickPlay;
+            continueBtn.OnClick -= OnClickPlay;
             newGameBtn.OnClick -= OnClickNewGame;
             settingsBtn.OnClick -= OnClickSettings;
             creditsBtn.OnClick -= OnClickCredits;
