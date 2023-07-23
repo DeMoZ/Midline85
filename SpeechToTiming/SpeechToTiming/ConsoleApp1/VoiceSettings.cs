@@ -18,9 +18,9 @@ public class VoiceSettings
         // path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/LANG/PERSON_FOLDER";
         // path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/LANG/PERSON_FOLDER";
         
-        path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian/pizza_george";
+        //path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian/pizza_george";
         //path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian/pizza_gril";
-        //path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian/pizza_elena";
+        path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian";
 
         // test folders
         // path = "/Users/roman/Git/_NADSAT/Call991/Voices/pizza.elena";
