@@ -19,9 +19,9 @@ public static class TextToYaml
             wordTimes.Add(word);
         }
 
-        var beforeFirstWord = DurationToFloat(voiceData.BeforeFirstWord); // 0.033,
-        var afterLastWord = DurationToFloat(voiceData.AfterLastWord); // 1.6,
-        var totalTime = DurationToFloat(voiceData.TotalTime); // 1.633
+        var beforeFirstWord = DurationToFloat(voiceData.BeforeFirstWord);
+        var afterLastWord = DurationToFloat(voiceData.AfterLastWord) + VoiceSettings.AddTimeToLastWord;
+        var totalTime = DurationToFloat(voiceData.TotalTime);
 
         var yamlData = new YamlData
         {
@@ -59,27 +59,15 @@ public static class TextToYaml
         return yaml;
     }
     
-    private static float DurationToFloat(Duration duration)
-    {
-        if (duration == null) return 0;
-        
-        return (float)duration.ToTimeSpan().TotalSeconds;
-    }
+    private static float DurationToFloat(Duration duration) => 
+        (float)duration.ToTimeSpan().TotalSeconds;
 
     private static void FixYamlVersion(ref string yaml)
     {
-        /*yaml = yaml.Replace(@"YAMLVersion: '%YAML 1.1'
-        TAG: '%TAG !u! tag:unity3d.com,2011:'
-        data:",@"%YAML 1.1
-               %TAG !u! tag:unity3d.com,2011:
-        --- !u!114 &11400000
-        MonoBehaviour:");*/
-
         yaml = yaml.Replace(@"YAMLVersion: '%YAML 1.1'", @"%YAML 1.1");
         yaml = yaml.Replace(@"TAG: '%TAG !u! tag:unity3d.com,2011:'",
             "%TAG !u! tag:unity3d.com,2011:\n--- !u!114 &11400000");
         yaml = yaml.Replace(@"data:", @"MonoBehaviour:");
-
     }
 }
 

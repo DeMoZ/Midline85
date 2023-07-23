@@ -30,17 +30,23 @@ public class SpeechToText
     {
         var audio = RecognitionAudio.FromStream(File.OpenRead(voiceFile));
         var response = _client.Recognize(_config, audio);
+
         voiceData = new VoiceData
         {
             FileName = Path.GetFileNameWithoutExtension(voiceFile),
             Words = new List<WordData>(),
         };
 
+        if (response.Results == null || response.Results.Count == 0)
+        {
+            Console.WriteLine($"!!!!!------NOT RECOGNISED: {voiceFile}");
+            return false;
+        }
+        
         foreach (var result in response.Results)
         {
-            // for (var index = 0; index < result.Alternatives.Count; index++)
-            // {
             var alt = result.Alternatives[0];
+
             var buildString = new StringBuilder();
             voiceData.Phrase = alt.Transcript;
 
@@ -51,9 +57,8 @@ public class SpeechToText
             foreach (var word in alt.Words)
             {
                 voiceData.BeforeFirstWord ??= word.StartTime;
-                  
-                lastStart = word.StartTime;
-                lastEnd = word.EndTime;
+
+                lastEnd = word.EndTime - word.StartTime;
                 buildString.Append($"\n - Word: {word.Word} ; start {word.StartTime}; end {word.EndTime} " +
                                    $"; duration = {word.EndTime - word.StartTime}");
                 voiceData.Words.Add(new WordData
@@ -61,16 +66,16 @@ public class SpeechToText
                     Word = word.Word,
                     StartTime = word.StartTime,
                     EndTime = word.EndTime,
-                    Diration = word.EndTime - word.StartTime,
+                    Diration = lastEnd
                 });
             }
 
+            voiceData.AfterLastWord = lastEnd;
             voiceData.TotalTime = result.ResultEndTime;
 
-            buildString.Append($"\n - after last word {lastEnd - lastStart}");
+            buildString.Append($"\n - after last word {lastEnd}");
 
             Console.WriteLine(buildString);
-            //}
         }
 
         Console.WriteLine($"result json = {JsonConvert.SerializeObject(voiceData)}");

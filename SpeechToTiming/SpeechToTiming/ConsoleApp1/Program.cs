@@ -1,6 +1,8 @@
 ﻿// https://console.cloud.google.com/speech/
 // cloud.google servise to translate audio file to text SpeechToText
 
+using System.Text;
+
 class Program
 {
     private static string _filePath;
@@ -19,6 +21,8 @@ class Program
         
         var outputFolder = Utilities.GetOutputFolder(_filePath);
         var speechToText = new SpeechToText(VoiceSettings.GetLanguage());
+        var badResults = new StringBuilder();
+        badResults.Append("Not recognised list:");
         
         foreach (var voiceFile in files)
         {
@@ -26,7 +30,11 @@ class Program
             if (isTimingAlreadyExists) continue;
             
             var dataReceived =  speechToText.TryGetTextDataFromVoice(voiceFile, out var voiceData);
-            if (!dataReceived) continue;
+            if (!dataReceived)
+            {
+                badResults.Append($"\n - {voiceData.FileName}");
+                continue;
+            }
             
             // create yaml string from voiceData
             var yaml = TextToYaml.GetYamlDataFromVoiceData(voiceData);
@@ -34,5 +42,8 @@ class Program
             // Save the YAML to a file
             File.WriteAllText(timingFile, yaml);
         }
+        
+        if(badResults.Length > 1)
+            Console.WriteLine(badResults);
     }
 }

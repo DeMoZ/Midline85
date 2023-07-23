@@ -4,7 +4,8 @@ public class VoiceSettings
     public const string TimingExtension = "asset";
     public const string OutputRootPath = "/Users/roman/Git/_NADSAT/Call991/Call991/Assets/Resources/Phrases";
     public const string OutputRootFolderBadFolder = "_TIMINGS";
-
+    public const float AddTimeToLastWord = 1f;
+    
     public static string GetLanguage()
     {
         return "ru-RU";
@@ -16,9 +17,13 @@ public class VoiceSettings
         // path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian/pizza_george";
         // path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/LANG/PERSON_FOLDER";
         // path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/LANG/PERSON_FOLDER";
+        
+        path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian/pizza_george";
+        //path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian/pizza_gril";
+        //path = "/Users/roman/Git/_NADSAT/Call991/Call991/Call991_WwiseProject/Originals/Voices/Russian/pizza_elena";
 
         // test folders
-        path = "/Users/roman/Git/_NADSAT/Call991/Voices/pizza.elena";
+        // path = "/Users/roman/Git/_NADSAT/Call991/Voices/pizza.elena";
         // path = "/Users/roman/Git/_NADSAT/Call991/Voices/pizza.george";
         // path = "/Users/roman/Git/_NADSAT/Call991/Voices/pizza.girl";
 
