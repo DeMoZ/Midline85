@@ -1,59 +1,38 @@
-﻿using Google.Cloud.Speech.V1;
-using Google.Protobuf.WellKnownTypes;
+﻿// https://console.cloud.google.com/speech/
+// cloud.google servise to translate audio file to text SpeechToText
 
 class Program
 {
+    private static string _filePath;
+
     static void Main(string[] args)
     {
         Console.WriteLine("Hello, World!");
+
+        // TestTextData.OneFileGetTimingData();
+        var language = VoiceSettings.GetLanguage();
+        var isFolderExist = VoiceSettings.TryGetFolder(out _filePath);
+        if (!isFolderExist) return;
+
+        var gotFiles = Utilities.TryGetFiles(_filePath, out var files);
+        if (!gotFiles) return;
         
-        //string audioFile = "audiofile.wav";
-        //string audioFile = "/Users/roman/Git/_NADSAT/Call991/Voices/audiofile.wav";
-        string audioFile = "/Users/roman/Git/_NADSAT/Call991/Voices/pizza.elena/pizza.elena.001.wav";
-        bool timings = GetTimings(audioFile, "ru-RU");
-        Console.WriteLine(timings);
-    }
-    
-    static bool GetTimings(string fileName, string language)
-    {
-        var client = SpeechClient.Create();
-
-        //var content = ByteString.FromStream(File.OpenRead(fileName));
-        var audio = RecognitionAudio.FromStream(File.OpenRead(fileName));
-
-        var config = new RecognitionConfig
+        var outputFolder = Utilities.GetOutputFolder(_filePath);
+        var speechToText = new SpeechToText(VoiceSettings.GetLanguage());
+        
+        foreach (var voiceFile in files)
         {
-            Encoding = RecognitionConfig.Types.AudioEncoding.Linear16,
-            SampleRateHertz = 48000,
-            AudioChannelCount = 1,
-            Model = "latest_long",
-            LanguageCode = language,
-            EnableAutomaticPunctuation = true,
-            EnableSpokenPunctuation = true,
-            MaxAlternatives = 5,
-            EnableWordTimeOffsets = true
-        };
-
-        // Sends the request to Google to transcribe the audio
-        var response = client.Recognize(config, audio);
-        foreach (var result in response.Results)
-        {
-            foreach (var alt in result.Alternatives)
-            {
-                Console.WriteLine("Transcript: {0}", alt.Transcript);
-                Duration lastStart = new Duration();
-                Duration lastEnd = new Duration();
-                foreach (var word in alt.Words)
-                {
-                    lastStart = word.StartTime; 
-                    lastEnd = word.EndTime;
-                    Console.WriteLine($"  Word: {word.Word} ; start {word.StartTime}; end {word.EndTime} " +
-                                      $"; duration = {word.EndTime - word.StartTime}" );
-                }
-                Console.WriteLine($"after last word {lastEnd - lastStart}");
-            }
+            var isTimingAlreadyExists = Utilities.IsFileExits(voiceFile, out var timingFile);
+            if (isTimingAlreadyExists) continue;
+            
+            var dataReceived =  speechToText.TryGetTextDataFromVoice(voiceFile, out var voiceData);
+            if (!dataReceived) continue;
+            
+            // create yaml string from voiceData
+            var yaml = TextToYaml.GetYamlDataFromVoiceData(voiceData);
+            
+            // Save the YAML to a file
+            File.WriteAllText(timingFile, yaml);
         }
-
-        return true;
     }
 }
