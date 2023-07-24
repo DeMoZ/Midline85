@@ -29,7 +29,15 @@ public class SpeechToText
     public bool TryGetTextDataFromVoice(string voiceFile, out VoiceData voiceData)
     {
         var audio = RecognitionAudio.FromStream(File.OpenRead(voiceFile));
-        var response = _client.Recognize(_config, audio);
+        RecognizeResponse? response = new RecognizeResponse();
+        try
+        {
+            response = _client.Recognize(_config, audio);
+        }
+        catch
+        {
+            Console.WriteLine($"!!!!!-----ERROR CATCH: {voiceFile}");
+        }
 
         voiceData = new VoiceData
         {

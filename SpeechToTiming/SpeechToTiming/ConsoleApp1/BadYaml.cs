@@ -34,8 +34,9 @@ public static class BadYaml
 
     public static string GetBadFileName(string filePath)
     {
+        var path = Path.GetDirectoryName(filePath);
         var name = Path.GetFileNameWithoutExtension(filePath);
-        var newName = $"{name}{Suffix}";
-        return filePath.Replace(name,newName);
+        var newName = Path.Combine(path, $"{name}{Suffix}.{VoiceSettings.TimingExtension}");
+        return newName;
     }
 }
