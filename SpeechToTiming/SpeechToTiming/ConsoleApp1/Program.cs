@@ -18,32 +18,30 @@ class Program
 
         var gotFiles = Utilities.TryGetFiles(_filePath, out var files);
         if (!gotFiles) return;
-        
+
         var outputFolder = Utilities.GetOutputFolder(_filePath);
         var speechToText = new SpeechToText(VoiceSettings.GetLanguage());
         var badResults = new StringBuilder();
         badResults.Append("Not recognised list:");
-        
+
         foreach (var voiceFile in files)
         {
             var isTimingAlreadyExists = Utilities.IsFileExits(voiceFile, out var timingFile);
             if (isTimingAlreadyExists) continue;
-            
-            var dataReceived =  speechToText.TryGetTextDataFromVoice(voiceFile, out var voiceData);
+
+            var dataReceived = speechToText.TryGetTextDataFromVoice(voiceFile, out var voiceData);
             if (!dataReceived)
             {
-                badResults.Append($"\n - {voiceData.FileName}");
-                continue;
+                badResults.Append($"\n - {voiceFile}");
+                voiceData = BadYaml.GetBadData(voiceData.FileName);
+                timingFile = BadYaml.GetBadFileName(timingFile);
             }
-            
-            // create yaml string from voiceData
+
             var yaml = TextToYaml.GetYamlDataFromVoiceData(voiceData);
-            
-            // Save the YAML to a file
             File.WriteAllText(timingFile, yaml);
         }
-        
-        if(badResults.Length > 1)
+
+        if (badResults.Length > 1)
             Console.WriteLine(badResults);
     }
 }

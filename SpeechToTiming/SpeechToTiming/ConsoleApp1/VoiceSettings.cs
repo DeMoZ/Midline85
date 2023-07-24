@@ -2,7 +2,8 @@ public class VoiceSettings
 {
     public const string VoiceExtension = "wav";
     public const string TimingExtension = "asset";
-    public const string OutputRootPath = "/Users/roman/Git/_NADSAT/Call991/Call991/Assets/Resources/Phrases";
+    //public const string OutputRootPath = "/Users/roman/Git/_NADSAT/Call991/Call991/Assets/Resources/Phrases";
+    public const string OutputRootPath = "/Users/roman/Git/_NADSAT/Call991/Timings";
     public const string OutputRootFolderBadFolder = "_TIMINGS";
     public const float AddTimeToLastWord = 1f;
     
