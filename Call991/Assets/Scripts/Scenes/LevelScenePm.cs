@@ -33,7 +33,7 @@ public class LevelScenePm : IDisposable
 
         public ContentLoader ContentLoader;
         public List<ChoiceButtonView> buttons;
-        public CountDownView countDown;
+        public CountDownView CountDown;
 
         public ReactiveCommand OnAfterEnter;
         public GameSet GameSet;
@@ -90,6 +90,7 @@ public class LevelScenePm : IDisposable
 
     private async void OnAfterEnter()
     {
+        InitTimer();
         InitButtons();
         _ctx.OnShowLevelUi.Execute();
         _ctx.cursorSettings.EnableCursor(true);
@@ -436,6 +437,7 @@ public class LevelScenePm : IDisposable
 
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
     {
+        _ctx.CountDown.Show(_ctx.GameSet.choicesDuration);
         _ctx.AudioManager.PlayTimerSfx();
 
         for (var i = 0; i < data.Count; i++)
@@ -455,7 +457,7 @@ public class LevelScenePm : IDisposable
         _ctx.AudioManager.StopTimerSfx();
 
         //_ctx.AudioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
-        _ctx.countDown.Stop(_ctx.GameSet.fastButtonFadeDuration);
+        _ctx.CountDown.Stop(_ctx.GameSet.fastButtonFadeDuration);
 
         foreach (var t in Timer(_ctx.GameSet.slowButtonFadeDuration)) yield return t;
 
@@ -600,13 +602,16 @@ private Choice RandomSelectButton(List<Choice> choices)
 }
 */
 
-    private void InitButtons()
+    private void InitTimer()
     {
-        _ctx.countDown.SetCtx(new CountDownView.Ctx
+        _ctx.CountDown.SetCtx(new CountDownView.Ctx
         {
             buttonsAppearDuration = _ctx.GameSet.buttonsAppearDuration,
         });
-
+    }
+    
+    private void InitButtons()
+    {
         foreach (var button in _ctx.buttons)
         {
             button.SetCtx(new ChoiceButtonView.Ctx
