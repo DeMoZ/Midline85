@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using I2.Loc;
 using TMPro;
 using UnityEngine;
 
@@ -6,7 +7,9 @@ namespace UI
 {
     public class LanguageDropdown : MonoBehaviour
     {
+        [SerializeField] private TMP_Text localizedLabel = default;
         [SerializeField] private TMP_Dropdown dropdown = default;
+        
         public TMP_Dropdown.DropdownEvent OnValueChanged => dropdown.onValueChanged;
         public List<TMP_Dropdown.OptionData> Options => dropdown.options;
 
@@ -34,6 +37,22 @@ namespace UI
                 value = 0;
 
             dropdown.value = value;
+        }
+
+        private void Start()
+        {
+            LocalizeLabel();
+            LocalizationManager.OnLocalizeEvent += LocalizeLabel;
+        }
+
+        private void OnDestroy()
+        {
+            LocalizationManager.OnLocalizeEvent -= LocalizeLabel;
+        }
+
+        private void LocalizeLabel()
+        {
+            localizedLabel.text = LocalizationManager.GetTranslation(dropdown.options[dropdown.value].text);
         }
     }
 }
