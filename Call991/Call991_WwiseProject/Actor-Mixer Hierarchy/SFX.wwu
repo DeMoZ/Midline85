@@ -87,8 +87,8 @@
 							<PositioningInfo>
 								<Panner Name="" ID="{A92CEA71-B064-431A-A980-F74D00E7572A}">
 									<PropertyList>
-										<Property Name="PanX" Type="Real64" Value="-42.906"/>
-										<Property Name="PanY" Type="Real64" Value="-0.36231884057972"/>
+										<Property Name="PanX" Type="Real64" Value="-25.0265821205821"/>
+										<Property Name="PanY" Type="Real64" Value="-1.26934831903776"/>
 									</PropertyList>
 								</Panner>
 							</PositioningInfo>
@@ -158,6 +158,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_chair" ID="{0131E1E3-CAAF-48AF-920B-E685773B9136}" ShortID="204248451">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-21.2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -459,74 +466,6 @@
 								<ActiveSource Name="sfx_phone1" ID="{C1AD0EC9-DA57-4E7E-B3AE-7FC978C8045E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="sfx_policemeet" ID="{F8DEC22A-5DDB-4447-A634-5F67D3A7ADEE}" ShortID="562254947">
-							<PropertyList>
-								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-								<Property Name="Highpass" Type="int16">
-									<ValueList>
-										<Value>16</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>23</Value>
-									</ValueList>
-								</Property>
-								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
-								<Property Name="OverrideEffect" Type="bool" Value="True"/>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
-								<Property Name="RenderEffect0" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
-								<Property Name="RenderEffect1" Type="bool">
-									<ValueList>
-										<Value>True</Value>
-									</ValueList>
-								</Property>
-								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>6</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-								</Reference>
-								<Reference Name="Effect0" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
-									<ObjectRef Name="Underground_Parking1" ID="{8DA66AA3-6CA0-41A0-B7A2-BB6FCABFCDA8}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-								</Reference>
-								<Reference Name="Effect1" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
-									<ObjectRef Name="Nearly_Forever" ID="{38550FDA-9236-4FC5-8AE0-68DB08164B25}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="sfx_policemeet" ID="{C43F0E4C-497B-4586-8AA9-D67AD3574ACA}">
-									<Language>SFX</Language>
-									<AudioFile>sfx_policemeet.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="182409374"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<PositioningInfo>
-								<Panner Name="" ID="{3F7EF47C-338D-48C2-BA44-2DEF515E4F7C}">
-									<PropertyList>
-										<Property Name="PanX" Type="Real64" Value="-45.3237410071942"/>
-										<Property Name="PanY" Type="Real64" Value="0.387596899224806"/>
-									</PropertyList>
-								</Panner>
-							</PositioningInfo>
-							<ActiveSourceList>
-								<ActiveSource Name="sfx_policemeet" ID="{C43F0E4C-497B-4586-8AA9-D67AD3574ACA}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 						<Sound Name="sfx_policeshot" ID="{D5C9AADF-8719-4E89-BBE5-0B63655FEC16}" ShortID="523982796">
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
@@ -756,118 +695,6 @@
 								<ActiveSource Name="sfx_susup" ID="{7FC3A99E-D40E-45E3-8E24-97A5B62B009A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<RandomSequenceContainer Name="sfx_keyboard" ID="{C1892506-F05F-439B-B806-B5DF07492495}" ShortID="655543584">
-							<PropertyList>
-								<Property Name="Highpass" Type="int16">
-									<ValueList>
-										<Value>13</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>12</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<Sound Name="sfx_keyboard1" ID="{4B7D85AB-0C64-473F-99DB-93A4707FF61E}" ShortID="180772812">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="sfx_keyboard1" ID="{9702404D-CC2E-4293-ABB5-359FE4A8988E}">
-											<Language>SFX</Language>
-											<AudioFile>sfx_keyboard1.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="258547841"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="sfx_keyboard1" ID="{9702404D-CC2E-4293-ABB5-359FE4A8988E}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="sfx_keyboard2" ID="{C2F177C4-0653-4E82-82EF-BDFD001AA66E}" ShortID="561643270">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="sfx_keyboard2" ID="{6B0C3FDF-21FE-4F9B-855A-FB7E03BE5733}">
-											<Language>SFX</Language>
-											<AudioFile>sfx_keyboard2.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="498593491"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="sfx_keyboard2" ID="{6B0C3FDF-21FE-4F9B-855A-FB7E03BE5733}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="sfx_keyboard3" ID="{4962B03C-873B-42E7-83D1-35A7DBF04721}" ShortID="210808798">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="sfx_keyboard3" ID="{96C4DBE7-CED8-404B-A6AE-0443B679D1D5}">
-											<Language>SFX</Language>
-											<AudioFile>sfx_keyboard3.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="136195668"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="sfx_keyboard3" ID="{96C4DBE7-CED8-404B-A6AE-0443B679D1D5}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-								<Sound Name="sfx_keyboard4" ID="{D478D39F-36FA-453B-AF27-EC218093DF0A}" ShortID="278117960">
-									<ReferenceList>
-										<Reference Name="Conversion">
-											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-										</Reference>
-										<Reference Name="OutputBus">
-											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-										</Reference>
-									</ReferenceList>
-									<ChildrenList>
-										<AudioFileSource Name="sfx_keyboard4" ID="{D2DF3DCA-08A1-4D6E-B1AE-9996F8EFEE98}">
-											<Language>SFX</Language>
-											<AudioFile>sfx_keyboard4.wav</AudioFile>
-											<MediaIDList>
-												<MediaID ID="520046083"/>
-											</MediaIDList>
-										</AudioFileSource>
-									</ChildrenList>
-									<ActiveSourceList>
-										<ActiveSource Name="sfx_keyboard4" ID="{D2DF3DCA-08A1-4D6E-B1AE-9996F8EFEE98}" Platform="Linked"/>
-									</ActiveSourceList>
-								</Sound>
-							</ChildrenList>
-						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="sfx_MChwrite" ID="{2183F116-CC0D-4734-AE7E-396056201F6B}" ShortID="33534525">
 							<PropertyList>
 								<Property Name="Lowpass" Type="int16">
@@ -1904,6 +1731,1794 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="sfx_scratch" ID="{99829984-C4A7-4658-B1E7-68D4597789DB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<ActorMixer Name="SFX_Left" ID="{D7591F17-F8D5-45B0-AD53-875B42C8C346}" ShortID="460369369">
+							<PropertyList>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="sfx_PenHitsDesk_001" ID="{ADF059CC-CF71-41DE-A542-D53A91B499D2}" ShortID="520059280">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_PenHitDesk" ID="{58633E15-26A6-4F6B-841F-DE85FEE21907}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_PenHitDesk.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="68940865"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_PenHitDesk" ID="{58633E15-26A6-4F6B-841F-DE85FEE21907}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_PenNoise" ID="{FAAB19A0-9AFB-40D3-91E6-FB491F89B73C}" ShortID="586519941">
+									<PropertyList>
+										<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+										<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-14.2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_PenNoise" ID="{38B84EA3-9174-4ADB-8396-7B3BA6677CCC}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_PenNoise.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1026165587"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{4DBD0194-8277-4A89-9A13-EFFB91E90D53}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="25"/>
+												<Property Name="PanY" Type="Real64" Value="25"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_PenNoise" ID="{38B84EA3-9174-4ADB-8396-7B3BA6677CCC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="sfx_PenHardHitDesk" ID="{2702DFDC-B0CD-4797-A48B-DD862A1DEDD5}" ShortID="75753642">
+									<PropertyList>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5.4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_PenHardHitDesk_001" ID="{F36EFB9A-17A8-46D8-932B-9640CF40555C}" ShortID="127926134">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_PenHardHitDesk_001" ID="{278711BD-7AE1-44EF-9074-B9890C36F817}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_PenHardHitDesk_001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="737560752"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{1FF6D226-2DAC-470C-89C9-C23A665203B0}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_PenHardHitDesk_001" ID="{278711BD-7AE1-44EF-9074-B9890C36F817}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_PenHardHitDesk_002" ID="{3B78F6FF-FB06-4FE7-84B6-7D96A03CCE84}" ShortID="399703484">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_PenHardHitDesk_002" ID="{F38FF779-6EAD-4497-9484-8122B3F2E8BC}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_PenHardHitDesk_002.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="915338772"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{E236DAAF-8BF3-4200-AE0C-556A2BCC122C}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_PenHardHitDesk_002" ID="{F38FF779-6EAD-4497-9484-8122B3F2E8BC}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_PenHardHitDesk_003" ID="{29F82536-550B-411B-A3C5-AD8C1AD4F298}" ShortID="355600700">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_PenHardHitDesk_003" ID="{C8056500-2A05-46CE-A90B-02294F687A3C}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_PenHardHitDesk_003.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="800283112"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{9EC72049-ECCB-4E90-B70B-0A9EB161926C}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_PenHardHitDesk_003" ID="{C8056500-2A05-46CE-A90B-02294F687A3C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_PenHardHitDesk_004" ID="{E776D37C-8C94-4363-AF35-8385389711BE}" ShortID="65256843">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_PenHardHitDesk_004" ID="{98FEE16D-D161-48E0-8BC4-7B3DB0F2BC24}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_PenHardHitDesk_004.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="867924950"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{AD15FE4B-C75F-415F-85D5-557D0B6432ED}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_PenHardHitDesk_004" ID="{98FEE16D-D161-48E0-8BC4-7B3DB0F2BC24}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="sfx_PenHardHitDesk_001" ID="{F36EFB9A-17A8-46D8-932B-9640CF40555C}"/>
+										<ItemRef Name="sfx_PenHardHitDesk_002" ID="{3B78F6FF-FB06-4FE7-84B6-7D96A03CCE84}"/>
+										<ItemRef Name="sfx_PenHardHitDesk_003" ID="{29F82536-550B-411B-A3C5-AD8C1AD4F298}"/>
+										<ItemRef Name="sfx_PenHardHitDesk_004" ID="{E776D37C-8C94-4363-AF35-8385389711BE}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="sfx_WoodChair" ID="{06444F8F-70BB-4B15-B81B-C090592FEF00}" ShortID="362338076">
+									<PropertyList>
+										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_WoodChair_001" ID="{51E50B6A-8772-4387-AB45-6D3D612D8E0F}" ShortID="95473701">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_001" ID="{4F7646CE-8094-4085-B0CA-DBD66BCBF6D1}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="696388271"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{C7542EBB-5A4C-4F1A-93F2-6DAB0367A4C2}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_001" ID="{4F7646CE-8094-4085-B0CA-DBD66BCBF6D1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_002" ID="{6DAC26E4-B467-411D-A5F8-D07B72550D4D}" ShortID="734263382">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_002" ID="{C1738F6D-828F-4BBC-B4EB-FFE4886A8A2D}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_002.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="693687838"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{586C74AC-DFE8-4083-A0A2-C3200181DF5E}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_002" ID="{C1738F6D-828F-4BBC-B4EB-FFE4886A8A2D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_003" ID="{E41CF4BC-C4EE-4B46-AB51-91952E509F9B}" ShortID="637263444">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_003" ID="{A965AE23-A359-460A-A4DF-3ED621ECF4C7}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_003.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="995409333"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{CF72E989-FDD7-4BA5-A54E-79DDAEEB0DA8}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_003" ID="{A965AE23-A359-460A-A4DF-3ED621ECF4C7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_004" ID="{B7C9FD70-1657-4A4D-A9D8-C62761E3C69E}" ShortID="306679266">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_004" ID="{ED533F5E-32B1-4C46-B90D-4BCF94B836ED}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_004.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="881700589"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{80E91D4B-3B39-48AC-AAB4-A622E78E626E}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_004" ID="{ED533F5E-32B1-4C46-B90D-4BCF94B836ED}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_005" ID="{D2CC17CF-2A7C-45CA-992D-D430E931F4B0}" ShortID="966429571">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_005" ID="{351338D2-BF39-4905-8B9E-C9E2C9141002}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_005.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="797503072"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{EA4CFA96-B999-40E7-8E59-EF7736F2E650}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_005" ID="{351338D2-BF39-4905-8B9E-C9E2C9141002}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="sfx_WoodChair_001" ID="{51E50B6A-8772-4387-AB45-6D3D612D8E0F}"/>
+										<ItemRef Name="sfx_WoodChair_002" ID="{6DAC26E4-B467-411D-A5F8-D07B72550D4D}"/>
+										<ItemRef Name="sfx_WoodChair_003" ID="{E41CF4BC-C4EE-4B46-AB51-91952E509F9B}"/>
+										<ItemRef Name="sfx_WoodChair_004" ID="{B7C9FD70-1657-4A4D-A9D8-C62761E3C69E}"/>
+										<ItemRef Name="sfx_WoodChair_005" ID="{D2CC17CF-2A7C-45CA-992D-D430E931F4B0}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="sfx_WoodChair_Short" ID="{C69C781A-BF8B-46D8-B9C8-DDD0D5C6A474}" ShortID="758826941">
+									<PropertyList>
+										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>630</Value>
+											</ValueList>
+										</Property>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-3.1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_WoodChair_001" ID="{302B026E-7ADC-47DC-98D3-6CA18EA8EA01}" ShortID="741094756">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_001" ID="{9EA1233A-FA3A-40BC-A74D-686F590BCD5B}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.121820459290188"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.145749478079332"/>
+														<Property Name="FadeOutShape" Type="int16" Value="6"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.830989561586639"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.05572025052192"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="161436663"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{9ADFF5EA-EB40-4E74-B821-C8EF2F3FD817}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_001" ID="{9EA1233A-FA3A-40BC-A74D-686F590BCD5B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_002" ID="{F1773ABB-158D-4D14-897D-C6540E9EF38F}" ShortID="1006852990">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_002" ID="{DD8FEE1D-E574-4471-BA31-D5BA3705195C}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.320347077244259"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.482405010438413"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.57723825678497"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_002.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="439928401"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{7B4A1250-DBA9-4530-AD07-55408B660D7F}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_002" ID="{DD8FEE1D-E574-4471-BA31-D5BA3705195C}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_003" ID="{391DC2BA-213F-4099-B1AF-B69CF35294DA}" ShortID="974420757">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_003" ID="{B9FD364A-9BB3-4E0B-803A-B63B84B263D0}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.17976617954071"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.496399791231733"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.527041753653444"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.49328496868476"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_003.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="390654040"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{5F8AC75F-7B1B-402E-BDE6-69D0137585E7}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_003" ID="{B9FD364A-9BB3-4E0B-803A-B63B84B263D0}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_004" ID="{7CDEBA4C-DF7C-482F-AED2-7315A471D756}" ShortID="49494270">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_004" ID="{6069FF89-E732-4A39-9B87-CE22D3B6FD2D}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0630855949895616"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.389390396659708"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.881022964509395"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.80555323590814"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_004.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="989778348"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{DEF7DCEA-B8DB-4161-B09E-2CA6739CB778}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_004" ID="{6069FF89-E732-4A39-9B87-CE22D3B6FD2D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_005" ID="{070BC99A-258B-49C4-87A7-DE8A48FBE9D2}" ShortID="1029652715">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_005" ID="{25F8D0C2-0CB6-4B7A-9ABC-CFCA66871CCE}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.306726513569937"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.900601252609603"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_005.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="326561243"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{3E19F276-CD90-4082-AA0A-CAD08F6484BF}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_005" ID="{25F8D0C2-0CB6-4B7A-9ABC-CFCA66871CCE}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="sfx_WoodChair_001" ID="{302B026E-7ADC-47DC-98D3-6CA18EA8EA01}"/>
+										<ItemRef Name="sfx_WoodChair_002" ID="{F1773ABB-158D-4D14-897D-C6540E9EF38F}"/>
+										<ItemRef Name="sfx_WoodChair_003" ID="{391DC2BA-213F-4099-B1AF-B69CF35294DA}"/>
+										<ItemRef Name="sfx_WoodChair_004" ID="{7CDEBA4C-DF7C-482F-AED2-7315A471D756}"/>
+										<ItemRef Name="sfx_WoodChair_005" ID="{070BC99A-258B-49C4-87A7-DE8A48FBE9D2}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+								<Sound Name="sfx_WoodChair_001" ID="{E47FBA27-E89E-4A54-BF19-C1A835B8E784}" ShortID="61674886">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_WoodChair_001" ID="{A829588D-4906-4072-852C-9E9AF67ECCB8}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_WoodChair_001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="696388271"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_WoodChair_001" ID="{A829588D-4906-4072-852C-9E9AF67ECCB8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_WoodChair_002" ID="{B2840111-E542-48AB-9645-395431F5E1AF}" ShortID="326426893">
+									<PropertyList>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>332</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_WoodChair_002" ID="{24B7CF6A-3A40-4CED-A071-7F394E458AE2}">
+											<PropertyList>
+												<Property Name="FadeInDuration" Type="Real64" Value="0.220474164926931"/>
+												<Property Name="LoopBegin" Type="Real64" Value="0.516324112734864"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.252508872651357"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_WoodChair_002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1066510859"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_WoodChair_002" ID="{24B7CF6A-3A40-4CED-A071-7F394E458AE2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_WoodChair_003" ID="{D10B1D47-58A3-44CB-80A9-F4439931B4CA}" ShortID="856503040">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_WoodChair_003" ID="{77C1ABB3-9B7F-4FAF-B302-2E3F864C1412}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_WoodChair_003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="995409333"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_WoodChair_003" ID="{77C1ABB3-9B7F-4FAF-B302-2E3F864C1412}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_WoodChair_004" ID="{570F638F-F1A2-42E4-B840-95CB62E638E7}" ShortID="504624392">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_WoodChair_004" ID="{308DD5EC-727D-4017-A264-4999CB478A4F}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_WoodChair_004.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="881700589"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_WoodChair_004" ID="{308DD5EC-727D-4017-A264-4999CB478A4F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_WoodChair_005" ID="{730616BF-C4D0-4169-8280-CFAFF0CF2774}" ShortID="892701820">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_WoodChair_005" ID="{E68439E6-D23B-4ACD-A09E-522EA650440E}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_WoodChair_005.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="797503072"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_WoodChair_005" ID="{E68439E6-D23B-4ACD-A09E-522EA650440E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="sfx_keyboard" ID="{C1892506-F05F-439B-B806-B5DF07492495}" ShortID="655543584">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>13</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_keyboard1" ID="{4B7D85AB-0C64-473F-99DB-93A4707FF61E}" ShortID="180772812">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard1" ID="{9702404D-CC2E-4293-ABB5-359FE4A8988E}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="258547841"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard1" ID="{9702404D-CC2E-4293-ABB5-359FE4A8988E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard2" ID="{C2F177C4-0653-4E82-82EF-BDFD001AA66E}" ShortID="561643270">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard2" ID="{6B0C3FDF-21FE-4F9B-855A-FB7E03BE5733}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="498593491"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard2" ID="{6B0C3FDF-21FE-4F9B-855A-FB7E03BE5733}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard3" ID="{4962B03C-873B-42E7-83D1-35A7DBF04721}" ShortID="210808798">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard3" ID="{96C4DBE7-CED8-404B-A6AE-0443B679D1D5}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="136195668"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard3" ID="{96C4DBE7-CED8-404B-A6AE-0443B679D1D5}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard4" ID="{D478D39F-36FA-453B-AF27-EC218093DF0A}" ShortID="278117960">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard4" ID="{D2DF3DCA-08A1-4D6E-B1AE-9996F8EFEE98}">
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="520046083"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard4" ID="{D2DF3DCA-08A1-4D6E-B1AE-9996F8EFEE98}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{CB7FADDB-B9EA-4458-8800-CC46A546810D}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="25"/>
+												<Property Name="PanY" Type="Real64" Value="25"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="sfx_keyboard_short" ID="{8B460D43-FA86-456C-8889-6B87360BA73D}" ShortID="439020013">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>13</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_keyboard1" ID="{595A31A2-4C08-4EE6-B344-22894C5CC7B2}" ShortID="373239445">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard1" ID="{EA80EC24-053E-4334-9358-66D0F4D75336}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.196242171189979"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.897703549060543"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="359358981"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard1" ID="{EA80EC24-053E-4334-9358-66D0F4D75336}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard2" ID="{068D2404-E585-4883-A235-789DEF42BC80}" ShortID="747348357">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard2" ID="{8C7B4415-6DD8-4440-9999-72BA6DA1A6E8}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="1.13361169102296"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="1.13361169102296"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="521046543"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard2" ID="{8C7B4415-6DD8-4440-9999-72BA6DA1A6E8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard3" ID="{653993BC-1846-49AD-925C-61E9A4FF36AC}" ShortID="539172005">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard3" ID="{724C5560-E276-47CB-9B2C-CE697DC6470A}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="2.839248434238"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="2.839248434238"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="930141906"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard3" ID="{724C5560-E276-47CB-9B2C-CE697DC6470A}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard4" ID="{BBE5DB4C-526B-458C-8C71-334DDE0A0BF9}" ShortID="42427643">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard4" ID="{4DB8B17C-322B-40DD-84D2-BAC03A5E6D95}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0501043841336117"/>
+														<Property Name="LoopBegin" Type="Real64" Value="2.97286012526096"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="2.77661795407098"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1021111713"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard4" ID="{4DB8B17C-322B-40DD-84D2-BAC03A5E6D95}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{72FF86F1-F87F-4AFE-801A-820BAC6708BE}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="25"/>
+												<Property Name="PanY" Type="Real64" Value="25"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="sfx_keyboard_light" ID="{9754C4F9-8C55-4694-BBA4-D64F462982C0}" ShortID="685798278">
+									<PropertyList>
+										<Property Name="Highpass" Type="int16">
+											<ValueList>
+												<Value>13</Value>
+											</ValueList>
+										</Property>
+										<Property Name="Lowpass" Type="int16">
+											<ValueList>
+												<Value>12</Value>
+											</ValueList>
+										</Property>
+										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
+										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
+										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_keyboard1" ID="{78EE560C-A248-445C-84C1-F558CD253E91}" ShortID="53204870">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard1" ID="{827DCA09-DD72-41A8-B26F-92721C5471C1}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="1.14613778705637"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.32985386221294"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="921820382"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard1" ID="{827DCA09-DD72-41A8-B26F-92721C5471C1}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard2" ID="{C6F2C3D3-31DD-468F-A7C8-EB411C649A3D}" ShortID="492419660">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard2" ID="{9238932D-8058-4C91-ABBF-EF9899F33DB7}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.283924843423799"/>
+														<Property Name="TrimEnd" Type="Real64" Value="0.632567849686848"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="517958014"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard2" ID="{9238932D-8058-4C91-ABBF-EF9899F33DB7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard3" ID="{1E534EFE-3B1D-40B9-9848-AB1DF74C9F26}" ShortID="119419233">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard3" ID="{5D5A883B-3DC5-4143-989D-F284EFE72D08}">
+													<PropertyList>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="1.27348643006263"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.62839248434238"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="557204970"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard3" ID="{5D5A883B-3DC5-4143-989D-F284EFE72D08}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_keyboard4" ID="{3480E549-7A40-446C-93FA-A0BFC0B99D0D}" ShortID="454697884">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_keyboard4" ID="{780A4D34-EA88-4403-AFB7-85001DE2D5BB}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0501043841336117"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="2.15031315240083"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.58872651356994"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>sfx_keyboard4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="901425935"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_keyboard4" ID="{780A4D34-EA88-4403-AFB7-85001DE2D5BB}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<PositioningInfo>
+										<Panner Name="" ID="{00523854-C142-40D7-8F51-A8CF018C565E}">
+											<PropertyList>
+												<Property Name="PanX" Type="Real64" Value="25"/>
+												<Property Name="PanY" Type="Real64" Value="25"/>
+											</PropertyList>
+										</Panner>
+									</PositioningInfo>
+									<Playlist>
+										<ItemRef Name="sfx_keyboard1" ID="{78EE560C-A248-445C-84C1-F558CD253E91}"/>
+										<ItemRef Name="sfx_keyboard2" ID="{C6F2C3D3-31DD-468F-A7C8-EB411C649A3D}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="sfx_WoodChair_-12db" ID="{ED651D9B-EFB3-4742-ABA1-C0502797DDAE}" ShortID="957829358">
+									<PropertyList>
+										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_WoodChair_001" ID="{2B1C2B8B-C084-4CAA-B141-A1B639D6BB72}" ShortID="4904959">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_001" ID="{D0BC462B-8A57-4D4C-9AFB-244658BD6C56}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="696388271"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{3747D425-CF07-49E0-8CEA-C213B6AF33D5}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_001" ID="{D0BC462B-8A57-4D4C-9AFB-244658BD6C56}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_002" ID="{3A047CA4-E927-4480-93E4-6F09466AB3E7}" ShortID="551688663">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_002" ID="{AA792523-3F7C-4669-B270-1B3956D6DF85}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_002.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="693687838"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{9B46EC11-0C2A-4ACE-A2A0-EB578CF75E72}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_002" ID="{AA792523-3F7C-4669-B270-1B3956D6DF85}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_003" ID="{81AB903B-B97B-4C1E-94D7-A5B5F4F595D7}" ShortID="322224025">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_003" ID="{30851E76-3053-44D4-8208-141D4223CE9D}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_003.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="995409333"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{AE921EDB-2212-4FD9-A4E7-88574CB5C173}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_003" ID="{30851E76-3053-44D4-8208-141D4223CE9D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_004" ID="{3E08637F-CB5A-4C69-88C9-22730FCBA9A9}" ShortID="1058762193">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_004" ID="{DA79B52A-03D4-4A4E-9726-CDCAFD2A5406}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_004.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="881700589"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{FBE2E9DF-347A-4F8D-BE8C-BEFC92D872FF}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_004" ID="{DA79B52A-03D4-4A4E-9726-CDCAFD2A5406}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_005" ID="{FF01F76E-0E8E-4901-8740-7BBDC4D942CF}" ShortID="548364000">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_005" ID="{6CBA3679-F688-475B-BC2D-75EDDA2CDE13}">
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_005.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="797503072"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{BF40EB64-9ABC-49AE-8D65-A8B664326730}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_005" ID="{6CBA3679-F688-475B-BC2D-75EDDA2CDE13}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="sfx_WoodChair_001" ID="{2B1C2B8B-C084-4CAA-B141-A1B639D6BB72}"/>
+										<ItemRef Name="sfx_WoodChair_002" ID="{3A047CA4-E927-4480-93E4-6F09466AB3E7}"/>
+										<ItemRef Name="sfx_WoodChair_003" ID="{81AB903B-B97B-4C1E-94D7-A5B5F4F595D7}"/>
+										<ItemRef Name="sfx_WoodChair_004" ID="{3E08637F-CB5A-4C69-88C9-22730FCBA9A9}"/>
+										<ItemRef Name="sfx_WoodChair_005" ID="{FF01F76E-0E8E-4901-8740-7BBDC4D942CF}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+								<Sound Name="sfx_PenHitsDesk_002" ID="{0D47E6E9-5849-4C2B-9D4A-0A49362FF040}" ShortID="896084002">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_PenHitsDesk_002" ID="{01320FF6-0A7B-4B0A-9B9F-26B9A0531A4A}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_PenHitsDesk_002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1059816904"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_PenHitsDesk_002" ID="{01320FF6-0A7B-4B0A-9B9F-26B9A0531A4A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_PenHitsDesk_003" ID="{B0849BF9-18B5-40CC-9EB3-4BA09FBEF874}" ShortID="98735014">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4.4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_PenHitsDesk_003" ID="{05A442BD-3F3D-4050-BD3C-BBD7D3BD975C}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_PenHitsDesk_003.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="726027418"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_PenHitsDesk_003" ID="{05A442BD-3F3D-4050-BD3C-BBD7D3BD975C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_PaperPen_001" ID="{23D1021B-3653-4547-AC00-B601DD12B591}" ShortID="906815205">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>3.7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_PaperPen" ID="{F62A901B-B108-4317-A8AB-E0091BD5279C}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_PaperPen.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="632415172"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_PaperPen" ID="{F62A901B-B108-4317-A8AB-E0091BD5279C}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_PaperPen_002" ID="{2F42E307-F9AE-49F9-AA64-540EBA58F3CB}" ShortID="196190284">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_PaperPen_002" ID="{442C9D7D-66AE-496F-909A-D765A0A15210}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_PaperPen_002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="743832171"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_PaperPen_002" ID="{442C9D7D-66AE-496F-909A-D765A0A15210}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<RandomSequenceContainer Name="sfx_WoodChair_Short_01_-12db" ID="{C07D19EC-7561-436A-8158-4FF967E965C8}" ShortID="588965212">
+									<PropertyList>
+										<Property Name="NormalOrShuffle" Type="int16" Value="0"/>
+										<Property Name="Pitch" Type="int32">
+											<ValueList>
+												<Value>630</Value>
+											</ValueList>
+										</Property>
+										<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="3"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-12</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="sfx_WoodChair_001" ID="{6E5E43E8-3380-49DD-9273-07CE012C8C7D}" ShortID="777548020">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_001" ID="{65E7DF9D-4ED6-408B-9ECA-10372CE620B7}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.121820459290188"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.145749478079332"/>
+														<Property Name="FadeOutShape" Type="int16" Value="6"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.830989561586639"/>
+														<Property Name="TrimEnd" Type="Real64" Value="2.05572025052192"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_001.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="161436663"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{06CC81A8-82E4-4DCC-A25E-D3B94C3C541A}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_001" ID="{65E7DF9D-4ED6-408B-9ECA-10372CE620B7}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_002" ID="{8A76BA2E-84BE-469C-915D-6EC98FFCF98A}" ShortID="796332062">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_002" ID="{F748CD69-43A9-4DDA-97A3-DD593F947ED3}">
+													<PropertyList>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.320347077244259"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.482405010438413"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.57723825678497"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_002.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="439928401"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{018AEEA8-EFBD-4BC0-A5E7-D4FB2E5635B0}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_002" ID="{F748CD69-43A9-4DDA-97A3-DD593F947ED3}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_003" ID="{63E46984-8ACA-49FA-9713-052550289620}" ShortID="323806655">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_003" ID="{BCE90950-D39E-454B-8AFF-D4119A1BF75B}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.17976617954071"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.496399791231733"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.527041753653444"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.49328496868476"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_003.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="390654040"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{F06268E0-78D6-44F0-BE4A-38B12B600A87}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_003" ID="{BCE90950-D39E-454B-8AFF-D4119A1BF75B}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_004" ID="{D13F8B4B-09AC-484F-80D9-216F53F5E9E5}" ShortID="442462930">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_004" ID="{251C0D33-370F-4697-8A6C-CB3174AE9E20}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.0630855949895616"/>
+														<Property Name="FadeOutDuration" Type="Real64" Value="0.389390396659708"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.881022964509395"/>
+														<Property Name="TrimEnd" Type="Real64" Value="1.80555323590814"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_004.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="989778348"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{65A6F7D9-EBE9-42AA-ABFB-503EBC8052EE}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_004" ID="{251C0D33-370F-4697-8A6C-CB3174AE9E20}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="sfx_WoodChair_005" ID="{12EAB5A1-C04B-4533-B3DA-54E25F9F8A7A}" ShortID="436926764">
+											<PropertyList>
+												<Property Name="SpeakerPanning" Type="int16" Value="2"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="sfx_WoodChair_005" ID="{4B66C5FC-6947-4F28-8246-6CAFA0C2F51D}">
+													<PropertyList>
+														<Property Name="FadeInDuration" Type="Real64" Value="0.306726513569937"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+														<Property Name="TrimBegin" Type="Real64" Value="0.900601252609603"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>SFX\sfx_WoodChair_005.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="326561243"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<PositioningInfo>
+												<Panner Name="" ID="{0A4492C4-BC42-4D80-A681-7A34F53BD56B}">
+													<PropertyList>
+														<Property Name="PanX" Type="Real64" Value="-30"/>
+													</PropertyList>
+												</Panner>
+											</PositioningInfo>
+											<ActiveSourceList>
+												<ActiveSource Name="sfx_WoodChair_005" ID="{4B66C5FC-6947-4F28-8246-6CAFA0C2F51D}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+									<Playlist>
+										<ItemRef Name="sfx_WoodChair_001" ID="{6E5E43E8-3380-49DD-9273-07CE012C8C7D}"/>
+										<ItemRef Name="sfx_WoodChair_002" ID="{8A76BA2E-84BE-469C-915D-6EC98FFCF98A}"/>
+										<ItemRef Name="sfx_WoodChair_003" ID="{63E46984-8ACA-49FA-9713-052550289620}"/>
+										<ItemRef Name="sfx_WoodChair_004" ID="{D13F8B4B-09AC-484F-80D9-216F53F5E9E5}"/>
+										<ItemRef Name="sfx_WoodChair_005" ID="{12EAB5A1-C04B-4533-B3DA-54E25F9F8A7A}"/>
+									</Playlist>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{CC29B338-CF41-42FB-BE16-CA733FE4236B}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-30"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
+						</ActorMixer>
+						<Sound Name="sfx_policemeet" ID="{F8DEC22A-5DDB-4447-A634-5F67D3A7ADEE}" ShortID="562254947">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>16</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>23</Value>
+									</ValueList>
+								</Property>
+								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+								<Property Name="OverrideEffect" Type="bool" Value="True"/>
+								<Property Name="OverridePositioning" Type="bool" Value="True"/>
+								<Property Name="RenderEffect0" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="RenderEffect1" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="Effect0" PluginName="Wwise Matrix Reverb" CompanyID="0" PluginID="115" PluginType="3">
+									<ObjectRef Name="Underground_Parking1" ID="{8DA66AA3-6CA0-41A0-B7A2-BB6FCABFCDA8}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="Effect1" PluginName="Wwise Delay" CompanyID="0" PluginID="106" PluginType="3">
+									<ObjectRef Name="Nearly_Forever" ID="{38550FDA-9236-4FC5-8AE0-68DB08164B25}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_policemeet" ID="{C43F0E4C-497B-4586-8AA9-D67AD3574ACA}">
+									<Language>SFX</Language>
+									<AudioFile>sfx_policemeet.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="182409374"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{3F7EF47C-338D-48C2-BA44-2DEF515E4F7C}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="-45.3237410071942"/>
+										<Property Name="PanY" Type="Real64" Value="0.387596899224806"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_policemeet" ID="{C43F0E4C-497B-4586-8AA9-D67AD3574ACA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_PenNoise" ID="{8B2739B5-67E3-492D-832C-87A5C2781DDA}" ShortID="964501455">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_PenNoise" ID="{AFFF6658-5E72-4258-8C2E-14537FD58E25}">
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_PenNoise.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="746851695"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_PenNoise" ID="{AFFF6658-5E72-4258-8C2E-14537FD58E25}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
