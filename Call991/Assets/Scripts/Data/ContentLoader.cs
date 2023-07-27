@@ -27,13 +27,14 @@ namespace Data
 
             var index = _ctx.LevelLanguages.IndexOf(_ctx.Profile.TextLanguage);
 
-            if (index == -1) return null;
+            //if (index == -1) return null;
+            if (index == -1) index = 0;
 
             Phrase result = null;
 
             result = await NodeUtils.GetObjectByPathAsync<Phrase>(data.Phrases[index]);
 
-            if (result == null)
+            if (result == null && index != 0)
             {
                 result = await NodeUtils.GetObjectByPathAsync<Phrase>(data.Phrases[0]);
             }

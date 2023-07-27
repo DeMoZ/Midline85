@@ -111,7 +111,7 @@ public class LevelSceneEntity : IGameScene
             GameSet = _ctx.GameSet,
             LevelId = levelId,
             buttons = buttons,
-            countDown = countDown,
+            CountDown = countDown,
             AudioManager = _ctx.AudioManager,
             OnLevelEnd = onLevelEnd,
             OnShowNewspaper = onShowNewspaper,
