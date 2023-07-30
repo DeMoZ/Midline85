@@ -9,6 +9,18 @@ public enum ScreenPlace
     BottomRight
 }
 
+public enum PersonImageScreenPlace
+{
+    None,
+    Right1,
+    Right2,
+    Right3,
+    Center,
+    Left1,
+    Left2,
+    Left3,
+}
+
 
 public enum TextAppear
 {

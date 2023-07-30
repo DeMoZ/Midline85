@@ -7,6 +7,7 @@ public static class AaGraphConstants
     public const string DialogueGraph = "Dialogue Graph";
     public const string ChoiceNode = "Button";
     public const string PhraseNode = "Phrase";
+    public const string ImagePhraseNode = "ImagePhrase";
     public const string ForkNode = "Fork";
     public const string CountNode = "Count";
     public const string EventNode = "Event";
@@ -36,6 +37,9 @@ public static class AaGraphConstants
     public const string Range = "Range";
     public const string CountMin = "Min";
 
+    public const string ShowOnStart = "ShowOnStart";
+    public const string FocusOnStart = "FocusOnStart";
+    public const string UnfocusOnEnd = "UnfocusOnEnd";
     public const string HideOnEnd = "HideOnEnd";
 
     public const string LoopToggleName = "Loop";

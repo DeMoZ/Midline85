@@ -59,6 +59,9 @@ namespace AaDialogueGraph.Editor
             var phraseNodes = AaNodes.OfType<PhraseNode>().ToList();
             dialogueContainer.PhraseNodeData.AddRange(PhraseNodesToData(phraseNodes));
 
+            var imagePhraseNodes = AaNodes.OfType<ImagePhraseNode>().ToList();
+            dialogueContainer.ImagePhraseNodeData.AddRange(ImagePhraseNodesToData(imagePhraseNodes));
+
             var choiceNodes = AaNodes.OfType<ChoiceNode>().ToList();
             dialogueContainer.ChoiceNodeData.AddRange(ChoiceNodesToData(choiceNodes));
 
@@ -136,6 +139,34 @@ namespace AaDialogueGraph.Editor
 
                     PhraseSketchText = node.PhraseSketchText,
                     PersonVisualData = personVisualData,
+                    PhraseVisualData = phraseVisualData,
+                    EventVisualData = eventsVisualData,
+                    PhraseSound = phraseSound,
+                    Phrases = EditorNodeUtils.GetObjectPath(phrases),
+                });
+            }
+
+            return data;
+        }
+        
+        private List<ImagePhraseNodeData> ImagePhraseNodesToData(List<ImagePhraseNode> nodes)
+        {
+            var data = new List<ImagePhraseNodeData>();
+            foreach (var node in nodes)
+            {
+                var personVisualData = node.GetImagePersonVisual().GetData();
+                var phraseVisualData = node.GetPhraseVisual().GetData();
+                var eventsVisualData = GetEventsData(node);
+                var phraseSound = node.GetPhraseSound();
+                var phrases = node.GetPhrases().Cast<Object>().ToList();
+
+                data.Add(new ImagePhraseNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+
+                    PhraseSketchText = node.PhraseSketchText,
+                    ImagePersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
                     PhraseSound = phraseSound,

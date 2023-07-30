@@ -71,6 +71,17 @@ namespace AaDialogueGraph.Editor
             AddElement(node);
         }
 
+        public void CreateImagePhraseNode()
+        {
+            var languages = GetLanguages();
+            var sounds = new List<string>();
+            var node = new ImagePhraseNode();
+            node.Set(new ImagePhraseNodeData(), languages, _voices, _musics, _rtcps, sounds, Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+
+            AddElement(node);
+        }
+
         public void CreateChoiceNode()
         {
             var node = new ChoiceNode();
