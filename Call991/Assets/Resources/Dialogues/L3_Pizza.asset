@@ -2565,25 +2565,6 @@ MonoBehaviour:
     PhraseSound: L3_Pizza/George/pizza_george_003
     Phrases:
     - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_003.asset
-  - Guid: 526e6eac-8b9e-462a-b23b-0dd304c1a36c
-    Rect:
-      serializedVersion: 2
-      x: 3785
-      y: 198
-      width: 134
-      height: 96
-    PhraseSketchText: "ge7 \u042F \u0441\u0430\u043C \u0441\u043F\u0443\u0449\u0443\u0441\u044C"
-    PersonVisualData:
-      Person: GEORGE
-      ScreenPlace: 5
-      HideOnEnd: 1
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L3_Pizza/George/pizza_george_007
-    Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_007.asset
   - Guid: 10f23b5d-40bc-4280-a4b8-a7e4258df820
     Rect:
       serializedVersion: 2
@@ -3528,25 +3509,6 @@ MonoBehaviour:
     PhraseSound: L3_Pizza/George/pizza_george_053
     Phrases:
     - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_053.asset
-  - Guid: 28b3a695-c3b6-4765-a3d9-653e6ad440bf
-    Rect:
-      serializedVersion: 2
-      x: 11409
-      y: 266
-      width: 114
-      height: 96
-    PhraseSketchText: "p1 \u0414\u043E\u0431\u0440\u043E\u0439 \u043D\u043E\u0447\u0438"
-    PersonVisualData:
-      Person: POLICE
-      ScreenPlace: 5
-      HideOnEnd: 1
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L3_Pizza/Police/pizza_police_001
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_003.asset
   - Guid: 7804c480-c760-4e2f-9274-457d75a39293
     Rect:
       serializedVersion: 2
@@ -3838,6 +3800,44 @@ MonoBehaviour:
     PhraseSound: L3_Pizza/Girl/pizza_girl_053
     Phrases:
     - Phrases/L3_Pizza/Russian/pizza_girl/pizza_girl_053_BAD.asset
+  - Guid: 28b3a695-c3b6-4765-a3d9-653e6ad440bf
+    Rect:
+      serializedVersion: 2
+      x: 11409
+      y: 266
+      width: 124
+      height: 96
+    PhraseSketchText: "p1 \u0414\u043E\u0431\u0440\u043E\u0439 \u043D\u043E\u0447\u0438"
+    PersonVisualData:
+      Person: POLICE
+      ScreenPlace: 5
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L3_Pizza/Police/pizza_police_001
+    Phrases:
+    - 
+  - Guid: 526e6eac-8b9e-462a-b23b-0dd304c1a36c
+    Rect:
+      serializedVersion: 2
+      x: 3769
+      y: 133
+      width: 134
+      height: 96
+    PhraseSketchText: "ge7 \u042F \u0441\u0430\u043C \u0441\u043F\u0443\u0449\u0443\u0441\u044C"
+    PersonVisualData:
+      Person: GEORGE
+      ScreenPlace: 5
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L3_Pizza/George/pizza_george_007
+    Phrases:
+    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_007.asset
   ChoiceNodeData:
   - Guid: 230dd4ba-be11-49b4-9c03-9fe194dbde53
     Rect:
@@ -4072,8 +4072,8 @@ MonoBehaviour:
       Words:
       - CaseType: 0
         OrKeys:
-        - btn.incendies.017
-        - btn.incendies.018
+        - btn.pizza.017
+        - btn.pizza.018
       Ends: []
       Counts: []
     IsLocked: 0
@@ -4873,20 +4873,20 @@ MonoBehaviour:
       height: 96
     Choice: PIZZA.EMOTIONS
     Value: 1
-  - Guid: 78a0e68a-669d-45e8-82c5-294367a34454
-    Rect:
-      serializedVersion: 2
-      x: 3336
-      y: 715
-      width: 137
-      height: 96
-    Choice: PIZZA.EMOTIONS
-    Value: 1
   - Guid: 516dc497-64e6-433a-a9b3-f019617240e6
     Rect:
       serializedVersion: 2
       x: 10104
       y: 3144
+      width: 137
+      height: 96
+    Choice: PIZZA.EMOTIONS
+    Value: 1
+  - Guid: 78a0e68a-669d-45e8-82c5-294367a34454
+    Rect:
+      serializedVersion: 2
+      x: 3305
+      y: 716
       width: 137
       height: 96
     Choice: PIZZA.EMOTIONS
@@ -5093,14 +5093,6 @@ MonoBehaviour:
     EventVisualData: []
     Records: []
   EventNodeData:
-  - Guid: 07c31833-2255-4a70-9f67-d14f98b2009b
-    Rect:
-      serializedVersion: 2
-      x: 4096
-      y: 113
-      width: 100
-      height: 107
-    EventVisualData: []
   - Guid: 23b5c203-98bb-4722-b338-b9fa64d66215
     Rect:
       serializedVersion: 2
@@ -5109,83 +5101,11 @@ MonoBehaviour:
       width: 100
       height: 107
     EventVisualData: []
-  - Guid: 0c36b1ff-41a1-4ffa-8f27-186398faec42
-    Rect:
-      serializedVersion: 2
-      x: 6705
-      y: 316
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: cd978824-7bbd-4354-80c6-a5a71cb4244c
-    Rect:
-      serializedVersion: 2
-      x: 6574
-      y: 1586
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: 9014df4b-67d1-40a2-bfa8-e2e11c63d8a6
-    Rect:
-      serializedVersion: 2
-      x: 6565
-      y: 1985
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: 53ffbdda-80fc-43ef-a0d2-2b773d7bfb15
-    Rect:
-      serializedVersion: 2
-      x: 7386
-      y: 1895
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: 972d5631-5037-4b66-b0f1-6357d3cb30cc
-    Rect:
-      serializedVersion: 2
-      x: 9438
-      y: 1896
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: 6e98a87d-4b4f-4c61-b452-0c5efc9e2150
-    Rect:
-      serializedVersion: 2
-      x: 10377
-      y: 1872
-      width: 100
-      height: 107
-    EventVisualData: []
   - Guid: f56cad3f-c673-4c31-94a0-a7123603322d
     Rect:
       serializedVersion: 2
       x: 11378
       y: 2047
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: f8355a48-38a7-4cc0-8db1-d4a21fa8375d
-    Rect:
-      serializedVersion: 2
-      x: 8446
-      y: 96
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: c4edb7ea-d28b-48f3-85aa-a887a49fefa1
-    Rect:
-      serializedVersion: 2
-      x: 11329
-      y: 394
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: 3a317517-895c-47c4-9722-bfe0bffd1029
-    Rect:
-      serializedVersion: 2
-      x: 3213
-      y: 581
       width: 100
       height: 107
     EventVisualData: []
@@ -5211,30 +5131,6 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-  - Guid: 79cb7604-7c89-4fdf-8a1a-7e7274969814
-    Rect:
-      serializedVersion: 2
-      x: 2578
-      y: 3292
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: 665652f4-30d6-453c-9fa4-b5b01e5f9dd3
-    Rect:
-      serializedVersion: 2
-      x: 10233
-      y: 3023
-      width: 100
-      height: 107
-    EventVisualData: []
-  - Guid: 98e4ca61-b7ad-4631-ac8b-94cbb733b4a7
-    Rect:
-      serializedVersion: 2
-      x: 11024
-      y: 2937
-      width: 100
-      height: 107
-    EventVisualData: []
   - Guid: ee5149b1-7503-4918-af70-39ed506d7431
     Rect:
       serializedVersion: 2
@@ -5368,13 +5264,16 @@ MonoBehaviour:
     TargetNodeGuid: ecf0afdd-29c1-46a8-ae16-51c56ad5d321
   - BaseNodeGuid: 2ad8300c-15ed-4f09-b6e3-6b27963ed13d
     BaseExitName: 
-    TargetNodeGuid: 98e4ca61-b7ad-4631-ac8b-94cbb733b4a7
+    TargetNodeGuid: b68a2c5b-b9ae-44ad-b26c-cb20e29729ba
   - BaseNodeGuid: 9349b694-d37b-4e2d-a486-721ff449bac8
     BaseExitName: 
     TargetNodeGuid: 7ee9ec8f-a84a-4acb-ba97-060b1af31bb8
   - BaseNodeGuid: d1606186-2bdd-4f5e-90df-09423ff63778
     BaseExitName: 
     TargetNodeGuid: 3f39907a-d8b2-499d-97ef-1559118a7ed7
+  - BaseNodeGuid: 693c83f4-5a7d-4a44-9540-b6b33ce70ac8
+    BaseExitName: 
+    TargetNodeGuid: 2099a96e-9374-4288-9824-42a9009a0ef6
   - BaseNodeGuid: b1929960-00a6-4526-bf4b-239b8b3c3d35
     BaseExitName: 
     TargetNodeGuid: 7571cb56-4e61-4976-85e3-0aab5a28a61c
@@ -5464,7 +5363,7 @@ MonoBehaviour:
     TargetNodeGuid: 1bb12182-dfaa-439f-968a-bc15a6047945
   - BaseNodeGuid: 9886fe2e-f244-4d4b-ad6e-fccb3869af0e
     BaseExitName: 
-    TargetNodeGuid: c4edb7ea-d28b-48f3-85aa-a887a49fefa1
+    TargetNodeGuid: 28b3a695-c3b6-4765-a3d9-653e6ad440bf
   - BaseNodeGuid: 06fcf088-edd5-4834-9220-0d23a4cfdcfc
     BaseExitName: 
     TargetNodeGuid: f87156c8-db16-4a8e-bbcd-6034080afcc0
@@ -5518,7 +5417,7 @@ MonoBehaviour:
     TargetNodeGuid: 38017842-37d0-480b-ae39-1eb18bdfbd31
   - BaseNodeGuid: de34a625-68a7-4bef-9d2d-5b3bad75daa2
     BaseExitName: 
-    TargetNodeGuid: 6e98a87d-4b4f-4c61-b452-0c5efc9e2150
+    TargetNodeGuid: acb8e4ed-8c4a-42bd-8ce5-0274bb7cc6ac
   - BaseNodeGuid: 20ce8718-c292-4203-b9ba-47673ce0d99d
     BaseExitName: 
     TargetNodeGuid: 015e8d3c-9c52-4a7a-91ad-31ebf31c7fcf
@@ -5725,13 +5624,7 @@ MonoBehaviour:
     TargetNodeGuid: 75fe2608-33e5-41ff-8569-75f1d0aa6d6b
   - BaseNodeGuid: d88b19e9-eb58-49fe-97b1-7fc2256d0781
     BaseExitName: 
-    TargetNodeGuid: 3a317517-895c-47c4-9722-bfe0bffd1029
-  - BaseNodeGuid: 526e6eac-8b9e-462a-b23b-0dd304c1a36c
-    BaseExitName: 
-    TargetNodeGuid: 81584e02-0175-44d3-a553-cdcf3130a0f1
-  - BaseNodeGuid: 526e6eac-8b9e-462a-b23b-0dd304c1a36c
-    BaseExitName: 
-    TargetNodeGuid: 9938cb2d-3f9f-4c7a-8f9b-745d7ee65fb9
+    TargetNodeGuid: 78a0e68a-669d-45e8-82c5-294367a34454
   - BaseNodeGuid: 10f23b5d-40bc-4280-a4b8-a7e4258df820
     BaseExitName: 
     TargetNodeGuid: 9a2c288f-db0f-44ac-9c09-8c375f3a4f12
@@ -5758,7 +5651,7 @@ MonoBehaviour:
     TargetNodeGuid: 1377b83b-1676-4ec5-9fdd-ee20524072d9
   - BaseNodeGuid: 2fc3fe6e-0cb8-4337-bdaf-5b911ddb3129
     BaseExitName: 
-    TargetNodeGuid: 0c36b1ff-41a1-4ffa-8f27-186398faec42
+    TargetNodeGuid: cc44926e-72a4-402b-884c-e67b1f908808
   - BaseNodeGuid: 3200c6fe-bf58-4163-9e28-e6f49ac22fff
     BaseExitName: 
     TargetNodeGuid: 40119944-350d-433d-9bf5-9db89412d323
@@ -5776,7 +5669,7 @@ MonoBehaviour:
     TargetNodeGuid: 2c87b620-0b8b-40f0-803d-32a2ac815f43
   - BaseNodeGuid: c2c87e10-72a4-4c34-a12c-2e4ea74de671
     BaseExitName: 
-    TargetNodeGuid: f8355a48-38a7-4cc0-8db1-d4a21fa8375d
+    TargetNodeGuid: 72d252bf-85c6-4eb7-908f-b720b60d3d30
   - BaseNodeGuid: ab69e51c-308b-4c17-964b-bf92772cdc5a
     BaseExitName: 
     TargetNodeGuid: 83276340-0042-4991-8b04-0bc270360bc7
@@ -5812,7 +5705,7 @@ MonoBehaviour:
     TargetNodeGuid: 06fcf088-edd5-4834-9220-0d23a4cfdcfc
   - BaseNodeGuid: 4c67b98a-df82-4e28-8352-7c5c369b8660
     BaseExitName: 
-    TargetNodeGuid: 98e4ca61-b7ad-4631-ac8b-94cbb733b4a7
+    TargetNodeGuid: b68a2c5b-b9ae-44ad-b26c-cb20e29729ba
   - BaseNodeGuid: 33799016-c0ee-4d2a-a6ae-f8d276a0f66f
     BaseExitName: 
     TargetNodeGuid: fbaeb5cf-ef37-41c9-ab57-cba2f2bbdeb9
@@ -5827,10 +5720,10 @@ MonoBehaviour:
     TargetNodeGuid: cf5829ee-6315-4874-9496-f54060cf4dc3
   - BaseNodeGuid: 525d3ad4-ef6c-47e5-b382-20b0ee65cdc8
     BaseExitName: 
-    TargetNodeGuid: cd978824-7bbd-4354-80c6-a5a71cb4244c
+    TargetNodeGuid: e8e9a7e0-848f-4236-8047-62a7b3382b00
   - BaseNodeGuid: 860a7f44-3713-471c-8b3f-db6147574cae
     BaseExitName: 
-    TargetNodeGuid: 9014df4b-67d1-40a2-bfa8-e2e11c63d8a6
+    TargetNodeGuid: bbd683fc-1e8b-49fe-a730-0f6cf877df84
   - BaseNodeGuid: d97f4091-727e-4a7c-90c1-db2374e0cb1a
     BaseExitName: 
     TargetNodeGuid: cfc86510-2247-4333-8067-9b8caec7fd1f
@@ -5854,7 +5747,7 @@ MonoBehaviour:
     TargetNodeGuid: 5a0fadb3-4579-4804-93e8-5428fce2d9e4
   - BaseNodeGuid: 519c14bf-7b21-4e88-b931-c6947bce6b60
     BaseExitName: 
-    TargetNodeGuid: 53ffbdda-80fc-43ef-a0d2-2b773d7bfb15
+    TargetNodeGuid: 3ea35ad0-f7ec-4ca6-8675-9ab8d34c5a2b
   - BaseNodeGuid: 203eb475-b118-4f9d-a984-da87c2b3a2b7
     BaseExitName: 
     TargetNodeGuid: 0ed428b6-cecd-47a3-81d0-cc8b1423c06c
@@ -5875,13 +5768,13 @@ MonoBehaviour:
     TargetNodeGuid: 442ddf0b-90de-4001-bf6c-273c892941de
   - BaseNodeGuid: 11b29082-c992-4ada-9018-2c8b9afbe6e3
     BaseExitName: 
-    TargetNodeGuid: 972d5631-5037-4b66-b0f1-6357d3cb30cc
+    TargetNodeGuid: 8ccee567-164a-42dc-bb94-0f8fd864cfb0
   - BaseNodeGuid: f7c04879-ec65-4cce-a2b7-95b97b81afd7
     BaseExitName: 
     TargetNodeGuid: 3d8d45a8-9c6b-4547-b968-029b213bf773
   - BaseNodeGuid: 3d694314-0a11-45e1-82d9-7d70a6567b18
     BaseExitName: 
-    TargetNodeGuid: 79cb7604-7c89-4fdf-8a1a-7e7274969814
+    TargetNodeGuid: 9099f009-fe5e-44d3-b852-15e4fb07c500
   - BaseNodeGuid: 1764f917-a8f2-4637-a2fd-1f064e00a07c
     BaseExitName: 
     TargetNodeGuid: e7c33618-de20-4675-b2e6-241ac310a157
@@ -5915,12 +5808,12 @@ MonoBehaviour:
   - BaseNodeGuid: ecf0afdd-29c1-46a8-ae16-51c56ad5d321
     BaseExitName: 
     TargetNodeGuid: 7b911497-2f6c-453c-9aad-2fbfb67e9b07
+  - BaseNodeGuid: b68a2c5b-b9ae-44ad-b26c-cb20e29729ba
+    BaseExitName: 
+    TargetNodeGuid: 0dab8af1-4cfd-4a9f-8273-d20c2e4a8ae8
   - BaseNodeGuid: 8aca7ef5-f377-4731-8d12-9add4280bfac
     BaseExitName: 
     TargetNodeGuid: 9349b694-d37b-4e2d-a486-721ff449bac8
-  - BaseNodeGuid: 28b3a695-c3b6-4765-a3d9-653e6ad440bf
-    BaseExitName: 
-    TargetNodeGuid: 9bdd339c-5ce2-48c9-b36d-6c3aceb65f77
   - BaseNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
     BaseExitName: 
     TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
@@ -5975,6 +5868,18 @@ MonoBehaviour:
   - BaseNodeGuid: 5aba32e7-d7ac-4c33-91dd-5bfa0678a5f7
     BaseExitName: 
     TargetNodeGuid: a0340bb2-498a-42ab-a50f-20b6f68fe768
+  - BaseNodeGuid: 0dab8af1-4cfd-4a9f-8273-d20c2e4a8ae8
+    BaseExitName: 
+    TargetNodeGuid: f1b2976e-662e-4e93-8548-27c9180cedb7
+  - BaseNodeGuid: 28b3a695-c3b6-4765-a3d9-653e6ad440bf
+    BaseExitName: 
+    TargetNodeGuid: 9bdd339c-5ce2-48c9-b36d-6c3aceb65f77
+  - BaseNodeGuid: 526e6eac-8b9e-462a-b23b-0dd304c1a36c
+    BaseExitName: 
+    TargetNodeGuid: 81584e02-0175-44d3-a553-cdcf3130a0f1
+  - BaseNodeGuid: 526e6eac-8b9e-462a-b23b-0dd304c1a36c
+    BaseExitName: 
+    TargetNodeGuid: 9938cb2d-3f9f-4c7a-8f9b-745d7ee65fb9
   - BaseNodeGuid: 230dd4ba-be11-49b4-9c03-9fe194dbde53
     BaseExitName: 
     TargetNodeGuid: d1606186-2bdd-4f5e-90df-09423ff63778
@@ -6130,7 +6035,7 @@ MonoBehaviour:
     TargetNodeGuid: 20ce8718-c292-4203-b9ba-47673ce0d99d
   - BaseNodeGuid: 9938cb2d-3f9f-4c7a-8f9b-745d7ee65fb9
     BaseExitName: 
-    TargetNodeGuid: 07c31833-2255-4a70-9f67-d14f98b2009b
+    TargetNodeGuid: 178387ba-f35d-44ad-a5f6-33a5ab4d6c96
   - BaseNodeGuid: bf0d64e9-a653-41dc-b74d-fe4484830afd
     BaseExitName: 
     TargetNodeGuid: fc9a3278-ba1e-4d59-86af-c7f0edabe016
@@ -6244,67 +6149,22 @@ MonoBehaviour:
     TargetNodeGuid: 475bb312-54dc-4be3-924b-d877af10b4e3
   - BaseNodeGuid: 516dc497-64e6-433a-a9b3-f019617240e6
     BaseExitName: 
-    TargetNodeGuid: 665652f4-30d6-453c-9fa4-b5b01e5f9dd3
-  - BaseNodeGuid: 07c31833-2255-4a70-9f67-d14f98b2009b
+    TargetNodeGuid: 0226ca65-f20f-4726-8eef-53bffd729ddb
+  - BaseNodeGuid: 516dc497-64e6-433a-a9b3-f019617240e6
     BaseExitName: 
-    TargetNodeGuid: 178387ba-f35d-44ad-a5f6-33a5ab4d6c96
+    TargetNodeGuid: fd79db77-58c5-4644-a3eb-ce1b27f48c2c
   - BaseNodeGuid: 23b5c203-98bb-4722-b338-b9fa64d66215
     BaseExitName: 
     TargetNodeGuid: c2438a59-4c36-4094-aa48-895b8436b1d4
-  - BaseNodeGuid: 0c36b1ff-41a1-4ffa-8f27-186398faec42
-    BaseExitName: 
-    TargetNodeGuid: cc44926e-72a4-402b-884c-e67b1f908808
-  - BaseNodeGuid: cd978824-7bbd-4354-80c6-a5a71cb4244c
-    BaseExitName: 
-    TargetNodeGuid: e8e9a7e0-848f-4236-8047-62a7b3382b00
-  - BaseNodeGuid: 9014df4b-67d1-40a2-bfa8-e2e11c63d8a6
-    BaseExitName: 
-    TargetNodeGuid: bbd683fc-1e8b-49fe-a730-0f6cf877df84
-  - BaseNodeGuid: 53ffbdda-80fc-43ef-a0d2-2b773d7bfb15
-    BaseExitName: 
-    TargetNodeGuid: 3ea35ad0-f7ec-4ca6-8675-9ab8d34c5a2b
-  - BaseNodeGuid: 972d5631-5037-4b66-b0f1-6357d3cb30cc
-    BaseExitName: 
-    TargetNodeGuid: 8ccee567-164a-42dc-bb94-0f8fd864cfb0
-  - BaseNodeGuid: 6e98a87d-4b4f-4c61-b452-0c5efc9e2150
-    BaseExitName: 
-    TargetNodeGuid: acb8e4ed-8c4a-42bd-8ce5-0274bb7cc6ac
   - BaseNodeGuid: f56cad3f-c673-4c31-94a0-a7123603322d
     BaseExitName: 
     TargetNodeGuid: ed935f31-cafc-4f33-9ecc-26378cf8c65e
-  - BaseNodeGuid: f8355a48-38a7-4cc0-8db1-d4a21fa8375d
-    BaseExitName: 
-    TargetNodeGuid: 72d252bf-85c6-4eb7-908f-b720b60d3d30
-  - BaseNodeGuid: c4edb7ea-d28b-48f3-85aa-a887a49fefa1
-    BaseExitName: 
-    TargetNodeGuid: 28b3a695-c3b6-4765-a3d9-653e6ad440bf
-  - BaseNodeGuid: 3a317517-895c-47c4-9722-bfe0bffd1029
-    BaseExitName: 
-    TargetNodeGuid: 78a0e68a-669d-45e8-82c5-294367a34454
   - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
     BaseExitName: 
     TargetNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
-  - BaseNodeGuid: 79cb7604-7c89-4fdf-8a1a-7e7274969814
-    BaseExitName: 
-    TargetNodeGuid: 9099f009-fe5e-44d3-b852-15e4fb07c500
-  - BaseNodeGuid: 665652f4-30d6-453c-9fa4-b5b01e5f9dd3
-    BaseExitName: 
-    TargetNodeGuid: 0226ca65-f20f-4726-8eef-53bffd729ddb
-  - BaseNodeGuid: 665652f4-30d6-453c-9fa4-b5b01e5f9dd3
-    BaseExitName: 
-    TargetNodeGuid: fd79db77-58c5-4644-a3eb-ce1b27f48c2c
-  - BaseNodeGuid: 98e4ca61-b7ad-4631-ac8b-94cbb733b4a7
-    BaseExitName: 
-    TargetNodeGuid: b68a2c5b-b9ae-44ad-b26c-cb20e29729ba
   - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
     BaseExitName: 
     TargetNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
   - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
     BaseExitName: 
     TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
-  - BaseNodeGuid: b68a2c5b-b9ae-44ad-b26c-cb20e29729ba
-    BaseExitName: 
-    TargetNodeGuid: 0dab8af1-4cfd-4a9f-8273-d20c2e4a8ae8
-  - BaseNodeGuid: 0dab8af1-4cfd-4a9f-8273-d20c2e4a8ae8
-    BaseExitName: 
-    TargetNodeGuid: f1b2976e-662e-4e93-8548-27c9180cedb7
