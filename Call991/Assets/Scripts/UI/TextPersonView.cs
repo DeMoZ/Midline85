@@ -3,13 +3,13 @@ using TMPro;
 using UI;
 using UnityEngine;
 
-public class PersonView : BasePersonView
+public class TextPersonView : BasePersonView
 {
-    [SerializeField] private ScreenPlace screenPlace = default;
+    [SerializeField] private PersonImageScreenPlace screenPlace = default;
     [SerializeField] private TextMeshProUGUI personName = default;
     [SerializeField] private TextMeshProUGUI description = default;
 
-    public ScreenPlace ScreenPlace => screenPlace;
+    public PersonImageScreenPlace ScreenPlace => screenPlace;
 
     private LocalizedString _localize;
 

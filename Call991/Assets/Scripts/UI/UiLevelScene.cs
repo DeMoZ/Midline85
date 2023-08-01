@@ -17,17 +17,27 @@ namespace UI
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
     }
+    
+    public class UiImagePhraseData
+    {
+        public string Description;
+
+        public Phrase Phrase;
+        public ImagePersonVisualData PersonVisualData;
+        public PhraseVisualData PhraseVisualData;
+    }
 
     public class UiLevelScene : MonoBehaviour, IDisposable
     {
         public struct Ctx
         {
             public ReactiveCommand<UiPhraseData> OnShowPhrase;
-            public ReactiveCommand<List<RecordData>> OnLevelEnd;
-
-            public ReactiveCommand OnClickMenuButton;
-
+            public ReactiveCommand<UiImagePhraseData> OnShowImagePhrase;
             public ReactiveCommand<UiPhraseData> OnHidePhrase;
+            public ReactiveCommand<UiImagePhraseData> OnHideImagePhrase;
+            
+            public ReactiveCommand<List<RecordData>> OnLevelEnd;
+            public ReactiveCommand OnClickMenuButton;
 
             public ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)> OnShowNewspaper;
             public ReactiveCommand OnShowLevelUi;
@@ -99,8 +109,10 @@ namespace UI
             });
 
             _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
-
+            _ctx.OnShowImagePhrase.Subscribe(levelView.OnShowImagePhrase).AddTo(_disposables);
             _ctx.OnHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
+            _ctx.OnHideImagePhrase.Subscribe(levelView.OnHideImagePhrase).AddTo(_disposables);
+            
             _ctx.OnShowTitle.Subscribe(OnShowTitle).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
             _ctx.OnShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);

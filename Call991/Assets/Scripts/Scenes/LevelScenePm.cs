@@ -22,12 +22,14 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<List<AaNodeData>> FindNext;
         public ReactiveCommand<List<AaNodeData>> OnNext;
         public ReactiveCommand<UiPhraseData> OnShowPhrase;
-
+        public ReactiveCommand<UiImagePhraseData> OnShowImagePhrase;
+        public ReactiveCommand<UiPhraseData> OnHidePhrase;
+        public ReactiveCommand<UiImagePhraseData> OnHideImagePhrase;
+        
         public WwiseAudio AudioManager;
         public ReactiveCommand OnShowLevelUi;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public ReactiveCommand OnClickMenuButton;
-        public ReactiveCommand<UiPhraseData> OnHidePhrase;
         public ReactiveCommand<List<RecordData>> OnLevelEnd;
         public ObjectEvents ObjectEvents;
 
@@ -45,7 +47,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<bool> OnClickPauseButton;
         public VideoManager VideoManager;
         public Blocker Blocker;
-        public CursorSet cursorSettings;
+        public CursorSet CursorSettings;
         public OverridenDialogue OverridenDialogue;
     }
 
@@ -92,7 +94,7 @@ public class LevelScenePm : IDisposable
         InitTimer();
         InitButtons();
         _ctx.OnShowLevelUi.Execute();
-        _ctx.cursorSettings.EnableCursor(true);
+        _ctx.CursorSettings.EnableCursor(true);
         
         await PrepareAudioManager();
         if (_tokenSource.IsCancellationRequested) return;
@@ -397,15 +399,15 @@ public class LevelScenePm : IDisposable
         Debug.Log($"[{this}] RunPhrase {data}");
         var defaultTime = 4f;
 
-        var uiPhrase = new UiPhraseData
+        var uiPhrase = new UiImagePhraseData
         {
             Description = data.PhraseSketchText,
-            PersonVisualData = data.PersonVisualData,
+            PersonVisualData = data.ImagePersonVisualData,
             PhraseVisualData = data.PhraseVisualData,
             Phrase = phrase,
         };
 
-        _ctx.OnShowPhrase.Execute(uiPhrase);
+        _ctx.OnShowImagePhrase.Execute(uiPhrase);
         var voice = _ctx.GameSet.VoicesSet.GetVoiceByPath(data.PhraseSound);
         var voiceId = _ctx.AudioManager.PlayVoice(voice);
 
@@ -419,7 +421,7 @@ public class LevelScenePm : IDisposable
 
         if (voiceId != null) _ctx.AudioManager.StopVoice(voiceId.Value);
 
-        _ctx.OnHidePhrase.Execute(uiPhrase);
+        _ctx.OnHideImagePhrase.Execute(uiPhrase);
     }
 
     private IEnumerator RunEventNode(EventNodeData data)
@@ -533,10 +535,10 @@ public class LevelScenePm : IDisposable
             container.Value = true;
         }
 
-        _ctx.cursorSettings.EnableCursor(false);
+        _ctx.CursorSettings.EnableCursor(false);
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
         yield return new WaitForSeconds(_ctx.GameSet.shortFadeTime);
-        _ctx.cursorSettings.EnableCursor(true);
+        _ctx.CursorSettings.EnableCursor(true);
 
         var delay = new WaitForSeconds(0.1f);
         while (!container.Value)
@@ -544,13 +546,13 @@ public class LevelScenePm : IDisposable
             yield return delay;
         }
 
-        _ctx.cursorSettings.EnableCursor(false);
+        _ctx.CursorSettings.EnableCursor(false);
         _ctx.Blocker.FadeScreenBlocker(true).Forget();
         yield return new WaitForSeconds(_ctx.GameSet.shortFadeTime);
 
         _ctx.OnShowLevelUi?.Execute();
 
-        _ctx.cursorSettings.EnableCursor(true);
+        _ctx.CursorSettings.EnableCursor(true);
     }
 
     private void AutoChoice(List<ChoiceNodeData> data)

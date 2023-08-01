@@ -60,6 +60,18 @@ namespace UI
             personView.ShowPhrase(data);
         }
 
+        public void OnShowImagePhrase(UiImagePhraseData data)
+        {
+            // var personView = persons.FirstOrDefault(p => p.ImageScreenPlace == data.PersonVisualData.ScreenPlace);
+            // if (personView == null)
+            // {
+            //     Debug.LogError($"[{this}] [OnShowPhrase] no person on side {data.PersonVisualData.ScreenPlace}");
+            //     return;
+            // }
+            //
+            // personView.ShowPhrase(data);
+        }
+
         public void OnHidePhrase(UiPhraseData data)
         {
             var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
@@ -74,6 +86,22 @@ namespace UI
 
             if (data.PersonVisualData.HideOnEnd)
                 personView.gameObject.SetActive(false);
+        }
+        
+        public void OnHideImagePhrase (UiImagePhraseData data)
+        {
+            // var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
+            // if (personView == null)
+            // {
+            //     Debug.LogError($"[{this}] [OnHidePhrase] no person on side {data.PersonVisualData.ScreenPlace}");
+            //     return;
+            // }
+            //
+            // if (data.PhraseVisualData.HideOnEnd)
+            //     personView.HidePhrase();
+            //
+            // if (data.PersonVisualData.HideOnEnd)
+            //     personView.gameObject.SetActive(false);
         }
 
         public void OnHideLevelUi(float time, Action callback)
