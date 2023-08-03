@@ -236,6 +236,7 @@ public class LevelScenePm : IDisposable
             {
                 Debug.Log($"[{this}] All coroutines completed");
                 _next.AddRange(phrases);
+                _next.AddRange(imagePhrases);
                 _next.AddRange(events);
                 _next.AddRange(newspapers);
                 _next.Add(_choice);
@@ -405,6 +406,7 @@ public class LevelScenePm : IDisposable
             PersonVisualData = data.ImagePersonVisualData,
             PhraseVisualData = data.PhraseVisualData,
             Phrase = phrase,
+            Sprite = sprite,
         };
 
         _ctx.OnShowImagePhrase.Execute(uiPhrase);

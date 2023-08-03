@@ -11,14 +11,13 @@ public enum ScreenPlace
 
 public enum PersonImageScreenPlace
 {
-    None,
-    Right1,
-    Right2,
-    Right3,
     Center,
     Left1,
     Left2,
     Left3,
+    Right3,
+    Right2,
+    Right1,
 }
 
 

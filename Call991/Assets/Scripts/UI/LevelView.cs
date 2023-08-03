@@ -17,6 +17,7 @@ namespace UI
         [SerializeField] private MenuButtonView pauseButton = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private List<PersonView> persons = default;
+        [SerializeField] private List<ImagePersonView> imagePersons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
@@ -30,11 +31,13 @@ namespace UI
         {
             _ctx = ctx;
 
-            foreach (var person in persons)
-            {
+            foreach (var person in persons) 
                 person.gameObject.SetActive(false);
-            }
 
+            foreach (var person in imagePersons) 
+                person.gameObject.SetActive(false);
+
+            
             foreach (var button in buttons)
                 button.gameObject.SetActive(false);
 
@@ -62,14 +65,14 @@ namespace UI
 
         public void OnShowImagePhrase(UiImagePhraseData data)
         {
-            // var personView = persons.FirstOrDefault(p => p.ImageScreenPlace == data.PersonVisualData.ScreenPlace);
-            // if (personView == null)
-            // {
-            //     Debug.LogError($"[{this}] [OnShowPhrase] no person on side {data.PersonVisualData.ScreenPlace}");
-            //     return;
-            // }
-            //
-            // personView.ShowPhrase(data);
+            var personView = imagePersons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
+            if (personView == null)
+            {
+                Debug.LogError($"[{this}] [OnShowPhrase] no person on side {data.PersonVisualData.ScreenPlace}");
+                return;
+            }
+            
+            personView.ShowPhrase(data);
         }
 
         public void OnHidePhrase(UiPhraseData data)
@@ -90,18 +93,14 @@ namespace UI
         
         public void OnHideImagePhrase (UiImagePhraseData data)
         {
-            // var personView = persons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
-            // if (personView == null)
-            // {
-            //     Debug.LogError($"[{this}] [OnHidePhrase] no person on side {data.PersonVisualData.ScreenPlace}");
-            //     return;
-            // }
-            //
-            // if (data.PhraseVisualData.HideOnEnd)
-            //     personView.HidePhrase();
-            //
-            // if (data.PersonVisualData.HideOnEnd)
-            //     personView.gameObject.SetActive(false);
+            var personView = imagePersons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
+            if (personView == null)
+            {
+                Debug.LogError($"[{this}] [OnHidePhrase] no person on side {data.PersonVisualData.ScreenPlace}");
+                return;
+            }
+
+            personView.HidePhrase();
         }
 
         public void OnHideLevelUi(float time, Action callback)

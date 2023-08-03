@@ -22,6 +22,7 @@ namespace UI
     {
         public string Description;
 
+        public Sprite Sprite;
         public Phrase Phrase;
         public ImagePersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
