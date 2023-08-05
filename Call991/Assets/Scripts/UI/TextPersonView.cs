@@ -5,15 +5,11 @@ using UnityEngine;
 
 public class TextPersonView : BasePersonView
 {
-    [SerializeField] private PersonImageScreenPlace screenPlace = default;
     [SerializeField] private TextMeshProUGUI personName = default;
     [SerializeField] private TextMeshProUGUI description = default;
-
-    public PersonImageScreenPlace ScreenPlace => screenPlace;
-
+    
     private LocalizedString _localize;
-
-
+    
     protected override void SetText(string text)
     {
         description.text = text;
@@ -28,7 +24,7 @@ public class TextPersonView : BasePersonView
         if (!gameObject.activeSelf)
             gameObject.SetActive(true);
 
-        _localize = data.PersonVisualData.Person.ToString();
+        _localize = data.PersonVisualData.Person;
         personName.text = _localize;
         description.gameObject.SetActive(true);
 

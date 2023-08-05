@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using AaDialogueGraph;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
@@ -17,6 +18,7 @@ namespace UI
         [SerializeField] private MenuButtonView pauseButton = default;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private List<PersonView> persons = default;
+        [SerializeField] private TextPersonView imagePersonText = default;
         [SerializeField] private List<ImagePersonView> imagePersons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
@@ -36,8 +38,9 @@ namespace UI
 
             foreach (var person in imagePersons) 
                 person.gameObject.SetActive(false);
-
             
+            imagePersonText.gameObject.SetActive(false);
+
             foreach (var button in buttons)
                 button.gameObject.SetActive(false);
 
@@ -73,6 +76,15 @@ namespace UI
             }
             
             personView.ShowPhrase(data);
+
+            var phraseData = new UiPhraseData
+            {
+                Description = data.Description,
+                Phrase = data.Phrase,
+                PhraseVisualData = data.PhraseVisualData,
+                PersonVisualData = new PersonVisualData{Person = data.PersonVisualData.Person},
+            };
+            imagePersonText.ShowPhrase(phraseData);
         }
 
         public void OnHidePhrase(UiPhraseData data)
