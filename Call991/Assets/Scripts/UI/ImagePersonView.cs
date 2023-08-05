@@ -9,13 +9,17 @@ public class ImagePersonView : BasePersonView
     [SerializeField] private PersonImageScreenPlace screenPlace = default;
     [SerializeField] private Image person = default;
     [SerializeField] private Image mask = default;
-    [SerializeField] private Image shade = default;
+
+    [SerializeField] private CanvasGroup canvasGroup = default;
+    [SerializeField] private CanvasGroup shadeCanvasGroup = default;
+
+    [SerializeField] private AnimationCurve animateCurve = default;
 
     private ImagePersonVisualData _personVisualData;
     private float _fadeTime = 0.7f;
-    private float _fadeValue = 0.6f;
-    private float _scaleValue = 1.15f;
-    private float _moveValue = 150f;
+    private float _fadeValue = 0.45f;
+    private float _scaleValue = 0.85f;
+    private float _moveValue = 250f;
 
     public PersonImageScreenPlace ScreenPlace => screenPlace;
 
@@ -29,49 +33,48 @@ public class ImagePersonView : BasePersonView
             return;
         }
 
-        if (!gameObject.activeSelf)
-            gameObject.SetActive(true);
+        gameObject.SetActive(!string.IsNullOrEmpty(data.PersonVisualData.Sprite));
 
         person.sprite = data.Sprite;
         mask.sprite = data.Sprite;
 
         _personVisualData = data.PersonVisualData;
+        var tf = person.rectTransform;
 
         if (_personVisualData.ShowOnStart)
         {
-            var tf = person.transform;
             var position = tf.localPosition;
             tf.localPosition = position + Vector3.right * ((int)screenPlace > 3 ? 1 : -1) * _moveValue;
-            tf.DOLocalMoveX(position.x, _fadeTime);
+            tf.DOLocalMoveX(position.x, _fadeTime).SetEase(animateCurve);
 
-            // todo fade person and all the group from transparent to 1;
-            person.DOFade(0, 0);
-            person.DOFade(1, _fadeTime);
+            shadeCanvasGroup.alpha = 0;
+            canvasGroup.alpha = 0;
+            canvasGroup.DOFade(1, _fadeTime);
         }
-        
-        // todo focus shouldnt be done with fade (no shade fade), if image is appearing
-        if (_personVisualData.FocusOnStart)
-            Focus(0, _scaleValue);
+        else if (_personVisualData.FocusOnStart)
+        {
+            tf.localScale = Vector3.one * _scaleValue;
+            person.transform.DOScale(Vector3.one, _fadeTime);
+            shadeCanvasGroup.DOFade(0, _fadeTime);
+        }
     }
 
     public override void HidePhrase()
     {
         if (_personVisualData.UnfocusOnEnd)
-            Focus(_fadeValue, 1);
+        {
+            person.transform.DOScale(Vector3.one * _scaleValue, _fadeTime);
+            shadeCanvasGroup.DOFade(_fadeValue, _fadeTime);
+        }
 
         if (_personVisualData.HideOnEnd)
         {
             var tf = person.transform;
+            canvasGroup.DOFade(0, _fadeTime);
             var position = tf.localPosition - Vector3.right * ((int)screenPlace > 3 ? -1 : 1) * _moveValue;
             tf.DOLocalMoveX(position.x, _fadeTime)
                 .OnComplete(() => gameObject.SetActive(false));
         }
-    }
-
-    private void Focus(float shadeValue, float scaleValue)
-    {
-        shade.DOFade(shadeValue, _fadeTime);
-        person.transform.DOScale(scaleValue, _fadeTime);
     }
 
     public override void Clear()
