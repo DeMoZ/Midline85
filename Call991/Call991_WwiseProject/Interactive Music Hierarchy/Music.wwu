@@ -6,6 +6,13 @@
 				<Folder Name="DecideTime" ID="{93CDB853-876C-4DAE-B37F-AA2D1524BBED}" ShortID="561003362">
 					<ChildrenList>
 						<MusicPlaylistContainer Name="Clock_End" ID="{558DF7E2-7B87-48E5-B295-8B9798347C01}" ShortID="330366221">
+							<PropertyList>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -347,6 +354,16 @@
 						<MusicPlaylistContainer Name="Clock" ID="{02145684-ADCB-4D7D-9C22-81C6EF16F2DC}" ShortID="564311675">
 							<PropertyList>
 								<Property Name="GridOffsetPreset" Type="int16" Value="52"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>22</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
 								<Property Name="RenderEffect0" Type="bool">
 									<ValueList>
 										<Value>True</Value>
@@ -354,7 +371,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-17.7</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1375,7 +1392,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-6.3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1646,6 +1663,11 @@
 						<MusicSwitchContainer Name="MusicLevels" ID="{EFEB9A0F-73D9-4F08-8023-845DB00895C4}" ShortID="966635705">
 							<PropertyList>
 								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>10</Value>
+									</ValueList>
+								</Property>
 								<Property Name="MaxSoundPerInstance" Type="int16">
 									<ValueList>
 										<Value>1</Value>
@@ -1868,6 +1890,7 @@
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{568302E6-DFDF-4A0A-9B14-F66245EF3B85}" ShortID="732801190">
 													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<SegmentRef Name="mus_MusicMenu_Main_Broken Dreams_40_ver_1" ID="{700AD9E6-7337-46EE-8556-82B8F1EA5041}"/>
@@ -1899,7 +1922,11 @@
 										</MusicTransition>
 									</TransitionList>
 									<Playlist>
-										<MusicPlaylistItem Name="" ID="{32ED9C71-2654-418C-BFDC-063462B2A13D}" ShortID="401041823"/>
+										<MusicPlaylistItem Name="" ID="{32ED9C71-2654-418C-BFDC-063462B2A13D}" ShortID="401041823">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+										</MusicPlaylistItem>
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Boss" ID="{3F4F1516-1C12-4328-ACFB-C4AF6AC5695F}" ShortID="470107905">
@@ -1925,7 +1952,11 @@
 										</MusicTransition>
 									</TransitionList>
 									<Playlist>
-										<MusicPlaylistItem Name="" ID="{61CF91B7-8BE5-4B6F-A837-5FBD17C2C0B1}" ShortID="443977499"/>
+										<MusicPlaylistItem Name="" ID="{61CF91B7-8BE5-4B6F-A837-5FBD17C2C0B1}" ShortID="443977499">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+										</MusicPlaylistItem>
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Fire" ID="{DA462745-5BE4-434C-9739-5E14BEFD5728}" ShortID="1020151519">
@@ -1951,7 +1982,11 @@
 										</MusicTransition>
 									</TransitionList>
 									<Playlist>
-										<MusicPlaylistItem Name="" ID="{1F4E0E9F-4FD8-4DD5-9F93-97B3C8BFD976}" ShortID="68150797"/>
+										<MusicPlaylistItem Name="" ID="{1F4E0E9F-4FD8-4DD5-9F93-97B3C8BFD976}" ShortID="68150797">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+										</MusicPlaylistItem>
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Psycho" ID="{B0119934-523E-451A-B489-3BA351C35820}" ShortID="793204869">
@@ -1977,7 +2012,11 @@
 										</MusicTransition>
 									</TransitionList>
 									<Playlist>
-										<MusicPlaylistItem Name="" ID="{B7913521-7E56-4D20-B3B4-F7DAEA0441E6}" ShortID="697512503"/>
+										<MusicPlaylistItem Name="" ID="{B7913521-7E56-4D20-B3B4-F7DAEA0441E6}" ShortID="697512503">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+										</MusicPlaylistItem>
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Titles" ID="{0E75CA62-C5AC-4CD9-A982-3CE7D586F7FC}" ShortID="5403205">
@@ -2003,7 +2042,11 @@
 										</MusicTransition>
 									</TransitionList>
 									<Playlist>
-										<MusicPlaylistItem Name="" ID="{5D24CB5A-AC8A-45E6-A471-3967AA708315}" ShortID="587265343"/>
+										<MusicPlaylistItem Name="" ID="{5D24CB5A-AC8A-45E6-A471-3967AA708315}" ShortID="587265343">
+											<PropertyList>
+												<Property Name="LoopCount" Type="int16" Value="0"/>
+											</PropertyList>
+										</MusicPlaylistItem>
 									</Playlist>
 								</MusicPlaylistContainer>
 								<MusicPlaylistContainer Name="Pizza" ID="{55499C6B-6E47-40C5-B8AF-05951D618B48}" ShortID="814780623">
@@ -2580,6 +2623,7 @@
 											<ChildrenList>
 												<MusicPlaylistItem Name="" ID="{BC785C18-70D9-48B3-A1D0-B5992449565E}" ShortID="973390199">
 													<PropertyList>
+														<Property Name="LoopCount" Type="int16" Value="0"/>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
 													<SegmentRef Name="DEMO ES_The Taste of Fear" ID="{D11B8A58-B13F-4012-B81E-1261148E0E7E}"/>
@@ -2619,20 +2663,30 @@
 									<ChildrenList>
 										<MusicTransition Name="Transition" ID="{01A6D6C9-C2E9-44B7-8B39-FA7F276C43BB}">
 											<PropertyList>
+												<Property Name="EnableDestinationFadeIn" Type="bool" Value="True"/>
 												<Property Name="EnableSourceFadeOut" Type="bool" Value="True"/>
 												<Property Name="ExitSourceAt" Type="int16" Value="2"/>
-												<Property Name="PlaySourcePostExit" Type="bool" Value="False"/>
 											</PropertyList>
 											<TransitionInfo>
 												<SourceFadeOut>
 													<MusicFade Name="Source Fade-out" ID="{D76D6AA6-6278-4902-91B6-A8E0DC9F4205}">
 														<PropertyList>
 															<Property Name="FadeCurve" Type="int16" Value="5"/>
-															<Property Name="FadeTime" Type="Real64" Value="3.3"/>
+															<Property Name="FadeOffset" Type="Real64" Value="1.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="3"/>
 															<Property Name="FadeType" Type="int16" Value="1"/>
 														</PropertyList>
 													</MusicFade>
 												</SourceFadeOut>
+												<DestinationFadeIn>
+													<MusicFade Name="Destination Fade-in" ID="{D09C1E0F-FA43-48E4-8F53-48613C49CB04}">
+														<PropertyList>
+															<Property Name="FadeCurve" Type="int16" Value="5"/>
+															<Property Name="FadeOffset" Type="Real64" Value="-1.5"/>
+															<Property Name="FadeTime" Type="Real64" Value="3"/>
+														</PropertyList>
+													</MusicFade>
+												</DestinationFadeIn>
 											</TransitionInfo>
 										</MusicTransition>
 									</ChildrenList>
