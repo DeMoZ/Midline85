@@ -3362,32 +3362,6 @@ MonoBehaviour:
     PhraseSound: L3_Pizza/George/pizza_george_047
     Phrases:
     - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_047.asset
-  - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-    Rect:
-      serializedVersion: 2
-      x: 525
-      y: 196
-      width: 124
-      height: 96
-    PhraseSketchText: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
-    PersonVisualData:
-      Person: GIRL
-      ScreenPlace: 5
-      HideOnEnd: 1
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: Videos/L3_Pizza/p.girl.001.mp4
-      Layer: 1
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    PhraseSound: L3_Pizza/Girl/pizza_girl_001
-    Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_girl/pizza_girl_001.asset
   - Guid: 2cf02c34-5cb4-4cef-99d6-c2f543a6d4aa
     Rect:
       serializedVersion: 2
@@ -3485,39 +3459,6 @@ MonoBehaviour:
     PhraseSound: L3_Pizza/Police/pizza_police_002
     Phrases:
     - 
-  - Guid: 7804c480-c760-4e2f-9274-457d75a39293
-    Rect:
-      serializedVersion: 2
-      x: 406
-      y: 206
-      width: 100
-      height: 96
-    PhraseSketchText: e1 911
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 2
-      HideOnEnd: 1
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData:
-    - Type: 4
-      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 3
-      PhraseEvent: 
-      Layer: 1
-      Loop: 1
-      Stop: 0
-      Delay: 0
-      Value: 0
-    PhraseSound: L3_Pizza/Elena/pizza_elena_001
-    Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_elena/pizza_elena_001.asset
   - Guid: e68f35f3-1ce2-4429-b808-211c263fd543
     Rect:
       serializedVersion: 2
@@ -4014,6 +3955,58 @@ MonoBehaviour:
     PhraseSound: L3_Pizza/George/pizza_george_040
     Phrases:
     - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_040.asset
+  - Guid: 7804c480-c760-4e2f-9274-457d75a39293
+    Rect:
+      serializedVersion: 2
+      x: 409
+      y: 203
+      width: 100
+      height: 96
+    PhraseSketchText: e1 911
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData:
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSound: L3_Pizza/Elena/pizza_elena_001
+    Phrases:
+    - Phrases/L3_Pizza/Russian/pizza_elena/pizza_elena_001.asset
+  - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+    Rect:
+      serializedVersion: 2
+      x: 522
+      y: 204
+      width: 124
+      height: 96
+    PhraseSketchText: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
+    PersonVisualData:
+      Person: GIRL
+      ScreenPlace: 5
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L3_Pizza/p.girl.001.mp4
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSound: L3_Pizza/Girl/pizza_girl_001
+    Phrases:
+    - Phrases/L3_Pizza/Russian/pizza_girl/pizza_girl_001.asset
   ChoiceNodeData:
   - Guid: 230dd4ba-be11-49b4-9c03-9fe194dbde53
     Rect:
@@ -5330,50 +5323,6 @@ MonoBehaviour:
       width: 100
       height: 107
     EventVisualData: []
-  - Guid: ee5149b1-7503-4918-af70-39ed506d7431
-    Rect:
-      serializedVersion: 2
-      x: 288
-      y: 199
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 1
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 2
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-  - Guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
-    Rect:
-      serializedVersion: 2
-      x: 66
-      y: 203
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 0
-      PhraseEvent: MusicLevels / MusicPizza
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 3
-      PhraseEvent: Videos/L3_Pizza/Backgraund_pizza.mp4
-      Layer: 0
-      Loop: 1
-      Stop: 0
-      Delay: 0
-      Value: 0
   - Guid: a53c47fd-08d5-4de9-b54a-1adda489fe83
     Rect:
       serializedVersion: 2
@@ -5386,6 +5335,36 @@ MonoBehaviour:
       PhraseEvent: Videos/L3_Pizza/sfx.goout.mp4
       Layer: 1
       Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+  - Guid: ee5149b1-7503-4918-af70-39ed506d7431
+    Rect:
+      serializedVersion: 2
+      x: 295
+      y: 203
+      width: 100
+      height: 107
+    EventVisualData: []
+  - Guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+    Rect:
+      serializedVersion: 2
+      x: 66
+      y: 203
+      width: 362
+      height: 244
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: MusicLevels / MusicPizza
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: Videos/L3_Pizza/Backgraund_Spiral.mp4
+      Layer: 0
+      Loop: 1
       Stop: 0
       Delay: 0
       Value: 0
@@ -6002,15 +5981,6 @@ MonoBehaviour:
   - BaseNodeGuid: ffa907ec-12fa-48ac-988b-b738991305a2
     BaseExitName: 
     TargetNodeGuid: 128ad975-baca-41eb-af8e-afffef4a0503
-  - BaseNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-    BaseExitName: 
-    TargetNodeGuid: bf0d64e9-a653-41dc-b74d-fe4484830afd
-  - BaseNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-    BaseExitName: 
-    TargetNodeGuid: 002670f8-042a-4b01-a76f-ac0593eeac3b
-  - BaseNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-    BaseExitName: 
-    TargetNodeGuid: 1f765b92-f347-4379-804e-89c579d009df
   - BaseNodeGuid: 2cf02c34-5cb4-4cef-99d6-c2f543a6d4aa
     BaseExitName: 
     TargetNodeGuid: a6cfa1d6-d7a0-4028-b743-9c9a11fd5a48
@@ -6032,9 +6002,6 @@ MonoBehaviour:
   - BaseNodeGuid: f1b2976e-662e-4e93-8548-27c9180cedb7
     BaseExitName: 
     TargetNodeGuid: 8aca7ef5-f377-4731-8d12-9add4280bfac
-  - BaseNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
-    BaseExitName: 
-    TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
   - BaseNodeGuid: e68f35f3-1ce2-4429-b808-211c263fd543
     BaseExitName: 
     TargetNodeGuid: d705faa4-ac1a-4835-905e-eea45f9835c4
@@ -6110,6 +6077,18 @@ MonoBehaviour:
   - BaseNodeGuid: 11b29082-c992-4ada-9018-2c8b9afbe6e3
     BaseExitName: 
     TargetNodeGuid: a53c47fd-08d5-4de9-b54a-1adda489fe83
+  - BaseNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
+    BaseExitName: 
+    TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+  - BaseNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+    BaseExitName: 
+    TargetNodeGuid: bf0d64e9-a653-41dc-b74d-fe4484830afd
+  - BaseNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+    BaseExitName: 
+    TargetNodeGuid: 002670f8-042a-4b01-a76f-ac0593eeac3b
+  - BaseNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+    BaseExitName: 
+    TargetNodeGuid: 1f765b92-f347-4379-804e-89c579d009df
   - BaseNodeGuid: 230dd4ba-be11-49b4-9c03-9fe194dbde53
     BaseExitName: 
     TargetNodeGuid: d1606186-2bdd-4f5e-90df-09423ff63778
@@ -6389,15 +6368,15 @@ MonoBehaviour:
   - BaseNodeGuid: f56cad3f-c673-4c31-94a0-a7123603322d
     BaseExitName: 
     TargetNodeGuid: ed935f31-cafc-4f33-9ecc-26378cf8c65e
-  - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
-    BaseExitName: 
-    TargetNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
   - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
     BaseExitName: 
     TargetNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
   - BaseNodeGuid: a53c47fd-08d5-4de9-b54a-1adda489fe83
     BaseExitName: 
     TargetNodeGuid: 8ccee567-164a-42dc-bb94-0f8fd864cfb0
+  - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
+    BaseExitName: 
+    TargetNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
   - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
     BaseExitName: 
     TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
