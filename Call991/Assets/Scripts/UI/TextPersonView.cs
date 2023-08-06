@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class TextPersonView : BasePersonView
 {
-    [SerializeField] private TextMeshProUGUI personName = default;
     [SerializeField] private TextMeshProUGUI description = default;
     
     private LocalizedString _localize;
@@ -25,17 +24,12 @@ public class TextPersonView : BasePersonView
             gameObject.SetActive(true);
 
         _localize = data.PersonVisualData.Person;
-        personName.text = _localize;
-        description.gameObject.SetActive(true);
+        description.gameObject.SetActive(data.Phrase != null && data.Phrase.text != AaGraphConstants.None);
 
         if (data.Phrase == null)
-        {
-            description.text = data.Description;
-        }
+            description.text = string.Empty;
         else
-        {
             ShowPhraseText(data);
-        }
     }
 
     public override void HidePhrase()
@@ -46,7 +40,6 @@ public class TextPersonView : BasePersonView
 
     public override void Clear()
     {
-        personName.text = string.Empty;
         description.text = string.Empty;
     }
 }
