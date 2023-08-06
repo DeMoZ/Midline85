@@ -3,16 +3,21 @@
 	<AudioObjects>
 		<WorkUnit Name="SFX" ID="{19D40057-467E-4521-89BC-93372F8713A8}" PersistMode="Standalone">
 			<ChildrenList>
-				<ActorMixer Name="SFX" ID="{6161410C-9B9B-4D8A-ABE0-21B7ED5207F1}" ShortID="875096185">
+				<ActorMixer Name="SFX Filtered" ID="{6161410C-9B9B-4D8A-ABE0-21B7ED5207F1}" ShortID="875096185">
 					<PropertyList>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
-								<Value>40</Value>
+								<Value>25</Value>
 							</ValueList>
 						</Property>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
-								<Value>39</Value>
+								<Value>33</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MakeUpGain" Type="Real64">
+							<ValueList>
+								<Value>10</Value>
 							</ValueList>
 						</Property>
 						<Property Name="MaxSoundPerInstance" Type="int16">
@@ -37,6 +42,23 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Sound Name="sfx_jacket" ID="{9983CCAB-E241-4F3F-B7CF-5849A6A0E17A}" ShortID="780594875">
+							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -110,7 +132,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>3.4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -265,6 +287,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_grabphone" ID="{72F55F50-6941-4894-B02B-C295BD0750D9}" ShortID="794307313">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-18.5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -649,50 +678,6 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="sfx_stab" ID="{92DACE42-ACC7-460A-8BAB-E46845E418B4}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="sfx_susdown" ID="{D43D908D-4920-4C9D-A2DD-775CA9EECE05}" ShortID="1014789947">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="sfx_susdown" ID="{6CDB2283-43A4-4B0A-B3CB-4EAF136600A6}">
-									<Language>SFX</Language>
-									<AudioFile>sfx_susdown.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="6653513"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="sfx_susdown" ID="{6CDB2283-43A4-4B0A-B3CB-4EAF136600A6}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
-						<Sound Name="sfx_susup" ID="{AAA3847D-C361-43B4-B701-C32C21D9BE1E}" ShortID="641064725">
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="sfx_susup" ID="{7FC3A99E-D40E-45E3-8E24-97A5B62B009A}">
-									<Language>SFX</Language>
-									<AudioFile>sfx_susup.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="949100761"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="sfx_susup" ID="{7FC3A99E-D40E-45E3-8E24-97A5B62B009A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="sfx_MChwrite" ID="{2183F116-CC0D-4734-AE7E-396056201F6B}" ShortID="33534525">
@@ -1471,18 +1456,6 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_PhoneRing" ID="{8A44B72F-0FBC-4C24-8001-DEA169E196CF}" ShortID="1023126203">
-							<PropertyList>
-								<Property Name="Highpass" Type="int16">
-									<ValueList>
-										<Value>13</Value>
-									</ValueList>
-								</Property>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>12</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -1630,7 +1603,17 @@
 							<PropertyList>
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
-										<Value>16</Value>
+										<Value>23</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>7</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-10.8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1664,7 +1647,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-8</Value>
+										<Value>1.1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2628,7 +2611,17 @@
 												<Value>12</Value>
 											</ValueList>
 										</Property>
+										<Property Name="MakeUpGain" Type="Real64">
+											<ValueList>
+												<Value>1.7</Value>
+											</ValueList>
+										</Property>
 										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>9.7</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -2773,6 +2766,11 @@
 										<Property Name="PlayMechanismStepOrContinuous" Type="int16" Value="0"/>
 										<Property Name="RandomOrSequence" Type="int16" Value="0"/>
 										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>12.5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
@@ -3444,6 +3442,11 @@
 										<Value>23</Value>
 									</ValueList>
 								</Property>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>14</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 								<Property Name="OverrideEffect" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -3500,6 +3503,10 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_PenNoise" ID="{8B2739B5-67E3-492D-832C-87A5C2781DDA}" ShortID="964501455">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -3513,7 +3520,7 @@
 									<Language>SFX</Language>
 									<AudioFile>SFX\sfx_PenNoise.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="746851695"/>
+										<MediaID ID="1026165587"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
@@ -3530,6 +3537,113 @@
 							</PropertyList>
 						</Panner>
 					</PositioningInfo>
+				</ActorMixer>
+				<ActorMixer Name="SFX non Filtr" ID="{9FE7D189-C213-4187-B457-A83A992FD775}" ShortID="45358102">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="sfx_susdown" ID="{DEE47084-0A34-42DC-A0D2-CF8AF54222B8}" ShortID="850473509">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_susdown" ID="{CB6DBFBD-F060-4154-B092-67AC53B13E1E}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.155825980392157"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.72214574881677"/>
+										<Property Name="FadeOutShape" Type="int16" Value="2"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0725396805273834"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.93439148073022"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_susdown.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="443049190"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{1E3E5DAB-1734-402F-A62D-5DE901216B93}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="25"/>
+										<Property Name="PanY" Type="Real64" Value="25"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_susdown" ID="{CB6DBFBD-F060-4154-B092-67AC53B13E1E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="sfx_susup" ID="{5CD46435-9911-4C29-874F-A196072A959E}" ShortID="8664050">
+							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="sfx_susup" ID="{966E59E8-6281-4348-A5C4-1F338EA21A6D}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.0996091954022989"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.183654454022988"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.105834770114943"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.69256106321839"/>
+									</PropertyList>
+									<Language>SFX</Language>
+									<AudioFile>SFX\sfx_susup.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="260632801"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<PositioningInfo>
+								<Panner Name="" ID="{64708362-B112-4380-9B2E-7EDCE116488B}">
+									<PropertyList>
+										<Property Name="PanX" Type="Real64" Value="25"/>
+										<Property Name="PanY" Type="Real64" Value="25"/>
+									</PropertyList>
+								</Panner>
+							</PositioningInfo>
+							<ActiveSourceList>
+								<ActiveSource Name="sfx_susup" ID="{966E59E8-6281-4348-A5C4-1F338EA21A6D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
