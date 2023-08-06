@@ -59,6 +59,7 @@ public class MenuSceneEntity : IGameScene
             PlayLevelIndex = _ctx.PlayLevelIndex,
             OnSwitchScene = _ctx.OnSwitchScene,
             Profile = _ctx.Profile,
+            GameSet = _ctx.GameSet,
         });
         
         _ui = UnityEngine.GameObject.FindObjectOfType<UiMenuScene>();

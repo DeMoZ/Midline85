@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu]
 public class GameLevelsSo : ScriptableObject
 {
-    public List<DialogueContainer> Levels;
-    //public DialogueContainer TestLevel;
+    [SerializeField] private DialogueContainer startButtonLevel;
+    [SerializeField] private List<DialogueContainer> levels;
+    
+    public DialogueContainer StartButtonLevel => startButtonLevel;
+    public List<DialogueContainer> Levels => levels;
 }
