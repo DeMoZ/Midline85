@@ -56,6 +56,10 @@ public static class AaGraphConstants
     public const string EventMusicPopupField = "EventMusicPopupField";
     public const string EventRtpcPopupField = "EventRtpcPopupField";
     
-    public static string DelayFieldName = "DelayFieldName";
-    public static string ValueFieldName = "ValueFieldName";
+    public const string DelayFieldName = "DelayFieldName";
+    public const string ValueFieldName = "ValueFieldName";
+
+    public const string ImageField = "Image";
+    public const string VideoField = "Video";
+    public const string ObjectField = "Object";
 }

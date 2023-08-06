@@ -384,7 +384,6 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(headerContent);
 
             var label = new Label(text: "Events");
-            //label.AddToClassList("aa-BlackText");
             headerContent.Add(label);
 
             var addMusicEventAssetButton = new Button(() =>
@@ -397,7 +396,6 @@ namespace AaDialogueGraph.Editor
                 _onChange?.Invoke();
             });
             addMusicEventAssetButton.text = PhraseEventType.Music.ToString();
-            headerContent.Add(addMusicEventAssetButton);
 
             var addRtpcEventAssetButton = new Button(() =>
             {
@@ -409,7 +407,6 @@ namespace AaDialogueGraph.Editor
                 _onChange?.Invoke();
             });
             addRtpcEventAssetButton.text = PhraseEventType.RTPC.ToString();
-            headerContent.Add(addRtpcEventAssetButton);
 
             var addSoundEventAssetButton = new Button(() =>
             {
@@ -421,31 +418,49 @@ namespace AaDialogueGraph.Editor
                 _onChange?.Invoke();
             });
             addSoundEventAssetButton.text = "Sound";
-            headerContent.Add(addSoundEventAssetButton);
 
+            var addImageEventAssetButton = new Button(() =>
+            {
+                // add image
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.Image, };
+                var eventVisual = new ObjectEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, AaGraphConstants.ImageField);
+                contentContainer.Add(eventVisual);
+                _onChange?.Invoke();
+            });
+            addImageEventAssetButton.text = AaGraphConstants.ImageField;
+            
             var addVideoEventAssetButton = new Button(() =>
             {
                 // add video
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.VideoClip, };
                 var eventVisual = new ObjectEventVisual();
-                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange);
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, AaGraphConstants.VideoField);
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
-            addVideoEventAssetButton.text = "Video";
-            headerContent.Add(addVideoEventAssetButton);
+            addVideoEventAssetButton.text = AaGraphConstants.VideoField;
 
             var addObjectEventAssetButton = new Button(() =>
             {
                 // add prefab
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.GameObject, };
                 var eventVisual = new ObjectEventVisual();
-                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange);
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, AaGraphConstants.ObjectField);
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
-            addObjectEventAssetButton.text = "Object";
-            headerContent.Add(addObjectEventAssetButton);
+            addObjectEventAssetButton.text = AaGraphConstants.ObjectField;
+
+            var buttonsGroup = new VisualElement();
+            headerContent.Add(buttonsGroup);
+
+            var line1 = new LineGroup(new[]
+                { addMusicEventAssetButton, addRtpcEventAssetButton, addSoundEventAssetButton });
+            var line2 = new LineGroup(new[]
+                { addImageEventAssetButton, addVideoEventAssetButton, addObjectEventAssetButton });
+            buttonsGroup.Add(line1);
+            buttonsGroup.Add(line2);
 
             contentContainer.AddToClassList("aa-EventAsset_content-container");
 
@@ -469,16 +484,32 @@ namespace AaDialogueGraph.Editor
                         soundEventVisual.Set(item, OnDeleteEvent, _onChange, sounds);
                         contentContainer.Add(soundEventVisual);
                         break;
+                    case PhraseEventType.Image:
                     case PhraseEventType.VideoClip:
                     case PhraseEventType.GameObject:
                         var objectEventVisual = new ObjectEventVisual();
-                        objectEventVisual.Set(item, OnDeleteEvent, _onChange);
+                        objectEventVisual.Set(item, OnDeleteEvent, _onChange, GetEventFieldName(item.Type));
                         contentContainer.Add(objectEventVisual);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
             });
+        }
+
+        private string GetEventFieldName(PhraseEventType type)
+        {
+            switch (type)
+            {
+                case PhraseEventType.Image:
+                    return AaGraphConstants.ImageField;
+                case PhraseEventType.VideoClip:
+                    return AaGraphConstants.VideoField;
+                case PhraseEventType.GameObject:
+                    return AaGraphConstants.ObjectField;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
         }
 
         private void OnDeleteEvent(VisualEvent eventVisual)
