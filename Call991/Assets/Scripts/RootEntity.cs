@@ -38,8 +38,8 @@ public class RootEntity : IDisposable
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
-
-        var playLevelIndex = new ReactiveProperty<int>(0);
+        
+        var playLevelIndex = new ReactiveProperty<int>(gameSet.GetStartLevelIndex());
         var levelLanguages = new ReactiveProperty<List<string>>();
         var isPauseAllowed = new ReactiveProperty<bool>(true);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
@@ -55,8 +55,7 @@ public class RootEntity : IDisposable
             SkipTitle = _ctx.OverridenDialogue.SkipTitle,
             SkipWarning = _ctx.OverridenDialogue.SkipWarning,
         }).AddTo(_disposables);
-
-
+        
         var profile = new PlayerProfile();
         SetLanguage(profile.TextLanguage);
 
