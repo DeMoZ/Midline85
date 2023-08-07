@@ -50,6 +50,7 @@ namespace AaDialogueGraph.Editor
             ClearGraph();
             CreateEntryNode();
             CreatePhraseNodes();
+            CreateImagePhraseNodes();
             CreateChoiceNodes();
             CreateForkNodes();
             CreateCountNodes();
@@ -96,11 +97,24 @@ namespace AaDialogueGraph.Editor
         private void CreatePhraseNodes()
         {
             var languages = _containerCash.EntryNodeData.Languages;
-            var sounds = new List<string>{"NONE"};// GetWwiseSoundsFromStartNode();
+            var sounds = new List<string>{"NONE"};
             
             foreach (var data in _containerCash.PhraseNodeData)
             {
                 var node = new PhraseNode();
+                node.Set(data, languages,  _voices, _musics, _rtpcs, sounds, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
+        
+        private void CreateImagePhraseNodes()
+        {
+            var languages = _containerCash.EntryNodeData.Languages;
+            var sounds = new List<string>{"NONE"};
+            
+            foreach (var data in _containerCash.ImagePhraseNodeData)
+            {
+                var node = new ImagePhraseNode();
                 node.Set(data, languages,  _voices, _musics, _rtpcs, sounds, data.Guid);
                 _targetGraphView.AddElement(node);
             }
@@ -217,6 +231,7 @@ namespace AaDialogueGraph.Editor
             var nodes = new List<AaNodeData>();
 
             nodes.AddRange(_containerCash.PhraseNodeData);
+            nodes.AddRange(_containerCash.ImagePhraseNodeData);
             nodes.AddRange(_containerCash.ChoiceNodeData);
             nodes.AddRange(_containerCash.ForkNodeData);
             nodes.AddRange(_containerCash.CountNodeData);

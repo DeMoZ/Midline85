@@ -78,6 +78,12 @@ namespace AaDialogueGraph.Editor
             };
             toolbar.Add(phraseCreateButton);
 
+            var imagePhraseCreateButton = new Button(() => _graphView.CreateImagePhraseNode())
+            {
+                text = AaGraphConstants.ImagePhraseNode,
+            };
+            toolbar.Add(imagePhraseCreateButton);
+
             var choiceCreateButton = new Button(() => _graphView.CreateChoiceNode())
             {
                 text = AaGraphConstants.ChoiceNode,
