@@ -38,7 +38,7 @@ MonoBehaviour:
       \u0432 \u0444\u043E\u043A\u0443\u0441\u0435 \u0438 \u0430\u043D\u0444\u043E\u043A\u0443\u0441"
     ImagePersonVisualData:
       Person: MARK
-      ScreenPlace: 5
+      ScreenPlace: 6
       Sprite: Images/Persons/Mark.png
       ShowOnStart: 1
       FocusOnStart: 0
@@ -61,7 +61,7 @@ MonoBehaviour:
     PhraseSketchText: "\u0444\u043E\u043A\u0443\u0441 \u0438 \u0430\u043D\u0444\u043E\u043A\u0443\u0441"
     ImagePersonVisualData:
       Person: MARK
-      ScreenPlace: 5
+      ScreenPlace: 6
       Sprite: Images/Persons/Mark.png
       ShowOnStart: 0
       FocusOnStart: 1
@@ -74,52 +74,6 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_001
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_002.asset
-  - Guid: 3646a07a-e970-4fb7-a79e-10cbe5e44612
-    Rect:
-      serializedVersion: 2
-      x: 1016
-      y: 200
-      width: 119
-      height: 96
-    PhraseSketchText: "\u0444\u043E\u043A\u0443\u0441 \u0438 \u0430\u043D\u0444\u043E\u043A\u0443\u0441"
-    ImagePersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      Sprite: Images/Persons/Helen.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_001
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_003.asset
-  - Guid: 9e9e2570-eee4-4451-9b01-2481f69c83fa
-    Rect:
-      serializedVersion: 2
-      x: 1190
-      y: 326
-      width: 100
-      height: 96
-    PhraseSketchText: "\u0443\u0445\u043E\u0434\u0438\u0442"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 5
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 0
-      HideOnEnd: 1
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: NONE
-    Phrases:
-    - 
   - Guid: 642d6a42-87b2-43f0-8ce7-40fb078d878f
     Rect:
       serializedVersion: 2
@@ -214,6 +168,59 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_001
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_001.asset
+  - Guid: 3646a07a-e970-4fb7-a79e-10cbe5e44612
+    Rect:
+      serializedVersion: 2
+      x: 1016
+      y: 200
+      width: 119
+      height: 96
+    PhraseSketchText: "\u0444\u043E\u043A\u0443\u0441 \u0438 \u0430\u043D\u0444\u043E\u043A\u0443\u0441"
+    ImagePersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      Sprite: Images/Persons/Helen.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 1
+    EventVisualData:
+    - Type: 5
+      PhraseEvent: Images/L4_Interlude1/interludy3.jpg
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_001
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_003.asset
+  - Guid: 9e9e2570-eee4-4451-9b01-2481f69c83fa
+    Rect:
+      serializedVersion: 2
+      x: 1190
+      y: 326
+      width: 100
+      height: 96
+    PhraseSketchText: "\u0443\u0445\u043E\u0434\u0438\u0442"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 0
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: NONE
+    Phrases:
+    - 
   ChoiceNodeData: []
   ForkNodeData: []
   CountNodeData: []
@@ -234,8 +241,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 213
       y: 200
-      width: 257
-      height: 319
+      width: 100
+      height: 107
     EventVisualData:
     - Type: 0
       PhraseEvent: MusicLevels / MusicBoss

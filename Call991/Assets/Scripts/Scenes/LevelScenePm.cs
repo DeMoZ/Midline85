@@ -45,6 +45,7 @@ public class LevelScenePm : IDisposable
 
         public ReactiveCommand OnSkipPhrase;
         public ReactiveCommand<bool> OnClickPauseButton;
+        public ImageManager ImageManager;
         public VideoManager VideoManager;
         public Blocker Blocker;
         public CursorSet CursorSettings;
@@ -288,6 +289,7 @@ public class LevelScenePm : IDisposable
                 case PhraseEventType.AudioClip:
                     soundEvents.Add(anEvent);
                     break;
+                case PhraseEventType.Image:
                 case PhraseEventType.VideoClip:
                 case PhraseEventType.GameObject:
                     objectEvents.Add(anEvent);
@@ -305,6 +307,10 @@ public class LevelScenePm : IDisposable
         {
             switch (eventContent.Type)
             {
+                case PhraseEventType.Image:
+                    var sprite = await _ctx.ContentLoader.GetObjectAsync<Sprite>(eventContent.PhraseEvent);
+                    content[eventContent.PhraseEvent] = sprite;
+                    break;
                 case PhraseEventType.VideoClip:
                     var video = await _ctx.ContentLoader.GetObjectAsync<VideoClip>(eventContent.PhraseEvent);
                     content[eventContent.PhraseEvent] = video;
@@ -470,6 +476,11 @@ public class LevelScenePm : IDisposable
     {
         switch (data.Type)
         {
+            case PhraseEventType.Image:
+                var sprite = content[data.PhraseEvent] as Sprite;
+                if (sprite == null && !data.Stop) break;
+                _ctx.ImageManager.ShowImage(data, sprite);
+                break;
             case PhraseEventType.VideoClip:
                 var videoClip = content[data.PhraseEvent] as VideoClip;
                 if (videoClip == null && !data.Stop) break;

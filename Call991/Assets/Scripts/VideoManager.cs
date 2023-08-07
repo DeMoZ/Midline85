@@ -25,8 +25,6 @@ public class VideoManager : MonoBehaviour
     [SerializeField] private List<VideoPlayer> videoPlayers = default;
 
     private Ctx _ctx;
-    private string _currentVideoPath;
-    private VideoClip _currentVideoClip;
 
     public void SetCtx(Ctx ctx)
     {

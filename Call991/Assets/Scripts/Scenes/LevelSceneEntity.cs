@@ -19,6 +19,7 @@ public class LevelSceneEntity : IGameScene
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
         public WwiseAudio AudioManager;
+        public ImageManager ImageManager;
         public VideoManager VideoManager;
         public Blocker Blocker;
         public CursorSet CursorSettings;
@@ -123,6 +124,7 @@ public class LevelSceneEntity : IGameScene
             OnShowNewspaper = onShowNewspaper,
             OnSkipPhrase = onSkipPhrase,
             OnClickPauseButton = onClickPauseButton,
+            ImageManager = _ctx.ImageManager,
             VideoManager = _ctx.VideoManager,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
