@@ -19,6 +19,12 @@ public class ImageManager : MonoBehaviour
         _ctx = ctx;
     }
 
+    public void HideImages()
+    {
+        foreach (var image in images) 
+            HideImage(image);
+    }
+    
     public void ShowImage(EventVisualData data, Sprite sprite)
     {
         var layer = Mathf.Clamp((int)data.Layer, 0, images.Count - 1);
@@ -26,8 +32,7 @@ public class ImageManager : MonoBehaviour
 
         if (data.Stop)
         {
-            image.gameObject.SetActive(false);
-            image.sprite = null;
+            HideImage(image);
         }
         else
         {
@@ -36,5 +41,11 @@ public class ImageManager : MonoBehaviour
             image.preserveAspect = true;
             image.gameObject.SetActive(true);
         }
+    }
+
+    private static void HideImage(Image image)
+    {
+        image.gameObject.SetActive(false);
+        image.sprite = null;
     }
 }

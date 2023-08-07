@@ -693,6 +693,7 @@ private Choice RandomSelectButton(List<Choice> choices)
 
     public void Dispose()
     {
+        _ctx.ImageManager.HideImages();
         _ctx.VideoManager.StopPlayers();
         _tokenSource.Cancel();
         _disposables.Dispose();

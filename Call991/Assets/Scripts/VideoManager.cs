@@ -49,10 +49,8 @@ public class VideoManager : MonoBehaviour
 
     public void StopPlayers()
     {
-        foreach (var player in videoPlayers)
-        {
+        foreach (var player in videoPlayers) 
             StopVideo(player);
-        }
     }
     
     public void PlayVideo(VideoSet data)
