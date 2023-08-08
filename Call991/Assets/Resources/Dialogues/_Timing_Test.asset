@@ -29,8 +29,8 @@ MonoBehaviour:
   - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
     Rect:
       serializedVersion: 2
-      x: 820
-      y: 180
+      x: 809
+      y: 7
       width: 124
       height: 96
     PhraseSketchText: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
@@ -41,22 +41,15 @@ MonoBehaviour:
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: Videos/L3_Pizza/p.girl.046.mp4
-      Layer: 1
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
+    EventVisualData: []
     PhraseSound: L3_Pizza/Girl/pizza_girl_001
     Phrases:
     - Phrases/L3_Pizza/Russian/pizza_girl/pizza_girl_001.asset
   - Guid: 7804c480-c760-4e2f-9274-457d75a39293
     Rect:
       serializedVersion: 2
-      x: 443
-      y: 95
+      x: 480
+      y: 15
       width: 100
       height: 96
     PhraseSketchText: e1 911
@@ -82,16 +75,9 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-    - Type: 3
-      PhraseEvent: Videos/L3_Pizza/sfx.goout.mp4
-      Layer: 1
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    PhraseSound: L3_Pizza/George/pizza_george_008
+    PhraseSound: L3_Pizza/George/pizza_george_020
     Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_008.asset
+    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_020.asset
   ChoiceNodeData: []
   ForkNodeData: []
   CountNodeData: []
@@ -137,6 +123,21 @@ MonoBehaviour:
     - Type: 2
       PhraseEvent: NONE
       Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+  - Guid: b87440de-7a65-4fd1-baa2-b339028bb678
+    Rect:
+      serializedVersion: 2
+      x: 483
+      y: -256
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L3_Pizza/suspicionPoint_1.mp4
+      Layer: 2
       Loop: 0
       Stop: 0
       Delay: 0
