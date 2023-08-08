@@ -26,30 +26,11 @@ MonoBehaviour:
     ButtonFilter: pizza
     SoundAsset: 
   PhraseNodeData:
-  - Guid: 541016e1-1d40-4d4a-ae4f-888f1c7c5c41
-    Rect:
-      serializedVersion: 2
-      x: 968
-      y: -12
-      width: 100
-      height: 96
-    PhraseSketchText: 
-    PersonVisualData:
-      Person: GEORGE
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L3_Pizza/George/pizza_george_029
-    Phrases:
-    - Phrases/L5_Fire/Russian/fire_p_elena/fire_p_elena_050.asset
   - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
     Rect:
       serializedVersion: 2
-      x: 810
-      y: -20
+      x: 809
+      y: 7
       width: 124
       height: 96
     PhraseSketchText: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
@@ -67,8 +48,8 @@ MonoBehaviour:
   - Guid: 7804c480-c760-4e2f-9274-457d75a39293
     Rect:
       serializedVersion: 2
-      x: 420
-      y: 3
+      x: 480
+      y: 15
       width: 100
       height: 96
     PhraseSketchText: e1 911
@@ -94,50 +75,12 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-    PhraseSound: L3_Pizza/George/pizza_george_014
+    PhraseSound: L3_Pizza/George/pizza_george_020
     Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_014_BAD.asset
+    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_020.asset
   ChoiceNodeData: []
-  ForkNodeData:
-  - Guid: fe33ffe5-3639-45b0-9b7a-a4bf68f92417
-    Rect:
-      serializedVersion: 2
-      x: 579
-      y: 275
-      width: 150
-      height: 179
-    ForkCaseData:
-    - Words: []
-      Ends: []
-      Counts:
-      - CountType: 0
-        CountKey: PIZZA.EMOTIONS
-        Range: {x: 1, y: 1}
-      ForkExitName: 7f3af0c1-9dbb-42e2-965a-90cdccdbf4ee
-    - Words: []
-      Ends: []
-      Counts:
-      - CountType: 0
-        CountKey: PIZZA.EMOTIONS
-        Range: {x: 2, y: 2}
-      ForkExitName: 8e11f964-b174-4ba3-a8eb-8c75ab3abd60
-    - Words: []
-      Ends: []
-      Counts:
-      - CountType: 0
-        CountKey: PIZZA.EMOTIONS
-        Range: {x: 3, y: 100}
-      ForkExitName: 245eaa92-885a-4f53-aa4c-c2d83df1e1ac
-  CountNodeData:
-  - Guid: 3748b968-8949-46d7-a953-496fb909a17d
-    Rect:
-      serializedVersion: 2
-      x: 565
-      y: 47
-      width: 137
-      height: 116
-    Choice: PIZZA.EMOTIONS
-    Value: 23
+  ForkNodeData: []
+  CountNodeData: []
   EndNodeData: []
   EventNodeData:
   - Guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
@@ -199,96 +142,6 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-  - Guid: 832c6121-78b1-4384-96e5-18ae84faedba
-    Rect:
-      serializedVersion: 2
-      x: 945
-      y: 541
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: 
-      Layer: 2
-      Loop: 0
-      Stop: 1
-      Delay: 4
-      Value: 0
-  - Guid: 78894089-e7c9-4e98-988b-82d73eb663c8
-    Rect:
-      serializedVersion: 2
-      x: 825
-      y: 529
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: Videos/L3_Pizza/p.george.045.mp4
-      Layer: 2
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-  - Guid: 9c6b6ad4-a735-425d-bb68-15645375375e
-    Rect:
-      serializedVersion: 2
-      x: 812
-      y: 382
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: Videos/L3_Pizza/sfx.goout.mp4
-      Layer: 2
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-  - Guid: 41c56df2-d7d8-47e5-9e67-7b88c681a811
-    Rect:
-      serializedVersion: 2
-      x: 960
-      y: 391
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: 
-      Layer: 2
-      Loop: 0
-      Stop: 1
-      Delay: 4
-      Value: 0
-  - Guid: be99698d-bfd9-4aed-bfe8-2af6c0ea2de6
-    Rect:
-      serializedVersion: 2
-      x: 963
-      y: 232
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: 
-      Layer: 2
-      Loop: 0
-      Stop: 1
-      Delay: 3
-      Value: 0
-  - Guid: c227390a-645a-4daf-9dc0-a2da7a667c70
-    Rect:
-      serializedVersion: 2
-      x: 803
-      y: 201
-      width: 100
-      height: 107
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: Videos/L3_Pizza/suspicionPoint_1.mp4
-      Layer: 2
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
   NewspaperNodeData:
   - Guid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
     Rect:
@@ -311,25 +164,7 @@ MonoBehaviour:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
     TargetNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
-  - BaseNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-    BaseExitName: 
-    TargetNodeGuid: 541016e1-1d40-4d4a-ae4f-888f1c7c5c41
   - BaseNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
-    BaseExitName: 
-    TargetNodeGuid: 3748b968-8949-46d7-a953-496fb909a17d
-  - BaseNodeGuid: fe33ffe5-3639-45b0-9b7a-a4bf68f92417
-    BaseExitName: 7f3af0c1-9dbb-42e2-965a-90cdccdbf4ee
-    TargetNodeGuid: c227390a-645a-4daf-9dc0-a2da7a667c70
-  - BaseNodeGuid: fe33ffe5-3639-45b0-9b7a-a4bf68f92417
-    BaseExitName: 8e11f964-b174-4ba3-a8eb-8c75ab3abd60
-    TargetNodeGuid: 9c6b6ad4-a735-425d-bb68-15645375375e
-  - BaseNodeGuid: fe33ffe5-3639-45b0-9b7a-a4bf68f92417
-    BaseExitName: 245eaa92-885a-4f53-aa4c-c2d83df1e1ac
-    TargetNodeGuid: 78894089-e7c9-4e98-988b-82d73eb663c8
-  - BaseNodeGuid: 3748b968-8949-46d7-a953-496fb909a17d
-    BaseExitName: 
-    TargetNodeGuid: fe33ffe5-3639-45b0-9b7a-a4bf68f92417
-  - BaseNodeGuid: 3748b968-8949-46d7-a953-496fb909a17d
     BaseExitName: 
     TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
   - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
@@ -338,15 +173,6 @@ MonoBehaviour:
   - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
     BaseExitName: 
     TargetNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
-  - BaseNodeGuid: 78894089-e7c9-4e98-988b-82d73eb663c8
-    BaseExitName: 
-    TargetNodeGuid: 832c6121-78b1-4384-96e5-18ae84faedba
-  - BaseNodeGuid: 9c6b6ad4-a735-425d-bb68-15645375375e
-    BaseExitName: 
-    TargetNodeGuid: 41c56df2-d7d8-47e5-9e67-7b88c681a811
-  - BaseNodeGuid: c227390a-645a-4daf-9dc0-a2da7a667c70
-    BaseExitName: 
-    TargetNodeGuid: be99698d-bfd9-4aed-bfe8-2af6c0ea2de6
   - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
     BaseExitName: 
     TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
