@@ -15,6 +15,8 @@ public class RootEntity : IDisposable
     public struct Ctx
     {
         public WwiseAudio AudioManagerPrefab;
+        public ImageManager ImageManagerPrefab;
+        public RectTransform ImageManagerParent;
         public VideoManager VideoManagerPrefab;
         public RectTransform VideoManagerParent;
         public OverridenDialogue OverridenDialogue;
@@ -80,6 +82,11 @@ public class RootEntity : IDisposable
         });
         audioManager.Initialize().Forget();
 
+        var imageManager = Object.Instantiate(_ctx.ImageManagerPrefab, _ctx.ImageManagerParent);
+        imageManager.SetCtx(new ImageManager.Ctx
+        {
+        });
+        
         var videoManager = Object.Instantiate(_ctx.VideoManagerPrefab, _ctx.VideoManagerParent);
         videoManager.SetCtx(new VideoManager.Ctx
         {
@@ -96,6 +103,7 @@ public class RootEntity : IDisposable
             OnSwitchScene = onSwitchScene,
             Profile = profile,
             AudioManager = audioManager,
+            ImageManager = imageManager,
             VideoManager = videoManager,
             Blocker = blocker,
             ObjectEvents = objectEvents,

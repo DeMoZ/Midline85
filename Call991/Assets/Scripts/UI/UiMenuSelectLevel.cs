@@ -87,9 +87,9 @@ namespace UI
 
         private void SetButtonDisabled(MenuButtonView btn)
         {
-//#if !UNITY_EDITOR
-            btn.SetDisabled();
-//#endif
+#if !UNITY_EDITOR
+//            btn.SetDisabled();
+#endif
         }
 
         private void OnLevelClick(int index)
