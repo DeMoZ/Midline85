@@ -5,6 +5,7 @@ public class VoiceSettings
     //public const string OutputRootPath = "/Users/roman/Git/_NADSAT/Call991/Call991/Assets/Resources/Phrases";
     public const string OutputRootPath = "/Users/roman/Git/_NADSAT/Call991/Timings";
     public const string OutputRootFolderBadFolder = "_TIMINGS";
+    public const string Suffix = "_BAD";
     public const float AddTimeToLastWord = 1f;
     
     public static string GetLanguage()
