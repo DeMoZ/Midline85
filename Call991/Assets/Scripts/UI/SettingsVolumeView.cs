@@ -47,7 +47,7 @@ public class SettingsVolumeView : MenuButtonView
 
     private void ChangeSliderValue(float change)
     {
-        _slider.value = Mathf.Clamp01(_slider.value + change);
+        _slider.value = Mathf.Clamp(_slider.value + change, 0, 100);
     }
 
     private void SetSliderValue(float value)
