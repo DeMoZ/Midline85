@@ -3,15 +3,13 @@ using Google.Protobuf.WellKnownTypes;
 public static class BadYaml
 {
     private const string NotRecognisedFilePhrase = "<color=red>Voice file was not recognised</color>";
-    private const string Suffix = "_BAD";
-
     private static readonly Duration ZeroSeconds = new Duration { Seconds = 0, Nanos = 0 };
     private static readonly Duration SomeSeconds = new Duration { Seconds = 4, Nanos = 0 };
 
     public static VoiceData GetBadData(string fileName)
     {
         var newName = Path.GetFileNameWithoutExtension(fileName);
-        var newFileName = $"{newName}{Suffix}";
+        var newFileName = $"{newName}{VoiceSettings.Suffix}";
         return new VoiceData
         {
             FileName = newFileName,
@@ -36,7 +34,7 @@ public static class BadYaml
     {
         var path = Path.GetDirectoryName(filePath);
         var name = Path.GetFileNameWithoutExtension(filePath);
-        var newName = Path.Combine(path, $"{name}{Suffix}.{VoiceSettings.TimingExtension}");
+        var newName = Path.Combine(path, $"{name}{VoiceSettings.Suffix}.{VoiceSettings.TimingExtension}");
         return newName;
     }
 }
