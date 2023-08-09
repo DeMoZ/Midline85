@@ -20,7 +20,7 @@ MonoBehaviour:
       y: 203
       width: 102
       height: 165
-    LevelId: L3_Pizza
+    LevelId: L2_Tutor
     Languages:
     - Russian
     ButtonFilter: pizza
@@ -75,9 +75,10 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-    PhraseSound: L3_Pizza/George/pizza_george_020
+    PhraseSound: L2_Tutor/Elena/tutor_elena_006
     Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_020.asset
+    - Phrases/L2_Tutor/Russian/tutor_elena/tutor_elena_006.asset
+  ImagePhraseNodeData: []
   ChoiceNodeData: []
   ForkNodeData: []
   CountNodeData: []
@@ -91,13 +92,6 @@ MonoBehaviour:
       width: 100
       height: 107
     EventVisualData:
-    - Type: 0
-      PhraseEvent: MusicLevels / MusicPizza
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
     - Type: 3
       PhraseEvent: 
       Layer: 0
@@ -112,21 +106,7 @@ MonoBehaviour:
       y: 199
       width: 100
       height: 107
-    EventVisualData:
-    - Type: 1
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 2
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
+    EventVisualData: []
   - Guid: b87440de-7a65-4fd1-baa2-b339028bb678
     Rect:
       serializedVersion: 2
