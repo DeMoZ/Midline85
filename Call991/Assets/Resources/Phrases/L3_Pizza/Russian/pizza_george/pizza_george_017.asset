@@ -3,67 +3,60 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject:
-    fileID: 0
-  m_PrefabInstance:
-    fileID: 0
-  m_PrefabAsset:
-    fileID: 0
-  m_GameObject:
-    fileID: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script:
-    fileID: 11500000
-    guid: 810af83c7a0b40e9b11bcb70e2ae7a42
-    type: 3
+  m_Script: {fileID: 11500000, guid: 810af83c7a0b40e9b11bcb70e2ae7a42, type: 3}
   m_Name: pizza_george_017
   m_EditorClassIdentifier: 
   phraseId: pizza_george_017
-  overrideSoundName: false
-  soundFileName: ''
-  text: Алло привет. Дурила моя всё сообразить не может. Вы кто?
+  text: "\u0410\u043B\u043B\u043E \u043F\u0440\u0438\u0432\u0435\u0442. \u0414\u0443\u0440\u0438\u043B\u0430
+    \u043C\u043E\u044F \u0432\u0441\u0451 \u0441\u043E\u043E\u0431\u0440\u0430\u0437\u0438\u0442\u044C
+    \u043D\u0435 \u043C\u043E\u0436\u0435\u0442. \u0412\u044B \u043A\u0442\u043E?"
   wordTimes:
-  - wipe: false
-    word: Алло
-    timeLine: 0.3
-    time: 0.6
-  - wipe: false
-    word: привет.
-    timeLine: 0.9
-    time: 1.3
-  - wipe: false
-    word: Дурила
-    timeLine: 2.2
-    time: 1.5
-  - wipe: false
-    word: моя
+  - wipe: 0
+    word: "\u0410\u043B\u043B\u043E?"
+    timeLine: 1.2
+    time: 0.89999986
+  - wipe: 0
+    word: "\u041F\u0440\u0438\u0432\u0435\u0442!"
+    timeLine: 2.1
+    time: 1.2
+  - wipe: 1
+    word: "\u0414\u0443\u0440\u0438\u043B\u0430"
+    timeLine: 3.3
+    time: 0.4000001
+  - wipe: 0
+    word: "\u043C\u043E\u044F"
     timeLine: 3.7
-    time: 0.2
-  - wipe: false
-    word: всё
+    time: 0.20000005
+  - wipe: 0
+    word: "\u0432\u0441\u0451"
     timeLine: 3.9
-    time: 0.4
-  - wipe: false
-    word: сообразить
+    time: 0.4000001
+  - wipe: 0
+    word: "\u0441\u043E\u043E\u0431\u0440\u0430\u0437\u0438\u0442\u044C"
     timeLine: 4.3
     time: 0.5
-  - wipe: false
-    word: не
+  - wipe: 0
+    word: "\u043D\u0435"
     timeLine: 4.8
-    time: 0.1
-  - wipe: false
-    word: может.
+    time: 0.099999905
+  - wipe: 0
+    word: "\u043C\u043E\u0436\u0435\u0442."
     timeLine: 4.9
-    time: 0.1
-  - wipe: false
-    word: Вы
-    timeLine: 5
-    time: 1
-  - wipe: false
-    word: кто?
+    time: 0.6999998
+  - wipe: 0
+    word: "\u0412\u044B"
+    timeLine: 5.6
+    time: 0.4000001
+  - wipe: 0
+    word: "\u043A\u0442\u043E?"
     timeLine: 6
-    time: 0.1
-  beforeFirstWord: 0.3
+    time: 1.1
+  beforeFirstWord: 1.2
   afterLastWord: 1.1
-  totalTime: 6.91
+  totalTime: 7.1

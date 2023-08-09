@@ -1,0 +1,178 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: _Timing_Test
+  m_EditorClassIdentifier: 
+  EntryNodeData:
+    Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    Rect:
+      serializedVersion: 2
+      x: -49
+      y: 203
+      width: 102
+      height: 165
+    LevelId: L3_Pizza
+    Languages:
+    - Russian
+    ButtonFilter: pizza
+    SoundAsset: 
+  PhraseNodeData:
+  - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+    Rect:
+      serializedVersion: 2
+      x: 809
+      y: 7
+      width: 124
+      height: 96
+    PhraseSketchText: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
+    PersonVisualData:
+      Person: GIRL
+      ScreenPlace: 5
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L3_Pizza/Girl/pizza_girl_001
+    Phrases:
+    - Phrases/L3_Pizza/Russian/pizza_girl/pizza_girl_001.asset
+  - Guid: 7804c480-c760-4e2f-9274-457d75a39293
+    Rect:
+      serializedVersion: 2
+      x: 480
+      y: 15
+      width: 100
+      height: 96
+    PhraseSketchText: e1 911
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData:
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: Videos/L3_Pizza/Backgraund_pizza.mp4
+      Layer: 0
+      Loop: 1
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSound: L3_Pizza/George/pizza_george_020
+    Phrases:
+    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_020.asset
+  ChoiceNodeData: []
+  ForkNodeData: []
+  CountNodeData: []
+  EndNodeData: []
+  EventNodeData:
+  - Guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+    Rect:
+      serializedVersion: 2
+      x: 66
+      y: 203
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: MusicLevels / MusicPizza
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: 
+      Layer: 0
+      Loop: 1
+      Stop: 0
+      Delay: 0
+      Value: 0
+  - Guid: ee5149b1-7503-4918-af70-39ed506d7431
+    Rect:
+      serializedVersion: 2
+      x: 288
+      y: 199
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 1
+      PhraseEvent: NONE
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 2
+      PhraseEvent: NONE
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+  - Guid: b87440de-7a65-4fd1-baa2-b339028bb678
+    Rect:
+      serializedVersion: 2
+      x: 483
+      y: -256
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L3_Pizza/suspicionPoint_1.mp4
+      Layer: 2
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+  NewspaperNodeData:
+  - Guid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
+    Rect:
+      serializedVersion: 2
+      x: 178
+      y: 204
+      width: 100
+      height: 96
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: NONE
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    Sprites:
+    - 
+  NodeLinks:
+  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    BaseExitName: 
+    TargetNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+  - BaseNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
+    BaseExitName: 
+    TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+  - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+    BaseExitName: 
+    TargetNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
+  - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
+    BaseExitName: 
+    TargetNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
+  - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
+    BaseExitName: 
+    TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431

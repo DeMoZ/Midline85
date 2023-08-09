@@ -7,6 +7,10 @@ public class GameEntity : MonoBehaviour
 {
     private static GameEntity _instance;
     [SerializeField] private WwiseAudio wwisePrefab;
+    [Space]
+    [SerializeField] private ImageManager imageManagerPrefab;
+    [SerializeField] private RectTransform imageManagerParent;
+    [Space]
     [SerializeField] private VideoManager videoManagerPrefab;
     [SerializeField] private RectTransform videoManagerParent;
 
@@ -63,6 +67,8 @@ public class GameEntity : MonoBehaviour
         var rootEntity = new RootEntity(new RootEntity.Ctx
         {
             AudioManagerPrefab = wwisePrefab,
+            ImageManagerPrefab = imageManagerPrefab,
+            ImageManagerParent = imageManagerParent,
             VideoManagerPrefab = videoManagerPrefab,
             VideoManagerParent = videoManagerParent,
             VideoFade = videoFade,

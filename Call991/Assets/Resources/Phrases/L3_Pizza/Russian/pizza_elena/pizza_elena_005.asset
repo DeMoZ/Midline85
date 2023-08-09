@@ -3,47 +3,35 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject:
-    fileID: 0
-  m_PrefabInstance:
-    fileID: 0
-  m_PrefabAsset:
-    fileID: 0
-  m_GameObject:
-    fileID: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script:
-    fileID: 11500000
-    guid: 810af83c7a0b40e9b11bcb70e2ae7a42
-    type: 3
+  m_Script: {fileID: 11500000, guid: 810af83c7a0b40e9b11bcb70e2ae7a42, type: 3}
   m_Name: pizza_elena_005
   m_EditorClassIdentifier: 
   phraseId: pizza_elena_005
-  overrideSoundName: false
-  soundFileName: ''
-  text: В вашей жизни что-то угрожает.
+  text: "\u0412 \u0432\u0430\u0448\u0435\u0439 \u0436\u0438\u0437\u043D\u0438 \u0447\u0442\u043E-\u0442\u043E
+    \u0443\u0433\u0440\u043E\u0436\u0430\u0435\u0442."
   wordTimes:
-  - wipe: false
-    word: В
-    timeLine: 0
-    time: 0.5
-  - wipe: false
-    word: вашей
+  - wipe: 0
+    word: "\u0412\u0430\u0448\u0435\u0439"
     timeLine: 0.5
     time: 0
-  - wipe: false
-    word: жизни
+  - wipe: 0
+    word: "\u0436\u0438\u0437\u043D\u0438"
     timeLine: 0.5
-    time: 0.2
-  - wipe: false
-    word: что-то
+    time: 0.19999999
+  - wipe: 0
+    word: "\u0447\u0442\u043E-\u0442\u043E"
     timeLine: 0.7
-    time: 0.4
-  - wipe: false
-    word: угрожает.
+    time: 0.40000004
+  - wipe: 0
+    word: "\u0443\u0433\u0440\u043E\u0436\u0430\u0435\u0442?"
     timeLine: 1.1
-    time: 0.4
-  beforeFirstWord: 0
+    time: 1.4
+  beforeFirstWord: 0.5
   afterLastWord: 1.4
-  totalTime: 1.8
+  totalTime: 2.5

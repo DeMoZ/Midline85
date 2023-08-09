@@ -15,6 +15,8 @@ public class RootEntity : IDisposable
     public struct Ctx
     {
         public WwiseAudio AudioManagerPrefab;
+        public ImageManager ImageManagerPrefab;
+        public RectTransform ImageManagerParent;
         public VideoManager VideoManagerPrefab;
         public RectTransform VideoManagerParent;
         public OverridenDialogue OverridenDialogue;
@@ -38,8 +40,8 @@ public class RootEntity : IDisposable
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
-
-        var playLevelIndex = new ReactiveProperty<int>(0);
+        
+        var playLevelIndex = new ReactiveProperty<int>(gameSet.GetStartLevelIndex());
         var levelLanguages = new ReactiveProperty<List<string>>();
         var isPauseAllowed = new ReactiveProperty<bool>(true);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
@@ -55,8 +57,7 @@ public class RootEntity : IDisposable
             SkipTitle = _ctx.OverridenDialogue.SkipTitle,
             SkipWarning = _ctx.OverridenDialogue.SkipWarning,
         }).AddTo(_disposables);
-
-
+        
         var profile = new PlayerProfile();
         SetLanguage(profile.TextLanguage);
 
@@ -81,6 +82,11 @@ public class RootEntity : IDisposable
         });
         audioManager.Initialize().Forget();
 
+        var imageManager = Object.Instantiate(_ctx.ImageManagerPrefab, _ctx.ImageManagerParent);
+        imageManager.SetCtx(new ImageManager.Ctx
+        {
+        });
+        
         var videoManager = Object.Instantiate(_ctx.VideoManagerPrefab, _ctx.VideoManagerParent);
         videoManager.SetCtx(new VideoManager.Ctx
         {
@@ -97,6 +103,7 @@ public class RootEntity : IDisposable
             OnSwitchScene = onSwitchScene,
             Profile = profile,
             AudioManager = audioManager,
+            ImageManager = imageManager,
             VideoManager = videoManager,
             Blocker = blocker,
             ObjectEvents = objectEvents,

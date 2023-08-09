@@ -88,7 +88,7 @@ namespace UI
         private void SetButtonDisabled(MenuButtonView btn)
         {
 #if !UNITY_EDITOR
-            btn.SetDisabled();
+//            btn.SetDisabled();
 #endif
         }
 

@@ -62,5 +62,14 @@ namespace Configs
             // profile.SaveLanguages(textLanguage, audioLanguage);
 #endif
         }
+
+        public int GetStartLevelIndex()
+        {
+            var index = 0;
+            if (GameLevels.StartButtonLevel != null && GameLevels.Levels.Contains(GameLevels.StartButtonLevel))
+                index = GameLevels.Levels.IndexOf(GameLevels.StartButtonLevel);
+
+            return index;
+        }
     }
 }

@@ -31,7 +31,6 @@ public class WwiseAudio : MonoBehaviour
     [SerializeField] private GameObject sfxGo = default;
 
     [Space] [SerializeField] private Wwise.Bank BankMaster = default;
-    // [SerializeField] private Wwise.Bank BankMain = default;
 
     [Space] [SerializeField] private Wwise.RTPC MasterVolume = default;
     [SerializeField] private Wwise.RTPC VoiceVolume = default;
@@ -44,17 +43,6 @@ public class WwiseAudio : MonoBehaviour
     [SerializeField] private Wwise.Event ResumeEvent = default;
     [SerializeField] private Wwise.Event MusicEvent = default;
 
-    // [Space(30)] [Header("test only")] [SerializeField]
-    // private Wwise.RTPC testRtpc;
-    // [SerializeField] private Wwise.RTPC testEvent;
-    // [SerializeField] private Wwise.Switch testSwitch;
-    // [SerializeField] private Wwise.State testState;
-    // [SerializeField] private Wwise.Trigger testTrigger;
-    // [SerializeField] private Wwise.AuxBus testAuxBus;
-    // [SerializeField] private Wwise.Bank testBank;
-    // [SerializeField] private Wwise.BaseType testBaseType;
-    [SerializeField] private Wwise.CallbackFlags testCallbackFlags;
-
     private Ctx _ctx;
 
     private bool _isMasterLoaded;
@@ -63,12 +51,8 @@ public class WwiseAudio : MonoBehaviour
 
     private WaitForSeconds _waitForLoad;
     private AKRESULT _setLanguageResult;
-
     private CompositeDisposable _disposables;
-
     private CancellationTokenSource _tokenMaster;
-
-    //private CancellationTokenSource _tokenBank;
     private string _currentBank;
 
     public bool IsReady => _isMasterLoaded && _isBankLoaded && _isLanguageLoaded;
@@ -101,24 +85,19 @@ public class WwiseAudio : MonoBehaviour
         await Task.Delay((int)(WaitSeconds * 1000));
         if (_tokenMaster.IsCancellationRequested) return;
 
-        // Debug.Log($"[{this}] loading <color=green>bank</color> <color=yellow>{BankMain}</color>");
-        // BankMain.LoadAsync();
-        // await Task.Delay((int)(WaitSeconds * 1000));
-        // if (_tokenMaster.IsCancellationRequested) return;
-
+        OnVolumeChanged((AudioSourceType.Master , _ctx.Profile.MasterVolume));
+        OnVolumeChanged((AudioSourceType.Voice , _ctx.Profile.VoiceVolume));
+        OnVolumeChanged((AudioSourceType.Music , _ctx.Profile.MusicVolume));
+        OnVolumeChanged((AudioSourceType.Sfx , _ctx.Profile.SfxVolume));
+        
         _isMasterLoaded = true;
 
         Debug.Log($"[{this}] <color=green>Initialize completed</color> play music {MusicEvent}");
         MusicEvent.Post(musicGo);
-        //PlayMusic(MusicEvent);
-        //AkSoundEngine.PostEvent("Music", musicGo);
-        //MusicEvent.Post(musicGo,testCallbackFlags, OnMusic);
     }
 
     public async Task LoadBank(string levelId)
     {
-        //_tokenBank.Cancel();
-
         while (!_isMasterLoaded)
         {
             await Task.Delay(1);
@@ -163,7 +142,6 @@ public class WwiseAudio : MonoBehaviour
         _disposables?.Dispose();
 
         BankMaster.Unload();
-        //BankMain.Unload();
     }
 
     private async void OnAudioLanguageChanged(string language)
@@ -199,8 +177,6 @@ public class WwiseAudio : MonoBehaviour
         }
 
         Debug.Log($"[{this}] Current Wwise language = <color=yellow>{AkSoundEngine.GetCurrentLanguage()}</color>");
-        //await Task.Delay((int)(WaitSeconds * 1000));
-        //if (_tokenMaster.IsCancellationRequested) return;
 
         if (_currentBank != null)
         {

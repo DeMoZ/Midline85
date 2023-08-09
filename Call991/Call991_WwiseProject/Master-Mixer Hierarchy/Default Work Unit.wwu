@@ -4,6 +4,13 @@
 		<WorkUnit Name="Default Work Unit" ID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}" PersistMode="Standalone">
 			<ChildrenList>
 				<Bus Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}">
+					<PropertyList>
+						<Property Name="BusVolume" Type="Real64">
+							<ValueList>
+								<Value>7</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
 							<ObjectRef Name="System" ID="{E024700B-83CF-4F84-A1D8-64010B0607F1}" WorkUnitID="{77C63109-EBA0-41BE-9BC7-347A2CE6BA08}"/>
@@ -11,6 +18,18 @@
 					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}">
+							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-17</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
 									<Reference>
@@ -53,7 +72,17 @@
 						</Bus>
 						<Bus Name="Voice" ID="{EE780549-5C4C-41A4-9E07-AD7B89BE0162}">
 							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 								<Property Name="RecoveryTime" Type="Real64" Value="0.3"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5.4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ChildrenList>
 								<Bus Name="Elena" ID="{BEC8E535-25ED-403B-9B08-49F0C157AB52}">
@@ -61,7 +90,66 @@
 										<Property Name="Color" Type="int16" Value="24"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+											<ObjectRef Name="In_My_Car" ID="{B6CE8691-D50C-4AC3-8314-6CB938FC8681}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+										</Reference>
+									</ReferenceList>
 									<ChildrenList>
+										<Bus Name="Elena_Training" ID="{93FAAE94-8F23-41EC-9461-809B60506814}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-5.3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
+										<Bus Name="Elena_Chapter One" ID="{5B008593-8E59-42E9-95EE-31D32A1A8CBC}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>2.3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
+										<Bus Name="Elena_Boss First" ID="{1A3CFE3C-1798-439A-9933-0F261A61C970}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
+										<Bus Name="Elena_Chapter Two" ID="{90F68053-71D6-4E79-B17B-AD6E144ECDA8}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
+										<Bus Name="Elena_Boss Two" ID="{0FF6CDC4-CC1E-4111-B9C4-B6BAA4B05AC4}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3.6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
+										<Bus Name="Elena_Psychotherapist" ID="{3A02B0D1-063C-457D-9583-AC9D98A9AF89}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
 										<Bus Name="Elena_Intro" ID="{20F990FC-85E4-40D4-84EE-4521D7C1ADD9}">
 											<PropertyList>
 												<Property Name="BusVolume" Type="Real64">
@@ -71,18 +159,17 @@
 												</Property>
 											</PropertyList>
 										</Bus>
-										<Bus Name="Elena_Training" ID="{93FAAE94-8F23-41EC-9461-809B60506814}"/>
-										<Bus Name="Elena_Chapter One" ID="{5B008593-8E59-42E9-95EE-31D32A1A8CBC}"/>
-										<Bus Name="Elena_Boss First" ID="{1A3CFE3C-1798-439A-9933-0F261A61C970}"/>
-										<Bus Name="Elena_Chapter Two" ID="{90F68053-71D6-4E79-B17B-AD6E144ECDA8}"/>
-										<Bus Name="Elena_Boss Two" ID="{0FF6CDC4-CC1E-4111-B9C4-B6BAA4B05AC4}"/>
-										<Bus Name="Elena_Psychotherapist" ID="{3A02B0D1-063C-457D-9583-AC9D98A9AF89}"/>
 									</ChildrenList>
 								</Bus>
 								<Bus Name="Mark" ID="{1EB2A9F9-C915-4060-8328-6235351CAD6E}">
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4.3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ChildrenList>
 										<Bus Name="Mark_Intro" ID="{F7602242-36FE-43E7-B031-102790538277}"/>
@@ -95,6 +182,11 @@
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="1"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4.7</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 								</Bus>
 								<Bus Name="Jack" ID="{57EBD0A9-17D6-4616-8C32-6410C2CDE60C}">
@@ -107,12 +199,22 @@
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="10"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5.5</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 								</Bus>
 								<Bus Name="Lara" ID="{5AE4C209-07D2-4B0F-8A0E-02C9AC47B9CB}">
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="8"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-5.3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 								</Bus>
 								<Bus Name="Konstantin" ID="{04D58EDE-0133-4ACA-9EF1-C1482DA76015}">
@@ -125,6 +227,11 @@
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="16"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1.8</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 								</Bus>
 								<Bus Name="Police" ID="{F4D99CE9-84A4-46E5-8BB9-D3F885ADA4EE}">
@@ -179,17 +286,22 @@
 									<DuckingParam>
 										<Volume>-3</Volume>
 										<FadeInTime>0.300000011920929</FadeInTime>
-										<FadeOutTime>1</FadeOutTime>
-										<FadeCurve>FadeSCurve</FadeCurve>
+										<FadeOutTime>3</FadeOutTime>
+										<FadeCurve>FadeLinear</FadeCurve>
 									</DuckingParam>
 								</DuckItem>
 							</DuckingList>
 						</Bus>
 						<Bus Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}">
 							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-3</Value>
+										<Value>-20</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -204,7 +316,7 @@
 										<StateRef Name="Pause" ID="{6B10F0AB-F56F-4DB6-AF76-475129B487A4}"/>
 										<CustomState Name="" ID="{9B80F75A-5887-498A-9859-B5CF1098FB81}" ShortID="374606415">
 											<PropertyList>
-												<Property Name="BusVolume" Type="Real64" Value="-15"/>
+												<Property Name="BusVolume" Type="Real64" Value="-4.5"/>
 												<Property Name="Highpass" Type="int16" Value="1"/>
 											</PropertyList>
 										</CustomState>
