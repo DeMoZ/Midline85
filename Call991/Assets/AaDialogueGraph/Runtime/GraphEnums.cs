@@ -31,6 +31,7 @@ public enum PhraseEventType
     AudioClip,
     VideoClip,
     GameObject,
+    Image,
 }
 
 public enum CaseType

@@ -132,6 +132,9 @@ namespace AaDialogueGraph.Editor
 
         public PersonVisual GetPersonVisual() =>
             contentContainer.Q<PersonVisual>();
+        
+        public ImagePersonVisual GetImagePersonVisual() =>
+            contentContainer.Q<ImagePersonVisual>();
 
         public PhraseVisual GetPhraseVisual() =>
             contentContainer.Q<PhraseVisual>();

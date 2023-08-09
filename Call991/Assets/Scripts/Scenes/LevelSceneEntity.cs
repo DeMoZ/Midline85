@@ -19,6 +19,7 @@ public class LevelSceneEntity : IGameScene
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
         public WwiseAudio AudioManager;
+        public ImageManager ImageManager;
         public VideoManager VideoManager;
         public Blocker Blocker;
         public CursorSet CursorSettings;
@@ -56,13 +57,16 @@ public class LevelSceneEntity : IGameScene
     public async void Enter()
     {
         Debug.Log($"[{this}] Entered");
-        // from prefab, or find, or addressable
+
         _ui = Object.FindObjectOfType<UiLevelScene>();
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
 
         var onShowPhrase = new ReactiveCommand<UiPhraseData>();
+        var onShowImagePhrase = new ReactiveCommand<UiImagePhraseData>();
         var onHidePhrase = new ReactiveCommand<UiPhraseData>().AddTo(_disposables);
+        var onHideImagePhrase = new ReactiveCommand<UiImagePhraseData>().AddTo(_disposables);
+        
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
         var onLevelEnd = new ReactiveCommand<List<RecordData>>().AddTo(_disposables);
         var onShowNewspaper = new ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)>().AddTo(_disposables);
@@ -103,10 +107,13 @@ public class LevelSceneEntity : IGameScene
             OnShowLevelUi = onShowLevelUi,
 
             OnShowPhrase = onShowPhrase,
+            OnShowImagePhrase = onShowImagePhrase,
+            OnHidePhrase = onHidePhrase,
+            OnHideImagePhrase = onHideImagePhrase,
+            
             ContentLoader = contentLoader,
             ObjectEvents = _ctx.ObjectEvents,
-
-            OnHidePhrase = onHidePhrase,
+            
             OnAfterEnter = onAfterEnter,
             GameSet = _ctx.GameSet,
             LevelId = levelId,
@@ -117,16 +124,19 @@ public class LevelSceneEntity : IGameScene
             OnShowNewspaper = onShowNewspaper,
             OnSkipPhrase = onSkipPhrase,
             OnClickPauseButton = onClickPauseButton,
+            ImageManager = _ctx.ImageManager,
             VideoManager = _ctx.VideoManager,
             Blocker = _ctx.Blocker,
-            cursorSettings = _ctx.CursorSettings,
+            CursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
         {
             OnClickMenuButton = onClickMenuButton,
             OnShowPhrase = onShowPhrase,
+            OnShowImagePhrase = onShowImagePhrase,
             OnHidePhrase = onHidePhrase,
+            OnHideImagePhrase = onHideImagePhrase,
             OnShowTitle = _ctx.ObjectEvents.EventsGroup.OnShowTitle,
             OnShowWarning = _ctx.ObjectEvents.EventsGroup.OnShowWarning,
             OnLevelEnd = onLevelEnd,

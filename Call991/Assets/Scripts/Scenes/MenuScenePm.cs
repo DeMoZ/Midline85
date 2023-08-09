@@ -1,4 +1,5 @@
 using System;
+using Configs;
 using UniRx;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ public class MenuScenePm : IDisposable
         public ReactiveCommand OnClickNewGame;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
+        public GameSet GameSet;
         public ReactiveProperty<int> PlayLevelIndex;
     }
 
@@ -40,7 +42,8 @@ public class MenuScenePm : IDisposable
     {
         Debug.Log("[MenuScenePm] OnClickNewGame");
         _ctx.Profile.Clear();
-        _ctx.OnSwitchScene.Execute(GameScenes.Level);
+        _ctx.PlayLevelIndex.Value = _ctx.GameSet.GetStartLevelIndex(); // TODO level index shoud be removed. Dialogue container is to use
+       _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
     public void Dispose()
