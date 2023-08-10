@@ -2,7 +2,7 @@ using System.Collections;
 using Configs;
 using UnityEngine;
 
-public abstract class PhraseObjectEvent : MonoBehaviour
+public abstract class AaGraphObjectEvent : MonoBehaviour
 {
     protected ObjectEvents ObjectEvents;
     protected GameSet GameSet;
