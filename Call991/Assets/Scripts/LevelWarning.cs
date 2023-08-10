@@ -4,7 +4,7 @@ using System.Linq;
 using I2.Loc;
 using UnityEngine;
 
-public class LevelWarning : PhraseObjectEvent
+public class LevelWarning : AaGraphObjectEvent
 {
     [SerializeField] private LocalizedString[] keys;
 

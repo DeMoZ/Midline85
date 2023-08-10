@@ -8,6 +8,7 @@ public class ObjectEvents : IDisposable
 {
     public struct Ctx
     {
+        public MediaService MediaService;
         public ReactiveCommand<(bool show, float time)> OnScreenFade;
         public ReactiveCommand<(bool show, string[] keys)> OnShowTitle;
         public ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)> OnShowWarning;
