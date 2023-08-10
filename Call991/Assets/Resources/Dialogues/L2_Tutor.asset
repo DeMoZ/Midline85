@@ -2070,7 +2070,7 @@ MonoBehaviour:
     Rect:
       serializedVersion: 2
       x: 438
-      y: 293
+      y: 330
       width: 100
       height: 107
     EventVisualData:
@@ -2091,8 +2091,8 @@ MonoBehaviour:
   - Guid: 3eec4326-c7aa-4f96-abb6-12031481bd91
     Rect:
       serializedVersion: 2
-      x: 68
-      y: 191
+      x: 424
+      y: 200
       width: 100
       height: 107
     EventVisualData:
@@ -2110,12 +2110,41 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
+  - Guid: c215f9e4-1666-453f-b032-46e85ca57a6e
+    Rect:
+      serializedVersion: 2
+      x: 67
+      y: 200
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: Videos/L3_Pizza/Backgraund_pizza.mp4
+      Layer: 0
+      Loop: 1
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerShowAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 14
+      Value: 0
   NewspaperNodeData:
   - Guid: 3d3121c9-e858-4933-8d77-32ebaf43ed30
     Rect:
       serializedVersion: 2
       x: 324
-      y: 293
+      y: 330
       width: 100
       height: 96
     EventVisualData:
@@ -2131,7 +2160,7 @@ MonoBehaviour:
   NodeLinks:
   - BaseNodeGuid: dc2bfe2c-45f3-47ba-8288-383b7ba3e972
     BaseExitName: 
-    TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
+    TargetNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
   - BaseNodeGuid: 304487bc-e1d0-4504-9adc-bf91d8eddbba
     BaseExitName: 
     TargetNodeGuid: 7c47c2d2-54de-4f7b-b314-fa301071dfc3
@@ -2492,12 +2521,12 @@ MonoBehaviour:
   - BaseNodeGuid: f8498f14-a3c3-4c62-809f-00cd11b4d96d
     BaseExitName: 95a43fd7-dbce-4572-a1d2-1d31e6aca3e2
     TargetNodeGuid: 12c47a5c-627a-4d38-9043-b54d988afee9
-  - BaseNodeGuid: 5b4a0230-f7c3-427e-9645-3801d7ef6bf3
-    BaseExitName: 
-    TargetNodeGuid: b484e7f5-847a-441d-87f0-850ce5b355cd
   - BaseNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
     BaseExitName: 
     TargetNodeGuid: b484e7f5-847a-441d-87f0-850ce5b355cd
+  - BaseNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
+    BaseExitName: 
+    TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
   - BaseNodeGuid: 3d3121c9-e858-4933-8d77-32ebaf43ed30
     BaseExitName: 
     TargetNodeGuid: 5b4a0230-f7c3-427e-9645-3801d7ef6bf3
