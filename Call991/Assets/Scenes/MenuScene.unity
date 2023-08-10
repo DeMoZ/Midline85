@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311915, g: 0.3807396, b: 0.35872662, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -129,6 +129,18 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 3802748467090905175}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &256101984 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7444358279134370822, guid: a333a1c103140498c902ae9d228b10eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 5696015609882372531}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 027a6e03c7f2dbe46ab23560c19117f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &740614888 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7985199731842628256, guid: fa558b0e9d56a46beb379399ea539f94,
@@ -2201,6 +2213,11 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3487665276654138928, guid: a333a1c103140498c902ae9d228b10eb,
+        type: 3}
+      propertyPath: m_Navigation.m_SelectOnUp
+      value: 
+      objectReference: {fileID: 256101984}
     - target: {fileID: 3494343205396958940, guid: a333a1c103140498c902ae9d228b10eb,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -2370,6 +2387,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696015610797749936, guid: a333a1c103140498c902ae9d228b10eb,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1610
+      objectReference: {fileID: 0}
+    - target: {fileID: 5696015610797749936, guid: a333a1c103140498c902ae9d228b10eb,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 591
       objectReference: {fileID: 0}
     - target: {fileID: 5994689491571124656, guid: a333a1c103140498c902ae9d228b10eb,
         type: 3}
@@ -3055,6 +3082,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: MainMenu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7985199731842628271, guid: fa558b0e9d56a46beb379399ea539f94,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa558b0e9d56a46beb379399ea539f94, type: 3}

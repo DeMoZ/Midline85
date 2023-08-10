@@ -67,4 +67,10 @@ public static class Utilities
 
         return false;
     }
+    
+    public static bool IsBadFileExits(string voiceFile)
+    {
+        var resultFilePath = BadYaml.GetBadFileName(voiceFile);
+        return File.Exists(resultFilePath);
+    }
 }

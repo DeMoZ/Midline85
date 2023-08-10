@@ -23,7 +23,10 @@ class Program
         var speechToText = new SpeechToText(VoiceSettings.GetLanguage());
         var badResults = new StringBuilder();
         badResults.Append("Not recognised list:");
-
+        
+        var newResults = new StringBuilder();
+        newResults.Append("New timings list:");
+        
         foreach (var voiceFile in files)
         {
             var isTimingAlreadyExists = Utilities.IsFileExits(voiceFile, out var timingFile);
@@ -32,16 +35,23 @@ class Program
             var dataReceived = speechToText.TryGetTextDataFromVoice(voiceFile, out var voiceData);
             if (!dataReceived)
             {
+                var isBadTimingAlreadyExists = Utilities.IsBadFileExits(BadYaml.GetBadFileName(voiceFile));
+                if (isBadTimingAlreadyExists) continue;
+                
                 badResults.Append($"\n - {voiceFile}");
                 voiceData = BadYaml.GetBadData(voiceData.FileName);
                 timingFile = BadYaml.GetBadFileName(timingFile);
             }
 
+            newResults.Append($"\n{voiceData.FileName}");
             var yaml = TextToYaml.GetYamlDataFromVoiceData(voiceData);
             File.WriteAllText(timingFile, yaml);
         }
 
         if (badResults.Length > 1)
             Console.WriteLine(badResults);
+        
+        if(newResults.Length > 1)
+            Console.WriteLine(newResults);
     }
 }
