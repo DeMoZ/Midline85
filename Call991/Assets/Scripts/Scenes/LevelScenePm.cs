@@ -189,6 +189,12 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunMusic(musicData));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
+        
+        foreach (var soundData in soundEvents)
+        {
+            var routine = Observable.FromCoroutine(() => RunSound(soundData));
+            observables = observables.Concat(new[] { routine }).ToArray();
+        }
 
         foreach (var rtpcData in rtpcEvents)
         {
@@ -448,6 +454,21 @@ public class LevelScenePm : IDisposable
             _ctx.MediaService.AudioManager.PlayMusic(musicSwitch);
         else
             Debug.LogError($"Switch name {musicName} not found in GameSet.MusicSwitchesKeys");
+    }
+    
+    private IEnumerator RunSound(EventVisualData sound)
+    {
+        yield return new WaitForSeconds(sound.Delay);
+
+        var soundName = sound.PhraseEvent;
+
+        if (string.IsNullOrEmpty(soundName) || soundName.Equals(AaGraphConstants.None)) yield break;
+
+        // if (_ctx.GameSet.MusicSwitchesKeys.TryGetSwitchByName(soundName, out var musicSwitch))
+        //     _ctx.AudioManager.PlaySfx(musicSwitch);
+        // else
+        //     Debug.LogError($"Switch name {soundName} not found in GameSet.MusicSwitchesKeys");
+        // _ctx.MediaService.AudioManager.PlaySfx(_ctx.GameSet.CinematicSoundWwiseKey);
     }
 
     private IEnumerator RunRtpc(EventVisualData rtpcData)
