@@ -3,47 +3,39 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject:
-    fileID: 0
-  m_PrefabInstance:
-    fileID: 0
-  m_PrefabAsset:
-    fileID: 0
-  m_GameObject:
-    fileID: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script:
-    fileID: 11500000
-    guid: 810af83c7a0b40e9b11bcb70e2ae7a42
-    type: 3
+  m_Script: {fileID: 11500000, guid: 810af83c7a0b40e9b11bcb70e2ae7a42, type: 3}
   m_Name: tutor_elena_012
   m_EditorClassIdentifier: 
   phraseId: tutor_elena_012
-  overrideSoundName: false
-  soundFileName: ''
-  text: Что вы видите вывески здания?
+  text: "\u0427\u0442\u043E \u0432\u044B \u0432\u0438\u0434\u0438\u0442\u0435 \u0432\u044B\u0432\u0435\u0441\u043A\u0438
+    \u0437\u0434\u0430\u043D\u0438\u044F?"
   wordTimes:
-  - wipe: false
-    word: Что
-    timeLine: 0
-    time: 0.4
-  - wipe: false
-    word: вы
+  - wipe: 0
+    word: "\u0427\u0442\u043E"
+    timeLine: 0.067
+    time: 0.333
+  - wipe: 0
+    word: "\u0432\u044B"
     timeLine: 0.4
-    time: 0.3
-  - wipe: false
-    word: видите
-    timeLine: 0.7
-    time: 0.1
-  - wipe: false
-    word: вывески
-    timeLine: 0.8
-    time: 1.4
-  - wipe: false
-    word: здания?
-    timeLine: 2.2
-    time: 0.8
-  beforeFirstWord: 0
+    time: 0.060000002
+  - wipe: 0
+    word: "\u0432\u0438\u0434\u0438\u0442\u0435?"
+    timeLine: 0.46
+    time: 1.1999999
+  - wipe: 1
+    word: "\u0412\u044B\u0432\u0435\u0441\u043A\u0438,"
+    timeLine: 1.66
+    time: 0.84000003
+  - wipe: 0
+    word: "\u0437\u0434\u0430\u043D\u0438\u044F?"
+    timeLine: 2.5
+    time: 1.8
+  beforeFirstWord: 0.067
   afterLastWord: 1.8
-  totalTime: 3.18
+  totalTime: 4.3
