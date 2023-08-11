@@ -14,10 +14,8 @@ public class ScenesHandler : IDisposable
         public ReactiveCommand OnStartApplicationSwitchScene;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public WwiseAudio AudioManager;
+        public MediaService MediaService;
         public GameSet GameSet;
-        public ImageManager ImageManager;
-        public VideoManager VideoManager;
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
@@ -111,7 +109,7 @@ public class ScenesHandler : IDisposable
             OnSwitchScene = _ctx.OnSwitchScene,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
-            AudioManager = _ctx.AudioManager,
+            AudioManager = _ctx.MediaService.AudioManager,
         }).AddTo(_disposables);
 
         return sceneEntity;
@@ -119,7 +117,7 @@ public class ScenesHandler : IDisposable
 
     private async Task<IGameScene> LoadMenu()
     {
-        _ctx.AudioManager.OnSceneSwitch();
+        _ctx.MediaService.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();
         var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
@@ -128,7 +126,7 @@ public class ScenesHandler : IDisposable
             OnSwitchScene = _ctx.OnSwitchScene,
             GameSet = _ctx.GameSet,
             Profile = _ctx.Profile,
-            AudioManager = _ctx.AudioManager,
+            AudioManager = _ctx.MediaService.AudioManager,
             ConstructorTask = constructorTask,
             DialogueLogger = _ctx.DialogueLogger,
         }).AddTo(_disposables);
@@ -146,7 +144,7 @@ public class ScenesHandler : IDisposable
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
 
-        _ctx.AudioManager.OnSceneSwitch();
+        _ctx.MediaService.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
@@ -157,9 +155,7 @@ public class ScenesHandler : IDisposable
             Profile = _ctx.Profile,
             ObjectEvents = _ctx.ObjectEvents,
             OnSwitchScene = _ctx.OnSwitchScene,
-            AudioManager = _ctx.AudioManager,
-            ImageManager = _ctx.ImageManager,
-            VideoManager = _ctx.VideoManager,
+            MediaService = _ctx.MediaService,
             OverridenDialogue = _ctx.OverridenDialogue,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
@@ -180,8 +176,8 @@ public class ScenesHandler : IDisposable
 
     public IGameScene LoadingSceneEntity(ReactiveProperty<string> onLoadingProcess, GameScenes scene)
     {
-        _ctx.VideoManager.StopPlayers();
-        _ctx.ImageManager.HideImages();
+        _ctx.MediaService.VideoManager.StopPlayers();
+        _ctx.MediaService.ImageManager.HideImages();
 
         var toLevelScene = scene == GameScenes.Level;
 

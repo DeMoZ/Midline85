@@ -2,7 +2,7 @@ using System.Collections;
 using I2.Loc;
 using UnityEngine;
 
-public class LevelTitle : PhraseObjectEvent
+public class LevelTitle : AaGraphObjectEvent
 {
     [SerializeField] private LocalizedString chapterKey;
     [SerializeField] private LocalizedString titleKey;
