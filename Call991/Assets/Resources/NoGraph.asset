@@ -48,10 +48,10 @@ MonoBehaviour:
   - Guid: 7804c480-c760-4e2f-9274-457d75a39293
     Rect:
       serializedVersion: 2
-      x: 480
-      y: 15
-      width: 100
-      height: 96
+      x: 484
+      y: 16
+      width: 304
+      height: 434
     PhraseSketchText: e1 911
     PersonVisualData:
       Person: ELENA
@@ -75,9 +75,9 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-    PhraseSound: L2_Tutor/Elena/tutor_elena_002
+    PhraseSound: L2_Tutor/Mark/tutor_mark_050
     Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_elena/tutor_elena_002.asset
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_050.asset
   ImagePhraseNodeData: []
   ChoiceNodeData: []
   ForkNodeData: []
@@ -92,6 +92,13 @@ MonoBehaviour:
       width: 100
       height: 107
     EventVisualData:
+    - Type: 0
+      PhraseEvent: MusicLevels / MusicPizza
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
     - Type: 3
       PhraseEvent: 
       Layer: 0
@@ -106,7 +113,21 @@ MonoBehaviour:
       y: 199
       width: 100
       height: 107
-    EventVisualData: []
+    EventVisualData:
+    - Type: 1
+      PhraseEvent: NONE
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 2
+      PhraseEvent: NONE
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
   - Guid: b87440de-7a65-4fd1-baa2-b339028bb678
     Rect:
       serializedVersion: 2
