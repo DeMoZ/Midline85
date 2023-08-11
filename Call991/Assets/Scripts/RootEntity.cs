@@ -91,6 +91,13 @@ public class RootEntity : IDisposable
         videoManager.SetCtx(new VideoManager.Ctx
         {
         });
+
+        var mediaService = new MediaService(new MediaService.Ctx
+        {
+            AudioManager = audioManager,
+            ImageManager = imageManager,
+            VideoManager = videoManager,
+        });
         
         var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
@@ -102,9 +109,7 @@ public class RootEntity : IDisposable
             OnStartApplicationSwitchScene = _onStartApplicationSwitchScene,
             OnSwitchScene = onSwitchScene,
             Profile = profile,
-            AudioManager = audioManager,
-            ImageManager = imageManager,
-            VideoManager = videoManager,
+            MediaService = mediaService,
             Blocker = blocker,
             ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,
@@ -136,5 +141,28 @@ public class RootEntity : IDisposable
     public void Dispose()
     {
         _disposables.Dispose();
+    }
+}
+
+public class MediaService
+{
+    private readonly Ctx _ctx;
+
+    public struct Ctx
+    {
+        public WwiseAudio AudioManager;
+        public ImageManager ImageManager;
+        public VideoManager VideoManager;
+    }
+
+    public WwiseAudio AudioManager {get;}
+    public ImageManager ImageManager {get;}
+    public VideoManager VideoManager {get;}
+    
+    public MediaService(Ctx ctx)
+    {
+        AudioManager = ctx.AudioManager;
+        ImageManager = ctx.ImageManager;
+        VideoManager = ctx.VideoManager;
     }
 }

@@ -18,9 +18,7 @@ public class LevelSceneEntity : IGameScene
         public ReactiveProperty<List<string>> LevelLanguages;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public WwiseAudio AudioManager;
-        public ImageManager ImageManager;
-        public VideoManager VideoManager;
+        public MediaService MediaService;
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
@@ -119,13 +117,11 @@ public class LevelSceneEntity : IGameScene
             LevelId = levelId,
             buttons = buttons,
             CountDown = countDown,
-            AudioManager = _ctx.AudioManager,
+            MediaService = _ctx.MediaService,
             OnLevelEnd = onLevelEnd,
             OnShowNewspaper = onShowNewspaper,
             OnSkipPhrase = onSkipPhrase,
             OnClickPauseButton = onClickPauseButton,
-            ImageManager = _ctx.ImageManager,
-            VideoManager = _ctx.VideoManager,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
