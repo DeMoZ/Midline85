@@ -32,7 +32,7 @@ public class MenuScenePm : IDisposable
     private void OnClickPlayGame(int index)
     {
         Debug.Log("[MenuScenePm] OnClickPlay");
-        _ctx.GameLevelsService.SetLevelByIndex(index);
+        _ctx.GameLevelsService.SetLevel(index);
         _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
@@ -40,7 +40,7 @@ public class MenuScenePm : IDisposable
     {
         Debug.Log("[MenuScenePm] OnClickNewGame");
         _ctx.Profile.Clear();
-        _ctx.GameLevelsService.SetLevelByIndex(0);
+        _ctx.GameLevelsService.SetLevel(0);
        _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
