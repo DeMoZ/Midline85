@@ -53,23 +53,13 @@ namespace Configs
         public ChoiceKeysList ChoiceKeys;
         public RecordKeysList RecordKeys;
         public LanguagesKeysList LanguagesKeys;
-        
-        
+
         private void OnValidate()
         {
 #if UNITY_EDITOR
             // var profile = new PlayerProfile(new ReactiveCommand<Language>());
             // profile.SaveLanguages(textLanguage, audioLanguage);
 #endif
-        }
-
-        public int GetStartLevelIndex()
-        {
-            var index = 0;
-            if (GameLevels.StartButtonLevel != null && GameLevels.Levels.Contains(GameLevels.StartButtonLevel))
-                index = GameLevels.Levels.IndexOf(GameLevels.StartButtonLevel);
-
-            return index;
         }
     }
 }

@@ -23,7 +23,7 @@ public class ScenesHandler : IDisposable
         public ReactiveProperty<bool> IsPauseAllowed;
         public ReactiveProperty<List<string>> LevelLanguages;
         public DialogueLoggerPm DialogueLogger;
-        public ReactiveProperty<int> PlayLevelIndex;
+        public GameLevelsService GameLevelsService;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
@@ -122,7 +122,7 @@ public class ScenesHandler : IDisposable
         var constructorTask = new Container<Task>();
         var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
         {
-            PlayLevelIndex = _ctx.PlayLevelIndex,
+            GameLevelsService = _ctx.GameLevelsService,
             OnSwitchScene = _ctx.OnSwitchScene,
             GameSet = _ctx.GameSet,
             Profile = _ctx.Profile,
@@ -140,7 +140,7 @@ public class ScenesHandler : IDisposable
     {
         var level = _ctx.OverridenDialogue.Dialogue != null
             ? _ctx.OverridenDialogue.Dialogue
-            : _ctx.GameSet.GameLevels.Levels[_ctx.PlayLevelIndex.Value];
+            : _ctx.GameLevelsService.PlayLevel;
 
         var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
 
