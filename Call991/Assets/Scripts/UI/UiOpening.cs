@@ -82,8 +82,10 @@ namespace UI
             await _ctx.Blocker.FadeScreenBlocker(false, _ctx.GameSet.startFadeInTime);
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
+            
             startBtn.OnClick -= OnClickStart;
             anyButton.OnClick -= OnClickStart;
         }

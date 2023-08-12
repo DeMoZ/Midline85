@@ -155,6 +155,7 @@ public class ScenesHandler : IDisposable
             Profile = _ctx.Profile,
             ObjectEvents = _ctx.ObjectEvents,
             OnSwitchScene = _ctx.OnSwitchScene,
+            GameLevelsService = _ctx.GameLevelsService,
             MediaService = _ctx.MediaService,
             OverridenDialogue = _ctx.OverridenDialogue,
             Blocker = _ctx.Blocker,

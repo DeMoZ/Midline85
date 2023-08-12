@@ -62,6 +62,11 @@ public class GameLevelsService
         return true;
     }
 
+    public bool TryGetNextLevel(out DialogueContainer nextLevel, out bool isGameEnd)
+    {
+        return TryGetNextLevel(playLevel.Value, out nextLevel, out isGameEnd);
+    }
+    
     public bool TryGetNextLevel(DialogueContainer currentLevel, out DialogueContainer nextLevel, out bool isGameEnd)
     {
         nextLevel = null;
@@ -113,9 +118,13 @@ public class GameLevelsService
         return _gameSet.GameLevels.ShowAllLevels ? GetAllLevels() : GetOnlyLevels();
     }
 
-    public void SetLevelByIndex(int index)
+    public void SetLevel(int index)
     {
         var levels = GetLevels();
         playLevel.Value = levels[index];
+    }
+    public void SetLevel(DialogueContainer dialogue)
+    {
+        playLevel.Value = dialogue;
     }
 }
