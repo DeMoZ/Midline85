@@ -26,11 +26,30 @@ MonoBehaviour:
     ButtonFilter: pizza
     SoundAsset: 
   PhraseNodeData:
+  - Guid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+    Rect:
+      serializedVersion: 2
+      x: 385
+      y: 62
+      width: 100
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L2_Tutor/Elena/tutor_elena_001
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_elena/tutor_elena_001.asset
   - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
     Rect:
       serializedVersion: 2
-      x: 809
-      y: 7
+      x: 1007
+      y: 22
       width: 124
       height: 96
     PhraseSketchText: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
@@ -42,15 +61,15 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData: []
-    PhraseSound: L3_Pizza/Girl/pizza_girl_001
+    PhraseSound: L2_Tutor/Mark/tutor_mark_007
     Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_girl/pizza_girl_001.asset
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_007.asset
   - Guid: 7804c480-c760-4e2f-9274-457d75a39293
     Rect:
       serializedVersion: 2
-      x: 480
-      y: 15
-      width: 304
+      x: 765
+      y: -34
+      width: 307
       height: 434
     PhraseSketchText: e1 911
     PersonVisualData:
@@ -69,21 +88,36 @@ MonoBehaviour:
       Delay: 0
       Value: 0
     - Type: 3
-      PhraseEvent: Videos/L3_Pizza/Backgraund_pizza.mp4
+      PhraseEvent: Videos/L2_Tutor/background_with_lines.mp4
       Layer: 0
-      Loop: 1
+      Loop: 0
       Stop: 0
       Delay: 0
       Value: 0
-    PhraseSound: L2_Tutor/Mark/tutor_mark_032
+    PhraseSound: L2_Tutor/Mark/tutor_mark_039
     Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_032.asset
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_039.asset
   ImagePhraseNodeData: []
   ChoiceNodeData: []
   ForkNodeData: []
   CountNodeData: []
   EndNodeData: []
   EventNodeData:
+  - Guid: b87440de-7a65-4fd1-baa2-b339028bb678
+    Rect:
+      serializedVersion: 2
+      x: 483
+      y: -256
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L3_Pizza/suspicionPoint_1.mp4
+      Layer: 2
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
   - Guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
     Rect:
       serializedVersion: 2
@@ -100,7 +134,7 @@ MonoBehaviour:
       Delay: 0
       Value: 0
     - Type: 3
-      PhraseEvent: 
+      PhraseEvent: Videos/L2_Tutor/background_with_lines.mp4
       Layer: 0
       Loop: 1
       Stop: 0
@@ -109,8 +143,8 @@ MonoBehaviour:
   - Guid: ee5149b1-7503-4918-af70-39ed506d7431
     Rect:
       serializedVersion: 2
-      x: 288
-      y: 199
+      x: 286
+      y: 198
       width: 100
       height: 107
     EventVisualData:
@@ -128,20 +162,34 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-  - Guid: b87440de-7a65-4fd1-baa2-b339028bb678
+  - Guid: 5262eeb1-b04e-4dcb-8233-8f2fa7ebae04
     Rect:
       serializedVersion: 2
-      x: 483
-      y: -256
+      x: 541
+      y: 41
       width: 100
       height: 107
     EventVisualData:
     - Type: 3
-      PhraseEvent: Videos/L3_Pizza/suspicionPoint_1.mp4
-      Layer: 2
+      PhraseEvent: Videos/L2_Tutor/background.mp4
+      Layer: 0
       Loop: 0
       Stop: 0
       Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/BEFORE_WE_BEGIN.mp4
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: 
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 5
       Value: 0
   NewspaperNodeData:
   - Guid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
@@ -165,6 +213,9 @@ MonoBehaviour:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
     TargetNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+  - BaseNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+    BaseExitName: 
+    TargetNodeGuid: 5262eeb1-b04e-4dcb-8233-8f2fa7ebae04
   - BaseNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
     BaseExitName: 
     TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
@@ -172,6 +223,9 @@ MonoBehaviour:
     BaseExitName: 
     TargetNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
   - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
+    BaseExitName: 
+    TargetNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+  - BaseNodeGuid: 5262eeb1-b04e-4dcb-8233-8f2fa7ebae04
     BaseExitName: 
     TargetNodeGuid: 7804c480-c760-4e2f-9274-457d75a39293
   - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
