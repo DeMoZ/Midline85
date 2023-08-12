@@ -1,5 +1,4 @@
 using System;
-using Configs;
 using UniRx;
 using UnityEngine;
 
@@ -13,8 +12,7 @@ public class MenuScenePm : IDisposable
         public ReactiveCommand OnClickNewGame;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public GameSet GameSet;
-        public ReactiveProperty<int> PlayLevelIndex;
+        public GameLevelsService GameLevelsService;
     }
 
     private Ctx _ctx;
@@ -34,7 +32,7 @@ public class MenuScenePm : IDisposable
     private void OnClickPlayGame(int index)
     {
         Debug.Log("[MenuScenePm] OnClickPlay");
-        _ctx.PlayLevelIndex.Value = index;
+        _ctx.GameLevelsService.SetLevelByIndex(index);
         _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
@@ -42,7 +40,7 @@ public class MenuScenePm : IDisposable
     {
         Debug.Log("[MenuScenePm] OnClickNewGame");
         _ctx.Profile.Clear();
-        _ctx.PlayLevelIndex.Value = _ctx.GameSet.GetStartLevelIndex(); // TODO level index shoud be removed. Dialogue container is to use
+        _ctx.GameLevelsService.SetLevelByIndex(0);
        _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 

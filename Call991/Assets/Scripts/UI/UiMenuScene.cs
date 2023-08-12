@@ -15,8 +15,8 @@ namespace UI
             public ReactiveCommand OnClickNewGame;
             public PlayerProfile Profile;
             public WwiseAudio AudioManager;
-            public GameSet GameSet;
             public DialogueLoggerPm DialogueLogger;
+            public GameLevelsService GameLevelsService;
         }
 
         [SerializeField] private UiMenu menu = default;
@@ -59,7 +59,7 @@ namespace UI
 
             menuSelectLevel.SetCtx(new UiMenuSelectLevel.Ctx
             {
-                GameSet = _ctx.GameSet,
+                GameLevelsService = _ctx.GameLevelsService,
                 OnLevelPlay = _ctx.OnLevelPlay,
                 OnLevelSelect = _ctx.OnLevelSelect,
                 DialogueLogger = _ctx.DialogueLogger,

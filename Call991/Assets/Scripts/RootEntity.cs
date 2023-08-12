@@ -40,15 +40,16 @@ public class RootEntity : IDisposable
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
+
+        var gameLevelsService = new GameLevelsService(gameSet);
         
-        var playLevelIndex = new ReactiveProperty<int>(gameSet.GetStartLevelIndex());
         var levelLanguages = new ReactiveProperty<List<string>>();
         var isPauseAllowed = new ReactiveProperty<bool>(true);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
         var onScreenFade = new ReactiveCommand<(bool show, float time)>();
         var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
         var onShowWarning = new ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)>();
-        
+
         var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
         {
             OnScreenFade = onScreenFade,
@@ -57,7 +58,7 @@ public class RootEntity : IDisposable
             SkipTitle = _ctx.OverridenDialogue.SkipTitle,
             SkipWarning = _ctx.OverridenDialogue.SkipWarning,
         }).AddTo(_disposables);
-        
+
         var profile = new PlayerProfile();
         SetLanguage(profile.TextLanguage);
 
@@ -86,7 +87,7 @@ public class RootEntity : IDisposable
         imageManager.SetCtx(new ImageManager.Ctx
         {
         });
-        
+
         var videoManager = Object.Instantiate(_ctx.VideoManagerPrefab, _ctx.VideoManagerParent);
         videoManager.SetCtx(new VideoManager.Ctx
         {
@@ -98,7 +99,7 @@ public class RootEntity : IDisposable
             ImageManager = imageManager,
             VideoManager = videoManager,
         });
-        
+
         var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
@@ -117,7 +118,7 @@ public class RootEntity : IDisposable
             IsPauseAllowed = isPauseAllowed,
             LevelLanguages = levelLanguages,
             DialogueLogger = dialogueLoggerPm,
-            PlayLevelIndex = playLevelIndex,
+            GameLevelsService = gameLevelsService,
         }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
@@ -141,28 +142,5 @@ public class RootEntity : IDisposable
     public void Dispose()
     {
         _disposables.Dispose();
-    }
-}
-
-public class MediaService
-{
-    private readonly Ctx _ctx;
-
-    public struct Ctx
-    {
-        public WwiseAudio AudioManager;
-        public ImageManager ImageManager;
-        public VideoManager VideoManager;
-    }
-
-    public WwiseAudio AudioManager {get;}
-    public ImageManager ImageManager {get;}
-    public VideoManager VideoManager {get;}
-    
-    public MediaService(Ctx ctx)
-    {
-        AudioManager = ctx.AudioManager;
-        ImageManager = ctx.ImageManager;
-        VideoManager = ctx.VideoManager;
     }
 }
