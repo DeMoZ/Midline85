@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5833957976522348311}
   - component: {fileID: 5517826093404078972}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Dash
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,7 +101,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 16
-  m_HorizontalAlignment: 4
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 5412017717442048066}
   - component: {fileID: 7559828373152740675}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Position
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -203,7 +203,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: director-
+  m_text: Plumber
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 55db6ffa3ab0e4d42ab09ea2d281986f, type: 2}
   m_sharedMaterial: {fileID: 5486455290800134813, guid: 55db6ffa3ab0e4d42ab09ea2d281986f,
@@ -325,7 +325,7 @@ GameObject:
   - component: {fileID: 5412017717556352384}
   - component: {fileID: 675438791660279255}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Name
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -499,6 +499,7 @@ GameObject:
   - component: {fileID: 5412017718432917399}
   - component: {fileID: 5412017718432917417}
   - component: {fileID: 5412017718432917418}
+  - component: {fileID: -125005469856089190}
   m_Layer: 5
   m_Name: CreditPerson
   m_TagString: Untagged
@@ -556,10 +557,25 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 4
   m_Spacing: 15
-  m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 0
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
+--- !u!114 &-125005469856089190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5412017718432917398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b043307cfcd24c4fbeb2be2baaad0a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  developerPosition: {fileID: 5412017717442048066}
+  dash: {fileID: 5517826093404078972}
+  developerName: {fileID: 5412017717556352384}
