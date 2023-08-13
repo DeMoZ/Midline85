@@ -188,7 +188,6 @@ public class ScenesHandler : IDisposable
             ToLevelScene = toLevelScene,
             FirstLoad = scene == GameScenes.OpenScene,
             Blocker = _ctx.Blocker,
-            GameSet = _ctx.GameSet,
         }).AddTo(_disposables);
 
         return switchSceneEntity;
@@ -203,7 +202,6 @@ public class ScenesHandler : IDisposable
             ToLevelScene = toLevelScene,
             FirstLoad = toLevelScene,
             Blocker = _ctx.Blocker,
-            GameSet = _ctx.GameSet,
         }).AddTo(_disposables);
     }
 }
