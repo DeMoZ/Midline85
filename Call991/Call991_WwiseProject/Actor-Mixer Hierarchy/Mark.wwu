@@ -9,17 +9,12 @@
 			<ChildrenList>
 				<ActorMixer Name="Mark_pizzaep" ID="{F31C6A61-06DB-4CD5-8EB2-1F13E4771593}" ShortID="438764576">
 					<PropertyList>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>41</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>31</Value>
-							</ValueList>
-						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-14</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -1868,17 +1863,12 @@
 				<ActorMixer Name="Mark_fireep" ID="{6500F73D-4418-44AB-9340-8DDEAF228C43}" ShortID="124969511">
 					<PropertyList>
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>41</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>31</Value>
-							</ValueList>
-						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-14</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
