@@ -9,7 +9,22 @@
 			<ChildrenList>
 				<ActorMixer Name="fire_p_lara" ID="{CA7C0442-224B-452E-890E-D1868C91C3D3}" ShortID="193097082">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>42</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>36</Value>
+							</ValueList>
+						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-0.6</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -47,10 +62,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{C022D9C9-0C8A-4076-8EEC-31428DE84476}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="410566313"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{D58BF475-5C67-40E2-9CF1-DFE7BECCC5D3}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_001" ID="{226639D6-5878-421B-AF66-AEBA2B22CD58}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{C022D9C9-0C8A-4076-8EEC-31428DE84476}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_002" ID="{09A31F96-FBD6-4AD3-A33A-48465B28C4CA}" ShortID="708501599">
@@ -80,9 +102,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{C1A7F697-6885-4849-BD07-A18FD20A60CD}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="389696935"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_002" ID="{319009AD-FB7A-447F-A5A1-EAC7DE86AB13}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{C1A7F697-6885-4849-BD07-A18FD20A60CD}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{346A7DD5-9AB9-4095-BB88-0F620978D685}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -113,9 +142,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{E811F649-B9CA-4AB8-BC04-4CBB6D051788}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_003.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="447640581"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_003" ID="{ABF48473-EC19-42ED-A358-501FAC436BB4}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{E811F649-B9CA-4AB8-BC04-4CBB6D051788}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{5CBF8DF7-64AA-4953-9AED-88B957355512}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -146,10 +182,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{A11FD26E-D1D1-46AB-886E-ED8C3A3340B1}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="317574898"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{DB337542-BAD2-4CF1-B4D0-6A3CE8D7124A}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_004" ID="{D56AB57F-245A-49FB-B085-E1C697F55BB8}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{A11FD26E-D1D1-46AB-886E-ED8C3A3340B1}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_005" ID="{4B990C69-DC49-48B1-A17A-336C9E2B4A51}" ShortID="763962673">
@@ -179,9 +222,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{6D7FE306-A1D5-4C4E-B61B-DBADC1E4979D}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="970351384"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_005" ID="{984FB6B3-6615-48A6-BDB8-406441AF9EB3}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{6D7FE306-A1D5-4C4E-B61B-DBADC1E4979D}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{562805E5-748C-4975-AF3D-0E390A29CAD8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -212,9 +262,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{568E1D28-179E-4803-8E39-E2897B723BF9}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="661879198"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_006" ID="{16BD9770-53C5-4D80-9EBB-DF3431936D86}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{568E1D28-179E-4803-8E39-E2897B723BF9}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{7F3E47CA-45EF-45E8-8001-2617B106879D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -245,10 +302,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{9D1EE5A4-0C5B-465D-878E-E0217D720B41}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_007.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="578291635"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{2735D101-24CF-4950-8D8B-AD8B8C12BEA5}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_007" ID="{15B4D751-8418-47EF-A4C4-5555E780ED5A}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{9D1EE5A4-0C5B-465D-878E-E0217D720B41}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_008" ID="{AA032AE3-FFBD-43A7-9F2A-C44B66CFF677}" ShortID="324547626">
@@ -278,10 +342,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{F01D8B95-E960-433A-9C89-A533116B7707}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_008.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="744015891"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{1E305441-8F4F-44C0-9988-66AC0E94D46D}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_008" ID="{0A8D554C-990B-46D5-889F-0227C28C0623}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{F01D8B95-E960-433A-9C89-A533116B7707}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_009" ID="{D8CA3867-F909-48A0-98BF-854F317881AA}" ShortID="280234007">
@@ -311,10 +382,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{51B557EF-E981-44AE-A6D5-8ECE0F57A0FE}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="863853531"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{EB238C58-39B5-4514-9F5B-CA607E8A15F9}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_009" ID="{4AC454C7-B8B7-4AC0-96FE-907F64A9D5FC}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{51B557EF-E981-44AE-A6D5-8ECE0F57A0FE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_010" ID="{878E5D93-5F14-4108-B951-B0F1A6079009}" ShortID="124759796">
@@ -344,10 +422,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{4B31EBDF-9A0D-4550-89F8-CD20F35F174A}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_010.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="620478330"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{D093364D-9759-4750-85B5-D5C0C0C6FD1F}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_010" ID="{213FBD62-8211-4C6E-B55B-5C9E73F916C3}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{4B31EBDF-9A0D-4550-89F8-CD20F35F174A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_011" ID="{1A44AB67-DA2F-43FF-A069-10FA79F36E2F}" ShortID="324152731">
@@ -377,10 +462,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{83A09901-E54C-4D10-9142-B20F1F68BDF3}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_011.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="661174087"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="fire_p_lara_01" ID="{83A09901-E54C-4D10-9142-B20F1F68BDF3}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{EFD23753-2EE7-49D7-A61F-2153AA51E99D}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_011" ID="{669ABA8D-EFAC-49A8-B95F-F8644E3B8CD5}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_012" ID="{9EA435AE-78A6-4430-BD48-28D6BFFE3282}" ShortID="489197365">
@@ -410,9 +502,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{47C0F600-9BDE-4B65-8398-8D1A53409CC9}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_012.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="135486695"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_012" ID="{E86B6595-6404-4730-8CC9-ED010BFA721E}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{47C0F600-9BDE-4B65-8398-8D1A53409CC9}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{EDF77CC5-7C03-40B2-A297-F8E71DC7723F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -443,10 +542,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{CB9B1C6E-45B1-45BC-9968-029905976260}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_013.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="666672148"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{F89C353A-1346-491C-AA9D-B1DCD7E3442E}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_013" ID="{69C7B095-33D3-472A-A84B-878A2CEA42B4}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{CB9B1C6E-45B1-45BC-9968-029905976260}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_014" ID="{9C4E8F6B-278F-47C7-8348-5DA00E9A221B}" ShortID="997748892">
@@ -476,10 +582,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{B7E073E7-528D-417E-BDBC-033FF9192F6D}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_014.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="600454716"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_014" ID="{5BD28368-DA82-4417-B811-F4525831DEEC}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{51380E8E-F58F-45A7-9B1C-0DDA94EC9144}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{B7E073E7-528D-417E-BDBC-033FF9192F6D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_015" ID="{52187925-61D9-4A46-B324-EC5368DC2B71}" ShortID="94388127">
@@ -509,10 +622,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{F30D07D2-3BA3-4FD2-A41B-56C3A84268FC}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_015.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="496599663"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_015" ID="{B1F8E136-83D7-4B40-B645-A0F62F05A102}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{6C6D3337-D155-41C7-8ADC-56D52A2D808D}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{F30D07D2-3BA3-4FD2-A41B-56C3A84268FC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_016" ID="{813547AC-CC5C-4EDC-A5A7-3C17715E2643}" ShortID="195931227">
@@ -542,9 +662,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{DA080C89-558F-4238-AA30-B7B92EC5E9B0}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="221232443"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_016" ID="{9CB0AAAF-AD5A-4F8E-BBED-7F36F822F47B}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{DA080C89-558F-4238-AA30-B7B92EC5E9B0}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{65ED7DFA-1500-400F-80D4-E31AED21F469}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -575,10 +702,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{917AF27B-C5EC-4912-9E1E-A42128B3050A}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_017.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="33270744"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_017" ID="{6DBBEA21-78F3-471E-A07E-26D58A128243}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{26E5A86F-F966-418C-99A7-73BEDE784C98}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{917AF27B-C5EC-4912-9E1E-A42128B3050A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_018" ID="{6B531B0B-07AB-4634-A917-5BCC5124D1C9}" ShortID="46060039">
@@ -608,9 +742,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{E1623F1C-9676-4D66-8F89-60DADA862B3D}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_018.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="439033718"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_018" ID="{2C269233-25D2-4026-8CC3-8AF048F3B36A}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{E1623F1C-9676-4D66-8F89-60DADA862B3D}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{4D256AA2-6BB2-49CB-98A9-32FBF032699E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -641,10 +782,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{46A0C45A-1A74-4349-B7CA-7ABD32526DB4}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="310742224"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{EDF9442E-A497-4493-9824-9A310FBE550A}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_019" ID="{6BA258A6-45E2-4971-8A6E-DCC4289847B3}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{46A0C45A-1A74-4349-B7CA-7ABD32526DB4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_020" ID="{D0B6531C-E2E7-48D5-9F5B-9FFA04B31B9C}" ShortID="966154736">
@@ -674,10 +822,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{0A991EC2-9062-47AA-9B6A-1ECC0850DA33}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_020.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="120884655"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{3192215B-A02B-4C87-AABD-F2C7A29A1A56}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_020" ID="{1960F467-C0D8-479D-9A3C-B03F1E5A0C74}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{0A991EC2-9062-47AA-9B6A-1ECC0850DA33}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_021" ID="{9F53C400-CDE8-4F00-B792-F6990851AA54}" ShortID="224088297">
@@ -707,10 +862,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{336A41C3-5EB1-4C82-8D24-028719250749}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_021.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="181390919"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{6F763185-1C84-498C-B74E-0A8E9FEE21D5}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_021" ID="{C4BDD495-65B9-4BD8-A50B-5050A2127696}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{336A41C3-5EB1-4C82-8D24-028719250749}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_022" ID="{E02D3BE1-FF5F-4981-81B7-B8265636071F}" ShortID="610589599">
@@ -740,10 +902,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{F4B395F9-AC7D-4C7B-A988-33B348C469B9}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_022.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="745265450"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_022" ID="{DB3E56D8-5BE2-459A-B6AE-89735BA3B492}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{5CC61BED-E60C-4299-9E6C-09C10E8F0E48}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{F4B395F9-AC7D-4C7B-A988-33B348C469B9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_023" ID="{BB1E5F06-C012-4B3C-AF13-DCFC824D59BD}" ShortID="95310677">
@@ -773,10 +942,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{8776EEBD-4853-4B9E-B948-D5B0E6CB4F17}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_023.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="454504373"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_023" ID="{398BBC14-1D80-47DA-BFBF-34EA92BD17BD}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{F8A2B5B8-3871-488E-B0B9-59943B7126BE}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{8776EEBD-4853-4B9E-B948-D5B0E6CB4F17}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_024" ID="{5011A76A-D390-4E2A-900E-DE28285B8102}" ShortID="876093727">
@@ -806,9 +982,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{B2285A87-77BC-4084-93AD-64401158DB24}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_024.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="760713636"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_024" ID="{0E24044D-CC1B-4959-BC45-9BA314B42055}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{B2285A87-77BC-4084-93AD-64401158DB24}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{1A2AF5C7-BF6F-4E0F-9FB4-F00CB8DA24CF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -839,10 +1022,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{2AFAADFC-95BD-49AA-8766-F153EF065327}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_025.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="339225051"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{514E250E-D419-45DE-8433-E75095B0CFE7}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_025" ID="{99A8727B-03EE-460F-B2E7-293E35E2686E}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{2AFAADFC-95BD-49AA-8766-F153EF065327}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_026" ID="{0643C640-933C-48D1-B1A2-E424BB70B252}" ShortID="427768290">
@@ -872,9 +1062,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{851D9D64-50FB-4713-9204-9CECA712E97E}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_026.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="243337178"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_026" ID="{AF68A24C-5EE2-452E-916D-A9704DF8CE2B}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{851D9D64-50FB-4713-9204-9CECA712E97E}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{219E1DB6-F6E0-4A29-9DE8-E03C0F28CAD1}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -905,9 +1102,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{39921453-3DE3-4930-8043-7AEA6962D858}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_027.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="402962947"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_027" ID="{FB241837-BD7C-4F01-80FB-003F4A4A7B57}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{39921453-3DE3-4930-8043-7AEA6962D858}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{6A802894-2738-49A2-B868-591A6B6EF123}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -938,9 +1142,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{A41F4309-26DE-4496-8158-D1204E80CB30}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_028.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="883044075"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_028" ID="{6A08821A-B519-4C03-A727-832F9D533792}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{A41F4309-26DE-4496-8158-D1204E80CB30}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{796ADB96-D41B-4FAF-A1C4-F3CFA5276F5C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -971,9 +1182,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{0211F8C4-473A-481F-920F-4033FC342716}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_029.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="246768190"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_029" ID="{FB4FB1E7-D347-4E35-ADB2-57C345C02967}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{0211F8C4-473A-481F-920F-4033FC342716}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{C23320EB-9681-4614-9F7D-B1FEFFDD2EC0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1004,10 +1222,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{F01574FA-FA1C-4894-9796-D2C16A13B2A0}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_030.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="492520566"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{7CE73369-9575-45A7-9D8D-63A221A68F09}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_030" ID="{F31199BB-13B3-481E-9AE5-A12B24906588}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{F01574FA-FA1C-4894-9796-D2C16A13B2A0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_031" ID="{60833AC9-9446-4AD7-B5BE-0AEDC78D55CE}" ShortID="263018188">
@@ -1037,10 +1262,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{6F45A913-4A18-485C-B028-C3141176A2B4}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_031.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="732038040"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="fire_p_lara_01" ID="{6F45A913-4A18-485C-B028-C3141176A2B4}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{4080186E-393D-4B51-9CAA-6DCECEC4A9BF}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_031" ID="{EBBF1CF3-2793-4566-88D6-D79175F23C19}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_032" ID="{8BB99322-E1DB-41A1-8B47-96B741FB54A1}" ShortID="69419544">
@@ -1070,9 +1302,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{507FE914-BF05-41C8-838B-E444550913E4}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_032.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="293133453"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_032" ID="{2B857843-24C3-4E15-836D-57D80F6CB7B5}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{507FE914-BF05-41C8-838B-E444550913E4}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{366DEBA4-E133-4177-814C-02C5A6F61D86}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1103,10 +1342,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{9105849A-42A4-4E49-8D55-0934E811213F}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_033.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="951272708"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{C86B3E64-EF25-4666-A824-F1A5D6B9A7D1}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_033" ID="{072578C2-A369-46A5-B1A4-41290409E79D}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{9105849A-42A4-4E49-8D55-0934E811213F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_034" ID="{A69926CF-A210-470F-B2B8-77EC23E8CD2C}" ShortID="838599065">
@@ -1136,10 +1382,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{7744264C-72D5-45AA-BDF7-296146C3EC39}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_034.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="448052739"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{24F72D32-55CA-4942-A07B-82DDA6546DBA}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_034" ID="{90F0569B-2AEE-4AC7-B8F1-C4703E59D1AF}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{7744264C-72D5-45AA-BDF7-296146C3EC39}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_035" ID="{53FFEA90-D35E-4F28-BCE4-F3260351105A}" ShortID="714909972">
@@ -1169,9 +1422,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{7989269D-6D49-4E9D-BEA7-716835A7B006}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_035.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="573596910"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_035" ID="{77CBADDB-725C-4F60-A5DB-3528650F430B}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{7989269D-6D49-4E9D-BEA7-716835A7B006}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{2CBC4FF1-C1F8-4B1A-8E32-8EB311760C58}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1202,9 +1462,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{CC18EF16-9460-43C6-8E94-8278544451C9}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_036.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="391192883"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_036" ID="{3690363F-F59D-4DE2-98B8-84B5E787DD53}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{CC18EF16-9460-43C6-8E94-8278544451C9}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{B7FAA4B3-E100-4866-A9DE-CA66C26DF963}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1235,10 +1502,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{FE82707E-3AB5-4EAA-90F4-0B320D703EDF}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_037.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="29255295"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{24D85217-756F-401F-A9A0-FA83FF7E173B}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_037" ID="{4C1AE79B-960A-4E11-8004-7AB7A007F8F9}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{FE82707E-3AB5-4EAA-90F4-0B320D703EDF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_038" ID="{199C217F-4635-4B5B-9811-F6E040DB10F5}" ShortID="230526832">
@@ -1268,9 +1542,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{39302F56-D581-4998-91E3-12A33FFAB316}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_038.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="887297648"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_038" ID="{238EFF39-6BB6-499D-9236-7E98EA2777A8}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{39302F56-D581-4998-91E3-12A33FFAB316}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{66EF538C-4853-44A9-BA92-BC85AF8A0363}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1301,10 +1582,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{F458B97B-0523-4F21-A23F-98082DB7CB31}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_039.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="160050488"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_039" ID="{EFC2A901-9388-4A53-8A74-43DA7DF65EE6}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{F48DA114-006C-4E0E-A1DA-09F134109B10}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{F458B97B-0523-4F21-A23F-98082DB7CB31}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_040" ID="{0AD89E39-A8C9-4847-9816-2DFC5F41AE7E}" ShortID="948927611">
@@ -1334,9 +1622,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{1B141DC7-A906-4D16-86C0-0C7C556A6E45}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_040.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="519492670"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_040" ID="{9A22A248-DC5E-4730-80F0-997FBCA3E2D9}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{1B141DC7-A906-4D16-86C0-0C7C556A6E45}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{493E7BCF-6974-4007-9526-0F2A229829DA}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1367,10 +1662,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{F3EFFC98-6B16-46BA-8C9C-621D9911F2B8}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_041.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="427066558"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{BE1F688B-C654-495D-92E1-A96F3245086F}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_041" ID="{AE88CBE1-B989-405A-A68C-4FE8FB5E6536}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{F3EFFC98-6B16-46BA-8C9C-621D9911F2B8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_042" ID="{A9CD68F6-B2DD-4E43-8276-2D6F54E134A4}" ShortID="598464003">
@@ -1400,10 +1702,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{851EF25D-18AC-4882-B7E4-6E1DE0BF09E7}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_042.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="386977857"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_042" ID="{98D0AD0A-97DD-4C5D-820A-CD7F3A9D82EE}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{43898B2D-AF0A-4400-B7B2-F179EBDD08D7}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{851EF25D-18AC-4882-B7E4-6E1DE0BF09E7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_043" ID="{8C0F03FC-6091-4790-9EBF-BAED43573CED}" ShortID="120514567">
@@ -1433,9 +1742,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{850B2735-9BAA-47A7-88EA-17CF5C1500E2}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_043.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="301936317"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_043" ID="{A95C68C3-877A-4ED3-B50B-45CF957059EF}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{850B2735-9BAA-47A7-88EA-17CF5C1500E2}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{416CB8E4-B363-4A9A-BA05-1784C7903B76}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1466,9 +1782,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{D716FC3B-ACB4-4296-93A8-1CDD008BDFFB}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_044.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="808982451"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_044" ID="{7D238161-2F82-44ED-BB3A-A20FE6E1A3AD}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{D716FC3B-ACB4-4296-93A8-1CDD008BDFFB}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{9EFFB9F4-8629-455B-9B68-4EE1F6E762EF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1499,9 +1822,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{A6EB7636-E513-4F84-889E-1C16C0318827}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_045.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="69156963"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="fire_p_lara_045" ID="{BEAB4C5B-7510-42B7-8BFF-C23ECB9FB51A}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{A6EB7636-E513-4F84-889E-1C16C0318827}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{59A70DB1-0A46-483D-A33C-CD116727F336}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1532,10 +1862,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{B8C279BF-6F3B-4878-86A3-4CAFC212285A}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_046.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="278075759"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{E2FC6371-2730-4CA3-A85C-6B59D8F0066E}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_046" ID="{C218E1C9-3B94-4032-800B-3AC670B8DBCB}" Platform="Linked"/>
+								<ActiveSource Name="fire_p_lara_01" ID="{B8C279BF-6F3B-4878-86A3-4CAFC212285A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="fire_p_lara_047" ID="{FF345E30-E302-41B4-A825-553DE72A292E}" ShortID="797765111">
@@ -1565,10 +1902,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="fire_p_lara_01" ID="{1D539E25-0040-4F4F-9262-82767164A795}">
+									<Language>Russian</Language>
+									<AudioFile>fire_p_lara\fire_p_lara_047.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="665389920"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="fire_p_lara_01" ID="{1D539E25-0040-4F4F-9262-82767164A795}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{6C228581-1855-4500-A120-12DDC7980D83}" Platform="Linked"/>
-								<ActiveSource Name="fire_p_lara_047" ID="{AE0C7EFF-F2C0-4B47-8EB9-12AF6B3AD566}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
