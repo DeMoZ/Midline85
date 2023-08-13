@@ -12,7 +12,7 @@
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-14</Value>
+								<Value>-16.3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -1350,8 +1350,8 @@
 								<AudioFileSource Name="pizzaep_mark" ID="{6E140AA2-F628-4E2C-A451-6387430EABDD}">
 									<PropertyList>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimBegin" Type="Real64" Value="230.031583829119"/>
-										<Property Name="TrimEnd" Type="Real64" Value="237.032698099269"/>
+										<Property Name="TrimBegin" Type="Real64" Value="221.342604911761"/>
+										<Property Name="TrimEnd" Type="Real64" Value="227.897089424477"/>
 									</PropertyList>
 									<Language>Russian</Language>
 									<AudioFile>pizzaep_mark.wav</AudioFile>
@@ -1866,7 +1866,7 @@
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-14</Value>
+								<Value>-14.6</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -3506,17 +3506,12 @@
 				</ActorMixer>
 				<ActorMixer Name="Mark_tutor" ID="{751FCA3B-5A9C-4B29-9D45-4A23CCE0935F}" ShortID="708355708">
 					<PropertyList>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>41</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>31</Value>
-							</ValueList>
-						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4.6</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">

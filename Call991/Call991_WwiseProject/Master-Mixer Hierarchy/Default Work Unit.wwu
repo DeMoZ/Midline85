@@ -26,7 +26,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-24.4</Value>
+										<Value>-30.5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -80,7 +80,7 @@
 								<Property Name="RecoveryTime" Type="Real64" Value="0.3"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>5.4</Value>
+										<Value>6.9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -100,7 +100,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-5.3</Value>
+														<Value>-4.1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -173,7 +173,15 @@
 									</PropertyList>
 									<ChildrenList>
 										<Bus Name="Mark_Intro" ID="{F7602242-36FE-43E7-B031-102790538277}"/>
-										<Bus Name="Mark_Training" ID="{FA34CF53-186F-41A3-BD2E-F74DD9E7B67C}"/>
+										<Bus Name="Mark_Training" ID="{FA34CF53-186F-41A3-BD2E-F74DD9E7B67C}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
 										<Bus Name="Mark_Boss First" ID="{8E603697-E7F5-425B-A6B9-3B4ACEA7CE8F}">
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
