@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class FadeScreen : PhraseObjectEvent
+public class FadeScreen : AaGraphObjectEvent
 {
     [SerializeField] private bool showBlocker;
 
@@ -9,7 +9,7 @@ public class FadeScreen : PhraseObjectEvent
     {
         ObjectEvents.EventsGroup.OnScreenFade?.Execute((showBlocker, GameSet.levelEndStatisticsUiFadeTime));
         yield return new WaitForSeconds(GameSet.levelEndStatisticsUiFadeTime);
-        
+
         if (gameObject)
         {
             Destroy(gameObject);

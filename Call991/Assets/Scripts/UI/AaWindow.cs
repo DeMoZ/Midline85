@@ -54,7 +54,7 @@ public class AaWindow : InputHandler
             EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
     }
 
-    private void OnDestroy()
+    protected virtual void OnDestroy()
     {
         tokenSource.Cancel();
     }

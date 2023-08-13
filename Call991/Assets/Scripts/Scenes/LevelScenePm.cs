@@ -11,6 +11,7 @@ using Data;
 using UI;
 using UniRx;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.Video;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -21,16 +22,13 @@ public class LevelScenePm : IDisposable
     {
         public ReactiveCommand<List<AaNodeData>> FindNext;
         public ReactiveCommand<List<AaNodeData>> OnNext;
-        public ReactiveCommand<UiPhraseData> OnShowPhrase;
-        public ReactiveCommand<UiImagePhraseData> OnShowImagePhrase;
-        public ReactiveCommand<UiPhraseData> OnHidePhrase;
-        public ReactiveCommand<UiImagePhraseData> OnHideImagePhrase;
-        
-        public WwiseAudio AudioManager;
-        public ReactiveCommand OnShowLevelUi;
+
+        public DialogueService DialogueService;
+        public GameLevelsService GameLevelsService;
+        public MediaService MediaService;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public ReactiveCommand OnClickMenuButton;
-        public ReactiveCommand<List<RecordData>> OnLevelEnd;
+        public ReactiveCommand<(List<RecordData> recordData, bool nextLevelExists)> OnLevelEnd;
         public ObjectEvents ObjectEvents;
 
         public ContentLoader ContentLoader;
@@ -40,16 +38,12 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand OnAfterEnter;
         public GameSet GameSet;
         public string LevelId;
-
-        public ReactiveCommand<(Container<bool> task, Sprite sprite)> OnShowNewspaper;
-
-        public ReactiveCommand OnSkipPhrase;
+        
         public ReactiveCommand<bool> OnClickPauseButton;
-        public ImageManager ImageManager;
-        public VideoManager VideoManager;
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public OverridenDialogue OverridenDialogue;
+        public ReactiveCommand OnClickNextLevelButton;
     }
 
     private Ctx _ctx;
@@ -80,13 +74,19 @@ public class LevelScenePm : IDisposable
         _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
 
         _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
-        _ctx.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
+        _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
         _ctx.OnClickMenuButton.Subscribe(_ =>
         {
             _ctx.OnSwitchScene.Execute(GameScenes.Menu);
         }).AddTo(_disposables);
+        
+        _ctx.OnClickNextLevelButton.Subscribe(_ =>
+        {
+            _ctx.OnSwitchScene.Execute(GameScenes.Level);
+        }).AddTo(_disposables);
+        
         _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
@@ -94,7 +94,7 @@ public class LevelScenePm : IDisposable
     {
         InitTimer();
         InitButtons();
-        _ctx.OnShowLevelUi.Execute();
+        _ctx.DialogueService.OnShowLevelUi.Execute();
         _ctx.CursorSettings.EnableCursor(true);
         
         await PrepareAudioManager();
@@ -105,12 +105,12 @@ public class LevelScenePm : IDisposable
 
     private async Task PrepareAudioManager()
     {
-        await _ctx.AudioManager.LoadBank(_ctx.LevelId);
+        await _ctx.MediaService.AudioManager.LoadBank(_ctx.LevelId);
         if (_tokenSource.IsCancellationRequested) return;
 
         foreach (var rtpc in _ctx.GameSet.RtpcKeys.WwiseRtpcs)
         {
-            _ctx.AudioManager.PlayRtpc(rtpc, 0);
+            _ctx.MediaService.AudioManager.PlayRtpc(rtpc, 0);
         }
     }
 
@@ -120,11 +120,11 @@ public class LevelScenePm : IDisposable
 
         if (pause)
         {
-            _ctx.AudioManager.PausePhrasesAndSfx();
+            _ctx.MediaService.AudioManager.PausePhrasesAndSfx();
         }
         else
         {
-            _ctx.AudioManager.ResumePhrasesAndSfx();
+            _ctx.MediaService.AudioManager.ResumePhrasesAndSfx();
             _selectionPlaced = false;
         }
     }
@@ -363,7 +363,7 @@ public class LevelScenePm : IDisposable
         }
 
         // wait for wwise get ready
-        while (!_ctx.AudioManager.IsReady)
+        while (!_ctx.MediaService.AudioManager.IsReady)
         {
             await Task.Delay(1);
             if (_tokenSource.IsCancellationRequested) return true;
@@ -385,9 +385,9 @@ public class LevelScenePm : IDisposable
             Phrase = phrase,
         };
 
-        _ctx.OnShowPhrase.Execute(uiPhrase);
+        _ctx.DialogueService.OnShowPhrase.Execute(uiPhrase);
         var voice = _ctx.GameSet.VoicesSet.GetVoiceByPath(data.PhraseSound);
-        var voiceId = _ctx.AudioManager.PlayVoice(voice);
+        var voiceId = _ctx.MediaService.AudioManager.PlayVoice(voice);
 
         if (voiceId == null)
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
@@ -397,9 +397,9 @@ public class LevelScenePm : IDisposable
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
 
-        if (voiceId != null) _ctx.AudioManager.StopVoice(voiceId.Value);
+        if (voiceId != null) _ctx.MediaService.AudioManager.StopVoice(voiceId.Value);
 
-        _ctx.OnHidePhrase.Execute(uiPhrase);
+        _ctx.DialogueService.OnHidePhrase.Execute(uiPhrase);
     }
     private IEnumerator RunImagePhrase(ImagePhraseNodeData data, Phrase phrase, Sprite sprite)
     {
@@ -415,9 +415,9 @@ public class LevelScenePm : IDisposable
             Sprite = sprite,
         };
 
-        _ctx.OnShowImagePhrase.Execute(uiPhrase);
+        _ctx.DialogueService.OnShowImagePhrase.Execute(uiPhrase);
         var voice = _ctx.GameSet.VoicesSet.GetVoiceByPath(data.PhraseSound);
-        var voiceId = _ctx.AudioManager.PlayVoice(voice);
+        var voiceId = _ctx.MediaService.AudioManager.PlayVoice(voice);
 
         if (voiceId == null)
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
@@ -427,9 +427,9 @@ public class LevelScenePm : IDisposable
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
 
-        if (voiceId != null) _ctx.AudioManager.StopVoice(voiceId.Value);
+        if (voiceId != null) _ctx.MediaService.AudioManager.StopVoice(voiceId.Value);
 
-        _ctx.OnHideImagePhrase.Execute(uiPhrase);
+        _ctx.DialogueService.OnHideImagePhrase.Execute(uiPhrase);
     }
 
     private IEnumerator RunEventNode(EventNodeData data)
@@ -447,7 +447,7 @@ public class LevelScenePm : IDisposable
         if (string.IsNullOrEmpty(musicName) || musicName.Equals(AaGraphConstants.None)) yield break;
 
         if (_ctx.GameSet.MusicSwitchesKeys.TryGetSwitchByName(musicName, out var musicSwitch))
-            _ctx.AudioManager.PlayMusic(musicSwitch);
+            _ctx.MediaService.AudioManager.PlayMusic(musicSwitch);
         else
             Debug.LogError($"Switch name {musicName} not found in GameSet.MusicSwitchesKeys");
     }
@@ -461,7 +461,7 @@ public class LevelScenePm : IDisposable
         if (string.IsNullOrEmpty(rtpcName) || rtpcName.Equals(AaGraphConstants.None)) yield break;
 
         if (_ctx.GameSet.RtpcKeys.TryGetRtpcByName(rtpcName, out var rtpc))
-            _ctx.AudioManager.PlayRtpc(rtpc, (int)rtpcData.Value);
+            _ctx.MediaService.AudioManager.PlayRtpc(rtpc, (int)rtpcData.Value);
         else
             Debug.LogError($"RTPC name {rtpcName} not found in GameSet.RtpcKeys");
     }
@@ -479,17 +479,17 @@ public class LevelScenePm : IDisposable
             case PhraseEventType.Image:
                 var sprite = content[data.PhraseEvent] as Sprite;
                 if (sprite == null && !data.Stop) break;
-                _ctx.ImageManager.ShowImage(data, sprite);
+                _ctx.MediaService.ImageManager.ShowImage(data, sprite);
                 break;
             case PhraseEventType.VideoClip:
                 var videoClip = content[data.PhraseEvent] as VideoClip;
                 if (videoClip == null && !data.Stop) break;
-                _ctx.VideoManager.PlayVideo(data, videoClip);
+                _ctx.MediaService.VideoManager.PlayVideo(data, videoClip);
                 break;
             case PhraseEventType.GameObject:
                 var prefab = content[data.PhraseEvent] as GameObject;
                 if (prefab == null) break;
-                var eventObject = Object.Instantiate(prefab).GetComponent<PhraseObjectEvent>();
+                var eventObject = Object.Instantiate(prefab).GetComponent<AaGraphObjectEvent>();
                 eventObject.SetCtx(_ctx.ObjectEvents, _ctx.GameSet);
 
                 yield return eventObject.AwaitInvoke();
@@ -505,7 +505,7 @@ public class LevelScenePm : IDisposable
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
     {
         _ctx.CountDown.Show(_ctx.GameSet.choicesDuration);
-        _ctx.AudioManager.PlayTimerSfx();
+        _ctx.MediaService.AudioManager.PlayTimerSfx();
 
         for (var i = 0; i < data.Count; i++)
         {
@@ -521,7 +521,7 @@ public class LevelScenePm : IDisposable
             AutoChoice(data);
         }
 
-        _ctx.AudioManager.StopTimerSfx();
+        _ctx.MediaService.AudioManager.StopTimerSfx();
 
         //_ctx.AudioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
         _ctx.CountDown.Stop(_ctx.GameSet.fastButtonFadeDuration);
@@ -541,7 +541,7 @@ public class LevelScenePm : IDisposable
         var container = new Container<bool>();
         if (sprite != null)
         {
-            _ctx.OnShowNewspaper?.Execute((container, sprite));
+            _ctx.DialogueService.OnShowNewspaper?.Execute((container, sprite));
         }
         else
         {
@@ -563,7 +563,7 @@ public class LevelScenePm : IDisposable
         _ctx.Blocker.FadeScreenBlocker(true).Forget();
         yield return new WaitForSeconds(_ctx.GameSet.shortFadeTime);
 
-        _ctx.OnShowLevelUi?.Execute();
+        _ctx.DialogueService.OnShowLevelUi?.Execute();
 
         _ctx.CursorSettings.EnableCursor(true);
     }
@@ -597,8 +597,19 @@ public class LevelScenePm : IDisposable
     private void RunEndNode(EndNodeData data)
     {
         Debug.Log($"[{this}] level end {data}");
+
+        var nextLevelExists = _ctx.GameLevelsService.TryGetNextLevel(out var nextLevel, out var isGameEnd);
+        
+        Debug.Log($"next level Exists = {nextLevelExists}");
+        
+        if (nextLevelExists)
+        {
+            Debug.Log($"next level {nextLevel.EntryNodeData.LevelId}; isGameEnd = {isGameEnd}");
+            _ctx.GameLevelsService.SetLevel(nextLevel);
+        }
+        
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
-        _ctx.OnLevelEnd?.Execute(data.Records);
+        _ctx.OnLevelEnd?.Execute((data.Records, nextLevelExists));
     }
 
     private IEnumerator ObserveTimer(float time, ReactiveProperty<bool> onSkip = null, Action onEnd = null)
@@ -693,11 +704,11 @@ private Choice RandomSelectButton(List<Choice> choices)
 
     public void Dispose()
     {
-        _ctx.ImageManager.HideImages();
-        _ctx.VideoManager.StopPlayers();
+        _ctx.MediaService.ImageManager.HideImages();
+        _ctx.MediaService.VideoManager.StopPlayers();
         _tokenSource.Cancel();
         _disposables.Dispose();
-        _ctx.AudioManager.UnLoadBank();
+        _ctx.MediaService.AudioManager.UnLoadBank();
     }
 
     private static void PrintArray(List<string> array)

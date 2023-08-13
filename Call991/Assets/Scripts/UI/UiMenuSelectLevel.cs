@@ -11,7 +11,7 @@ namespace UI
     {
         public struct Ctx
         {
-            public GameSet GameSet;
+            public GameLevelsService GameLevelsService;
             public DialogueLoggerPm DialogueLogger;
             public ReactiveCommand<int> OnLevelSelect;
             public ReactiveCommand<int> OnLevelPlay;
@@ -47,9 +47,10 @@ namespace UI
             _buttons = new List<MenuButtonView>();
             int lastFinished = -1;
 
-            for (var i = 0; i < _ctx.GameSet.GameLevels.Levels.Count; i++)
+            var levels = _ctx.GameLevelsService.GetLevels();
+            for (var i = 0; i < levels.Count; i++)
             {
-                var level = _ctx.GameSet.GameLevels.Levels[i];
+                var level = levels[i];
 
                 var btn = Instantiate(levelButtonPrefab, buttonsParent);
                 _localize = level.name;
