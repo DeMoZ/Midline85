@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using AaDialogueGraph;
 using UnityEngine;
@@ -5,9 +6,16 @@ using UnityEngine;
 [CreateAssetMenu]
 public class GameLevelsSo : ScriptableObject
 {
-    [SerializeField] private DialogueContainer startButtonLevel;
-    [SerializeField] private List<DialogueContainer> levels;
-    
-    public DialogueContainer StartButtonLevel => startButtonLevel;
-    public List<DialogueContainer> Levels => levels;
+    [Tooltip("Show all levels and its sequences in one list")] [Space] [SerializeField]
+    private bool showAllLevels;
+    [Space] [SerializeField] private List<LevelGroup> levelGroups;
+
+    public List<LevelGroup> LevelGroups => levelGroups;
+    public bool ShowAllLevels => showAllLevels;
+
+    [Serializable]
+    public class LevelGroup
+    {
+        public List<DialogueContainer> Group;
+    }
 }
