@@ -4730,22 +4730,12 @@
 				</ActorMixer>
 				<ActorMixer Name="fireep_elena" ID="{4BB947F3-325E-432C-ADA3-F3CEE41789A8}" ShortID="424331330">
 					<PropertyList>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>41</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>31</Value>
-							</ValueList>
-						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>7.6</Value>
+								<Value>1.3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -6049,22 +6039,12 @@
 				</ActorMixer>
 				<ActorMixer Name="pizzaep_elena" ID="{BCF8D99B-99D7-4BFD-B116-6E664B92131F}" ShortID="769887099">
 					<PropertyList>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>41</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>31</Value>
-							</ValueList>
-						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>6.1</Value>
+								<Value>-7</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -6080,6 +6060,11 @@
 						<Sound Name="pizzaep_elena_001" ID="{A303B688-734F-4D7B-BBE2-FDED38D1295D}" ShortID="598438427">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -6783,7 +6768,7 @@
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>3.2</Value>
+								<Value>3.6</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
