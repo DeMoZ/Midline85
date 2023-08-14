@@ -9,7 +9,22 @@
 			<ChildrenList>
 				<ActorMixer Name="psycho1_psycho" ID="{5142EAEE-9AE7-4746-9156-67F159B9A227}" ShortID="314342624">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>41</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>31</Value>
+							</ValueList>
+						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-4.2</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -47,10 +62,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{6157AE7F-4E1E-49C5-A999-2998E3DF655B}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="41748542"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_001" ID="{BDAE4B10-F09E-489E-9D02-AECD2B70EB33}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{8F547B4B-67AF-49A3-8F84-CA15E44CB257}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{6157AE7F-4E1E-49C5-A999-2998E3DF655B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_002" ID="{5A4872BE-3D18-4D8D-A665-3A158447CB43}" ShortID="349545829">
@@ -80,10 +102,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{37A8D07C-16B0-4CD9-8D42-D1CF42C5251F}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="590509773"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{1F278553-71D7-4271-91EC-FDAA2C04E4C7}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_002" ID="{FED67BB0-89AB-4FA1-AE51-43FD26AD738A}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{37A8D07C-16B0-4CD9-8D42-D1CF42C5251F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_003" ID="{184DCD97-8779-4BF9-8BDF-FF76BE3BADA2}" ShortID="245732119">
@@ -113,10 +142,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{784DBEB2-51D6-40A5-B1F4-2C5A2775C797}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_003.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="701686230"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_003" ID="{9DAE6533-6D57-4C39-9F44-6A5169E0D2F8}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{8DD7DF4F-35BF-4BF1-A068-0491A106F63E}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{784DBEB2-51D6-40A5-B1F4-2C5A2775C797}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_004" ID="{185B25C8-7CE8-49C7-9BC9-2F7B83E0CD0C}" ShortID="294769892">
@@ -146,9 +182,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{B909164D-4A11-40C4-9DE0-CFC0CD118A7B}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="693563536"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_004" ID="{F6989DD7-1391-4050-9C2C-A64A2CDAE079}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{B909164D-4A11-40C4-9DE0-CFC0CD118A7B}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{8B0964EE-A1DE-49CD-A273-46E636428F96}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -179,10 +222,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{9AE8E1D7-DD98-4D40-86A6-1E691FBAC9F4}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="41360999"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{5F846921-F0FF-4314-8B62-2CABB24907D4}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_005" ID="{0359E275-6A29-4EC4-A1CE-097FF21F149A}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{9AE8E1D7-DD98-4D40-86A6-1E691FBAC9F4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_006" ID="{2C64749A-1CDF-4877-B313-7C6D930786BB}" ShortID="906976278">
@@ -212,10 +262,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{AFB9C93C-7545-44F9-959B-BAC818058F57}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="591300692"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{C40A930D-9ECE-4F90-B11E-A01D5562119F}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_006" ID="{F4A9C397-8D00-411D-B303-47A94150FC98}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{AFB9C93C-7545-44F9-959B-BAC818058F57}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_007" ID="{68CF3483-F211-4543-8CE9-5A9DA72D2E5D}" ShortID="414237484">
@@ -245,9 +302,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{E5F03158-FB3F-47A4-802A-855A6E00B743}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_007.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="538833943"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_007" ID="{8F91FB41-0EBA-4DFC-8CF7-090C87227830}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{E5F03158-FB3F-47A4-802A-855A6E00B743}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{3B7B82E6-E238-4522-BF36-F7C0D8ECFF6D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -278,10 +342,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{1C1D6B23-3485-4F84-97B0-DD4DF49D8C29}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_008.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="778008354"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="psycho1_psycho_01" ID="{1C1D6B23-3485-4F84-97B0-DD4DF49D8C29}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{88002B63-101F-482B-9E6D-402AC307A6D9}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_008" ID="{93BE62CC-0FCD-4987-99BF-E6CD915C320F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_009" ID="{8CC75049-3F6C-4F88-BFB9-BE43A0CEAD13}" ShortID="819898095">
@@ -311,9 +382,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{0F9D6E60-B879-4E9A-AFED-2E908E639EBB}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="443476359"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_009" ID="{B26F794D-5E99-41CF-950E-62F345C8711A}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{0F9D6E60-B879-4E9A-AFED-2E908E639EBB}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{1F3FEDF8-59EF-4C61-B1B4-ADDAB4EBD425}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -344,9 +422,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{89E8EFB0-27D1-4A14-ACD7-AB5A00DB4F96}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_010.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="406279683"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_010" ID="{BEDF8F1A-A9CB-49E6-B0F4-E6079F6E1886}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{89E8EFB0-27D1-4A14-ACD7-AB5A00DB4F96}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{684E2AC6-4275-4D80-9204-095B91EC3458}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -377,10 +462,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{71CB4CF4-F52D-47BA-A3A0-E242E173D226}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_011.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="384022100"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{03677D41-1318-42C3-9015-A834D59FB0CC}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_011" ID="{2BECFEE2-A730-4558-A99A-539C93EB3C89}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{71CB4CF4-F52D-47BA-A3A0-E242E173D226}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_012" ID="{29E3B106-C761-4899-ACA4-514E622FF698}" ShortID="678647908">
@@ -410,10 +502,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{6EF81E4E-302B-48DB-9FEA-C2C0B0EF9A3C}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_012.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="166753127"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="psycho1_psycho_01" ID="{6EF81E4E-302B-48DB-9FEA-C2C0B0EF9A3C}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{D1AEEC89-DDB6-4B60-A281-175EEA572325}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_012" ID="{14A3E9A8-75E6-46B7-B03B-2C9556CEB551}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_013" ID="{DE7E7BAA-DB2A-49C4-8D45-EF75F9C9102D}" ShortID="248223502">
@@ -443,9 +542,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{EA0EEF65-D1F7-4223-AFD9-B474333B115B}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_013.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1036356734"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_013" ID="{045E1228-DD5A-4753-9551-9AF4ECBA5A6F}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{EA0EEF65-D1F7-4223-AFD9-B474333B115B}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{D1371C87-E079-479F-AA58-36E33897B33F}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -476,10 +582,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{319B88D1-096E-4A54-8B33-12359CCD2402}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_014.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="255440246"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{ABC38BB7-96DF-4E5C-B786-BF4A71C1AF7A}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_014" ID="{688F43FA-ABB9-40F5-AE8D-DFC57C0D8ABA}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{319B88D1-096E-4A54-8B33-12359CCD2402}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_015" ID="{B9698B81-BA0B-4465-8F31-8B4F373D6FE4}" ShortID="879172001">
@@ -509,9 +622,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{E6F7287D-FF82-4FA1-898F-097566DAB0BD}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_015.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="5842988"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_015" ID="{1A76AE51-A96F-494E-BF5D-624C7F699194}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{E6F7287D-FF82-4FA1-898F-097566DAB0BD}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{D253FBCF-6BCE-4D90-AC2F-1970BF4C0AC7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -542,10 +662,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{8F7B2BA7-9658-4344-8312-56693ED12BA8}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="902206562"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_016" ID="{65528232-DA6C-4FF4-A2BF-3AED84BEB21F}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{1DAB5E83-AF77-4112-B489-26FC56DDF950}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{8F7B2BA7-9658-4344-8312-56693ED12BA8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_017" ID="{5E800C38-EE98-42D8-9F0D-0D0AA1DAE18E}" ShortID="60164947">
@@ -575,10 +702,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{E30FEF9E-04AC-4B73-88F8-E7BF9E41AF7A}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_017.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="825176824"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{F5621F66-BBBD-4E77-97D5-CB78C0A62652}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_017" ID="{D79D79E6-F9A9-4D66-9D61-C4B865723BD2}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{E30FEF9E-04AC-4B73-88F8-E7BF9E41AF7A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_018" ID="{423233B5-2D36-4CC0-959A-FB6F33A3EBE2}" ShortID="808857485">
@@ -608,10 +742,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{487EF9F6-FBF8-4D9D-803B-B4A083C7CA0D}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_018.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="63037887"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{501AC48D-1876-4BE4-997E-BA2AAA7885DC}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_018" ID="{BF4F9EC6-0993-486A-849C-07B639836BE4}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{487EF9F6-FBF8-4D9D-803B-B4A083C7CA0D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_019" ID="{9FBF4F31-38E6-4887-80AF-DC7FF67729E7}" ShortID="501581973">
@@ -641,10 +782,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{DC5388D4-0989-4266-9A9B-214663D23ED6}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="578574947"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_019" ID="{9C1CFA3A-86E4-4AE8-9DA1-75F970B6D924}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{96096E4B-51D7-4EDC-B807-B8243CED85EA}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{DC5388D4-0989-4266-9A9B-214663D23ED6}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_020" ID="{F7CD23F1-60A4-4C14-B10A-8E4DA39EB606}" ShortID="97936430">
@@ -674,9 +822,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{1EFF2108-2E06-479A-89D6-3234E56FA306}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_020.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="153391813"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_020" ID="{598A4C51-9A6D-49F8-8FD8-5B73E1B79E80}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{1EFF2108-2E06-479A-89D6-3234E56FA306}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{5BE02979-55A4-4C66-83E4-FA59B0F3931B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -707,9 +862,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{185276D4-CF0D-4A57-AF3C-15454EEFE857}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_021.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="379543468"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_021" ID="{EED44B29-9F4D-497D-A701-24686FDB65A4}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{185276D4-CF0D-4A57-AF3C-15454EEFE857}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{62460ED6-BB16-4D28-8FE5-26C9EABE5E28}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -740,10 +902,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{8D14BF16-B3D6-4B11-8803-4011EDA86785}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_022.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="237375153"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="psycho1_psycho_01" ID="{8D14BF16-B3D6-4B11-8803-4011EDA86785}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{D312FB21-576A-4945-BA8F-835216FEC637}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_022" ID="{B201149E-8969-48F5-B325-AC58344A2495}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_023" ID="{0FD455BD-F2B3-404F-8A54-51BAF00C0405}" ShortID="569360077">
@@ -773,10 +942,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{142BB307-746F-4C6D-94BE-A56089E60E9E}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_023.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="447921211"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="psycho1_psycho_01" ID="{142BB307-746F-4C6D-94BE-A56089E60E9E}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{CEB83465-D8A9-4A75-9F2B-D4D6A55B3EE6}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_023" ID="{3A398C96-D12C-49C6-A45F-AE2B55101625}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_024" ID="{616C59D0-88F4-457F-BE3E-14F695BBFE86}" ShortID="728692824">
@@ -806,9 +982,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{847A6902-1280-4C52-A416-771068427199}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_024.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="918582617"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_024" ID="{254A8D1C-D049-4242-A681-1F28C74DEB8A}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{847A6902-1280-4C52-A416-771068427199}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{BA780FD6-9DE0-4827-B7D3-AE367511FBF3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -839,10 +1022,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{8BC060D8-555C-4393-86B2-F93B44522829}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_025.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="648461655"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{FE08FF20-B5C8-4944-BB72-0300DE71EA60}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_025" ID="{D6C4904C-916F-46C1-B99F-8379A4931930}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{8BC060D8-555C-4393-86B2-F93B44522829}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_026" ID="{0413D265-F007-4171-A1B6-2F3B9806867E}" ShortID="290522353">
@@ -872,10 +1062,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{B69AC7D4-7334-4AE1-B207-FA58A15CEE22}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_026.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="347580656"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_026" ID="{63DA5F34-E2E7-4020-A9E2-A08025BE0A2E}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{D3B42D9E-8166-40C2-BBF0-D6F4671CA1A4}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{B69AC7D4-7334-4AE1-B207-FA58A15CEE22}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_027" ID="{2992ACF7-DCAF-4DFA-9FB8-10550813765C}" ShortID="197937010">
@@ -905,9 +1102,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{789851A6-49B6-4AA6-8AC5-200D44D3BA7D}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_027.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="874747091"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_027" ID="{44624659-B6B4-4391-BB59-8FBC7294E3D1}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{789851A6-49B6-4AA6-8AC5-200D44D3BA7D}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{E7BDFFEF-6D2C-4117-94E3-1F12A183990D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -938,9 +1142,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{F42F18C3-4E90-4E64-819C-EEE2FE481A4D}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_028.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="604758409"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_028" ID="{1069F650-645D-49DE-93CE-A88A57BA89ED}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{F42F18C3-4E90-4E64-819C-EEE2FE481A4D}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{57C898EB-236A-40C1-BAAA-CBA46BE06AC8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -971,10 +1182,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{9D739ACB-ACB1-41A7-9F9D-38498A737CE4}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_029.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="599820183"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_029" ID="{BC21F851-00CB-4DFE-AD47-9F3FB0BC7716}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{4A26EC53-A433-4B2E-A98C-A09321DBEB20}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{9D739ACB-ACB1-41A7-9F9D-38498A737CE4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_030" ID="{7407238C-0538-46E6-B082-2F55E7212CEE}" ShortID="855495787">
@@ -1004,10 +1222,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{07CC1EFB-3325-47A7-952B-C61EBA27E2C2}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_030.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="23163855"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_030" ID="{D9108009-9A32-4F34-95EB-6A57451325AC}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{5852AE2B-7CB9-424C-A0C0-51B285D619A8}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{07CC1EFB-3325-47A7-952B-C61EBA27E2C2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_031" ID="{39A503F5-F78E-4B49-A3F4-81D37E088859}" ShortID="315297637">
@@ -1037,9 +1262,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{5826B32D-4455-46A7-9E86-6C6E6E3A4F2A}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_031.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="77164528"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_031" ID="{556B5D64-D643-4B51-9A45-BF4F2F1F4AC1}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{5826B32D-4455-46A7-9E86-6C6E6E3A4F2A}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{76179E68-4F13-4D20-B731-3A96E8E6D2FF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1070,10 +1302,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{E7BDC6D8-B62C-48FC-9F44-20A974D5828C}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_032.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="817372159"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_032" ID="{7EC75922-A29C-4E21-A0CA-5A4D979F7BE9}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{530C4F5D-86B5-4F63-9F70-11F280B35C24}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{E7BDC6D8-B62C-48FC-9F44-20A974D5828C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_033" ID="{6D8A098C-F801-41E1-918F-C449C8376496}" ShortID="715315067">
@@ -1103,9 +1342,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{E0AC1120-5183-44BC-AB15-06BACF9541EB}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_033.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="455320470"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_033" ID="{5F75CE01-0E06-4DA4-BB4E-8A35DBAC4428}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{E0AC1120-5183-44BC-AB15-06BACF9541EB}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{E4FFC8AC-D442-4E88-A328-8044A91D34A9}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1136,9 +1382,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{F9298A31-4ECE-4758-83F1-51782B0630E2}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_034.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="347579510"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_034" ID="{0A538A79-AE52-4E39-AE36-41030AE13FDF}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{F9298A31-4ECE-4758-83F1-51782B0630E2}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{4EBF92BA-0976-470D-86D4-AAFE16C09283}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1169,10 +1422,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{8178F3D1-96D9-49DB-AA83-CF2FF8513870}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_035.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="159820629"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{F351D7A1-404D-46FD-90F5-C4A31EC38B41}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_035" ID="{65CA64C6-3196-457D-88C6-70DC1902A3FA}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{8178F3D1-96D9-49DB-AA83-CF2FF8513870}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_036" ID="{3DB29AFE-E175-4E5F-A967-53D057A5E4D7}" ShortID="261884560">
@@ -1202,10 +1462,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{F2B074EA-EBDC-4A7C-B0AB-0E532478F342}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_036.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="917617150"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_036" ID="{7F122F0A-5832-4088-94B1-3193F2EFA4E7}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{F994F460-A87D-4B88-BBEC-A4E14A56881A}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{F2B074EA-EBDC-4A7C-B0AB-0E532478F342}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_037" ID="{D7D70810-0ACC-4B04-8A56-65291EBE1C68}" ShortID="1028678981">
@@ -1235,9 +1502,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{A43A8446-8B5C-42D6-8975-6D23AF54A42D}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_037.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="413171386"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_037" ID="{6F4AEDCA-73BD-4B40-BCC1-9DE3B13586D5}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{A43A8446-8B5C-42D6-8975-6D23AF54A42D}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{6A76AACB-D91B-48B3-801A-021ECAD9D375}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1268,10 +1542,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{8802E709-1D32-4446-A71C-0ECB71522A7A}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_038.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="186142195"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="psycho1_psycho_01" ID="{8802E709-1D32-4446-A71C-0ECB71522A7A}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{EF218E86-2C04-4503-991C-4EC1AF78F79B}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_038" ID="{DA353BF3-264C-46FB-8323-2891D27FB314}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_039" ID="{BB203FC9-6221-4027-B68D-02BDCBAF4582}" ShortID="575766222">
@@ -1301,10 +1582,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{61E8CAC4-261C-484F-A273-A867ADC1E94E}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_039.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="862797516"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{A5406C01-5F81-4C39-A53A-73709E80C9A1}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_039" ID="{7AB8C4EB-DF92-47A3-BEAD-F976E099688B}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{61E8CAC4-261C-484F-A273-A867ADC1E94E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_040" ID="{307A8920-95FF-4AED-9E83-52648E23567B}" ShortID="540333692">
@@ -1334,9 +1622,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{F8EBDBB3-1C9C-4040-9CD8-5B5D5EC40216}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_040.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="370926634"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_040" ID="{C9F6F780-913C-470A-8E8E-74F4D274F191}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{F8EBDBB3-1C9C-4040-9CD8-5B5D5EC40216}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{0E6635D5-6954-4254-B9AD-870C42A11BBE}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1367,10 +1662,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{103719F2-34D4-4319-B6E0-F0CEF93181AC}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_041.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="100520494"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_041" ID="{597A2D6B-659B-49FA-AA87-9CBFCE16DDE2}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{487D3E6B-B8B8-4F70-A5F2-93B6BBE8F05F}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{103719F2-34D4-4319-B6E0-F0CEF93181AC}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_042" ID="{661C711F-342C-43F0-80CD-5F844F5A5745}" ShortID="973365982">
@@ -1400,10 +1702,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{2D8A92D8-656E-48B9-BD19-91645579C171}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_042.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="345120506"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_042" ID="{684BC451-DDCA-4530-9A2F-352F2AAFBA67}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{1C9BD871-65BD-47EC-AFAF-EC31E738E7BE}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{2D8A92D8-656E-48B9-BD19-91645579C171}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_043" ID="{7F827CEC-E000-4BEB-9841-AEB0615BD2C6}" ShortID="51056524">
@@ -1433,10 +1742,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{1CE0DCA4-974A-4BEE-8CAD-6AC2910DD3E7}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_043.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="914724453"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{7058DD9E-E597-491A-AF6F-D0EABA09D011}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_043" ID="{5013A5EF-2E27-47D9-B255-594F0EFC8182}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{1CE0DCA4-974A-4BEE-8CAD-6AC2910DD3E7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_044" ID="{B10D8F2D-5FF0-445C-8F77-24039733D542}" ShortID="765895392">
@@ -1466,9 +1782,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{FA378BD6-CC38-4D3A-AB49-6182C7884A12}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_044.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="560127175"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_044" ID="{239A92E4-07AC-4382-A23E-4D81D8495069}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{FA378BD6-CC38-4D3A-AB49-6182C7884A12}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{5E5D0CFD-30C4-402C-884F-68DAF5E5E58A}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1499,10 +1822,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{A51BA910-9169-4D6D-BFEB-8F7BC9A95B0C}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_045.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="641086250"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{8504F209-B7A7-42A8-B6A4-9CC7AB409B8D}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_045" ID="{0A6EC422-1254-4817-B093-AF6825741151}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{A51BA910-9169-4D6D-BFEB-8F7BC9A95B0C}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_046" ID="{8607400A-727E-4324-9105-6A4B3048A9F7}" ShortID="96711350">
@@ -1532,10 +1862,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{4459D9EB-BAB4-4908-9330-140EC3913003}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_046.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1020949063"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{5C05657C-C6D3-46CA-8D66-76E39ED18366}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_046" ID="{BF9D92D1-097F-48C2-B2F1-B8654A1AE2B8}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{4459D9EB-BAB4-4908-9330-140EC3913003}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_047" ID="{C949913B-0CC9-45F0-921D-7516EF33A99A}" ShortID="75410455">
@@ -1565,10 +1902,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{FDCF659C-D826-460E-BB07-4DDCCF656D15}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_047.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="236337742"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{9CF03614-7734-4DE4-BEA2-F7EDC1191432}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_047" ID="{7CACE3DC-78CF-4332-9195-C917AF4A3124}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{FDCF659C-D826-460E-BB07-4DDCCF656D15}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_048" ID="{C9A61967-6923-49C0-A2CE-2D7650F66306}" ShortID="273001262">
@@ -1598,10 +1942,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{102FFFF0-42BC-4248-9B4A-8688B54344C8}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_048.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1018763983"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_048" ID="{40D93C94-4CE5-4534-8D1D-D7C408114A4B}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{D121C4E2-62C8-4F6B-9C91-9C4434D27692}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{102FFFF0-42BC-4248-9B4A-8688B54344C8}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_049" ID="{4999BFCD-E766-4310-8C60-B9AF2E926BD0}" ShortID="70960644">
@@ -1631,10 +1982,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{0E0768FA-1331-483E-BB96-796D8B790BDF}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_049.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="668790180"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_049" ID="{BEB04E9D-5206-42AA-A081-81734F62C3C1}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{9B9154C3-6533-4250-B3C7-4C6E5E6C83DB}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{0E0768FA-1331-483E-BB96-796D8B790BDF}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_050" ID="{417E5035-3DB2-4A3B-ACD8-7E3A482085BC}" ShortID="102181106">
@@ -1664,10 +2022,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{A92EE4BF-2DCB-455A-8C80-9604379BF40E}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_050.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="878422211"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{83E64050-3CD6-475B-860A-B6C88382CEB5}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_050" ID="{C1423F98-1551-432C-9DB8-D066BEAF94B0}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{A92EE4BF-2DCB-455A-8C80-9604379BF40E}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_051" ID="{80EA43A4-5965-4FF3-9F68-B8233A581882}" ShortID="527379834">
@@ -1697,9 +2062,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{5664FA72-AB43-413B-87FC-6BFABB225368}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_051.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="769708343"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_051" ID="{BDD7E204-232C-438C-A066-00E98611DBF0}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{5664FA72-AB43-413B-87FC-6BFABB225368}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{9BCCCFBB-4EFE-47D9-8A7F-7266E7564438}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1730,10 +2102,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{85933562-C0C3-4291-A048-0FAF069D0B11}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_052.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="428442665"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="psycho1_psycho_01" ID="{85933562-C0C3-4291-A048-0FAF069D0B11}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{EF9957C4-7696-4163-B029-A3A66E320DEA}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_052" ID="{634302E2-B31A-4C9D-8FCB-644962B34A66}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_053" ID="{F1DC8E01-0AEE-45A0-96E8-A04EBEE109AB}" ShortID="275203791">
@@ -1763,10 +2142,17 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{0E4FAD93-B807-4694-8CC4-3AACA2E90D69}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_053.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="239593009"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{B993051E-CD0F-4819-94D6-4C9E524E6365}" Platform="Linked"/>
-								<ActiveSource Name="psycho1_psycho_053" ID="{552CDB59-B5BE-45DB-A6E5-69C9F7B45E33}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{0E4FAD93-B807-4694-8CC4-3AACA2E90D69}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="psycho1_psycho_054" ID="{95D1246D-8D34-4B59-AF7B-7017F013B353}" ShortID="991081600">
@@ -1796,9 +2182,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{E6F8221E-1E7E-47FF-8973-8166D07273A5}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_054.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="565986325"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_054" ID="{D59DE89B-C1F4-45F9-8105-A0E40B14127A}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{E6F8221E-1E7E-47FF-8973-8166D07273A5}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{ADEFEFCF-77AC-4D5F-A821-CFDAA5BDD8D3}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1829,9 +2222,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{D27E0058-CE0B-45E3-A0EF-FE8B0B640FBA}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_055.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1059731870"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_055" ID="{8CEC9435-0DF5-40A9-8FB2-2FABA5985337}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{D27E0058-CE0B-45E3-A0EF-FE8B0B640FBA}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{F82C19A9-34BE-4F40-B495-8666659B0C6B}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1862,9 +2262,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{8DE5FB8F-2F86-4E05-B143-74367EAB122E}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_056.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="69693162"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_056" ID="{E22F4715-9DE9-4449-BA04-41E213D204BB}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{8DE5FB8F-2F86-4E05-B143-74367EAB122E}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{AD5C43D5-56D4-429A-AD57-121E31F2B859}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -1895,9 +2302,16 @@
 									</PropertyList>
 									<Language>English</Language>
 								</SourcePlugin>
+								<AudioFileSource Name="psycho1_psycho_01" ID="{3BF24981-DB47-4542-B171-009A9ED30FA3}">
+									<Language>Russian</Language>
+									<AudioFile>psycho1_psycho\psycho1_psycho_057.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="71836748"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="psycho1_psycho_057" ID="{B86C1C89-4931-47C2-8424-AD974DF90FC0}" Platform="Linked"/>
+								<ActiveSource Name="psycho1_psycho_01" ID="{3BF24981-DB47-4542-B171-009A9ED30FA3}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{46B117BD-ADFF-401E-AF01-5A4D1362D452}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>

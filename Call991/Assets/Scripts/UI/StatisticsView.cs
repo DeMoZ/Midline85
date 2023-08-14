@@ -12,10 +12,11 @@ namespace UI
         public struct Ctx
         {
             public ReactiveCommand OnClickMenuButton;
-            public Blocker Blocker;
+            public ReactiveCommand OnClickNextLevelButton;
         }
 
         [SerializeField] private MenuButtonView menuButton = default;
+        [SerializeField] private MenuButtonView nextLevelButton = default;
 
         [Space] [SerializeField] private RectTransform table = default;
         [SerializeField] private StatisticsCellView cellPrefab = default;
@@ -26,17 +27,21 @@ namespace UI
         {
             _ctx = ctx;
             menuButton.OnClick += OnClickMenu;
+            nextLevelButton.OnClick += OnClickNextLevel;
         }
+
+        private void OnClickNextLevel() => 
+            _ctx.OnClickNextLevelButton.Execute();
 
         private void OnClickMenu() =>
             _ctx.OnClickMenuButton.Execute();
 
-        public async Task PopulateCells(List<RecordData> data)
-        {
-            foreach (Transform cell in table)
-            {
+        public async Task PopulateCells(List<RecordData> data, bool nextLevelExists)
+        {   
+            nextLevelButton.gameObject.SetActive(nextLevelExists);
+            
+            foreach (Transform cell in table) 
                 Destroy(cell.gameObject);
-            }
 
             foreach (var record in data)
             {
@@ -50,10 +55,18 @@ namespace UI
                     if (tokenSource is { IsCancellationRequested: true }) return;
                 }
                 else
+                {
                     sprite = null;
+                }
 
                 cell.image.sprite = sprite;
             }
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            menuButton.OnClick -= OnClickMenu;
         }
     }
 }

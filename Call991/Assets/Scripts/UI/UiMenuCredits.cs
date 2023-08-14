@@ -10,6 +10,9 @@ namespace UI
             public ReactiveCommand OnClickToMenu;
         }
 
+        [SerializeField] private DevelopersSo developers;
+        [SerializeField] private DeveloperPerson developerPrefab;
+        [SerializeField] private RectTransform developersParent;
         [SerializeField] private MenuButtonView returnBtn = default;
 
         private Ctx _ctx;
@@ -21,6 +24,15 @@ namespace UI
         private void Awake()
         {
             returnBtn.OnClick += OnClickToMenu;
+            
+            foreach (Transform developer in developersParent)
+                Destroy(developer.gameObject);
+
+            foreach (var developer in developers.Developers)
+            {
+                var developerPerson = Instantiate(developerPrefab, developersParent);
+                developerPerson.Set(developer.Position,  developer.NameKey);
+            }
         }
         
         public void OnClickToMenu()

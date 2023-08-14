@@ -26,7 +26,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-17</Value>
+										<Value>-30.5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -80,7 +80,7 @@
 								<Property Name="RecoveryTime" Type="Real64" Value="0.3"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>5.4</Value>
+										<Value>6.9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -100,7 +100,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-5.3</Value>
+														<Value>-4.1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -109,7 +109,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>2.3</Value>
+														<Value>4.5</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -167,15 +167,39 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-4.3</Value>
+												<Value>-9.6</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
 									<ChildrenList>
 										<Bus Name="Mark_Intro" ID="{F7602242-36FE-43E7-B031-102790538277}"/>
-										<Bus Name="Mark_Training" ID="{FA34CF53-186F-41A3-BD2E-F74DD9E7B67C}"/>
-										<Bus Name="Mark_Boss First" ID="{8E603697-E7F5-425B-A6B9-3B4ACEA7CE8F}"/>
-										<Bus Name="Mark_Boss Two" ID="{5161EDB4-D6B7-4A18-A849-CBAE75D28827}"/>
+										<Bus Name="Mark_Training" ID="{FA34CF53-186F-41A3-BD2E-F74DD9E7B67C}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-4.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
+										<Bus Name="Mark_Boss First" ID="{8E603697-E7F5-425B-A6B9-3B4ACEA7CE8F}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
+										<Bus Name="Mark_Boss Two" ID="{5161EDB4-D6B7-4A18-A849-CBAE75D28827}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
 									</ChildrenList>
 								</Bus>
 								<Bus Name="Joshua" ID="{BF6CCAF1-F62A-40DF-A7C7-D32839E7E717}">
@@ -201,7 +225,7 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-5.5</Value>
+												<Value>-8.3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -229,7 +253,7 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>1.8</Value>
+												<Value>-2.4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -301,7 +325,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-20</Value>
+										<Value>-23.6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

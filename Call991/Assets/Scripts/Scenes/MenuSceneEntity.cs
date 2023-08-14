@@ -13,7 +13,7 @@ public class MenuSceneEntity : IGameScene
         public PlayerProfile Profile;
         public WwiseAudio AudioManager;
         public DialogueLoggerPm DialogueLogger;
-        public ReactiveProperty<int> PlayLevelIndex;
+        public GameLevelsService GameLevelsService;
     }
 
     private Ctx _ctx;
@@ -56,10 +56,9 @@ public class MenuSceneEntity : IGameScene
             OnLevelSelect = _onLevelSelect,
             OnClickNewGame = _onClickNewGame,
             
-            PlayLevelIndex = _ctx.PlayLevelIndex,
+            GameLevelsService = _ctx.GameLevelsService,
             OnSwitchScene = _ctx.OnSwitchScene,
             Profile = _ctx.Profile,
-            GameSet = _ctx.GameSet,
         });
         
         _ui = UnityEngine.GameObject.FindObjectOfType<UiMenuScene>();
@@ -71,7 +70,7 @@ public class MenuSceneEntity : IGameScene
             OnClickNewGame = _onClickNewGame,
             Profile = _ctx.Profile,
             AudioManager = _ctx.AudioManager,
-            GameSet = _ctx.GameSet,
+            GameLevelsService = _ctx.GameLevelsService,
             DialogueLogger = _ctx.DialogueLogger,
         });
     }
