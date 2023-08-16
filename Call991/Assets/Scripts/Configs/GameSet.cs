@@ -44,6 +44,7 @@ namespace Configs
 
         [Space] [Title("DialogueGraph settings")]
         public WwiseVoicesSet VoicesSet;
+        public WwiseVoicesSet SfxsSet;
         public WwiseMusicSwitchesList MusicSwitchesKeys;
         public WwiseRtpcList RtpcKeys;
         public LevelKeysList LevelKeys;

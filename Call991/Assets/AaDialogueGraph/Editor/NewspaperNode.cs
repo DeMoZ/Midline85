@@ -7,8 +7,7 @@ namespace AaDialogueGraph.Editor
 {
     public class NewspaperNode : AaNode
     {
-        public void Set(NewspaperNodeData data, List<string> languages, string guid, 
-            List<string> sounds, List<string> musics, List<string> rtcps)
+        public void Set(NewspaperNodeData data, List<string> languages, string guid, SoundLists soundLists)
         {
             Guid = guid;
             title = AaGraphConstants.NewspaperNode;
@@ -19,7 +18,7 @@ namespace AaDialogueGraph.Editor
             contentFolder.AddToClassList("aa-NewspaperNode_extension-container");
             
             var nodeEvents = new AaNodeEvents();
-            nodeEvents.Set(data.EventVisualData, CheckNodeContent, sounds, musics, rtcps);
+            nodeEvents.Set(data.EventVisualData, CheckNodeContent, soundLists);
             contentFolder.Add(nodeEvents);
 
             var phraseContainer = new ElementsTable();

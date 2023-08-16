@@ -18,8 +18,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: -232
       y: 202
-      width: 102
-      height: 189
+      width: 101.5
+      height: 186.5
     LevelId: L1_Intro
     Languages:
     - Russian
@@ -32,7 +32,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 654
       y: 138
-      width: 105
+      width: 104.5
       height: 96
     PhraseSketchText: lara 002
     PersonVisualData:
@@ -59,7 +59,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 654
       y: 248
-      width: 105
+      width: 104.5
       height: 96
     PhraseSketchText: lara 003
     PersonVisualData:
@@ -86,7 +86,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 654
       y: 362
-      width: 105
+      width: 104.5
       height: 96
     PhraseSketchText: lara 004
     PersonVisualData:
@@ -134,7 +134,7 @@ MonoBehaviour:
       x: 205
       y: 200
       width: 292
-      height: 403
+      height: 498
     PhraseSketchText: elena 001. 911
     PersonVisualData:
       Person: UNKNOWN
@@ -144,6 +144,20 @@ MonoBehaviour:
       TextAppear: 0
       HideOnEnd: 1
     EventVisualData:
+    - Type: 2
+      PhraseEvent: SFX/sfx_MChready
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 2
+      PhraseEvent: SFX/sfx_dooropen
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 2
+      Value: 0
     - Type: 4
       PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
       Layer: 0
@@ -151,9 +165,9 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-    PhraseSound: NONE
+    PhraseSound: L1_Intro/Elena/elena_1
     Phrases:
-    - 
+    - Phrases/L5_Fire/Russian/fire_p_const/fire_p_const_001.asset
     - 
   ImagePhraseNodeData: []
   ChoiceNodeData:
@@ -163,7 +177,7 @@ MonoBehaviour:
       x: 519
       y: 248
       width: 136
-      height: 98
+      height: 97.5
     Choice: btn.incendies.001
     CaseData:
       Words: []
@@ -176,7 +190,7 @@ MonoBehaviour:
       x: 519
       y: 362
       width: 136
-      height: 98
+      height: 97.5
     Choice: btn.incendies.001
     CaseData:
       Words: []
@@ -188,8 +202,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 519
       y: 138
-      width: 109
-      height: 98
+      width: 108.5
+      height: 97.5
     Choice: btn.test/057
     CaseData:
       Words: []
@@ -205,7 +219,7 @@ MonoBehaviour:
       x: 796
       y: 266
       width: 131
-      height: 96
+      height: 95.5
     End: FIRE.END.NEUT1
     EventVisualData:
     - Type: 2
@@ -224,7 +238,7 @@ MonoBehaviour:
       x: 796
       y: 375
       width: 129
-      height: 96
+      height: 95.5
     End: FIRE.END.GOOD
     EventVisualData:
     - Type: 2
@@ -242,8 +256,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 798
       y: 138
-      width: 119
-      height: 96
+      width: 118.5
+      height: 95.5
     End: FIRE.END.BAD
     EventVisualData:
     - Type: 2
@@ -263,7 +277,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 25
       y: 200
-      width: 100
+      width: 99.5
       height: 96
     EventVisualData: []
     Sprites:
