@@ -43,7 +43,8 @@ namespace Configs
         public GameLevelsSo GameLevels;
 
         [Space] [Title("DialogueGraph settings")]
-        public WwiseVoicesSet VoicesSet;
+        public WwiseSoundsSet VoicesSet;
+        public WwiseSoundsSet SfxsSet;
         public WwiseMusicSwitchesList MusicSwitchesKeys;
         public WwiseRtpcList RtpcKeys;
         public LevelKeysList LevelKeys;
@@ -53,8 +54,7 @@ namespace Configs
         public ChoiceKeysList ChoiceKeys;
         public RecordKeysList RecordKeys;
         public LanguagesKeysList LanguagesKeys;
-        
-        
+
         private void OnValidate()
         {
 #if UNITY_EDITOR

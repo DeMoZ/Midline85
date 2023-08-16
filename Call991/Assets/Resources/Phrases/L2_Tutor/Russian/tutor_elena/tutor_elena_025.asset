@@ -3,47 +3,39 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject:
-    fileID: 0
-  m_PrefabInstance:
-    fileID: 0
-  m_PrefabAsset:
-    fileID: 0
-  m_GameObject:
-    fileID: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script:
-    fileID: 11500000
-    guid: 810af83c7a0b40e9b11bcb70e2ae7a42
-    type: 3
+  m_Script: {fileID: 11500000, guid: 810af83c7a0b40e9b11bcb70e2ae7a42, type: 3}
   m_Name: tutor_elena_025
   m_EditorClassIdentifier: 
   phraseId: tutor_elena_025
-  overrideSoundName: false
-  soundFileName: ''
-  text: Сэр, кто напал на вас?
+  text: "\u0421\u044D\u0440, \u043A\u0442\u043E \u043D\u0430\u043F\u0430\u043B \u043D\u0430
+    \u0432\u0430\u0441?"
   wordTimes:
-  - wipe: false
-    word: Сэр,
-    timeLine: 0
-    time: 0.3
-  - wipe: false
-    word: кто
-    timeLine: 0.3
-    time: 0.7
-  - wipe: false
-    word: напал
-    timeLine: 1
-    time: 0.3
-  - wipe: false
-    word: на
-    timeLine: 1.3
-    time: 0.1
-  - wipe: false
-    word: вас?
-    timeLine: 1.4
-    time: 0
-  beforeFirstWord: 0
+  - wipe: 0
+    word: "\u0421\u044D\u0440,"
+    timeLine: 0.067
+    time: 0.66700006
+  - wipe: 0
+    word: "\u043A\u0442\u043E"
+    timeLine: 0.734
+    time: 0.10599995
+  - wipe: 0
+    word: "\u043D\u0430\u043F\u0430\u043B"
+    timeLine: 0.84
+    time: 0.39500004
+  - wipe: 0
+    word: "\u043D\u0430"
+    timeLine: 1.235
+    time: 0.13300002
+  - wipe: 0
+    word: "\u0432\u0430\u0441?"
+    timeLine: 1.368
+    time: 1
+  beforeFirstWord: 0.067
   afterLastWord: 1
-  totalTime: 1.64
+  totalTime: 2.368

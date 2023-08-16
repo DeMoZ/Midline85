@@ -18,8 +18,8 @@ public class LevelSceneEntity : IGameScene
         public ReactiveProperty<List<string>> LevelLanguages;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public WwiseAudio AudioManager;
-        public VideoManager VideoManager;
+        public GameLevelsService GameLevelsService;
+        public MediaService MediaService;
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
@@ -56,18 +56,16 @@ public class LevelSceneEntity : IGameScene
     public async void Enter()
     {
         Debug.Log($"[{this}] Entered");
-        // from prefab, or find, or addressable
+
         _ui = Object.FindObjectOfType<UiLevelScene>();
 
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
+        var onClickNextLevelButton = new ReactiveCommand().AddTo(_disposables);
 
-        var onShowPhrase = new ReactiveCommand<UiPhraseData>();
-        var onHidePhrase = new ReactiveCommand<UiPhraseData>().AddTo(_disposables);
+        var dialogueService = new DialogueService().AddTo(_disposables);
+
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
-        var onLevelEnd = new ReactiveCommand<List<RecordData>>().AddTo(_disposables);
-        var onShowNewspaper = new ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)>().AddTo(_disposables);
-        var onShowLevelUi = new ReactiveCommand(); // on newspaper done
-        var onSkipPhrase = new ReactiveCommand().AddTo(_disposables);
+        var onLevelEnd = new ReactiveCommand<(List<RecordData> recordData, bool nextLevelExists)>().AddTo(_disposables);
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
 
         var buttons = _ui.Buttons;
@@ -80,7 +78,7 @@ public class LevelSceneEntity : IGameScene
             Profile = _ctx.Profile,
         }).AddTo(_disposables);
 
-        var phraseSkipper = new PhraseSkipper(onSkipPhrase).AddTo(_disposables);
+        var phraseSkipper = new PhraseSkipper(dialogueService.OnSkipPhrase).AddTo(_disposables);
 
         var onNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
         var findNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
@@ -100,38 +98,33 @@ public class LevelSceneEntity : IGameScene
             OverridenDialogue = _ctx.OverridenDialogue,
             OnSwitchScene = _ctx.OnSwitchScene,
             OnClickMenuButton = onClickMenuButton,
-            OnShowLevelUi = onShowLevelUi,
+            OnClickNextLevelButton = onClickNextLevelButton,
 
-            OnShowPhrase = onShowPhrase,
             ContentLoader = contentLoader,
             ObjectEvents = _ctx.ObjectEvents,
 
-            OnHidePhrase = onHidePhrase,
             OnAfterEnter = onAfterEnter,
             GameSet = _ctx.GameSet,
             LevelId = levelId,
             buttons = buttons,
             CountDown = countDown,
-            AudioManager = _ctx.AudioManager,
+            DialogueService = dialogueService,
+            GameLevelsService = _ctx.GameLevelsService,
+            MediaService = _ctx.MediaService,
             OnLevelEnd = onLevelEnd,
-            OnShowNewspaper = onShowNewspaper,
-            OnSkipPhrase = onSkipPhrase,
             OnClickPauseButton = onClickPauseButton,
-            VideoManager = _ctx.VideoManager,
             Blocker = _ctx.Blocker,
-            cursorSettings = _ctx.CursorSettings,
+            CursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
         {
             OnClickMenuButton = onClickMenuButton,
-            OnShowPhrase = onShowPhrase,
-            OnHidePhrase = onHidePhrase,
+            OnClickNextLevelButton = onClickNextLevelButton,
+            DialogueService = dialogueService,
             OnShowTitle = _ctx.ObjectEvents.EventsGroup.OnShowTitle,
             OnShowWarning = _ctx.ObjectEvents.EventsGroup.OnShowWarning,
             OnLevelEnd = onLevelEnd,
-            OnShowNewspaper = onShowNewspaper,
-            OnShowLevelUi = onShowLevelUi,
             OnClickPauseButton = onClickPauseButton,
             Profile = _ctx.Profile,
             IsPauseAllowed = _ctx.IsPauseAllowed,

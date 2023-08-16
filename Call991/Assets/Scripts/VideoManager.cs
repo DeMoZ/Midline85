@@ -25,8 +25,6 @@ public class VideoManager : MonoBehaviour
     [SerializeField] private List<VideoPlayer> videoPlayers = default;
 
     private Ctx _ctx;
-    private string _currentVideoPath;
-    private VideoClip _currentVideoClip;
 
     public void SetCtx(Ctx ctx)
     {
@@ -51,10 +49,8 @@ public class VideoManager : MonoBehaviour
 
     public void StopPlayers()
     {
-        foreach (var player in videoPlayers)
-        {
+        foreach (var player in videoPlayers) 
             StopVideo(player);
-        }
     }
     
     public void PlayVideo(VideoSet data)

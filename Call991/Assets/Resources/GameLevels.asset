@@ -12,9 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7af3bb009a7c46b7961403adefe4e4b, type: 3}
   m_Name: GameLevels
   m_EditorClassIdentifier: 
-  Levels:
-  - {fileID: 11400000, guid: ffb4e782933ad3b4d90c406e851d9e41, type: 2}
-  - {fileID: 11400000, guid: cb4b81308a9f5d54ba78722becaaf1de, type: 2}
-  - {fileID: 11400000, guid: dd43abbde0b997d4c9f25e5705e2b09f, type: 2}
-  - {fileID: 11400000, guid: 22e783389b8065243af97be81d3df2d6, type: 2}
-  - {fileID: 11400000, guid: 12b55f7a275d502408b988d07efc6a24, type: 2}
+  showAllLevels: 1
+  levelGroups:
+  - Group:
+    - {fileID: 11400000, guid: ffb4e782933ad3b4d90c406e851d9e41, type: 2}
+  - Group:
+    - {fileID: 11400000, guid: cb4b81308a9f5d54ba78722becaaf1de, type: 2}
+    - {fileID: 11400000, guid: dd43abbde0b997d4c9f25e5705e2b09f, type: 2}
+  - Group:
+    - {fileID: 11400000, guid: 22e783389b8065243af97be81d3df2d6, type: 2}
+    - {fileID: 11400000, guid: 357daee47c873457897c3ad6107d1900, type: 2}
+  - Group:
+    - {fileID: 11400000, guid: 12b55f7a275d502408b988d07efc6a24, type: 2}

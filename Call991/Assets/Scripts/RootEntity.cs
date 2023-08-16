@@ -15,6 +15,8 @@ public class RootEntity : IDisposable
     public struct Ctx
     {
         public WwiseAudio AudioManagerPrefab;
+        public ImageManager ImageManagerPrefab;
+        public RectTransform ImageManagerParent;
         public VideoManager VideoManagerPrefab;
         public RectTransform VideoManagerParent;
         public OverridenDialogue OverridenDialogue;
@@ -39,14 +41,15 @@ public class RootEntity : IDisposable
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
 
-        var playLevelIndex = new ReactiveProperty<int>(0);
+        var gameLevelsService = new GameLevelsService(gameSet);
+        
         var levelLanguages = new ReactiveProperty<List<string>>();
         var isPauseAllowed = new ReactiveProperty<bool>(true);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
         var onScreenFade = new ReactiveCommand<(bool show, float time)>();
         var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
         var onShowWarning = new ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)>();
-        
+
         var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
         {
             OnScreenFade = onScreenFade,
@@ -55,7 +58,6 @@ public class RootEntity : IDisposable
             SkipTitle = _ctx.OverridenDialogue.SkipTitle,
             SkipWarning = _ctx.OverridenDialogue.SkipWarning,
         }).AddTo(_disposables);
-
 
         var profile = new PlayerProfile();
         SetLanguage(profile.TextLanguage);
@@ -81,11 +83,23 @@ public class RootEntity : IDisposable
         });
         audioManager.Initialize().Forget();
 
+        var imageManager = Object.Instantiate(_ctx.ImageManagerPrefab, _ctx.ImageManagerParent);
+        imageManager.SetCtx(new ImageManager.Ctx
+        {
+        });
+
         var videoManager = Object.Instantiate(_ctx.VideoManagerPrefab, _ctx.VideoManagerParent);
         videoManager.SetCtx(new VideoManager.Ctx
         {
         });
-        
+
+        var mediaService = new MediaService(new MediaService.Ctx
+        {
+            AudioManager = audioManager,
+            ImageManager = imageManager,
+            VideoManager = videoManager,
+        });
+
         var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
 
@@ -96,8 +110,7 @@ public class RootEntity : IDisposable
             OnStartApplicationSwitchScene = _onStartApplicationSwitchScene,
             OnSwitchScene = onSwitchScene,
             Profile = profile,
-            AudioManager = audioManager,
-            VideoManager = videoManager,
+            MediaService = mediaService,
             Blocker = blocker,
             ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,
@@ -105,7 +118,7 @@ public class RootEntity : IDisposable
             IsPauseAllowed = isPauseAllowed,
             LevelLanguages = levelLanguages,
             DialogueLogger = dialogueLoggerPm,
-            PlayLevelIndex = playLevelIndex,
+            GameLevelsService = gameLevelsService,
         }).AddTo(_disposables);
 
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx

@@ -9,16 +9,12 @@ namespace AaDialogueGraph.Editor
 {
     public class DialogueGraphView : GraphView
     {
-        private readonly List<string> _voices;
-        private readonly List<string> _musics;
-        private readonly List<string> _rtcps;
-
-        public DialogueGraphView(AaReactive<LanguageOperation> languageOperation, 
-            List<string> voices, List<string> musics, List<string> rtpcs)
+        private SoundLists _soundLists;
+        
+        public DialogueGraphView(AaReactive<LanguageOperation> languageOperation, SoundLists soundLists)
         {
-            _voices = voices;
-            _musics = musics;
-            _rtcps = rtpcs;
+            _soundLists = soundLists;
+            
             var backgroundStyle = (StyleSheet)EditorGUIUtility.Load("AaDialogueGraph/Styles/GraphViewStyle.uss");
             if (backgroundStyle)
                 styleSheets.Add(backgroundStyle);
@@ -63,9 +59,18 @@ namespace AaDialogueGraph.Editor
         public void CreatePhraseNode()
         {
             var languages = GetLanguages();
-            var sounds = new List<string>();
             var node = new PhraseNode();
-            node.Set(new PhraseNodeData(), languages, _voices, _musics, _rtcps, sounds, Guid.NewGuid().ToString());
+            node.Set(new PhraseNodeData(), languages, _soundLists, Guid.NewGuid().ToString());
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+
+            AddElement(node);
+        }
+
+        public void CreateImagePhraseNode()
+        {
+            var languages = GetLanguages();
+            var node = new ImagePhraseNode();
+            node.Set(new ImagePhraseNodeData(), languages, _soundLists, Guid.NewGuid().ToString());
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);
@@ -98,18 +103,16 @@ namespace AaDialogueGraph.Editor
 
         public void CreateEventNode()
         {
-            var sounds = new List<string>();
             var node = new EventNode();
-            node.Set(new EventNodeData(), Guid.NewGuid().ToString(), sounds, _musics, _rtcps);
+            node.Set(new EventNodeData(), Guid.NewGuid().ToString(), _soundLists);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
 
         public void CreateEndNode()
         {
-            var sounds = new List<string>();
             var node = new EndNode();
-            node.Set(new EndNodeData(), Guid.NewGuid().ToString(), sounds, _musics, _rtcps);
+            node.Set(new EndNodeData(), Guid.NewGuid().ToString(), _soundLists);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
             AddElement(node);
         }
@@ -117,9 +120,8 @@ namespace AaDialogueGraph.Editor
         public void CreateNewspaperNode()
         {
             var languages = GetLanguages();
-            var sounds = new List<string>();
             var node = new NewspaperNode();
-            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString(), sounds, _musics, _rtcps);
+            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString(),_soundLists);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);
@@ -182,15 +184,11 @@ namespace AaDialogueGraph.Editor
 
                     break;
                 case LanguageOperationType.Change:
-                    foreach (var node in phraseNodes)
-                    {
+                    foreach (var node in phraseNodes) 
                         ChangeRow<PhraseElementsRowField>(node);
-                    }
 
-                    foreach (var node in newspaperNodes)
-                    {
+                    foreach (var node in newspaperNodes) 
                         ChangeRow<NewspaperElementsRowField>(node);
-                    }
 
                     void ChangeRow<T>(AaNode node) where T : VisualElement
                     {

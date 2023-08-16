@@ -9,6 +9,7 @@ namespace AaDialogueGraph
     {
         public EntryNodeData EntryNodeData = new();
         public List<PhraseNodeData> PhraseNodeData = new();
+        public List<ImagePhraseNodeData> ImagePhraseNodeData = new();
         public List<ChoiceNodeData> ChoiceNodeData = new();
         public List<ForkNodeData> ForkNodeData = new();
         public List<CountNodeData> CountNodeData = new();
@@ -21,6 +22,7 @@ namespace AaDialogueGraph
         {
             var nodes = new List<AaNodeData>();
             nodes.AddRange(PhraseNodeData);
+            nodes.AddRange(ImagePhraseNodeData);
             nodes.AddRange(ChoiceNodeData);
             nodes.AddRange(ForkNodeData);
             nodes.AddRange(CountNodeData);

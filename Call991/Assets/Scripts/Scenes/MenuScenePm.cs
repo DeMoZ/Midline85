@@ -12,7 +12,7 @@ public class MenuScenePm : IDisposable
         public ReactiveCommand OnClickNewGame;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public PlayerProfile Profile;
-        public ReactiveProperty<int> PlayLevelIndex;
+        public GameLevelsService GameLevelsService;
     }
 
     private Ctx _ctx;
@@ -32,7 +32,7 @@ public class MenuScenePm : IDisposable
     private void OnClickPlayGame(int index)
     {
         Debug.Log("[MenuScenePm] OnClickPlay");
-        _ctx.PlayLevelIndex.Value = index;
+        _ctx.GameLevelsService.SetLevel(index);
         _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
@@ -40,7 +40,8 @@ public class MenuScenePm : IDisposable
     {
         Debug.Log("[MenuScenePm] OnClickNewGame");
         _ctx.Profile.Clear();
-        _ctx.OnSwitchScene.Execute(GameScenes.Level);
+        _ctx.GameLevelsService.SetLevel(0);
+       _ctx.OnSwitchScene.Execute(GameScenes.Level);
     }
 
     public void Dispose()

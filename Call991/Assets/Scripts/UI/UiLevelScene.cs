@@ -17,20 +17,27 @@ namespace UI
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
     }
+    
+    public class UiImagePhraseData
+    {
+        public string Description;
+
+        public Sprite Sprite;
+        public Phrase Phrase;
+        public ImagePersonVisualData PersonVisualData;
+        public PhraseVisualData PhraseVisualData;
+    }
 
     public class UiLevelScene : MonoBehaviour, IDisposable
     {
         public struct Ctx
         {
-            public ReactiveCommand<UiPhraseData> OnShowPhrase;
-            public ReactiveCommand<List<RecordData>> OnLevelEnd;
+            public DialogueService DialogueService;
 
+            public ReactiveCommand<(List<RecordData> recordData, bool nextLevelExists)> OnLevelEnd;
             public ReactiveCommand OnClickMenuButton;
+            public ReactiveCommand OnClickNextLevelButton;
 
-            public ReactiveCommand<UiPhraseData> OnHidePhrase;
-
-            public ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)> OnShowNewspaper;
-            public ReactiveCommand OnShowLevelUi;
             public ReactiveCommand<(bool show, string[] keys)> OnShowTitle;
             public ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)> OnShowWarning;
 
@@ -78,6 +85,7 @@ namespace UI
             statisticView.SetCtx(new StatisticsView.Ctx
             {
                 OnClickMenuButton = _ctx.OnClickMenuButton,
+                OnClickNextLevelButton = _ctx.OnClickNextLevelButton,
             });
 
             levelView.SetCtx(new LevelView.Ctx
@@ -98,15 +106,17 @@ namespace UI
                 Profile = _ctx.Profile,
             });
 
-            _ctx.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
-
-            _ctx.OnHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
+            _ctx.DialogueService.OnShowPhrase.Subscribe(levelView.OnShowPhrase).AddTo(_disposables);
+            _ctx.DialogueService.OnShowImagePhrase.Subscribe(levelView.OnShowImagePhrase).AddTo(_disposables);
+            _ctx.DialogueService.OnHidePhrase.Subscribe(levelView.OnHidePhrase).AddTo(_disposables);
+            _ctx.DialogueService.OnHideImagePhrase.Subscribe(levelView.OnHideImagePhrase).AddTo(_disposables);
+            _ctx.DialogueService.OnShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
+            _ctx.DialogueService.OnShowLevelUi.Subscribe(_ => OnShowLevelUi()).AddTo(_disposables);
+            
             _ctx.OnShowTitle.Subscribe(OnShowTitle).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
-            _ctx.OnShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
             _ctx.OnShowWarning.Subscribe(OnShowWarning).AddTo(_disposables);
-            _ctx.OnShowLevelUi.Subscribe(_ => OnShowLevelUi()).AddTo(_disposables);
-
+            
             onClickPauseButton.Subscribe(_ => OnClickPauseButton(true));
             onClickUnPauseButton.Subscribe(_ => OnClickPauseButton(false));
             onClickSettingsButton.Subscribe(_ => EnableUi(menuSettings.GetType()));
@@ -114,7 +124,7 @@ namespace UI
 
         private void OnClickToMenu() =>
             EnableUi(levelPauseView.GetType());
-
+        
         private void OnClickPauseButton(bool value)
         {
             if(_ctx.IsPauseAllowed.Value)
@@ -164,9 +174,9 @@ namespace UI
             btnPressed.Value = true;
         }
 
-        private async void OnLevelEnd(List<RecordData> data)
+        private async void OnLevelEnd((List<RecordData> recordData, bool nextLevelExists) data)
         {
-            await statisticView.PopulateCells(data);
+            await statisticView.PopulateCells(data.recordData, data.nextLevelExists);
             if (_tokenSource.IsCancellationRequested) return;
 
             EnableUi(statisticView.GetType());
