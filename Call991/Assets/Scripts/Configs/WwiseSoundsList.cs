@@ -1,42 +1,71 @@
 using System.Collections.Generic;
-using AK.Wwise;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(menuName = "AaDialogueGraph/WwiseSoundsList", fileName = "SoundsList")]
+    [CreateAssetMenu(menuName = "AaDialogueGraph/" + nameof(WwiseSoundsList), fileName = nameof(WwiseSoundsList))]
     public class WwiseSoundsList : ScriptableObject
     {
-        [SerializeField] private List<AK.Wwise.Switch> wwiseSwitches = new();
+        [SerializeField] private string path;// = "1-Fire/Elena/";
+        [SerializeField] private List<AK.Wwise.Event> wwiseEvents;
 
-        public List<Switch> WwiseSwitches => wwiseSwitches;
+        public string Path => path;
 
         [Button("Test See Keys")]
         public List<string> GetKeys()
         {
             var result = new List<string> { AaGraphConstants.None };
 
-            foreach (var sw in wwiseSwitches)
+            foreach (var rtpc in wwiseEvents)
             {
-                result.Add(sw.Name);
+                result.Add(rtpc.Name);
             }
 
             return result;
         }
-
-        public bool TryGetSwitchByName(string sName, out Switch wSwitch)
+        
+        [Button("Test See PathKeys")]
+        public List<string> GetPathKeys()
         {
-            foreach (var sw in wwiseSwitches)
+            var result = new List<string> { AaGraphConstants.None };
+
+            foreach (var rtpc in wwiseEvents)
             {
-                if(sw.Name.Equals(sName))
+                result.Add($"{path}{rtpc.Name}");
+            }
+
+            return result;
+        }
+        
+        public bool TryGetVoiceByName(string sName, out AK.Wwise.Event wEvent)
+        {
+            foreach (var element in wwiseEvents)
+            {
+                if (element.Name.Equals(sName))
                 {
-                    wSwitch = sw;
+                    wEvent = element;
                     return true;
                 }
             }
 
-            wSwitch = null;
+            wEvent = null;
+            return false;
+        }
+        
+        public bool TryGetVoiceByPath(string fullPath, out AK.Wwise.Event wEvent)
+        {
+            var sName = fullPath.Replace(path, "");
+            foreach (var element in wwiseEvents)
+            {
+                if (element.Name.Equals(sName))
+                {
+                    wEvent = element;
+                    return true;
+                }
+            }
+
+            wEvent = null;
             return false;
         }
     }
