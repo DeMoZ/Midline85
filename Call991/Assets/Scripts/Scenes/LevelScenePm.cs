@@ -191,6 +191,12 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunMusic(musicData));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
+        
+        foreach (var soundData in soundEvents)
+        {
+            var routine = Observable.FromCoroutine(() => RunSound(soundData));
+            observables = observables.Concat(new[] { routine }).ToArray();
+        }
 
         foreach (var rtpcData in rtpcEvents)
         {
@@ -386,7 +392,7 @@ public class LevelScenePm : IDisposable
         };
 
         _ctx.DialogueService.OnShowPhrase.Execute(uiPhrase);
-        var voice = _ctx.GameSet.VoicesSet.GetVoiceByPath(data.PhraseSound);
+        var voice = _ctx.GameSet.VoicesSet.GetSoundByPath(data.PhraseSound);
         var voiceId = _ctx.MediaService.AudioManager.PlayVoice(voice);
 
         if (voiceId == null)
@@ -416,7 +422,7 @@ public class LevelScenePm : IDisposable
         };
 
         _ctx.DialogueService.OnShowImagePhrase.Execute(uiPhrase);
-        var voice = _ctx.GameSet.VoicesSet.GetVoiceByPath(data.PhraseSound);
+        var voice = _ctx.GameSet.VoicesSet.GetSoundByPath(data.PhraseSound);
         var voiceId = _ctx.MediaService.AudioManager.PlayVoice(voice);
 
         if (voiceId == null)
@@ -450,6 +456,26 @@ public class LevelScenePm : IDisposable
             _ctx.MediaService.AudioManager.PlayMusic(musicSwitch);
         else
             Debug.LogError($"Switch name {musicName} not found in GameSet.MusicSwitchesKeys");
+    }
+    
+    private IEnumerator RunSound(EventVisualData data)
+    {
+        yield return new WaitForSeconds(data.Delay);
+
+        var soundName = data.PhraseEvent;
+
+        if (string.IsNullOrEmpty(soundName) || soundName.Equals(AaGraphConstants.None)) yield break;
+        
+        var sfx = _ctx.GameSet.SfxsSet.GetSoundByPath(data.PhraseEvent);
+        var sfxId = _ctx.MediaService.AudioManager.PlaySfx(sfx);
+
+        if (sfxId == null)
+            Debug.LogError($"NONE sound for phrase {data.PhraseEvent}");
+        else
+            Debug.Log($"Sound for phrase {data.PhraseEvent}");
+        
+        if (sfxId != null) 
+            _ctx.MediaService.AudioManager.StopVoice(sfxId.Value);
     }
 
     private IEnumerator RunRtpc(EventVisualData rtpcData)

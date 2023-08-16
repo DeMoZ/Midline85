@@ -45,6 +45,7 @@ public class SoundTestSceneEntity : MonoBehaviour
 
     [SerializeField] private Transform musicButtonsParent = default;
     [SerializeField] private Transform voiceButtonsParent = default;
+    [SerializeField] private Transform sfxButtonsParent = default;
 
     [SerializeField] private TestMusicButtonWithSlider musicButtonPrefab = default;
     [SerializeField] private Button voiceButtonPrefab = default;
@@ -53,15 +54,19 @@ public class SoundTestSceneEntity : MonoBehaviour
 
     [Space(30)] [SerializeField] private WwiseMusicSwitchesList wwiseMusicKeysList = default;
 
-    [Space(30)] [SerializeField] private WwiseVoicesList wwiseVoicesKeysList = default;
+    [Space(30)] [SerializeField] private WwiseSoundsList wwiseVoicesKeysList = default;
+    [Space(30)] [SerializeField] private WwiseSoundsList wwiseSfxKeysList = default;
 
     private List<string> _musicKeys;
     private List<string> _voicesKeys;
-    private uint? _lastSoundUint;
+    private List<string> _sfxsKeys;
+    private uint? _lastVoiceUint;
+    private uint? _lastSfxUint;
     private WaitForSeconds _waitForSeconds = new(1);
     private Coroutine _testRoutine;
     private List<TestMusicButtonWithSlider> _musicButtons = new();
     private List<Button> _voiceButtons = new();
+    private List<Button> _sfxButtons = new();
     private int _currentIndex;
     private WwiseAudio _audioManager;
     private CancellationTokenSource _tokenSource;
@@ -86,6 +91,7 @@ public class SoundTestSceneEntity : MonoBehaviour
 
         _musicKeys = wwiseMusicKeysList.GetKeys();
         _voicesKeys = wwiseVoicesKeysList.GetKeys();
+        _sfxsKeys = wwiseSfxKeysList.GetKeys();
 
         var onSwitchScene = new ReactiveCommand<GameScenes>();
         var levelLanguages = new ReactiveProperty<List<string>>(LocalizationManager.GetAllLanguages());
@@ -122,8 +128,8 @@ public class SoundTestSceneEntity : MonoBehaviour
             topBtn.onClick.AddListener(() => _profile.AudioLanguageChanged.Value = language);
         }
 
-        startButton.onClick.AddListener(StartRoutine);
-        stopButton.onClick.AddListener(StopRoutine);
+        startButton.onClick.AddListener(StartVoiceRoutine);
+        stopButton.onClick.AddListener(StopVoiceRoutine);
         pauseButton.onClick.AddListener(() => _audioManager.PausePhrasesAndSfx());
         resumeButton.onClick.AddListener(() => _audioManager.ResumePhrasesAndSfx());
         startTimerButton.onClick.AddListener(() => _audioManager.PlayTimerSfx());
@@ -162,13 +168,13 @@ public class SoundTestSceneEntity : MonoBehaviour
         _profile.OnVolumeSet.Execute((AudioSourceType.Sfx, volume));
     }
 
-    private void StartRoutine()
+    private void StartVoiceRoutine()
     {
-        StopRoutine();
+        StopVoiceRoutine();
         _testRoutine = StartCoroutine(RunTest());
     }
 
-    private void StopRoutine()
+    private void StopVoiceRoutine()
     {
         if (_testRoutine != null)
         {
@@ -202,6 +208,17 @@ public class SoundTestSceneEntity : MonoBehaviour
 
             _voiceButtons.Add(btn);
         }
+        
+        for (var i = 0; i < _sfxsKeys.Count; i++)
+        {
+            var key = _sfxsKeys[i];
+            var btn = Instantiate(voiceButtonPrefab, sfxButtonsParent);
+            var txt = btn.GetComponentInChildren<TMP_Text>();
+            txt.text = key;
+            btn.onClick.AddListener(() => PlaySfxButtonKey(key));
+
+            _sfxButtons.Add(btn);
+        }
     }
 
     private void PlayMusicButtonKey(string key)
@@ -222,23 +239,43 @@ public class SoundTestSceneEntity : MonoBehaviour
 
     private void PlayVoiceButtonKey(string key)
     {
-        StopRoutine();
-        PlayKey(key);
+        StopVoiceRoutine();
+        PlayVoiceKey(key);
+    }
+    
+    private void PlaySfxButtonKey(string key)
+    {
+        // StopSfxRoutine();
+        PlaySfxKey(key);
     }
 
-    private void PlayKey(string key)
+    private void PlayVoiceKey(string key)
     {
-        if (_lastSoundUint.HasValue)
-            _audioManager.StopVoice(_lastSoundUint.Value);
+        if (_lastVoiceUint.HasValue)
+            _audioManager.StopVoice(_lastVoiceUint.Value);
 
-        _lastSoundUint = _audioManager.PlayVoice(key);
+        _lastVoiceUint = _audioManager.PlayVoice(key);
 
-        if (_lastSoundUint == null)
-            Debug.LogError($"NONE sound for phrase {key}");
+        if (_lastVoiceUint == null)
+            Debug.LogError($"NONE voice for phrase {key}");
         else
-            Debug.Log($"play key = {key}");
+            Debug.Log($"play voice key = {key}");
 
-        SetButtonColor(_voiceButtons[_currentIndex], _lastSoundUint == null ? ButtonColor.Red : ButtonColor.Green);
+        SetButtonColor(_voiceButtons[_currentIndex], _lastVoiceUint == null ? ButtonColor.Red : ButtonColor.Green);
+    }
+    private void PlaySfxKey(string key)
+    {
+        if (_lastSfxUint.HasValue)
+            _audioManager.StopSfx(_lastSfxUint.Value);
+
+        _lastSfxUint = _audioManager.PlaySfx(key);
+
+        if (_lastSfxUint == null)
+            Debug.LogError($"NONE sfx for phrase {key}");
+        else
+            Debug.Log($"play sfx key = {key}");
+
+        // SetButtonColor(_voiceButtons[_currentIndex], _lastVoiceUint == null ? ButtonColor.Red : ButtonColor.Green);
     }
 
     private void SetButtonColor(Button btn, ButtonColor btnColor)
@@ -268,7 +305,7 @@ public class SoundTestSceneEntity : MonoBehaviour
 
             _currentIndex = i;
             var key = _voicesKeys[i];
-            PlayKey(key);
+            PlayVoiceKey(key);
             yield return _waitForSeconds;
         }
 

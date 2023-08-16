@@ -12,9 +12,7 @@ namespace AaDialogueGraph.Editor
 {
     public partial class GraphSaveUtility
     {
-        private List<string> _voices;
-        private List<string> _musics;
-        private List<string> _rtpcs;
+        private SoundLists _soundLists;
 
         public bool LoadGraph(ref string path)
         {
@@ -41,12 +39,16 @@ namespace AaDialogueGraph.Editor
                 path = NoGraphName;
                 return false;
             }
-            
+
             var gameSet = Resources.Load<GameSet>("GameSet");
-            _voices = gameSet.VoicesSet.GetKeys();
-            _musics = gameSet.MusicSwitchesKeys.GetKeys();
-            _rtpcs = gameSet.RtpcKeys.GetKeys();
-                
+            _soundLists = new SoundLists
+            {
+                Voices = gameSet.VoicesSet.GetKeys(),
+                Sfxs = gameSet.SfxsSet.GetKeys(),
+                Musics = gameSet.MusicSwitchesKeys.GetKeys(),
+                Rtcps = gameSet.RtpcKeys.GetKeys(),
+            };
+
             ClearGraph();
             CreateEntryNode();
             CreatePhraseNodes();
@@ -93,29 +95,27 @@ namespace AaDialogueGraph.Editor
         //     return (string.IsNullOrEmpty(_containerCash.EntryNodeData.SoundAsset) ? null : 
         //         NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(_containerCash.EntryNodeData.SoundAsset))?.Keys;
         // }
-        
+
         private void CreatePhraseNodes()
         {
             var languages = _containerCash.EntryNodeData.Languages;
-            var sounds = new List<string>{"NONE"};
-            
+
             foreach (var data in _containerCash.PhraseNodeData)
             {
                 var node = new PhraseNode();
-                node.Set(data, languages,  _voices, _musics, _rtpcs, sounds, data.Guid);
+                node.Set(data, languages, _soundLists, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
-        
+
         private void CreateImagePhraseNodes()
         {
             var languages = _containerCash.EntryNodeData.Languages;
-            var sounds = new List<string>{"NONE"};
-            
+
             foreach (var data in _containerCash.ImagePhraseNodeData)
             {
                 var node = new ImagePhraseNode();
-                node.Set(data, languages,  _voices, _musics, _rtpcs, sounds, data.Guid);
+                node.Set(data, languages, _soundLists, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -123,7 +123,7 @@ namespace AaDialogueGraph.Editor
         private void CreateChoiceNodes()
         {
             var choiceKeys = EditorNodeUtils.GetButtons(_containerCash.EntryNodeData.ButtonFilter);
-            
+
             foreach (var data in _containerCash.ChoiceNodeData)
             {
                 var node = new ChoiceNode();
@@ -154,24 +154,20 @@ namespace AaDialogueGraph.Editor
 
         private void CreateEndNodes()
         {
-            var sounds = new List<string>{"NONE"};// GetWwiseSoundsFromStartNode();
-
             foreach (var data in _containerCash.EndNodeData)
             {
                 var node = new EndNode();
-                node.Set(data, data.Guid, sounds, _musics, _rtpcs);
+                node.Set(data, data.Guid, _soundLists);
                 _targetGraphView.AddElement(node);
             }
         }
 
         private void CreateEventNodes()
         {
-            var sounds = new List<string>{"NONE"};// GetWwiseSoundsFromStartNode();
-            
             foreach (var data in _containerCash.EventNodeData)
             {
                 var node = new EventNode();
-                node.Set(data, data.Guid, sounds, _musics, _rtpcs);
+                node.Set(data, data.Guid, _soundLists);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -179,12 +175,11 @@ namespace AaDialogueGraph.Editor
         private void CreateNewspaperNodes()
         {
             var languages = _containerCash.EntryNodeData.Languages;
-            var sounds = new List<string>{"NONE"};// GetWwiseSoundsFromStartNode();
-            
+
             foreach (var data in _containerCash.NewspaperNodeData)
             {
                 var node = new NewspaperNode();
-                node.Set(data, languages, data.Guid, _voices, _musics, _rtpcs);
+                node.Set(data, languages, data.Guid, _soundLists);
                 _targetGraphView.AddElement(node);
             }
         }
