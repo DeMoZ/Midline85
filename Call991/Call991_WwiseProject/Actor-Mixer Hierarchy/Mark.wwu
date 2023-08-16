@@ -12,7 +12,7 @@
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-16.3</Value>
+								<Value>-20.2</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -4103,29 +4103,6 @@
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
-				</ActorMixer>
-				<ActorMixer Name="Mark_Intro" ID="{E999984D-769D-498F-95BC-1AB2EB03B74A}" ShortID="503821070">
-					<PropertyList>
-						<Property Name="Highpass" Type="int16">
-							<ValueList>
-								<Value>41</Value>
-							</ValueList>
-						</Property>
-						<Property Name="Lowpass" Type="int16">
-							<ValueList>
-								<Value>31</Value>
-							</ValueList>
-						</Property>
-						<Property Name="OverrideOutput" Type="bool" Value="True"/>
-					</PropertyList>
-					<ReferenceList>
-						<Reference Name="Conversion">
-							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-						</Reference>
-						<Reference Name="OutputBus">
-							<ObjectRef Name="Mark_Intro" ID="{F7602242-36FE-43E7-B031-102790538277}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-						</Reference>
-					</ReferenceList>
 				</ActorMixer>
 				<ActorMixer Name="Mark_tutor" ID="{751FCA3B-5A9C-4B29-9D45-4A23CCE0935F}" ShortID="708355708">
 					<PropertyList>
