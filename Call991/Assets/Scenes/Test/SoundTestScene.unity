@@ -3253,6 +3253,7 @@ RectTransform:
   m_Children:
   - {fileID: 1132747864}
   - {fileID: 2120847359}
+  - {fileID: 1492650785}
   m_Father: {fileID: 1098414034}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3279,11 +3280,11 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: 50
   m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
-  m_ChildControlWidth: 0
-  m_ChildControlHeight: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 1
+  m_ChildControlHeight: 1
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0
@@ -3891,6 +3892,82 @@ RectTransform:
   m_AnchoredPosition: {x: -5, y: 0}
   m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1492650784
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1492650785}
+  - component: {fileID: 1492650787}
+  - component: {fileID: 1492650786}
+  m_Layer: 5
+  m_Name: SfxButtonsParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1492650785
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492650784}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1100675346}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0, y: 1}
+--- !u!114 &1492650786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492650784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
+--- !u!114 &1492650787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492650784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 500, y: 70}
+  m_Spacing: {x: 1, y: 1}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1001 &1557504325
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4585,6 +4662,7 @@ MonoBehaviour:
   startSfxVolume: 87
   musicButtonsParent: {fileID: 1132747864}
   voiceButtonsParent: {fileID: 2120847359}
+  sfxButtonsParent: {fileID: 1492650785}
   musicButtonPrefab: {fileID: 4404504595015972101, guid: ef07a9515363a477291e86a269a366c0,
     type: 3}
   voiceButtonPrefab: {fileID: 5804257295275151387, guid: 258d34f08cc32428caa2ff7a7935a354,
@@ -4592,8 +4670,9 @@ MonoBehaviour:
   wwisePrefab: {fileID: 1721370427023118462, guid: b05048e67bc92403f89d8f4ace8acf14,
     type: 3}
   wwiseMusicKeysList: {fileID: 11400000, guid: 4e510a074eec1473f9307f836e4fa64d, type: 2}
-  wwiseVoicesKeysList: {fileID: 11400000, guid: 47586e1bc7682444fa15d84ba1dc45c9,
+  wwiseVoicesKeysList: {fileID: 11400000, guid: fe3d7292730af49988778a9373c29ac2,
     type: 2}
+  wwiseSfxKeysList: {fileID: 11400000, guid: c2e4df92f91414ff5a8aa1a8df3a405d, type: 2}
 --- !u!4 &2098547264
 Transform:
   m_ObjectHideFlags: 0
