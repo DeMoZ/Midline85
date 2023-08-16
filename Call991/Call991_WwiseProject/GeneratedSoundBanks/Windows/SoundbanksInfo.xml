@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="589682861" Type="User" Language="Russian" Hash="{5D59B9CF-0116-816D-A256-2C4726893A80}">
+		<SoundBank Id="589682861" Type="User" Language="Russian" Hash="{266C5092-C5E7-7768-F42F-28EA4F66C0CF}">
 			<ShortName>L7_Psycho</ShortName>
 			<Path>Russian/L7_Psycho.bnk</Path>
 			<Media>
@@ -899,7 +899,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="589682861" Type="User" Language="English" Hash="{1273314E-E0A9-D623-1191-FEDE9F154994}">
+		<SoundBank Id="589682861" Type="User" Language="English" Hash="{5524EC61-D0AA-DEEF-6A3E-DAD484F0EB1C}">
 			<ShortName>L7_Psycho</ShortName>
 			<Path>English/L7_Psycho.bnk</Path>
 			<Plugins>
@@ -1693,127 +1693,44 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{D1ED8BE8-D1B6-4A45-3624-BF00229FFDEA}">
+		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{F704F055-A255-0FD6-75DF-796956BDC793}">
 			<ShortName>L1_Intro</ShortName>
 			<Path>Russian/L1_Intro.bnk</Path>
 			<Media>
-				<File Id="105559924" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena_2_rus.wav</ShortName>
-					<CachePath>Voices/Russian/elena_2_rus_DFE94113.wem</CachePath>
-				</File>
-				<File Id="206899822" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena_5_rus.wav</ShortName>
-					<CachePath>Voices/Russian/elena_5_rus_05842A19.wem</CachePath>
-				</File>
-				<File Id="619995316" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena_6_rus.wav</ShortName>
-					<CachePath>Voices/Russian/elena_6_rus_05842A19.wem</CachePath>
-				</File>
-				<File Id="629816684" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena_1_rus.wav</ShortName>
-					<CachePath>Voices/Russian/elena_1_rus_15153DF3.wem</CachePath>
-				</File>
-				<File Id="727649652" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena_4_rus.wav</ShortName>
-					<CachePath>Voices/Russian/elena_4_rus_05842A19.wem</CachePath>
-				</File>
-				<File Id="834184819" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>elena_3_rus.wav</ShortName>
-					<CachePath>Voices/Russian/elena_3_rus_05842A19.wem</CachePath>
+				<File Id="934749618" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>Cinematic_sound.wav</ShortName>
+					<CachePath>Voices/Russian/Cinematic_sound_063BF901.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
-				<Event Id="183767048" Name="elena_1" DurationType="OneShot" DurationMin="17.41601" DurationMax="17.41601">
+				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="131.04099" DurationMax="131.04099">
 					<MediaRefs>
-						<MediaRef Id="629816684"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767051" Name="elena_2" DurationType="OneShot" DurationMin="4.8457274" DurationMax="4.8457274">
-					<MediaRefs>
-						<MediaRef Id="105559924"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767050" Name="elena_3" DurationType="OneShot" DurationMin="0.93333334" DurationMax="0.93333334">
-					<MediaRefs>
-						<MediaRef Id="834184819"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767053" Name="elena_4" DurationType="OneShot" DurationMin="2.7333333" DurationMax="2.7333333">
-					<MediaRefs>
-						<MediaRef Id="727649652"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767052" Name="elena_5" DurationType="OneShot" DurationMin="2.8" DurationMax="2.8">
-					<MediaRefs>
-						<MediaRef Id="206899822"/>
-					</MediaRefs>
-				</Event>
-				<Event Id="183767055" Name="elena_6" DurationType="OneShot" DurationMin="1.1666666" DurationMax="1.1666666">
-					<MediaRefs>
-						<MediaRef Id="619995316"/>
+						<MediaRef Id="934749618"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="English" Hash="{17D8DFF8-9442-17FF-28EF-F184A7295BFD}">
+		<SoundBank Id="755876731" Type="User" Language="English" Hash="{82B22CE1-39E3-7F59-1323-C1FB0E26D6B0}">
 			<ShortName>L1_Intro</ShortName>
 			<Path>English/L1_Intro.bnk</Path>
 			<Plugins>
 				<Custom>
-					<Plugin Id="10896464" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
-					<Plugin Id="116876611" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
-					<Plugin Id="367542691" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
-					<Plugin Id="531146332" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
-					<Plugin Id="621468828" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
-					<Plugin Id="686623768" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="88723769" Name="Tone Generator" LibName="Wwise Tone Generator" LibId="6684674"/>
 				</Custom>
 			</Plugins>
 			<Events>
-				<Event Id="183767048" Name="elena_1" DurationType="OneShot" DurationMin="1" DurationMax="1">
+				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="1" DurationMax="1">
 					<PluginRefs>
 						<Custom>
-							<PluginRef Id="367542691"/>
-						</Custom>
-					</PluginRefs>
-				</Event>
-				<Event Id="183767051" Name="elena_2" DurationType="OneShot" DurationMin="1" DurationMax="1">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="531146332"/>
-						</Custom>
-					</PluginRefs>
-				</Event>
-				<Event Id="183767050" Name="elena_3" DurationType="OneShot" DurationMin="1" DurationMax="1">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="116876611"/>
-						</Custom>
-					</PluginRefs>
-				</Event>
-				<Event Id="183767053" Name="elena_4" DurationType="OneShot" DurationMin="1" DurationMax="1">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="621468828"/>
-						</Custom>
-					</PluginRefs>
-				</Event>
-				<Event Id="183767052" Name="elena_5" DurationType="OneShot" DurationMin="1" DurationMax="1">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="10896464"/>
-						</Custom>
-					</PluginRefs>
-				</Event>
-				<Event Id="183767055" Name="elena_6" DurationType="OneShot" DurationMin="1" DurationMax="1">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="686623768"/>
+							<PluginRef Id="88723769"/>
 						</Custom>
 					</PluginRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{15755991-27EE-FBA8-6E2C-2B807871DDBF}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{F3BE5052-B103-6E2C-035F-3A2D6E97F729}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -1900,7 +1817,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{F6BA7AB9-377C-9AE4-B8E4-92C9DCA8678F}">
+		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{97111F0C-F7EA-D895-5B21-043C5F4B1380}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>Russian/L2_Tutor.bnk</Path>
 			<Media>
@@ -2682,7 +2599,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{E02F2512-9F01-8214-F114-F48FF4E59F8B}">
+		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{DE33A211-7D83-519C-4402-2273BD59B7AA}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>English/L2_Tutor.bnk</Path>
 			<Media>
@@ -3425,7 +3342,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{3DD1C189-C074-D082-5423-413DD19DC5C8}">
+		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{571F3DF3-9048-562D-A6FC-9D821A1BC707}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>Russian/L3_Pizza.bnk</Path>
 			<Media>
@@ -5612,7 +5529,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{560C24F8-64CA-4BC1-64F7-4E7FB37C193C}">
+		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{720D747F-4ACD-FDF8-7483-C16A991CB301}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>English/L3_Pizza.bnk</Path>
 			<Media>
@@ -7713,7 +7630,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{3A6CF789-02F6-8EB0-6667-B4C28DCADFD2}">
+		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{1AEE1F51-DF33-4EF0-872B-C66147071ADB}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>Russian/L4_Interlude1.bnk</Path>
 			<Media>
@@ -8306,7 +8223,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{95678AAF-3100-C45B-FC23-D5B9F3D8B461}">
+		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{B50CD98A-78A8-53E1-4BC3-AB2A06148533}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>English/L4_Interlude1.bnk</Path>
 			<Media>
@@ -8886,7 +8803,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2803898958" Type="User" Language="Russian" Hash="{BB3A4EB1-4DBE-881F-832B-7D1BBBFC6EA3}">
+		<SoundBank Id="2803898958" Type="User" Language="Russian" Hash="{0985F6FA-C66B-B6D8-E7ED-726836C88B8E}">
 			<ShortName>L6_Interlude2</ShortName>
 			<Path>Russian/L6_Interlude2.bnk</Path>
 			<Media>
@@ -9551,7 +9468,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2803898958" Type="User" Language="English" Hash="{C35F6EC2-E53A-1E52-2BD6-5CBC3E221BCD}">
+		<SoundBank Id="2803898958" Type="User" Language="English" Hash="{4650E00D-49F7-CEA6-FCA1-85057D497B74}">
 			<ShortName>L6_Interlude2</ShortName>
 			<Path>English/L6_Interlude2.bnk</Path>
 			<Media>
@@ -10188,7 +10105,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3128408567" Type="User" Language="Russian" Hash="{20E53E7F-3B32-0786-287F-F0A579C41BC9}">
+		<SoundBank Id="3128408567" Type="User" Language="Russian" Hash="{D887C7E8-E004-FFEF-2B2F-CCC129D1A5F6}">
 			<ShortName>L5_Fire</ShortName>
 			<Path>Russian/L5_Fire.bnk</Path>
 			<Media>
@@ -11753,7 +11670,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3128408567" Type="User" Language="English" Hash="{4572ACBA-61BF-430F-CB38-4421C0EBF38D}">
+		<SoundBank Id="3128408567" Type="User" Language="English" Hash="{42BAC375-EA8B-26E8-7535-FE1C47D26F87}">
 			<ShortName>L5_Fire</ShortName>
 			<Path>English/L5_Fire.bnk</Path>
 			<Plugins>
@@ -13147,7 +13064,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{6C7CA8A0-9013-E7F9-70CC-2C56E2EE9708}">
+		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{E33EA5EA-667D-7236-F45F-A4244F0B5A2B}">
 			<ShortName>Master</ShortName>
 			<Path>Master.bnk</Path>
 			<Media>
@@ -13357,5 +13274,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{4A3C4B15-6A08-2555-312D-DDB825238254}</FileHash>
+	<FileHash>{C0CF6241-D7EE-EC68-485B-CC81CA85A98D}</FileHash>
 </SoundBanksInfo>

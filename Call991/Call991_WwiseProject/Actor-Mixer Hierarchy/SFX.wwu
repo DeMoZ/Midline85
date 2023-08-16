@@ -17,7 +17,7 @@
 						</Property>
 						<Property Name="MakeUpGain" Type="Real64">
 							<ValueList>
-								<Value>10</Value>
+								<Value>15</Value>
 							</ValueList>
 						</Property>
 						<Property Name="MaxSoundPerInstance" Type="int16">
@@ -3544,6 +3544,13 @@
 					</PositioningInfo>
 				</ActorMixer>
 				<ActorMixer Name="SFX non Filtr" ID="{9FE7D189-C213-4187-B457-A83A992FD775}" ShortID="45358102">
+					<PropertyList>
+						<Property Name="MakeUpGain" Type="Real64">
+							<ValueList>
+								<Value>5</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -3646,6 +3653,51 @@
 							</PositioningInfo>
 							<ActiveSourceList>
 								<ActiveSource Name="sfx_susup" ID="{966E59E8-6281-4348-A5C4-1F338EA21A6D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+				<ActorMixer Name="Cinematics" ID="{1238FA84-D084-4078-AF63-9E38C5CDD4F3}" ShortID="571573429">
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="cinematic" ID="{5CB6A46C-5C47-401A-B95A-BBBB8ABF7538}" ShortID="259047440">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Cinematic_sound" ID="{C991B238-C857-4CC2-A797-EBE94A12EDE4}">
+									<Language>Russian</Language>
+									<AudioFile>Cinematic_sound.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="934749618"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Tone Generator" ID="{5CC97A4B-3F08-4E34-96CB-275472501EF7}" ShortID="88723769" PluginName="Wwise Tone Generator" CompanyID="0" PluginID="102">
+									<PropertyList>
+										<Property Name="StartFreq" Type="Real32" Value="770"/>
+										<Property Name="WaveGain" Type="Real32" Value="-18.8"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Cinematic_sound" ID="{C991B238-C857-4CC2-A797-EBE94A12EDE4}" Platform="Linked"/>
+								<ActiveSource Name="Tone Generator" ID="{5CC97A4B-3F08-4E34-96CB-275472501EF7}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
