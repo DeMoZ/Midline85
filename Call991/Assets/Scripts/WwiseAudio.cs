@@ -278,10 +278,14 @@ public class WwiseAudio : MonoBehaviour
     
     public uint? PlaySfx(string sound)
     {
+        Debug.LogWarning($"[{this}]play sfx {sound}");
         if (!_isBankLoaded) return null;
         if (PlaySound(sound, sfxGo, out var soundId)) return soundId;
         return null;
     }
+    
+    public void StopSfx(uint sfx) =>
+        AkSoundEngine.StopPlayingID(sfx);
 
     public void PlayTimerSfx()
     {
