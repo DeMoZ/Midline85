@@ -38,7 +38,7 @@ public class BasePersonView : MonoBehaviour
     protected IEnumerator YieldTime(float yieldTime)
     {
         yield return RoutineWaitForSeconds(yieldTime);
-        StartCoroutine(ShowWords(_phrase, _wordIndex + 1));
+        _phraseRoutine = StartCoroutine(ShowWords(_phrase, _wordIndex + 1));
     }
 
     protected IEnumerator RoutineWaitForSeconds(float yieldTime)
@@ -64,7 +64,7 @@ public class BasePersonView : MonoBehaviour
             case TextAppear.Word:
                 if (gameObject is { activeInHierarchy: true, activeSelf: true })
                 {
-                    StartCoroutine(ShowWords(data.Phrase, 0));
+                    _phraseRoutine = StartCoroutine(ShowWords(data.Phrase, 0));
                 }
                 else
                 {
