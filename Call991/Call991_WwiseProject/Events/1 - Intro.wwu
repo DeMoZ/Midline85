@@ -3,95 +3,31 @@
 	<Events>
 		<WorkUnit Name="1 - Intro" ID="{24565E33-B89E-4166-88EE-B260FA8C572C}" PersistMode="Standalone">
 			<ChildrenList>
-				<Folder Name="Elena" ID="{7744901F-CACF-4FDD-88CF-AAD1E23267EE}" ShortID="389951506">
-					<PropertyList>
-						<Property Name="Color" Type="int16" Value="24"/>
-						<Property Name="OverrideColor" Type="bool" Value="True"/>
-					</PropertyList>
+				<Event Name="cinematic_01_start" ID="{92613CDE-428B-4698-9A9D-1348F01DD05E}">
 					<ChildrenList>
-						<Event Name="elena_1" ID="{2BA590BB-1113-465D-9555-99D45CC0F544}">
-							<ChildrenList>
-								<Action Name="" ID="{C0BFDE42-7E86-4809-BF6B-C63B62E2A8AE}" ShortID="310201245">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="elena_1" ID="{9BFBE0FB-F1DC-4D1A-9BCE-D85F92A756A9}" WorkUnitID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="elena_2" ID="{CCC86540-8C9C-4BB0-A3C3-0174E3295BA4}">
-							<ChildrenList>
-								<Action Name="" ID="{10488460-7CAF-42FA-B0F0-2804A9B4897C}" ShortID="1010656353">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="elena_2" ID="{CB2B431B-9F83-4402-B9D9-E67A9F5D70B6}" WorkUnitID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="elena_3" ID="{EEBAF7A3-C9F7-4944-A25F-2D4251AD7F37}">
-							<ChildrenList>
-								<Action Name="" ID="{61963A7F-D920-4D75-BD7E-EF81B0674B2E}" ShortID="820857676">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="elena_3" ID="{39AC20F0-A95A-4890-8588-B6A28FB9953E}" WorkUnitID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="elena_4" ID="{F434F476-0E8E-4974-AD79-52187A023484}">
-							<ChildrenList>
-								<Action Name="" ID="{329A5FA9-60D0-4589-B892-A06851FD0EA0}" ShortID="951628073">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="elena_4" ID="{C14361E6-BEBA-461F-9552-03236F1191B9}" WorkUnitID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="elena_5" ID="{8EFFA921-0D2E-4BE3-B2C6-9D0D47EC8DA7}">
-							<ChildrenList>
-								<Action Name="" ID="{52812E5C-E21B-4504-B4A7-0B7E60110BF3}" ShortID="129501435">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="elena_5" ID="{641E3300-E15A-4A6F-A6E3-0CFA550F6B5E}" WorkUnitID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="elena_6" ID="{BC01089E-E284-45BB-8C97-6783B3C18A3A}">
-							<ChildrenList>
-								<Action Name="" ID="{954FFB5B-48A6-444A-987F-A3CAC9BD3BAD}" ShortID="1034232021">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="elena_6" ID="{0868895C-2C46-4208-B6BB-D2121163DA22}" WorkUnitID="{F547E064-F72A-4CBF-B647-4BA28A880ACC}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
+						<Action Name="" ID="{03915B9D-E07B-4ABF-B64A-49B701AF67F1}" ShortID="809728019">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="cinematic" ID="{5CB6A46C-5C47-401A-B95A-BBBB8ABF7538}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
-				</Folder>
-				<Folder Name="SFX" ID="{87C558EA-C59D-495D-8EBF-EB3AAAB9A0AD}" ShortID="1053790485">
-					<PropertyList>
-						<Property Name="Inclusion" Type="bool">
-							<ValueList>
-								<Value>False</Value>
-							</ValueList>
-						</Property>
-					</PropertyList>
-				</Folder>
-				<Folder Name="Mark" ID="{6771E665-E5A6-49F2-B702-CB3D86C53A54}" ShortID="207151878">
-					<PropertyList>
-						<Property Name="Color" Type="int16" Value="4"/>
-						<Property Name="OverrideColor" Type="bool" Value="True"/>
-					</PropertyList>
-				</Folder>
+				</Event>
+				<Event Name="cinematic_01_end" ID="{81661847-C078-427E-A337-8F965A704575}">
+					<ChildrenList>
+						<Action Name="" ID="{2AD7D028-A322-4D07-9977-D06A5884A78B}" ShortID="983528502">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="2"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="cinematic" ID="{5CB6A46C-5C47-401A-B95A-BBBB8ABF7538}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

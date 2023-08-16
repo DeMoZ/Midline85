@@ -6,6 +6,11 @@
 				<ActorMixer Name="Voice" ID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" ShortID="446055270">
 					<PropertyList>
 						<Property Name="BelowThresholdBehavior" Type="int16" Value="1"/>
+						<Property Name="MakeUpGain" Type="Real64">
+							<ValueList>
+								<Value>5</Value>
+							</ValueList>
+						</Property>
 						<Property Name="MaxSoundPerInstance" Type="int16">
 							<ValueList>
 								<Value>5</Value>
