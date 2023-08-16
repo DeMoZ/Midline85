@@ -1693,42 +1693,9 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{1A720E14-21AB-FC63-3976-9D50BC744AEF}">
+		<SoundBank Id="755876731" Type="User" Language="SFX" Hash="{F9A74A3E-9CF8-B60D-443C-668A1F76511F}">
 			<ShortName>L1_Intro</ShortName>
-			<Path>Russian/L1_Intro.bnk</Path>
-			<Media>
-				<File Id="934749618" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>Cinematic_sound.wav</ShortName>
-					<CachePath>Voices/Russian/Cinematic_sound_063BF901.wem</CachePath>
-				</File>
-			</Media>
-			<Events>
-				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="131.04099" DurationMax="131.04099">
-					<MediaRefs>
-						<MediaRef Id="934749618"/>
-					</MediaRefs>
-				</Event>
-			</Events>
-		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="English" Hash="{82B22CE1-39E3-7F59-1323-C1FB0E26D6B0}">
-			<ShortName>L1_Intro</ShortName>
-			<Path>English/L1_Intro.bnk</Path>
-			<Plugins>
-				<Custom>
-					<Plugin Id="88723769" Name="Tone Generator" LibName="Wwise Tone Generator" LibId="6684674"/>
-				</Custom>
-			</Plugins>
-			<Events>
-				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="1" DurationMax="1">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="88723769"/>
-						</Custom>
-					</PluginRefs>
-				</Event>
-			</Events>
+			<Path>L1_Intro.bnk</Path>
 		</SoundBank>
 		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{521DEFE3-B6E5-22F5-7B9C-31C8962278AA}">
 			<ShortName>Init</ShortName>
@@ -1817,7 +1784,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{5158919E-7C4F-56A8-F3DC-F14F790F1CB0}">
+		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{4E80D078-2E0E-FB68-888C-5D4675545940}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>Russian/L2_Tutor.bnk</Path>
 			<Media>
@@ -2113,6 +2080,10 @@
 					<ShortName>tutor_mark_018.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_018_F9A23AB9.wem</CachePath>
 				</File>
+				<File Id="934749618" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>Cinematic_sound.wav</ShortName>
+					<CachePath>Voices/Russian/Cinematic_sound_063BF901.wem</CachePath>
+				</File>
 				<File Id="942627843" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_011.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_011_F9A23AB9.wem</CachePath>
@@ -2167,6 +2138,12 @@
 				</File>
 			</Media>
 			<Events>
+				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="131.04099" DurationMax="131.04099">
+					<MediaRefs>
+						<MediaRef Id="934749618"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="190395533" Name="tutor_elena_001" DurationType="OneShot" DurationMin="3.8333333" DurationMax="3.8333333">
 					<MediaRefs>
 						<MediaRef Id="1005744020"/>
@@ -2599,7 +2576,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{DE4A8DA5-B6F7-E2B2-D608-A3BD7F6F008D}">
+		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{CB9383AA-FC54-7D23-7D35-45E639858B73}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>English/L2_Tutor.bnk</Path>
 			<Media>
@@ -2820,6 +2797,7 @@
 				<Custom>
 					<Plugin Id="32673947" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
 					<Plugin Id="83455702" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
+					<Plugin Id="88723769" Name="Tone Generator" LibName="Wwise Tone Generator" LibId="6684674"/>
 					<Plugin Id="211183758" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
 					<Plugin Id="216750619" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
 					<Plugin Id="246192867" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
@@ -2852,6 +2830,14 @@
 				</Custom>
 			</Plugins>
 			<Events>
+				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="1" DurationMax="1">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="88723769"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
 				<Event Id="190395533" Name="tutor_elena_001" DurationType="OneShot" DurationMin="1" DurationMax="1">
 					<PluginRefs>
 						<Custom>
@@ -13274,5 +13260,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{100899A1-2B2D-EC2F-84BE-C63D8A4C06F1}</FileHash>
+	<FileHash>{9D3EFED8-51B8-65DC-EFE8-23B45F0C9372}</FileHash>
 </SoundBanksInfo>
