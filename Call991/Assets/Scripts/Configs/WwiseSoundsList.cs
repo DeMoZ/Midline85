@@ -4,13 +4,12 @@ using UnityEngine;
 
 namespace Configs
 {
-    [CreateAssetMenu(menuName = "AaDialogueGraph/WwiseVoicesList", fileName = "VoicesList")]
-    public class WwiseVoicesList : ScriptableObject
+    [CreateAssetMenu(menuName = "AaDialogueGraph/" + nameof(WwiseSoundsList), fileName = nameof(WwiseSoundsList))]
+    public class WwiseSoundsList : ScriptableObject
     {
         [SerializeField] private string path;// = "1-Fire/Elena/";
         [SerializeField] private List<AK.Wwise.Event> wwiseEvents;
 
-        //public List<AK.Wwise.Event> WwiseEvents => wwiseEvents;
         public string Path => path;
 
         [Button("Test See Keys")]
