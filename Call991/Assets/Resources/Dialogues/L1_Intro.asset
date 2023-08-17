@@ -1,0 +1,165 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: L1_Intro
+  m_EditorClassIdentifier: 
+  EntryNodeData:
+    Guid: dc2bfe2c-45f3-47ba-8288-383b7ba3e972
+    Rect:
+      serializedVersion: 2
+      x: 67
+      y: 200
+      width: 106.5
+      height: 186.5
+    LevelId: L1_Intro
+    Languages:
+    - Russian
+    - English
+    ButtonFilter: tutorial
+    SoundAsset: 
+  PhraseNodeData:
+  - Guid: 43f30a7f-e53d-4cf4-afb7-49f873a735e8
+    Rect:
+      serializedVersion: 2
+      x: 268
+      y: 307
+      width: 99.5
+      height: 96
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: UNKNOWN
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData:
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: Videos/Cinematic.mp4
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerShowAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 128
+      Value: 0
+    PhraseSound: Cinematic/cinematic_01_start
+    Phrases:
+    - 
+    - 
+  ImagePhraseNodeData: []
+  ChoiceNodeData: []
+  ForkNodeData: []
+  CountNodeData: []
+  EndNodeData:
+  - Guid: bd32d768-2910-4efa-a053-aac758f3d11f
+    Rect:
+      serializedVersion: 2
+      x: 647
+      y: 200
+      width: 103.5
+      height: 95.5
+    End: INTRO.END
+    EventVisualData: []
+    Records: []
+  EventNodeData:
+  - Guid: 3eec4326-c7aa-4f96-abb6-12031481bd91
+    Rect:
+      serializedVersion: 2
+      x: 524
+      y: 200
+      width: 99.5
+      height: 107
+    EventVisualData:
+    - Type: 2
+      PhraseEvent: Cinematic/cinematic_01_end
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: 
+      Layer: 0
+      Loop: 0
+      Stop: 1
+      Delay: 0
+      Value: 0
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+  - Guid: c215f9e4-1666-453f-b032-46e85ca57a6e
+    Rect:
+      serializedVersion: 2
+      x: 268
+      y: 200
+      width: 99.5
+      height: 107
+    EventVisualData:
+    - Type: 2
+      PhraseEvent: Cinematic/cinematic_01_start
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: Videos/Cinematic.mp4
+      Layer: 0
+      Loop: 1
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerShowAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 129
+      Value: 0
+  NewspaperNodeData: []
+  NodeLinks:
+  - BaseNodeGuid: 43f30a7f-e53d-4cf4-afb7-49f873a735e8
+    BaseExitName: 
+    TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
+  - BaseNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
+    BaseExitName: 
+    TargetNodeGuid: bd32d768-2910-4efa-a053-aac758f3d11f
+  - BaseNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
+    BaseExitName: 
+    TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
+  - BaseNodeGuid: dc2bfe2c-45f3-47ba-8288-383b7ba3e972
+    BaseExitName: 
+    TargetNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
