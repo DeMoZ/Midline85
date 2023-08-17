@@ -467,6 +467,8 @@ public class LevelScenePm : IDisposable
         if (string.IsNullOrEmpty(soundName) || soundName.Equals(AaGraphConstants.None)) yield break;
         
         var sfx = _ctx.GameSet.SfxsSet.GetSoundByPath(data.PhraseEvent);
+        Debug.Log($"Sound {sfx} for phrase {data.PhraseEvent}");
+
         var sfxId = _ctx.MediaService.AudioManager.PlaySfx(sfx);
 
         if (sfxId == null)
