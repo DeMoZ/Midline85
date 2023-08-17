@@ -1693,9 +1693,42 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="SFX" Hash="{F9A74A3E-9CF8-B60D-443C-668A1F76511F}">
+		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{F704F055-A255-0FD6-75DF-796956BDC793}">
 			<ShortName>L1_Intro</ShortName>
-			<Path>L1_Intro.bnk</Path>
+			<Path>Russian/L1_Intro.bnk</Path>
+			<Media>
+				<File Id="934749618" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>Cinematic_sound.wav</ShortName>
+					<CachePath>Voices/Russian/Cinematic_sound_063BF901.wem</CachePath>
+				</File>
+			</Media>
+			<Events>
+				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="131.04099" DurationMax="131.04099">
+					<MediaRefs>
+						<MediaRef Id="934749618"/>
+					</MediaRefs>
+				</Event>
+			</Events>
+		</SoundBank>
+		<SoundBank Id="755876731" Type="User" Language="English" Hash="{82B22CE1-39E3-7F59-1323-C1FB0E26D6B0}">
+			<ShortName>L1_Intro</ShortName>
+			<Path>English/L1_Intro.bnk</Path>
+			<Plugins>
+				<Custom>
+					<Plugin Id="88723769" Name="Tone Generator" LibName="Wwise Tone Generator" LibId="6684674"/>
+				</Custom>
+			</Plugins>
+			<Events>
+				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="1" DurationMax="1">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="88723769"/>
+						</Custom>
+					</PluginRefs>
+				</Event>
+			</Events>
 		</SoundBank>
 		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{6BB364E2-E7E2-E3D6-4023-1B03282A7E2A}">
 			<ShortName>Init</ShortName>
@@ -1784,7 +1817,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{7C25901C-DED9-E266-2E2D-13937C5AB5C6}">
+		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{3A5F6E49-AA12-2536-1E7D-B8F5EE44F055}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>Russian/L2_Tutor.bnk</Path>
 			<Media>
@@ -2080,10 +2113,6 @@
 					<ShortName>tutor_mark_018.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_018_05842A19.wem</CachePath>
 				</File>
-				<File Id="934749618" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>Cinematic_sound.wav</ShortName>
-					<CachePath>Voices/Russian/Cinematic_sound_063BF901.wem</CachePath>
-				</File>
 				<File Id="942627843" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_011.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_011_05842A19.wem</CachePath>
@@ -2138,12 +2167,6 @@
 				</File>
 			</Media>
 			<Events>
-				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="131.04099" DurationMax="131.04099">
-					<MediaRefs>
-						<MediaRef Id="934749618"/>
-					</MediaRefs>
-				</Event>
 				<Event Id="190395533" Name="tutor_elena_001" DurationType="OneShot" DurationMin="3.8333333" DurationMax="3.8333333">
 					<MediaRefs>
 						<MediaRef Id="1005744020"/>
@@ -2576,7 +2599,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{C5018DBB-8E35-0F1F-DE6E-55F707B29681}">
+		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{9BF935B8-7D13-20A6-EC5F-BD4CF16A60BE}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>English/L2_Tutor.bnk</Path>
 			<Media>
@@ -2797,7 +2820,6 @@
 				<Custom>
 					<Plugin Id="32673947" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
 					<Plugin Id="83455702" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
-					<Plugin Id="88723769" Name="Tone Generator" LibName="Wwise Tone Generator" LibId="6684674"/>
 					<Plugin Id="211183758" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
 					<Plugin Id="216750619" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
 					<Plugin Id="246192867" Name="Sine" LibName="Wwise Sine" LibId="6553602"/>
@@ -2830,14 +2852,6 @@
 				</Custom>
 			</Plugins>
 			<Events>
-				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="1" DurationMax="1">
-					<PluginRefs>
-						<Custom>
-							<PluginRef Id="88723769"/>
-						</Custom>
-					</PluginRefs>
-				</Event>
 				<Event Id="190395533" Name="tutor_elena_001" DurationType="OneShot" DurationMin="1" DurationMax="1">
 					<PluginRefs>
 						<Custom>
@@ -3328,7 +3342,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{571F3DF3-9048-562D-A6FC-9D821A1BC707}">
+		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{75BE0F62-6067-356D-0456-8351FD5B9DBC}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>Russian/L3_Pizza.bnk</Path>
 			<Media>
@@ -3383,6 +3397,10 @@
 				<File Id="54110131" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_george\pizza_george_054.wav</ShortName>
 					<CachePath>Voices/Russian/pizza_george/pizza_george_054_05842A19.wem</CachePath>
+				</File>
+				<File Id="59780310" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>pizza_police_002.wav</ShortName>
+					<CachePath>Voices/Russian/pizza_police_002_05842A19.wem</CachePath>
 				</File>
 				<File Id="60348895" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena\pizza_elena_038.wav</ShortName>
@@ -4035,6 +4053,10 @@
 				<File Id="839447603" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_george\pizza_george_022.wav</ShortName>
 					<CachePath>Voices/Russian/pizza_george/pizza_george_022_05842A19.wem</CachePath>
+				</File>
+				<File Id="840925032" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>pizza_police_001.wav</ShortName>
+					<CachePath>Voices/Russian/pizza_police_001_05842A19.wem</CachePath>
 				</File>
 				<File Id="841649679" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_george\pizza_george_046.wav</ShortName>
@@ -5461,8 +5483,16 @@
 						<ActionPostEventEntry Id="1434521176" Name="sfx_3foot"/>
 					</ActionPostEvent>
 				</Event>
-				<Event Id="29941894" Name="pizza_police_001" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="29941893" Name="pizza_police_002" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="29941894" Name="pizza_police_001" DurationType="OneShot" DurationMin="7.0910416" DurationMax="7.0910416">
+					<MediaRefs>
+						<MediaRef Id="840925032"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="29941893" Name="pizza_police_002" DurationType="OneShot" DurationMin="6.6479373" DurationMax="6.6479373">
+					<MediaRefs>
+						<MediaRef Id="59780310"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1434521176" Name="sfx_3foot" DurationType="OneShot" DurationMin="5.233333" DurationMax="5.233333">
 					<MediaRefs>
 						<MediaRef Id="691429476"/>
@@ -5515,7 +5545,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{720D747F-4ACD-FDF8-7483-C16A991CB301}">
+		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{01AB9370-2736-204A-74FE-B22569B852A1}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>English/L3_Pizza.bnk</Path>
 			<Media>
@@ -13050,7 +13080,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{E33EA5EA-667D-7236-F45F-A4244F0B5A2B}">
+		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{6BC92BA7-7750-2C85-B0AB-426F3C2841C0}">
 			<ShortName>Master</ShortName>
 			<Path>Master.bnk</Path>
 			<Media>
@@ -13110,6 +13140,10 @@
 					<ShortName>Leyer 4.wav</ShortName>
 					<CachePath>SFX/Leyer 4_DFD762D4.wem</CachePath>
 				</File>
+				<File Id="773601455" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicTraining_Main_Training_70_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicTraining_Main_Training_70_ver.1_DFD762D4.wem</CachePath>
+				</File>
 				<File Id="798395727" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_04.wav</ShortName>
 					<CachePath>SFX/sfx_clock_04_5AE31F0F.wem</CachePath>
@@ -13160,6 +13194,12 @@
 								<MediaRef Id="436930163"/>
 								<MediaRef Id="462566223"/>
 								<MediaRef Id="770854726"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="2404037190"/>
+							<MediaRefs>
+								<MediaRef Id="773601455"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -13260,5 +13300,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{0ADCA479-BC2D-9D4C-0ED5-3C1248A92BDE}</FileHash>
+	<FileHash>{172E2229-BC49-436F-E8B3-9D60E2CC5155}</FileHash>
 </SoundBanksInfo>

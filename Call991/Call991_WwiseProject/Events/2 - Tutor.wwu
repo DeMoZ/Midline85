@@ -965,31 +965,6 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
-				<Event Name="cinematic_01_end" ID="{81661847-C078-427E-A337-8F965A704575}">
-					<ChildrenList>
-						<Action Name="" ID="{2AD7D028-A322-4D07-9977-D06A5884A78B}" ShortID="983528502">
-							<PropertyList>
-								<Property Name="ActionType" Type="int16" Value="2"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="cinematic" ID="{5CB6A46C-5C47-401A-B95A-BBBB8ABF7538}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
-				<Event Name="cinematic_01_start" ID="{92613CDE-428B-4698-9A9D-1348F01DD05E}">
-					<ChildrenList>
-						<Action Name="" ID="{03915B9D-E07B-4ABF-B64A-49B701AF67F1}" ShortID="809728019">
-							<ReferenceList>
-								<Reference Name="Target">
-									<ObjectRef Name="cinematic" ID="{5CB6A46C-5C47-401A-B95A-BBBB8ABF7538}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
-								</Reference>
-							</ReferenceList>
-						</Action>
-					</ChildrenList>
-				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

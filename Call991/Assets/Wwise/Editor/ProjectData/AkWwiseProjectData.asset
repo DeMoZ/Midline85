@@ -695,8 +695,42 @@ MonoBehaviour:
     ParentPath: Events\1 - Intro
     guid: 335e56249eb8664188eeb260fa8c572c
     GuidInternal: 
-    m_lastTime: -8585093884255630262
-    List: []
+    m_lastTime: -8585092910648376226
+    List:
+    - name: cinematic_01_end
+      guid: 4718668178c07e42a3378f965a704575
+      id: 707565644
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: 1 - Intro
+        ObjectType: 12
+        guid: 335e56249eb8664188eeb260fa8c572c
+      - ElementName: cinematic_01_end
+        ObjectType: 3
+        guid: 4718668178c07e42a3378f965a704575
+      Path: Events\1 - Intro\cinematic_01_end
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: cinematic_01_start
+      guid: de3c61928b4298469a9d1348f01dd05e
+      id: 1409698991
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: 1 - Intro
+        ObjectType: 12
+        guid: 335e56249eb8664188eeb260fa8c572c
+      - ElementName: cinematic_01_start
+        ObjectType: 3
+        guid: de3c61928b4298469a9d1348f01dd05e
+      Path: Events\1 - Intro\cinematic_01_start
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
   - PhysicalPath: Events\2 - Tutor.wwu
     PathAndIcons:
     - ElementName: Events
@@ -708,42 +742,8 @@ MonoBehaviour:
     ParentPath: Events\2 - Tutor
     guid: 97996189bbf8a6438b45829d8ac5ca0b
     GuidInternal: 
-    m_lastTime: -8585093884255640257
+    m_lastTime: -8585092910648363638
     List:
-    - name: cinematic_01_end
-      guid: 4718668178c07e42a3378f965a704575
-      id: 707565644
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: 2 - Tutor
-        ObjectType: 12
-        guid: 97996189bbf8a6438b45829d8ac5ca0b
-      - ElementName: cinematic_01_end
-        ObjectType: 3
-        guid: 4718668178c07e42a3378f965a704575
-      Path: Events\2 - Tutor\cinematic_01_end
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
-    - name: cinematic_01_start
-      guid: de3c61928b4298469a9d1348f01dd05e
-      id: 1409698991
-      PathAndIcons:
-      - ElementName: Events
-        ObjectType: 5
-        guid: 00000000000000000000000000000000
-      - ElementName: 2 - Tutor
-        ObjectType: 12
-        guid: 97996189bbf8a6438b45829d8ac5ca0b
-      - ElementName: cinematic_01_start
-        ObjectType: 3
-        guid: de3c61928b4298469a9d1348f01dd05e
-      Path: Events\2 - Tutor\cinematic_01_start
-      maxAttenuation: 0
-      maxDuration: -1
-      minDuration: -1
     - name: Elena
       guid: f810d81050566642ba2838e94979705e
       id: 1630005044
@@ -2509,7 +2509,7 @@ MonoBehaviour:
     ParentPath: Events\3 - Chapter One (Pizza)
     guid: 1d3007f632a5b04495516140f2c6ca1d
     GuidInternal: 
-    m_lastTime: -8585100723507108749
+    m_lastTime: -8585092922990505146
     List:
     - name: Elena
       guid: 919ba34667705044a0977f2f143bc00f
