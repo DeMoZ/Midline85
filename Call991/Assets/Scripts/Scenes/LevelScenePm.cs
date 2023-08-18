@@ -38,7 +38,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand OnAfterEnter;
         public GameSet GameSet;
         public string LevelId;
-        
+
         public ReactiveCommand<bool> OnClickPauseButton;
         public Blocker Blocker;
         public CursorSet CursorSettings;
@@ -77,16 +77,11 @@ public class LevelScenePm : IDisposable
         _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
-        _ctx.OnClickMenuButton.Subscribe(_ =>
-        {
-            _ctx.OnSwitchScene.Execute(GameScenes.Menu);
-        }).AddTo(_disposables);
-        
-        _ctx.OnClickNextLevelButton.Subscribe(_ =>
-        {
-            _ctx.OnSwitchScene.Execute(GameScenes.Level);
-        }).AddTo(_disposables);
-        
+        _ctx.OnClickMenuButton.Subscribe(_ => { _ctx.OnSwitchScene.Execute(GameScenes.Menu); }).AddTo(_disposables);
+
+        _ctx.OnClickNextLevelButton.Subscribe(_ => { _ctx.OnSwitchScene.Execute(GameScenes.Level); })
+            .AddTo(_disposables);
+
         _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
@@ -96,10 +91,10 @@ public class LevelScenePm : IDisposable
         InitButtons();
         _ctx.DialogueService.OnShowLevelUi.Execute();
         _ctx.CursorSettings.EnableCursor(true);
-        
+
         await PrepareAudioManager();
         if (_tokenSource.IsCancellationRequested) return;
-        
+
         ExecuteDialogue();
     }
 
@@ -191,7 +186,7 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunMusic(musicData));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
-        
+
         foreach (var soundData in soundEvents)
         {
             var routine = Observable.FromCoroutine(() => RunSound(soundData));
@@ -210,7 +205,7 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunPhrase(phraseData, phrase));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
-        
+
         foreach (var imagePhraseData in imagePhrases)
         {
             var phrase = content[$"p_{imagePhraseData.Guid}"] as Phrase;
@@ -258,7 +253,8 @@ public class LevelScenePm : IDisposable
 
     private void GetEvents(out List<EventVisualData> soundEvents, out List<EventVisualData> objectEvents,
         out List<EventVisualData> musicEvents, out List<EventVisualData> rtpcEvents,
-        IEnumerable<PhraseNodeData> phrases, IEnumerable<ImagePhraseNodeData> imagePhrases, IEnumerable<EndNodeData> ends, 
+        IEnumerable<PhraseNodeData> phrases, IEnumerable<ImagePhraseNodeData> imagePhrases,
+        IEnumerable<EndNodeData> ends,
         IEnumerable<EventNodeData> events, IEnumerable<NewspaperNodeData> newspapers)
     {
         var allEvents = new List<EventVisualData>();
@@ -340,7 +336,7 @@ public class LevelScenePm : IDisposable
 
             if (_tokenSource.IsCancellationRequested) return true;
         }
-        
+
         // image phrase timing asset
         foreach (var data in imagePhrases)
         {
@@ -358,7 +354,7 @@ public class LevelScenePm : IDisposable
 
             if (_tokenSource.IsCancellationRequested) return true;
         }
-        
+
         // newspaper graphics
         foreach (var data in newspapers)
         {
@@ -393,13 +389,13 @@ public class LevelScenePm : IDisposable
 
         _ctx.DialogueService.OnShowPhrase.Execute(uiPhrase);
         var voice = _ctx.GameSet.VoicesSet.GetSoundByPath(data.PhraseSound);
-        var voiceId = _ctx.MediaService.AudioManager.PlayVoice(voice);
-
-        if (voiceId == null)
-            Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
-        else
-            Debug.Log($"Sound for phrase {data.PhraseSketchText}");
+        Debug.Log($"!Voice {voice} for phrase {data.PhraseSound}");
         
+        if (_ctx.MediaService.AudioManager.TryPlayVoice(voice, out var voiceId))
+            Debug.Log($"Sound for phrase {data.PhraseSketchText}");
+        else
+            Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
+
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
 
@@ -407,6 +403,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.DialogueService.OnHidePhrase.Execute(uiPhrase);
     }
+
     private IEnumerator RunImagePhrase(ImagePhraseNodeData data, Phrase phrase, Sprite sprite)
     {
         Debug.Log($"[{this}] RunPhrase {data}");
@@ -423,13 +420,12 @@ public class LevelScenePm : IDisposable
 
         _ctx.DialogueService.OnShowImagePhrase.Execute(uiPhrase);
         var voice = _ctx.GameSet.VoicesSet.GetSoundByPath(data.PhraseSound);
-        var voiceId = _ctx.MediaService.AudioManager.PlayVoice(voice);
-
-        if (voiceId == null)
-            Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
-        else
+        if (_ctx.MediaService.AudioManager.TryPlayVoice(voice, out var voiceId))
             Debug.Log($"Sound for phrase {data.PhraseSketchText}");
-        
+        else
+            Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
+         
+
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
 
@@ -457,7 +453,7 @@ public class LevelScenePm : IDisposable
         else
             Debug.LogError($"Switch name {musicName} not found in GameSet.MusicSwitchesKeys");
     }
-    
+
     private IEnumerator RunSound(EventVisualData data)
     {
         yield return new WaitForSeconds(data.Delay);
@@ -465,19 +461,12 @@ public class LevelScenePm : IDisposable
         var soundName = data.PhraseEvent;
 
         if (string.IsNullOrEmpty(soundName) || soundName.Equals(AaGraphConstants.None)) yield break;
-        
+
         var sfx = _ctx.GameSet.SfxsSet.GetSoundByPath(data.PhraseEvent);
-        Debug.Log($"Sound {sfx} for phrase {data.PhraseEvent}");
-
-        var sfxId = _ctx.MediaService.AudioManager.PlaySfx(sfx);
-
-        if (sfxId == null)
-            Debug.LogError($"NONE sound for phrase {data.PhraseEvent}");
-        else
+        if (_ctx.MediaService.AudioManager.TryPlaySfx(sfx, out var sfxId))
             Debug.Log($"Sound for phrase {data.PhraseEvent}");
-        
-        if (sfxId != null) 
-            _ctx.MediaService.AudioManager.StopVoice(sfxId.Value);
+        else
+            Debug.LogError($"NONE sound for phrase {data.PhraseEvent}");
     }
 
     private IEnumerator RunRtpc(EventVisualData rtpcData)
@@ -627,15 +616,15 @@ public class LevelScenePm : IDisposable
         Debug.Log($"[{this}] level end {data}");
 
         var nextLevelExists = _ctx.GameLevelsService.TryGetNextLevel(out var nextLevel, out var isGameEnd);
-        
+
         Debug.Log($"next level Exists = {nextLevelExists}");
-        
+
         if (nextLevelExists)
         {
             Debug.Log($"next level {nextLevel.EntryNodeData.LevelId}; isGameEnd = {isGameEnd}");
             _ctx.GameLevelsService.SetLevel(nextLevel);
         }
-        
+
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
         _ctx.OnLevelEnd?.Execute((data.Records, nextLevelExists));
     }
@@ -715,7 +704,7 @@ private Choice RandomSelectButton(List<Choice> choices)
             buttonsAppearDuration = _ctx.GameSet.buttonsAppearDuration,
         });
     }
-    
+
     private void InitButtons()
     {
         foreach (var button in _ctx.buttons)
