@@ -9,6 +9,21 @@
 			<ChildrenList>
 				<ActorMixer Name="Police" ID="{85F63828-FEAC-459E-8627-E84724280004}" ShortID="476296084">
 					<PropertyList>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>41</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>42</Value>
+							</ValueList>
+						</Property>
+						<Property Name="MakeUpGain" Type="Real64">
+							<ValueList>
+								<Value>-17.2</Value>
+							</ValueList>
+						</Property>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 					</PropertyList>
 					<ReferenceList>
@@ -19,6 +34,82 @@
 							<ObjectRef Name="Police" ID="{F4D99CE9-84A4-46E5-8BB9-D3F885ADA4EE}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 						</Reference>
 					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="pizza_police_001" ID="{1B502E0B-CE90-4943-8BE7-6CF500C24834}" ShortID="768857382">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_police_001" ID="{15B38FA5-AA4A-4663-8D52-82F464C082FB}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_police_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="840925032"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_police_001_2" ID="{2D8BDE17-AC23-4E2C-BA05-19AC5261416C}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>pizza_police_001_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="783423450"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_police_001" ID="{15B38FA5-AA4A-4663-8D52-82F464C082FB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_police_002" ID="{06C9BCBB-84E6-496D-BB3E-26AF0BC50C58}" ShortID="1011389270">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_police_002" ID="{261B56BD-FFAB-415B-B2D2-F074663C91CC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_police_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="59780310"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_police_002_2" ID="{D82EA627-3CA3-470C-9D29-8365484B5677}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>pizza_police_002_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="328776918"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_police_002" ID="{261B56BD-FFAB-415B-B2D2-F074663C91CC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
 				</ActorMixer>
 			</ChildrenList>
 		</WorkUnit>
