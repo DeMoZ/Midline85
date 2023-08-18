@@ -7,6 +7,7 @@ using I2.Loc;
 using TMPro;
 using UI;
 using UniRx;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -29,12 +30,10 @@ public class SoundTestSceneEntity : MonoBehaviour
     [SerializeField] private Button hoverButton = default;
     [SerializeField] private Button clickMenuButton = default;
     [SerializeField] private Button clickLevelButton = default;
-    [Space]
-    [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
+    [Space] [SerializeField] private ButtonAudioSettings menuButtonAudioSettings = default;
     [SerializeField] private ButtonAudioSettings levelButtonAudioSettings = default;
 
-    [Space]
-    [SerializeField] private Slider masterVolumeSlider = default;
+    [Space] [SerializeField] private Slider masterVolumeSlider = default;
     [SerializeField] [Range(0, 100)] private float startMasterVolume = 93f;
     [SerializeField] private Slider musicVolumeSlider = default;
     [SerializeField] [Range(0, 100)] private float startMusicVolume = 50f;
@@ -162,7 +161,7 @@ public class SoundTestSceneEntity : MonoBehaviour
     {
         _profile.OnVolumeSet.Execute((AudioSourceType.Voice, volume));
     }
-    
+
     private void SetSfxVolume(float volume)
     {
         _profile.OnVolumeSet.Execute((AudioSourceType.Sfx, volume));
@@ -208,7 +207,7 @@ public class SoundTestSceneEntity : MonoBehaviour
 
             _voiceButtons.Add(btn);
         }
-        
+
         for (var i = 0; i < _sfxsKeys.Count; i++)
         {
             var key = _sfxsKeys[i];
@@ -242,7 +241,7 @@ public class SoundTestSceneEntity : MonoBehaviour
         StopVoiceRoutine();
         PlayVoiceKey(key);
     }
-    
+
     private void PlaySfxButtonKey(string key)
     {
         // StopSfxRoutine();
@@ -254,28 +253,30 @@ public class SoundTestSceneEntity : MonoBehaviour
         if (_lastVoiceUint.HasValue)
             _audioManager.StopVoice(_lastVoiceUint.Value);
 
-        _lastVoiceUint = _audioManager.PlayVoice(key);
-
-        if (_lastVoiceUint == null)
-            Debug.LogError($"NONE voice for phrase {key}");
-        else
+        if (_audioManager.TryPlayVoice(key, out var voiceId))
+        {
+            _lastVoiceUint = voiceId;
             Debug.Log($"play voice key = {key}");
+        }
+        else
+            Debug.LogError($"NONE voice for phrase {key}");
+
 
         SetButtonColor(_voiceButtons[_currentIndex], _lastVoiceUint == null ? ButtonColor.Red : ButtonColor.Green);
     }
+
     private void PlaySfxKey(string key)
     {
         if (_lastSfxUint.HasValue)
             _audioManager.StopSfx(_lastSfxUint.Value);
 
-        _lastSfxUint = _audioManager.PlaySfx(key);
-
-        if (_lastSfxUint == null)
-            Debug.LogError($"NONE sfx for phrase {key}");
-        else
+        if (_audioManager.TryPlaySfx(key, out var sfxId))
+        {
+            _lastSfxUint = sfxId;
             Debug.Log($"play sfx key = {key}");
-
-        // SetButtonColor(_voiceButtons[_currentIndex], _lastVoiceUint == null ? ButtonColor.Red : ButtonColor.Green);
+        }
+        else
+            Debug.LogError($"NONE sfx for phrase {key}");
     }
 
     private void SetButtonColor(Button btn, ButtonColor btnColor)
