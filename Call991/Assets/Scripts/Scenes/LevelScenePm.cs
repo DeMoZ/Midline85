@@ -393,6 +393,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.DialogueService.OnShowPhrase.Execute(uiPhrase);
         var voice = _ctx.GameSet.VoicesSet.GetSoundByPath(data.PhraseSound);
+        Debug.Log($"!Voice {voice} for phrase {data.PhraseSound}");
         var voiceId = _ctx.MediaService.AudioManager.PlayVoice(voice);
 
         if (voiceId == null)
@@ -467,17 +468,19 @@ public class LevelScenePm : IDisposable
         if (string.IsNullOrEmpty(soundName) || soundName.Equals(AaGraphConstants.None)) yield break;
         
         var sfx = _ctx.GameSet.SfxsSet.GetSoundByPath(data.PhraseEvent);
-        Debug.Log($"Sound {sfx} for phrase {data.PhraseEvent}");
-
         var sfxId = _ctx.MediaService.AudioManager.PlaySfx(sfx);
-
+        
+        
         if (sfxId == null)
             Debug.LogError($"NONE sound for phrase {data.PhraseEvent}");
         else
             Debug.Log($"Sound for phrase {data.PhraseEvent}");
         
-        if (sfxId != null) 
-            _ctx.MediaService.AudioManager.StopVoice(sfxId.Value);
+        // if (sfxId != null) 
+        //     _ctx.MediaService.AudioManager.StopVoice(sfxId.Value);
+        
+        // var sfx = _ctx.GameSet.SfxsSet.GetSoundByPath(data.PhraseEvent);
+        // var sfxId = _ctx.MediaService.AudioManager.PlaySfx(sfx);
     }
 
     private IEnumerator RunRtpc(EventVisualData rtpcData)

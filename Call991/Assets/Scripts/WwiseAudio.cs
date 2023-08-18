@@ -43,6 +43,9 @@ public class WwiseAudio : MonoBehaviour
     [SerializeField] private Wwise.Event ResumeEvent = default;
     [SerializeField] private Wwise.Event MusicEvent = default;
 
+
+    [Space(100)] [SerializeField] private Wwise.Event CinematicEvent = default;
+    
     private Ctx _ctx;
 
     private bool _isMasterLoaded;
@@ -278,10 +281,16 @@ public class WwiseAudio : MonoBehaviour
     
     public uint? PlaySfx(string sound)
     {
-        Debug.LogWarning($"[{this}]play sfx {sound}");
-        if (!_isBankLoaded) return null;
-        if (PlaySound(sound, sfxGo, out var soundId)) return soundId;
+        if (PlaySound("cinematic_01_start", voiceGo, out var soundId)) return soundId;
+        //if (PlaySound(CinematicEvent.ToString(), voiceGo, out var soundId))
+            return soundId;
+        
         return null;
+        // Debug.LogWarning($"[{this}]play sfx: {sound}");
+        // if (!_isBankLoaded) return null;
+        // if (PlaySound(sound, sfxGo, out var soundId))
+        //     return soundId;
+        // return null;
     }
     
     public void StopSfx(uint sfx) =>

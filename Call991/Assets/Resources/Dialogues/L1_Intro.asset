@@ -76,8 +76,8 @@ MonoBehaviour:
   - Guid: bd32d768-2910-4efa-a053-aac758f3d11f
     Rect:
       serializedVersion: 2
-      x: 647
-      y: 200
+      x: 758
+      y: 191
       width: 103.5
       height: 95.5
     End: INTRO.END
@@ -87,25 +87,11 @@ MonoBehaviour:
   - Guid: 3eec4326-c7aa-4f96-abb6-12031481bd91
     Rect:
       serializedVersion: 2
-      x: 524
+      x: 613
       y: 200
       width: 99.5
       height: 107
     EventVisualData:
-    - Type: 2
-      PhraseEvent: Cinematic/cinematic_01_end
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 3
-      PhraseEvent: 
-      Layer: 0
-      Loop: 0
-      Stop: 1
-      Delay: 0
-      Value: 0
     - Type: 4
       PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
       Layer: 0
@@ -116,10 +102,10 @@ MonoBehaviour:
   - Guid: c215f9e4-1666-453f-b032-46e85ca57a6e
     Rect:
       serializedVersion: 2
-      x: 268
-      y: 200
-      width: 99.5
-      height: 107
+      x: 336
+      y: 60
+      width: 275.5
+      height: 366.5
     EventVisualData:
     - Type: 2
       PhraseEvent: Cinematic/cinematic_01_start
@@ -138,7 +124,7 @@ MonoBehaviour:
     - Type: 3
       PhraseEvent: Videos/Cinematic.mp4
       Layer: 0
-      Loop: 1
+      Loop: 0
       Stop: 0
       Delay: 0
       Value: 0
@@ -151,6 +137,9 @@ MonoBehaviour:
       Value: 0
   NewspaperNodeData: []
   NodeLinks:
+  - BaseNodeGuid: dc2bfe2c-45f3-47ba-8288-383b7ba3e972
+    BaseExitName: 
+    TargetNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
   - BaseNodeGuid: 43f30a7f-e53d-4cf4-afb7-49f873a735e8
     BaseExitName: 
     TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
@@ -160,6 +149,3 @@ MonoBehaviour:
   - BaseNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
     BaseExitName: 
     TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
-  - BaseNodeGuid: dc2bfe2c-45f3-47ba-8288-383b7ba3e972
-    BaseExitName: 
-    TargetNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
