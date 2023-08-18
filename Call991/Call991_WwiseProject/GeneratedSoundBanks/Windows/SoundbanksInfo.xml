@@ -1817,7 +1817,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{97111F0C-F7EA-D895-5B21-043C5F4B1380}">
+		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{3A5F6E49-AA12-2536-1E7D-B8F5EE44F055}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>Russian/L2_Tutor.bnk</Path>
 			<Media>
@@ -2599,7 +2599,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{DE33A211-7D83-519C-4402-2273BD59B7AA}">
+		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{9BF935B8-7D13-20A6-EC5F-BD4CF16A60BE}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>English/L2_Tutor.bnk</Path>
 			<Media>
@@ -3342,7 +3342,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{571F3DF3-9048-562D-A6FC-9D821A1BC707}">
+		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{75BE0F62-6067-356D-0456-8351FD5B9DBC}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>Russian/L3_Pizza.bnk</Path>
 			<Media>
@@ -3397,6 +3397,10 @@
 				<File Id="54110131" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_george\pizza_george_054.wav</ShortName>
 					<CachePath>Voices/Russian/pizza_george/pizza_george_054_05842A19.wem</CachePath>
+				</File>
+				<File Id="59780310" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>pizza_police_002.wav</ShortName>
+					<CachePath>Voices/Russian/pizza_police_002_05842A19.wem</CachePath>
 				</File>
 				<File Id="60348895" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_elena\pizza_elena_038.wav</ShortName>
@@ -4049,6 +4053,10 @@
 				<File Id="839447603" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_george\pizza_george_022.wav</ShortName>
 					<CachePath>Voices/Russian/pizza_george/pizza_george_022_05842A19.wem</CachePath>
+				</File>
+				<File Id="840925032" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>pizza_police_001.wav</ShortName>
+					<CachePath>Voices/Russian/pizza_police_001_05842A19.wem</CachePath>
 				</File>
 				<File Id="841649679" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizza_george\pizza_george_046.wav</ShortName>
@@ -5475,8 +5483,16 @@
 						<ActionPostEventEntry Id="1434521176" Name="sfx_3foot"/>
 					</ActionPostEvent>
 				</Event>
-				<Event Id="29941894" Name="pizza_police_001" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
-				<Event Id="29941893" Name="pizza_police_002" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="29941894" Name="pizza_police_001" DurationType="OneShot" DurationMin="7.0910416" DurationMax="7.0910416">
+					<MediaRefs>
+						<MediaRef Id="840925032"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="29941893" Name="pizza_police_002" DurationType="OneShot" DurationMin="6.6479373" DurationMax="6.6479373">
+					<MediaRefs>
+						<MediaRef Id="59780310"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1434521176" Name="sfx_3foot" DurationType="OneShot" DurationMin="5.233333" DurationMax="5.233333">
 					<MediaRefs>
 						<MediaRef Id="691429476"/>
@@ -5529,7 +5545,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{720D747F-4ACD-FDF8-7483-C16A991CB301}">
+		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{01AB9370-2736-204A-74FE-B22569B852A1}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>English/L3_Pizza.bnk</Path>
 			<Media>
@@ -13064,7 +13080,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{E33EA5EA-667D-7236-F45F-A4244F0B5A2B}">
+		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{6BC92BA7-7750-2C85-B0AB-426F3C2841C0}">
 			<ShortName>Master</ShortName>
 			<Path>Master.bnk</Path>
 			<Media>
@@ -13124,6 +13140,10 @@
 					<ShortName>Leyer 4.wav</ShortName>
 					<CachePath>SFX/Leyer 4_DFD762D4.wem</CachePath>
 				</File>
+				<File Id="773601455" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicTraining_Main_Training_70_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicTraining_Main_Training_70_ver.1_DFD762D4.wem</CachePath>
+				</File>
 				<File Id="798395727" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_04.wav</ShortName>
 					<CachePath>SFX/sfx_clock_04_5AE31F0F.wem</CachePath>
@@ -13174,6 +13194,12 @@
 								<MediaRef Id="436930163"/>
 								<MediaRef Id="462566223"/>
 								<MediaRef Id="770854726"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="2404037190"/>
+							<MediaRefs>
+								<MediaRef Id="773601455"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -13274,5 +13300,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{C0CF6241-D7EE-EC68-485B-CC81CA85A98D}</FileHash>
+	<FileHash>{795FC868-6CD7-56EB-5CE0-084D34E27E0E}</FileHash>
 </SoundBanksInfo>

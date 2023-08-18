@@ -708,8 +708,28 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="pizza_police_001" ID="{63AED429-B5AB-4520-8CA5-1CB1D438B180}"/>
-						<Event Name="pizza_police_002" ID="{71B845F7-A04B-4655-87F1-348A294B3265}"/>
+						<Event Name="pizza_police_001" ID="{63AED429-B5AB-4520-8CA5-1CB1D438B180}">
+							<ChildrenList>
+								<Action Name="" ID="{E761DBE7-D839-443B-B06B-7DDCAA46477A}" ShortID="499186295">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="pizza_police_001" ID="{1B502E0B-CE90-4943-8BE7-6CF500C24834}" WorkUnitID="{1BE42397-C648-4A82-9B75-C08D620D87C7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="pizza_police_002" ID="{71B845F7-A04B-4655-87F1-348A294B3265}">
+							<ChildrenList>
+								<Action Name="" ID="{83116E66-8E57-40F0-BE32-07DB90630548}" ShortID="855144951">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="pizza_police_002" ID="{06C9BCBB-84E6-496D-BB3E-26AF0BC50C58}" WorkUnitID="{1BE42397-C648-4A82-9B75-C08D620D87C7}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="George" ID="{DEA67032-3318-46DC-B6C9-F83E59985D51}" ShortID="807192775">
