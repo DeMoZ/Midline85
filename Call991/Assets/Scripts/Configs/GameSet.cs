@@ -50,7 +50,7 @@ namespace Configs
         public LevelKeysList LevelKeys;
         public PersonKeysList PersonsKeys;
         public PopupKeysList CountKeys;
-        public PopupKeysList EndsKeys;
+        public FilteredLocalizationKeysList EndsKeys;
         public ChoiceKeysList ChoiceKeys;
         public RecordKeysList RecordKeys;
         public LanguagesKeysList LanguagesKeys;
