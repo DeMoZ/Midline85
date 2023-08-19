@@ -27,62 +27,62 @@ namespace AaDialogueGraph.Editor
             recordsContainer.AddToClassList("aa-RecordVisual_content-container");
             foldout.Add(recordsContainer);
             
-            var addRecord = new Button(() =>
-            {
-                var recordGroup = NewRecordGroup(recordsContainer, foldout, new RecordData());
-                recordsContainer.Add(recordGroup);
-                UpdateCount(foldout);
-            });
-            addRecord.text = AaGraphConstants.AddRecord;
-            recordsContainer.Add(addRecord);
-
-            foreach (var record in data.Records)
-            {
-                var recordGroup = NewRecordGroup(recordsContainer, foldout, record);
-                recordsContainer.Add(recordGroup);
-            }
+            // var addRecord = new Button(() =>
+            // {
+            //     var recordGroup = NewRecordGroup(recordsContainer, foldout, new RecordData());
+            //     recordsContainer.Add(recordGroup);
+            //     UpdateCount(foldout);
+            // });
+            // addRecord.text = AaGraphConstants.AddRecord;
+            // recordsContainer.Add(addRecord);
+            //
+            // foreach (var record in data.Records)
+            // {
+            //     var recordGroup = NewRecordGroup(recordsContainer, foldout, record);
+            //     recordsContainer.Add(recordGroup);
+            // }
             
-            UpdateCount(foldout);
+            // UpdateCount(foldout);
         }
 
-        private RecordGroup NewRecordGroup(VisualElement container, Foldout foldout, RecordData data)
-        {
-            var recordGroup =  new RecordGroup();
-            recordGroup.Set(element =>
-            {
-                RemoveElement(element, container);
-                UpdateCount(foldout);
-            }, AaKeys.RecordKeys, data);
+        // private RecordGroup NewRecordGroup(VisualElement container, Foldout foldout, RecordData data)
+        // {
+        //     var recordGroup =  new RecordGroup();
+        //     recordGroup.Set(element =>
+        //     {
+        //         RemoveElement(element, container);
+        //         UpdateCount(foldout);
+        //     }, AaKeys.RecordKeys, data);
+        //
+        //     return recordGroup;
+        // }
 
-            return recordGroup;
-        }
+        // private void RemoveElement(VisualElement element, VisualElement container)
+        // {
+        //     container.Remove(element);
+        // }
 
-        private void RemoveElement(VisualElement element, VisualElement container)
-        {
-            container.Remove(element);
-        }
+        // private void UpdateCount(Foldout foldout)
+        // {
+        //     var records = foldout.Query<RecordGroup>().ToList().Count;
+        //     foldout.text = $"Records {records}";
+        // }
 
-        private void UpdateCount(Foldout foldout)
-        {
-            var records = foldout.Query<RecordGroup>().ToList().Count;
-            foldout.text = $"Records {records}";
-        }
-
-        public List<RecordData> GetRecords()
-        {
-            var records = new List<RecordData>();
-            var recordGroup = contentContainer.Query<RecordGroup>().ToList();
-            foreach (var recordElement in recordGroup)
-            {
-                var record = new RecordData
-                {
-                    Key = recordElement.GetKey(),
-                    Sprite = recordElement.GetSprite()
-                };
-                records.Add(record);
-            }    
-            return records;
-        }
+        // public List<RecordData> GetRecords()
+        // {
+        //     var records = new List<RecordData>();
+        //     var recordGroup = contentContainer.Query<RecordGroup>().ToList();
+        //     foreach (var recordElement in recordGroup)
+        //     {
+        //         var record = new RecordData
+        //         {
+        //             Key = recordElement.GetKey(),
+        //             Sprite = recordElement.GetSprite()
+        //         };
+        //         records.Add(record);
+        //     }    
+        //     return records;
+        // }
     }
 
     public class RecordGroup : VisualElement

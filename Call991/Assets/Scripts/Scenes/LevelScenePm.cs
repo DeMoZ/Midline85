@@ -28,7 +28,7 @@ public class LevelScenePm : IDisposable
         public MediaService MediaService;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public ReactiveCommand OnClickMenuButton;
-        public ReactiveCommand<(List<RecordData> recordData, bool nextLevelExists)> OnLevelEnd;
+        public ReactiveCommand<(string endKey, bool nextLevelExists)> OnLevelEnd;
         public ObjectEvents ObjectEvents;
 
         public ContentLoader ContentLoader;
@@ -626,7 +626,7 @@ public class LevelScenePm : IDisposable
         }
 
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
-        _ctx.OnLevelEnd?.Execute((data.Records, nextLevelExists));
+        _ctx.OnLevelEnd?.Execute((data.End, nextLevelExists));
     }
 
     private IEnumerator ObserveTimer(float time, ReactiveProperty<bool> onSkip = null, Action onEnd = null)
