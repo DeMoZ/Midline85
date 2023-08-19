@@ -65,7 +65,7 @@ public class LevelSceneEntity : IGameScene
         var dialogueService = new DialogueService().AddTo(_disposables);
 
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
-        var onLevelEnd = new ReactiveCommand<(string endKey, bool nextLevelExists)>().AddTo(_disposables);
+        var onLevelEnd = new ReactiveCommand<StatisticsData>().AddTo(_disposables);
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
 
         var buttons = _ui.Buttons;

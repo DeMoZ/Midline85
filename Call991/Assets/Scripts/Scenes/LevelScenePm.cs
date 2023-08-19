@@ -28,7 +28,7 @@ public class LevelScenePm : IDisposable
         public MediaService MediaService;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public ReactiveCommand OnClickMenuButton;
-        public ReactiveCommand<(string endKey, bool nextLevelExists)> OnLevelEnd;
+        public ReactiveCommand<StatisticsData> OnLevelEnd;
         public ObjectEvents ObjectEvents;
 
         public ContentLoader ContentLoader;
@@ -390,7 +390,7 @@ public class LevelScenePm : IDisposable
         _ctx.DialogueService.OnShowPhrase.Execute(uiPhrase);
         var voice = _ctx.GameSet.VoicesSet.GetSoundByPath(data.PhraseSound);
         Debug.Log($"!Voice {voice} for phrase {data.PhraseSound}");
-        
+
         if (_ctx.MediaService.AudioManager.TryPlayVoice(voice, out var voiceId))
             Debug.Log($"Sound for phrase {data.PhraseSketchText}");
         else
@@ -424,7 +424,7 @@ public class LevelScenePm : IDisposable
             Debug.Log($"Sound for phrase {data.PhraseSketchText}");
         else
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
-         
+
 
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
@@ -626,7 +626,8 @@ public class LevelScenePm : IDisposable
         }
 
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
-        _ctx.OnLevelEnd?.Execute((data.End, nextLevelExists));
+        _ctx.OnLevelEnd?.Execute(
+            new StatisticsData { LevelKey = _ctx.LevelId, EndKey = data.End, NextLevelExists = nextLevelExists });
     }
 
     private IEnumerator ObserveTimer(float time, ReactiveProperty<bool> onSkip = null, Action onEnd = null)
