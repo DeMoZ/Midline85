@@ -7,9 +7,9 @@ namespace AaDialogueGraph
     { 
         public string End;
         public List<EventVisualData> EventVisualData = new();
-        public List<RecordData> Records = new();
+        //public List<RecordData> Records = new();
     }
-
+    
     [System.Serializable]
     public class RecordData
     {
