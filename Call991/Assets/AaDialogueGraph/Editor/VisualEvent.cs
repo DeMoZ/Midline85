@@ -235,7 +235,8 @@ namespace AaDialogueGraph.Editor
         {
             if (data.Type != PhraseEventType.GameObject &&
                 data.Type != PhraseEventType.VideoClip &&
-                data.Type != PhraseEventType.Image)
+                data.Type != PhraseEventType.Image &&
+                data.Type != PhraseEventType.Projector)
                 return;
 
             Type = data.Type;
@@ -337,6 +338,25 @@ namespace AaDialogueGraph.Editor
             };
         }
         
+        private EventVisualData GetProjectorData()
+        {
+            var eventAssetField = contentContainer.Q<AssetField>(AaGraphConstants.ProjectorField);
+            if (eventAssetField == null)
+            {
+                Debug.LogError("no object in projector event field");
+                throw new NullReferenceException();
+            }
+
+            return new EventVisualData()
+            {
+                PhraseEvent = eventAssetField.GetEvent(),
+                Type = eventAssetField.Type,
+                //Layer = contentContainer.Q<PopupField<PhraseEventLayer>>().value,
+                Stop = contentContainer.Q<Toggle>(name: AaGraphConstants.StopToggleName).value,
+                Delay = contentContainer.Q<FloatField>().value,
+            };
+        }
+        
         private EventVisualData GetVideoData()
         {
             var eventAssetField = contentContainer.Q<AssetField>(AaGraphConstants.VideoField);
@@ -375,6 +395,8 @@ namespace AaDialogueGraph.Editor
             {
                 case PhraseEventType.Image:
                     return GetImageData();
+                case PhraseEventType.Projector:
+                    return GetProjectorData();
                 case PhraseEventType.VideoClip:
                     return GetVideoData();
                 case PhraseEventType.GameObject:
@@ -409,12 +431,21 @@ namespace AaDialogueGraph.Editor
             switch (data.Type)
             {
                 case PhraseEventType.Image:
-                    var spriteAsset = data.GetEventObject<Sprite>();
+                    var imageAsset = data.GetEventObject<Sprite>();
                     _objectField = new ObjectField
                     {
                         objectType = typeof(Sprite),
                         allowSceneObjects = false,
-                        value = spriteAsset,
+                        value = imageAsset,
+                    };
+                    break;
+                case PhraseEventType.Projector:
+                    var projectorAsset = data.GetEventObject<Sprite>();
+                    _objectField = new ObjectField
+                    {
+                        objectType = typeof(Sprite),
+                        allowSceneObjects = false,
+                        value = projectorAsset,
                     };
                     break;
                 case PhraseEventType.VideoClip:
