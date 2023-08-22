@@ -3,43 +3,35 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject:
-    fileID: 0
-  m_PrefabInstance:
-    fileID: 0
-  m_PrefabAsset:
-    fileID: 0
-  m_GameObject:
-    fileID: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script:
-    fileID: 11500000
-    guid: 810af83c7a0b40e9b11bcb70e2ae7a42
-    type: 3
+  m_Script: {fileID: 11500000, guid: 810af83c7a0b40e9b11bcb70e2ae7a42, type: 3}
   m_Name: pizza_girl_050
   m_EditorClassIdentifier: 
   phraseId: pizza_girl_050
-  overrideSoundName: false
-  soundFileName: ''
-  text: Мой парень любит поострее.
+  text: "\u041C\u043E\u0439 \u043F\u0430\u0440\u0435\u043D\u044C \u043B\u044E\u0431\u0438\u0442
+    \u043F\u043E\u043E\u0441\u0442\u0440\u0435\u0435."
   wordTimes:
-  - wipe: false
-    word: Мой
-    timeLine: 0
-    time: 0.7
-  - wipe: false
-    word: парень
+  - wipe: 0
+    word: "\u041C\u043E\u0439"
+    timeLine: 0.2
+    time: 0.5
+  - wipe: 0
+    word: "\u043F\u0430\u0440\u0435\u043D\u044C"
     timeLine: 0.7
-    time: 0.2
-  - wipe: false
-    word: любит
-    timeLine: 0.9
-    time: 0.6
-  - wipe: false
-    word: поострее.
+    time: 0.50000006
+  - wipe: 0
+    word: "\u043B\u044E\u0431\u0438\u0442"
+    timeLine: 1.2
+    time: 0.29999995
+  - wipe: 0
+    word: "\u043F\u043E\u043E\u0441\u0442\u0440\u0435\u0435."
     timeLine: 1.5
-    time: 1.1
-  beforeFirstWord: 0
+    time: 2.1
+  beforeFirstWord: 0.2
   afterLastWord: 2.1
-  totalTime: 3.06
+  totalTime: 3.6
