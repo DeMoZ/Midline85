@@ -11,7 +11,6 @@ using Data;
 using UI;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.Video;
 using Object = UnityEngine.Object;
 using Random = UnityEngine.Random;
@@ -28,7 +27,7 @@ public class LevelScenePm : IDisposable
         public MediaService MediaService;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public ReactiveCommand OnClickMenuButton;
-        public ReactiveCommand<(string endKey, bool nextLevelExists)> OnLevelEnd;
+        public ReactiveCommand<StatisticsData> OnLevelEnd;
         public ObjectEvents ObjectEvents;
 
         public ContentLoader ContentLoader;
@@ -46,6 +45,14 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand OnClickNextLevelButton;
     }
 
+    private class NodeEvents
+    {
+        public List<EventVisualData> SoundEvents;
+        public List<EventVisualData> ObjectEvents;
+        public List<EventVisualData> MusicEvents;
+        public List<EventVisualData> RtpcEvents;
+    }
+    
     private Ctx _ctx;
     private CompositeDisposable _disposables;
     private PhraseSet _currentPhrase;
@@ -157,18 +164,17 @@ public class LevelScenePm : IDisposable
         var newspapers = data.OfType<NewspaperNodeData>().ToList();
         _choices = data.OfType<ChoiceNodeData>().ToList();
         var observables = new IObservable<Unit>[] { };
-
-        GetEvents(out var soundEvents, out var objectEvents, out var musicEvents,
-            out var rtpcEvents, phrases, imagePhrases, ends, events, newspapers);
+        
+        GetEvents(out var nodeEvents, phrases, imagePhrases, ends, events, newspapers);
 
         var content = new Dictionary<string, object>();
 
         // load content with cancellation token. Return on Cancel.
-        if (await LoadContent(content, objectEvents, phrases, imagePhrases, newspapers)) return;
+        if (await LoadContent(content, nodeEvents.ObjectEvents, phrases, imagePhrases, newspapers)) return;
 
-        if (objectEvents.Count > 0)
+        if (nodeEvents.ObjectEvents.Count > 0)
         {
-            foreach (var dialogueEvent in objectEvents)
+            foreach (var dialogueEvent in nodeEvents.ObjectEvents)
             {
                 var routine = Observable.FromCoroutine(() => RunDialogueEvent(dialogueEvent, content));
                 observables = observables.Concat(new[] { routine }).ToArray();
@@ -180,20 +186,20 @@ public class LevelScenePm : IDisposable
             var end = ends.First();
             RunEndNode(end);
         }
-
-        foreach (var musicData in musicEvents)
+        
+        foreach (var musicData in nodeEvents.MusicEvents)
         {
             var routine = Observable.FromCoroutine(() => RunMusic(musicData));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
-        foreach (var soundData in soundEvents)
+        foreach (var soundData in nodeEvents.SoundEvents)
         {
             var routine = Observable.FromCoroutine(() => RunSound(soundData));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
-        foreach (var rtpcData in rtpcEvents)
+        foreach (var rtpcData in nodeEvents.RtpcEvents)
         {
             var routine = Observable.FromCoroutine(() => RunRtpc(rtpcData));
             observables = observables.Concat(new[] { routine }).ToArray();
@@ -251,17 +257,19 @@ public class LevelScenePm : IDisposable
             }).AddTo(_disposables);
     }
 
-    private void GetEvents(out List<EventVisualData> soundEvents, out List<EventVisualData> objectEvents,
-        out List<EventVisualData> musicEvents, out List<EventVisualData> rtpcEvents,
+    private void GetEvents(out  NodeEvents nodeEvents,
         IEnumerable<PhraseNodeData> phrases, IEnumerable<ImagePhraseNodeData> imagePhrases,
         IEnumerable<EndNodeData> ends,
         IEnumerable<EventNodeData> events, IEnumerable<NewspaperNodeData> newspapers)
     {
         var allEvents = new List<EventVisualData>();
-        soundEvents = new List<EventVisualData>();
-        objectEvents = new List<EventVisualData>();
-        musicEvents = new List<EventVisualData>();
-        rtpcEvents = new List<EventVisualData>();
+        nodeEvents = new NodeEvents
+        {
+            SoundEvents = new List<EventVisualData>(),
+            ObjectEvents = new List<EventVisualData>(),
+            MusicEvents = new List<EventVisualData>(),
+            RtpcEvents = new List<EventVisualData>()
+        };
 
         foreach (var phrase in phrases.Where(phrase => phrase.EventVisualData.Any()))
             allEvents.AddRange(phrase.EventVisualData);
@@ -283,18 +291,19 @@ public class LevelScenePm : IDisposable
             switch (anEvent.Type)
             {
                 case PhraseEventType.Music:
-                    musicEvents.Add(anEvent);
+                    nodeEvents.MusicEvents.Add(anEvent);
                     break;
                 case PhraseEventType.RTPC:
-                    rtpcEvents.Add(anEvent);
+                    nodeEvents.RtpcEvents.Add(anEvent);
                     break;
                 case PhraseEventType.AudioClip:
-                    soundEvents.Add(anEvent);
+                    nodeEvents.SoundEvents.Add(anEvent);
                     break;
+                case PhraseEventType.Projector:
                 case PhraseEventType.Image:
                 case PhraseEventType.VideoClip:
                 case PhraseEventType.GameObject:
-                    objectEvents.Add(anEvent);
+                    nodeEvents.ObjectEvents.Add(anEvent);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -309,6 +318,7 @@ public class LevelScenePm : IDisposable
         {
             switch (eventContent.Type)
             {
+                case PhraseEventType.Projector:
                 case PhraseEventType.Image:
                     var sprite = await _ctx.ContentLoader.GetObjectAsync<Sprite>(eventContent.PhraseEvent);
                     content[eventContent.PhraseEvent] = sprite;
@@ -390,7 +400,7 @@ public class LevelScenePm : IDisposable
         _ctx.DialogueService.OnShowPhrase.Execute(uiPhrase);
         var voice = _ctx.GameSet.VoicesSet.GetSoundByPath(data.PhraseSound);
         Debug.Log($"!Voice {voice} for phrase {data.PhraseSound}");
-        
+
         if (_ctx.MediaService.AudioManager.TryPlayVoice(voice, out var voiceId))
             Debug.Log($"Sound for phrase {data.PhraseSketchText}");
         else
@@ -424,7 +434,7 @@ public class LevelScenePm : IDisposable
             Debug.Log($"Sound for phrase {data.PhraseSketchText}");
         else
             Debug.LogError($"NONE sound for phrase {data.PhraseSketchText}");
-         
+
 
         var time = phrase == null ? defaultTime : phrase.totalTime;
         foreach (var t in Timer(time, _isPhraseSkipped)) yield return t;
@@ -493,6 +503,16 @@ public class LevelScenePm : IDisposable
     {
         switch (data.Type)
         {
+            case PhraseEventType.Projector:
+                var slide = content[data.PhraseEvent] as Sprite;
+                if (data.Stop)
+                {
+                    _ctx.MediaService.FilmProjector.HideSlide();
+                    break;
+                }
+                if (slide == null) break;
+                _ctx.MediaService.FilmProjector.ShowSlide(slide);
+                break;
             case PhraseEventType.Image:
                 var sprite = content[data.PhraseEvent] as Sprite;
                 if (sprite == null && !data.Stop) break;
@@ -626,7 +646,8 @@ public class LevelScenePm : IDisposable
         }
 
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
-        _ctx.OnLevelEnd?.Execute((data.End, nextLevelExists));
+        _ctx.OnLevelEnd?.Execute(
+            new StatisticsData { LevelKey = _ctx.LevelId, EndKey = data.End, NextLevelExists = nextLevelExists });
     }
 
     private IEnumerator ObserveTimer(float time, ReactiveProperty<bool> onSkip = null, Action onEnd = null)
@@ -723,6 +744,7 @@ private Choice RandomSelectButton(List<Choice> choices)
     {
         _ctx.MediaService.ImageManager.HideImages();
         _ctx.MediaService.VideoManager.StopPlayers();
+        _ctx.MediaService.FilmProjector.OffSlider();
         _tokenSource.Cancel();
         _disposables.Dispose();
         _ctx.MediaService.AudioManager.UnLoadBank();

@@ -1,6 +1,4 @@
-using System.Collections.Generic;
 using System.Threading.Tasks;
-using AaDialogueGraph;
 using I2.Loc;
 using TMPro;
 using UniRx;
@@ -39,10 +37,11 @@ namespace UI
         private void OnClickMenu() =>
             _ctx.OnClickMenuButton.Execute();
 
-        public async Task SetStatistic(string endKey, bool nextLevelExists)
+        public async Task SetStatistic(StatisticsData data)
         {   
-            nextLevelButton.gameObject.SetActive(nextLevelExists);
-            textField.text = new LocalizedString(endKey);
+            nextLevelButton.gameObject.SetActive(data.NextLevelExists);
+            textField.text = new LocalizedString(data.EndKey);
+            title.text =  new LocalizedString(data.LevelKey);
         }
         
         // public async Task _PopulateCells(List<RecordData> data, bool nextLevelExists)
