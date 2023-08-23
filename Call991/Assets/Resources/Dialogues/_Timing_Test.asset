@@ -60,10 +60,17 @@ MonoBehaviour:
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L3_Pizza/Girl/pizza_girl_053
+    EventVisualData:
+    - Type: 1
+      PhraseEvent: PizzaRTPC
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 100
+    PhraseSound: L3_Pizza/Police/pizza_police_002
     Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_girl/pizza_girl_053_BAD.asset
+    - Phrases/L3_Pizza/Russian/pizza_police/pizza_police_002.asset
   ImagePhraseNodeData: []
   ChoiceNodeData: []
   ForkNodeData: []
@@ -116,13 +123,6 @@ MonoBehaviour:
       height: 107
     EventVisualData:
     - Type: 1
-      PhraseEvent: NONE
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 2
       PhraseEvent: NONE
       Layer: 0
       Loop: 0
