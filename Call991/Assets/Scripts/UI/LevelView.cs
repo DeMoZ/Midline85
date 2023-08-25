@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using AaDialogueGraph;
+using Configs;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
@@ -12,46 +13,101 @@ namespace UI
     {
         public struct Ctx
         {
-            public ReactiveCommand onClickPauseButton;
+            public GameSet GameSet;
+            public ReactiveCommand OnClickPauseButton;
+            public LevelSceneObjectsService LevelSceneObjectsService;
         }
-
+        
         [SerializeField] private MenuButtonView pauseButton = default;
+        [SerializeField] private CanvasGroup choiceCanvasGroup;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
+        [SerializeField] private List<ChoiceButtonSplitter> buttonSplitters = default;
         [SerializeField] private List<PersonView> persons = default;
         [SerializeField] private TextPersonView imagePersonText = default;
         [SerializeField] private List<ImagePersonView> imagePersons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
-        public List<ChoiceButtonView> Buttons => buttons;
-
         public CountDownView CountDown => countDown;
 
         private Ctx _ctx;
+        private CompositeDisposable _disposables;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
+            _disposables = new CompositeDisposable();
 
-            foreach (var person in persons) 
+            countDown.SetCtx(new CountDownView.Ctx
+            {
+                ChoicesDuration = _ctx.GameSet.choicesDuration,
+            });
+
+            for (var i = 0; i < buttons.Count; i++)
+            {
+                buttons[i].SetCtx(new ChoiceButtonView.Ctx
+                {
+                    Index = i,
+                    OnClickChoiceButton = _ctx.LevelSceneObjectsService.OnClickChoiceButton,
+                    OnAutoSelectButton = _ctx.LevelSceneObjectsService.OnAutoSelectButton,
+                });
+            }
+
+            foreach (var person in persons)
                 person.gameObject.SetActive(false);
 
-            foreach (var person in imagePersons) 
+            foreach (var person in imagePersons)
                 person.gameObject.SetActive(false);
-            
+
             imagePersonText.gameObject.SetActive(false);
 
             foreach (var button in buttons)
                 button.gameObject.SetActive(false);
 
+            foreach (var splitter in buttonSplitters)
+                splitter.gameObject.SetActive(false);
+
             CountDown.gameObject.SetActive(false);
 
+            _ctx.LevelSceneObjectsService.OnShowButtons.Subscribe(OnShowButtons).AddTo(_disposables);
+            _ctx.LevelSceneObjectsService.OnHideButtons.Subscribe(_ => OnHideButtons()).AddTo(_disposables);
+            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_=> StopTimer()).AddTo(_disposables);
             pauseButton.OnClick += OnClickPauseButton;
+        }
+
+        private void OnShowButtons(List<ChoiceNodeData> data)
+        {
+            choiceCanvasGroup.alpha = 0;
+            if (data == null) return;
+            if (data.Count > 0)
+                buttonSplitters[0].gameObject.SetActive(true);
+
+            for (var i = 0; i < data.Count; i++)
+            {
+                var choice = data[i];
+                buttons[i].interactable = !choice.IsLocked;
+                buttons[i].Show(choice.Choice, choice.IsLocked);
+                buttonSplitters[i + 1].gameObject.SetActive(true);
+            }
+
+            choiceCanvasGroup.DOFade(1, _ctx.GameSet.buttonsAppearDuration);
+            countDown.Show();
+        }
+
+        private void StopTimer()
+        {
+            countDown.Stop();
+        }
+        
+        private void OnHideButtons()
+        {
+            choiceCanvasGroup.alpha = 1;
+            choiceCanvasGroup.DOFade(0, _ctx.GameSet.buttonsDisappearDuration);
         }
 
         public void OnClickPauseButton()
         {
-            _ctx.onClickPauseButton?.Execute();
+            _ctx.OnClickPauseButton?.Execute();
         }
 
         public void OnShowPhrase(UiPhraseData data)
@@ -74,7 +130,7 @@ namespace UI
                 Debug.LogError($"[{this}] [OnShowPhrase] no person on side {data.PersonVisualData.ScreenPlace}");
                 return;
             }
-            
+
             personView.ShowPhrase(data);
 
             var phraseData = new UiPhraseData
@@ -82,7 +138,7 @@ namespace UI
                 Description = data.Description,
                 Phrase = data.Phrase,
                 PhraseVisualData = data.PhraseVisualData,
-                PersonVisualData = new PersonVisualData{Person = data.PersonVisualData.Person},
+                PersonVisualData = new PersonVisualData { Person = data.PersonVisualData.Person },
             };
             imagePersonText.ShowPhrase(phraseData);
         }
@@ -102,8 +158,8 @@ namespace UI
             if (data.PersonVisualData.HideOnEnd)
                 personView.gameObject.SetActive(false);
         }
-        
-        public void OnHideImagePhrase (UiImagePhraseData data)
+
+        public void OnHideImagePhrase(UiImagePhraseData data)
         {
             var personView = imagePersons.FirstOrDefault(p => p.ScreenPlace == data.PersonVisualData.ScreenPlace);
             if (personView == null)

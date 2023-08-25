@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
+using Configs;
 using PhotoViewer.Scripts.Photo;
 using UniRx;
 using UnityEngine;
@@ -32,6 +33,7 @@ namespace UI
     {
         public struct Ctx
         {
+            public GameSet GameSet;
             public DialogueService DialogueService;
 
             public ReactiveCommand<StatisticsData> OnLevelEnd;
@@ -45,6 +47,7 @@ namespace UI
             public ReactiveProperty<bool> IsPauseAllowed;
 
             public PlayerProfile Profile;
+            public LevelSceneObjectsService LevelSceneObjectsService;
         }
 
         private Ctx _ctx;
@@ -61,9 +64,7 @@ namespace UI
         private CompositeDisposable _disposables;
         private bool _isNewspaperActive;
         private ReactiveCommand _onClickToMenu;
-
-        public List<ChoiceButtonView> Buttons => levelView.Buttons;
-        public CountDownView CountDown => levelView.CountDown;
+        
         public AudioSource PhraseAudioSource => phraseAudioSource;
         private CancellationTokenSource _tokenSource;
 
@@ -90,7 +91,10 @@ namespace UI
 
             levelView.SetCtx(new LevelView.Ctx
             {
-                onClickPauseButton = onClickPauseButton,
+                GameSet = _ctx.GameSet,
+                OnClickPauseButton = onClickPauseButton,
+                LevelSceneObjectsService = _ctx.LevelSceneObjectsService,
+
             });
 
             levelPauseView.SetCtx(new LevelPauseView.Ctx
