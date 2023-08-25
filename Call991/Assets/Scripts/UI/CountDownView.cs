@@ -1,5 +1,8 @@
-using System.Threading.Tasks;
+using System;
+using System.Collections.Generic;
+using AaDialogueGraph;
 using DG.Tweening;
+using UniRx;
 using UnityEngine;
 
 namespace UI
@@ -8,12 +11,11 @@ namespace UI
     {
         public struct Ctx
         {
-            public float buttonsAppearDuration;
+            public float ChoicesDuration;
         }
 
         [SerializeField] private RectTransform backLine = default;
         [SerializeField] private RectTransform frontLine = default;
-        [SerializeField] private CanvasGroup canvasGroup = default;
 
         private Ctx _ctx;
         private Tween _scaleTween;
@@ -23,22 +25,16 @@ namespace UI
             _ctx = ctx;
         }
 
-        public void Stop(float fadeTime)
+        public void Stop()
         {
             _scaleTween.Kill();
-            canvasGroup.DOFade(0, fadeTime);
         }
 
-        public async void Show(float time)
+        public void Show()
         {
             frontLine.sizeDelta = backLine.sizeDelta;
-            canvasGroup.alpha = 1;
             gameObject.SetActive(true);
-            canvasGroup.DOFade(1, _ctx.buttonsAppearDuration);
-            await Task.Delay((int) (_ctx.buttonsAppearDuration * 1000));
-            _scaleTween = frontLine.DOSizeDelta(Vector2.up, time).OnUpdate(
-                () => { } //OnTweenUpdate
-            );
+            _scaleTween = frontLine.DOSizeDelta(Vector2.up, _ctx.ChoicesDuration);
         }
 
         private void OnTweenUpdate()

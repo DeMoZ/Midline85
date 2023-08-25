@@ -31,8 +31,7 @@ public class LevelScenePm : IDisposable
         public ObjectEvents ObjectEvents;
 
         public ContentLoader ContentLoader;
-        public List<ChoiceButtonView> buttons;
-        public CountDownView CountDown;
+        public LevelSceneObjectsService LevelSceneObjectsService;
 
         public ReactiveCommand OnAfterEnter;
         public GameSet GameSet;
@@ -52,11 +51,10 @@ public class LevelScenePm : IDisposable
         public List<EventVisualData> MusicEvents;
         public List<EventVisualData> RtpcEvents;
     }
-    
+
     private Ctx _ctx;
     private CompositeDisposable _disposables;
     private PhraseSet _currentPhrase;
-    private ReactiveCommand<ChoiceButtonView> _onClickChoiceButton;
 
     private bool _choiceDone;
     private float _phraseTimer;
@@ -76,10 +74,7 @@ public class LevelScenePm : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-
-        _onClickChoiceButton = new ReactiveCommand<ChoiceButtonView>().AddTo(_disposables);
-        _onClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
-
+        
         _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
         _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
@@ -89,13 +84,13 @@ public class LevelScenePm : IDisposable
         _ctx.OnClickNextLevelButton.Subscribe(_ => { _ctx.OnSwitchScene.Execute(GameScenes.Level); })
             .AddTo(_disposables);
 
+        _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
+        
         _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
     private async void OnAfterEnter()
     {
-        InitTimer();
-        InitButtons();
         _ctx.DialogueService.OnShowLevelUi.Execute();
         _ctx.CursorSettings.EnableCursor(true);
 
@@ -164,7 +159,7 @@ public class LevelScenePm : IDisposable
         var newspapers = data.OfType<NewspaperNodeData>().ToList();
         _choices = data.OfType<ChoiceNodeData>().ToList();
         var observables = new IObservable<Unit>[] { };
-        
+
         GetEvents(out var nodeEvents, phrases, imagePhrases, ends, events, newspapers);
 
         var content = new Dictionary<string, object>();
@@ -186,7 +181,7 @@ public class LevelScenePm : IDisposable
             var end = ends.First();
             RunEndNode(end);
         }
-        
+
         foreach (var musicData in nodeEvents.MusicEvents)
         {
             var routine = Observable.FromCoroutine(() => RunMusic(musicData));
@@ -257,7 +252,7 @@ public class LevelScenePm : IDisposable
             }).AddTo(_disposables);
     }
 
-    private void GetEvents(out  NodeEvents nodeEvents,
+    private void GetEvents(out NodeEvents nodeEvents,
         IEnumerable<PhraseNodeData> phrases, IEnumerable<ImagePhraseNodeData> imagePhrases,
         IEnumerable<EndNodeData> ends,
         IEnumerable<EventNodeData> events, IEnumerable<NewspaperNodeData> newspapers)
@@ -510,6 +505,7 @@ public class LevelScenePm : IDisposable
                     _ctx.MediaService.FilmProjector.HideSlide();
                     break;
                 }
+
                 if (slide == null) break;
                 _ctx.MediaService.FilmProjector.ShowSlide(slide);
                 break;
@@ -541,34 +537,42 @@ public class LevelScenePm : IDisposable
 
     private IEnumerator RunChoices(List<ChoiceNodeData> data)
     {
-        _ctx.CountDown.Show(_ctx.GameSet.choicesDuration);
         _ctx.MediaService.AudioManager.PlayTimerSfx();
-
-        for (var i = 0; i < data.Count; i++)
-        {
-            var choice = data[i];
-            _ctx.buttons[i].interactable = !choice.IsLocked;
-            _ctx.buttons[i].Show(choice.Choice, choice.IsLocked);
-        }
+        _ctx.LevelSceneObjectsService.OnShowButtons.Execute(data);
 
         foreach (var t in Timer(_ctx.GameSet.choicesDuration, _isChoiceDone)) yield return t;
 
-        if (!_isChoiceDone.Value)
-        {
-            AutoChoice(data);
-        }
+        if (!_isChoiceDone.Value) AutoChoice(data);
 
         _ctx.MediaService.AudioManager.StopTimerSfx();
+        
+        foreach (var t in Timer(_ctx.GameSet.buttonsShowSelectionDuration)) yield return t;
+        _ctx.LevelSceneObjectsService.OnHideButtons.Execute();
 
-        //_ctx.AudioManager.PlayUiSound(SoundUiTypes.ChoiceButton);
-        _ctx.CountDown.Stop(_ctx.GameSet.fastButtonFadeDuration);
+        foreach (var t in Timer(_ctx.GameSet.buttonsDisappearDuration)) yield return t;
+    }
 
-        foreach (var t in Timer(_ctx.GameSet.slowButtonFadeDuration)) yield return t;
+    private void AutoChoice(List<ChoiceNodeData> data)
+    {
+        Debug.Log($"[{this}] <color=yellow>choice time up!</color> Random choice!");
 
-        foreach (var button in _ctx.buttons)
+        var cnt = data.Count;
+        var isBlocked = true;
+        var index = 0;
+        while (isBlocked)
         {
-            button.gameObject.SetActive(false);
+            index = Random.Range(0, cnt);
+            isBlocked = data[index].IsLocked;
         }
+
+        _ctx.LevelSceneObjectsService.OnAutoSelectButton.Execute(index);
+    }
+
+    private void OnClickChoiceButton(int index)
+    {
+        if (_isChoiceDone.Value) return;
+        _isChoiceDone.Value = true;
+        _choice = _choices[index];
     }
 
     private IEnumerator RunNewspaperNode(Sprite sprite)
@@ -603,32 +607,6 @@ public class LevelScenePm : IDisposable
         _ctx.DialogueService.OnShowLevelUi?.Execute();
 
         _ctx.CursorSettings.EnableCursor(true);
-    }
-
-    private void AutoChoice(List<ChoiceNodeData> data)
-    {
-        Debug.Log($"[{this}] <color=yellow>choice time up!</color> Random choice!");
-
-        var cnt = data.Count;
-        var isBlocked = true;
-        var index = 0;
-        while (isBlocked)
-        {
-            index = Random.Range(0, cnt);
-            isBlocked = data[index].IsLocked;
-        }
-
-        _ctx.buttons[index].gameObject.Select();
-        _ctx.buttons[index].Press();
-        OnClickChoiceButton(_ctx.buttons[index]);
-    }
-
-    private void OnClickChoiceButton(ChoiceButtonView buttonView)
-    {
-        if (_isChoiceDone.Value) return;
-        _isChoiceDone.Value = true;
-
-        _choice = _choices[_ctx.buttons.IndexOf(buttonView)];
     }
 
     private void RunEndNode(EndNodeData data)
@@ -672,15 +650,24 @@ public class LevelScenePm : IDisposable
             }
         }
     }
-//------------------------------------------------------------------------------------------------------------------
 
-// private bool IsBlocked(Choice choice)
-// {
-//     if (choice.ifSelected)
-//         return !_ctx.profile.ContainsChoice(choice.requiredChoices);
-//
-//     return false;
-// }
+    public void Dispose()
+    {
+        _ctx.MediaService.ImageManager.HideImages();
+        _ctx.MediaService.VideoManager.StopPlayers();
+        _ctx.MediaService.FilmProjector.OffSlider();
+        _tokenSource.Cancel();
+        _disposables.Dispose();
+        _ctx.MediaService.AudioManager.UnLoadBank();
+    }
+
+    private static void PrintArray(List<string> array)
+    {
+        var s = array.Aggregate("", (current, t) => current + ", " + t);
+        Debug.Log(s);
+    }
+    
+    //------------------------------------------------------------------------------------------------------------------
 
 /*TODO This might be needed
  private void CheckForSelectionPlaced()
@@ -700,59 +687,5 @@ public class LevelScenePm : IDisposable
         _selectionPlaced = true;
     }
 }
-
-private Choice RandomSelectButton(List<Choice> choices)
-{
-    if (choices.Count == 0)
-        return null;
-
-    var rndChoice = choices[Random.Range(0, choices.Count)];
-
-    if (IsBlocked(rndChoice))
-    {
-        choices.Remove(rndChoice);
-        return RandomSelectButton(new List<Choice>(choices));
-    }
-
-    return rndChoice;
-}
 */
-
-    private void InitTimer()
-    {
-        _ctx.CountDown.SetCtx(new CountDownView.Ctx
-        {
-            buttonsAppearDuration = _ctx.GameSet.buttonsAppearDuration,
-        });
-    }
-
-    private void InitButtons()
-    {
-        foreach (var button in _ctx.buttons)
-        {
-            button.SetCtx(new ChoiceButtonView.Ctx
-            {
-                onClickChoiceButton = _onClickChoiceButton,
-                buttonsAppearDuration = _ctx.GameSet.buttonsAppearDuration,
-                fastButtonFadeDuration = _ctx.GameSet.fastButtonFadeDuration,
-                slowButtonFadeDuration = _ctx.GameSet.slowButtonFadeDuration,
-            });
-        }
-    }
-
-    public void Dispose()
-    {
-        _ctx.MediaService.ImageManager.HideImages();
-        _ctx.MediaService.VideoManager.StopPlayers();
-        _ctx.MediaService.FilmProjector.OffSlider();
-        _tokenSource.Cancel();
-        _disposables.Dispose();
-        _ctx.MediaService.AudioManager.UnLoadBank();
-    }
-
-    private static void PrintArray(List<string> array)
-    {
-        var s = array.Aggregate("", (current, t) => current + ", " + t);
-        Debug.Log(s);
-    }
 }

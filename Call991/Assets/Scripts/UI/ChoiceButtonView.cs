@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using DG.Tweening;
 using I2.Loc;
 using TMPro;
 using UniRx;
@@ -9,30 +7,21 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class ChoiceButtonView : AaSelectable
+    public class ChoiceButtonView : AaSelectable, IDisposable
     {
-        [SerializeField] private ScaleSet scaleSet;
-        
-        [Space]
-        [SerializeField] private Image defaultButton = default;
+        [Space] [SerializeField] private Image defaultButton = default;
         [SerializeField] private Image hoverButton = default;
         [SerializeField] private Image lockImage = default;
-
-        [Space] [SerializeField] private Color defaultTextColor = default;
-        [SerializeField] private Color hoverTextColor = default;
         [SerializeField] private TextMeshProUGUI text = default;
 
         private LocalizedString _localize;
-        private Tween _scalingTween;
-
-        private static event Action<ChoiceButtonView> OnChoiceDone;
+        private CompositeDisposable _disposables;
 
         public struct Ctx
         {
-            public ReactiveCommand<ChoiceButtonView> onClickChoiceButton;
-            public float buttonsAppearDuration;
-            public float fastButtonFadeDuration;
-            public float slowButtonFadeDuration;
+            public int Index;
+            public ReactiveCommand<int> OnClickChoiceButton;
+            public ReactiveCommand<int> OnAutoSelectButton;
         }
 
         private Ctx _ctx;
@@ -40,6 +29,27 @@ namespace UI
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
+            _disposables = new CompositeDisposable();
+            _ctx.OnClickChoiceButton.Subscribe(_ => OnClickChoiceButton()).AddTo(_disposables);
+            _ctx.OnAutoSelectButton.Subscribe(OnAutoSelectButton).AddTo(_disposables);
+        }
+
+        public void Dispose()
+        {
+            _disposables?.Dispose();
+        }
+
+        private void OnClickChoiceButton()
+        {
+            interactable = false;
+        }
+
+        private void OnAutoSelectButton(int index)
+        {
+            if (_ctx.Index != index) return;
+            
+            SetPressed();
+            SetButtonState(true);
         }
 
         public void Show(string localizationKey, bool isLocked)
@@ -50,32 +60,13 @@ namespace UI
 
             _localize = localizationKey;
             text.text = _localize;
-
-            defaultButton.DOFade(1, _ctx.buttonsAppearDuration);
-            hoverButton.DOFade(1, _ctx.buttonsAppearDuration);
-            text.DOFade(1, _ctx.buttonsAppearDuration);
-            lockImage.DOFade(1, _ctx.buttonsAppearDuration);
-
             gameObject.SetActive(true);
         }
-
-        protected override void OnEnable()
-        {
-            base.OnEnable();
-            OnChoiceDone += ChoiceDoneForAllButtons;
-        }
-
-        protected override void OnDisable()
-        {
-            base.OnDisable();
-            OnChoiceDone -= ChoiceDoneForAllButtons;
-            _scalingTween?.Kill();
-        }
-
+        
         protected override void SetPressed()
         {
             base.SetPressed();
-            OnChoiceDone?.Invoke(this);
+            _ctx.OnClickChoiceButton.Execute(_ctx.Index);
         }
 
         public override void SetDisabled()
@@ -94,8 +85,6 @@ namespace UI
         {
             base.SetSelected();
             SetButtonState(true);
-            _scalingTween = hoverButton.rectTransform.DOScale(scaleSet.Size, scaleSet.Duration).
-                SetEase(scaleSet.Ease);
         }
 
         private void SetButtonState(bool toHover)
@@ -105,45 +94,9 @@ namespace UI
 
             if (hoverButton)
                 hoverButton.gameObject.SetActive(toHover);
-
-            text.color = toHover ? hoverTextColor : defaultTextColor;
-            _scalingTween?.Kill();
-
+            
             if (hoverButton && !toHover)
                 hoverButton.rectTransform.localScale = Vector3.one;
-        }
-
-        private void ChoiceDoneForAllButtons(ChoiceButtonView btn)
-        {
-            if (btn == this)
-                _ctx.onClickChoiceButton?.Execute(this);
-            else
-                DoStateTransitionNormal();
-
-            interactable = false;
-            StartCoroutine(Hide(btn == this));
-        }
-
-        private IEnumerator Hide(bool slow)
-        {
-            var duration = slow ? _ctx.slowButtonFadeDuration : _ctx.fastButtonFadeDuration;
-
-            defaultButton.DOFade(0, duration);
-            hoverButton.DOFade(0, duration);
-            lockImage.DOFade(0, duration);
-
-            if (!slow)
-                text.DOFade(0, duration);
-
-            yield return new WaitForSeconds(duration / 2);
-
-            if (slow)
-                text.DOFade(0, duration);
-
-            yield return new WaitForSeconds(duration / 2);
-
-            if (slow)
-                SetNormal();
         }
     }
 }
