@@ -7756,7 +7756,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{7DB98354-5B57-1D99-E9F7-8F49B119796B}">
+		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{0AEBDD40-B666-8205-944D-709FE3203C4C}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>Russian/L4_Interlude1.bnk</Path>
 			<Media>
@@ -7775,6 +7775,10 @@
 				<File Id="25540581" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_mark_007.wav</ShortName>
 					<CachePath>Voices/Russian/pizzaep_mark_007_F9A23AB9.wem</CachePath>
+				</File>
+				<File Id="54595962" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>pizzaep_elena\pizzaep_elena__alt_001.wav</ShortName>
+					<CachePath>Voices/Russian/pizzaep_elena/pizzaep_elena__alt_001_F9A23AB9.wem</CachePath>
 				</File>
 				<File Id="59875701" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_mark_003.wav</ShortName>
@@ -7831,6 +7835,10 @@
 				<File Id="237146240" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_mark_021.wav</ShortName>
 					<CachePath>Voices/Russian/pizzaep_mark_021_F9A23AB9.wem</CachePath>
+				</File>
+				<File Id="268558753" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>pizzaep_elena\pizzaep_elena_alt_002.wav</ShortName>
+					<CachePath>Voices/Russian/pizzaep_elena/pizzaep_elena_alt_002_F9A23AB9.wem</CachePath>
 				</File>
 				<File Id="271349881" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_elena\pizzaep_elena_008.wav</ShortName>
@@ -8123,6 +8131,16 @@
 						<MediaRef Id="70884992"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="2028980208" Name="pizzaep_elena_alt_001" DurationType="OneShot" DurationMin="2.1628125" DurationMax="2.1628125">
+					<MediaRefs>
+						<MediaRef Id="54595962"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2028980211" Name="pizzaep_elena_alt_002" DurationType="OneShot" DurationMin="2.02025" DurationMax="2.02025">
+					<MediaRefs>
+						<MediaRef Id="268558753"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1061647074" Name="pizzaep_mark_001" DurationType="OneShot" DurationMin="8.530063" DurationMax="8.530063">
 					<MediaRefs>
 						<MediaRef Id="931522152"/>
@@ -8385,7 +8403,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{FFB16A3A-1B98-9725-105A-7AB949E3B155}">
+		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{4457869C-85A4-9B3C-03D1-FAA70D65718E}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>English/L4_Interlude1.bnk</Path>
 			<Media>
@@ -8723,6 +8741,8 @@
 						</Custom>
 					</PluginRefs>
 				</Event>
+				<Event Id="2028980208" Name="pizzaep_elena_alt_001" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="2028980211" Name="pizzaep_elena_alt_002" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1061647074" Name="pizzaep_mark_001" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<MediaRefs>
 						<MediaRef Id="1013055498"/>
@@ -13450,5 +13470,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{F7D983F5-CE61-5F02-0453-5A30D51B5EF0}</FileHash>
+	<FileHash>{E3035468-D928-9EF0-9F24-52A80FBCC508}</FileHash>
 </SoundBanksInfo>
