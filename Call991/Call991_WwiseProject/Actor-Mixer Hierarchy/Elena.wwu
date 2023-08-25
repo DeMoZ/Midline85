@@ -6042,11 +6042,6 @@
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-7</Value>
-							</ValueList>
-						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -6742,6 +6737,80 @@
 								<ActiveSource Name="pizzaep_elena_01" ID="{07D403B8-3822-4851-84CE-DB0FCD7FF156}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="pizzaep_elena_alt_001" ID="{3FEBF2DB-ED2F-45A3-A47C-4818BE32F5F9}" ShortID="939055548">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizzaep_elena__alt_001" ID="{0695A5A0-761A-4BF9-9513-67DA95C25652}">
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_elena\pizzaep_elena__alt_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="54595962"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_elena__alt_001_1" ID="{A53B0574-BE21-47D2-B9CE-6B31255AE635}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_elena\pizzaep_elena__alt_001_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="591915705"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizzaep_elena__alt_001" ID="{0695A5A0-761A-4BF9-9513-67DA95C25652}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizzaep_elena_alt_002" ID="{13B8C027-6EBF-4B53-A160-D8B73381D659}" ShortID="1051883290">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizzaep_elena_alt_002" ID="{B657E1F7-4726-4A03-94AC-E8C85DABCB05}">
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_elena\pizzaep_elena_alt_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="268558753"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_elena_alt_002_1" ID="{D1BB15CD-4026-43E7-8989-87D3EB2B4C62}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_elena\pizzaep_elena_alt_002_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="493653744"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizzaep_elena_alt_002" ID="{B657E1F7-4726-4A03-94AC-E8C85DABCB05}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 					<PositioningInfo>
 						<Panner Name="" ID="{C7CB40B2-13D3-4455-BBB8-7F5A6CE2B39F}">
@@ -6768,7 +6837,7 @@
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>3.6</Value>
+								<Value>6.8</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -7015,9 +7084,33 @@
 										<MediaID ID="142569335"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_006_1" ID="{59C23D5D-C080-44A2-973C-5A31193D35B2}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_006_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="207434793"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_006_2" ID="{92487405-FE24-426A-8CB5-BA1C8D25152C}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_006_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="791579917"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="tutor_elena_01" ID="{C3E35635-D815-4254-BBFC-A646E9FBE8D1}" Platform="Linked"/>
+								<ActiveSource Name="tutor_elena_006_1" ID="{59C23D5D-C080-44A2-973C-5A31193D35B2}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{1F6F9371-4E18-4674-93FC-4A85A4C86CAB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7101,10 +7194,34 @@
 										<MediaID ID="712028131"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_008_1" ID="{ABE1CEAF-9166-40F8-96D6-0B727AE7A615}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_008_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="442766224"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_008_2" ID="{3A106F82-DC76-4A92-8A43-CB79FE8CD55D}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_008_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="70960711"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="tutor_elena_01" ID="{E82AD66C-21C4-4FE0-B7AE-BF5CF1E09FED}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{1D856E93-CEC9-4DFE-AFB6-369138F536F6}" Platform="Linked"/>
+								<ActiveSource Name="tutor_elena_008_1" ID="{ABE1CEAF-9166-40F8-96D6-0B727AE7A615}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="tutor_elena_009" ID="{0D715BBB-2883-47A9-B140-A712337B69F8}" ShortID="280527561">
@@ -7391,6 +7508,30 @@
 										<MediaID ID="1004158828"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_015_1" ID="{F45D5E3A-AECA-48C1-82B2-678E81F618C4}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_015_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="323817263"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_015_2" ID="{8ADB9C5A-0921-4959-9F74-C90C9AB78DCB}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_015_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="681782855"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="tutor_elena_01" ID="{2046C245-FC42-4203-A3B2-25E8350AC120}" Platform="Linked"/>
@@ -7431,10 +7572,34 @@
 										<MediaID ID="485166889"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_016_1" ID="{9423133A-2876-411E-87C4-13F8924053A2}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_016_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="674574811"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_016_2" ID="{E005C00C-BB5A-4F87-B81E-423C9EE2D129}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_016_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="144738539"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="tutor_elena_016_1" ID="{9423133A-2876-411E-87C4-13F8924053A2}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{630BDB3E-DBFE-4F25-A019-8FC4AF63E4B3}" Platform="Linked"/>
-								<ActiveSource Name="tutor_elena_01" ID="{02276C8D-1139-41F8-A4EE-8685832630F0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="tutor_elena_017" ID="{BE67ED64-B10F-483D-B576-0941D82B0A7C}" ShortID="390758847">
@@ -7471,9 +7636,33 @@
 										<MediaID ID="836326874"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_017_1" ID="{DA75882B-DB8C-4A0C-916A-38C5EDB19462}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_017_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="163436700"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_017_2" ID="{018D1BB0-A061-4A2C-B43F-AFED22CF1E78}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_017_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="692974768"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="tutor_elena_01" ID="{1AC1D619-974B-4F45-89BF-633A03F77C41}" Platform="Linked"/>
+								<ActiveSource Name="tutor_elena_017_1" ID="{DA75882B-DB8C-4A0C-916A-38C5EDB19462}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{22E5EFE1-8220-4952-A276-13D564BCB338}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7591,10 +7780,34 @@
 										<MediaID ID="693945360"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_020_1" ID="{97A7E8D7-8918-48C2-855A-83F70AFF8423}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_020_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="422901801"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_020_2" ID="{DA402080-A462-461F-BB33-EBDD94EED8A4}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_020_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="726847519"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="tutor_elena_01" ID="{46F68078-37B0-4BD5-A3BC-97ED99EC0688}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{C712197C-CB07-4B88-8C94-5FF9FBCAA55D}" Platform="Linked"/>
+								<ActiveSource Name="tutor_elena_020_1" ID="{97A7E8D7-8918-48C2-855A-83F70AFF8423}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="tutor_elena_021" ID="{B8963DA4-F997-41D7-AFED-909BDAEE8DB7}" ShortID="726196947">
@@ -7671,9 +7884,33 @@
 										<MediaID ID="292077969"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_022_1" ID="{7FBA41F3-3935-4E35-9F8C-199C47CEDD93}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_022_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="810635175"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_022_2" ID="{490B8B0F-9BA7-4631-AF52-135613460C1E}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_022_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="916092220"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="tutor_elena_01" ID="{A87F0779-9D27-4F0C-996E-741D2635AFE8}" Platform="Linked"/>
+								<ActiveSource Name="tutor_elena_022_1" ID="{7FBA41F3-3935-4E35-9F8C-199C47CEDD93}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{7D3391FC-122C-48F6-B8DD-A5F8A7AF1688}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7751,9 +7988,33 @@
 										<MediaID ID="711192003"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_024_1" ID="{97941423-557B-467C-9DB0-9EC81466E50B}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_024_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="442695890"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_024_2" ID="{1722115F-4C40-4AC4-BFAA-783FD61E3EF6}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_024_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="560149043"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="tutor_elena_01" ID="{F09D4E62-7CF2-4519-B1ED-5DA9E5165A94}" Platform="Linked"/>
+								<ActiveSource Name="tutor_elena_024_1" ID="{97941423-557B-467C-9DB0-9EC81466E50B}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{A6474C9A-DF1B-4D4D-936A-5B1326AAA154}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -7791,10 +8052,34 @@
 										<MediaID ID="10460219"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_025_1" ID="{0452D420-AC1D-4BF6-9EFE-BF6025AC8971}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_025_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1023102003"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_025_2" ID="{7BBC3460-A125-4A7C-A973-6E4FD4203873}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_025_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="896682885"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Sine" ID="{DAB98B10-04FA-47F3-AFB8-5229E6979229}" Platform="Linked"/>
-								<ActiveSource Name="tutor_elena_01" ID="{BDEC7F9A-DA6C-4F8C-9568-85864669C3D8}" Platform="Linked"/>
+								<ActiveSource Name="tutor_elena_025_1" ID="{0452D420-AC1D-4BF6-9EFE-BF6025AC8971}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="tutor_elena_026" ID="{D9635B76-FA47-4270-AF65-6DE5CAEDAE6E}" ShortID="971414043">
@@ -8072,9 +8357,144 @@
 										<MediaID ID="19769446"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_032_1" ID="{B0CE6374-4E94-4BA3-8067-2094FC93DAF4}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_032_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="818580115"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_032_2" ID="{4865C66B-F493-4F8B-9622-162C87F45248}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_032_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1009897319"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="tutor_elena_032" ID="{4BB2C1A2-ABC9-45B4-83C5-9DDBAC4F160B}" Platform="Linked"/>
+								<ActiveSource Name="tutor_elena_032_2" ID="{4865C66B-F493-4F8B-9622-162C87F45248}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="tutor_elena_alt_001" ID="{1274C678-A273-44F4-B4C7-69457CFD5A53}" ShortID="150283529">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="tutor_elena_alt_001" ID="{41D867B4-B976-412B-9198-B706DF53BC99}">
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_alt_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="255843253"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_alt_001_1" ID="{B8B23925-4505-4FF6-AFE4-97C6DBFCCB95}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_alt_001_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="549226571"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="tutor_elena_alt_001" ID="{41D867B4-B976-412B-9198-B706DF53BC99}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="tutor_elena_alt_002" ID="{78669C22-B99B-4AD8-8A1E-46F5F58D6AF9}" ShortID="322711029">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="tutor_elena_alt_002-001" ID="{51AF2B98-ADA8-400C-B4FC-1ADC52C2741A}">
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_alt_002-001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="334282726"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_alt_002_1-001" ID="{B65993B5-A285-4CE1-8DD0-7BFDB6285DD3}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_alt_002_1-001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="501773414"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="tutor_elena_alt_002-001" ID="{51AF2B98-ADA8-400C-B4FC-1ADC52C2741A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="tutor_elena_alt_003" ID="{E7DDE8D5-A2F2-49B8-9609-5DB8C140625D}" ShortID="707664869">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="tutor_elena_alt_002_1-002" ID="{38C76C35-4E92-40B3-B47A-97962F2A4A58}">
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_alt_002_1-002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="238014418"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_elena_alt_002-002" ID="{34CF2284-A775-4530-825C-E314FAF0F23D}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_elena\tutor_elena_alt_002-002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="900169112"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="tutor_elena_alt_002_1-002" ID="{38C76C35-4E92-40B3-B47A-97962F2A4A58}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
