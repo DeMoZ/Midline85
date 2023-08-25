@@ -119,7 +119,7 @@ namespace AaDialogueGraph.Editor
             Value = val;
             string textValue = new LocalizedString(val);
 
-            if (textValue.Length > 40)
+            if (!string.IsNullOrEmpty(textValue) && textValue.Length > 40)
             {
                 var color = "</color>";
                 var parts = textValue.Split(color);

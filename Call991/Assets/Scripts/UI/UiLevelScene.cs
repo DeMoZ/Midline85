@@ -34,7 +34,7 @@ namespace UI
         {
             public DialogueService DialogueService;
 
-            public ReactiveCommand<(List<RecordData> recordData, bool nextLevelExists)> OnLevelEnd;
+            public ReactiveCommand<(string endKey, bool nextLevelExists)> OnLevelEnd;
             public ReactiveCommand OnClickMenuButton;
             public ReactiveCommand OnClickNextLevelButton;
 
@@ -174,9 +174,9 @@ namespace UI
             btnPressed.Value = true;
         }
 
-        private async void OnLevelEnd((List<RecordData> recordData, bool nextLevelExists) data)
+        private async void OnLevelEnd((string endKey, bool nextLevelExists) data)
         {
-            await statisticView.PopulateCells(data.recordData, data.nextLevelExists);
+            await statisticView.SetStatistic(data.endKey, data.nextLevelExists);
             if (_tokenSource.IsCancellationRequested) return;
 
             EnableUi(statisticView.GetType());
