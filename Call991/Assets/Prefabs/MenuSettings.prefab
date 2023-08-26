@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 5696015609022520555}
   - component: {fileID: 5696015609022520554}
   - component: {fileID: 1180119793611206097}
+  - component: {fileID: 521754034943910693}
   m_Layer: 5
   m_Name: MenuSettings
   m_TagString: Untagged
@@ -145,6 +146,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 3884814722063757349}
+  appearWithTween: 0
+  appearAnimation: {fileID: 521754034943910693}
+  buttonsGroup: {fileID: 0}
+  buttonsCanvas: {fileID: 0}
+  animationTime: 0.5
+  toPositionX: 218
   windowSelectables:
   - {fileID: 3884814722063757349}
   - {fileID: 1579655976013240332}
@@ -190,6 +197,22 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!111 &521754034943910693
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696015609022520549}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: f0b3c8a0180d04caf966c57d84b95bff, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: f0b3c8a0180d04caf966c57d84b95bff, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &5696015609095142333
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1285,7 @@ GameObject:
   - component: {fileID: 5696015610797749942}
   - component: {fileID: 5696015610797749943}
   - component: {fileID: 5077347776176737330}
+  - component: {fileID: 956575612795426768}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -1375,6 +1399,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!225 &956575612795426768
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696015610797749937}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5696015610814950544
 GameObject:
   m_ObjectHideFlags: 0
