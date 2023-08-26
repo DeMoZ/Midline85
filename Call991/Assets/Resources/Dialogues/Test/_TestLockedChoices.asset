@@ -1,0 +1,227 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: _TestLockedChoices
+  m_EditorClassIdentifier: 
+  EntryNodeData:
+    Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    Rect:
+      serializedVersion: 2
+      x: -48
+      y: 200
+      width: 102
+      height: 165
+    LevelId: L3_Pizza
+    Languages:
+    - Russian
+    ButtonFilter: 
+    SoundAsset: 
+  PhraseNodeData:
+  - Guid: 14062fb9-b093-41bd-8c07-fa8cf8eef5af
+    Rect:
+      serializedVersion: 2
+      x: 191
+      y: 200
+      width: 212
+      height: 96
+    PhraseSketchText: 1 unlock 1, 2 unlock 2, 3 nothing
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L3_Pizza/Elena/pizza_elena_001
+    Phrases:
+    - 
+  ImagePhraseNodeData: []
+  ChoiceNodeData:
+  - Guid: 4c16cf1a-1b31-4a02-aeb5-0833f7ecfad2
+    Rect:
+      serializedVersion: 2
+      x: 434
+      y: 298
+      width: 138
+      height: 98
+    Choice: btn.incendies.002
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+  - Guid: 542abe38-474f-48ec-ba91-e17f666a28ea
+    Rect:
+      serializedVersion: 2
+      x: 434
+      y: 200
+      width: 136
+      height: 98
+    Choice: btn.incendies.001
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+  - Guid: 2c11061f-97f0-4f88-af9b-a3fd9a8ed64e
+    Rect:
+      serializedVersion: 2
+      x: 434
+      y: 395
+      width: 138
+      height: 98
+    Choice: btn.incendies.003
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+  - Guid: 48527700-99db-4b9f-b5ba-01b1bd455552
+    Rect:
+      serializedVersion: 2
+      x: 722
+      y: 395
+      width: 138
+      height: 98
+    Choice: btn.incendies.006
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+  - Guid: 5d049d39-59ba-4382-b2d6-6e5592585aca
+    Rect:
+      serializedVersion: 2
+      x: 722
+      y: 298
+      width: 138
+      height: 98
+    Choice: btn.incendies.005
+    CaseData:
+      Words:
+      - CaseType: 0
+        OrKeys:
+        - btn.incendies.002
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+  - Guid: 7700455f-c6b3-440f-83fe-91b3e1ae6ded
+    Rect:
+      serializedVersion: 2
+      x: 722
+      y: 199
+      width: 138
+      height: 98
+    Choice: btn.incendies.004
+    CaseData:
+      Words:
+      - CaseType: 0
+        OrKeys:
+        - btn.incendies.001
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+  ForkNodeData: []
+  CountNodeData: []
+  EndNodeData:
+  - Guid: 0fc26f1c-a755-47af-8ba5-d569fe0cf58c
+    Rect:
+      serializedVersion: 2
+      x: 890
+      y: 221
+      width: 92
+      height: 95
+    End: End/Intro
+    EventVisualData: []
+  EventNodeData:
+  - Guid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
+    Rect:
+      serializedVersion: 2
+      x: 73
+      y: 200
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: MusicLevels / MusicBoss
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 4
+      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+  NewspaperNodeData: []
+  NodeLinks:
+  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    BaseExitName: 
+    TargetNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
+  - BaseNodeGuid: 14062fb9-b093-41bd-8c07-fa8cf8eef5af
+    BaseExitName: 
+    TargetNodeGuid: 542abe38-474f-48ec-ba91-e17f666a28ea
+  - BaseNodeGuid: 14062fb9-b093-41bd-8c07-fa8cf8eef5af
+    BaseExitName: 
+    TargetNodeGuid: 4c16cf1a-1b31-4a02-aeb5-0833f7ecfad2
+  - BaseNodeGuid: 4c16cf1a-1b31-4a02-aeb5-0833f7ecfad2
+    BaseExitName: 
+    TargetNodeGuid: 5d049d39-59ba-4382-b2d6-6e5592585aca
+  - BaseNodeGuid: 4c16cf1a-1b31-4a02-aeb5-0833f7ecfad2
+    BaseExitName: 
+    TargetNodeGuid: 7700455f-c6b3-440f-83fe-91b3e1ae6ded
+  - BaseNodeGuid: 542abe38-474f-48ec-ba91-e17f666a28ea
+    BaseExitName: 
+    TargetNodeGuid: 7700455f-c6b3-440f-83fe-91b3e1ae6ded
+  - BaseNodeGuid: 542abe38-474f-48ec-ba91-e17f666a28ea
+    BaseExitName: 
+    TargetNodeGuid: 5d049d39-59ba-4382-b2d6-6e5592585aca
+  - BaseNodeGuid: 2c11061f-97f0-4f88-af9b-a3fd9a8ed64e
+    BaseExitName: 
+    TargetNodeGuid: 48527700-99db-4b9f-b5ba-01b1bd455552
+  - BaseNodeGuid: 2c11061f-97f0-4f88-af9b-a3fd9a8ed64e
+    BaseExitName: 
+    TargetNodeGuid: 5d049d39-59ba-4382-b2d6-6e5592585aca
+  - BaseNodeGuid: 2c11061f-97f0-4f88-af9b-a3fd9a8ed64e
+    BaseExitName: 
+    TargetNodeGuid: 7700455f-c6b3-440f-83fe-91b3e1ae6ded
+  - BaseNodeGuid: 48527700-99db-4b9f-b5ba-01b1bd455552
+    BaseExitName: 
+    TargetNodeGuid: 0fc26f1c-a755-47af-8ba5-d569fe0cf58c
+  - BaseNodeGuid: 5d049d39-59ba-4382-b2d6-6e5592585aca
+    BaseExitName: 
+    TargetNodeGuid: 0fc26f1c-a755-47af-8ba5-d569fe0cf58c
+  - BaseNodeGuid: 7700455f-c6b3-440f-83fe-91b3e1ae6ded
+    BaseExitName: 
+    TargetNodeGuid: 0fc26f1c-a755-47af-8ba5-d569fe0cf58c
+  - BaseNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
+    BaseExitName: 
+    TargetNodeGuid: 14062fb9-b093-41bd-8c07-fa8cf8eef5af
+  - BaseNodeGuid: 14062fb9-b093-41bd-8c07-fa8cf8eef5af
+    BaseExitName: 
+    TargetNodeGuid: 2c11061f-97f0-4f88-af9b-a3fd9a8ed64e
+  - BaseNodeGuid: 542abe38-474f-48ec-ba91-e17f666a28ea
+    BaseExitName: 
+    TargetNodeGuid: 48527700-99db-4b9f-b5ba-01b1bd455552
+  - BaseNodeGuid: 4c16cf1a-1b31-4a02-aeb5-0833f7ecfad2
+    BaseExitName: 
+    TargetNodeGuid: 48527700-99db-4b9f-b5ba-01b1bd455552

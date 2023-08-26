@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
-  m_Name: TestShortDialogue1
+  m_Name: _TestShortDialogue2
   m_EditorClassIdentifier: 
   EntryNodeData:
     Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
@@ -32,7 +32,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 199
       y: 200
-      width: 109
+      width: 100
       height: 96
     PhraseSketchText: "\u043F\u043E\u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F"
     ImagePersonVisualData:
@@ -50,13 +50,12 @@ MonoBehaviour:
     PhraseSound: NONE
     Phrases:
     - Phrases/NoTextTiming.asset
-    - 
   - Guid: 2f2a22f3-591b-45fc-a399-1587d59b508b
     Rect:
       serializedVersion: 2
       x: 173
       y: 317
-      width: 172
+      width: 162
       height: 96
     PhraseSketchText: "\u043F\u043E\u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
       \u0438 \u0430\u043D\u0444\u043E\u043A\u0443\u0441"
@@ -75,15 +74,14 @@ MonoBehaviour:
     PhraseSound: NONE
     Phrases:
     - Phrases/NoTextTiming.asset
-    - 
   - Guid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
     Rect:
       serializedVersion: 2
       x: 323
       y: 200
-      width: 152
+      width: 153
       height: 96
-    PhraseSketchText: TestShortDialogue1
+    PhraseSketchText: TestShortDialogue2
     ImagePersonVisualData:
       Person: ELENA
       ScreenPlace: 1
@@ -98,7 +96,6 @@ MonoBehaviour:
     EventVisualData: []
     PhraseSound: NONE
     Phrases:
-    - 
     - 
   ChoiceNodeData: []
   ForkNodeData: []
@@ -148,12 +145,12 @@ MonoBehaviour:
   - BaseNodeGuid: 2f2a22f3-591b-45fc-a399-1587d59b508b
     BaseExitName: 
     TargetNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
+  - BaseNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
+    BaseExitName: 
+    TargetNodeGuid: 46b7df7a-b031-4ac8-bd24-e92d8501c340
   - BaseNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
     BaseExitName: 
     TargetNodeGuid: 1bf7e51b-a2f7-489e-a2b1-3e28d54426a3
   - BaseNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
     BaseExitName: 
     TargetNodeGuid: 2f2a22f3-591b-45fc-a399-1587d59b508b
-  - BaseNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
-    BaseExitName: 
-    TargetNodeGuid: 46b7df7a-b031-4ac8-bd24-e92d8501c340
