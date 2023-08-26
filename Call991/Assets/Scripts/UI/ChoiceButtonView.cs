@@ -11,8 +11,9 @@ namespace UI
     {
         [Space] [SerializeField] private Image defaultButton = default;
         [SerializeField] private Image hoverButton = default;
-        [SerializeField] private Image lockImage = default;
+        [SerializeField] private ButtonLock buttonLock = default;
         [SerializeField] private TextMeshProUGUI text = default;
+        [SerializeField] private Animation unlockAnimation = default;
 
         private LocalizedString _localize;
         private CompositeDisposable _disposables;
@@ -52,17 +53,26 @@ namespace UI
             SetButtonState(true);
         }
 
-        public void Show(string localizationKey, bool isLocked)
+        public void Show(string localizationKey, bool isLocked, bool showUnlock)
         {
             interactable = !isLocked;
-            lockImage.gameObject.SetActive(isLocked);
+            text.gameObject.SetActive(!isLocked);
+            buttonLock.gameObject.SetActive(isLocked);
+            unlockAnimation.Stop();
+
+            if (showUnlock)
+            {
+                buttonLock.gameObject.SetActive(true);
+                unlockAnimation.Play();
+            }
+            
             SetButtonState(false);
 
             _localize = localizationKey;
             text.text = _localize;
             gameObject.SetActive(true);
         }
-
+        
         protected override void SetPressed()
         {
             base.SetPressed();

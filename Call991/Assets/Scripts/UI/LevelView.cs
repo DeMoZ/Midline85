@@ -28,7 +28,7 @@ namespace UI
         [SerializeField] private List<ImagePersonView> imagePersons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
-        
+
         private Ctx _ctx;
         private CompositeDisposable _disposables;
 
@@ -59,15 +59,8 @@ namespace UI
                 person.gameObject.SetActive(false);
 
             imagePersonText.gameObject.SetActive(false);
-
-            foreach (var button in buttons)
-                button.gameObject.SetActive(false);
-
-            foreach (var splitter in buttonSplitters)
-                splitter.gameObject.SetActive(false);
-
-            countDown.gameObject.SetActive(false);
-
+            HideButtons();
+            
             _ctx.LevelSceneObjectsService.OnShowButtons.Subscribe(OnShowButtons).AddTo(_disposables);
             _ctx.LevelSceneObjectsService.OnHideButtons.Subscribe(_ => OnHideButtons()).AddTo(_disposables);
             _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_ => StopTimer()).AddTo(_disposables);
@@ -76,6 +69,7 @@ namespace UI
 
         private void OnShowButtons(List<ChoiceNodeData> data)
         {
+            HideButtons();
             choiceCanvasGroup.alpha = 0;
             if (data == null) return;
             if (data.Count > 0)
@@ -83,9 +77,8 @@ namespace UI
 
             for (var i = 0; i < data.Count; i++)
             {
-                var choice = data[i];
-                buttons[i].interactable = !choice.IsLocked;
-                buttons[i].Show(choice.Choice, choice.IsLocked);
+                buttons[i].interactable = !data[i].IsLocked;
+                buttons[i].Show(data[i].Choice, data[i].IsLocked, data[i].ShowUnlock);
                 buttonSplitters[i + 1].gameObject.SetActive(true);
             }
 
@@ -98,10 +91,27 @@ namespace UI
             countDown.Stop();
         }
 
+        /// <summary>
+        /// on hide buttons event
+        /// </summary>
         private void OnHideButtons()
         {
             choiceCanvasGroup.alpha = 1;
             choiceCanvasGroup.DOFade(0, _ctx.GameSet.buttonsDisappearDuration);
+        }
+
+        /// <summary>
+        /// hide buttons before show new buttons goup
+        /// </summary>
+        private void HideButtons()
+        {
+            foreach (var button in buttons)
+                button.gameObject.SetActive(false);
+
+            foreach (var splitter in buttonSplitters)
+                splitter.gameObject.SetActive(false);
+
+            countDown.gameObject.SetActive(false);
         }
 
         public void OnClickPauseButton()

@@ -74,7 +74,7 @@ public class LevelScenePm : IDisposable
         _ctx = ctx;
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
-        
+
         _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
         _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
@@ -85,7 +85,7 @@ public class LevelScenePm : IDisposable
             .AddTo(_disposables);
 
         _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
-        
+
         _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
@@ -540,12 +540,20 @@ public class LevelScenePm : IDisposable
         _ctx.MediaService.AudioManager.PlayTimerSfx();
         _ctx.LevelSceneObjectsService.OnShowButtons.Execute(data);
 
+        var hasUnlocked = data.FirstOrDefault(d => d.ShowUnlock);
+        if (hasUnlocked != null)
+        {
+            foreach (var t in Timer(0.5f)) yield return t; 
+            // TODO the lenght of unlocking animation need to get from video
+            // also timers starts on execute OnShowButtons buttons and dont support this yeld (visualisation only)
+        }
+
         foreach (var t in Timer(_ctx.GameSet.choicesDuration, _isChoiceDone)) yield return t;
 
         if (!_isChoiceDone.Value) AutoChoice(data);
 
         _ctx.MediaService.AudioManager.StopTimerSfx();
-        
+
         foreach (var t in Timer(_ctx.GameSet.buttonsShowSelectionDuration)) yield return t;
         _ctx.LevelSceneObjectsService.OnHideButtons.Execute();
 
@@ -666,7 +674,7 @@ public class LevelScenePm : IDisposable
         var s = array.Aggregate("", (current, t) => current + ", " + t);
         Debug.Log(s);
     }
-    
+
     //------------------------------------------------------------------------------------------------------------------
 
 /*TODO This might be needed
