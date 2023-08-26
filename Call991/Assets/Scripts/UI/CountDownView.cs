@@ -1,9 +1,6 @@
-using System;
-using System.Collections.Generic;
-using AaDialogueGraph;
 using DG.Tweening;
-using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -14,11 +11,14 @@ namespace UI
             public float ChoicesDuration;
         }
 
-        [SerializeField] private RectTransform backLine = default;
-        [SerializeField] private RectTransform frontLine = default;
+        [SerializeField] private Image backLine = default;
+        [SerializeField] private Image frontLine = default;
+        [SerializeField] private Color startColor = Color.white;
+        [SerializeField] private Color endColor = Color.red;
+        [SerializeField] private float blendColor = 0.3f;
 
         private Ctx _ctx;
-        private Tween _scaleTween;
+        private Sequence _sequence;
 
         public void SetCtx(Ctx ctx)
         {
@@ -27,19 +27,25 @@ namespace UI
 
         public void Stop()
         {
-            _scaleTween.Kill();
+            _sequence.Kill();
         }
 
         public void Show()
         {
-            frontLine.sizeDelta = backLine.sizeDelta;
+            frontLine.DOColor(startColor, 0);
+            backLine.DOColor(startColor, 0);
+            
+            var sizeDelta = backLine.rectTransform.sizeDelta;
+            sizeDelta.x *= 1.5f;
+            sizeDelta.y = frontLine.rectTransform.sizeDelta.y;
+            frontLine.rectTransform.sizeDelta = sizeDelta;
             gameObject.SetActive(true);
-            _scaleTween = frontLine.DOSizeDelta(Vector2.up, _ctx.ChoicesDuration);
-        }
-
-        private void OnTweenUpdate()
-        {
-            Debug.Log($"{_scaleTween.Elapsed()}");
+            
+            var interval = _ctx.ChoicesDuration * blendColor;
+           _sequence = DOTween.Sequence();
+            _sequence.Append(frontLine.rectTransform.DOSizeDelta(Vector2.up * frontLine.rectTransform.sizeDelta.y, _ctx.ChoicesDuration));
+            _sequence.Insert(interval, frontLine.DOColor(endColor, _ctx.ChoicesDuration * (1 - blendColor)));
+            _sequence.Insert(interval, backLine.DOColor(endColor, _ctx.ChoicesDuration * (1 - blendColor)));
         }
     }
 }

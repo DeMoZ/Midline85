@@ -47,7 +47,7 @@ namespace UI
         private void OnAutoSelectButton(int index)
         {
             if (_ctx.Index != index) return;
-            
+
             SetPressed();
             SetButtonState(true);
         }
@@ -62,7 +62,7 @@ namespace UI
             text.text = _localize;
             gameObject.SetActive(true);
         }
-        
+
         protected override void SetPressed()
         {
             base.SetPressed();
@@ -89,14 +89,8 @@ namespace UI
 
         private void SetButtonState(bool toHover)
         {
-            if (defaultButton)
-                defaultButton.gameObject.SetActive(!toHover);
-
-            if (hoverButton)
-                hoverButton.gameObject.SetActive(toHover);
-            
-            if (hoverButton && !toHover)
-                hoverButton.rectTransform.localScale = Vector3.one;
+            defaultButton.gameObject.SetActive(!toHover);
+            hoverButton.gameObject.SetActive(toHover);
         }
     }
 }

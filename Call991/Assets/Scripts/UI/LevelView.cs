@@ -6,6 +6,7 @@ using Configs;
 using DG.Tweening;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -17,8 +18,8 @@ namespace UI
             public ReactiveCommand OnClickPauseButton;
             public LevelSceneObjectsService LevelSceneObjectsService;
         }
-        
-        [SerializeField] private MenuButtonView pauseButton = default;
+
+        [SerializeField] private Button pauseButton = default;
         [SerializeField] private CanvasGroup choiceCanvasGroup;
         [SerializeField] private List<ChoiceButtonView> buttons = default;
         [SerializeField] private List<ChoiceButtonSplitter> buttonSplitters = default;
@@ -27,9 +28,7 @@ namespace UI
         [SerializeField] private List<ImagePersonView> imagePersons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
-
-        public CountDownView CountDown => countDown;
-
+        
         private Ctx _ctx;
         private CompositeDisposable _disposables;
 
@@ -67,12 +66,12 @@ namespace UI
             foreach (var splitter in buttonSplitters)
                 splitter.gameObject.SetActive(false);
 
-            CountDown.gameObject.SetActive(false);
+            countDown.gameObject.SetActive(false);
 
             _ctx.LevelSceneObjectsService.OnShowButtons.Subscribe(OnShowButtons).AddTo(_disposables);
             _ctx.LevelSceneObjectsService.OnHideButtons.Subscribe(_ => OnHideButtons()).AddTo(_disposables);
-            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_=> StopTimer()).AddTo(_disposables);
-            pauseButton.OnClick += OnClickPauseButton;
+            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_ => StopTimer()).AddTo(_disposables);
+            pauseButton.onClick.AddListener(OnClickPauseButton);
         }
 
         private void OnShowButtons(List<ChoiceNodeData> data)
@@ -98,7 +97,7 @@ namespace UI
         {
             countDown.Stop();
         }
-        
+
         private void OnHideButtons()
         {
             choiceCanvasGroup.alpha = 1;
@@ -179,7 +178,7 @@ namespace UI
 
         public void Dispose()
         {
-            pauseButton.OnClick -= OnClickPauseButton;
+            pauseButton.onClick.RemoveAllListeners();
         }
     }
 }
