@@ -135,13 +135,13 @@ public class AaSelectable : Selectable
         Debug.LogWarning($"selectable to next state <color=red>Pressed {name}</color>");
         _coolTimer = CoolTime;
         OnClick?.Invoke();
-        onClick.Invoke();
+        onClick?.Invoke();
 
         if (!_noPointerPress && cursorSettings.ClickPointSprite)
         {
             OnMouseClickSelectable?.Invoke((Vector2)Input.mousePosition + cursorSettings.ClickPointOffset,
                 cursorSettings.ClickPointSprite);
-            onClick.Invoke();
+            onClick?.Invoke();
         }
 
         _noPointerPress = false;

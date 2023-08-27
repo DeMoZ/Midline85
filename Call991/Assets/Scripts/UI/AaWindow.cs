@@ -1,6 +1,7 @@
 using System;
 using System.Threading;
 using DG.Tweening;
+using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,10 +14,13 @@ public class AaWindow : InputHandler
         public RectTransform ButtonsGroup = default;
         public CanvasGroup ButtonsCanvas = default;
         public float AnimationTime = 0.5f;
+        public float FromPositionX = 0; 
         public float ToPositionX = 234f;
     }
 
-    [Space] [SerializeField] private AppearAnimation appearAnimation;
+    [Space] [SerializeField] private bool useAppearAnimation;
+    [ShowIf("useAppearAnimation")]
+    [SerializeField] private AppearAnimation appearAnimation;
 
     [Space] [Space] [SerializeField] private AaSelectable[] windowSelectables = default;
 
@@ -42,13 +46,19 @@ public class AaWindow : InputHandler
             selectable.OnSelectObj += OnSelectObj;
             selectable.OnUnSelect += OnUnSelect;
         }
-        
+
+        if (useAppearAnimation)
+            AnimateAppear();
+    }
+
+    private void AnimateAppear()
+    {
         _appearSequence?.Kill();
         _appearSequence = DOTween.Sequence();
 
         _appearSequence.SetUpdate(true);
         var position = appearAnimation.ButtonsGroup.position;
-        position.x = 0;
+        position.x = appearAnimation.FromPositionX;
         appearAnimation.ButtonsGroup.position = position;
         appearAnimation.ButtonsCanvas.alpha = 0;
         _appearSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(appearAnimation.ToPositionX,
