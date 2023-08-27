@@ -103,7 +103,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 36
+  m_Spacing: 25
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -148,7 +148,6 @@ GameObject:
   - component: {fileID: 7985199731842628256}
   - component: {fileID: 7985199731842628257}
   - component: {fileID: 7985199731842628258}
-  - component: {fileID: 4085727554343093253}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -204,12 +203,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 7985199731667210310}
-  appearWithTween: 0
-  appearAnimation: {fileID: 4085727554343093253}
-  buttonsGroup: {fileID: 0}
-  buttonsCanvas: {fileID: 0}
-  animationTime: 0.5
-  toPositionX: 218
+  useAppearAnimation: 1
+  appearAnimation:
+    ButtonsGroup: {fileID: 7985199731242092629}
+    ButtonsCanvas: {fileID: 8543965805552049400}
+    AnimationTime: 0.5
+    FromPositionX: 0
+    ToPositionX: 234
   windowSelectables:
   - {fileID: 4290020118894744816}
   - {fileID: 7985199731667210310}
@@ -222,22 +222,6 @@ MonoBehaviour:
   settingsBtn: {fileID: 4290020120183386348}
   creditsBtn: {fileID: 4397566110233464802}
   exitBtn: {fileID: 4290020120038283559}
---- !u!111 &4085727554343093253
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7985199731842628271}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 42ebfe03caa16457493ca5ec535df970, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 42ebfe03caa16457493ca5ec535df970, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &7985199732050633670
 GameObject:
   m_ObjectHideFlags: 0
