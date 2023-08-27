@@ -19,14 +19,9 @@
 					<ChildrenList>
 						<Bus Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}">
 							<PropertyList>
-								<Property Name="BusVolume" Type="Real64">
-									<ValueList>
-										<Value>5</Value>
-									</ValueList>
-								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-30.5</Value>
+										<Value>-25.5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -80,7 +75,7 @@
 								<Property Name="RecoveryTime" Type="Real64" Value="0.3"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>6.9</Value>
+										<Value>3.5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -89,6 +84,11 @@
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="24"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1.7</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
@@ -100,7 +100,7 @@
 											<PropertyList>
 												<Property Name="Volume" Type="Real64">
 													<ValueList>
-														<Value>-4.1</Value>
+														<Value>-3.1</Value>
 													</ValueList>
 												</Property>
 											</PropertyList>
@@ -167,7 +167,7 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-9.6</Value>
+												<Value>-2.3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -318,14 +318,9 @@
 						</Bus>
 						<Bus Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}">
 							<PropertyList>
-								<Property Name="BusVolume" Type="Real64">
-									<ValueList>
-										<Value>5</Value>
-									</ValueList>
-								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-23.6</Value>
+										<Value>-2.3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

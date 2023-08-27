@@ -3670,6 +3670,11 @@
 						<Sound Name="cinematic" ID="{5CB6A46C-5C47-401A-B95A-BBBB8ABF7538}" ShortID="259047440">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3708,10 +3713,24 @@
 										<MediaID ID="189532610"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="2023_0823 Cinematic Intro_01" ID="{50D5DDBE-A39C-443C-A26E-9736FF0B42AD}">
+									<PropertyList>
+										<Property Name="VolumeOffset" Type="Real64">
+											<ValueList>
+												<Value>-10.7</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<Language>Russian</Language>
+									<AudioFile>2023_0823 Cinematic Intro.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="383923104"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="cinematic" ID="{FB08D020-B1A0-46EF-AC4E-20D1235C5F49}" Platform="Linked"/>
 								<ActiveSource Name="Tone Generator" ID="{5CC97A4B-3F08-4E34-96CB-275472501EF7}" Platform="Linked"/>
+								<ActiveSource Name="2023_0823 Cinematic Intro_01" ID="{50D5DDBE-A39C-443C-A26E-9736FF0B42AD}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
