@@ -146,12 +146,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 3884814722063757349}
-  appearWithTween: 0
-  appearAnimation: {fileID: 521754034943910693}
-  buttonsGroup: {fileID: 0}
-  buttonsCanvas: {fileID: 0}
-  animationTime: 0.5
-  toPositionX: 218
+  appearAnimation:
+    ButtonsGroup: {fileID: 5696015610797749936}
+    ButtonsCanvas: {fileID: 956575612795426768}
+    AnimationTime: 0.5
+    ToPositionX: 234
   windowSelectables:
   - {fileID: 3884814722063757349}
   - {fileID: 1579655976013240332}
@@ -2232,11 +2231,18 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  defaultButton: {fileID: 0}
-  hoverButton: {fileID: 0}
-  textDefaultColor: {r: 0.8980392, g: 0.8980392, b: 0.8901961, a: 1}
-  textHoverColor: {r: 0.8980392, g: 0.8980392, b: 0.8901961, a: 1}
-  textDisabledColor: {r: 0, g: 0, b: 0, a: 0}
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onNormal:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onSelect:
+    m_PersistentCalls:
+      m_Calls: []
   text: {fileID: 6963110662917106346}
 --- !u!114 &6963110662917106346 stripped
 MonoBehaviour:

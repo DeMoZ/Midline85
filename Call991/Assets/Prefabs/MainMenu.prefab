@@ -204,12 +204,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 7985199731667210310}
-  appearWithTween: 0
-  appearAnimation: {fileID: 4085727554343093253}
-  buttonsGroup: {fileID: 0}
-  buttonsCanvas: {fileID: 0}
-  animationTime: 0.5
-  toPositionX: 218
+  appearAnimation:
+    ButtonsGroup: {fileID: 7985199731242092629}
+    ButtonsCanvas: {fileID: 8543965805552049400}
+    AnimationTime: 0.5
+    ToPositionX: 234
   windowSelectables:
   - {fileID: 4290020118894744816}
   - {fileID: 7985199731667210310}
