@@ -40,9 +40,6 @@ public class SettingsVolumeView : MenuButtonView
     protected override void SetButtonState(bool hover)
     {
         base.SetButtonState(hover);
-        var color = hover ? textHoverColor : textDefaultColor;
-        handleImage.color = color;
-        _sliderText.color = color;
     }
 
     private void ChangeSliderValue(float change)
