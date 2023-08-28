@@ -425,9 +425,24 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5696015609022520554, guid: a333a1c103140498c902ae9d228b10eb,
         type: 3}
+      propertyPath: buttonsGroup
+      value: 
+      objectReference: {fileID: 122075011}
+    - target: {fileID: 5696015609022520554, guid: a333a1c103140498c902ae9d228b10eb,
+        type: 3}
+      propertyPath: buttonsCanvas
+      value: 
+      objectReference: {fileID: 122075010}
+    - target: {fileID: 5696015609022520554, guid: a333a1c103140498c902ae9d228b10eb,
+        type: 3}
       propertyPath: firstSelected
       value: 
       objectReference: {fileID: 122075009}
+    - target: {fileID: 5696015609022520554, guid: a333a1c103140498c902ae9d228b10eb,
+        type: 3}
+      propertyPath: appearWithTween
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5696015609022520554, guid: a333a1c103140498c902ae9d228b10eb,
         type: 3}
       propertyPath: windowSelectables.Array.size
@@ -652,6 +667,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027a6e03c7f2dbe46ab23560c19117f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!225 &122075010 stripped
+CanvasGroup:
+  m_CorrespondingSourceObject: {fileID: 956575612795426768, guid: a333a1c103140498c902ae9d228b10eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 122075005}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &122075011 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5696015610797749936, guid: a333a1c103140498c902ae9d228b10eb,
+    type: 3}
+  m_PrefabInstance: {fileID: 122075005}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &174472246
 GameObject:
   m_ObjectHideFlags: 0

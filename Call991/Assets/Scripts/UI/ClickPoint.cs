@@ -33,7 +33,7 @@ public class ClickPoint : MonoBehaviour
         _sequence = DOTween.Sequence();
         _sequence.SetUpdate(true);
         
-        _sequence.Append(_rectTransform.DOScale(scaleSet.Size, scaleSet.Duration).
+        _sequence.Append(_rectTransform.DOScale(scaleSet.ToScale, scaleSet.Duration).
             SetEase(scaleSet.Ease));
         _sequence.Append(_image.DOFade(0,fadeDuration)).AppendInterval(fadeDelay);
         _sequence.Play();
