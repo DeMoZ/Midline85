@@ -1,11 +1,30 @@
+using System;
 using System.Threading;
+using DG.Tweening;
+using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class AaWindow : InputHandler
 {
-    [SerializeField] private AaSelectable[] windowSelectables = default;
+    [Serializable]
+    private class AppearAnimation
+    {
+        public RectTransform ButtonsGroup = default;
+        public CanvasGroup ButtonsCanvas = default;
+        public float AnimationTime = 0.5f;
+        public float FromPositionX = 0; 
+        public float ToPositionX = 234f;
+    }
+
+    [Space] [SerializeField] private bool useAppearAnimation;
+    [ShowIf("useAppearAnimation")]
+    [SerializeField] private AppearAnimation appearAnimation;
+
+    [Space] [Space] [SerializeField] private AaSelectable[] windowSelectables = default;
+
+    private Sequence _appearSequence;
 
     protected CancellationTokenSource tokenSource;
 
@@ -27,6 +46,24 @@ public class AaWindow : InputHandler
             selectable.OnSelectObj += OnSelectObj;
             selectable.OnUnSelect += OnUnSelect;
         }
+
+        if (useAppearAnimation)
+            AnimateAppear();
+    }
+
+    private void AnimateAppear()
+    {
+        _appearSequence?.Kill();
+        _appearSequence = DOTween.Sequence();
+
+        _appearSequence.SetUpdate(true);
+        var position = appearAnimation.ButtonsGroup.position;
+        position.x = appearAnimation.FromPositionX;
+        appearAnimation.ButtonsGroup.position = position;
+        appearAnimation.ButtonsCanvas.alpha = 0;
+        _appearSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(appearAnimation.ToPositionX,
+            appearAnimation.AnimationTime, true));
+        _appearSequence.Insert(0, appearAnimation.ButtonsCanvas.DOFade(1, appearAnimation.AnimationTime));
     }
 
     protected virtual void OnDisable()

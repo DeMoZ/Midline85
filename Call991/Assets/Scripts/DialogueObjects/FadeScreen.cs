@@ -10,7 +10,7 @@ public class FadeScreen : AaGraphObjectEvent
         ObjectEvents.EventsGroup.OnScreenFade?.Execute((showBlocker, GameSet.levelEndStatisticsUiFadeTime));
         yield return new WaitForSeconds(GameSet.levelEndStatisticsUiFadeTime);
 
-        if (gameObject)
+        if (gameObject != null)
         {
             Destroy(gameObject);
         }

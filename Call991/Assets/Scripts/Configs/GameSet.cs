@@ -28,8 +28,8 @@ namespace Configs
         
         [Space]
         public float buttonsAppearDuration = 0.2f;
-        public float fastButtonFadeDuration = 0.3f;
-        public float slowButtonFadeDuration = 0.6f;
+        public float buttonsShowSelectionDuration = 0.5f;
+        public float buttonsDisappearDuration = 1.2f;
         
         [Title("Level Timings")]
         public float levelIntroDelay = 2f;

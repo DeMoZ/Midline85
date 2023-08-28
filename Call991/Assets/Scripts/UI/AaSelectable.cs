@@ -1,6 +1,7 @@
 using System;
 using UI;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
@@ -10,6 +11,11 @@ public class AaSelectable : Selectable
 
     [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
     [SerializeField] private CursorSet cursorSettings = default;
+
+    [SerializeField] private UnityEvent onClick;
+    [SerializeField] private UnityEvent onNormal;
+    [SerializeField] private UnityEvent onHover;
+    [SerializeField] private UnityEvent onSelect;
 
     private bool _instant;
     private bool _noPointerPress;
@@ -21,7 +27,7 @@ public class AaSelectable : Selectable
     public static event Action<Vector2, Sprite> OnMouseClickSelectable;
 
     private bool IsNormal => currentSelectionState == SelectionState.Normal;
-    
+
     private void Update()
     {
         if (_coolTimer > 0)
@@ -33,7 +39,7 @@ public class AaSelectable : Selectable
         _coolTimer = 0;
         base.OnEnable();
     }
-    
+
     public override void OnPointerExit(PointerEventData eventData)
     {
         DoStateTransition(SelectionState.Normal, _instant);
@@ -50,7 +56,7 @@ public class AaSelectable : Selectable
         {
             Debug.LogWarning($"selectable to next state <color=yellow>Pressed {name}</color>");
         }
-        
+
         _instant = instant;
 
         switch (state)
@@ -58,8 +64,11 @@ public class AaSelectable : Selectable
             case SelectionState.Normal:
                 SetNormal();
 
-                if (!IsNormal) 
+                if (!IsNormal)
+                {
                     OnUnSelect?.Invoke(this);
+                    onNormal.Invoke();
+                }
 
                 break;
             case SelectionState.Highlighted:
@@ -72,7 +81,9 @@ public class AaSelectable : Selectable
             case SelectionState.Selected:
                 SetSelected();
                 PlayHoverSound();
+            
                 OnSelectObj?.Invoke(this);
+            
                 break;
             case SelectionState.Disabled:
                 SetDisabled();
@@ -91,6 +102,7 @@ public class AaSelectable : Selectable
     protected virtual void SetSelected()
     {
         cursorSettings?.ApplyCursor(CursorType.CanClick);
+        onSelect?.Invoke();
     }
 
     public virtual void SetNormal()
@@ -123,10 +135,14 @@ public class AaSelectable : Selectable
         Debug.LogWarning($"selectable to next state <color=red>Pressed {name}</color>");
         _coolTimer = CoolTime;
         OnClick?.Invoke();
+        onClick?.Invoke();
 
         if (!_noPointerPress && cursorSettings.ClickPointSprite)
+        {
             OnMouseClickSelectable?.Invoke((Vector2)Input.mousePosition + cursorSettings.ClickPointOffset,
                 cursorSettings.ClickPointSprite);
+            onClick?.Invoke();
+        }
 
         _noPointerPress = false;
     }
