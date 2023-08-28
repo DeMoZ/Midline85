@@ -6,6 +6,7 @@ using Data;
 using UI;
 using UniRx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class LevelSceneEntity : IGameScene
 {
@@ -65,11 +66,11 @@ public class LevelSceneEntity : IGameScene
         var dialogueService = new DialogueService().AddTo(_disposables);
 
         var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
-        var onLevelEnd = new ReactiveCommand<(string endKey, bool nextLevelExists)>().AddTo(_disposables);
+        var onLevelEnd = new ReactiveCommand<StatisticsData>().AddTo(_disposables);
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
 
-        var buttons = _ui.Buttons;
-        var countDown = _ui.CountDown;
+        var levelSceneObjectsService = new LevelSceneObjectsService().AddTo(_disposables);
+        
         _ctx.LevelLanguages.Value = _ctx.LevelData.GetEntryNode().Languages;
 
         var contentLoader = new ContentLoader(new ContentLoader.Ctx
@@ -106,8 +107,7 @@ public class LevelSceneEntity : IGameScene
             OnAfterEnter = onAfterEnter,
             GameSet = _ctx.GameSet,
             LevelId = levelId,
-            buttons = buttons,
-            CountDown = countDown,
+            LevelSceneObjectsService = levelSceneObjectsService,
             DialogueService = dialogueService,
             GameLevelsService = _ctx.GameLevelsService,
             MediaService = _ctx.MediaService,
@@ -119,6 +119,8 @@ public class LevelSceneEntity : IGameScene
 
         _ui.SetCtx(new UiLevelScene.Ctx
         {
+            GameSet = _ctx.GameSet,
+            LevelSceneObjectsService = levelSceneObjectsService,
             OnClickMenuButton = onClickMenuButton,
             OnClickNextLevelButton = onClickNextLevelButton,
             DialogueService = dialogueService,

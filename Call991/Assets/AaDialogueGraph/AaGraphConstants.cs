@@ -62,4 +62,5 @@ public static class AaGraphConstants
     public const string ImageField = "Image";
     public const string VideoField = "Video";
     public const string ObjectField = "Object";
+    public const string ProjectorField = "Projector";
 }
