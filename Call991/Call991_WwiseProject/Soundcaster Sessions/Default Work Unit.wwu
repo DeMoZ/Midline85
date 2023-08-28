@@ -29,6 +29,18 @@
 							<ObjectRef Name="pizza_george_043" ID="{511B9B77-5635-4FC0-BF00-EBE90B84E26B}" WorkUnitID="{F607301D-A532-44B0-9551-6140F2C6CA1D}"/>
 							<Position X="1" Y="4"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="cinematic_01_start" ID="{92613CDE-428B-4698-9A9D-1348F01DD05E}" WorkUnitID="{24565E33-B89E-4166-88EE-B260FA8C572C}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="MusicLevels" ID="{EFEB9A0F-73D9-4F08-8023-845DB00895C4}" WorkUnitID="{9CAB2CEA-3663-4482-BA42-607E60400B52}"/>
+							<Position X="3" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="cinematic_01_end" ID="{81661847-C078-427E-A337-8F965A704575}" WorkUnitID="{24565E33-B89E-4166-88EE-B260FA8C572C}"/>
+							<Position X="4" Y="0"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true">
 						<RTPCValue>
@@ -57,7 +69,7 @@
 						<CurrentStateRef Name="Pause" ID="{6B10F0AB-F56F-4DB6-AF76-475129B487A4}"/>
 					</CurrentStateList>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="MusicBoss" ID="{93CF7F86-7416-42E2-825A-64014444391B}"/>
+						<CurrentSwitchRef Name="MusicMainMenu" ID="{2CCAFC0A-EA7C-4CA2-B67D-D5A009E75439}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="DecideTime" ID="{3B13216A-B6CC-437E-9AC5-A594665C9A10}">
