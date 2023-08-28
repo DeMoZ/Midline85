@@ -1,4 +1,3 @@
-using Configs;
 using UI;
 using UniRx;
 
@@ -10,7 +9,6 @@ public class LoadingSceneEntity : IGameScene
         public bool ToLevelScene;
         public bool FirstLoad;
         public Blocker Blocker;
-        public GameSet GameSet;
     }
 
     private Ctx _ctx;
@@ -26,7 +24,6 @@ public class LoadingSceneEntity : IGameScene
             toLevelScene = _ctx.ToLevelScene,
             firstLoad = _ctx.FirstLoad,
             blocker = _ctx.Blocker,
-            gameSet = _ctx.GameSet,
         });
     }
 

@@ -26,13 +26,13 @@
 						<Effect Name="Dialog_Leveler_Soft" ID="{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
 							<PropertyList>
 								<Property Name="Ratio" Type="Real32" Value="3"/>
-								<Property Name="Threshold" Type="Real32" Value="-20"/>
+								<Property Name="Threshold" Type="Real32" Value="-26"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Dialog_Leveler_Hard" ID="{865FB36F-8717-4D30-AD05-14E56375CD40}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
 							<PropertyList>
 								<Property Name="Ratio" Type="Real32" Value="6"/>
-								<Property Name="Threshold" Type="Real32" Value="-20"/>
+								<Property Name="Threshold" Type="Real32" Value="-25"/>
 							</PropertyList>
 						</Effect>
 						<Effect Name="Dialog_Too_Quiet" ID="{F9C77BF1-1CCC-415B-B93F-B048979CA620}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
@@ -92,6 +92,13 @@
 								<Property Name="Ratio" Type="Real32" Value="22"/>
 								<Property Name="ReleaseTime" Type="Real32" Value="0.271"/>
 								<Property Name="Threshold" Type="Real32" Value="-54.2"/>
+							</PropertyList>
+						</Effect>
+						<Effect Name="Voice1" ID="{0807AFA8-53FD-41A7-A29E-1CC180498D3B}" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<PropertyList>
+								<Property Name="Ratio" Type="Real32" Value="1.8"/>
+								<Property Name="ReleaseTime" Type="Real32" Value="0.134"/>
+								<Property Name="Threshold" Type="Real32" Value="-26.1"/>
 							</PropertyList>
 						</Effect>
 					</ChildrenList>
@@ -609,11 +616,11 @@
 							<ChildrenList>
 								<Effect Name="Static_Sibilance_Remover_Female" ID="{3E13EF40-7C1A-4EBC-9858-8CB584A642E5}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 									<PropertyList>
-										<Property Name="FrequencyBand2" Type="Real32" Value="6000"/>
-										<Property Name="GainBand2" Type="Real32" Value="-6"/>
+										<Property Name="FrequencyBand2" Type="Real32" Value="3607"/>
+										<Property Name="GainBand2" Type="Real32" Value="-3"/>
 										<Property Name="OnOffBand1" Type="bool" Value="False"/>
 										<Property Name="OnOffBand3" Type="bool" Value="False"/>
-										<Property Name="QFactorBand2" Type="Real32" Value="3"/>
+										<Property Name="QFactorBand2" Type="Real32" Value="4.7"/>
 									</PropertyList>
 								</Effect>
 								<Effect Name="Static_Sibilance_Remover_Male" ID="{3FF84C1E-F84E-432E-86BC-96B3C9219F10}" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">

@@ -42,7 +42,7 @@ public class WwiseAudio : MonoBehaviour
     [SerializeField] private Wwise.Event PauseEvent = default;
     [SerializeField] private Wwise.Event ResumeEvent = default;
     [SerializeField] private Wwise.Event MusicEvent = default;
-
+    
     private Ctx _ctx;
 
     private bool _isMasterLoaded;
@@ -215,11 +215,17 @@ public class WwiseAudio : MonoBehaviour
     {
     }
 
-    public uint? PlayVoice(string sound)
+    public bool TryPlayVoice(string sound, out uint? voiceId)
     {
-        if (!_isBankLoaded) return null;
-        if (PlaySound(sound, voiceGo, out var soundId)) return soundId;
-        return null;
+        voiceId = null;
+        if (!_isBankLoaded) return false;
+        if (TryPlaySound(sound, voiceGo, out var soundId))
+        {
+            voiceId = soundId;
+            return true;
+        }
+        
+        return false;
     }
 
     public void StopVoice(uint voiceId) =>
@@ -276,26 +282,34 @@ public class WwiseAudio : MonoBehaviour
         AkSoundEngine.SetRTPCValue(rtpc, value);
     }
     
-    public uint? PlaySfx(string sound)
+    public bool TryPlaySfx(string sound, out uint? sfxId)
     {
-        if (!_isBankLoaded) return null;
-        if (PlaySound(sound, sfxGo, out var soundId)) return soundId;
-        return null;
+        if (TryPlaySound(sound, sfxGo, out var soundId))
+        {
+            sfxId =  soundId;
+            return true;
+        }
+        
+        sfxId = null;
+        return false;
     }
+    
+    public void StopSfx(uint sfx) =>
+        AkSoundEngine.StopPlayingID(sfx);
 
     public void PlayTimerSfx()
     {
         if (!_isBankLoaded) return;
-        PlaySound(SfxDecideTimeStart.ToString(), sfxGo, out var soundId);
+        TryPlaySound(SfxDecideTimeStart.ToString(), sfxGo, out var soundId);
     }
 
     public void StopTimerSfx()
     {
         if (!_isBankLoaded) return;
-        PlaySound(SfxDecideTimeEnd.ToString(), sfxGo, out var soundId);
+        TryPlaySound(SfxDecideTimeEnd.ToString(), sfxGo, out var soundId);
     }
 
-    private bool PlaySound(string sound, GameObject soundGo, out uint soundId)
+    private bool TryPlaySound(string sound, GameObject soundGo, out uint soundId)
     {
         var isNoKey = string.Equals(sound, AaGraphConstants.None) || string.IsNullOrEmpty(sound);
 

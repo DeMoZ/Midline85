@@ -90,13 +90,14 @@ public class DialoguePm : IDisposable
                 {
                     case ChoiceNodeData nodeData:
                     {
-                        var isInCase = IsInCase(nodeData.CaseData);
+                        var isInCase = IsInCase(nodeData.CaseData , out var wasUnlocked);
 
                         if (!isInCase)
                             Debug.LogWarning($"[{this}] button is locked:\n" +
                                              $"{JsonConvert.SerializeObject(nodeData.CaseData)}");
 
                         nodeData.IsLocked = !isInCase;
+                        nodeData.ShowUnlock = wasUnlocked;
 
                         result.Add(nodeData);
                         break;
@@ -151,7 +152,7 @@ public class DialoguePm : IDisposable
     {
         for (var i = data.Count-1; i >= 0; i--)
         {
-            if (IsInCase(data[i]))
+            if (IsInCase(data[i], out var _))
             {
                 Debug.LogWarning($"[{this}] found exit from fork:\n{JsonConvert.SerializeObject(data[i])}");
                 return data[i].ForkExitName;
@@ -161,9 +162,17 @@ public class DialoguePm : IDisposable
         return null;
     }
 
-    private bool IsInCase(CaseData data)
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="data"></param>
+    /// <param name="wasUnlocked"> if the button has cases and passed the cases requirements</param>
+    /// <returns></returns>
+    /// <exception cref="ArgumentOutOfRangeException"></exception>
+    private bool IsInCase(CaseData data, out bool wasUnlocked)
     {
         var inCase = true;
+        wasUnlocked = false;
 
         foreach (var caseData in data.Words)
         {
@@ -227,6 +236,9 @@ public class DialoguePm : IDisposable
             }
         }
 
+        if (inCase && (data.Counts.Count > 0 || data.Ends.Count > 0 || data.Words.Count > 0))
+            wasUnlocked = true;
+        
         return inCase;
     }
 

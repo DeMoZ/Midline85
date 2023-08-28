@@ -375,8 +375,7 @@ namespace AaDialogueGraph.Editor
     {
         private Action _onChange;
 
-        public void Set(List<EventVisualData> data, Action onChange, List<string> sounds, List<string> musics,
-            List<string> rtpcs)
+        public void Set(List<EventVisualData> data, Action onChange, SoundLists soundLists)
         {
             _onChange = onChange;
             var headerContent = new VisualElement();
@@ -391,7 +390,7 @@ namespace AaDialogueGraph.Editor
                 // add music
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.Music, };
                 var eventVisual = new MusicEventVisual();
-                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, musics);
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, soundLists.Musics);
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
@@ -402,7 +401,7 @@ namespace AaDialogueGraph.Editor
                 // add RTPC
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.RTPC, };
                 var eventVisual = new RtpcEventVisual();
-                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, rtpcs);
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, soundLists.Rtcps);
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
@@ -413,7 +412,7 @@ namespace AaDialogueGraph.Editor
                 // add sound
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.AudioClip, };
                 var eventVisual = new SoundEventVisual();
-                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, sounds);
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, soundLists.Sfxs);
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
@@ -451,6 +450,17 @@ namespace AaDialogueGraph.Editor
                 _onChange?.Invoke();
             });
             addObjectEventAssetButton.text = AaGraphConstants.ObjectField;
+            
+            var addProjectorEventAssetButton = new Button(() =>
+            {
+                // add projector
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.Projector, };
+                var eventVisual = new ObjectEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, AaGraphConstants.ProjectorField);
+                contentContainer.Add(eventVisual);
+                _onChange?.Invoke();
+            });
+            addProjectorEventAssetButton.text = AaGraphConstants.ProjectorField;
 
             var buttonsGroup = new VisualElement();
             headerContent.Add(buttonsGroup);
@@ -459,8 +469,11 @@ namespace AaDialogueGraph.Editor
                 { addMusicEventAssetButton, addRtpcEventAssetButton, addSoundEventAssetButton });
             var line2 = new LineGroup(new[]
                 { addImageEventAssetButton, addVideoEventAssetButton, addObjectEventAssetButton });
+            var line3 = new LineGroup(new[]
+                { addProjectorEventAssetButton});
             buttonsGroup.Add(line1);
             buttonsGroup.Add(line2);
+            buttonsGroup.Add(line3);
 
             contentContainer.AddToClassList("aa-EventAsset_content-container");
 
@@ -470,20 +483,21 @@ namespace AaDialogueGraph.Editor
                 {
                     case PhraseEventType.Music:
                         var musicEventVisual = new MusicEventVisual();
-                        musicEventVisual.Set(item, OnDeleteEvent, _onChange, musics);
+                        musicEventVisual.Set(item, OnDeleteEvent, _onChange, soundLists.Musics);
                         contentContainer.Add(musicEventVisual);
                         break;
 
                     case PhraseEventType.RTPC:
                         var rtpcventVisual = new RtpcEventVisual();
-                        rtpcventVisual.Set(item, OnDeleteEvent, _onChange, rtpcs);
+                        rtpcventVisual.Set(item, OnDeleteEvent, _onChange, soundLists.Rtcps);
                         contentContainer.Add(rtpcventVisual);
                         break;
                     case PhraseEventType.AudioClip:
                         var soundEventVisual = new SoundEventVisual();
-                        soundEventVisual.Set(item, OnDeleteEvent, _onChange, sounds);
+                        soundEventVisual.Set(item, OnDeleteEvent, _onChange, soundLists.Sfxs);
                         contentContainer.Add(soundEventVisual);
                         break;
+                    case PhraseEventType.Projector:
                     case PhraseEventType.Image:
                     case PhraseEventType.VideoClip:
                     case PhraseEventType.GameObject:
@@ -507,6 +521,8 @@ namespace AaDialogueGraph.Editor
                     return AaGraphConstants.VideoField;
                 case PhraseEventType.GameObject:
                     return AaGraphConstants.ObjectField;
+                case PhraseEventType.Projector:
+                    return AaGraphConstants.ProjectorField;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

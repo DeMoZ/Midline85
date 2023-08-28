@@ -1,6 +1,6 @@
-using System.Threading.Tasks;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -8,42 +8,44 @@ namespace UI
     {
         public struct Ctx
         {
-            public float buttonsAppearDuration;
+            public float ChoicesDuration;
         }
 
-        [SerializeField] private RectTransform backLine = default;
-        [SerializeField] private RectTransform frontLine = default;
-        [SerializeField] private CanvasGroup canvasGroup = default;
+        [SerializeField] private Image backLine = default;
+        [SerializeField] private Image frontLine = default;
+        [SerializeField] private Color startColor = Color.white;
+        [SerializeField] private Color endColor = Color.red;
+        [SerializeField] private float blendColor = 0.3f;
 
         private Ctx _ctx;
-        private Tween _scaleTween;
+        private Sequence _sequence;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
         }
 
-        public void Stop(float fadeTime)
+        public void Stop()
         {
-            _scaleTween.Kill();
-            canvasGroup.DOFade(0, fadeTime);
+            _sequence.Kill();
         }
 
-        public async void Show(float time)
+        public void Show()
         {
-            frontLine.sizeDelta = backLine.sizeDelta;
-            canvasGroup.alpha = 1;
+            frontLine.DOColor(startColor, 0);
+            backLine.DOColor(startColor, 0);
+            
+            var sizeDelta = backLine.rectTransform.sizeDelta;
+            sizeDelta.x *= 1.5f;
+            sizeDelta.y = frontLine.rectTransform.sizeDelta.y;
+            frontLine.rectTransform.sizeDelta = sizeDelta;
             gameObject.SetActive(true);
-            canvasGroup.DOFade(1, _ctx.buttonsAppearDuration);
-            await Task.Delay((int) (_ctx.buttonsAppearDuration * 1000));
-            _scaleTween = frontLine.DOSizeDelta(Vector2.up, time).OnUpdate(
-                () => { } //OnTweenUpdate
-            );
-        }
-
-        private void OnTweenUpdate()
-        {
-            Debug.Log($"{_scaleTween.Elapsed()}");
+            
+            var interval = _ctx.ChoicesDuration * blendColor;
+           _sequence = DOTween.Sequence();
+            _sequence.Append(frontLine.rectTransform.DOSizeDelta(Vector2.up * frontLine.rectTransform.sizeDelta.y, _ctx.ChoicesDuration));
+            _sequence.Insert(interval, frontLine.DOColor(endColor, _ctx.ChoicesDuration * (1 - blendColor)));
+            _sequence.Insert(interval, backLine.DOColor(endColor, _ctx.ChoicesDuration * (1 - blendColor)));
         }
     }
 }

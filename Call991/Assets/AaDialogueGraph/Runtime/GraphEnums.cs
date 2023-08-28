@@ -32,6 +32,7 @@ public enum PhraseEventType
     VideoClip,
     GameObject,
     Image,
+    Projector,
 }
 
 public enum CaseType

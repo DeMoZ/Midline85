@@ -106,14 +106,12 @@ namespace AaDialogueGraph.Editor
 
         private EntryNodeData EntryNodeToData(EntryNode node)
         {
-            //var soundAsset = node.Q<SoundAssetField>().GetSoundAsset();
             var data = new EntryNodeData
             {
                 Guid = node.Guid,
                 Rect = node.GetPosition(),
                 LevelId = node.Q<LevelIdPopupField>().Value,
                 ButtonFilter = node.Q<ButtonFilterTextField>().value,
-                //SoundAsset = EditorNodeUtils.GetPathByObject(soundAsset),
             };
 
             var languageFields = node.Query<LanguagePopupField>().ToList();
@@ -251,7 +249,7 @@ namespace AaDialogueGraph.Editor
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     End = node.Q<EndPopupField>().Value,
                     EventVisualData = eventsVisualData,
-                    Records = node.GetRecords(),
+                    //Records = node.GetRecords(),
                 });
             }
 

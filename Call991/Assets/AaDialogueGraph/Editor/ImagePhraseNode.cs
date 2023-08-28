@@ -12,8 +12,7 @@ namespace AaDialogueGraph.Editor
 
         public string PhraseSketchText => _phraseSketchTxt;
 
-        public void Set(ImagePhraseNodeData data, List<string> languages, 
-            List<string> voices, List<string> musics, List<string> rtpcs, List<string> sounds, string guid)
+        public void Set(ImagePhraseNodeData data, List<string> languages, SoundLists soundLists, string guid)
         {
             Guid = guid;
 
@@ -46,7 +45,7 @@ namespace AaDialogueGraph.Editor
             contentFolder.Add(phraseVisual);
 
             var phraseEvents = new AaNodeEvents();
-            phraseEvents.Set(data.EventVisualData, CheckNodeContent, sounds, musics, rtpcs);
+            phraseEvents.Set(data.EventVisualData, CheckNodeContent, soundLists);
             contentFolder.Add(phraseEvents);
 
             var phraseContainer = new ElementsTable();
@@ -54,12 +53,13 @@ namespace AaDialogueGraph.Editor
             var soundText = new Label("Phrase Sound");
             soundText.AddToClassList("aa-BlackText");
 
-            voices = voices == null || voices.Count < 1 ? new List<string> { AaGraphConstants.None } : voices;
-            var sound = !string.IsNullOrEmpty(data.PhraseSound)
+            soundLists.Voices = soundLists.Voices == null || soundLists.Voices.Count < 1 ?
+                new List<string> { AaGraphConstants.None } : soundLists.Voices;
+            var voice = !string.IsNullOrEmpty(data.PhraseSound)
                 ? data.PhraseSound
                 : AaGraphConstants.None;
 
-            var soundPopup = new SoundPopupField(voices, sound)
+            var soundPopup = new SoundPopupField(soundLists.Voices, voice)
             {
                 name = AaGraphConstants.VoicePopupField
             };

@@ -28,8 +28,8 @@ namespace Configs
         
         [Space]
         public float buttonsAppearDuration = 0.2f;
-        public float fastButtonFadeDuration = 0.3f;
-        public float slowButtonFadeDuration = 0.6f;
+        public float buttonsShowSelectionDuration = 0.5f;
+        public float buttonsDisappearDuration = 1.2f;
         
         [Title("Level Timings")]
         public float levelIntroDelay = 2f;
@@ -43,33 +43,24 @@ namespace Configs
         public GameLevelsSo GameLevels;
 
         [Space] [Title("DialogueGraph settings")]
-        public WwiseVoicesSet VoicesSet;
+        public WwiseSoundsSet VoicesSet;
+        public WwiseSoundsSet SfxsSet;
         public WwiseMusicSwitchesList MusicSwitchesKeys;
         public WwiseRtpcList RtpcKeys;
         public LevelKeysList LevelKeys;
         public PersonKeysList PersonsKeys;
         public PopupKeysList CountKeys;
-        public PopupKeysList EndsKeys;
+        public FilteredLocalizationKeysList EndsKeys;
         public ChoiceKeysList ChoiceKeys;
         public RecordKeysList RecordKeys;
         public LanguagesKeysList LanguagesKeys;
-        
-        
+
         private void OnValidate()
         {
 #if UNITY_EDITOR
             // var profile = new PlayerProfile(new ReactiveCommand<Language>());
             // profile.SaveLanguages(textLanguage, audioLanguage);
 #endif
-        }
-
-        public int GetStartLevelIndex()
-        {
-            var index = 0;
-            if (GameLevels.StartButtonLevel != null && GameLevels.Levels.Contains(GameLevels.StartButtonLevel))
-                index = GameLevels.Levels.IndexOf(GameLevels.StartButtonLevel);
-
-            return index;
         }
     }
 }

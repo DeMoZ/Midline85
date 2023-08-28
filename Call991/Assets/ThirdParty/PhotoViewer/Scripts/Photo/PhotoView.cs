@@ -12,7 +12,7 @@ namespace PhotoViewer.Scripts.Photo
         [SerializeField] private RectTransform _imageTransform = default;
         [SerializeField] private MenuButtonView _closeBtn = default;
         [SerializeField] private NewspaperInput _newspaperInput = default;
-        private Vector2 _zoomLimit = new(0.8f, 5);
+        private Vector2 _zoomLimit = new(1, 4);
 
         private Vector2 _initialImageSize;
         private Vector2 _imageSize;

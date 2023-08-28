@@ -60,8 +60,10 @@ namespace UI
             Application.Quit();
         }
 
-        public void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
+            
             continueBtn.OnClick -= OnClickPlay;
             newGameBtn.OnClick -= OnClickNewGame;
             settingsBtn.OnClick -= OnClickSettings;
