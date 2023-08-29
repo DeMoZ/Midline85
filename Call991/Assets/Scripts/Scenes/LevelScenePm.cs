@@ -118,10 +118,12 @@ public class LevelScenePm : IDisposable
         if (pause)
         {
             _ctx.MediaService.AudioManager.PausePhrasesAndSfx();
+            _ctx.MediaService.VideoManager.PauseVideoPlayer();
         }
         else
         {
             _ctx.MediaService.AudioManager.ResumePhrasesAndSfx();
+            _ctx.MediaService.VideoManager.ResumeVideoPlayer();
             _selectionPlaced = false;
         }
     }
