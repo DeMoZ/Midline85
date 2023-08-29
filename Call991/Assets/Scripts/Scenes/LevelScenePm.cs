@@ -631,11 +631,23 @@ public class LevelScenePm : IDisposable
         {
             Debug.Log($"next level {nextLevel.EntryNodeData.LevelId}; isGameEnd = {isGameEnd}");
             _ctx.GameLevelsService.SetLevel(nextLevel);
+
+            if (data.SkipSelectNextLevelButtons)
+            {
+                _ctx.OnClickNextLevelButton.Execute();
+                return;
+            }
         }
 
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
+        
         _ctx.OnLevelEnd?.Execute(
-            new StatisticsData { LevelKey = _ctx.LevelId, EndKey = data.End, NextLevelExists = nextLevelExists });
+            new StatisticsData
+            {
+                LevelKey = _ctx.LevelId, 
+                EndKey = data.End, 
+                NextLevelExists = nextLevelExists,
+            });
     }
 
     private IEnumerator ObserveTimer(float time, ReactiveProperty<bool> onSkip = null, Action onEnd = null)

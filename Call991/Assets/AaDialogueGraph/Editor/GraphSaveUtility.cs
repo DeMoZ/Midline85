@@ -249,6 +249,7 @@ namespace AaDialogueGraph.Editor
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     End = node.Q<EndPopupField>().Value,
                     EventVisualData = eventsVisualData,
+                    SkipSelectNextLevelButtons = node.Q<Toggle>(AaGraphConstants.EndNodeSkipSelectNextLevelButtons).value
                     //Records = node.GetRecords(),
                 });
             }
