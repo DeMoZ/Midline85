@@ -4,7 +4,6 @@ using I2.Loc;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = nameof(DevelopersSo), menuName = "Aa/Configs/" + nameof(DevelopersSo), order = 0)]
-
 public class DevelopersSo : ScriptableObject
 {
     [SerializeField] private List<DeveloperGroup> groups;

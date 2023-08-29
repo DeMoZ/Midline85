@@ -17,9 +17,7 @@ namespace UI
         [SerializeField] private TMP_Text title = default;
         [SerializeField] private MenuButtonView menuButton = default;
         [SerializeField] private MenuButtonView nextLevelButton = default;
-
-        [Space] [SerializeField] private RectTransform table = default;
-
+        
         [SerializeField] private TMP_Text textField = default;
 
         private Ctx _ctx;
