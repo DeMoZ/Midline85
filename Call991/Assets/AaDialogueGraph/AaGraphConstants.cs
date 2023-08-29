@@ -63,4 +63,6 @@ public static class AaGraphConstants
     public const string VideoField = "Video";
     public const string ObjectField = "Object";
     public const string ProjectorField = "Projector";
+
+    public const string EndNodeSkipSelectNextLevelButtons = "Skip Buttons";
 }

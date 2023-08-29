@@ -1818,7 +1818,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{0AB90B7B-FC3D-BF08-8D24-E6BA7FED806D}">
+		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{6340CF7A-9BB5-A63C-5F7E-9FD802D17247}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>Russian/L2_Tutor.bnk</Path>
 			<Media>
@@ -1957,6 +1957,10 @@
 				<File Id="318080497" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_023.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_023_F9A23AB9.wem</CachePath>
+				</File>
+				<File Id="323817263" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>tutor_elena\tutor_elena_015_1.wav</ShortName>
+					<CachePath>Voices/Russian/tutor_elena/tutor_elena_015_1_F9A23AB9.wem</CachePath>
 				</File>
 				<File Id="332333893" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_046.wav</ShortName>
@@ -2182,10 +2186,6 @@
 					<ShortName>tutor_mark_028.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_028_F9A23AB9.wem</CachePath>
 				</File>
-				<File Id="1004158828" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>tutor_elena\tutor_elena_015.wav</ShortName>
-					<CachePath>Voices/Russian/tutor_elena/tutor_elena_015_F9A23AB9.wem</CachePath>
-				</File>
 				<File Id="1005744020" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_001.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_001_F9A23AB9.wem</CachePath>
@@ -2286,9 +2286,9 @@
 						<MediaRef Id="127118765"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="207173242" Name="tutor_elena_015" DurationType="OneShot" DurationMin="1.3333334" DurationMax="1.3333334">
+				<Event Id="207173242" Name="tutor_elena_015" DurationType="OneShot" DurationMin="1.7915626" DurationMax="1.7915626">
 					<MediaRefs>
-						<MediaRef Id="1004158828"/>
+						<MediaRef Id="323817263"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="207173241" Name="tutor_elena_016" DurationType="OneShot" DurationMin="6.408125" DurationMax="6.408125">
@@ -13496,5 +13496,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{415B9395-67D0-17F6-D8E0-BCA536E67EED}</FileHash>
+	<FileHash>{4CAA5D37-D0B9-2E41-73CB-61CF9D155EFF}</FileHash>
 </SoundBanksInfo>

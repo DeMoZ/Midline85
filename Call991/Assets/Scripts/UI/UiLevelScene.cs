@@ -1,5 +1,4 @@
 using System;
-using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
@@ -52,7 +51,6 @@ namespace UI
 
         private Ctx _ctx;
 
-        [SerializeField] private AudioSource phraseAudioSource = default;
         [Space] [SerializeField] private LevelTitleView levelTitleView = default;
         [SerializeField] private LevelView levelView = default;
         [SerializeField] private StatisticsView statisticView = default;
@@ -65,7 +63,6 @@ namespace UI
         private bool _isNewspaperActive;
         private ReactiveCommand _onClickToMenu;
         
-        public AudioSource PhraseAudioSource => phraseAudioSource;
         private CancellationTokenSource _tokenSource;
 
         public void SetCtx(Ctx ctx)
