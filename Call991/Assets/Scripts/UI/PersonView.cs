@@ -25,21 +25,17 @@ public class PersonView : BasePersonView
 
         description.text = string.Empty;
 
-        if (!gameObject.activeSelf)
-            gameObject.SetActive(true);
-
-        _localize = data.PersonVisualData.Person.ToString();
+        _localize = data.PersonVisualData.Person;
         personName.text = _localize;
         description.gameObject.SetActive(true);
 
         if (data.Phrase == null)
-        {
             description.text = data.Description;
-        }
         else
-        {
             ShowPhraseText(data);
-        }
+
+        if (!gameObject.activeSelf)
+            gameObject.SetActive(true);
     }
 
     public override void HidePhrase()

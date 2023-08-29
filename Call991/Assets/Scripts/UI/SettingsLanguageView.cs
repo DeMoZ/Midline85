@@ -23,13 +23,4 @@ public class SettingsLanguageView : MenuButtonView
                 rightButton.onClick?.Invoke();
         }
     }
-
-    protected override void SetButtonState(bool toHover)
-    {
-        base.SetButtonState(toHover);
-        var color = toHover ? textHoverColor : textDefaultColor;
-        leftButton.image.color = color;
-        rightButton.image.color = color;
-        dropdownText.color = color;
-    }
 }

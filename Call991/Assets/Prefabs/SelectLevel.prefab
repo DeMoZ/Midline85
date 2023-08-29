@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4319352168774014604}
   - component: {fileID: 4319352168774014605}
   - component: {fileID: 194334646564693642}
+  - component: {fileID: 3111593300311687241}
   m_Layer: 5
   m_Name: Buttons
   m_TagString: Untagged
@@ -103,7 +104,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_Spacing: 36
+  m_Spacing: 25
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0
@@ -125,6 +126,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 2
   m_VerticalFit: 2
+--- !u!225 &3111593300311687241
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4319352168774014607}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &4319352170118937885
 GameObject:
   m_ObjectHideFlags: 0
@@ -269,6 +282,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstSelected: {fileID: 386920672331224184, guid: a0e6330eec1bc4c0fbda23e2a2e95c92,
     type: 3}
+  useAppearAnimation: 1
+  appearAnimation:
+    ButtonsGroup: {fileID: 4319352168774014606}
+    ButtonsCanvas: {fileID: 3111593300311687241}
+    AnimationTime: 0.5
+    FromPositionX: 0
+    ToPositionX: 234
   windowSelectables: []
   levelButtonPrefab: {fileID: 7479264427574692999, guid: 24fef7c7703ee4054973293ccdfeac7b,
     type: 3}
@@ -533,11 +553,18 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  defaultButton: {fileID: 0}
-  hoverButton: {fileID: 0}
-  textDefaultColor: {r: 0.8980392, g: 0.8980392, b: 0.8901961, a: 1}
-  textHoverColor: {r: 0.8980392, g: 0.8980392, b: 0.8901961, a: 1}
-  textDisabledColor: {r: 0, g: 0, b: 0, a: 0}
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onNormal:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onSelect:
+    m_PersistentCalls:
+      m_Calls: []
   text: {fileID: 3477370841517079157}
 --- !u!114 &3477370841517079157 stripped
 MonoBehaviour:
@@ -1827,9 +1854,16 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  defaultButton: {fileID: 0}
-  hoverButton: {fileID: 0}
-  textDefaultColor: {r: 0.8980392, g: 0.8980392, b: 0.8901961, a: 1}
-  textHoverColor: {r: 0.8980392, g: 0.8980392, b: 0.8901961, a: 1}
-  textDisabledColor: {r: 0, g: 0, b: 0, a: 0}
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onNormal:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onSelect:
+    m_PersistentCalls:
+      m_Calls: []
   text: {fileID: 2197226560681194167}

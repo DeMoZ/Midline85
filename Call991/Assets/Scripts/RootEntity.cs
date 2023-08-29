@@ -19,6 +19,9 @@ public class RootEntity : IDisposable
         public RectTransform ImageManagerParent;
         public VideoManager VideoManagerPrefab;
         public RectTransform VideoManagerParent;
+        public FilmProjector FilmProjectorPrefab;
+        public Transform FilmProjectorParent;
+        
         public OverridenDialogue OverridenDialogue;
         public Image VideoFade;
         public Image ScreenFade;
@@ -92,12 +95,15 @@ public class RootEntity : IDisposable
         videoManager.SetCtx(new VideoManager.Ctx
         {
         });
+        
+        var filmProjector = Object.Instantiate(_ctx.FilmProjectorPrefab, _ctx.FilmProjectorParent);
 
         var mediaService = new MediaService(new MediaService.Ctx
         {
             AudioManager = audioManager,
             ImageManager = imageManager,
             VideoManager = videoManager,
+            FilmProjector = filmProjector,
         });
 
         var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
