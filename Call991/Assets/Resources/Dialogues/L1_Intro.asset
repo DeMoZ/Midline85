@@ -37,11 +37,11 @@ MonoBehaviour:
       serializedVersion: 2
       x: 529
       y: 200
-      width: 103.5
-      height: 95.5
+      width: 326
+      height: 207.5
     End: End/Intro
     EventVisualData: []
-    Records: []
+    SkipSelectNextLevelButtons: 1
   EventNodeData:
   - Guid: 3eec4326-c7aa-4f96-abb6-12031481bd91
     Rect:
@@ -51,6 +51,13 @@ MonoBehaviour:
       width: 99.5
       height: 107
     EventVisualData:
+    - Type: 2
+      PhraseEvent: Cinematic/cinematic_01_end
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
     - Type: 4
       PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
       Layer: 0
@@ -58,13 +65,20 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
+    - Type: 3
+      PhraseEvent: 
+      Layer: 0
+      Loop: 0
+      Stop: 1
+      Delay: 0
+      Value: 0
   - Guid: c215f9e4-1666-453f-b032-46e85ca57a6e
     Rect:
       serializedVersion: 2
       x: 251
       y: 200
-      width: 275.5
-      height: 366.5
+      width: 99.5
+      height: 107
     EventVisualData:
     - Type: 2
       PhraseEvent: Cinematic/cinematic_01_start
@@ -99,9 +113,9 @@ MonoBehaviour:
   - BaseNodeGuid: dc2bfe2c-45f3-47ba-8288-383b7ba3e972
     BaseExitName: 
     TargetNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
-  - BaseNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
-    BaseExitName: 
-    TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
   - BaseNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
     BaseExitName: 
     TargetNodeGuid: bd32d768-2910-4efa-a053-aac758f3d11f
+  - BaseNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
+    BaseExitName: 
+    TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91

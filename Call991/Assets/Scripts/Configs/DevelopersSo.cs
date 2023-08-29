@@ -7,13 +7,19 @@ using UnityEngine;
 
 public class DevelopersSo : ScriptableObject
 {
-    [SerializeField] private List<Developer> developers;
-    public List<Developer> Developers => developers;
+    [SerializeField] private List<DeveloperGroup> groups;
+    public List<DeveloperGroup> Developers => groups;
 
+    [Serializable]
+    public class DeveloperGroup
+    {
+        public List<Developer> developers;
+    }
+    
     [Serializable]
     public class Developer
     {
         public string Position;
-        public LocalizedString NameKey;
+        public List<LocalizedString> NameKeys;
     }
 }

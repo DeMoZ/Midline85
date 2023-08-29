@@ -7,6 +7,7 @@ namespace AaDialogueGraph
     { 
         public string End;
         public List<EventVisualData> EventVisualData = new();
+        public bool SkipSelectNextLevelButtons;
         //public List<RecordData> Records = new();
     }
     
