@@ -122,13 +122,21 @@ namespace UI
             onClickSettingsButton.Subscribe(_ => EnableUi(menuSettings.GetType()));
         }
 
+        private void Update()
+        {
+#if !UNITY_EDITOR
+            if (!Application.isFocused &&  Time.timeScale != 0) 
+                OnClickPauseButton(true);
+#endif
+        }
+
         private void OnClickToMenu() =>
             EnableUi(levelPauseView.GetType());
 
         private void OnClickPauseButton(bool value)
         {
             // if(!_ctx.IsPauseAllowed.Value) return // doestn allow click on pause button while blocker awaited
-            
+
             _ctx.OnClickPauseButton.Execute(value);
             EnableUi(value ? levelPauseView.GetType() : levelView.GetType());
         }
