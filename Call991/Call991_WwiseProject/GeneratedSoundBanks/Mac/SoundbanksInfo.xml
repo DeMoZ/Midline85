@@ -7771,7 +7771,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{5CADFD60-CFBA-98D6-5399-4C625AAC715E}">
+		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{E28B678D-CED8-90F1-DB56-66C152A54F4C}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>Russian/L4_Interlude1.bnk</Path>
 			<Media>
@@ -7818,6 +7818,10 @@
 				<File Id="137520203" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_elena\pizzaep_elena_002.wav</ShortName>
 					<CachePath>Voices/Russian/pizzaep_elena/pizzaep_elena_002_05842A19.wem</CachePath>
+				</File>
+				<File Id="137832830" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>pizzaep_mark_019.wav</ShortName>
+					<CachePath>Voices/Russian/pizzaep_mark_019_05842A19.wem</CachePath>
 				</File>
 				<File Id="161273788" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_elena\pizzaep_elena_007.wav</ShortName>
@@ -8251,6 +8255,11 @@
 						<MediaRef Id="2735291"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3072624668" Name="pizzaep_mark_019_v2" DurationType="OneShot" DurationMin="2.9591875" DurationMax="2.9591875">
+					<MediaRefs>
+						<MediaRef Id="137832830"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1095202249" Name="pizzaep_mark_020" DurationType="OneShot" DurationMin="4.979146" DurationMax="4.979146">
 					<MediaRefs>
 						<MediaRef Id="17595806"/>
@@ -8418,7 +8427,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{AB80F5A0-83DB-743B-C8A9-58EE437EB1C3}">
+		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{1BCF6E3C-1BF6-3312-2C64-BF7FBE1C7DD1}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>English/L4_Interlude1.bnk</Path>
 			<Media>
@@ -8849,6 +8858,11 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1044869497" Name="pizzaep_mark_019" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="358993250"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3072624668" Name="pizzaep_mark_019_v2" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<MediaRefs>
 						<MediaRef Id="358993250"/>
 					</MediaRefs>
@@ -13496,5 +13510,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{D8D82F7A-4F94-A8E7-FCAD-3EECE7F84E01}</FileHash>
+	<FileHash>{6C3C1819-72A4-7E13-C93D-CA74207E6F12}</FileHash>
 </SoundBanksInfo>
