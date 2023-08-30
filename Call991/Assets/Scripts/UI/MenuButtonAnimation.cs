@@ -6,33 +6,37 @@ namespace UI
 {
     public class MenuButtonAnimation : MonoBehaviour
     {
+        [SerializeField] private RectTransform buttonContent = default;
         [SerializeField] private CanvasGroup background = default;
         [SerializeField] private TMP_Text text = default;
 
-        [Space] [SerializeField] private float duration = 0.5f;
-        [SerializeField] private float endPosit = 50f;
+        [Space][SerializeField] private PositionXAnimationConfig selectAnimationConfig = default;
+        [SerializeField] private PositionXAnimationConfig clickAnimationConfig = default;
 
         private Sequence _selectSequence;
-        private Vector3 _startPos;
-        private Vector3 _endPos;
+        private Sequence _clickSequence;
+        private Vector3 _selectStartPos;
+        private Vector3 _selectEndPos;
 
         private void Awake()
         {
-            _startPos = text.rectTransform.localPosition;
-            _endPos = _startPos;
-            _endPos.x += endPosit;
+            _selectStartPos = text.rectTransform.localPosition;
+            _selectEndPos = _selectStartPos;
+            _selectEndPos.x += selectAnimationConfig.ToPositionX;
         }
 
         public void OnSelected()
         {
             Stop();
 
-            _selectSequence.Append(text.rectTransform.DOLocalMoveX(_endPos.x, duration));
-            _selectSequence.Insert(0, background.DOFade(1, duration));
+            _selectSequence.Append(text.rectTransform.DOLocalMoveX(_selectEndPos.x, selectAnimationConfig.AnimationTime));
+            _selectSequence.Insert(0, background.DOFade(1, selectAnimationConfig.AnimationTime));
         }
 
         public void OnClick()
         {
+            Stop();
+            
         }
 
         public void OnNormal()
@@ -52,8 +56,8 @@ namespace UI
 
         private void Normal()
         {
-            _selectSequence.Append(text.rectTransform.DOLocalMoveX(_startPos.x, duration / 2));
-            _selectSequence.Insert(0, background.DOFade(0, duration / 2));
+            _selectSequence.Append(text.rectTransform.DOLocalMoveX(_selectStartPos.x, selectAnimationConfig.AnimationTime / 2));
+            _selectSequence.Insert(0, background.DOFade(0, selectAnimationConfig.AnimationTime / 2));
         }
     }
 }

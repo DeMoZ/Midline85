@@ -791,10 +791,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd8d431c03e44dc9c34bd53741857a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttonContent: {fileID: 0}
   background: {fileID: 271890476634299339}
   text: {fileID: 1224067182519902964}
-  duration: 0.5
-  endPosit: 50
+  selectAnimationConfig: {fileID: 11400000, guid: 97fc4ea9b2ad948589c9518454ebf4ee,
+    type: 2}
+  clickAnimationConfig: {fileID: 11400000, guid: a2509892b42664e5fbd7ab9bac49ccea,
+    type: 2}
 --- !u!1 &4186080322641365146
 GameObject:
   m_ObjectHideFlags: 0
