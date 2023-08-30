@@ -20,7 +20,6 @@ namespace UI
         [SerializeField] private MenuButtonView exitBtn = default;
 
         private Ctx _ctx;
-        private float buttonAnimationTime = 0.3f;
 
         public void SetCtx(Ctx ctx)
         {
@@ -32,11 +31,11 @@ namespace UI
             exitBtn.OnClick += OnClickExitHandler;
         }
 
-        private void OnClickSelectLevelHandler() => Invoke(nameof(OnClickSelectLevel), buttonAnimationTime);
-        private void OnClickNewGameHandler() => Invoke(nameof(OnClickNewGame), buttonAnimationTime);
-        private void OnClickSettingsHandler() => Invoke(nameof(OnClickSettings), buttonAnimationTime);
-        private void OnClickCreditsHandler() => Invoke(nameof(OnClickCredits), buttonAnimationTime);
-        private void OnClickExitHandler() => Invoke(nameof(OnClickExit), buttonAnimationTime);
+        private void OnClickSelectLevelHandler() => Invoke(nameof(OnClickSelectLevel), ButtonAnimationTime);
+        private void OnClickNewGameHandler() => Invoke(nameof(OnClickNewGame), ButtonAnimationTime);
+        private void OnClickSettingsHandler() => Invoke(nameof(OnClickSettings), ButtonAnimationTime);
+        private void OnClickCreditsHandler() => Invoke(nameof(OnClickCredits), ButtonAnimationTime);
+        private void OnClickExitHandler() => Invoke(nameof(OnClickExit), ButtonAnimationTime);
 
         private void OnClickSelectLevel()
         {

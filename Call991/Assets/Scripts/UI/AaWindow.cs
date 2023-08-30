@@ -16,6 +16,8 @@ public class AaWindow : InputHandler
         public PositionXAnimationConfig Config = default;
     }
 
+    protected const float ButtonAnimationTime = 0.3f;
+    
     [Space] [SerializeField] private bool useAppearAnimation;
     [ShowIf("useAppearAnimation")]
     [SerializeField] private AppearAnimation appearAnimation;
@@ -25,7 +27,7 @@ public class AaWindow : InputHandler
     private Sequence _appearSequence;
 
     protected CancellationTokenSource tokenSource;
-
+    
     private void Awake()
     {
         tokenSource = new CancellationTokenSource();

@@ -1,6 +1,7 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Configs;
 using I2.Loc;
 using UniRx;
 using UnityEngine;
@@ -25,6 +26,9 @@ namespace UI
         private Ctx _ctx;
         private List<MenuButtonView> _buttons;
         private LocalizedString _localize;
+        
+        private List<Action<AaSelectable>> _selectHandlers = new ();
+        private List<Action> _clickHandlers = new ();
 
         // every time the screen is shown i need to repopulate the levels buttons with correct state
         public void SetCtx(Ctx ctx)
@@ -77,15 +81,36 @@ namespace UI
                 {
                     SetButtonDisabled(btn);
                 }
-
-                _buttons.Add(btn);
-
+                
                 var index = i;
-                btn.OnSelectObj += _ => OnLevelSelect(index);
-                btn.OnClick += () => OnLevelClick(index);
+
+                Action<AaSelectable> selectHandler = _ => OnLevelSelect(index);
+                Action clickHandler = () => StartCoroutine(OnLevelClick(index));
+                
+                btn.OnSelectObj +=  selectHandler;
+                btn.OnClick += clickHandler;
+                
+                _selectHandlers.Add(selectHandler);
+                _clickHandlers.Add(clickHandler);
+                _buttons.Add(btn);
             }
         }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            foreach (var handler in _selectHandlers)
+            {
+                foreach (var button in _buttons) button.OnSelectObj -= handler;
+            }
+            
+            foreach (var handler in _clickHandlers)
+            {
+                foreach (var button in _buttons) button.OnClick -= handler;
+            }
+        }
+        
         private void SetButtonDisabled(MenuButtonView btn)
         {
 #if !UNITY_EDITOR
@@ -93,9 +118,11 @@ namespace UI
 #endif
         }
 
-        private void OnLevelClick(int index)
+        private IEnumerator OnLevelClick(int index)
         {
+            yield return new WaitForSeconds(ButtonAnimationTime);
             Debug.LogWarning($"Level {index} clicked");
+            
             _ctx.OnLevelPlay?.Execute(index);
         }
 

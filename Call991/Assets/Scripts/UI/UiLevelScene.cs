@@ -96,9 +96,9 @@ namespace UI
 
             levelPauseView.SetCtx(new LevelPauseView.Ctx
             {
-                onClickMenuButton = _ctx.OnClickMenuButton,
-                onClickSettingsButton = onClickSettingsButton,
-                onClickUnPauseButton = onClickUnPauseButton,
+                OnClickMenuButton = _ctx.OnClickMenuButton,
+                OnClickSettingsButton = onClickSettingsButton,
+                OnClickUnPauseButton = onClickUnPauseButton,
             });
 
             menuSettings.SetCtx(new UiMenuSettings.Ctx
