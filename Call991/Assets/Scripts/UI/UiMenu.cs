@@ -13,25 +13,32 @@ namespace UI
             public ReactiveCommand OnClickCredits;
         }
 
-        [SerializeField] private MenuButtonView continueBtn = default;
+        [SerializeField] private MenuButtonView selectLevelBtn = default;
         [SerializeField] private MenuButtonView newGameBtn = default;
         [SerializeField] private MenuButtonView settingsBtn = default;
         [SerializeField] private MenuButtonView creditsBtn = default;
         [SerializeField] private MenuButtonView exitBtn = default;
 
         private Ctx _ctx;
+        private float buttonAnimationTime = 0.3f;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            continueBtn.OnClick += OnClickPlay;
-            newGameBtn.OnClick += OnClickNewGame;
-            settingsBtn.OnClick += OnClickSettings;
-            creditsBtn.OnClick += OnClickCredits;
-            exitBtn.OnClick += OnClickExit;
+            selectLevelBtn.OnClick += OnClickSelectLevelHandler;
+            newGameBtn.OnClick += OnClickNewGameHandler;
+            settingsBtn.OnClick += OnClickSettingsHandler;
+            creditsBtn.OnClick += OnClickCreditsHandler;
+            exitBtn.OnClick += OnClickExitHandler;
         }
 
-        private void OnClickPlay()
+        private void OnClickSelectLevelHandler() => Invoke(nameof(OnClickSelectLevel), buttonAnimationTime);
+        private void OnClickNewGameHandler() => Invoke(nameof(OnClickNewGame), buttonAnimationTime);
+        private void OnClickSettingsHandler() => Invoke(nameof(OnClickSettings), buttonAnimationTime);
+        private void OnClickCreditsHandler() => Invoke(nameof(OnClickCredits), buttonAnimationTime);
+        private void OnClickExitHandler() => Invoke(nameof(OnClickExit), buttonAnimationTime);
+
+        private void OnClickSelectLevel()
         {
             Debug.Log("[UiMenuScene] OnClickContinue");
             _ctx.OnClickContinue.Execute();
@@ -63,12 +70,12 @@ namespace UI
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            
-            continueBtn.OnClick -= OnClickPlay;
-            newGameBtn.OnClick -= OnClickNewGame;
-            settingsBtn.OnClick -= OnClickSettings;
-            creditsBtn.OnClick -= OnClickCredits;
-            exitBtn.OnClick -= OnClickExit;
+
+            selectLevelBtn.OnClick -= OnClickSelectLevelHandler;
+            newGameBtn.OnClick -= OnClickNewGameHandler;
+            settingsBtn.OnClick -= OnClickSettingsHandler;
+            creditsBtn.OnClick -= OnClickCreditsHandler;
+            exitBtn.OnClick -= OnClickExitHandler;
         }
     }
 }

@@ -99,6 +99,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8766731120987786239}
   - component: {fileID: 2507488834578031968}
+  - component: {fileID: 6398635927197071571}
   m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
@@ -136,6 +137,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2838622283440280525}
   m_CullTransparentMesh: 1
+--- !u!225 &6398635927197071571
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2838622283440280525}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5142666575263409813
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,7 +491,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd8d431c03e44dc9c34bd53741857a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buttonContent: {fileID: 0}
+  animateButtonClick: 1
+  buttonContent: {fileID: 8766731120987786239}
+  buttonContentCanvasGroup: {fileID: 6398635927197071571}
   background: {fileID: 8571641664551367099}
   text: {fileID: 4090514072720622484}
   selectAnimationConfig: {fileID: 11400000, guid: 97fc4ea9b2ad948589c9518454ebf4ee,
