@@ -13,11 +13,11 @@ public class AaWindow : InputHandler
     {
         public RectTransform ButtonsGroup = default;
         public CanvasGroup ButtonsCanvas = default;
-        public float AnimationTime = 0.5f;
-        public float FromPositionX = 0; 
-        public float ToPositionX = 234f;
+        public PositionXAnimationConfig Config = default;
     }
 
+    protected const float ButtonAnimationTime = 0.3f;
+    
     [Space] [SerializeField] private bool useAppearAnimation;
     [ShowIf("useAppearAnimation")]
     [SerializeField] private AppearAnimation appearAnimation;
@@ -27,7 +27,7 @@ public class AaWindow : InputHandler
     private Sequence _appearSequence;
 
     protected CancellationTokenSource tokenSource;
-
+    
     private void Awake()
     {
         tokenSource = new CancellationTokenSource();
@@ -58,12 +58,13 @@ public class AaWindow : InputHandler
 
         _appearSequence.SetUpdate(true);
         var position = appearAnimation.ButtonsGroup.position;
-        position.x = appearAnimation.FromPositionX;
+        position.x = appearAnimation.Config.FromPositionX;
         appearAnimation.ButtonsGroup.position = position;
         appearAnimation.ButtonsCanvas.alpha = 0;
-        _appearSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(appearAnimation.ToPositionX,
-            appearAnimation.AnimationTime, true));
-        _appearSequence.Insert(0, appearAnimation.ButtonsCanvas.DOFade(1, appearAnimation.AnimationTime));
+        _appearSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(appearAnimation.Config.ToPositionX,
+            appearAnimation.Config.AnimationTime, true));
+        _appearSequence.Insert(0, appearAnimation.ButtonsCanvas.DOFade(1,
+            appearAnimation.Config.AnimationTime));
     }
 
     protected virtual void OnDisable()

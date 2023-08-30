@@ -2486,6 +2486,63 @@
 								<ActiveSource Name="pizzaep_mark_alt_004_1" ID="{38AB9D17-ED36-44A8-83A3-35A7716BE3D2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="pizzaep_mark_019_v2" ID="{A7F48622-1E0C-482E-BC73-05D17FD79DA3}" ShortID="926576995">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Interlude1_mark_019" ID="{97407A63-EF2C-4BFA-B3D1-362AB27F8CCA}">
+									<Language>English</Language>
+									<AudioFile>Interlude1_mark_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="358993250"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_mark" ID="{E1AC34EB-34D4-4D13-B151-E0FBFD13A3AF}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="329.017066892325"/>
+										<Property Name="TrimEnd" Type="Real64" Value="331.593980452034"/>
+									</PropertyList>
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_mark.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="772746320"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_mark_019" ID="{69097A8D-683D-4556-8ECE-4659E75FFCB5}">
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_mark_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="137832830"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_mark_019_1" ID="{B5B4B34E-69C4-4A62-9706-606B81779DDF}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_mark_019_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="2735291"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Interlude1_mark_019" ID="{97407A63-EF2C-4BFA-B3D1-362AB27F8CCA}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_mark_019" ID="{69097A8D-683D-4556-8ECE-4659E75FFCB5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Mark_fireep" ID="{6500F73D-4418-44AB-9340-8DDEAF228C43}" ShortID="124969511">
