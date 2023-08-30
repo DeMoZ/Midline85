@@ -20,12 +20,31 @@ MonoBehaviour:
       y: 203
       width: 102
       height: 165
-    LevelId: L3_Pizza
+    LevelId: L4_Interlude1
     Languages:
     - Russian
     ButtonFilter: pizza
     SoundAsset: 
   PhraseNodeData:
+  - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+    Rect:
+      serializedVersion: 2
+      x: 654
+      y: 73
+      width: 124
+      height: 96
+    PhraseSketchText: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
+    PersonVisualData:
+      Person: GIRL
+      ScreenPlace: 5
+      HideOnEnd: 1
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    EventVisualData: []
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_alt_001
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_007.asset
   - Guid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
     Rect:
       serializedVersion: 2
@@ -49,112 +68,12 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 100
-    PhraseSound: L3_Pizza/George/pizza_george_001
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_019
     Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_001.asset
-  - Guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-    Rect:
-      serializedVersion: 2
-      x: 801
-      y: 54
-      width: 124
-      height: 96
-    PhraseSketchText: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
-    PersonVisualData:
-      Person: GIRL
-      ScreenPlace: 5
-      HideOnEnd: 1
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L2_Tutor/Mark/tutor_mark_007
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_007.asset
-  - Guid: 440a2239-6fd2-4e20-a5bd-a38292ba1a1c
-    Rect:
-      serializedVersion: 2
-      x: 1155
-      y: -13
-      width: 100
-      height: 96
-    PhraseSketchText: 
-    PersonVisualData:
-      Person: UNKNOWN
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L3_Pizza/George/pizza_george_027
-    Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_george/pizza_george_027.asset
-  - Guid: d8ede2aa-1968-40a3-8d60-5563666c3492
-    Rect:
-      serializedVersion: 2
-      x: 1196
-      y: 159
-      width: 100
-      height: 96
-    PhraseSketchText: 
-    PersonVisualData:
-      Person: POLICE
-      ScreenPlace: 3
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L3_Pizza/Police/pizza_police_001
-    Phrases:
-    - Phrases/L3_Pizza/Russian/pizza_police/pizza_police_001.asset
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_019.asset
   ImagePhraseNodeData: []
-  ChoiceNodeData:
-  - Guid: 779f1191-b6ac-4c6c-bc70-84256689c326
-    Rect:
-      serializedVersion: 2
-      x: 591
-      y: -56
-      width: 114
-      height: 98
-    Choice: btn.pizza.001
-    CaseData:
-      Words: []
-      Ends: []
-      Counts: []
-    IsLocked: 0
-    ShowUnlock: 0
-  - Guid: 4f8a0bde-077b-41bb-be4c-5051ef732d32
-    Rect:
-      serializedVersion: 2
-      x: 619
-      y: 138
-      width: 113
-      height: 98
-    Choice: btn.pizza.017
-    CaseData:
-      Words: []
-      Ends: []
-      Counts: []
-    IsLocked: 0
-    ShowUnlock: 0
-  ForkNodeData:
-  - Guid: 7babfde5-73b9-443d-999a-770a81128556
-    Rect:
-      serializedVersion: 2
-      x: 968
-      y: 48
-      width: 150
-      height: 127
-    ForkCaseData:
-    - Words:
-      - CaseType: 0
-        OrKeys:
-        - btn.pizza.001
-      Ends: []
-      Counts: []
-      ForkExitName: 74c9819a-63d6-4a81-9edf-d5b70f3764e1
+  ChoiceNodeData: []
+  ForkNodeData: []
   CountNodeData: []
   EndNodeData: []
   EventNodeData:
@@ -217,39 +136,15 @@ MonoBehaviour:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
     TargetNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+  - BaseNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+    BaseExitName: 
+    TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
   - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
     BaseExitName: 
     TargetNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
-  - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
-    BaseExitName: 
-    TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
   - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
     BaseExitName: 
     TargetNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
-  - BaseNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+  - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
     BaseExitName: 
-    TargetNodeGuid: 779f1191-b6ac-4c6c-bc70-84256689c326
-  - BaseNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
-    BaseExitName: 
-    TargetNodeGuid: 4f8a0bde-077b-41bb-be4c-5051ef732d32
-  - BaseNodeGuid: 779f1191-b6ac-4c6c-bc70-84256689c326
-    BaseExitName: 
-    TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-  - BaseNodeGuid: 4f8a0bde-077b-41bb-be4c-5051ef732d32
-    BaseExitName: 
-    TargetNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-  - BaseNodeGuid: d6a074bd-5875-4391-84d6-dd6f0b32429c
-    BaseExitName: 
-    TargetNodeGuid: 7babfde5-73b9-443d-999a-770a81128556
-  - BaseNodeGuid: 7babfde5-73b9-443d-999a-770a81128556
-    BaseExitName: 
-    TargetNodeGuid: 440a2239-6fd2-4e20-a5bd-a38292ba1a1c
-  - BaseNodeGuid: 7babfde5-73b9-443d-999a-770a81128556
-    BaseExitName: 74c9819a-63d6-4a81-9edf-d5b70f3764e1
-    TargetNodeGuid: d8ede2aa-1968-40a3-8d60-5563666c3492
-  - BaseNodeGuid: d8ede2aa-1968-40a3-8d60-5563666c3492
-    BaseExitName: 
-    TargetNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
-  - BaseNodeGuid: 440a2239-6fd2-4e20-a5bd-a38292ba1a1c
-    BaseExitName: 
-    TargetNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+    TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
