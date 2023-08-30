@@ -23,12 +23,15 @@ public class VideoManager : MonoBehaviour
     }
 
     [SerializeField] private List<VideoPlayer> videoPlayers = default;
+    
+    private List<bool> _pausedPlayers;
 
     private Ctx _ctx;
 
     public void SetCtx(Ctx ctx)
     {
         _ctx = ctx;
+        _pausedPlayers = new List<bool>(new bool[videoPlayers.Count]);
     }
 
     private async Task PrepareVideo()
@@ -51,6 +54,9 @@ public class VideoManager : MonoBehaviour
     {
         foreach (var player in videoPlayers) 
             StopVideo(player);
+
+        for (var i = 0; i < _pausedPlayers.Count; i++) 
+            _pausedPlayers[i] = false;
     }
     
     public void PlayVideo(VideoSet data)
@@ -98,5 +104,25 @@ public class VideoManager : MonoBehaviour
 
         var texture = (RenderTexture) player.GetComponent<RawImage>().texture;
         texture.Release();
+    }
+
+    public void PauseVideoPlayer()
+    {
+        for (var i = 0; i < videoPlayers.Count; i++)
+        {
+            if (!videoPlayers[i].isPlaying) continue;
+            videoPlayers[i].Pause();
+            _pausedPlayers[i] = true;
+        }
+    }
+
+    public void ResumeVideoPlayer()
+    {
+        for (var i = 0; i < videoPlayers.Count; i++)
+        {
+            if (!_pausedPlayers[i]) continue;
+            videoPlayers[i].Play();
+            _pausedPlayers[i] = false;
+        }
     }
 }

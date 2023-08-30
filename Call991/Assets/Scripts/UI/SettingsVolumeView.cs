@@ -9,7 +9,6 @@ public class SettingsVolumeView : MenuButtonView
 {
     [SerializeField] private Slider _slider = default;
     [SerializeField] private TextMeshProUGUI _sliderText = default;
-    [SerializeField] private Image handleImage = default;
     [SerializeField] private AudioSourceType source = default;
 
     [SerializeField] [Range(1f, 5f)] private float step = 5f;

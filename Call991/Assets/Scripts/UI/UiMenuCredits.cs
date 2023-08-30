@@ -1,3 +1,4 @@
+using System.Linq;
 using UniRx;
 using UnityEngine;
 
@@ -10,9 +11,10 @@ namespace UI
             public ReactiveCommand OnClickToMenu;
         }
 
-        [SerializeField] private DevelopersSo developers;
-        [SerializeField] private DeveloperPerson developerPrefab;
-        [SerializeField] private RectTransform developersParent;
+        [SerializeField] private DevelopersSo developers = default;
+        [SerializeField] private RectTransform developerPanelPrefab = default;
+        [SerializeField] private DevelopersView developersViewPrefab = default;
+        [SerializeField] private RectTransform panels = default;
         [SerializeField] private MenuButtonView returnBtn = default;
 
         private Ctx _ctx;
@@ -25,13 +27,19 @@ namespace UI
         {
             returnBtn.OnClick += OnClickToMenu;
             
-            foreach (Transform developer in developersParent)
+            foreach (Transform developer in panels)
                 Destroy(developer.gameObject);
 
-            foreach (var developer in developers.Developers)
+            foreach (var group in developers.Developers)
             {
-                var developerPerson = Instantiate(developerPrefab, developersParent);
-                developerPerson.Set(developer.Position,  developer.NameKey);
+                var devGroup = Instantiate(developerPanelPrefab, panels);
+
+                foreach (var developer in group.developers)
+                {
+                    var developerView = Instantiate(developersViewPrefab, devGroup);
+                    var names = developer.NameKeys.Select(str => (string)str).ToList();
+                    developerView.Set(developer.Position,  names);
+                }
             }
         }
         
