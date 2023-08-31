@@ -9,25 +9,29 @@ using UnityEngine.EventSystems;
 public class AaWindow : InputHandler
 {
     [Serializable]
-    private class AppearAnimation
+    private class AnimationSettings
     {
         public RectTransform ButtonsGroup = default;
         public CanvasGroup ButtonsCanvas = default;
         public PositionXAnimationConfig Config = default;
     }
-
-    protected const float ButtonAnimationTime = 0.3f;
     
     [Space] [SerializeField] private bool useAppearAnimation;
-    [ShowIf("useAppearAnimation")]
-    [SerializeField] private AppearAnimation appearAnimation;
+
+    [ShowIf("useAppearAnimation")] [SerializeField]
+    private AnimationSettings appearAnimation;
+
+    [Space] [SerializeField] private bool useDisappearAnimation;
+
+    [ShowIf("useDisappearAnimation")] [SerializeField]
+    private AnimationSettings disappearAnimation;
 
     [Space] [Space] [SerializeField] private AaSelectable[] windowSelectables = default;
 
-    private Sequence _appearSequence;
+    private Sequence _animationSequence;
 
     protected CancellationTokenSource tokenSource;
-    
+
     private void Awake()
     {
         tokenSource = new CancellationTokenSource();
@@ -51,22 +55,6 @@ public class AaWindow : InputHandler
             AnimateAppear();
     }
 
-    private void AnimateAppear()
-    {
-        _appearSequence?.Kill();
-        _appearSequence = DOTween.Sequence();
-
-        _appearSequence.SetUpdate(true);
-        var position = appearAnimation.ButtonsGroup.position;
-        position.x = appearAnimation.Config.FromPositionX;
-        appearAnimation.ButtonsGroup.position = position;
-        appearAnimation.ButtonsCanvas.alpha = 0;
-        _appearSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(appearAnimation.Config.ToPositionX,
-            appearAnimation.Config.AnimationTime, true));
-        _appearSequence.Insert(0, appearAnimation.ButtonsCanvas.DOFade(1,
-            appearAnimation.Config.AnimationTime));
-    }
-
     protected virtual void OnDisable()
     {
         foreach (var selectable in windowSelectables)
@@ -75,6 +63,45 @@ public class AaWindow : InputHandler
             selectable.OnUnSelect -= OnUnSelect;
         }
     }
+
+    protected void AnimateDisappear(Action callback)
+    {
+        ResetAnimationSequence();
+
+        var position = disappearAnimation.ButtonsGroup.position;
+        position.x = disappearAnimation.Config.FromPositionX;
+        disappearAnimation.ButtonsGroup.position = position;
+
+        disappearAnimation.ButtonsCanvas.alpha = 1;
+
+        _animationSequence.Append(disappearAnimation.ButtonsGroup.DOMoveX(disappearAnimation.Config.ToPositionX,
+            disappearAnimation.Config.AnimationTime, true));
+        _animationSequence.Insert(0,
+                disappearAnimation.ButtonsCanvas.DOFade(0, disappearAnimation.Config.AnimationTime))
+            .OnComplete(callback.Invoke);
+    }
+
+    private void AnimateAppear()
+    {
+        ResetAnimationSequence();
+
+        var position = appearAnimation.ButtonsGroup.position;
+        position.x = appearAnimation.Config.FromPositionX;
+        appearAnimation.ButtonsGroup.position = position;
+        appearAnimation.ButtonsCanvas.alpha = 0;
+        _animationSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(appearAnimation.Config.ToPositionX,
+            appearAnimation.Config.AnimationTime, true));
+        _animationSequence.Insert(0, appearAnimation.ButtonsCanvas.DOFade(1,
+            appearAnimation.Config.AnimationTime));
+    }
+
+    private void ResetAnimationSequence()
+    {
+        _animationSequence?.Kill();
+        _animationSequence = DOTween.Sequence();
+        _animationSequence.SetUpdate(true);
+    }
+
 
     private void OnUnSelect(AaSelectable obj)
     {

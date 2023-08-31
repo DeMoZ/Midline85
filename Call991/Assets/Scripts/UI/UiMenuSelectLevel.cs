@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using I2.Loc;
@@ -26,9 +25,9 @@ namespace UI
         private Ctx _ctx;
         private List<MenuButtonView> _buttons;
         private LocalizedString _localize;
-        
-        private List<Action<AaSelectable>> _selectHandlers = new ();
-        private List<Action> _clickHandlers = new ();
+
+        private List<Action<AaSelectable>> _selectHandlers = new();
+        private List<Action> _clickHandlers = new();
 
         // every time the screen is shown i need to repopulate the levels buttons with correct state
         public void SetCtx(Ctx ctx)
@@ -41,7 +40,7 @@ namespace UI
         {
             _ctx.OnClickToMenu.Execute();
         }
-        
+
         public void Populate()
         {
             foreach (Transform child in buttonsParent)
@@ -81,15 +80,15 @@ namespace UI
                 {
                     SetButtonDisabled(btn);
                 }
-                
+
                 var index = i;
 
                 Action<AaSelectable> selectHandler = _ => OnLevelSelect(index);
-                Action clickHandler = () => StartCoroutine(OnLevelClick(index));
-                
-                btn.OnSelectObj +=  selectHandler;
+                Action clickHandler = () => OnLevelClick(index);
+
+                btn.OnSelectObj += selectHandler;
                 btn.OnClick += clickHandler;
-                
+
                 _selectHandlers.Add(selectHandler);
                 _clickHandlers.Add(clickHandler);
                 _buttons.Add(btn);
@@ -104,13 +103,13 @@ namespace UI
             {
                 foreach (var button in _buttons) button.OnSelectObj -= handler;
             }
-            
+
             foreach (var handler in _clickHandlers)
             {
                 foreach (var button in _buttons) button.OnClick -= handler;
             }
         }
-        
+
         private void SetButtonDisabled(MenuButtonView btn)
         {
 #if !UNITY_EDITOR
@@ -118,12 +117,13 @@ namespace UI
 #endif
         }
 
-        private IEnumerator OnLevelClick(int index)
+        private void OnLevelClick(int index)
         {
-            yield return new WaitForSeconds(ButtonAnimationTime);
-            Debug.LogWarning($"Level {index} clicked");
-            
-            _ctx.OnLevelPlay?.Execute(index);
+            AnimateDisappear(() =>
+            {
+                Debug.LogWarning($"Level {index} clicked");
+                _ctx.OnLevelPlay?.Execute(index);
+            });
         }
 
         private void OnLevelSelect(int index)
