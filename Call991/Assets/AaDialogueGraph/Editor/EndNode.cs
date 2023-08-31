@@ -27,6 +27,15 @@ namespace AaDialogueGraph.Editor
             recordsContainer.AddToClassList("aa-RecordVisual_content-container");
             foldout.Add(recordsContainer);
             
+            var skipButtonsToggle = new Toggle
+            {
+                text = AaGraphConstants.EndNodeSkipSelectNextLevelButtons,
+                name = AaGraphConstants.EndNodeSkipSelectNextLevelButtons,
+                value = data?.SkipSelectNextLevelButtons ?? false,
+                tooltip = "Buttons for Continue or Exit To Menu will be skipped",
+            };
+            recordsContainer.Add(skipButtonsToggle);
+            
             // var addRecord = new Button(() =>
             // {
             //     var recordGroup = NewRecordGroup(recordsContainer, foldout, new RecordData());

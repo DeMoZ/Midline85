@@ -538,9 +538,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 852, y: 0}
+  m_AnchoredPosition: {x: 939.99994, y: 0.00005340576}
   m_SizeDelta: {x: 85, y: 85}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &767625317046765053
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -877,7 +877,6 @@ MonoBehaviour:
   text: {fileID: 7938811744131510327}
   leftButton: {fileID: 3829386228154468763}
   rightButton: {fileID: 7248956108464328033}
-  dropdownText: {fileID: 8671999070471020565}
 --- !u!222 &3547170742342537921
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -898,10 +897,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fd8d431c03e44dc9c34bd53741857a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animateButtonClick: 0
+  buttonContent: {fileID: 0}
+  buttonContentCanvasGroup: {fileID: 0}
   background: {fileID: 8521243563795467356}
   text: {fileID: 7938811744131510327}
-  duration: 0.5
-  endPosit: 50
+  selectAnimationConfig: {fileID: 11400000, guid: 97fc4ea9b2ad948589c9518454ebf4ee,
+    type: 2}
+  clickAnimationConfig: {fileID: 11400000, guid: a2509892b42664e5fbd7ab9bac49ccea,
+    type: 2}
 --- !u!1 &6087677636460222723
 GameObject:
   m_ObjectHideFlags: 0
@@ -939,9 +943,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 1352, y: 0}
+  m_AnchoredPosition: {x: 1306, y: 0.00005340576}
   m_SizeDelta: {x: 85, y: 85}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &2552744891827897459
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1890,7 +1894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 894.5, y: 0}
+  m_AnchoredPosition: {x: 959, y: 0}
   m_SizeDelta: {x: 415, y: 85}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &4776221832911518809

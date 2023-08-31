@@ -44,9 +44,9 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 218, y: 0}
+  m_AnchoredPosition: {x: 236, y: 539}
   m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0, y: 0.5}
+  m_Pivot: {x: 0, y: 1}
 --- !u!222 &7985199731242092648
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -104,8 +104,8 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 3
   m_Spacing: 25
-  m_ChildForceExpandWidth: 1
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
   m_ChildControlHeight: 0
   m_ChildScaleWidth: 1
@@ -207,9 +207,7 @@ MonoBehaviour:
   appearAnimation:
     ButtonsGroup: {fileID: 7985199731242092629}
     ButtonsCanvas: {fileID: 8543965805552049400}
-    AnimationTime: 0.5
-    FromPositionX: 0
-    ToPositionX: 234
+    Config: {fileID: 11400000, guid: 4a51412a0865043b8b178569986dd316, type: 2}
   windowSelectables:
   - {fileID: 4290020118894744816}
   - {fileID: 7985199731667210310}
@@ -217,7 +215,7 @@ MonoBehaviour:
   - {fileID: 4290020120183386348}
   - {fileID: 4397566110233464802}
   - {fileID: 4290020120038283559}
-  continueBtn: {fileID: 4290020118894744816}
+  selectLevelBtn: {fileID: 4290020118894744816}
   newGameBtn: {fileID: 7985199731667210310}
   settingsBtn: {fileID: 4290020120183386348}
   creditsBtn: {fileID: 4397566110233464802}
@@ -239,7 +237,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &7985199732050633671
 RectTransform:
   m_ObjectHideFlags: 0
@@ -308,7 +306,7 @@ PrefabInstance:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_text
-      value: New Game
+      value: "\u041D\u041E\u0412\u0410\u042F \u0418\u0413\u0420\u0410"
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -393,7 +391,7 @@ PrefabInstance:
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 131
+      value: 91
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -503,7 +501,7 @@ PrefabInstance:
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: mTerm
-      value: menu_newGame
+      value: menu/newGame
       objectReference: {fileID: 0}
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -626,7 +624,7 @@ PrefabInstance:
     - target: {fileID: 2412147903767214302, guid: 1dee84a941974484c8699ca600825a75,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 114
+      value: 68
       objectReference: {fileID: 0}
     - target: {fileID: 2412147903767214302, guid: 1dee84a941974484c8699ca600825a75,
         type: 3}
@@ -776,7 +774,7 @@ PrefabInstance:
     - target: {fileID: 3975164521111961318, guid: ca10ee16bbc564b238242b681c97122a,
         type: 3}
       propertyPath: m_text
-      value: Select
+      value: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
       objectReference: {fileID: 0}
     - target: {fileID: 5111026526574385387, guid: ca10ee16bbc564b238242b681c97122a,
         type: 3}
@@ -830,7 +828,7 @@ PrefabInstance:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_text
-      value: Credits
+      value: "\u0422\u0418\u0422\u0420\u042B"
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -920,7 +918,7 @@ PrefabInstance:
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 131
+      value: 91
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1005,7 +1003,7 @@ PrefabInstance:
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: mTerm
-      value: menu_credits
+      value: menu/credits
       objectReference: {fileID: 0}
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1092,7 +1090,7 @@ PrefabInstance:
     - target: {fileID: 9015870714813742455, guid: a0e6330eec1bc4c0fbda23e2a2e95c92,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 124
+      value: 91
       objectReference: {fileID: 0}
     - target: {fileID: 9015870714813742455, guid: a0e6330eec1bc4c0fbda23e2a2e95c92,
         type: 3}
@@ -1204,7 +1202,7 @@ PrefabInstance:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_text
-      value: Exit
+      value: "\u0412\u042B\u0425\u041E\u0414"
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1294,7 +1292,7 @@ PrefabInstance:
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 131
+      value: 91
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1379,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: mTerm
-      value: menu_exit
+      value: menu/exit
       objectReference: {fileID: 0}
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1416,7 +1414,7 @@ PrefabInstance:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_text
-      value: Options
+      value: "\u041F\u0410\u0420\u0410\u041C\u0415\u0422\u0420\u042B"
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1506,7 +1504,7 @@ PrefabInstance:
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 131
+      value: 91
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1591,7 +1589,7 @@ PrefabInstance:
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: mTerm
-      value: menu_settings
+      value: menu/settings
       objectReference: {fileID: 0}
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1628,7 +1626,7 @@ PrefabInstance:
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_text
-      value: Continue
+      value: "\u0412\u042B\u0411\u041E\u0420 \u0423\u0420\u041E\u0412\u041D\u0415\u0419"
       objectReference: {fileID: 0}
     - target: {fileID: 4090514072720622484, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1663,7 +1661,7 @@ PrefabInstance:
     - target: {fileID: 6149689793516317500, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_Name
-      value: Continue
+      value: SelectLevel
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317500, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1713,7 +1711,7 @@ PrefabInstance:
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 131
+      value: 91
       objectReference: {fileID: 0}
     - target: {fileID: 6149689793516317501, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
@@ -1778,7 +1776,7 @@ PrefabInstance:
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}
       propertyPath: mTerm
-      value: menu_continue
+      value: menu/continue
       objectReference: {fileID: 0}
     - target: {fileID: 6810847734988445856, guid: 45fd24ff884cc4cc3bd848460271f64b,
         type: 3}

@@ -1693,25 +1693,25 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{3DF53791-FA6E-400E-7319-6DE7AFF7AD2D}">
+		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{60B104B1-E8B8-7AB2-6067-374172BB5D6F}">
 			<ShortName>L1_Intro</ShortName>
 			<Path>Russian/L1_Intro.bnk</Path>
 			<Media>
-				<File Id="189532610" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>cinematic.wav</ShortName>
-					<CachePath>Voices/Russian/cinematic_063BF901.wem</CachePath>
+				<File Id="383923104" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>2023_0823 Cinematic Intro.wav</ShortName>
+					<CachePath>Voices/Russian/2023_0823 Cinematic Intro_063BF901.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
 				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="131.02933" DurationMax="131.02933">
 					<MediaRefs>
-						<MediaRef Id="189532610"/>
+						<MediaRef Id="383923104"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="English" Hash="{82B22CE1-39E3-7F59-1323-C1FB0E26D6B0}">
+		<SoundBank Id="755876731" Type="User" Language="English" Hash="{578DED89-35D4-0B35-E765-D4A2C02D0ECE}">
 			<ShortName>L1_Intro</ShortName>
 			<Path>English/L1_Intro.bnk</Path>
 			<Plugins>
@@ -1730,7 +1730,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{521DEFE3-B6E5-22F5-7B9C-31C8962278AA}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{8A2EC57B-37E0-0CC1-D156-A22BA96FA036}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
@@ -1806,6 +1806,7 @@
 			<SwitchGroups>
 				<SwitchGroup Id="4206939811" Name="MusicLevels">
 					<Switches>
+						<Switch Id="337454315" Name="MusicNewspaper"/>
 						<Switch Id="732903831" Name="MusicTitles"/>
 						<Switch Id="1218626300" Name="MusicPizza"/>
 						<Switch Id="1585032734" Name="MusicPsycho"/>
@@ -1817,7 +1818,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{4C524960-4FA6-CCB0-7A6E-43E40614D70A}">
+		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{6340CF7A-9BB5-A63C-5F7E-9FD802D17247}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>Russian/L2_Tutor.bnk</Path>
 			<Media>
@@ -1860,6 +1861,10 @@
 				<File Id="127118765" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_014.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_014_F9A23AB9.wem</CachePath>
+				</File>
+				<File Id="131157694" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>tutor_mark_009.wav</ShortName>
+					<CachePath>Voices/Russian/tutor_mark_009_F9A23AB9.wem</CachePath>
 				</File>
 				<File Id="136086483" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_031_1.wav</ShortName>
@@ -1953,6 +1958,10 @@
 					<ShortName>tutor_elena\tutor_elena_023.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_023_F9A23AB9.wem</CachePath>
 				</File>
+				<File Id="323817263" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>tutor_elena\tutor_elena_015_1.wav</ShortName>
+					<CachePath>Voices/Russian/tutor_elena/tutor_elena_015_1_F9A23AB9.wem</CachePath>
+				</File>
 				<File Id="332333893" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_046.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_046_F9A23AB9.wem</CachePath>
@@ -1992,10 +2001,6 @@
 				<File Id="384452585" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_019.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_019_F9A23AB9.wem</CachePath>
-				</File>
-				<File Id="389034646" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>tutor_mark_009_3.wav</ShortName>
-					<CachePath>Voices/Russian/tutor_mark_009_3_F9A23AB9.wem</CachePath>
 				</File>
 				<File Id="397347171" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_007.wav</ShortName>
@@ -2060,6 +2065,10 @@
 				<File Id="587793123" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_022.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_022_F9A23AB9.wem</CachePath>
+				</File>
+				<File Id="588496612" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>tutor_mark_009_1.wav</ShortName>
+					<CachePath>Voices/Russian/tutor_mark_009_1_F9A23AB9.wem</CachePath>
 				</File>
 				<File Id="589297764" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_039.2.wav</ShortName>
@@ -2177,10 +2186,6 @@
 					<ShortName>tutor_mark_028.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_028_F9A23AB9.wem</CachePath>
 				</File>
-				<File Id="1004158828" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>tutor_elena\tutor_elena_015.wav</ShortName>
-					<CachePath>Voices/Russian/tutor_elena/tutor_elena_015_F9A23AB9.wem</CachePath>
-				</File>
 				<File Id="1005744020" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_001.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_001_F9A23AB9.wem</CachePath>
@@ -2281,9 +2286,9 @@
 						<MediaRef Id="127118765"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="207173242" Name="tutor_elena_015" DurationType="OneShot" DurationMin="1.3333334" DurationMax="1.3333334">
+				<Event Id="207173242" Name="tutor_elena_015" DurationType="OneShot" DurationMin="1.7915626" DurationMax="1.7915626">
 					<MediaRefs>
-						<MediaRef Id="1004158828"/>
+						<MediaRef Id="323817263"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="207173241" Name="tutor_elena_016" DurationType="OneShot" DurationMin="6.408125" DurationMax="6.408125">
@@ -2426,9 +2431,9 @@
 						<MediaRef Id="1027643913"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3589698505" Name="tutor_mark_009" DurationType="OneShot" DurationMin="3.4766874" DurationMax="3.4766874">
+				<Event Id="3589698505" Name="tutor_mark_009" DurationType="OneShot" DurationMin="11.691771" DurationMax="11.691771">
 					<MediaRefs>
-						<MediaRef Id="389034646"/>
+						<MediaRef Id="131157694"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3606476211" Name="tutor_mark_010" DurationType="OneShot" DurationMin="6.3045416" DurationMax="6.3045416">
@@ -2696,9 +2701,14 @@
 						<MediaRef Id="795176143"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="4110766021" Name="tutor_mark_alt_009" DurationType="OneShot" DurationMin="3.823375" DurationMax="3.823375">
+					<MediaRefs>
+						<MediaRef Id="588496612"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{6047397B-CB37-A16D-E241-A056D6D6EA6A}">
+		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{7C861E41-D249-29B1-40D6-B15F57DE23CE}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>English/L2_Tutor.bnk</Path>
 			<Media>
@@ -3450,6 +3460,11 @@
 				<Event Id="4110766026" Name="tutor_mark_alt_006" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="4110766027" Name="tutor_mark_alt_007" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="4110766020" Name="tutor_mark_alt_008" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
+				<Event Id="4110766021" Name="tutor_mark_alt_009" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="470408159"/>
+					</MediaRefs>
+				</Event>
 			</Events>
 		</SoundBank>
 		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{26B79048-70FC-85D3-9333-616BD053CAF1}">
@@ -7756,7 +7771,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{0AEBDD40-B666-8205-944D-709FE3203C4C}">
+		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{9D662499-2437-79DE-701D-344B48A3A827}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>Russian/L4_Interlude1.bnk</Path>
 			<Media>
@@ -7803,6 +7818,10 @@
 				<File Id="137520203" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_elena\pizzaep_elena_002.wav</ShortName>
 					<CachePath>Voices/Russian/pizzaep_elena/pizzaep_elena_002_F9A23AB9.wem</CachePath>
+				</File>
+				<File Id="137832830" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>pizzaep_mark_019.wav</ShortName>
+					<CachePath>Voices/Russian/pizzaep_mark_019_F9A23AB9.wem</CachePath>
 				</File>
 				<File Id="161273788" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_elena\pizzaep_elena_007.wav</ShortName>
@@ -8236,6 +8255,11 @@
 						<MediaRef Id="2735291"/>
 					</MediaRefs>
 				</Event>
+				<Event Id="3072624668" Name="pizzaep_mark_019_v2" DurationType="OneShot" DurationMin="2.9591875" DurationMax="2.9591875">
+					<MediaRefs>
+						<MediaRef Id="137832830"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="1095202249" Name="pizzaep_mark_020" DurationType="OneShot" DurationMin="4.979146" DurationMax="4.979146">
 					<MediaRefs>
 						<MediaRef Id="17595806"/>
@@ -8403,7 +8427,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{4457869C-85A4-9B3C-03D1-FAA70D65718E}">
+		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{461D7464-0E7D-6602-B5D3-8FA1EA919BAC}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>English/L4_Interlude1.bnk</Path>
 			<Media>
@@ -8834,6 +8858,11 @@
 					</MediaRefs>
 				</Event>
 				<Event Id="1044869497" Name="pizzaep_mark_019" DurationType="OneShot" DurationMin="0" DurationMax="0">
+					<MediaRefs>
+						<MediaRef Id="358993250"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3072624668" Name="pizzaep_mark_019_v2" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<MediaRefs>
 						<MediaRef Id="358993250"/>
 					</MediaRefs>
@@ -13250,7 +13279,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{2147CD6F-BE9B-FF30-FB77-3FA568C0BB1D}">
+		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{1669D708-2BEA-65C6-19CB-4E409B103F62}">
 			<ShortName>Master</ShortName>
 			<Path>Master.bnk</Path>
 			<Media>
@@ -13293,6 +13322,10 @@
 				<File Id="558708138" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_03.wav</ShortName>
 					<CachePath>SFX/sfx_clock_03_5AE31F0F.wem</CachePath>
+				</File>
+				<File Id="594848569" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicNewsPapper_Main_Tomorrow Calls_83_ver.3.wav</ShortName>
+					<CachePath>SFX/mus_MusicNewsPapper_Main_Tomorrow Calls_83_ver.3_DFD762D4.wem</CachePath>
 				</File>
 				<File Id="615727251" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_decidetime.wav</ShortName>
@@ -13370,6 +13403,12 @@
 							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="2404037190"/>
 							<MediaRefs>
 								<MediaRef Id="773601455"/>
+							</MediaRefs>
+						</SwitchContainer>
+						<SwitchContainer>
+							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="337454315"/>
+							<MediaRefs>
+								<MediaRef Id="594848569"/>
 							</MediaRefs>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -13454,6 +13493,7 @@
 			<SwitchGroups>
 				<SwitchGroup Id="4206939811" Name="MusicLevels">
 					<Switches>
+						<Switch Id="337454315" Name="MusicNewspaper"/>
 						<Switch Id="732903831" Name="MusicTitles"/>
 						<Switch Id="1218626300" Name="MusicPizza"/>
 						<Switch Id="1585032734" Name="MusicPsycho"/>
@@ -13470,5 +13510,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{E3035468-D928-9EF0-9F24-52A80FBCC508}</FileHash>
+	<FileHash>{1D4DCFF3-A809-0377-DD78-2AF57083BBA7}</FileHash>
 </SoundBanksInfo>

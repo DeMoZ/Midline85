@@ -2486,6 +2486,63 @@
 								<ActiveSource Name="pizzaep_mark_alt_004_1" ID="{38AB9D17-ED36-44A8-83A3-35A7716BE3D2}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="pizzaep_mark_019_v2" ID="{A7F48622-1E0C-482E-BC73-05D17FD79DA3}" ShortID="926576995">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="Interlude1_mark_019" ID="{97407A63-EF2C-4BFA-B3D1-362AB27F8CCA}">
+									<Language>English</Language>
+									<AudioFile>Interlude1_mark_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="358993250"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_mark" ID="{E1AC34EB-34D4-4D13-B151-E0FBFD13A3AF}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="329.017066892325"/>
+										<Property Name="TrimEnd" Type="Real64" Value="331.593980452034"/>
+									</PropertyList>
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_mark.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="772746320"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_mark_019" ID="{69097A8D-683D-4556-8ECE-4659E75FFCB5}">
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_mark_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="137832830"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_mark_019_1" ID="{B5B4B34E-69C4-4A62-9706-606B81779DDF}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_mark_019_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="2735291"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Interlude1_mark_019" ID="{97407A63-EF2C-4BFA-B3D1-362AB27F8CCA}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_mark_019" ID="{69097A8D-683D-4556-8ECE-4659E75FFCB5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Mark_fireep" ID="{6500F73D-4418-44AB-9340-8DDEAF228C43}" ShortID="124969511">
@@ -4931,8 +4988,8 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
+								<ActiveSource Name="tutor_mark_009" ID="{7581DD31-C648-4B9D-954F-F4B3816543E0}" Platform="Linked"/>
 								<ActiveSource Name="p_mark_009" ID="{A0337457-B8B6-4946-AD7A-C733276E81B7}" Platform="Linked"/>
-								<ActiveSource Name="tutor_mark_009_3" ID="{B17EDD91-9A63-4879-9011-B8DC6CDC5D30}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="tutor_mark_010" ID="{9DFC51E7-4C69-4FA2-B650-460BDAC554E1}" ShortID="167861362">
@@ -7624,6 +7681,87 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="tutor_mark_alt_008-002" ID="{1F3AE572-90A2-4097-AA93-6865F5F4A210}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="tutor_mark_alt_009" ID="{6FDC38A1-D86A-47BB-AFDF-ADDBBE13557F}" ShortID="453184335">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="p_mark_009" ID="{CB297260-698A-4881-8FD9-426B655B2C4D}">
+									<Language>English</Language>
+									<AudioFile>p_mark_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="470408159"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_mark" ID="{CFE7F862-991B-4ED1-9AC7-0873CE69E630}">
+									<PropertyList>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="117.666306215937"/>
+										<Property Name="TrimEnd" Type="Real64" Value="130.396364039153"/>
+									</PropertyList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_mark.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="646762171"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_mark_009" ID="{9BFD9443-D723-4B1A-82A2-7CC5A15F5993}">
+									<Language>Russian</Language>
+									<AudioFile>tutor_mark_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="131157694"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_mark_009_1" ID="{35CB1172-CB56-4904-9D02-62FA20D716DB}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_mark_009_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="588496612"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_mark_009_3" ID="{56C3E4BE-4328-4050-AC68-BFB3336C19B6}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_mark_009_3.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="389034646"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="tutor_mark_009_2" ID="{FC6B34EB-6336-423B-91FA-213AAF1CEE87}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>tutor_mark_009_2.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1054548973"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="p_mark_009" ID="{CB297260-698A-4881-8FD9-426B655B2C4D}" Platform="Linked"/>
+								<ActiveSource Name="tutor_mark_009_1" ID="{35CB1172-CB56-4904-9D02-62FA20D716DB}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
