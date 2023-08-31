@@ -79,7 +79,11 @@ public class LevelScenePm : IDisposable
         _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
-        _ctx.OnClickMenuButton.Subscribe(_ => { _ctx.OnSwitchScene.Execute(GameScenes.Menu); }).AddTo(_disposables);
+        _ctx.OnClickMenuButton.Subscribe(_ =>
+        {
+            _ctx.Blocker.InstantFade();
+            _ctx.OnSwitchScene.Execute(GameScenes.Menu);
+        }).AddTo(_disposables);
 
         _ctx.OnClickNextLevelButton.Subscribe(_ => { _ctx.OnSwitchScene.Execute(GameScenes.Level); })
             .AddTo(_disposables);
@@ -545,7 +549,7 @@ public class LevelScenePm : IDisposable
         var hasUnlocked = data.FirstOrDefault(d => d.ShowUnlock);
         if (hasUnlocked != null)
         {
-            foreach (var t in Timer(0.5f)) yield return t; 
+            foreach (var t in Timer(0.5f)) yield return t;
             // TODO the lenght of unlocking animation need to get from video
             // also timers starts on execute OnShowButtons buttons and dont support this yeld (visualisation only)
         }
@@ -640,12 +644,12 @@ public class LevelScenePm : IDisposable
         }
 
         _ctx.Blocker.FadeScreenBlocker(false).Forget();
-        
+
         _ctx.OnLevelEnd?.Execute(
             new StatisticsData
             {
-                LevelKey = _ctx.LevelId, 
-                EndKey = data.End, 
+                LevelKey = _ctx.LevelId,
+                EndKey = data.End,
                 NextLevelExists = nextLevelExists,
             });
     }

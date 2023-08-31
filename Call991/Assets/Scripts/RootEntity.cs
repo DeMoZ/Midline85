@@ -23,7 +23,6 @@ public class RootEntity : IDisposable
         public Transform FilmProjectorParent;
         
         public OverridenDialogue OverridenDialogue;
-        public Image VideoFade;
         public Image ScreenFade;
         public Transform ClicksParent;
     }
@@ -70,7 +69,6 @@ public class RootEntity : IDisposable
         var blocker = new Blocker(new Blocker.Ctx
         {
             ScreenFade = _ctx.ScreenFade,
-            VideoFade = _ctx.VideoFade,
             GameSet = gameSet,
             OnScreenFade = onScreenFade,
             IsPauseAllowed = isPauseAllowed,
@@ -130,11 +128,7 @@ public class RootEntity : IDisposable
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
             ScenesHandler = scenesHandler,
-            GameSet = gameSet,
             OnSwitchScene = onSwitchScene,
-            VideoManager = videoManager,
-            Blocker = blocker,
-            CursorSettings = cursorSettings,
         }).AddTo(_disposables);
 
         _onStartApplicationSwitchScene.Execute();
