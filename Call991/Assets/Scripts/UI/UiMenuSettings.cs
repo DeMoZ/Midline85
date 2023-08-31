@@ -42,9 +42,20 @@ namespace UI
             toMenuTutorialBtn.OnClick += OnClickToMenu;
         }
 
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+            
+            toMenuBtn.OnClick -= OnClickToMenu;
+            toMenuTutorialBtn.OnClick -= OnClickToMenu;
+        }
+
         public void OnClickToMenu()
         {
-            _ctx.OnClickToMenu.Execute();
+            AnimateDisappear(() =>
+            {
+                _ctx.OnClickToMenu.Execute();
+            });
         }
 
         private void SetTextDropdown()

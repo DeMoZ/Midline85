@@ -19,7 +19,6 @@ namespace UI
         [SerializeField] private MenuButtonView menuButton = default;
 
         private Ctx _ctx;
-        private Sequence _sequence;
 
         public void SetCtx(Ctx ctx)
         {
@@ -30,20 +29,9 @@ namespace UI
             menuButton.OnClick += OnClickMenuButtonHandler;
         }
 
-        private void CreateTimeTween(Action callback)
-        {
-            _sequence?.Kill();
-            _sequence = DOTween.Sequence();
-            _sequence.SetUpdate(true);
-
-            var tm = 0f;
-            _sequence.Append(DOTween.To(() => tm, x => tm = x, ButtonAnimationTime, ButtonAnimationTime))
-                .OnComplete(callback.Invoke);
-        }
-
-        private void OnClickContinueHandler() => CreateTimeTween(OnClickContinue);
-        private void OnClickSettingsButtonHandler() => CreateTimeTween(OnClickSettingsButton);
-        private void OnClickMenuButtonHandler() => CreateTimeTween(OnClickMenuButton);
+        private void OnClickContinueHandler() => AnimateDisappear(OnClickContinue);
+        private void OnClickSettingsButtonHandler() => AnimateDisappear(OnClickSettingsButton);
+        private void OnClickMenuButtonHandler() => AnimateDisappear(OnClickMenuButton);
 
         public void OnClickContinue() => _ctx.OnClickUnPauseButton.Execute();
         private void OnClickSettingsButton() => _ctx.OnClickSettingsButton.Execute();
