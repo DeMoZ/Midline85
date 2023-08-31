@@ -17,7 +17,7 @@ namespace UI
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
     }
-    
+
     public class UiImagePhraseData
     {
         public string Description;
@@ -62,7 +62,7 @@ namespace UI
         private CompositeDisposable _disposables;
         private bool _isNewspaperActive;
         private ReactiveCommand _onClickToMenu;
-        
+
         private CancellationTokenSource _tokenSource;
 
         public void SetCtx(Ctx ctx)
@@ -91,7 +91,6 @@ namespace UI
                 GameSet = _ctx.GameSet,
                 OnClickPauseButton = onClickPauseButton,
                 LevelSceneObjectsService = _ctx.LevelSceneObjectsService,
-
             });
 
             levelPauseView.SetCtx(new LevelPauseView.Ctx
@@ -113,26 +112,33 @@ namespace UI
             _ctx.DialogueService.OnHideImagePhrase.Subscribe(levelView.OnHideImagePhrase).AddTo(_disposables);
             _ctx.DialogueService.OnShowNewspaper.Subscribe(OnShowNewspaper).AddTo(_disposables);
             _ctx.DialogueService.OnShowLevelUi.Subscribe(_ => OnShowLevelUi()).AddTo(_disposables);
-            
+
             _ctx.OnShowTitle.Subscribe(OnShowTitle).AddTo(_disposables);
             _ctx.OnLevelEnd.Subscribe(OnLevelEnd).AddTo(_disposables);
             _ctx.OnShowWarning.Subscribe(OnShowWarning).AddTo(_disposables);
-            
+
             onClickPauseButton.Subscribe(_ => OnClickPauseButton(true));
             onClickUnPauseButton.Subscribe(_ => OnClickPauseButton(false));
             onClickSettingsButton.Subscribe(_ => EnableUi(menuSettings.GetType()));
         }
 
+        private void Update()
+        {
+#if !UNITY_EDITOR
+            if (!Application.isFocused &&  Time.timeScale != 0) 
+                OnClickPauseButton(true);
+#endif
+        }
+
         private void OnClickToMenu() =>
             EnableUi(levelPauseView.GetType());
-        
+
         private void OnClickPauseButton(bool value)
         {
-            if(_ctx.IsPauseAllowed.Value)
-            {
-                _ctx.OnClickPauseButton.Execute(value);
-                EnableUi(value ? levelPauseView.GetType() : levelView.GetType());
-            }
+            // if(!_ctx.IsPauseAllowed.Value) return // doestn allow click on pause button while blocker awaited
+
+            _ctx.OnClickPauseButton.Execute(value);
+            EnableUi(value ? levelPauseView.GetType() : levelView.GetType());
         }
 
         private void OnShowLevelUi()
@@ -188,7 +194,7 @@ namespace UI
             levelTitleView.Set(chapter: data.keys[0], title: data.keys[1]);
             EnableUi(data.show ? levelTitleView.GetType() : levelView.GetType());
         }
-        
+
         private void OnShowWarning((bool show, string[] keys, float delayTime, float fadeTime) data)
         {
             levelWarning.Set(data.keys, data.delayTime, data.fadeTime);
