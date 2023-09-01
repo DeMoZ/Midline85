@@ -23,7 +23,6 @@ public class RootEntity : IDisposable
         public Transform FilmProjectorParent;
         
         public OverridenDialogue OverridenDialogue;
-        public Image VideoFade;
         public Image ScreenFade;
         public Transform ClicksParent;
     }
@@ -46,13 +45,13 @@ public class RootEntity : IDisposable
 
         var gameLevelsService = new GameLevelsService(gameSet);
         
-        var levelLanguages = new ReactiveProperty<List<string>>();
-        var isPauseAllowed = new ReactiveProperty<bool>(true);
+        var levelLanguages = new ReactiveProperty<List<string>>().AddTo(_disposables);
+        var isPauseAllowed = new ReactiveProperty<bool>(true).AddTo(_disposables);
         var onSwitchScene = new ReactiveCommand<GameScenes>().AddTo(_disposables);
-        var onScreenFade = new ReactiveCommand<(bool show, float time)>();
-        var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>();
-        var onShowWarning = new ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)>();
-
+        var onScreenFade = new ReactiveCommand<(bool show, float time)>().AddTo(_disposables);
+        var onShowTitle = new ReactiveCommand<(bool show, string[] keys)>().AddTo(_disposables);
+        var onShowWarning = new ReactiveCommand<(bool show, string[] keys, float delayTime, float fadeTime)>().AddTo(_disposables);
+        
         var objectEvents = new ObjectEvents(new ObjectEvents.Ctx
         {
             OnScreenFade = onScreenFade,
@@ -70,7 +69,6 @@ public class RootEntity : IDisposable
         var blocker = new Blocker(new Blocker.Ctx
         {
             ScreenFade = _ctx.ScreenFade,
-            VideoFade = _ctx.VideoFade,
             GameSet = gameSet,
             OnScreenFade = onScreenFade,
             IsPauseAllowed = isPauseAllowed,
@@ -130,11 +128,7 @@ public class RootEntity : IDisposable
         var sceneSwitcher = new SceneSwitcher(new SceneSwitcher.Ctx
         {
             ScenesHandler = scenesHandler,
-            GameSet = gameSet,
             OnSwitchScene = onSwitchScene,
-            VideoManager = videoManager,
-            Blocker = blocker,
-            CursorSettings = cursorSettings,
         }).AddTo(_disposables);
 
         _onStartApplicationSwitchScene.Execute();

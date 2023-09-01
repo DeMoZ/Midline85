@@ -12,20 +12,18 @@ public class Blocker : IDisposable
     public struct Ctx
     {
         public Image ScreenFade;
-        public Image VideoFade;
         public GameSet GameSet;
         public ReactiveProperty<bool> IsPauseAllowed;
         public ReactiveCommand<(bool show, float time)> OnScreenFade;
     }
     
     private readonly Image _screenFade;
-    //private readonly Image _videoFade;
     private readonly CompositeDisposable _disposables;
     private readonly GameSet _gameSet;
 
-    //private Color _videoBlockerColor;
     private Color _screenBlockerColor;
     private Ctx _ctx;
+    private Tweener _tween;
 
     public Blocker(Ctx ctx)
     {
@@ -33,9 +31,6 @@ public class Blocker : IDisposable
         _disposables = new CompositeDisposable();
 
         _screenFade = _ctx.ScreenFade;
-        //_videoFade = _ctx.VideoFade;
-
-        //_videoBlockerColor = _videoFade.color;
         _screenBlockerColor = _screenFade.color;
         _gameSet = _ctx.GameSet;
 
@@ -45,25 +40,6 @@ public class Blocker : IDisposable
             FadeScreenBlocker(param.show, param.time).Forget();
         }).AddTo(_disposables);
     }
-
-    // public async Task FadeVideoBlocker(bool show, float? fadeTime = null)
-    // {
-    //     var time = fadeTime ?? _gameSet.shortFadeTime;
-    //     var toColor = show ? 1 : 0;
-    //     _videoBlockerColor.a = show ? 0 : 1;
-    //     _videoFade.color = _videoBlockerColor;
-    //
-    //     EnableVideoFade(true, !show);
-    //
-    //     var seq = _videoFade.DOFade(toColor, time);
-    //     seq.Play();
-    //
-    //     while (seq.IsPlaying())
-    //         await Task.Yield();
-    //
-    //     if (!show)
-    //         EnableVideoFade(false);
-    // }
 
     public async Task FadeScreenBlocker(bool show, float? fadeTime = null)
     {
@@ -75,11 +51,12 @@ public class Blocker : IDisposable
 
         EnableScreenFade(true, !show);
 
-        var seq = _screenFade.DOFade(toColor, time);
-        seq.SetUpdate(true);
-        seq.Play();
+        _tween?.Kill();
+        _tween = _screenFade.DOFade(toColor, time);
+        _tween.SetUpdate(true);
+        _tween.Play();
 
-        while (seq.IsPlaying())
+        while (_tween.IsPlaying())
             await Task.Yield();
 
         if (!show)
@@ -87,13 +64,6 @@ public class Blocker : IDisposable
         
         _ctx.IsPauseAllowed.Value = true;
     }
-
-    // public void EnableVideoFade(bool enable, bool show = true)
-    // {
-    //     _videoBlockerColor.a = show ? 1 : 0;
-    //     _videoFade.color = _videoBlockerColor;
-    //     _videoFade.gameObject.SetActive(enable);
-    // }
 
     public void EnableScreenFade(bool enable, bool show = true)
     {
@@ -103,6 +73,14 @@ public class Blocker : IDisposable
         _screenFade.gameObject.SetActive(enable);
     }
 
+    public void InstantFade()
+    {
+        _tween?.Kill();
+        _screenBlockerColor.a = 1;
+        _screenFade.color = _screenBlockerColor;
+        _screenFade.gameObject.SetActive(true);
+    }
+    
     public void Dispose()
     {
         _disposables.Dispose();
