@@ -6,7 +6,7 @@ using UnityEngine.EventSystems;
 namespace PhotoViewer.Scripts
 {
     public class NewspaperInput : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPointerExitHandler,
-        IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler
+        IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
     {
 #if UNITY_IOS || UNITY_ANDROID
         private float _moveSpeed = 5;
@@ -22,7 +22,8 @@ namespace PhotoViewer.Scripts
         private float _zoomDelta;
         
         public Action<Vector2> onDrag;
-        public Action<float> onZoom;
+        //public Action<float> onZoom;
+        public Action<Vector2> onClick;
 
         private Vector2 _deltaPosition = Vector2.zero;
         private bool _hover;
@@ -37,9 +38,8 @@ namespace PhotoViewer.Scripts
 
             onDrag?.Invoke(_deltaPosition);
             
-            var zoomDelta = Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * _zoomSpeed;
-            //zoomDelta = Mathf.Lerp(_zoomDelta, zoomDelta, Time.deltaTime * _zoomDumping);
-            onZoom?.Invoke(zoomDelta);
+            //var zoomDelta = Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * _zoomSpeed;
+            //onZoom?.Invoke(zoomDelta);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
@@ -63,12 +63,27 @@ namespace PhotoViewer.Scripts
         public void OnEndDrag(PointerEventData eventData) => 
             EndInteraction();
 
-        public void OnPointerDown(PointerEventData eventData) => 
+        private Vector2? _startClickPosition;
+        public void OnPointerDown(PointerEventData eventData)
+        {
             _cursorSettings.ApplyCursor(CursorType.Drag);
+            _startClickPosition = eventData.position;
+        }
 
-        public void OnPointerUp(PointerEventData eventData) => 
+        public void OnPointerUp(PointerEventData eventData)
+        {
             EndInteraction();
+            if (_startClickPosition.HasValue && Vector2.Distance(_startClickPosition.Value, eventData.position) < 0.5f)
+                onClick?.Invoke(eventData.position);
 
+            _startClickPosition = null;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            //onClick?.Invoke(eventData.position);
+        }
+        
         private void EndInteraction()
         {
             if (_hover)
