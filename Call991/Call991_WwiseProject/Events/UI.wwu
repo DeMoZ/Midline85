@@ -36,6 +36,17 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="UI_Lock" ID="{46C09587-296A-4361-BF6A-B29F3C1CF8FC}">
+					<ChildrenList>
+						<Action Name="" ID="{8F7E725F-EB4B-4CEE-917C-F0E2735E6C2A}" ShortID="421238002">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Lock" ID="{C76BDD5C-435C-4E90-A8AE-A442756704D4}" WorkUnitID="{DA7FBD2A-0CB7-4DFB-B653-A74E1BF86E17}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>
