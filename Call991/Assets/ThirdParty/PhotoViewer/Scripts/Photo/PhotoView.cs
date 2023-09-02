@@ -8,17 +8,13 @@ namespace PhotoViewer.Scripts.Photo
 {
     public class PhotoView : AaWindow
     {
-        [SerializeField] private RectTransform _viewTransfrom = default;
-        [SerializeField] private Image _image = default;
-        [SerializeField] private RectTransform _imageTransform = default;
-        [SerializeField] private MenuButtonView _closeBtn = default;
-        [SerializeField] private NewspaperInput _newspaperInput = default;
-
-        [SerializeField] private float _zoomTime = 0.5f;
-
-        // [SerializeField]
-        private Vector2 _zoomLimit = new(1, 2.3f);
-
+        [SerializeField] private RectTransform viewTransfrom = default;
+        [SerializeField] private Image image = default;
+        [SerializeField] private RectTransform imageTransform = default;
+        [SerializeField] private MenuButtonView closeBtn = default;
+        [SerializeField] private NewspaperInput newspaperInput = default;
+        [SerializeField] private NewspaperInputSo newspaperInputConfig = default;
+       
         private Vector2 _initialImageSize;
         private bool _zoomIn;
         private Sequence _zoomSequence;
@@ -29,7 +25,7 @@ namespace PhotoViewer.Scripts.Photo
         {
             get
             {
-                var rect = _viewTransfrom.rect;
+                var rect = viewTransfrom.rect;
                 return new Vector2(rect.width, rect.height);
             }
         }
@@ -38,8 +34,8 @@ namespace PhotoViewer.Scripts.Photo
         {
             get
             {
-                var rect = _imageTransform.rect;
-                var angle = (int)_imageTransform.rotation.eulerAngles.z;
+                var rect = imageTransform.rect;
+                var angle = (int)imageTransform.rotation.eulerAngles.z;
                 Vector2 result;
 
                 if (angle == 0 || angle == 180)
@@ -54,21 +50,22 @@ namespace PhotoViewer.Scripts.Photo
         protected override void OnEnable()
         {
             base.OnEnable();
+            newspaperInput.Init(newspaperInputConfig);
 
-            _newspaperInput.onDrag += ApplyMove;
-            //_newspaperInput.onZoom += ApplyZoom;
-            _newspaperInput.onClick += ZoomOnClick;
-            _closeBtn.OnClick += Close;
+            //_newspaperInput.onDrag += ApplyMove;
+            newspaperInput.onScroll += ApplyScroll;
+            newspaperInput.onClick += ZoomOnClick;
+            closeBtn.OnClick += Close;
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
 
-            _newspaperInput.onDrag -= ApplyMove;
-            //_newspaperInput.onZoom -= ApplyZoom;
-            _newspaperInput.onClick -= ZoomOnClick;
-            _closeBtn.OnClick -= Close;
+            //_newspaperInput.onDrag -= ApplyMove;
+            newspaperInput.onScroll -= ApplyScroll;
+            newspaperInput.onClick -= ZoomOnClick;
+            closeBtn.OnClick -= Close;
         }
 
         public void SetNewspaper(Sprite sprite)
@@ -88,8 +85,8 @@ namespace PhotoViewer.Scripts.Photo
 
         private void ShowData(ImageData imageData)
         {
-            if (_image)
-                _image.sprite = imageData.Sprite;
+            if (image)
+                image.sprite = imageData.Sprite;
 
             _initialImageSize = ViewerSize;
         }
@@ -102,13 +99,14 @@ namespace PhotoViewer.Scripts.Photo
             _zoomSequence = DOTween.Sequence().SetEase(Ease.InOutCubic);
             _zoomSequence.SetUpdate(true);
 
-            var zoomSize = _zoomIn ? _initialImageSize * _zoomLimit.y : _initialImageSize;
-            _zoomSequence.Append(_imageTransform.DOSizeDelta(zoomSize, _zoomTime));
+            var zoomSize = _zoomIn ? _initialImageSize * newspaperInputConfig.MaxZoom : _initialImageSize;
+            _zoomSequence.Append(imageTransform.DOSizeDelta(zoomSize, newspaperInputConfig.ZoomTime));
 
             var zoomPosition = _zoomIn ? CalculateZoomPosition(clickPos) : Vector2.zero;
-            _zoomSequence.Insert(0, _imageTransform.DOLocalMove(zoomPosition, _zoomTime));
+            _zoomSequence.Insert(0, imageTransform.DOLocalMove(zoomPosition, newspaperInputConfig.ZoomTime));
         }
 
+        // todo remove hardcode
         private Vector2 CalculateZoomPosition(Vector2 clickPos)
         {
             var relation = clickPos.y / Screen.height;
@@ -117,17 +115,32 @@ namespace PhotoViewer.Scripts.Photo
             return new Vector2(0, coordinates);
         }
 
+        // todo remove hardcode
+        private void ApplyScroll(float zoomDelta)
+        {
+            if (!_zoomIn) return;
+
+            Vector2 newPosition = imageTransform.localPosition;
+            newPosition.y += zoomDelta;
+
+            newPosition.x = Mathf.Clamp(newPosition.x, -1200, 1200);
+            newPosition.y = Mathf.Clamp(newPosition.y, -1500, 1500);
+
+            imageTransform.localPosition = newPosition;
+        }
+
+
         private void ApplyMove(Vector2 deltaPosition)
         {
             if (!_zoomIn) return;
-            
-            Vector2 newPosition = _imageTransform.localPosition;
+
+            Vector2 newPosition = imageTransform.localPosition;
             newPosition += deltaPosition;
 
             newPosition.x = Mathf.Clamp(newPosition.x, -1200, 1200);
             newPosition.y = Mathf.Clamp(newPosition.y, -1500, 1500);
 
-            _imageTransform.localPosition = newPosition;
+            imageTransform.localPosition = newPosition;
         }
     }
 }

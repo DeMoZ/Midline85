@@ -147,12 +147,13 @@ MonoBehaviour:
     Config: {fileID: 0}
   windowSelectables:
   - {fileID: 1758512912239376578}
-  _viewTransfrom: {fileID: 7526385362453106930}
-  _image: {fileID: 7596042698155486059}
-  _imageTransform: {fileID: 2157716210671677706}
-  _closeBtn: {fileID: 1758512912239376578}
-  _newspaperInput: {fileID: 3424906330002541444}
-  _zoomTime: 0.5
+  viewTransfrom: {fileID: 7526385362453106930}
+  image: {fileID: 7596042698155486059}
+  imageTransform: {fileID: 2157716210671677706}
+  closeBtn: {fileID: 1758512912239376578}
+  newspaperInput: {fileID: 3424906330002541444}
+  newspaperInputConfig: {fileID: 11400000, guid: 65ab03236e79e4d70a95597e65106ed3,
+    type: 2}
 --- !u!1 &4306532065930243719
 GameObject:
   m_ObjectHideFlags: 0
@@ -553,9 +554,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0e15509541e24ca6810eebb36bb3ba21, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  _moveDumping: 3
-  _zoomSpeed: 50
+  cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
 --- !u!1001 &1406809033230478802
 PrefabInstance:
   m_ObjectHideFlags: 0

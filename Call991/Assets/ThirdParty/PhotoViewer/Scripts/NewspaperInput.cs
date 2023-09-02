@@ -2,71 +2,69 @@
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 namespace PhotoViewer.Scripts
 {
     public class NewspaperInput : MonoBehaviour, IDragHandler, IPointerEnterHandler, IPointerExitHandler,
         IBeginDragHandler, IEndDragHandler, IPointerDownHandler, IPointerUpHandler, IPointerClickHandler
     {
-#if UNITY_IOS || UNITY_ANDROID
-        private float _moveSpeed = 5;
-#else
-        private float _moveSpeed = 25;
-#endif
-        [SerializeField] private CursorSet _cursorSettings = default;
-        [SerializeField] private float _moveDumping = 3f;
-        [Space]
-        [SerializeField] private float _zoomSpeed = 50f;
+        [SerializeField] private CursorSet cursorSettings = default;
 
+        private Vector2 _targetScroll;
+        private Vector2 _currentScroll;
+        private Vector2 _scrollVelocity = Vector2.zero;
+
+        private Vector2? _startClickPosition;
+        private NewspaperInputSo _config;
         private float _moveDelta;
         private float _zoomDelta;
-        
-        public Action<Vector2> onDrag;
-        //public Action<float> onZoom;
+
+        //public Action<Vector2> onDrag;
+        public Action<float> onScroll;
         public Action<Vector2> onClick;
 
         private Vector2 _deltaPosition = Vector2.zero;
         private bool _hover;
 
-        
+        public void Init(NewspaperInputSo config)
+        {
+            _config = config;
+        }
+
         private void Update()
         {
-            _deltaPosition = Vector2.Lerp(_deltaPosition, Vector2.zero, Time.deltaTime * _moveDumping);
-
-            if (_deltaPosition.magnitude < 0.1f)
-                _deltaPosition = Vector2.zero;
-
-            onDrag?.Invoke(_deltaPosition);
-            
-            //var zoomDelta = Input.GetAxis("Mouse ScrollWheel") * Time.deltaTime * _zoomSpeed;
-            //onZoom?.Invoke(zoomDelta);
+            var scrollInput = Input.GetAxis("Mouse ScrollWheel");
+            _currentScroll.y -= scrollInput * _config.ScrollSpeed * Time.deltaTime;
+            _currentScroll = Vector2.SmoothDamp(_currentScroll, Vector2.zero, ref _scrollVelocity,
+                _config.ScrollSmoothTime);
+            onScroll?.Invoke(_currentScroll.y);
         }
 
         public void OnPointerEnter(PointerEventData eventData)
         {
             _hover = true;
-            _cursorSettings.ApplyCursor(CursorType.CanDrag);
+            cursorSettings.ApplyCursor(CursorType.CanDrag);
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
             _hover = false;
-            _cursorSettings.ApplyCursor(CursorType.Normal);
+            cursorSettings.ApplyCursor(CursorType.Normal);
         }
 
-        public void OnBeginDrag(PointerEventData eventData) => 
-            _cursorSettings.ApplyCursor(CursorType.Drag);
+        public void OnBeginDrag(PointerEventData eventData) =>
+            cursorSettings.ApplyCursor(CursorType.Drag);
 
-        public void OnDrag(PointerEventData eventData) => 
-            _deltaPosition = eventData.delta * Time.deltaTime * _moveSpeed;
+        public void OnDrag(PointerEventData eventData) =>
+            _deltaPosition = eventData.delta * Time.deltaTime * _config.MoveSpeed;
 
-        public void OnEndDrag(PointerEventData eventData) => 
+        public void OnEndDrag(PointerEventData eventData) =>
             EndInteraction();
 
-        private Vector2? _startClickPosition;
         public void OnPointerDown(PointerEventData eventData)
         {
-            _cursorSettings.ApplyCursor(CursorType.Drag);
+            cursorSettings.ApplyCursor(CursorType.Drag);
             _startClickPosition = eventData.position;
         }
 
@@ -83,13 +81,7 @@ namespace PhotoViewer.Scripts
         {
             //onClick?.Invoke(eventData.position);
         }
-        
-        private void EndInteraction()
-        {
-            if (_hover)
-                _cursorSettings.ApplyCursor(CursorType.CanDrag);
-            else
-                _cursorSettings.ApplyCursor(CursorType.Normal);
-        }
+
+        private void EndInteraction() => cursorSettings.ApplyCursor(_hover ? CursorType.CanDrag : CursorType.Normal);
     }
 }
