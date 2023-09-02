@@ -147,9 +147,9 @@ MonoBehaviour:
     Config: {fileID: 0}
   windowSelectables:
   - {fileID: 1758512912239376578}
-  viewTransfrom: {fileID: 7526385362453106930}
-  image: {fileID: 7596042698155486059}
-  imageTransform: {fileID: 2157716210671677706}
+  viewTransform: {fileID: 7526385362453106930}
+  backgroundImage: {fileID: 395854518493644098}
+  newspaperImage: {fileID: 7596042698155486059}
   closeBtn: {fileID: 1758512912239376578}
   newspaperInput: {fileID: 3424906330002541444}
   newspaperInputConfig: {fileID: 11400000, guid: 65ab03236e79e4d70a95597e65106ed3,
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 2197107799360410911}
   - component: {fileID: 395854518493644098}
   m_Layer: 5
-  m_Name: Background
+  m_Name: BackgroundImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,10 +263,10 @@ RectTransform:
   m_Father: {fileID: 4474670242504943722}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 4096, y: 2302}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2197107799360410911
 CanvasRenderer:
@@ -478,7 +478,7 @@ GameObject:
   - component: {fileID: 7596042698155486059}
   - component: {fileID: 3424906330002541444}
   m_Layer: 5
-  m_Name: Image
+  m_Name: NewspaperImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
