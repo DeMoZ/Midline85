@@ -9,6 +9,7 @@
 			<ChildrenList>
 				<ActorMixer Name="Police" ID="{85F63828-FEAC-459E-8627-E84724280004}" ShortID="476296084">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>41</Value>
@@ -16,14 +17,15 @@
 						</Property>
 						<Property Name="Lowpass" Type="int16">
 							<ValueList>
-								<Value>42</Value>
+								<Value>49</Value>
 							</ValueList>
 						</Property>
 						<Property Name="MakeUpGain" Type="Real64">
 							<ValueList>
-								<Value>-17.2</Value>
+								<Value>-5.7</Value>
 							</ValueList>
 						</Property>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 					</PropertyList>
 					<ReferenceList>
@@ -37,7 +39,9 @@
 					<ChildrenList>
 						<Sound Name="pizza_police_001" ID="{1B502E0B-CE90-4943-8BE7-6CF500C24834}" ShortID="768857382">
 							<PropertyList>
+								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

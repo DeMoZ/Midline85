@@ -564,7 +564,7 @@ MonoBehaviour:
       - "\u041F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u043A \u0440\u0430\u0431\u043E\u0442\u0435"
       Flags: 0000
       Languages_Touch: []
-    - Term: Tutorials
+    - Term: Hints
       TermType: 0
       Description: 
       Languages:
@@ -572,7 +572,31 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: tut_back
+    - Term: hint/enter
+      TermType: 0
+      Description: 
+      Languages:
+      - Enter
+      - "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/newspaperEnter
+      TermType: 0
+      Description: 
+      Languages:
+      - Continue
+      - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/mwu
+      TermType: 0
+      Description: 
+      Languages:
+      - Scroll
+      - "\u041F\u0435\u0440\u0435\u043C\u0435\u0441\u0442\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/esc
       TermType: 0
       Description: 
       Languages:
@@ -580,15 +604,7 @@ MonoBehaviour:
       - "\u041D\u0430\u0437\u0430\u0434"
       Flags: 0000
       Languages_Touch: []
-    - Term: tut_select
-      TermType: 0
-      Description: 
-      Languages:
-      - Select
-      - "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: tut_zoom
+    - Term: hint/lkm
       TermType: 0
       Description: 
       Languages:
@@ -596,12 +612,20 @@ MonoBehaviour:
       - "\u041F\u0440\u0438\u0431\u043B\u0438\u0437\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: tut_move
+    - Term: hint/zoom
+      TermType: 0
+      Description: 
+      Languages:
+      - Zoom
+      - "\u041F\u0440\u0438\u0431\u043B\u0438\u0436\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/move
       TermType: 0
       Description: 
       Languages:
       - Move
-      - "\u041F\u0435\u0440\u0435\u043C\u0435\u0441\u0442\u0438\u0442\u044C"
+      - "\u041F\u0435\u0440\u0435\u0434\u0432\u0438\u0433\u0430\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
     - Term: Opening
@@ -3152,7 +3176,7 @@ MonoBehaviour:
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbyuDtsXqSvvvROoyPIAtO4mVneXSClKXBucqDheC5OLRBSTKaz4MU27H03WP-OLVpbhQQ/exec
     Google_SpreadsheetKey: 1hJDO9cAPuAlG-i--w7FxsNHVdgzTOp9uLvr9L1nbWqE
     Google_SpreadsheetName: I2Loc Midline85 Localization
-    Google_LastUpdatedVersion: 1693321929448
+    Google_LastUpdatedVersion: 1693656030583
     Google_Password: change_this
     GoogleUpdateFrequency: 1
     GoogleInEditorCheckFrequency: 1

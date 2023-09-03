@@ -17,7 +17,6 @@ public class GameEntity : MonoBehaviour
     [SerializeField] private FilmProjector filmProjector;
     [SerializeField] private RectTransform filmProjectorParent;
 
-    [Space] [SerializeField] private Image videoFade;
     [SerializeField] private Image screenFade;
 
     [Space] [SerializeField] private Transform clicksParent;
@@ -76,7 +75,6 @@ public class GameEntity : MonoBehaviour
             VideoManagerParent = videoManagerParent,
             FilmProjectorPrefab = filmProjector,
             FilmProjectorParent = filmProjectorParent,
-            VideoFade = videoFade,
             ScreenFade = screenFade,
             ClicksParent = clicksParent,
             OverridenDialogue = overridenDialogue,

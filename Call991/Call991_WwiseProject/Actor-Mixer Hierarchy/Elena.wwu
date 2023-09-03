@@ -243,6 +243,7 @@
 				</ActorMixer>
 				<ActorMixer Name="psycho1_elena" ID="{4C01C7DF-C3A6-404C-AF45-8B50BBB89301}" ShortID="516808510">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>41</Value>
@@ -253,12 +254,13 @@
 								<Value>31</Value>
 							</ValueList>
 						</Property>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>6.4</Value>
+								<Value>-1.4</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -388,6 +390,11 @@
 						<Sound Name="psycho1_elena_004" ID="{E3E8B9FA-318A-4B4B-8FB1-2E0C48D906A7}" ShortID="1017906504">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -544,6 +551,11 @@
 						<Sound Name="psycho1_elena_008" ID="{F830F1E5-346B-460A-A83B-3A7856D61C4A}" ShortID="911205985">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -744,6 +756,11 @@
 						<Sound Name="psycho1_elena_013" ID="{783DC981-67BB-4F20-85B1-467D0E98C17D}" ShortID="792224639">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -784,6 +801,11 @@
 						<Sound Name="psycho1_elena_014" ID="{0503DBD7-C82C-44B7-A1E1-8A940C7394F9}" ShortID="602003388">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -984,6 +1006,11 @@
 						<Sound Name="psycho1_elena_019" ID="{DA1F867C-E3FB-49BD-9CC4-46DCCE0360F5}" ShortID="969285309">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1224,6 +1251,11 @@
 						<Sound Name="psycho1_elena_025" ID="{D20D7F95-8099-4EBA-993A-EE577FE75B8D}" ShortID="648154776">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1264,6 +1296,11 @@
 						<Sound Name="psycho1_elena_026" ID="{CBAD5242-6CA0-42A0-B5F3-81A9876FF6D2}" ShortID="244195817">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1344,6 +1381,11 @@
 						<Sound Name="psycho1_elena_028" ID="{2A465D99-D2F9-4826-907D-1429F632030D}" ShortID="421248246">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1704,6 +1746,11 @@
 						<Sound Name="psycho1_elena_037" ID="{8F796CED-22AF-4231-B0AE-98BB97B7628D}" ShortID="39807821">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1912,6 +1959,7 @@
 				</ActorMixer>
 				<ActorMixer Name="fire_p_elena" ID="{B10576A7-6123-4C70-8F16-6C3C9D581A4B}" ShortID="334053992">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>41</Value>
@@ -1922,6 +1970,7 @@
 								<Value>31</Value>
 							</ValueList>
 						</Property>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideEffect" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -1936,11 +1985,6 @@
 							</ValueList>
 						</Property>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-7.1</Value>
-							</ValueList>
-						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -1960,6 +2004,11 @@
 						<Sound Name="fire_p_elena_001" ID="{82B52F00-36A7-428D-929E-B38AB7DD49B0}" ShortID="639453518">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2009,6 +2058,11 @@
 								<Property Name="RenderEffect1" Type="bool">
 									<ValueList>
 										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2257,6 +2311,11 @@
 						<Sound Name="fire_p_elena_008" ID="{847A7737-1734-4EE3-9B5E-F13844C8EBB1}" ShortID="294157013">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2657,6 +2716,11 @@
 						<Sound Name="fire_p_elena_018" ID="{D1710750-9829-4A71-ACB0-791788DA58E4}" ShortID="970492567">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2737,6 +2801,11 @@
 						<Sound Name="fire_p_elena_020" ID="{341D8B95-AB1A-4209-84EA-986B3CE4E7E1}" ShortID="291556369">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>0.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2777,6 +2846,11 @@
 						<Sound Name="fire_p_elena_021" ID="{464C7BC3-930B-4D0E-AE88-254D80DCD439}" ShortID="442883435">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2977,6 +3051,11 @@
 						<Sound Name="fire_p_elena_026" ID="{08E29E4E-965C-4535-A755-F6616E4B87A3}" ShortID="255449660">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3377,6 +3456,11 @@
 						<Sound Name="fire_p_elena_036" ID="{D9B3DA59-5A3C-431A-ABA9-73700B37DBEC}" ShortID="991372892">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3537,6 +3621,11 @@
 						<Sound Name="fire_p_elena_039" ID="{F0025BAF-9A91-4F46-9F27-6CB94D9B6B99}" ShortID="846604242">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3617,6 +3706,11 @@
 						<Sound Name="fire_p_elena_041" ID="{CAFE495D-1848-48B4-B6B6-45B224790FBF}" ShortID="135496003">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3697,6 +3791,11 @@
 						<Sound Name="fire_p_elena_043" ID="{B4FE3DCE-C8E8-4A11-80F2-C73FAC2392B2}" ShortID="525706188">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3897,6 +3996,11 @@
 						<Sound Name="fire_p_elena_048" ID="{1CFF958B-412A-45E6-9B53-DC9811EAE6D9}" ShortID="967832203">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4057,6 +4161,11 @@
 						<Sound Name="fire_p_elena_052" ID="{7CA66020-C98E-4A27-BBC6-834C5E92DE8B}" ShortID="961832457">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4177,6 +4286,11 @@
 						<Sound Name="fire_p_elena_055" ID="{21891FE9-ADB3-4501-B3A8-B883C170E1B8}" ShortID="346017140">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4257,6 +4371,11 @@
 						<Sound Name="fire_p_elena_057" ID="{AC4CB39C-8F7C-4D89-AC7C-BC7DF444C7E9}" ShortID="614871296">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4377,6 +4496,11 @@
 						<Sound Name="fire_p_elena_060" ID="{3FF4E293-088D-4ED7-A3C1-1BB6406DD8B4}" ShortID="256579446">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4657,6 +4781,11 @@
 						<Sound Name="fire_p_elena_067" ID="{7E9609FC-7A70-438F-A12E-21FE0923FE24}" ShortID="253924165">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4694,31 +4823,6 @@
 								<ActiveSource Name="fire_p_elena_01" ID="{42E6A8E1-F7D2-469A-B4C2-EF8283E27412}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="tutor_elena_007" ID="{9D70FCF2-B207-4875-BE27-22EE19987C92}" ShortID="179124065">
-							<PropertyList>
-								<Property Name="IsVoice" Type="bool" Value="True"/>
-							</PropertyList>
-							<ReferenceList>
-								<Reference Name="Conversion">
-									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
-								</Reference>
-								<Reference Name="OutputBus">
-									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-								</Reference>
-							</ReferenceList>
-							<ChildrenList>
-								<AudioFileSource Name="tutor_elena_007" ID="{7954F156-CCA7-4263-9AF4-2B6708F377EB}">
-									<Language>Russian</Language>
-									<AudioFile>tutor_elena\tutor_elena_007.wav</AudioFile>
-									<MediaIDList>
-										<MediaID ID="647261151"/>
-									</MediaIDList>
-								</AudioFileSource>
-							</ChildrenList>
-							<ActiveSourceList>
-								<ActiveSource Name="tutor_elena_007" ID="{7954F156-CCA7-4263-9AF4-2B6708F377EB}" Platform="Linked"/>
-							</ActiveSourceList>
-						</Sound>
 					</ChildrenList>
 					<PositioningInfo>
 						<Panner Name="" ID="{6E9F649B-FEF2-45D1-A0D2-5E10E43BB425}">
@@ -4730,12 +4834,14 @@
 				</ActorMixer>
 				<ActorMixer Name="fireep_elena" ID="{4BB947F3-325E-432C-ADA3-F3CEE41789A8}" ShortID="424331330">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>1.3</Value>
+								<Value>0.3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -4751,6 +4857,11 @@
 						<Sound Name="fireep_elena_001" ID="{4E7D05BC-8F18-4F3E-98F6-C02A339B87A1}" ShortID="17428978">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -4871,6 +4982,11 @@
 						<Sound Name="fireep_elena_004" ID="{07DACE43-CEB3-43F3-B5B2-339FFA507AB0}" ShortID="872842808">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5111,6 +5227,11 @@
 						<Sound Name="fireep_elena_010" ID="{2F9570D5-BAA4-45D2-BC23-EC203785C04A}" ShortID="1036859925">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5191,6 +5312,11 @@
 						<Sound Name="fireep_elena_012" ID="{DAAF8E24-9547-42FC-BA68-BBEBB4B003CB}" ShortID="169769279">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5231,6 +5357,11 @@
 						<Sound Name="fireep_elena_013" ID="{39B18E10-A80D-4160-AF0F-012975C0AD7E}" ShortID="879488038">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5271,6 +5402,11 @@
 						<Sound Name="fireep_elena_014" ID="{3AC80DFF-CF37-4C88-8639-3ACEA664504A}" ShortID="612962742">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5311,6 +5447,16 @@
 						<Sound Name="fireep_elena_015" ID="{834C7225-130B-4E9D-AF1C-66B2A159090B}" ShortID="752088192">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5351,6 +5497,11 @@
 						<Sound Name="fireep_elena_016" ID="{ADF24318-A09A-4D2B-A07F-03DF04E48611}" ShortID="393664732">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5391,6 +5542,11 @@
 						<Sound Name="fireep_elena_017" ID="{13A48F95-55D7-45C1-88E4-23D662FAFFF5}" ShortID="234861110">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5431,6 +5587,11 @@
 						<Sound Name="fireep_elena_018" ID="{307C8829-3BFB-49B3-9906-E34A5132B09E}" ShortID="422677613">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5551,6 +5712,11 @@
 						<Sound Name="fireep_elena_021" ID="{496BB44D-C1DA-43FC-84F7-A49688F71D9C}" ShortID="948757665">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5591,6 +5757,11 @@
 						<Sound Name="fireep_elena_022" ID="{CB53CE9E-BD62-40C6-A521-C8A6A67E5B7A}" ShortID="898741046">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5791,6 +5962,11 @@
 						<Sound Name="fireep_elena_027" ID="{49E21849-3B78-421D-A5C7-8E65604E6085}" ShortID="727146790">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5831,6 +6007,11 @@
 						<Sound Name="fireep_elena_028" ID="{60D24369-2D71-48FC-A1CC-B0D52CEC5164}" ShortID="255994290">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5871,6 +6052,11 @@
 						<Sound Name="fireep_elena_029" ID="{FEF10935-941A-4364-96FE-43653D1626BE}" ShortID="964685107">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5911,6 +6097,11 @@
 						<Sound Name="fireep_elena_030" ID="{01B60E45-C9F0-432C-BDC0-FBD91BAD268C}" ShortID="557643436">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5951,6 +6142,11 @@
 						<Sound Name="fireep_elena_031" ID="{96FBD485-E375-4CE5-B99B-35052DC2B64A}" ShortID="57656086">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -5991,6 +6187,11 @@
 						<Sound Name="fireep_elena_032" ID="{8C9BF0A5-1F5C-45ED-ABCE-95CDBAF49A14}" ShortID="961632299">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -6039,6 +6240,8 @@
 				</ActorMixer>
 				<ActorMixer Name="pizzaep_elena" ID="{BCF8D99B-99D7-4BFD-B116-6E664B92131F}" ShortID="769887099">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
@@ -6057,7 +6260,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-1.5</Value>
+										<Value>2.8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -6340,6 +6543,11 @@
 						<Sound Name="pizzaep_elena_008" ID="{E22818F2-04A5-47D6-8BE7-F846F42F5571}" ShortID="916018591">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -6460,6 +6668,11 @@
 						<Sound Name="pizzaep_elena_011" ID="{5152F565-34D2-4408-A630-D43E0F217649}" ShortID="20468348">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -6580,6 +6793,11 @@
 						<Sound Name="pizzaep_elena_014" ID="{FCC65ABB-7670-46B9-8D42-A2FC6F9E13A1}" ShortID="147887893">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -6740,6 +6958,11 @@
 						<Sound Name="pizzaep_elena_alt_001" ID="{3FEBF2DB-ED2F-45A3-A47C-4818BE32F5F9}" ShortID="939055548">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>0.1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -6751,6 +6974,12 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="pizzaep_elena__alt_001" ID="{0695A5A0-761A-4BF9-9513-67DA95C25652}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.236273634453781"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.0545246848739496"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.74842489495798"/>
+									</PropertyList>
 									<Language>Russian</Language>
 									<AudioFile>pizzaep_elena\pizzaep_elena__alt_001.wav</AudioFile>
 									<MediaIDList>
@@ -6777,6 +7006,11 @@
 						<Sound Name="pizzaep_elena_alt_002" ID="{13B8C027-6EBF-4B53-A160-D8B73381D659}" ShortID="1051883290">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -6795,6 +7029,11 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<AudioFileSource Name="pizzaep_elena_alt_002_1" ID="{D1BB15CD-4026-43E7-8989-87D3EB2B4C62}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.23107993697479"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="2.46866586134454"/>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -6808,7 +7047,7 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizzaep_elena_alt_002" ID="{B657E1F7-4726-4A03-94AC-E8C85DABCB05}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_elena_alt_002_1" ID="{D1BB15CD-4026-43E7-8989-87D3EB2B4C62}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -6822,6 +7061,7 @@
 				</ActorMixer>
 				<ActorMixer Name="tutor_elena" ID="{CD796330-654F-47F6-AF82-F7127CCD32FC}" ShortID="646882028">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>41</Value>
@@ -6832,12 +7072,13 @@
 								<Value>31</Value>
 							</ValueList>
 						</Property>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>6.8</Value>
+								<Value>-1</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -6933,6 +7174,11 @@
 						<Sound Name="tutor_elena_003" ID="{A9766357-CE1C-4307-8895-6EDE58201844}" ShortID="103042269">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7120,7 +7366,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-17.3</Value>
+										<Value>-4.7</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7163,6 +7409,11 @@
 						<Sound Name="tutor_elena_008" ID="{792F5E85-B68C-44BE-9165-E552058A027A}" ShortID="700400014">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7227,11 +7478,6 @@
 						<Sound Name="tutor_elena_009" ID="{0D715BBB-2883-47A9-B140-A712337B69F8}" ShortID="280527561">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-2.2</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7274,7 +7520,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>1.9</Value>
+										<Value>-6.2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -7357,6 +7603,11 @@
 						<Sound Name="tutor_elena_012" ID="{82C27E09-349E-4153-83F9-7DEC5E686243}" ShortID="366848630">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7477,6 +7728,11 @@
 						<Sound Name="tutor_elena_015" ID="{9818A957-0940-4EB7-96B8-2B8A6CD2E5DF}" ShortID="363120664">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7709,6 +7965,11 @@
 						<Sound Name="tutor_elena_019" ID="{478BE496-FEC1-44A8-969F-95098F6632F4}" ShortID="958809176">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7957,6 +8218,11 @@
 						<Sound Name="tutor_elena_024" ID="{EA16C41A-6849-49BA-8B2E-4163BB5771AD}" ShortID="959916374">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8021,6 +8287,11 @@
 						<Sound Name="tutor_elena_025" ID="{ECA15A9B-AD8F-4DD7-A80B-5730D4A1E58E}" ShortID="560144268">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8205,11 +8476,6 @@
 						<Sound Name="tutor_elena_029" ID="{988FD80B-D53E-459E-818E-5FDCDCD734AC}" ShortID="495016751">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-2.7</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8252,7 +8518,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-0.6</Value>
+										<Value>-0.4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8337,7 +8603,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-1.1</Value>
+										<Value>3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -8508,6 +8774,7 @@
 				</ActorMixer>
 				<ActorMixer Name="pizza_elena" ID="{DE5F899A-6206-4520-84D3-376D940E6746}" ShortID="626039162">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>41</Value>
@@ -8518,14 +8785,10 @@
 								<Value>31</Value>
 							</ValueList>
 						</Property>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
-						<Property Name="Volume" Type="Real64">
-							<ValueList>
-								<Value>-3.6</Value>
-							</ValueList>
-						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -8861,6 +9124,11 @@
 							<Comment>Вы в опасности?</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -8999,6 +9267,11 @@
 							<Comment>Сколько вас?</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9321,11 +9594,6 @@
 							<Comment>А теперь -- адрес, куда выслать наряд_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.3</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9372,6 +9640,11 @@
 							<Comment>К дому выслана полиция_ Ожидайте_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9418,6 +9691,11 @@
 							<Comment>Без сирены_ Поняла_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9510,6 +9788,11 @@
 							<Comment>Согласитесь с ним_ Пусть спустится сам_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9556,6 +9839,11 @@
 							<Comment>Продолжайте говорить про пиццу_ Не давайте человеку засомневаться_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9648,6 +9936,11 @@
 							<Comment>Скажите, что кофе_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-0.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9834,7 +10127,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4.3</Value>
+										<Value>2.4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -9883,6 +10176,11 @@
 							<Comment>Всего доброго_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -9929,6 +10227,11 @@
 							<Comment>Не имею права вешать трубку_ Мы ждём___ “курьеров”_ Ещё чуть-чуть___</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -10093,6 +10396,11 @@
 							<Comment>Сэр, не делайте глупостей_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -10462,6 +10770,11 @@
 							<Comment>Или ты хочешь проверить?</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -10503,6 +10816,11 @@
 							<Comment>Тогда сиди смирно, пока не придет полиция_ Тронешь девушку -- тебя тронут сильнее_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -10585,6 +10903,11 @@
 							<Comment>Назовите номер квартиры_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>0.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -10831,6 +11154,11 @@
 							<Comment>Это 911_ Сэр, вам следует-</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -10956,7 +11284,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-0.7</Value>
+										<Value>-1.8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11000,11 +11328,6 @@
 							<Comment>”Хэндклиффс и компания”</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-0.3</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11046,11 +11369,6 @@
 							<Comment>“Пицца в срок!”</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-0.5</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11092,11 +11410,6 @@
 							<Comment>Девять простых, натуральных ингридиентов_ Один звонок_ Один сытный ужин_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.3</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11138,11 +11451,6 @@
 							<Comment>”Курьеры” ожидают вас внизу_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-0.4</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11266,6 +11574,11 @@
 							<Comment>Справедливость_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11348,11 +11661,6 @@
 							<Comment>Отойдите от окна_ Не смотрите_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.3</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11394,11 +11702,6 @@
 							<Comment>Продолжайте наблюдать_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.5</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11440,11 +11743,6 @@
 							<Comment>Какой ваш заказ?</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-6.1</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11527,11 +11825,6 @@
 							<Comment>Пицца на одного человека?</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.3</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11573,11 +11866,6 @@
 							<Comment>Насколько острая пицца?</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-0.8</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11619,11 +11907,6 @@
 							<Comment>Поняла вас_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-0.3</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11665,11 +11948,6 @@
 							<Comment>Это Барбара! Оператор пиццерии___</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.3</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11713,7 +11991,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-0.5</Value>
+										<Value>-2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -11921,11 +12199,6 @@
 							<Comment>Мне нужен номер ваших аппартаментов_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.5</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -11967,11 +12240,6 @@
 							<Comment>Отлично! В течение минуты приедут “курьеры”_ Лучше откройте им дверь сразу_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.8</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -12054,11 +12322,6 @@
 							<Comment>Пожалуйста, не вешайте трубку!</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1.1</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -12141,11 +12404,6 @@
 							<Comment>Пожалуйста, оцените мою работу, как оператора пиццерии_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-1</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -12189,7 +12447,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-2.5</Value>
+										<Value>-0.9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -12233,11 +12491,6 @@
 							<Comment>Всего доброго и приятного аппетита!</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-0.9</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -12281,7 +12534,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>0.4</Value>
+										<Value>-0.8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -12370,7 +12623,7 @@
 								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-11.8</Value>
+										<Value>-2.1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

@@ -1,4 +1,5 @@
 using System;
+using DG.Tweening;
 using UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,15 +8,21 @@ namespace PhotoViewer.Scripts.Photo
 {
     public class PhotoView : AaWindow
     {
-        [SerializeField] private RectTransform _viewTransfrom = default;
-        [SerializeField] private Image _image = default;
-        [SerializeField] private RectTransform _imageTransform = default;
-        [SerializeField] private MenuButtonView _closeBtn = default;
-        [SerializeField] private NewspaperInput _newspaperInput = default;
-        private Vector2 _zoomLimit = new(1, 4);
+        private const float MagicValue = 3000f;
+        
+        [SerializeField] private RectTransform viewTransform = default;
+        [Space] [SerializeField] private Image backgroundImage = default;
+        [SerializeField] private Image newspaperImage = default;
+        [Space] [SerializeField] private MenuButtonView closeBtn = default;
+        [SerializeField] private NewspaperInput newspaperInput = default;
+        [SerializeField] private NewspaperInputSo newspaperInputConfig = default;
+
+        private RectTransform _backgroundTransform;
+        private RectTransform _newspaperTransform;
 
         private Vector2 _initialImageSize;
-        private Vector2 _imageSize;
+        private bool _zoomIn;
+        private Sequence _zoomSequence;
 
         public event Action OnClose;
 
@@ -23,17 +30,17 @@ namespace PhotoViewer.Scripts.Photo
         {
             get
             {
-                var rect = _viewTransfrom.rect;
+                var rect = viewTransform.rect;
                 return new Vector2(rect.width, rect.height);
             }
         }
 
-        private Vector2 ImageSize
+        private Vector2 NewspaperSize
         {
             get
             {
-                var rect = _imageTransform.rect;
-                var angle = (int) _imageTransform.rotation.eulerAngles.z;
+                var rect = _newspaperTransform.rect;
+                var angle = (int)_newspaperTransform.rotation.eulerAngles.z;
                 Vector2 result;
 
                 if (angle == 0 || angle == 180)
@@ -48,19 +55,25 @@ namespace PhotoViewer.Scripts.Photo
         protected override void OnEnable()
         {
             base.OnEnable();
-            
-            _newspaperInput.onDrag += ApplyMove;
-            _newspaperInput.onZoom += ApplyZoom;
-            _closeBtn.OnClick += Close;
+            _backgroundTransform = backgroundImage.rectTransform;
+            _newspaperTransform = newspaperImage.rectTransform;
+
+            newspaperInput.Init(newspaperInputConfig);
+
+            //_newspaperInput.onDrag += ApplyMove;
+            newspaperInput.onScroll += ApplyScroll;
+            newspaperInput.onClick += ZoomOnClick;
+            closeBtn.OnClick += Close;
         }
 
         protected override void OnDisable()
         {
             base.OnDisable();
-            
-            _newspaperInput.onDrag -= ApplyMove;
-            _newspaperInput.onZoom -= ApplyZoom;
-            _closeBtn.OnClick -= Close;
+
+            //_newspaperInput.onDrag -= ApplyMove;
+            newspaperInput.onScroll -= ApplyScroll;
+            newspaperInput.onClick -= ZoomOnClick;
+            closeBtn.OnClick -= Close;
         }
 
         public void SetNewspaper(Sprite sprite)
@@ -80,82 +93,100 @@ namespace PhotoViewer.Scripts.Photo
 
         private void ShowData(ImageData imageData)
         {
-            if (_image)
-                _image.sprite = imageData.Sprite;
+            if (newspaperImage)
+                newspaperImage.sprite = imageData.Sprite;
 
-            RescalePhoto(imageData.Sprite);
+            _initialImageSize = ViewerSize;
         }
-        
-        private void ApplyZoom(float value)
+
+        private void ZoomOnClick(Vector2 clickPos)
         {
-            value *= _initialImageSize.y;
-            _imageSize.y += value;
-            var magnitudeRelation = _imageSize.y / _initialImageSize.y;
-            magnitudeRelation = Mathf.Clamp(magnitudeRelation, _zoomLimit.x, _zoomLimit.y);
+            _zoomIn = !_zoomIn;
 
-            var y = _initialImageSize.y * magnitudeRelation;
-            var x = (_initialImageSize.x / _initialImageSize.y) * y;
+            _zoomSequence?.Kill();
+            _zoomSequence = DOTween.Sequence().SetEase(Ease.InOutCubic);
+            _zoomSequence.SetUpdate(true);
 
-            _imageSize = new Vector2(x, y);
-            _imageTransform.sizeDelta = _imageSize;
+            // newspaperImage
+            var zoomSize = _zoomIn ? _initialImageSize * newspaperInputConfig.MaxZoom : _initialImageSize;
+            _zoomSequence.Append(_newspaperTransform.DOSizeDelta(zoomSize, newspaperInputConfig.ZoomTime));
+
+            var position = _zoomIn ? CalculateNewspaperZoomPosition(clickPos) : Vector2.zero;
+            _zoomSequence.Insert(0, _newspaperTransform.DOLocalMove(position, newspaperInputConfig.ZoomTime));
+
+            // backgroundImage
+            var backZoomSize = _zoomIn ? _initialImageSize * (newspaperInputConfig.MaxZoom * 0.5f) : _initialImageSize;
+            _zoomSequence.Insert(0, _backgroundTransform.DOSizeDelta(backZoomSize, newspaperInputConfig.ZoomTime));
+
+            var backPosition = _zoomIn ? CalculateBackgroundZoomPosition(clickPos) : Vector2.zero;
+            _zoomSequence.Insert(0, _backgroundTransform.DOLocalMove(backPosition, newspaperInputConfig.ZoomTime));
         }
 
-        private void ApplyMove(Vector2 deltaPosition)
+        // todo remove hardcode
+        private Vector2 CalculateNewspaperZoomPosition(Vector2 clickPos)
         {
-            Vector2 newPosition = _imageTransform.localPosition;
+            var relation = clickPos.y / Screen.height;
+            var coordinate = MagicValue * 0.5f - MagicValue * relation;
 
-            if (ImageSize.x > ViewerSize.x)
-            {
-                newPosition.x += deltaPosition.x;
-
-                if ((newPosition.x - ImageSize.x / 2) > -ViewerSize.x / 2)
-                    newPosition.x = -ViewerSize.x / 2 + ImageSize.x / 2;
-
-                if ((newPosition.x + ImageSize.x / 2) < ViewerSize.x / 2)
-                    newPosition.x = ViewerSize.x / 2 - ImageSize.x / 2;
-            }
-            else
-                newPosition.x = 0;
-
-            if (ImageSize.y > ViewerSize.y)
-            {
-                newPosition.y += deltaPosition.y;
-
-                if ((newPosition.y - ImageSize.y / 2) > -ViewerSize.y / 2)
-                    newPosition.y = -ViewerSize.y / 2 + ImageSize.y / 2;
-
-                if ((newPosition.y + ImageSize.y / 2) < ViewerSize.y / 2)
-                    newPosition.y = ViewerSize.y / 2 - ImageSize.y / 2;
-            }
-            else
-                newPosition.y = 0;
-
-            _imageTransform.localPosition = (Vector3) newPosition;
+            return new Vector2(0, coordinate);
         }
 
-        private void RescalePhoto(Sprite sprite)
+        // todo remove hardcode
+        private Vector2 CalculateBackgroundZoomPosition(Vector2 clickPos)
         {
-            if (_viewTransfrom == null) return;
+            var magicValue = MagicValue * 0.1f;
+            var relation = clickPos.y / Screen.height;
+            var coordinate = magicValue * 0.5f - magicValue * relation;
 
-            var viewerSize = ViewerSize;
-            var spriteSize = new Vector2(sprite.rect.width, sprite.rect.height);
-
-            var viewerAspect = viewerSize.x / viewerSize.y;
-            var spriteAspect = spriteSize.x / spriteSize.y;
-
-            if (spriteAspect > viewerAspect)
-            {
-                var relation = viewerSize.x / sprite.texture.width;
-                _imageTransform.sizeDelta = new Vector2(viewerSize.x, relation * spriteSize.y);
-            }
-            else
-            {
-                var relate = viewerSize.y / sprite.texture.height;
-                _imageTransform.sizeDelta = new Vector2(relate * spriteSize.x, viewerSize.y);
-            }
-
-            _initialImageSize = _imageTransform.sizeDelta;
-            _imageSize = _initialImageSize;
+            return new Vector2(0, coordinate);
         }
+
+        private void ApplyScroll(float zoomDelta)
+        {
+            ApplyNewspaperScroll(zoomDelta, _newspaperTransform);
+            ApplyBackgroundScroll(zoomDelta, _backgroundTransform);
+        }
+
+        // todo remove hardcode
+        private void ApplyNewspaperScroll(float zoomDelta, Transform obj)
+        {
+            if (!_zoomIn) return;
+
+            Vector2 newPosition = obj.localPosition;
+            newPosition.y += zoomDelta;
+
+            //newPosition.x = Mathf.Clamp(newPosition.x, -1200, 1200);
+            var magicValue = MagicValue * 0.5f;
+            newPosition.y = Mathf.Clamp(newPosition.y, -magicValue, magicValue);
+
+            obj.localPosition = newPosition;
+        }
+
+        // todo remove hardcode
+        private void ApplyBackgroundScroll(float zoomDelta, Transform obj)
+        {
+            if (!_zoomIn) return;
+
+            Vector2 newPosition = obj.localPosition;
+            newPosition.y += zoomDelta * 0.1f;
+            var magicValue = MagicValue * 0.05f;
+            newPosition.y = Mathf.Clamp(newPosition.y, -magicValue, magicValue);
+
+            obj.localPosition = newPosition;
+        }
+
+
+        /*private void ApplyMove(Vector2 deltaPosition)
+        {
+            if (!_zoomIn) return;
+
+            Vector2 newPosition = imageTransform.localPosition;
+            newPosition += deltaPosition;
+
+            newPosition.x = Mathf.Clamp(newPosition.x, -1200, 1200);
+            newPosition.y = Mathf.Clamp(newPosition.y, -1500, 1500);
+
+            imageTransform.localPosition = newPosition;
+        }*/
     }
 }

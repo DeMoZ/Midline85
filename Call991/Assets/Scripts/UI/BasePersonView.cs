@@ -69,7 +69,7 @@ public class BasePersonView : MonoBehaviour
                 else
                 {
                     _yieldTime = 0;
-                    _wordTime = _phrase.wordTimes[0].time;
+                    _wordTime = _phrase.wordTimes[0].timeLine;
                     _wordIndex = -1;
                 }
 

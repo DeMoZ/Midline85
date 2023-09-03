@@ -9,6 +9,7 @@
 			<ChildrenList>
 				<ActorMixer Name="fire_p_lara" ID="{CA7C0442-224B-452E-890E-D1868C91C3D3}" ShortID="193097082">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>42</Value>
@@ -19,10 +20,11 @@
 								<Value>36</Value>
 							</ValueList>
 						</Property>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-0.6</Value>
+								<Value>-2</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
