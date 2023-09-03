@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<ActorMixer Name="SFX Filtered" ID="{6161410C-9B9B-4D8A-ABE0-21B7ED5207F1}" ShortID="875096185">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>25</Value>
@@ -31,6 +32,11 @@
 								<Value>True</Value>
 							</ValueList>
 						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-17.6</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -55,7 +61,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-5.2</Value>
+										<Value>-6.5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -82,8 +88,23 @@
 						</Sound>
 						<Sound Name="fire_sfx_jackanger" ID="{EFEA77D4-94DC-467F-9576-230E0F32E10B}" ShortID="173074112">
 							<PropertyList>
+								<Property Name="Highpass" Type="int16">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>15</Value>
+									</ValueList>
+								</Property>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -132,7 +153,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>3.4</Value>
+										<Value>-11.3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -158,6 +179,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_carfar" ID="{658937A7-50BC-4CEA-9772-E01BB712FED9}" ShortID="762196442">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-18</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -209,6 +237,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_death" ID="{D4C2BF02-62A5-4F11-AB44-53622946FE45}" ShortID="359396958">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -231,6 +266,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_dporbell" ID="{39F9611B-9D7B-4AAC-8F36-CE38A9110C1D}" ShortID="353909231">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-14.3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -256,12 +298,12 @@
 							<PropertyList>
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
-										<Value>13</Value>
+										<Value>18</Value>
 									</ValueList>
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>5</Value>
+										<Value>-11.6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -316,6 +358,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_haveaseat" ID="{4627A926-39F8-40EB-B74A-CB429A6832B8}" ShortID="1021154965">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12.6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -341,7 +390,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-8</Value>
+										<Value>-8.6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -404,7 +453,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-13</Value>
+										<Value>-14.9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -430,6 +479,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_officeBG" ID="{9729DC12-0F4A-4775-9120-EF41014FF79B}" ShortID="465492155">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-22</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -452,6 +508,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_park" ID="{D576AB2F-F7D0-4580-BDFE-A314ACEB72A7}" ShortID="185197623">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-24</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -474,6 +537,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_phone1" ID="{A112266D-957C-438A-BEF1-44223FA9B569}" ShortID="673086504">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6.8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -509,7 +579,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>6</Value>
+										<Value>-4.5</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -537,6 +607,11 @@
 						<Sound Name="sfx_rain" ID="{AAABB704-A64A-424B-AB7D-EEF6D2876D9F}" ShortID="503636507">
 							<PropertyList>
 								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-13</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -564,6 +639,11 @@
 								<Property Name="Highpass" Type="int16">
 									<ValueList>
 										<Value>19</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7.9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -595,6 +675,11 @@
 										<Value>18</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -622,6 +707,11 @@
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
 										<Value>14</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5.7</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -656,6 +746,11 @@
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
 										<Value>10</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -793,6 +888,13 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<Sound Name="sfx_MChready" ID="{1627A651-B265-44A9-AAAE-943E7970FAC1}" ShortID="964450809">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -828,7 +930,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>4</Value>
+										<Value>-3.3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -965,6 +1067,11 @@
 										<Value>13</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1097,6 +1204,11 @@
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
 										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1343,6 +1455,11 @@
 										<Value>12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1374,7 +1491,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>3</Value>
+										<Value>-14</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1400,6 +1517,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_HitTable2" ID="{5500FC0A-1495-4D5D-A927-0E945F0C76C9}" ShortID="45928281">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -1433,6 +1557,11 @@
 										<Value>12</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-11</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1456,6 +1585,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_PhoneRing" ID="{8A44B72F-0FBC-4C24-8001-DEA169E196CF}" ShortID="1023126203">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -1487,6 +1623,11 @@
 								<Property Name="Lowpass" Type="int16">
 									<ValueList>
 										<Value>12</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1525,7 +1666,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>4.4</Value>
+										<Value>-6.3</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1647,7 +1788,7 @@
 								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>1.1</Value>
+										<Value>-7.9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1673,6 +1814,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_PhonePutDown" ID="{F15C3AAD-9A05-4CDB-A9DB-C0D38DD93099}" ShortID="155050536">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -1695,6 +1843,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="sfx_scratch" ID="{39545205-98B2-4647-A67E-EA66B760FFE7}" ShortID="619049623">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7.3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -1722,7 +1877,7 @@
 								<Property Name="SpeakerPanning" Type="int16" Value="2"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1736,6 +1891,13 @@
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="sfx_PenHitsDesk_001" ID="{ADF059CC-CF71-41DE-A542-D53A91B499D2}" ShortID="520059280">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-11</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="SFX" ID="{F95AE004-C19F-48F7-A39D-DA3DC8CA23C0}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -2624,7 +2786,7 @@
 										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>9.7</Value>
+												<Value>-0.3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2773,7 +2935,7 @@
 										<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>12.5</Value>
+												<Value>-0.5</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3152,7 +3314,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>3.7</Value>
+												<Value>1</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -3468,7 +3630,7 @@
 								<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>6</Value>
+										<Value>-14.6</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -3511,6 +3673,11 @@
 							<PropertyList>
 								<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 								<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-15</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3545,9 +3712,15 @@
 				</ActorMixer>
 				<ActorMixer Name="SFX non Filtr" ID="{9FE7D189-C213-4187-B457-A83A992FD775}" ShortID="45358102">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="MakeUpGain" Type="Real64">
 							<ValueList>
 								<Value>5</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-8</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -3631,10 +3804,10 @@
 								<AudioFileSource Name="sfx_susup" ID="{966E59E8-6281-4348-A5C4-1F338EA21A6D}">
 									<PropertyList>
 										<Property Name="FadeInDuration" Type="Real64" Value="0.0996091954022989"/>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.183654454022988"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.719614435832902"/>
 										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
 										<Property Name="TrimBegin" Type="Real64" Value="0.105834770114943"/>
-										<Property Name="TrimEnd" Type="Real64" Value="2.69256106321839"/>
+										<Property Name="TrimEnd" Type="Real64" Value="1.40709454434618"/>
 									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>SFX\sfx_susup.wav</AudioFile>
@@ -3670,11 +3843,6 @@
 						<Sound Name="cinematic" ID="{5CB6A46C-5C47-401A-B95A-BBBB8ABF7538}" ShortID="259047440">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>1.8</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -3717,7 +3885,7 @@
 									<PropertyList>
 										<Property Name="VolumeOffset" Type="Real64">
 											<ValueList>
-												<Value>-10.7</Value>
+												<Value>-0.4</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>

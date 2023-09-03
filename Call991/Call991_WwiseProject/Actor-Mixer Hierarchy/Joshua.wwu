@@ -9,6 +9,7 @@
 			<ChildrenList>
 				<ActorMixer Name="psycho1_psycho" ID="{5142EAEE-9AE7-4746-9156-67F159B9A227}" ShortID="314342624">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="Highpass" Type="int16">
 							<ValueList>
 								<Value>41</Value>
@@ -19,10 +20,11 @@
 								<Value>31</Value>
 							</ValueList>
 						</Property>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-4.2</Value>
+								<Value>-5.6</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
