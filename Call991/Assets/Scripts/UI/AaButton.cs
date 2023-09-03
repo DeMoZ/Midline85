@@ -20,17 +20,20 @@ namespace UI
         public bool IsSelected { get; private set; }
 
         //public Button Button => button;
-        
-        public abstract void OnButtonSelect();
-        public abstract void OnButtonClick();
-        public abstract void OnButtonNormal();
+
+        protected abstract void OnButtonSelect();
+        protected abstract void OnButtonClick();
+        protected abstract void OnButtonNormal();
         
         public void OnPointerEnter(PointerEventData eventData)
         {
             Debug.Log($"[{this}] Button {name} Hovered over the button");
             IsMouseSelected = true;
-            if(!IsSelected)
+            if (!IsSelected)
+            {
+                OnButtonSelect();
                 onButtonSelect?.Invoke();
+            }
             
             IsSelected = true;
         }
@@ -40,18 +43,24 @@ namespace UI
             Debug.Log($"[{this}] Button {name} Stopped hovering over the button");
             IsMouseSelected = false;
             IsSelected = IsKeyboardSelected;
-            
-            if(!IsSelected)
+
+            if (!IsSelected)
+            {
+                OnButtonNormal();
                 onButtonNormal?.Invoke();
+            }
         }
         
         public void OnSelect(BaseEventData eventData)
         {
             Debug.Log($"[{this}] Button {name} selected");
             IsKeyboardSelected = true;
-            
-            if(!IsSelected)
+
+            if (!IsSelected)
+            {
+                OnButtonSelect();
                 onButtonSelect?.Invoke();
+            }
             
             IsSelected = true;
         }
@@ -61,15 +70,19 @@ namespace UI
             Debug.Log($"[{this}] Button {name} deselected");
             IsKeyboardSelected = false;
             IsSelected = IsMouseSelected;
-            
-            if(!IsSelected)
+
+            if (!IsSelected)
+            {
+                OnButtonNormal();
                 onButtonNormal?.Invoke();
+            }
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
             Debug.Log($"[{this}] Button {name} clicked");
-            
+
+            OnButtonClick();
             onButtonClick?.Invoke();
         }
 
@@ -79,13 +92,14 @@ namespace UI
         public void Press()
         {
             buttonAudioSettings?.PlayClickSound();
-            //button.onClick.Invoke();
+            OnButtonClick();
             onButtonClick?.Invoke();
         }
         
         public void SetNormal()
         {
             //cursorSettings?.ApplyCursor(CursorType.Normal);
+            OnButtonNormal();
             onButtonNormal?.Invoke();
         }
     }

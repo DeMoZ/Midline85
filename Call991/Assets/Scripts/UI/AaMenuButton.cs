@@ -13,20 +13,17 @@ namespace UI
             set => text.text = value;
         }
 
-        
-        public override void OnButtonSelect()
+
+        protected override void OnButtonSelect()
         {
-            throw new System.NotImplementedException();
         }
 
-        public override void OnButtonClick()
+        protected override void OnButtonClick()
         {
-            throw new System.NotImplementedException();
         }
 
-        public override void OnButtonNormal()
+        protected override void OnButtonNormal()
         {
-            throw new System.NotImplementedException();
         }
     }
 }

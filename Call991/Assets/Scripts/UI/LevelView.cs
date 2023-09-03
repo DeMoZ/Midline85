@@ -21,8 +21,7 @@ namespace UI
 
         [SerializeField] private Button pauseButton = default;
         [SerializeField] private CanvasGroup choiceCanvasGroup;
-        [SerializeField] private List<ChoiceButtonView> buttons = default;
-        [SerializeField] private List<ChoiceButtonSplitter> buttonSplitters = default;
+        [SerializeField] private List<GameObject> buttonSplitters = default;
         [SerializeField] private List<PersonView> persons = default;
         [SerializeField] private TextPersonView imagePersonText = default;
         [SerializeField] private List<ImagePersonView> imagePersons = default;
@@ -42,9 +41,10 @@ namespace UI
                 ChoicesDuration = _ctx.GameSet.choicesDuration,
             });
 
-            for (var i = 0; i < buttons.Count; i++)
+            for (var i = 0; i < Buttons.Length; i++)
             {
-                buttons[i].SetCtx(new ChoiceButtonView.Ctx
+                var button = (AaChoiceButton)Buttons[i];
+                button.SetCtx(new AaChoiceButton.Ctx
                 {
                     Index = i,
                     OnClickChoiceButton = _ctx.LevelSceneObjectsService.OnClickChoiceButton,
@@ -77,8 +77,9 @@ namespace UI
 
             for (var i = 0; i < data.Count; i++)
             {
-                buttons[i].interactable = !data[i].IsLocked;
-                buttons[i].Show(data[i].Choice, data[i].IsLocked, data[i].ShowUnlock);
+                var button = (AaChoiceButton)Buttons[i];
+                button.interactable = !data[i].IsLocked;
+                button.Show(data[i].Choice, data[i].IsLocked, data[i].ShowUnlock);
                 buttonSplitters[i + 1].gameObject.SetActive(true);
             }
 
@@ -105,7 +106,7 @@ namespace UI
         /// </summary>
         private void HideButtons()
         {
-            foreach (var button in buttons)
+            foreach (var button in Buttons)
                 button.gameObject.SetActive(false);
 
             foreach (var splitter in buttonSplitters)

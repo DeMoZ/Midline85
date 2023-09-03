@@ -27,16 +27,16 @@ public class AaWindow : InputHandler
     [ShowIf("useDisappearAnimation")] [SerializeField]
     private AnimationSettings disappearAnimation;
 
-    [FormerlySerializedAs("windowSelectables")] [Space] [Space] [SerializeField] private AaSelectable[] _windowSelectables = default;
     [Space] [Space] [SerializeField] private AaButton[] buttons = default;
 
     private Sequence _animationSequence;
+    private CancellationTokenSource _tokenSource;
 
-    protected CancellationTokenSource tokenSource;
+    protected AaButton[] Buttons => buttons;
 
     private void Awake()
     {
-        tokenSource = new CancellationTokenSource();
+        _tokenSource = new CancellationTokenSource();
     }
 
     protected override void OnEnable()
@@ -48,7 +48,7 @@ public class AaWindow : InputHandler
         EventSystem.current.SetSelectedGameObject(null);
         
         Debug.LogWarning($"<---------Start>");
-        foreach (var button in buttons)
+        foreach (var button in Buttons)
         {
             var btn = button;
             button.onButtonSelect.AddListener(()=> OnButtonSelect(btn));
@@ -70,7 +70,7 @@ public class AaWindow : InputHandler
 
     protected virtual void OnDisable()
     {
-        foreach (var button in buttons)
+        foreach (var button in Buttons)
         {
             button.onButtonSelect.RemoveAllListeners();
             button.onButtonNormal.RemoveAllListeners();
@@ -152,6 +152,6 @@ public class AaWindow : InputHandler
 
     protected virtual void OnDestroy()
     {
-        tokenSource.Cancel();
+        _tokenSource.Cancel();
     }
 }

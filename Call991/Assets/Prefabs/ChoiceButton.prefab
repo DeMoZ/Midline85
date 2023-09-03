@@ -146,7 +146,7 @@ GameObject:
   m_Component:
   - component: {fileID: 456124729896096290}
   - component: {fileID: 6770721485546905489}
-  - component: {fileID: 3033378153533468256}
+  - component: {fileID: 403939229022507710}
   m_Layer: 5
   m_Name: ChoiceButton
   m_TagString: Untagged
@@ -190,18 +190,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b20188af5374e15864c568ece760f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3033378153533468256
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 456124729896096291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   m_Navigation:
     m_Mode: 3
     m_WrapAround: 0
@@ -209,7 +197,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 0
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -231,9 +219,39 @@ MonoBehaviour:
     m_DisabledTrigger: Disabled
   m_Interactable: 1
   m_TargetGraphic: {fileID: 0}
-  m_OnClick:
+  buttonAudioSettings: {fileID: 11400000, guid: 76a1142e6c0ea43739a9af505e128818,
+    type: 2}
+  cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
+  onButtonSelect:
     m_PersistentCalls:
       m_Calls: []
+  onButtonClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onButtonNormal:
+    m_PersistentCalls:
+      m_Calls: []
+  defaultButton: {fileID: 1883042743227869854}
+  hoverButton: {fileID: 7758317990708646548}
+  buttonLock: {fileID: 4032343659503628138}
+  text: {fileID: 636876952199412556}
+  unlockAnimation: {fileID: 403939229022507710}
+--- !u!111 &403939229022507710
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 456124729896096291}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: da9552a1d120f44ccb2161dbf0648407, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: da9552a1d120f44ccb2161dbf0648407, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1013261436937498708
 GameObject:
   m_ObjectHideFlags: 0
@@ -456,6 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6086799162063448119}
   - component: {fileID: 2842096258300631368}
+  - component: {fileID: 4032343659503628138}
   m_Layer: 5
   m_Name: Lock
   m_TagString: Untagged
@@ -494,6 +513,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4108938339725060139}
   m_CullTransparentMesh: 1
+--- !u!114 &4032343659503628138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4108938339725060139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46e45c44c6244256926dec26bfb4f52e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4796989643939763130
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,3 +1,4 @@
+using System;
 using I2.Loc;
 using TMPro;
 using UniRx;
@@ -6,15 +7,8 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class AaChoiceButton : AaButton
+    public class AaChoiceButton : AaButton, IDisposable
     {
-        public struct Ctx
-        {
-            public int Index;
-            public ReactiveCommand<int> OnClickChoiceButton;
-            public ReactiveCommand<int> OnAutoSelectButton;
-        }
-
         [Space] [SerializeField] private Image defaultButton = default;
         [SerializeField] private Image hoverButton = default;
         [SerializeField] private ButtonLock buttonLock = default;
@@ -23,6 +17,14 @@ namespace UI
 
         private LocalizedString _localize;
         private CompositeDisposable _disposables;
+
+        public struct Ctx
+        {
+            public int Index;
+            public ReactiveCommand<int> OnClickChoiceButton;
+            public ReactiveCommand<int> OnAutoSelectButton;
+        }
+
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
@@ -33,37 +35,69 @@ namespace UI
             _ctx.OnAutoSelectButton.Subscribe(OnAutoSelectButton).AddTo(_disposables);
         }
 
+        public void Dispose()
+        {
+            _disposables?.Dispose();
+        }
+
         private void OnClickChoiceButton()
         {
-           // interactable = false;
+            interactable = false;
         }
 
         private void OnAutoSelectButton(int index)
         {
             if (_ctx.Index != index) return;
 
-            OnButtonSelect();
+            onButtonClick.Invoke();
+        }
+
+        public void Show(string localizationKey, bool isLocked, bool showUnlock)
+        {
+            interactable = !isLocked;
+            text.gameObject.SetActive(!isLocked);
+            buttonLock.gameObject.SetActive(isLocked);
+            unlockAnimation.Stop();
+
+            if (showUnlock)
+            {
+                buttonLock.gameObject.SetActive(true);
+                unlockAnimation.Play();
+            }
+            
+            SetButtonState(false);
+
+            _localize = localizationKey;
+            text.text = _localize;
+            gameObject.SetActive(true);
+        }
+
+        // public override void SetDisabled()
+        // {
+        //     base.SetDisabled();
+        //     SetButtonState(false);
+        // }
+
+        protected override void OnButtonSelect()
+        {
             SetButtonState(true);
         }
 
-        private void SetButtonState(bool toSelected)
+        protected override void OnButtonClick()
         {
-            defaultButton.gameObject.SetActive(!toSelected);
-            hoverButton.gameObject.SetActive(toSelected);
+            _ctx.OnClickChoiceButton.Execute(_ctx.Index);
         }
 
-        public override void OnButtonSelect()
-        {
-            SetButtonState(true);
-        }
-
-        public override void OnButtonClick()
-        {
-        }
-
-        public override void OnButtonNormal()
+        protected override void OnButtonNormal()
         {
             SetButtonState(false);
+        }
+
+        private void SetButtonState(bool toHover)
+        {
+            Debug.LogError($"button {name} set to hover = {toHover}");
+            defaultButton.gameObject.SetActive(!toHover);
+            hoverButton.gameObject.SetActive(toHover);
         }
     }
 }
