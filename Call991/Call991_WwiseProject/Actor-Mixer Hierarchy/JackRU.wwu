@@ -9,10 +9,12 @@
 			<ChildrenList>
 				<ActorMixer Name="fire_p_jack" ID="{CC9E6E8B-B976-4438-9E80-13333A47613B}" ShortID="894363271">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-11.5</Value>
+								<Value>-1.9</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -28,6 +30,16 @@
 						<Sound Name="fire_p_jack_001" ID="{7CDD866F-EE57-4285-83C8-7EE2B1297360}" ShortID="918417426">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -259,6 +271,16 @@
 						<Sound Name="fire_p_jack_008" ID="{D918DD54-5091-4735-8244-635726728FE6}" ShortID="506096796">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -292,6 +314,11 @@
 						<Sound Name="fire_p_jack_009" ID="{72D02840-AB95-440C-8E26-1ACD6209F966}" ShortID="7392783">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>1.1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -325,6 +352,11 @@
 						<Sound Name="fire_p_jack_010" ID="{DD7FD994-0BC8-4BAC-8D87-DD20CBE7B3FF}" ShortID="589216039">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -490,6 +522,11 @@
 						<Sound Name="fire_p_jack_015" ID="{88AB3C15-EC2B-4ACC-98A7-D4846200DE0C}" ShortID="182448991">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -688,6 +725,11 @@
 						<Sound Name="fire_p_jack_020" ID="{A808D6AA-F401-45D0-BE55-F65CC1FE8D05}" ShortID="826438561">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -754,6 +796,11 @@
 						<Sound Name="fire_p_jack_022" ID="{C23C9640-DF51-4A7F-86F9-E199335417AA}" ShortID="580403836">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -787,6 +834,11 @@
 						<Sound Name="fire_p_jack_023" ID="{B7F055DD-C40F-41F2-9320-48AF7C8FB927}" ShortID="1026889795">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -820,6 +872,11 @@
 						<Sound Name="fire_p_jack_024" ID="{78EA6EFF-94A9-4E0F-B229-758239B4143A}" ShortID="825361246">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-6.4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -886,6 +943,11 @@
 						<Sound Name="fire_p_jack_026" ID="{CC3974AA-A59C-4FB1-ACBD-46EC1EC5C876}" ShortID="606317961">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -952,6 +1014,11 @@
 						<Sound Name="fire_p_jack_028" ID="{49604FD4-C8B0-4946-B03F-2439D5FB5F2E}" ShortID="890258359">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>0.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1018,6 +1085,11 @@
 						<Sound Name="fire_p_jack_030" ID="{A34B5F4E-68E1-46B5-BDA4-F7DB7C16DE43}" ShortID="213448905">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>0.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1051,6 +1123,11 @@
 						<Sound Name="fire_p_jack_031" ID="{DE649D2B-B6E0-4F8B-8B7B-A680FC0A7212}" ShortID="63251415">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1150,6 +1227,11 @@
 						<Sound Name="fire_p_jack_034" ID="{B5B1A3E6-68EE-4BEC-BA60-AAAEF4A0EEF9}" ShortID="202719279">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>24</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1183,6 +1265,11 @@
 						<Sound Name="fire_p_jack_035" ID="{E6501E2F-5B30-494C-822C-C9204CA365A0}" ShortID="933988742">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1249,6 +1336,11 @@
 						<Sound Name="fire_p_jack_037" ID="{C6597041-ED6E-4599-BB3F-A91F6F84FEAA}" ShortID="770249094">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2.7</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

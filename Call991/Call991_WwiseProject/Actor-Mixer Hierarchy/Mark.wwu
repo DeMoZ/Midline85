@@ -9,10 +9,12 @@
 			<ChildrenList>
 				<ActorMixer Name="Mark_pizzaep" ID="{F31C6A61-06DB-4CD5-8EB2-1F13E4771593}" ShortID="438764576">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-20.2</Value>
+								<Value>-5</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -2152,7 +2154,7 @@
 							</ChildrenList>
 							<ActiveSourceList>
 								<ActiveSource Name="Interlude1_mark_004" ID="{9557D52A-A71E-411F-B905-1A9AADD9676E}" Platform="Linked"/>
-								<ActiveSource Name="pizzaep_mark_004_1-002" ID="{798E6C65-7EF9-4937-B77F-642AC82D6192}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_mark_004" ID="{5C0BDB9E-2578-4366-8985-C579C2566AA4}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_mark_005" ID="{402E543B-3DD8-4093-9D5B-114309DC1BF7}" ShortID="10393451">
@@ -2548,10 +2550,11 @@
 				<ActorMixer Name="Mark_fireep" ID="{6500F73D-4418-44AB-9340-8DDEAF228C43}" ShortID="124969511">
 					<PropertyList>
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-14.6</Value>
+								<Value>-5</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -4486,10 +4489,22 @@
 				</ActorMixer>
 				<ActorMixer Name="Mark_tutor" ID="{751FCA3B-5A9C-4B29-9D45-4A23CCE0935F}" ShortID="708355708">
 					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="Highpass" Type="int16">
+							<ValueList>
+								<Value>41</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Lowpass" Type="int16">
+							<ValueList>
+								<Value>31</Value>
+							</ValueList>
+						</Property>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>-4.6</Value>
+								<Value>-5.4</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
