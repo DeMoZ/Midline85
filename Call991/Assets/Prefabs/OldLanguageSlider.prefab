@@ -721,11 +721,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1347732205227246244}
   - component: {fileID: 6765323347882978987}
+  - component: {fileID: 8147111233199925188}
   - component: {fileID: 3547170742342537921}
-  - component: {fileID: 1100735927188654055}
   - component: {fileID: 4282854752263948869}
   m_Layer: 5
-  m_Name: LanguageSlider
+  m_Name: OldLanguageSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,15 +770,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   localizedLabel: {fileID: 5364772522105055046}
   dropdown: {fileID: 6127014733117035338}
---- !u!222 &3547170742342537921
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4254094310535309117}
-  m_CullTransparentMesh: 1
---- !u!114 &1100735927188654055
+--- !u!114 &8147111233199925188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -787,7 +779,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 4254094310535309117}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de1c5cf73d6e4508bf1275b1cf18c7f9, type: 3}
+  m_Script: {fileID: 11500000, guid: d7b70a7b084af404cb5542581191d176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -799,11 +791,11 @@ MonoBehaviour:
     m_SelectOnRight: {fileID: 0}
   m_Transition: 0
   m_Colors:
-    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
-    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
-    m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_NormalColor: {r: 0.5372549, g: 0.5372549, b: 0.5294118, a: 1}
+    m_HighlightedColor: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+    m_PressedColor: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+    m_SelectedColor: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 1}
+    m_DisabledColor: {r: 0.8509804, g: 0.8509804, b: 0.8509804, a: 0.5019608}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -822,22 +814,7 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  onButtonSelect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 4282854752263948869}
-        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
-        m_MethodName: OnSelected
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onButtonClick:
+  onClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4282854752263948869}
@@ -852,7 +829,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onButtonNormal:
+  onNormal:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 4282854752263948869}
@@ -867,9 +844,47 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  onHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4282854752263948869}
+        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
+        m_MethodName: OnSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 4282854752263948869}
+        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
+        m_MethodName: OnSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  text: {fileID: 7938811744131510327}
   leftButton: {fileID: 3829386228154468763}
   rightButton: {fileID: 7248956108464328033}
-  text: {fileID: 7938811744131510327}
+--- !u!222 &3547170742342537921
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4254094310535309117}
+  m_CullTransparentMesh: 1
 --- !u!114 &4282854752263948869
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1600,7 +1615,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344445a89b4f74a0e9a0a766903df87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mTerm: settings/textLang
+  mTerm: set_textLang
   mTermSecondary: 
   PrimaryTermModifier: 0
   SecondaryTermModifier: 0

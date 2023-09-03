@@ -335,10 +335,10 @@ GameObject:
   m_Component:
   - component: {fileID: 6149689793516317501}
   - component: {fileID: 6149689793516317473}
-  - component: {fileID: 4167608605720234186}
+  - component: {fileID: 6149689793516317502}
   - component: {fileID: 3509715668331130887}
   m_Layer: 5
-  m_Name: MainMenuButton
+  m_Name: OldMainMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -373,7 +373,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6149689793516317500}
   m_CullTransparentMesh: 1
---- !u!114 &4167608605720234186
+--- !u!114 &6149689793516317502
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -382,7 +382,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6149689793516317500}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5100e4f03ebc4e26bb9bc4b102157cb2, type: 3}
+  m_Script: {fileID: 11500000, guid: f25c82b82d454e71ad30bd631fd21589, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -402,10 +402,11 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
-    m_DisabledSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 720b2063245f849b9b12557fecb3af03,
+      type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 720b2063245f849b9b12557fecb3af03, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 720b2063245f849b9b12557fecb3af03, type: 3}
+    m_DisabledSprite: {fileID: 21300000, guid: 0792100c0140944a3aa482d65504126c, type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
     m_HighlightedTrigger: Highlighted
@@ -417,22 +418,7 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  onButtonSelect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 3509715668331130887}
-        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
-        m_MethodName: OnSelected
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onButtonClick:
+  onClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3509715668331130887}
@@ -447,12 +433,42 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onButtonNormal:
+  onNormal:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3509715668331130887}
         m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
         m_MethodName: OnNormal
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onHover:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3509715668331130887}
+        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
+        m_MethodName: OnSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 3509715668331130887}
+        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
+        m_MethodName: OnSelected
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
