@@ -20,7 +20,7 @@ namespace UI
         [SerializeField] private GameObject openingUi1 = default;
         [SerializeField] private GameObject openingUi2 = default;
         [SerializeField] private GameObject openingUi3 = default;
-        [SerializeField] private MenuButtonView startBtn = default;
+        [SerializeField] private AaMenuButton startBtn = default;
         [SerializeField] private ClickAnyButton anyButton = default;
 
         [Space] [SerializeField] private AK.Wwise.Switch sceneMusic = default;
@@ -30,7 +30,7 @@ namespace UI
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            startBtn.OnClick += OnClickStart;
+            startBtn.onButtonClick.AddListener(OnClickStart);
             anyButton.OnClick += OnClickStart;
 
             openingUi1.gameObject.SetActive(false);
@@ -85,8 +85,8 @@ namespace UI
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            
-            startBtn.OnClick -= OnClickStart;
+
+            startBtn.onButtonClick.RemoveAllListeners();
             anyButton.OnClick -= OnClickStart;
         }
     }

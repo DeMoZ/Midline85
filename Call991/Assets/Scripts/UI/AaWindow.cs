@@ -46,12 +46,7 @@ public class AaWindow : InputHandler
         // reset any selected object in case
         EventSystem.current.firstSelectedGameObject = null;
         EventSystem.current.SetSelectedGameObject(null);
-
-        // foreach (var selectable in _windowSelectables)
-        // {
-        //     selectable.OnSelectObj += OnSelectObj;
-        //     selectable.OnUnSelect += OnUnSelect;
-        // }
+        
         Debug.LogWarning($"<---------Start>");
         foreach (var button in buttons)
         {

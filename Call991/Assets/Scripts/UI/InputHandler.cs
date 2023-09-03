@@ -57,9 +57,9 @@ namespace UI
             if (GetPressedButtons(_pressKeyCodes))
                 PressObject();
 
-            // if (firstSelected && EventSystem.current &&
-            //     firstSelected.gameObject == EventSystem.current.currentSelectedGameObject)
-            if (firstSelected.gameObject == EventSystem.current.currentSelectedGameObject)
+            if (firstSelected && EventSystem.current &&
+                firstSelected.gameObject == EventSystem.current.currentSelectedGameObject)
+            //if (firstSelected.gameObject == EventSystem.current.currentSelectedGameObject)
             {
                 if (GetPressedButtons(_leftKeyCodes))
                     OnLeftButtonPress(firstSelected);
@@ -99,6 +99,7 @@ namespace UI
         {
             // Debug.LogWarning($"[InputHandler] 0 PressObject; firstSelected = {firstSelected}");
             if (gameObject.activeInHierarchy && firstSelected.gameObject.IsSelected())
+            //if (gameObject.activeInHierarchy && firstSelected.gameObject.IsSelected())
             {
                 // Debug.LogWarning($"[InputHandler] 1 PressObject.Press; firstSelected = {firstSelected}");
                 firstSelected.Press();
