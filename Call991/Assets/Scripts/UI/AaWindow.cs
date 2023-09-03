@@ -55,12 +55,15 @@ public class AaWindow : InputHandler
             button.onButtonNormal.AddListener(()=> OnButtonNormal(btn));
 
 //            Debug.LogWarning($"{button.name} selected = {button.IsSelected};\n     KeyboardSelected {button.IsKeyboardSelected}; MouseSelected {button.IsMouseSelected}");
-            if (button.IsSelected && button.IsKeyboardSelected && !button.IsMouseSelected)
-            {
-                button.SetNormal();
-                EventSystem.current.firstSelectedGameObject = button.gameObject;
-            }
+            // if (button.IsSelected && button.IsKeyboardSelected && !button.IsMouseSelected)
+            // {
+            //     button.SetNormal();
+            //     EventSystem.current.firstSelectedGameObject = button.gameObject;
+            // }
+            
+            button.Reset();
         }
+        EventSystem.current.firstSelectedGameObject = null;
 //        Debug.LogWarning($"<---------End>");
 
 

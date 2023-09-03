@@ -102,5 +102,13 @@ namespace UI
             OnButtonNormal();
             onButtonNormal?.Invoke();
         }
+
+        public void Reset()
+        {
+            IsSelected = false;
+            IsMouseSelected = false;
+            IsKeyboardSelected = false;
+            SetNormal();
+        }
     }
 }

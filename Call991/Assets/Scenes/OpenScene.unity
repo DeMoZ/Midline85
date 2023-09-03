@@ -188,14 +188,12 @@ MonoBehaviour:
     ButtonsGroup: {fileID: 0}
     ButtonsCanvas: {fileID: 0}
     Config: {fileID: 0}
-  _windowSelectables:
-  - {fileID: 0}
   buttons: []
   openingUi1: {fileID: 3365025635454622946}
   openingUi2: {fileID: 6311582141310107320}
   openingUi3: {fileID: 6626419070377277786}
   startBtn: {fileID: 1437908366}
-  anyButton: {fileID: 1437908364}
+  anyButton: {fileID: 6626419070377277787}
   sceneMusic:
     idInternal: 0
     valueGuidInternal: 
@@ -614,18 +612,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1437908364 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1803800258479827210, guid: 24d8605b922d94413be5c9c7ad8c29cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 6626419070377277785}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 371a10e0cb3948b7b462c5a7b0a8aae6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1437908366 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1429898441623433781, guid: 24d8605b922d94413be5c9c7ad8c29cf,
@@ -1165,3 +1151,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6626419070377277785}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6626419070377277787 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1449659909248318727, guid: 24d8605b922d94413be5c9c7ad8c29cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6626419070377277785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 371a10e0cb3948b7b462c5a7b0a8aae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
