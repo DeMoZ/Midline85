@@ -31,11 +31,11 @@ namespace UI
             exitBtn.OnClick += OnClickExitHandler;
         }
 
-        private void OnClickSelectLevelHandler() => Invoke(nameof(OnClickSelectLevel), ButtonAnimationTime);
-        private void OnClickNewGameHandler() => Invoke(nameof(OnClickNewGame), ButtonAnimationTime);
-        private void OnClickSettingsHandler() => Invoke(nameof(OnClickSettings), ButtonAnimationTime);
-        private void OnClickCreditsHandler() => Invoke(nameof(OnClickCredits), ButtonAnimationTime);
-        private void OnClickExitHandler() => Invoke(nameof(OnClickExit), ButtonAnimationTime);
+        private void OnClickSelectLevelHandler() => AnimateDisappear(OnClickSelectLevel);
+        private void OnClickNewGameHandler() => AnimateDisappear(OnClickNewGame);
+        private void OnClickSettingsHandler() => AnimateDisappear(OnClickSettings);
+        private void OnClickCreditsHandler() => AnimateDisappear(OnClickCredits);
+        private void OnClickExitHandler() => AnimateDisappear(OnClickExit);
 
         private void OnClickSelectLevel()
         {

@@ -222,6 +222,18 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: 76a1142e6c0ea43739a9af505e128818,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
+  onNormal:
+    m_PersistentCalls:
+      m_Calls: []
+  onHover:
+    m_PersistentCalls:
+      m_Calls: []
+  onSelect:
+    m_PersistentCalls:
+      m_Calls: []
   defaultButton: {fileID: 1883042743227869854}
   hoverButton: {fileID: 7758317990708646548}
   buttonLock: {fileID: 4547368646399552090}
@@ -279,7 +291,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -30, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2182673247132248588
 CanvasRenderer:
@@ -533,7 +545,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &922364127302746409
 RectTransform:
   m_ObjectHideFlags: 0
