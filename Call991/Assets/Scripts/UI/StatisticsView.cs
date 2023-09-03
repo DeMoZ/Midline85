@@ -40,6 +40,7 @@ namespace UI
             nextLevelButton.gameObject.SetActive(data.NextLevelExists);
             textField.text = new LocalizedString(data.EndKey);
             title.text = new LocalizedString(data.LevelKey);
+            await Task.Delay(1);
         }
 
         protected override void OnDestroy()

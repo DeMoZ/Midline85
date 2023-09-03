@@ -66,16 +66,13 @@ public class AaVolumeSlider : AaButton
 
     protected override void OnButtonSelect()
     {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnButtonClick()
     {
-        throw new System.NotImplementedException();
     }
 
     protected override void OnButtonNormal()
     {
-        throw new System.NotImplementedException();
     }
 }

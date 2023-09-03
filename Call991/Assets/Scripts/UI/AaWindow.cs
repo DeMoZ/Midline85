@@ -47,21 +47,21 @@ public class AaWindow : InputHandler
         EventSystem.current.firstSelectedGameObject = null;
         EventSystem.current.SetSelectedGameObject(null);
         
-        Debug.LogWarning($"<---------Start>");
+//        Debug.LogWarning($"<---------Start>");
         foreach (var button in Buttons)
         {
             var btn = button;
             button.onButtonSelect.AddListener(()=> OnButtonSelect(btn));
             button.onButtonNormal.AddListener(()=> OnButtonNormal(btn));
 
-            Debug.LogWarning($"{button.name} selected = {button.IsSelected};\n     KeyboardSelected {button.IsKeyboardSelected}; MouseSelected {button.IsMouseSelected}");
+//            Debug.LogWarning($"{button.name} selected = {button.IsSelected};\n     KeyboardSelected {button.IsKeyboardSelected}; MouseSelected {button.IsMouseSelected}");
             if (button.IsSelected && button.IsKeyboardSelected && !button.IsMouseSelected)
             {
                 button.SetNormal();
                 EventSystem.current.firstSelectedGameObject = button.gameObject;
             }
         }
-        Debug.LogWarning($"<---------End>");
+//        Debug.LogWarning($"<---------End>");
 
 
         if (useAppearAnimation)

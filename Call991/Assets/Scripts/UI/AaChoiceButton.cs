@@ -50,6 +50,7 @@ namespace UI
             if (_ctx.Index != index) return;
 
             onButtonClick.Invoke();
+            _ctx.OnClickChoiceButton.Execute(_ctx.Index);
         }
 
         public void Show(string localizationKey, bool isLocked, bool showUnlock)
@@ -95,7 +96,7 @@ namespace UI
 
         private void SetButtonState(bool toHover)
         {
-            Debug.LogError($"button {name} set to hover = {toHover}");
+            //Debug.LogError($"button {name} set to hover = {toHover}");
             defaultButton.gameObject.SetActive(!toHover);
             hoverButton.gameObject.SetActive(toHover);
         }

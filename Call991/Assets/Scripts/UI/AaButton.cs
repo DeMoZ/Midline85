@@ -25,7 +25,7 @@ namespace UI
         protected abstract void OnButtonClick();
         protected abstract void OnButtonNormal();
         
-        public void OnPointerEnter(PointerEventData eventData)
+        public override void OnPointerEnter(PointerEventData eventData)
         {
             Debug.Log($"[{this}] Button {name} Hovered over the button");
             IsMouseSelected = true;
@@ -38,7 +38,7 @@ namespace UI
             IsSelected = true;
         }
 
-        public void OnPointerExit(PointerEventData eventData)
+        public override void OnPointerExit(PointerEventData eventData)
         {
             Debug.Log($"[{this}] Button {name} Stopped hovering over the button");
             IsMouseSelected = false;
@@ -51,7 +51,7 @@ namespace UI
             }
         }
         
-        public void OnSelect(BaseEventData eventData)
+        public override void OnSelect(BaseEventData eventData)
         {
             Debug.Log($"[{this}] Button {name} selected");
             IsKeyboardSelected = true;
@@ -65,7 +65,7 @@ namespace UI
             IsSelected = true;
         }
 
-        public void OnDeselect(BaseEventData eventData)
+        public override void OnDeselect(BaseEventData eventData)
         {
             Debug.Log($"[{this}] Button {name} deselected");
             IsKeyboardSelected = false;
