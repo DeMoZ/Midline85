@@ -35,7 +35,7 @@ namespace UI
 
         public void OnClickContinue() => _ctx.OnClickUnPauseButton.Execute();
         private void OnClickSettingsButton() => _ctx.OnClickSettingsButton.Execute();
-        private void OnClickMenuButton() =>_ctx.OnClickMenuButton.Execute();
+        private void OnClickMenuButton() => _ctx.OnClickMenuButton.Execute();
 
         public void Dispose()
         {

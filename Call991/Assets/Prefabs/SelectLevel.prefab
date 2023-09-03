@@ -36,7 +36,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 236, y: -425}
+  m_AnchoredPosition: {x: 325, y: -553}
   m_SizeDelta: {x: 200, y: 71}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &7106955910290808114
@@ -69,8 +69,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0412\u044B\u0431\u043E\u0440 \u0423\u0440\u043E\u0432\u043D\u0435\u0439"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 6984f5892ad5949ee8a8d5a27230c4cd, type: 2}
-  m_sharedMaterial: {fileID: -1021156478584024009, guid: 6984f5892ad5949ee8a8d5a27230c4cd,
+  m_fontAsset: {fileID: 11400000, guid: 6256d4067bb9a40c087870d691315583, type: 2}
+  m_sharedMaterial: {fileID: 2814372408411343909, guid: 6256d4067bb9a40c087870d691315583,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -95,8 +95,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 100
-  m_fontSizeBase: 100
+  m_fontSize: 120
+  m_fontSizeBase: 120
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -216,7 +216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 236, y: 539}
+  m_AnchoredPosition: {x: 305, y: 376}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 1}
 --- !u!222 &4319352168774014643
@@ -821,6 +821,11 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6902109975504059794, guid: 52a0a9bf2d54b413cabbbd90a9afee09,
+        type: 3}
+      propertyPath: m_text
+      value: "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
+      objectReference: {fileID: 0}
     - target: {fileID: 7556179414431651212, guid: 52a0a9bf2d54b413cabbbd90a9afee09,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1129,6 +1134,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6902109975504059794, guid: 6085ff43b48014117aefba2541418693,
+        type: 3}
+      propertyPath: m_text
+      value: "\u041D\u0430\u0437\u0430\u0434"
       objectReference: {fileID: 0}
     - target: {fileID: 7556179414431651212, guid: 6085ff43b48014117aefba2541418693,
         type: 3}

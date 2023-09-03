@@ -66,6 +66,8 @@ public class AaWindow : InputHandler
 
     protected void AnimateDisappear(Action callback)
     {
+        if (!useDisappearAnimation) return;
+        
         ResetAnimationSequence();
 
         var position = disappearAnimation.ButtonsGroup.position;
