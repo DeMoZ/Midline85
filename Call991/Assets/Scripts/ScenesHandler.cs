@@ -138,12 +138,6 @@ public class ScenesHandler : IDisposable
 
     private async Task<IGameScene> LoadLevel()
     {
-        var level = _ctx.OverridenDialogue.Dialogue != null
-            ? _ctx.OverridenDialogue.Dialogue
-            : _ctx.GameLevelsService.PlayLevel;
-
-        var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
-
         _ctx.MediaService.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();
@@ -151,7 +145,6 @@ public class ScenesHandler : IDisposable
         {
             GameSet = _ctx.GameSet,
             ConstructorTask = constructorTask,
-            LevelData = levelData,
             Profile = _ctx.Profile,
             ObjectEvents = _ctx.ObjectEvents,
             OnSwitchScene = _ctx.OnSwitchScene,

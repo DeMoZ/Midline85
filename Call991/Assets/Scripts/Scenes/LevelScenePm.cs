@@ -19,9 +19,6 @@ public class LevelScenePm : IDisposable
 {
     public struct Ctx
     {
-        public ReactiveCommand<List<AaNodeData>> FindNext;
-        public ReactiveCommand<List<AaNodeData>> OnNext;
-
         public DialogueService DialogueService;
         public GameLevelsService GameLevelsService;
         public MediaService MediaService;
@@ -70,7 +67,7 @@ public class LevelScenePm : IDisposable
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
 
-        _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
+        _ctx.GameLevelsService.onNext.Subscribe(OnDialogue).AddTo(_disposables);
         _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
@@ -133,8 +130,12 @@ public class LevelScenePm : IDisposable
 
     private void ExecuteDialogue()
     {
+        // Process dialogue in silence and Grab projector images.
+        var projectorImages = _ctx.GameLevelsService.OnGetProjectorImages.Invoke();
+        // todo load images
+        
         Debug.Log($"[{this}] _ctx.FindNext.Execute with no data");
-        _ctx.FindNext.Execute(new List<AaNodeData>());
+        _ctx.GameLevelsService.findNext.Execute(new List<AaNodeData>());
     }
 
     private List<AaNodeData> _next;
@@ -244,7 +245,7 @@ public class LevelScenePm : IDisposable
                 _next.Add(_choice);
                 if (_next.Any())
                 {
-                    _ctx.FindNext?.Execute(_next);
+                    _ctx.GameLevelsService.findNext?.Execute(_next);
                 }
 
                 ResourcesLoader.UnloadUnused(); // todo debatable

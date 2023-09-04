@@ -5,24 +5,54 @@ using AaDialogueGraph;
 using Configs;
 using UniRx;
 
-public class GameLevelsService
+public class GameLevelsService : IDisposable
 {
     private const string ConfigNotSetMsg = "Resources/GameLavels SO not properly set";
 
     private readonly GameSet _gameSet;
+    private readonly OverridenDialogue _overridenDialogue;
+
     private readonly List<GameLevelsSo.LevelGroup> levelGroups;
     private readonly ReactiveProperty<DialogueContainer> playLevel;
+    public readonly ReactiveCommand<List<AaNodeData>> onNext;
+    public readonly ReactiveCommand<List<AaNodeData>> findNext;
 
-    public DialogueContainer PlayLevel => playLevel.Value;
+    private CompositeDisposable _disposables;
+    private readonly DialoguePm _dialoguePm;
 
-    public GameLevelsService(GameSet gameSet)
+    private DialogueContainer PlayLevel => playLevel.Value;
+    public Func<List<string>> OnGetProjectorImages => GetProjectorImages;
+    
+    public GameLevelsService(GameSet gameSet, OverridenDialogue overridenDialogue, DialogueLoggerPm dialogueLogger)
     {
+        _disposables = new CompositeDisposable();
         _gameSet = gameSet;
+        _overridenDialogue = overridenDialogue;
         levelGroups = gameSet.GameLevels.LevelGroups;
-        playLevel = new ReactiveProperty<DialogueContainer>(GetStartLevel());
+        playLevel = new ReactiveProperty<DialogueContainer>(GetStartLevel()).AddTo(_disposables);
+        
+        onNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
+        findNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
+        
+        _dialoguePm = new DialoguePm(new DialoguePm.Ctx
+        {
+            LevelData = GetLevelData(),
+            FindNext = findNext,
+            OnNext = onNext,
+            DialogueLogger = dialogueLogger,
+        }).AddTo(_disposables);
     }
 
-    public DialogueContainer GetStartLevel()
+    public LevelData GetLevelData()
+    {
+        var level = _overridenDialogue.Dialogue != null
+            ? _overridenDialogue.Dialogue
+            : PlayLevel;
+        
+        return new LevelData(level.GetNodesData(), level.NodeLinks);    
+    }
+    
+    private DialogueContainer GetStartLevel()
     {
         if (levelGroups == null || levelGroups.Count < 1 || levelGroups[0].Group == null
             || levelGroups[0].Group.Count < 1 || levelGroups[0].Group[0] == null)
@@ -67,7 +97,7 @@ public class GameLevelsService
         return TryGetNextLevel(playLevel.Value, out nextLevel, out isGameEnd);
     }
     
-    public bool TryGetNextLevel(DialogueContainer currentLevel, out DialogueContainer nextLevel, out bool isGameEnd)
+    private bool TryGetNextLevel(DialogueContainer currentLevel, out DialogueContainer nextLevel, out bool isGameEnd)
     {
         nextLevel = null;
         isGameEnd = false;
@@ -126,5 +156,19 @@ public class GameLevelsService
     public void SetLevel(DialogueContainer dialogue)
     {
         playLevel.Value = dialogue;
+    }
+    
+    private List<string> GetProjectorImages()
+    {
+        // look into level, pass all the way in silent mode, grab images from Projector events;
+        var level = playLevel.Value;
+        return new List<string>();
+        //var a = level.
+
+    }
+
+    public void Dispose()
+    {
+        _disposables.Dispose();
     }
 }
