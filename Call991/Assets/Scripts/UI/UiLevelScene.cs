@@ -64,6 +64,7 @@ namespace UI
         private ReactiveCommand _onClickToMenu;
 
         private CancellationTokenSource _tokenSource;
+        private Type _lastUiType;
 
         public void SetCtx(Ctx ctx)
         {
@@ -125,7 +126,7 @@ namespace UI
         private void Update()
         {
 #if !UNITY_EDITOR
-            if (!Application.isFocused &&  Time.timeScale != 0) 
+            if (!Application.isFocused && Time.timeScale != 0 && _lastUiType == levelView.GetType())
                 OnClickPauseButton(true);
 #endif
         }
@@ -136,7 +137,6 @@ namespace UI
         private void OnClickPauseButton(bool value)
         {
             // if(!_ctx.IsPauseAllowed.Value) return // doestn allow click on pause button while blocker awaited
-
             _ctx.OnClickPauseButton.Execute(value);
             EnableUi(value ? levelPauseView.GetType() : levelView.GetType());
         }
@@ -150,6 +150,7 @@ namespace UI
         {
             if (levelView == null) return;
 
+            _lastUiType = type;
             menuSettings.gameObject.SetActive(menuSettings.GetType() == type);
             levelTitleView.gameObject.SetActive(levelTitleView.GetType() == type);
             levelView.gameObject.SetActive(levelView.GetType() == type);
