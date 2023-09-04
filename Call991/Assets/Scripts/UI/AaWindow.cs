@@ -27,16 +27,22 @@ public class AaWindow : InputHandler
     [ShowIf("useDisappearAnimation")] [SerializeField]
     private AnimationSettings disappearAnimation;
 
-    [Space] [Space] [SerializeField] private AaButton[] buttons = default;
+    [Tooltip("Menu Buttons Animation anchor to get X position")]
+    [Space] [SerializeField] private RectTransform anchor = default;
+    [Space] [SerializeField] private AaButton[] buttons = default;
 
     private Sequence _animationSequence;
     private CancellationTokenSource _tokenSource;
+    private float _anchorX;
 
     protected AaButton[] Buttons => buttons;
-
+    
     private void Awake()
     {
         _tokenSource = new CancellationTokenSource();
+        
+        if(useAppearAnimation || useDisappearAnimation)
+            _anchorX = anchor.position.x;
     }
 
     protected override void OnEnable()
@@ -86,12 +92,12 @@ public class AaWindow : InputHandler
         ResetAnimationSequence();
 
         var position = disappearAnimation.ButtonsGroup.position;
-        position.x = disappearAnimation.Config.FromPositionX;
+        position.x = _anchorX;;
         disappearAnimation.ButtonsGroup.position = position;
 
         disappearAnimation.ButtonsCanvas.alpha = 1;
 
-        _animationSequence.Append(disappearAnimation.ButtonsGroup.DOMoveX(disappearAnimation.Config.ToPositionX,
+        _animationSequence.Append(disappearAnimation.ButtonsGroup.DOMoveX(_anchorX * 2,
             disappearAnimation.Config.AnimationTime, true));
         _animationSequence.Insert(0,
                 disappearAnimation.ButtonsCanvas.DOFade(0, disappearAnimation.Config.AnimationTime))
@@ -101,12 +107,12 @@ public class AaWindow : InputHandler
     private void AnimateAppear()
     {
         ResetAnimationSequence();
-
+        
         var position = appearAnimation.ButtonsGroup.position;
         position.x = appearAnimation.Config.FromPositionX;
         appearAnimation.ButtonsGroup.position = position;
         appearAnimation.ButtonsCanvas.alpha = 0;
-        _animationSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(appearAnimation.Config.ToPositionX,
+        _animationSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(_anchorX,
             appearAnimation.Config.AnimationTime, true));
         _animationSequence.Insert(0, appearAnimation.ButtonsCanvas.DOFade(1,
             appearAnimation.Config.AnimationTime));
