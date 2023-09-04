@@ -247,7 +247,7 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 6061013011926285023}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8694924155743935335
+--- !u!114 &9199589008592679880
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,11 +256,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7854993297481932176}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25c82b82d454e71ad30bd631fd21589, type: 3}
+  m_Script: {fileID: 11500000, guid: 5100e4f03ebc4e26bb9bc4b102157cb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 0
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -291,16 +291,13 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  onClick:
+  onButtonSelect:
     m_PersistentCalls:
       m_Calls: []
-  onNormal:
+  onButtonClick:
     m_PersistentCalls:
       m_Calls: []
-  onHover:
-    m_PersistentCalls:
-      m_Calls: []
-  onSelect:
+  onButtonNormal:
     m_PersistentCalls:
       m_Calls: []
   text: {fileID: 6902109975504059794}

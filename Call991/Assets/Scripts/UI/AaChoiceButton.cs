@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public class ChoiceButtonView : AaSelectable, IDisposable
+    public class AaChoiceButton : AaButton, IDisposable
     {
         [Space] [SerializeField] private Image defaultButton = default;
         [SerializeField] private Image hoverButton = default;
@@ -49,8 +49,8 @@ namespace UI
         {
             if (_ctx.Index != index) return;
 
-            SetPressed();
-            SetButtonState(true);
+            onButtonClick.Invoke();
+            _ctx.OnClickChoiceButton.Execute(_ctx.Index);
         }
 
         public void Show(string localizationKey, bool isLocked, bool showUnlock)
@@ -73,28 +73,19 @@ namespace UI
             gameObject.SetActive(true);
         }
         
-        protected override void SetPressed()
+        protected override void OnButtonSelect()
         {
-            base.SetPressed();
+            SetButtonState(true);
+        }
+
+        protected override void OnButtonClick()
+        {
             _ctx.OnClickChoiceButton.Execute(_ctx.Index);
         }
 
-        public override void SetDisabled()
+        protected override void OnButtonNormal()
         {
-            base.SetDisabled();
             SetButtonState(false);
-        }
-
-        public override void SetNormal()
-        {
-            base.SetNormal();
-            SetButtonState(false);
-        }
-
-        protected override void SetSelected()
-        {
-            base.SetSelected();
-            SetButtonState(true);
         }
 
         private void SetButtonState(bool toHover)

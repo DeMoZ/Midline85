@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UI;
 using UnityEngine;
 using UnityEngine.UI;
 using Object = UnityEngine.Object;
@@ -22,7 +23,7 @@ public class ClickPointHandler: IDisposable
             _pool.Add(InstantiateObject(_pooledObject));
         }
 
-        AaSelectable.OnMouseClickSelectable += OnClick;
+        //todo AaButton.OnMouseClickSelectable += OnClick;
     }
 
     private GameObject InstantiateObject(GameObject pooledImage)
@@ -34,7 +35,7 @@ public class ClickPointHandler: IDisposable
 
     public void Dispose()
     {
-        AaSelectable.OnMouseClickSelectable -= OnClick;
+        // todo AaButton.OnMouseClickSelectable -= OnClick;
     }
 
     private GameObject GetPooledObject()

@@ -5,7 +5,7 @@ using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SettingsVolumeView : MenuButtonView
+public class AaVolumeSlider : AaButton
 {
     [SerializeField] private Slider _slider = default;
     [SerializeField] private TextMeshProUGUI _sliderText = default;
@@ -36,10 +36,10 @@ public class SettingsVolumeView : MenuButtonView
             ChangeSliderValue(step);
     }
 
-    protected override void SetButtonState(bool hover)
-    {
-        base.SetButtonState(hover);
-    }
+    // protected override void SetButtonState(bool hover)
+    // {
+    //     base.SetButtonState(hover);
+    // }
 
     private void ChangeSliderValue(float change)
     {
@@ -62,5 +62,17 @@ public class SettingsVolumeView : MenuButtonView
         _disposables?.Dispose();
         _slider.onValueChanged.RemoveAllListeners();
         base.OnDestroy();
+    }
+
+    protected override void OnButtonSelect()
+    {
+    }
+
+    protected override void OnButtonClick()
+    {
+    }
+
+    protected override void OnButtonNormal()
+    {
     }
 }

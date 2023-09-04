@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class AaWindow : InputHandler
 {
@@ -26,15 +27,16 @@ public class AaWindow : InputHandler
     [ShowIf("useDisappearAnimation")] [SerializeField]
     private AnimationSettings disappearAnimation;
 
-    [Space] [Space] [SerializeField] private AaSelectable[] windowSelectables = default;
+    [Space] [Space] [SerializeField] private AaButton[] buttons = default;
 
     private Sequence _animationSequence;
+    private CancellationTokenSource _tokenSource;
 
-    protected CancellationTokenSource tokenSource;
+    protected AaButton[] Buttons => buttons;
 
     private void Awake()
     {
-        tokenSource = new CancellationTokenSource();
+        _tokenSource = new CancellationTokenSource();
     }
 
     protected override void OnEnable()
@@ -44,23 +46,36 @@ public class AaWindow : InputHandler
         // reset any selected object in case
         EventSystem.current.firstSelectedGameObject = null;
         EventSystem.current.SetSelectedGameObject(null);
-
-        foreach (var selectable in windowSelectables)
+        
+//        Debug.LogWarning($"<---------Start>");
+        foreach (var button in Buttons)
         {
-            selectable.OnSelectObj += OnSelectObj;
-            selectable.OnUnSelect += OnUnSelect;
-        }
+            var btn = button;
+            button.onButtonSelect.AddListener(()=> OnButtonSelect(btn));
+            button.onButtonNormal.AddListener(()=> OnButtonNormal(btn));
 
+//            Debug.LogWarning($"{button.name} selected = {button.IsSelected};\n     KeyboardSelected {button.IsKeyboardSelected}; MouseSelected {button.IsMouseSelected}");
+            // if (button.IsSelected && button.IsKeyboardSelected && !button.IsMouseSelected)
+            // {
+            //     button.SetNormal();
+            //     EventSystem.current.firstSelectedGameObject = button.gameObject;
+            // }
+            
+            button.Reset();
+        }
+        EventSystem.current.firstSelectedGameObject = null;
+//        Debug.LogWarning($"<---------End>");
+        
         if (useAppearAnimation)
             AnimateAppear();
     }
 
     protected virtual void OnDisable()
     {
-        foreach (var selectable in windowSelectables)
+        foreach (var button in Buttons)
         {
-            selectable.OnSelectObj -= OnSelectObj;
-            selectable.OnUnSelect -= OnUnSelect;
+            button.onButtonSelect.RemoveAllListeners();
+            button.onButtonNormal.RemoveAllListeners();
         }
     }
 
@@ -105,17 +120,33 @@ public class AaWindow : InputHandler
     }
 
 
-    private void OnUnSelect(AaSelectable obj)
+    // private void OnUnSelect(AaSelectable obj)
+    // {
+    //     //Debug.Log($"[{this}] <color=red>Window</color> to OnUnSelect {obj.gameObject.ToStringEventSystem()}");
+    //     firstSelected = obj;
+    //     EventSystem.current.SetSelectedGameObject(null);
+    // }
+    //
+    // private void OnSelectObj(AaSelectable obj)
+    // {
+    //     //Debug.Log($"[{this}] <color=red>Window</color> to OnSelect {obj.gameObject.ToStringEventSystem()}");
+    //     firstSelected = obj;
+    //
+    //     if (!EventSystem.current.alreadySelecting)
+    //         EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
+    // }
+    
+    private void OnButtonNormal(AaButton button)
     {
         //Debug.Log($"[{this}] <color=red>Window</color> to OnUnSelect {obj.gameObject.ToStringEventSystem()}");
-        firstSelected = obj;
-        EventSystem.current.SetSelectedGameObject(null);
+        firstSelected = button;
+//        EventSystem.current.SetSelectedGameObject(null);
     }
 
-    private void OnSelectObj(AaSelectable obj)
+    private void OnButtonSelect(AaButton button)
     {
         //Debug.Log($"[{this}] <color=red>Window</color> to OnSelect {obj.gameObject.ToStringEventSystem()}");
-        firstSelected = obj;
+        firstSelected = button;
 
         if (!EventSystem.current.alreadySelecting)
             EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
@@ -123,6 +154,6 @@ public class AaWindow : InputHandler
 
     protected virtual void OnDestroy()
     {
-        tokenSource.Cancel();
+        _tokenSource.Cancel();
     }
 }

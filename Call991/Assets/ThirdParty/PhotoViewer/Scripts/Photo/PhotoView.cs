@@ -9,11 +9,11 @@ namespace PhotoViewer.Scripts.Photo
     public class PhotoView : AaWindow
     {
         private const float MagicValue = 3000f;
-        
+
         [SerializeField] private RectTransform viewTransform = default;
         [Space] [SerializeField] private Image backgroundImage = default;
         [SerializeField] private Image newspaperImage = default;
-        [Space] [SerializeField] private MenuButtonView closeBtn = default;
+        [Space] [SerializeField] private AaMenuButton closeBtn = default;
         [SerializeField] private NewspaperInput newspaperInput = default;
         [SerializeField] private NewspaperInputSo newspaperInputConfig = default;
 
@@ -63,7 +63,7 @@ namespace PhotoViewer.Scripts.Photo
             //_newspaperInput.onDrag += ApplyMove;
             newspaperInput.onScroll += ApplyScroll;
             newspaperInput.onClick += ZoomOnClick;
-            closeBtn.OnClick += Close;
+            closeBtn.onButtonClick.AddListener(Close);
         }
 
         protected override void OnDisable()
@@ -73,7 +73,7 @@ namespace PhotoViewer.Scripts.Photo
             //_newspaperInput.onDrag -= ApplyMove;
             newspaperInput.onScroll -= ApplyScroll;
             newspaperInput.onClick -= ZoomOnClick;
-            closeBtn.OnClick -= Close;
+            closeBtn.onButtonClick.RemoveAllListeners();
         }
 
         public void SetNewspaper(Sprite sprite)

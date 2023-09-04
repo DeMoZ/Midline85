@@ -637,10 +637,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1730708368516370161}
-  - component: {fileID: 5707605402049338411}
+  - component: {fileID: 5163457535734933189}
   - component: {fileID: 7296148752816047742}
   m_Layer: 5
-  m_Name: SettingsVolume
+  m_Name: VolumeSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -670,7 +670,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 1565, y: 86}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5707605402049338411
+--- !u!114 &5163457535734933189
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -679,12 +679,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3880790137202062222}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 027a6e03c7f2dbe46ab23560c19117f4, type: 3}
+  m_Script: {fileID: 11500000, guid: c191c7c5c9d249859a595b04c8447663, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
-    m_WrapAround: 1
+    m_Mode: 3
+    m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -714,7 +714,22 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: c047d4ff4887f4b1baf32e3929a9db50,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  onClick:
+  onButtonSelect:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 7296148752816047742}
+        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
+        m_MethodName: OnSelected
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  onButtonClick:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7296148752816047742}
@@ -729,7 +744,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onNormal:
+  onButtonNormal:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 7296148752816047742}
@@ -744,37 +759,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-  onHover:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7296148752816047742}
-        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
-        m_MethodName: OnSelected
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  onSelect:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 7296148752816047742}
-        m_TargetAssemblyTypeName: UI.MenuButtonAnimation, Assembly-CSharp
-        m_MethodName: OnSelected
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  text: {fileID: 1224067182519902964}
   _slider: {fileID: 9020140095737248349}
   _sliderText: {fileID: 1599849438828423432}
   source: 0

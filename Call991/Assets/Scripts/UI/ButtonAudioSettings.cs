@@ -14,15 +14,11 @@ namespace UI
 
         public void PlayHoverSound()
         {
-            if (buttonHoverSound == null) return;
-            
             OnHover?.Invoke(buttonHoverSound);
         }
 
         public void PlayClickSound()
         {
-            if (buttonClickSound == null) return;
-            
             OnClick?.Invoke(buttonClickSound);
         }
     }
