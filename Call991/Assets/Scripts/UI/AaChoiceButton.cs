@@ -72,13 +72,7 @@ namespace UI
             text.text = _localize;
             gameObject.SetActive(true);
         }
-
-        // public override void SetDisabled()
-        // {
-        //     base.SetDisabled();
-        //     SetButtonState(false);
-        // }
-
+        
         protected override void OnButtonSelect()
         {
             SetButtonState(true);
@@ -96,7 +90,6 @@ namespace UI
 
         private void SetButtonState(bool toHover)
         {
-            //Debug.LogError($"button {name} set to hover = {toHover}");
             defaultButton.gameObject.SetActive(!toHover);
             hoverButton.gameObject.SetActive(toHover);
         }

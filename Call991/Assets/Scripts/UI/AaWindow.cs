@@ -65,8 +65,7 @@ public class AaWindow : InputHandler
         }
         EventSystem.current.firstSelectedGameObject = null;
 //        Debug.LogWarning($"<---------End>");
-
-
+        
         if (useAppearAnimation)
             AnimateAppear();
     }

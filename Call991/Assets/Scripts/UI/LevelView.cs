@@ -63,7 +63,7 @@ namespace UI
             
             _ctx.LevelSceneObjectsService.OnShowButtons.Subscribe(OnShowButtons).AddTo(_disposables);
             _ctx.LevelSceneObjectsService.OnHideButtons.Subscribe(_ => OnHideButtons()).AddTo(_disposables);
-            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_ => StopTimer()).AddTo(_disposables);
+            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_ => DisactiveButtonsStopTimer()).AddTo(_disposables);
             pauseButton.onClick.AddListener(OnClickPauseButton);
         }
 
@@ -87,8 +87,11 @@ namespace UI
             countDown.Show();
         }
 
-        private void StopTimer()
+        private void DisactiveButtonsStopTimer()
         {
+            foreach (var button in Buttons) 
+                button.interactable = false;
+
             countDown.Stop();
         }
 

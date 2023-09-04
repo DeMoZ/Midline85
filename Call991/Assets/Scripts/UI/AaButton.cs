@@ -9,8 +9,13 @@ namespace UI
     {
         [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
         [SerializeField] private CursorSet cursorSettings = default;
-        //[SerializeField] private Button button;
 
+        private float _clickDelay = 0.5f;
+        private float _lastClick;
+        protected abstract void OnButtonSelect();
+        protected abstract void OnButtonClick();
+        protected abstract void OnButtonNormal();
+        
         public UnityEvent onButtonSelect = default;
         public UnityEvent onButtonClick = default;
         public UnityEvent onButtonNormal = default;
@@ -19,12 +24,6 @@ namespace UI
         public bool IsMouseSelected { get; private set; }
         public bool IsSelected { get; private set; }
 
-        //public Button Button => button;
-
-        protected abstract void OnButtonSelect();
-        protected abstract void OnButtonClick();
-        protected abstract void OnButtonNormal();
-        
         public override void OnPointerEnter(PointerEventData eventData)
         {
             Debug.Log($"[{this}] Button {name} Hovered over the button");
@@ -44,6 +43,8 @@ namespace UI
             IsMouseSelected = false;
             IsSelected = IsKeyboardSelected;
 
+            if (!InteractionDelay()) return;
+            
             if (!IsSelected)
             {
                 OnButtonNormal();
@@ -80,10 +81,9 @@ namespace UI
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            Debug.Log($"[{this}] Button {name} clicked");
-
-            OnButtonClick();
-            onButtonClick?.Invoke();
+            if (!InteractionDelay()) return;
+            
+            Press();
         }
 
         /// <summary>
@@ -91,7 +91,12 @@ namespace UI
         /// </summary>
         public void Press()
         {
-            buttonAudioSettings?.PlayClickSound();
+            if (!interactable) return;
+            
+            Debug.Log($"[{this}] <color=yellow>Press</color> Button {name} clicked");
+            _lastClick = Time.time;
+            
+            buttonAudioSettings.PlayClickSound();
             OnButtonClick();
             onButtonClick?.Invoke();
         }
@@ -109,6 +114,11 @@ namespace UI
             IsMouseSelected = false;
             IsKeyboardSelected = false;
             SetNormal();
+        }
+
+        private bool InteractionDelay()
+        {
+            return _lastClick + _clickDelay < Time.time;
         }
     }
 }
