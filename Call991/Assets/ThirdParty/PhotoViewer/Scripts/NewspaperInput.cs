@@ -2,7 +2,6 @@
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 namespace PhotoViewer.Scripts
 {
@@ -71,15 +70,15 @@ namespace PhotoViewer.Scripts
         public void OnPointerUp(PointerEventData eventData)
         {
             EndInteraction();
-            if (_startClickPosition.HasValue && Vector2.Distance(_startClickPosition.Value, eventData.position) < 0.5f)
-                onClick?.Invoke(eventData.position);
+            // if (_startClickPosition.HasValue && Vector2.Distance(_startClickPosition.Value, eventData.position) < 10f)
+            //     onClick?.Invoke(eventData.position);
 
             _startClickPosition = null;
         }
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            //onClick?.Invoke(eventData.position);
+            onClick?.Invoke(eventData.position);
         }
 
         private void EndInteraction() => cursorSettings.ApplyCursor(_hover ? CursorType.CanDrag : CursorType.Normal);
