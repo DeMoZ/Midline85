@@ -11,7 +11,13 @@
 					<PropertyList>
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+						<Property Name="OverrideEffect" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="RenderEffect0" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-5</Value>
@@ -22,6 +28,9 @@
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
 						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Dialog_Leveler_Soft" ID="{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Mark_Boss First" ID="{8E603697-E7F5-425B-A6B9-3B4ACEA7CE8F}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 						</Reference>
@@ -29,17 +38,7 @@
 					<ChildrenList>
 						<Sound Name="pizzaep_mark_024" ID="{B9F0471E-29DF-4D26-82DE-90913DA093D1}" ShortID="59238854">
 							<PropertyList>
-								<Property Name="Highpass" Type="int16">
-									<ValueList>
-										<Value>41</Value>
-									</ValueList>
-								</Property>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Lowpass" Type="int16">
-									<ValueList>
-										<Value>31</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1165,6 +1164,11 @@
 						<Sound Name="pizzaep_mark_042" ID="{E6AE14A4-A96B-4FEE-8542-24689474E62F}" ShortID="138798382">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1627,6 +1631,11 @@
 						<Sound Name="pizzaep_mark_018" ID="{D3BE714F-540A-4EEE-8111-8A444B070E92}" ShortID="126623751">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>0.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1696,6 +1705,11 @@
 						<Sound Name="pizzaep_mark_019" ID="{CC4C8A85-6C74-4181-8A16-E98122788BA9}" ShortID="706860601">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1798,6 +1812,11 @@
 						<Sound Name="pizzaep_mark_012" ID="{48488DCD-1373-4501-940E-7DC4BBF78B66}" ShortID="260971806">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.1</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2279,7 +2298,7 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizzaep_mark_002_3" ID="{1EA899DB-DD66-401E-8FCD-1D26B26350C6}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_mark_002_1" ID="{8BAA8E51-A2CF-4A6B-969B-1147D795829F}" Platform="Linked"/>
 								<ActiveSource Name="Interlude1_mark_002" ID="{9208B1DE-B84A-4063-9D9C-83B616128A50}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
@@ -2380,6 +2399,11 @@
 						<Sound Name="pizzaep_mark_alt_002" ID="{77676EF1-BFC3-49B2-8F38-28929AE14C33}" ShortID="175750075">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2417,6 +2441,11 @@
 						<Sound Name="pizzaep_mark_alt_003" ID="{3A955906-8EC9-4DDD-8038-884DD1026EE1}" ShortID="1015676240">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>0.3</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2454,6 +2483,11 @@
 						<Sound Name="pizzaep_mark_alt_004" ID="{39C16180-CC7F-4B0A-B9E9-AF9700DDB982}" ShortID="237454026">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2491,6 +2525,11 @@
 						<Sound Name="pizzaep_mark_019_v2" ID="{A7F48622-1E0C-482E-BC73-05D17FD79DA3}" ShortID="926576995">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>3.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2551,7 +2590,13 @@
 					<PropertyList>
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+						<Property Name="OverrideEffect" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="RenderEffect0" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-5</Value>
@@ -2561,6 +2606,9 @@
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Dialog_Leveler_Soft" ID="{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Mark_Boss Two" ID="{5161EDB4-D6B7-4A18-A849-CBAE75D28827}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>

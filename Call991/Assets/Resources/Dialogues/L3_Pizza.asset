@@ -6442,17 +6442,10 @@ MonoBehaviour:
       serializedVersion: 2
       x: 2278
       y: -1086
-      width: 120
+      width: 122
       height: 95
-    End: End/Pizza/Bad
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: Videos/L3_Pizza/negativeEnding.mp4
-      Layer: 1
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
+    End: End/Pizza/Fine
+    EventVisualData: []
     SkipSelectNextLevelButtons: 0
   - Guid: 63874b3c-6f20-4e6f-84f7-c4d574c922ae
     Rect:
@@ -6618,9 +6611,9 @@ MonoBehaviour:
       serializedVersion: 2
       x: 11978
       y: 235
-      width: 120
+      width: 128
       height: 95
-    End: End/Pizza/Bad
+    End: End/Pizza/Good
     EventVisualData:
     - Type: 3
       PhraseEvent: "Videos/L3_Pizza/p.police.002\L\L.mp4"
@@ -6715,7 +6708,7 @@ MonoBehaviour:
       height: 107
     EventVisualData:
     - Type: 0
-      PhraseEvent: MusicLevels / MusicPizza
+      PhraseEvent: MusicLevels / MusicNewspaper
       Layer: 0
       Loop: 0
       Stop: 0
@@ -6733,9 +6726,16 @@ MonoBehaviour:
       serializedVersion: 2
       x: 296
       y: 203
-      width: 100
-      height: 107
+      width: 267
+      height: 292
     EventVisualData:
+    - Type: 0
+      PhraseEvent: MusicLevels / MusicPizza
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
     - Type: 3
       PhraseEvent: Videos/L2_Tutor/background.mp4
       Layer: 0
