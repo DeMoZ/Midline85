@@ -7,15 +7,15 @@ namespace UI
 {
     public abstract class InputHandler : MonoBehaviour
     {
-        [SerializeField] protected AaSelectable firstSelected = default;
+        [SerializeField] protected AaButton firstSelected = default;
 
-        private static readonly KeyCode[] _leftKeyCodes = {KeyCode.LeftArrow, KeyCode.A};
-        private static readonly KeyCode[] _rightKeyCodes = {KeyCode.RightArrow, KeyCode.D};
-        
-        private static readonly KeyCode[] _pressKeyCodes = {KeyCode.Space, KeyCode.Return};
-        private static readonly KeyCode[] _ignoreKeyCodes = {KeyCode.Escape};
-        private static readonly string[] _mouseAxis = {"Mouse X", "Mouse Y"};
-        private static readonly int[] _mouseButtons = {0, 1, 2};
+        private static readonly KeyCode[] _leftKeyCodes = { KeyCode.LeftArrow, KeyCode.A };
+        private static readonly KeyCode[] _rightKeyCodes = { KeyCode.RightArrow, KeyCode.D };
+
+        private static readonly KeyCode[] _pressKeyCodes = { KeyCode.Space, KeyCode.Return };
+        private static readonly KeyCode[] _ignoreKeyCodes = { KeyCode.Escape };
+        private static readonly string[] _mouseAxis = { "Mouse X", "Mouse Y" };
+        private static readonly int[] _mouseButtons = { 0, 1, 2 };
 
         private bool? _mouseEnabled = true;
         private bool _mouseVisible = true;
@@ -57,7 +57,9 @@ namespace UI
             if (GetPressedButtons(_pressKeyCodes))
                 PressObject();
 
-            if (firstSelected.gameObject == EventSystem.current.currentSelectedGameObject)
+            if (firstSelected && EventSystem.current &&
+                firstSelected.gameObject == EventSystem.current.currentSelectedGameObject)
+            //if (firstSelected.gameObject == EventSystem.current.currentSelectedGameObject)
             {
                 if (GetPressedButtons(_leftKeyCodes))
                     OnLeftButtonPress(firstSelected);
@@ -67,10 +69,10 @@ namespace UI
             }
         }
 
-        public static bool GetPressLeft(GameObject gobject) => 
+        public static bool GetPressLeft(GameObject gobject) =>
             gobject.gameObject == EventSystem.current?.currentSelectedGameObject && GetPressedButtons(_leftKeyCodes);
 
-        public static bool GetPressRight(GameObject gobject) => 
+        public static bool GetPressRight(GameObject gobject) =>
             gobject.gameObject == EventSystem.current?.currentSelectedGameObject && GetPressedButtons(_rightKeyCodes);
 
         private bool IsKeyboardControlled() =>
@@ -89,7 +91,6 @@ namespace UI
 
         private void SelectFirstSelected()
         {
-            // Debug.Log($"[InputHandler] SelectFirstSelected, firstSelected = {firstSelected}");
             EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
         }
 
@@ -98,16 +99,16 @@ namespace UI
             // Debug.LogWarning($"[InputHandler] 0 PressObject; firstSelected = {firstSelected}");
             if (gameObject.activeInHierarchy && firstSelected.gameObject.IsSelected())
             {
-                // Debug.LogWarning($"[InputHandler] 1 PressObject.Press; firstSelected = {firstSelected}");
+                Debug.Log($"[InputHandler] 1 PressObject.Press; firstSelected = {firstSelected}");
                 firstSelected.Press();
             }
         }
 
-        protected virtual void OnLeftButtonPress(AaSelectable aaSelectable)
+        protected virtual void OnLeftButtonPress(AaButton aaSelectable)
         {
         }
 
-        protected virtual void OnRightButtonPress(AaSelectable aaSelectable)
+        protected virtual void OnRightButtonPress(AaButton aaSelectable)
         {
         }
     }

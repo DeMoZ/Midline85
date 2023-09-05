@@ -15,9 +15,19 @@
 						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
 							<ObjectRef Name="System" ID="{E024700B-83CF-4F84-A1D8-64010B0607F1}" WorkUnitID="{77C63109-EBA0-41BE-9BC7-347A2CE6BA08}"/>
 						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+							<ObjectRef Name="Brick_Wall_Minus_1dB_Peak_Slow_Release" ID="{9FB8DC2B-7F1C-4E4E-8FA5-50872652D2DD}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
 					</ReferenceList>
 					<ChildrenList>
 						<Bus Name="SFX" ID="{F9088F69-6B32-4118-A983-34FBF265E61E}">
+							<PropertyList>
+								<Property Name="BusVolume" Type="Real64">
+									<ValueList>
+										<Value>-7.3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
 									<Reference>
@@ -67,11 +77,21 @@
 									</ValueList>
 								</Property>
 							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+									<ObjectRef Name="Dialog_Too_Quiet" ID="{F9C77BF1-1CCC-415B-B93F-B048979CA620}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+								</Reference>
+							</ReferenceList>
 							<ChildrenList>
 								<Bus Name="Elena" ID="{BEC8E535-25ED-403B-9B08-49F0C157AB52}">
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="24"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1.3</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
@@ -92,6 +112,11 @@
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="4"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>2.2</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 									<ChildrenList>
 										<Bus Name="Mark_Intro" ID="{F7602242-36FE-43E7-B031-102790538277}"/>
@@ -117,6 +142,7 @@
 										<Property Name="Color" Type="int16" Value="10"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
+									<ReferenceList/>
 								</Bus>
 								<Bus Name="Lara" ID="{5AE4C209-07D2-4B0F-8A0E-02C9AC47B9CB}">
 									<PropertyList>
@@ -136,7 +162,7 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1</Value>
+												<Value>-3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -191,10 +217,10 @@
 								<DuckItem>
 									<BusRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}"/>
 									<DuckingParam>
-										<Volume>-3</Volume>
-										<FadeInTime>0.300000011920929</FadeInTime>
-										<FadeOutTime>3</FadeOutTime>
-										<FadeCurve>FadeLinear</FadeCurve>
+										<Volume>-7.69999980926514</Volume>
+										<FadeInTime>3.29999995231628</FadeInTime>
+										<FadeOutTime>0.600000023841858</FadeOutTime>
+										<FadeCurve>FadeSCurve</FadeCurve>
 									</DuckingParam>
 								</DuckItem>
 							</DuckingList>

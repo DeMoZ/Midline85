@@ -18,22 +18,19 @@ namespace UI
             public ReactiveCommand OnClickToMenu;
         }
 
-        [SerializeField] private MenuButtonView levelButtonPrefab;
+        [SerializeField] private AaMenuButton levelButtonPrefab;
         [SerializeField] private RectTransform buttonsParent;
-        [SerializeField] private MenuButtonView toMenuTutorialBtn = default;
+        [SerializeField] private AaMenuButton toMenuHintBtn = default;
 
         private Ctx _ctx;
-        private List<MenuButtonView> _buttons;
+        private List<AaMenuButton> _buttons;
         private LocalizedString _localize;
-
-        private List<Action<AaSelectable>> _selectHandlers = new();
-        private List<Action> _clickHandlers = new();
 
         // every time the screen is shown i need to repopulate the levels buttons with correct state
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            toMenuTutorialBtn.OnClick += OnClickToMenu;
+            toMenuHintBtn.onButtonClick.AddListener(OnClickToMenu);
         }
 
         public void OnClickToMenu()
@@ -47,7 +44,7 @@ namespace UI
                 Destroy(child.gameObject);
 
             var progressData = _ctx.DialogueLogger.LoadLevelsInfo();
-            _buttons = new List<MenuButtonView>();
+            _buttons = new List<AaMenuButton>();
             int lastFinished = -1;
 
             var levels = _ctx.GameLevelsService.GetLevels();
@@ -83,34 +80,29 @@ namespace UI
 
                 var index = i;
 
-                Action<AaSelectable> selectHandler = _ => OnLevelSelect(index);
-                Action clickHandler = () => OnLevelClick(index);
+                btn.onButtonSelect.AddListener(() => OnLevelSelect(index));
+                btn.onButtonClick.AddListener(() => OnLevelClick(index));
 
-                btn.OnSelectObj += selectHandler;
-                btn.OnClick += clickHandler;
-
-                _selectHandlers.Add(selectHandler);
-                _clickHandlers.Add(clickHandler);
                 _buttons.Add(btn);
             }
+
+            firstSelected = _buttons[0];
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
 
-            foreach (var handler in _selectHandlers)
+            foreach (var button in _buttons)
             {
-                foreach (var button in _buttons) button.OnSelectObj -= handler;
+                button.onButtonSelect.RemoveAllListeners();
+                button.onButtonClick.RemoveAllListeners();
             }
-
-            foreach (var handler in _clickHandlers)
-            {
-                foreach (var button in _buttons) button.OnClick -= handler;
-            }
+            
+            toMenuHintBtn.onButtonClick.RemoveAllListeners();
         }
 
-        private void SetButtonDisabled(MenuButtonView btn)
+        private void SetButtonDisabled(AaMenuButton btn)
         {
 #if !UNITY_EDITOR
 //            btn.SetDisabled();

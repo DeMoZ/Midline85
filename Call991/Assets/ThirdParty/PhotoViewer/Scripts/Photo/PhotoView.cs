@@ -9,11 +9,11 @@ namespace PhotoViewer.Scripts.Photo
     public class PhotoView : AaWindow
     {
         private const float MagicValue = 3000f;
-        
+
         [SerializeField] private RectTransform viewTransform = default;
         [Space] [SerializeField] private Image backgroundImage = default;
         [SerializeField] private Image newspaperImage = default;
-        [Space] [SerializeField] private MenuButtonView closeBtn = default;
+        [Space] [SerializeField] private AaMenuButton closeBtn = default;
         [SerializeField] private NewspaperInput newspaperInput = default;
         [SerializeField] private NewspaperInputSo newspaperInputConfig = default;
 
@@ -23,6 +23,8 @@ namespace PhotoViewer.Scripts.Photo
         private Vector2 _initialImageSize;
         private bool _zoomIn;
         private Sequence _zoomSequence;
+        private Sequence _scrollSequence;
+        private bool _isScrolling;
 
         public event Action OnClose;
 
@@ -63,7 +65,7 @@ namespace PhotoViewer.Scripts.Photo
             //_newspaperInput.onDrag += ApplyMove;
             newspaperInput.onScroll += ApplyScroll;
             newspaperInput.onClick += ZoomOnClick;
-            closeBtn.OnClick += Close;
+            closeBtn.onButtonClick.AddListener(Close);
         }
 
         protected override void OnDisable()
@@ -73,7 +75,7 @@ namespace PhotoViewer.Scripts.Photo
             //_newspaperInput.onDrag -= ApplyMove;
             newspaperInput.onScroll -= ApplyScroll;
             newspaperInput.onClick -= ZoomOnClick;
-            closeBtn.OnClick -= Close;
+            closeBtn.onButtonClick.RemoveAllListeners();
         }
 
         public void SetNewspaper(Sprite sprite)
@@ -104,22 +106,31 @@ namespace PhotoViewer.Scripts.Photo
             _zoomIn = !_zoomIn;
 
             _zoomSequence?.Kill();
+            _scrollSequence?.Kill();
+            
             _zoomSequence = DOTween.Sequence().SetEase(Ease.InOutCubic);
             _zoomSequence.SetUpdate(true);
+            
+            _scrollSequence = DOTween.Sequence().SetEase(Ease.InOutCubic);
+            _scrollSequence.SetUpdate(true).OnUpdate(() =>
+            {
+                if(_zoomIn && _isScrolling)
+                    _scrollSequence.Kill();
+            });
 
             // newspaperImage
             var zoomSize = _zoomIn ? _initialImageSize * newspaperInputConfig.MaxZoom : _initialImageSize;
             _zoomSequence.Append(_newspaperTransform.DOSizeDelta(zoomSize, newspaperInputConfig.ZoomTime));
 
             var position = _zoomIn ? CalculateNewspaperZoomPosition(clickPos) : Vector2.zero;
-            _zoomSequence.Insert(0, _newspaperTransform.DOLocalMove(position, newspaperInputConfig.ZoomTime));
+            _scrollSequence.Append(_newspaperTransform.DOLocalMove(position, newspaperInputConfig.ZoomTime));
 
             // backgroundImage
             var backZoomSize = _zoomIn ? _initialImageSize * (newspaperInputConfig.MaxZoom * 0.5f) : _initialImageSize;
             _zoomSequence.Insert(0, _backgroundTransform.DOSizeDelta(backZoomSize, newspaperInputConfig.ZoomTime));
 
             var backPosition = _zoomIn ? CalculateBackgroundZoomPosition(clickPos) : Vector2.zero;
-            _zoomSequence.Insert(0, _backgroundTransform.DOLocalMove(backPosition, newspaperInputConfig.ZoomTime));
+            _scrollSequence.Insert(0, _backgroundTransform.DOLocalMove(backPosition, newspaperInputConfig.ZoomTime));
         }
 
         // todo remove hardcode
@@ -141,38 +152,37 @@ namespace PhotoViewer.Scripts.Photo
             return new Vector2(0, coordinate);
         }
 
-        private void ApplyScroll(float zoomDelta)
-        {
-            ApplyNewspaperScroll(zoomDelta, _newspaperTransform);
-            ApplyBackgroundScroll(zoomDelta, _backgroundTransform);
-        }
-
-        // todo remove hardcode
-        private void ApplyNewspaperScroll(float zoomDelta, Transform obj)
+        private void ApplyScroll(float scrollDelta)
         {
             if (!_zoomIn) return;
 
-            Vector2 newPosition = obj.localPosition;
+            _isScrolling = scrollDelta > 0;
+            ApplyNewspaperScroll(scrollDelta);
+            ApplyBackgroundScroll(scrollDelta);
+        }
+
+        // todo remove hardcode
+        private void ApplyNewspaperScroll(float zoomDelta)
+        {
+            Vector2 newPosition = _newspaperTransform.localPosition;
             newPosition.y += zoomDelta;
 
             //newPosition.x = Mathf.Clamp(newPosition.x, -1200, 1200);
             var magicValue = MagicValue * 0.5f;
             newPosition.y = Mathf.Clamp(newPosition.y, -magicValue, magicValue);
 
-            obj.localPosition = newPosition;
+            _newspaperTransform.localPosition = newPosition;
         }
 
         // todo remove hardcode
-        private void ApplyBackgroundScroll(float zoomDelta, Transform obj)
+        private void ApplyBackgroundScroll(float zoomDelta)
         {
-            if (!_zoomIn) return;
-
-            Vector2 newPosition = obj.localPosition;
+            Vector2 newPosition = _backgroundTransform.localPosition;
             newPosition.y += zoomDelta * 0.1f;
             var magicValue = MagicValue * 0.05f;
             newPosition.y = Mathf.Clamp(newPosition.y, -magicValue, magicValue);
 
-            obj.localPosition = newPosition;
+            _backgroundTransform.localPosition = newPosition;
         }
 
 

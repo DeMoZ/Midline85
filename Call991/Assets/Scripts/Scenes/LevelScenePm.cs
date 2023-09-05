@@ -62,11 +62,6 @@ public class LevelScenePm : IDisposable
     private readonly ReactiveProperty<bool> _isChoiceDone = new();
     private CancellationTokenSource _tokenSource;
 
-    /// <summary>
-    /// Choice button selection with keyboard.
-    /// </summary>
-    private bool _selectionPlaced;
-
     public LevelScenePm(Ctx ctx)
     {
         Debug.Log($"[{this}] constructor");
@@ -89,7 +84,6 @@ public class LevelScenePm : IDisposable
             .AddTo(_disposables);
 
         _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
-
         _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
 
@@ -128,7 +122,6 @@ public class LevelScenePm : IDisposable
         {
             _ctx.MediaService.AudioManager.ResumePhrasesAndSfx();
             _ctx.MediaService.VideoManager.ResumeVideoPlayer();
-            _selectionPlaced = false;
         }
     }
 
@@ -145,7 +138,7 @@ public class LevelScenePm : IDisposable
     }
 
     private List<AaNodeData> _next;
-    private List<ChoiceNodeData> _choices;
+    private List<ChoiceNodeData> _choices = new ();
     private ChoiceNodeData _choice;
 
     private async void OnDialogue(List<AaNodeData> data)
@@ -227,7 +220,7 @@ public class LevelScenePm : IDisposable
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
-        if (_choices.Any())
+        if (_choices.Count > 0)
         {
             var routine = Observable.FromCoroutine(() => RunChoices(_choices));
             observables = observables.Concat(new[] { routine }).ToArray();
@@ -551,7 +544,7 @@ public class LevelScenePm : IDisposable
         {
             foreach (var t in Timer(0.5f)) yield return t;
             // TODO the lenght of unlocking animation need to get from video
-            // also timers starts on execute OnShowButtons buttons and dont support this yeld (visualisation only)
+            // also timers starts on execute OnShowButtons buttons and dont support this yield (visualisation only)
         }
 
         foreach (var t in Timer(_ctx.GameSet.choicesDuration, _isChoiceDone)) yield return t;
@@ -568,7 +561,7 @@ public class LevelScenePm : IDisposable
 
     private void AutoChoice(List<ChoiceNodeData> data)
     {
-        Debug.Log($"[{this}] <color=yellow>choice time up!</color> Random choice!");
+        Debug.LogError($"[{this}] <color=yellow>choice time up!</color> Random choice!");
 
         var cnt = data.Count;
         var isBlocked = true;
@@ -584,9 +577,10 @@ public class LevelScenePm : IDisposable
 
     private void OnClickChoiceButton(int index)
     {
-        if (_isChoiceDone.Value) return;
-        _isChoiceDone.Value = true;
+        if (_isChoiceDone.Value || _choices.Count == 0) return;
+
         _choice = _choices[index];
+        _isChoiceDone.Value = true;
     }
 
     private IEnumerator RunNewspaperNode(Sprite sprite)
@@ -692,26 +686,4 @@ public class LevelScenePm : IDisposable
         var s = array.Aggregate("", (current, t) => current + ", " + t);
         Debug.Log(s);
     }
-
-    //------------------------------------------------------------------------------------------------------------------
-
-/*TODO This might be needed
- private void CheckForSelectionPlaced()
-{
-    if (!_selectionPlaced && (Input.GetKeyDown(KeyCode.LeftArrow) || Input.GetKeyDown(KeyCode.RightArrow) ||
-                              Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.D)))
-    {
-        // set first selection
-        var eventSystemSelectGameObject = RandomSelectButton(new List<Choice>(_currentPhrase.choices));
-
-        if (eventSystemSelectGameObject != null)
-        {
-            var selectIndex = _currentPhrase.choices.IndexOf(eventSystemSelectGameObject);
-            _ctx.buttons[selectIndex].gameObject.Select();
-        }
-
-        _selectionPlaced = true;
-    }
-}
-*/
 }
