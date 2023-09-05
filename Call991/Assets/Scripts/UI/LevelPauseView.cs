@@ -1,5 +1,3 @@
-using System;
-using DG.Tweening;
 using UniRx;
 using UnityEngine;
 
@@ -14,19 +12,19 @@ namespace UI
             public ReactiveCommand OnClickUnPauseButton;
         }
 
-        [SerializeField] private MenuButtonView continueButton = default;
-        [SerializeField] private MenuButtonView settingsButton = default;
-        [SerializeField] private MenuButtonView menuButton = default;
+        [SerializeField] private AaMenuButton continueButton = default;
+        [SerializeField] private AaMenuButton settingsButton = default;
+        [SerializeField] private AaMenuButton menuButton = default;
 
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-           
-            continueButton.OnClick += OnClickContinueHandler;
-            settingsButton.OnClick += OnClickSettingsButtonHandler;
-            menuButton.OnClick += OnClickMenuButtonHandler;
+
+            continueButton.onButtonClick.AddListener(OnClickContinueHandler);
+            settingsButton.onButtonClick.AddListener(OnClickSettingsButtonHandler);
+            menuButton.onButtonClick.AddListener(OnClickMenuButtonHandler);
         }
 
         private void OnClickContinueHandler() => AnimateDisappear(OnClickContinue);
@@ -39,9 +37,9 @@ namespace UI
 
         public void Dispose()
         {
-            menuButton.OnClick -= OnClickMenuButtonHandler;
-            settingsButton.OnClick -= OnClickSettingsButtonHandler;
-            continueButton.OnClick -= OnClickContinueHandler;
+            menuButton.onButtonClick.RemoveAllListeners();
+            settingsButton.onButtonClick.RemoveAllListeners();
+            continueButton.onButtonClick.RemoveAllListeners();
         }
     }
 }

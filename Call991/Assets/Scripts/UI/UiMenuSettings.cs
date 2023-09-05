@@ -1,5 +1,4 @@
 using I2.Loc;
-using TMPro;
 using UniRx;
 using UnityEngine;
 
@@ -13,23 +12,21 @@ namespace UI
             public PlayerProfile Profile;
         }
 
-        [SerializeField] private MenuButtonView toMenuBtn = default;
-        [SerializeField] private MenuButtonView toMenuTutorialBtn = default;
-        [SerializeField] private TMP_InputField inputId = default;
-        [SerializeField] private SettingsVolumeView masterVolume = default;
-        [SerializeField] private SettingsVolumeView voiceVolume = default;
-        [SerializeField] private SettingsVolumeView musicVolume = default;
-        [SerializeField] private SettingsVolumeView sfxVolume = default;
+        [SerializeField] private AaMenuButton toMenuTutorialBtn = default;
 
         [Space] [SerializeField] private LanguageDropdown textLanguage = default;
-        [SerializeField] private LanguageDropdown audioLanguage = default;
+        [SerializeField] private LanguageDropdown voiceLanguage = default;
+        
+        [Space] [SerializeField] private AaVolumeSlider masterVolume = default;
+        [SerializeField] private AaVolumeSlider voiceVolume = default;
+        [SerializeField] private AaVolumeSlider musicVolume = default;
+        [SerializeField] private AaVolumeSlider sfxVolume = default;
 
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            inputId.text = "";
             SetTextDropdown();
             SetAudioDropdown();
 
@@ -38,24 +35,19 @@ namespace UI
             musicVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.MusicVolume);
             sfxVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.SfxVolume);
 
-            toMenuBtn.OnClick += OnClickToMenu;
-            toMenuTutorialBtn.OnClick += OnClickToMenu;
+            toMenuTutorialBtn.onButtonClick.AddListener(OnClickToMenu);
         }
 
         protected override void OnDestroy()
         {
             base.OnDestroy();
-            
-            toMenuBtn.OnClick -= OnClickToMenu;
-            toMenuTutorialBtn.OnClick -= OnClickToMenu;
+
+            toMenuTutorialBtn.onButtonClick.RemoveAllListeners();
         }
 
         public void OnClickToMenu()
         {
-            AnimateDisappear(() =>
-            {
-                _ctx.OnClickToMenu.Execute();
-            });
+            AnimateDisappear(() => { _ctx.OnClickToMenu.Execute(); });
         }
 
         private void SetTextDropdown()
@@ -82,12 +74,12 @@ namespace UI
 
             var languages = LocalizationManager.GetAllLanguages();
 
-            audioLanguage.ClearOptions();
-            audioLanguage.AddOptions(languages);
+            voiceLanguage.ClearOptions();
+            voiceLanguage.AddOptions(languages);
 
-            audioLanguage.Value(1); //languages.IndexOf(currentLanguage);
-            audioLanguage.OnValueChanged.RemoveListener(OnAudioLanguageSelected);
-            audioLanguage.OnValueChanged.AddListener(OnAudioLanguageSelected);
+            voiceLanguage.Value(1); //languages.IndexOf(currentLanguage);
+            voiceLanguage.OnValueChanged.RemoveListener(OnAudioLanguageSelected);
+            voiceLanguage.OnValueChanged.AddListener(OnAudioLanguageSelected);
         }
 
         private void OnAudioLanguageSelected(int index)

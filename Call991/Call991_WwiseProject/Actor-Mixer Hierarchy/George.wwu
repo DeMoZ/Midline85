@@ -12,6 +12,11 @@
 						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
 						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="RenderEffect0" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-3.9</Value>
@@ -21,6 +26,9 @@
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Dialog_Leveler_Soft" ID="{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="George" ID="{8D05D29C-B2E1-4CBA-8F57-2E2B8AE47F45}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
@@ -852,6 +860,11 @@
 						<Sound Name="pizza_george_022" ID="{53505FD2-0042-48F4-A80B-D3E7C3D9B724}" ShortID="732476220">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.6</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -1976,7 +1989,7 @@
 								<Property Name="IsVoice" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-0.9</Value>
+										<Value>-1.9</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2094,6 +2107,11 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<AudioFileSource Name="pizza_george_01" ID="{CB209D6C-5063-4B50-BBCD-69276F0E5458}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.252118178717599"/>
+										<Property Name="FadeInShape" Type="int16" Value="6"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>Russian</Language>
 									<AudioFile>pizza_george\pizza_george_047.wav</AudioFile>
 									<MediaIDList>
@@ -2116,6 +2134,11 @@
 						<Sound Name="pizza_george_050" ID="{43F96239-3028-409E-8C1E-40352F452AFC}" ShortID="187911800">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2156,6 +2179,11 @@
 						<Sound Name="pizza_george_051" ID="{1C54E1CD-F596-42D6-8243-A7AF31384D97}" ShortID="756540929">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2336,6 +2364,11 @@
 						<Sound Name="pizza_george_049" ID="{1AFA44DC-10CC-487A-89E8-B6993480AF6E}" ShortID="79298849">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.8</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2456,6 +2489,16 @@
 						<Sound Name="pizza_george_053" ID="{9437D407-FDA2-4FE0-85D3-374301243F6C}" ShortID="190711655">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.4</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -2496,9 +2539,14 @@
 						<Sound Name="pizza_george_054" ID="{BE05B622-B53D-4B3A-9894-7A429C6845BF}" ShortID="746061498">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>22</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-1.3</Value>
+										<Value>-7.4</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -2541,6 +2589,11 @@
 						<Sound Name="pizza_george_055" ID="{74325BD0-70E4-4FE3-BBAB-EA5C305FF0C2}" ShortID="604088094">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.9</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

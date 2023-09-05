@@ -5,6 +5,7 @@ using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 
 public class AaWindow : InputHandler
 {
@@ -26,15 +27,22 @@ public class AaWindow : InputHandler
     [ShowIf("useDisappearAnimation")] [SerializeField]
     private AnimationSettings disappearAnimation;
 
-    [Space] [Space] [SerializeField] private AaSelectable[] windowSelectables = default;
+    [Tooltip("Menu Buttons Animation anchor to get X position")]
+    [Space] [SerializeField] private RectTransform anchor = default;
+    [Space] [SerializeField] private AaButton[] buttons = default;
 
     private Sequence _animationSequence;
+    private CancellationTokenSource _tokenSource;
+    private float _anchorX;
 
-    protected CancellationTokenSource tokenSource;
-
+    protected AaButton[] Buttons => buttons;
+    
     private void Awake()
     {
-        tokenSource = new CancellationTokenSource();
+        _tokenSource = new CancellationTokenSource();
+        
+        if(useAppearAnimation || useDisappearAnimation)
+            _anchorX = anchor.position.x;
     }
 
     protected override void OnEnable()
@@ -44,23 +52,36 @@ public class AaWindow : InputHandler
         // reset any selected object in case
         EventSystem.current.firstSelectedGameObject = null;
         EventSystem.current.SetSelectedGameObject(null);
-
-        foreach (var selectable in windowSelectables)
+        
+//        Debug.LogWarning($"<---------Start>");
+        foreach (var button in Buttons)
         {
-            selectable.OnSelectObj += OnSelectObj;
-            selectable.OnUnSelect += OnUnSelect;
-        }
+            var btn = button;
+            button.onButtonSelect.AddListener(()=> OnButtonSelect(btn));
+            button.onButtonNormal.AddListener(()=> OnButtonNormal(btn));
 
+//            Debug.LogWarning($"{button.name} selected = {button.IsSelected};\n     KeyboardSelected {button.IsKeyboardSelected}; MouseSelected {button.IsMouseSelected}");
+            // if (button.IsSelected && button.IsKeyboardSelected && !button.IsMouseSelected)
+            // {
+            //     button.SetNormal();
+            //     EventSystem.current.firstSelectedGameObject = button.gameObject;
+            // }
+            
+            button.Reset();
+        }
+        EventSystem.current.firstSelectedGameObject = null;
+//        Debug.LogWarning($"<---------End>");
+        
         if (useAppearAnimation)
             AnimateAppear();
     }
 
     protected virtual void OnDisable()
     {
-        foreach (var selectable in windowSelectables)
+        foreach (var button in Buttons)
         {
-            selectable.OnSelectObj -= OnSelectObj;
-            selectable.OnUnSelect -= OnUnSelect;
+            button.onButtonSelect.RemoveAllListeners();
+            button.onButtonNormal.RemoveAllListeners();
         }
     }
 
@@ -71,12 +92,12 @@ public class AaWindow : InputHandler
         ResetAnimationSequence();
 
         var position = disappearAnimation.ButtonsGroup.position;
-        position.x = disappearAnimation.Config.FromPositionX;
+        position.x = _anchorX;;
         disappearAnimation.ButtonsGroup.position = position;
 
         disappearAnimation.ButtonsCanvas.alpha = 1;
 
-        _animationSequence.Append(disappearAnimation.ButtonsGroup.DOMoveX(disappearAnimation.Config.ToPositionX,
+        _animationSequence.Append(disappearAnimation.ButtonsGroup.DOMoveX(_anchorX * 2,
             disappearAnimation.Config.AnimationTime, true));
         _animationSequence.Insert(0,
                 disappearAnimation.ButtonsCanvas.DOFade(0, disappearAnimation.Config.AnimationTime))
@@ -86,12 +107,12 @@ public class AaWindow : InputHandler
     private void AnimateAppear()
     {
         ResetAnimationSequence();
-
+        
         var position = appearAnimation.ButtonsGroup.position;
         position.x = appearAnimation.Config.FromPositionX;
         appearAnimation.ButtonsGroup.position = position;
         appearAnimation.ButtonsCanvas.alpha = 0;
-        _animationSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(appearAnimation.Config.ToPositionX,
+        _animationSequence.Append(appearAnimation.ButtonsGroup.DOMoveX(_anchorX,
             appearAnimation.Config.AnimationTime, true));
         _animationSequence.Insert(0, appearAnimation.ButtonsCanvas.DOFade(1,
             appearAnimation.Config.AnimationTime));
@@ -105,17 +126,33 @@ public class AaWindow : InputHandler
     }
 
 
-    private void OnUnSelect(AaSelectable obj)
+    // private void OnUnSelect(AaSelectable obj)
+    // {
+    //     //Debug.Log($"[{this}] <color=red>Window</color> to OnUnSelect {obj.gameObject.ToStringEventSystem()}");
+    //     firstSelected = obj;
+    //     EventSystem.current.SetSelectedGameObject(null);
+    // }
+    //
+    // private void OnSelectObj(AaSelectable obj)
+    // {
+    //     //Debug.Log($"[{this}] <color=red>Window</color> to OnSelect {obj.gameObject.ToStringEventSystem()}");
+    //     firstSelected = obj;
+    //
+    //     if (!EventSystem.current.alreadySelecting)
+    //         EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
+    // }
+    
+    private void OnButtonNormal(AaButton button)
     {
         //Debug.Log($"[{this}] <color=red>Window</color> to OnUnSelect {obj.gameObject.ToStringEventSystem()}");
-        firstSelected = obj;
-        EventSystem.current.SetSelectedGameObject(null);
+        firstSelected = button;
+//        EventSystem.current.SetSelectedGameObject(null);
     }
 
-    private void OnSelectObj(AaSelectable obj)
+    private void OnButtonSelect(AaButton button)
     {
         //Debug.Log($"[{this}] <color=red>Window</color> to OnSelect {obj.gameObject.ToStringEventSystem()}");
-        firstSelected = obj;
+        firstSelected = button;
 
         if (!EventSystem.current.alreadySelecting)
             EventSystem.current.SetSelectedGameObject(firstSelected.gameObject);
@@ -123,6 +160,6 @@ public class AaWindow : InputHandler
 
     protected virtual void OnDestroy()
     {
-        tokenSource.Cancel();
+        _tokenSource.Cancel();
     }
 }

@@ -15,18 +15,17 @@ namespace UI
         [SerializeField] private RectTransform developerPanelPrefab = default;
         [SerializeField] private DevelopersView developersViewPrefab = default;
         [SerializeField] private RectTransform panels = default;
-        [SerializeField] private MenuButtonView returnBtn = default;
+        [SerializeField] private AaMenuButton returnBtn = default;
 
         private Ctx _ctx;
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
+            returnBtn.onButtonClick.AddListener(OnClickToMenu);
         }
 
         private void Awake()
         {
-            returnBtn.OnClick += OnClickToMenu;
-            
             foreach (Transform developer in panels)
                 Destroy(developer.gameObject);
 
@@ -50,7 +49,7 @@ namespace UI
         
         private void OnDestroy()
         {
-            returnBtn.OnClick -= OnClickToMenu;
+            returnBtn.onButtonClick.RemoveAllListeners();
         }
     }
 }

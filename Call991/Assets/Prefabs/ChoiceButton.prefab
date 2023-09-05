@@ -145,8 +145,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 456124729896096290}
-  - component: {fileID: 8478712023626623636}
-  - component: {fileID: 2521618014475347393}
+  - component: {fileID: 6770721485546905489}
+  - component: {fileID: 403939229022507710}
   m_Layer: 5
   m_Name: ChoiceButton
   m_TagString: Untagged
@@ -178,7 +178,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 804, y: 110}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8478712023626623636
+--- !u!114 &6770721485546905489
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -187,11 +187,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 456124729896096291}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2addaea85ab548a5ad26eb42d1316f6e, type: 3}
+  m_Script: {fileID: 11500000, guid: 6b20188af5374e15864c568ece760f37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 4
+    m_Mode: 3
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -222,24 +222,21 @@ MonoBehaviour:
   buttonAudioSettings: {fileID: 11400000, guid: 76a1142e6c0ea43739a9af505e128818,
     type: 2}
   cursorSettings: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
-  onClick:
+  onButtonSelect:
     m_PersistentCalls:
       m_Calls: []
-  onNormal:
+  onButtonClick:
     m_PersistentCalls:
       m_Calls: []
-  onHover:
-    m_PersistentCalls:
-      m_Calls: []
-  onSelect:
+  onButtonNormal:
     m_PersistentCalls:
       m_Calls: []
   defaultButton: {fileID: 1883042743227869854}
   hoverButton: {fileID: 7758317990708646548}
-  buttonLock: {fileID: 4547368646399552090}
+  buttonLock: {fileID: 4032343659503628138}
   text: {fileID: 636876952199412556}
-  unlockAnimation: {fileID: 2521618014475347393}
---- !u!111 &2521618014475347393
+  unlockAnimation: {fileID: 403939229022507710}
+--- !u!111 &403939229022507710
 Animation:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -477,7 +474,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6086799162063448119}
   - component: {fileID: 2842096258300631368}
-  - component: {fileID: 4547368646399552090}
+  - component: {fileID: 4032343659503628138}
   m_Layer: 5
   m_Name: Lock
   m_TagString: Untagged
@@ -516,7 +513,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4108938339725060139}
   m_CullTransparentMesh: 1
---- !u!114 &4547368646399552090
+--- !u!114 &4032343659503628138
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
