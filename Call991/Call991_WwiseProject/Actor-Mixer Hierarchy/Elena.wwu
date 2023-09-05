@@ -1971,7 +1971,6 @@
 							</ValueList>
 						</Property>
 						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
-						<Property Name="OverrideEffect" Type="bool" Value="True"/>
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="RenderEffect0" Type="bool">
@@ -6998,9 +6997,28 @@
 										<MediaID ID="591915705"/>
 									</MediaIDList>
 								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_elena_alt_001" ID="{41042E07-B719-4B79-903B-48B940F46F27}">
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_elena\pizzaep_elena_alt_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="90221440"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_elena_alt_001_1" ID="{0D9AE8E8-7A74-48C0-A242-8D1E050F5537}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_elena\pizzaep_elena_alt_001_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="861640857"/>
+									</MediaIDList>
+								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizzaep_elena__alt_001" ID="{0695A5A0-761A-4BF9-9513-67DA95C25652}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_elena_alt_001_1" ID="{0D9AE8E8-7A74-48C0-A242-8D1E050F5537}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_alt_002" ID="{13B8C027-6EBF-4B53-A160-D8B73381D659}" ShortID="1051883290">
@@ -7028,12 +7046,7 @@
 										<MediaID ID="268558753"/>
 									</MediaIDList>
 								</AudioFileSource>
-								<AudioFileSource Name="pizzaep_elena_alt_002_1" ID="{D1BB15CD-4026-43E7-8989-87D3EB2B4C62}">
-									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.23107993697479"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-										<Property Name="TrimEnd" Type="Real64" Value="2.46866586134454"/>
-									</PropertyList>
+								<AudioFileSource Name="pizzaep_elena_alt_002_01" ID="{BAE49FC6-31CB-45EC-8825-6FC761BEC950}">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
@@ -7042,12 +7055,12 @@
 									<Language>Russian</Language>
 									<AudioFile>pizzaep_elena\pizzaep_elena_alt_002_1.wav</AudioFile>
 									<MediaIDList>
-										<MediaID ID="493653744"/>
+										<MediaID ID="801479333"/>
 									</MediaIDList>
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizzaep_elena_alt_002_1" ID="{D1BB15CD-4026-43E7-8989-87D3EB2B4C62}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_elena_alt_002_01" ID="{BAE49FC6-31CB-45EC-8825-6FC761BEC950}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>
@@ -7085,6 +7098,9 @@
 					<ReferenceList>
 						<Reference Name="Conversion">
 							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Dialog_Leveler_Soft" ID="{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 						</Reference>
 						<Reference Name="OutputBus">
 							<ObjectRef Name="Elena_Training" ID="{93FAAE94-8F23-41EC-9461-809B60506814}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
@@ -10125,11 +10141,6 @@
 							<Comment>Ожидайте_ “Курьеры” будут в течение пары минут_</Comment>
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>2.4</Value>
-									</ValueList>
-								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">

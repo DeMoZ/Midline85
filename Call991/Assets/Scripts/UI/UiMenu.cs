@@ -13,22 +13,34 @@ namespace UI
             public ReactiveCommand OnClickCredits;
         }
 
-        [SerializeField] private MenuButtonView selectLevelBtn = default;
-        [SerializeField] private MenuButtonView newGameBtn = default;
-        [SerializeField] private MenuButtonView settingsBtn = default;
-        [SerializeField] private MenuButtonView creditsBtn = default;
-        [SerializeField] private MenuButtonView exitBtn = default;
+        [SerializeField] private AaMenuButton selectLevelBtn = default;
+        [SerializeField] private AaMenuButton newGameBtn = default;
+        [SerializeField] private AaMenuButton settingsBtn = default;
+        [SerializeField] private AaMenuButton creditsBtn = default;
+        [SerializeField] private AaMenuButton exitBtn = default;
 
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            selectLevelBtn.OnClick += OnClickSelectLevelHandler;
-            newGameBtn.OnClick += OnClickNewGameHandler;
-            settingsBtn.OnClick += OnClickSettingsHandler;
-            creditsBtn.OnClick += OnClickCreditsHandler;
-            exitBtn.OnClick += OnClickExitHandler;
+            selectLevelBtn.onButtonClick.AddListener(OnClickSelectLevelHandler);
+            selectLevelBtn.onButtonClick.AddListener(OnClickSelectLevelHandler);
+            newGameBtn.onButtonClick.AddListener(OnClickNewGameHandler);
+            settingsBtn.onButtonClick.AddListener(OnClickSettingsHandler);
+            creditsBtn.onButtonClick.AddListener(OnClickCreditsHandler);
+            exitBtn.onButtonClick.AddListener(OnClickExitHandler);
+        }
+        
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            selectLevelBtn.onButtonClick.RemoveAllListeners();
+            newGameBtn.onButtonClick.RemoveAllListeners();
+            settingsBtn.onButtonClick.RemoveAllListeners();
+            creditsBtn.onButtonClick.RemoveAllListeners();
+            exitBtn.onButtonClick.RemoveAllListeners();
         }
 
         private void OnClickSelectLevelHandler() => AnimateDisappear(OnClickSelectLevel);
@@ -37,44 +49,11 @@ namespace UI
         private void OnClickCreditsHandler() => AnimateDisappear(OnClickCredits);
         private void OnClickExitHandler() => AnimateDisappear(OnClickExit);
 
-        private void OnClickSelectLevel()
-        {
-            Debug.Log("[UiMenuScene] OnClickContinue");
-            _ctx.OnClickContinue.Execute();
-        }
+        private void OnClickSelectLevel() => _ctx.OnClickContinue.Execute();
+        private void OnClickNewGame() => _ctx.OnClickNewGame.Execute();
+        private void OnClickSettings() => _ctx.OnClickSettings.Execute();
+        private void OnClickCredits() => _ctx.OnClickCredits.Execute();
 
-        private void OnClickNewGame()
-        {
-            Debug.Log("[UiMenuScene] OnClickNewGame");
-            _ctx.OnClickNewGame.Execute();
-        }
-
-        private void OnClickSettings()
-        {
-            Debug.Log("[UiMenuScene] OnClickSettings");
-            _ctx.OnClickSettings.Execute();
-        }
-
-        private void OnClickCredits()
-        {
-            Debug.Log("[UiMenuScene] OnClickCredits");
-            _ctx.OnClickCredits.Execute();
-        }
-
-        private void OnClickExit()
-        {
-            Application.Quit();
-        }
-
-        protected override void OnDestroy()
-        {
-            base.OnDestroy();
-
-            selectLevelBtn.OnClick -= OnClickSelectLevelHandler;
-            newGameBtn.OnClick -= OnClickNewGameHandler;
-            settingsBtn.OnClick -= OnClickSettingsHandler;
-            creditsBtn.OnClick -= OnClickCreditsHandler;
-            exitBtn.OnClick -= OnClickExitHandler;
-        }
+        private void OnClickExit() => Application.Quit();
     }
 }

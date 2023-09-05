@@ -123,18 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!114 &353275437 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2590495655956491749, guid: 24d8605b922d94413be5c9c7ad8c29cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 6626419070377277785}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f25c82b82d454e71ad30bd631fd21589, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &549120191
 GameObject:
   m_ObjectHideFlags: 0
@@ -189,18 +177,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a482a8a74f9453292904deca7dffaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSelected: {fileID: 353275437}
+  firstSelected: {fileID: 1437908366}
   useAppearAnimation: 0
   appearAnimation:
     ButtonsGroup: {fileID: 0}
     ButtonsCanvas: {fileID: 0}
     Config: {fileID: 0}
-  windowSelectables:
-  - {fileID: 353275437}
+  useDisappearAnimation: 0
+  disappearAnimation:
+    ButtonsGroup: {fileID: 0}
+    ButtonsCanvas: {fileID: 0}
+    Config: {fileID: 0}
+  buttons: []
   openingUi1: {fileID: 3365025635454622946}
   openingUi2: {fileID: 6311582141310107320}
   openingUi3: {fileID: 6626419070377277786}
-  startBtn: {fileID: 353275437}
+  startBtn: {fileID: 1437908366}
   anyButton: {fileID: 6626419070377277787}
   sceneMusic:
     idInternal: 0
@@ -620,6 +612,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1437908366 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1429898441623433781, guid: 24d8605b922d94413be5c9c7ad8c29cf,
+    type: 3}
+  m_PrefabInstance: {fileID: 6626419070377277785}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5100e4f03ebc4e26bb9bc4b102157cb2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1457510374 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 6626419069466308287, guid: 24d8605b922d94413be5c9c7ad8c29cf,
@@ -1149,7 +1153,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &6626419070377277787 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 2530327522765883415, guid: 24d8605b922d94413be5c9c7ad8c29cf,
+  m_CorrespondingSourceObject: {fileID: 1449659909248318727, guid: 24d8605b922d94413be5c9c7ad8c29cf,
     type: 3}
   m_PrefabInstance: {fileID: 6626419070377277785}
   m_PrefabAsset: {fileID: 0}
