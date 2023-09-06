@@ -56,7 +56,7 @@ public class DialoguePm : IDisposable
             Debug.LogWarning($"[{this}] no next nodes were found");
     }
 
-    private List<AaNodeData> FindNext(List<AaNodeData> datas)
+    public List<AaNodeData> FindNext(List<AaNodeData> datas)
     {
         var result = new List<AaNodeData>();
         foreach (var data in datas)
