@@ -11,6 +11,7 @@ namespace AaDialogueGraph
         public CaseData CaseData = new ();
         public bool IsLocked;
         public bool ShowUnlock;
+        public bool ForceSelectOnRandom;
     }
 
     [Serializable]

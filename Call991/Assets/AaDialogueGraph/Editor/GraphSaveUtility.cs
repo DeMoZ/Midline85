@@ -112,6 +112,7 @@ namespace AaDialogueGraph.Editor
                 Rect = node.GetPosition(),
                 LevelId = node.Q<LevelIdPopupField>().Value,
                 ButtonFilter = node.Q<ButtonFilterTextField>().value,
+                GrabProjectorImages = node.Q<Toggle>(AaGraphConstants.ProjectorImages).value,
             };
 
             var languageFields = node.Query<LanguagePopupField>().ToList();
@@ -188,6 +189,7 @@ namespace AaDialogueGraph.Editor
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     Choice = node.Q<ChoicePopupField>().Value,
                     CaseData = caseData,
+                    ForceSelectOnRandom = node.Q<Toggle>(AaGraphConstants.ForceChoice).value,
                 });
             }
 

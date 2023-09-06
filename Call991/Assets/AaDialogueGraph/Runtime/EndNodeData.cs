@@ -1,12 +1,10 @@
-using System.Collections.Generic;
-
 namespace AaDialogueGraph
 {
     [System.Serializable]
     public class EndNodeData : AaNodeData
     { 
         public string End;
-        public List<EventVisualData> EventVisualData = new();
+
         public bool SkipSelectNextLevelButtons;
         //public List<RecordData> Records = new();
     }
