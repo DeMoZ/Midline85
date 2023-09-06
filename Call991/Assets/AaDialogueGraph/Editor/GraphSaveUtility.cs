@@ -112,6 +112,7 @@ namespace AaDialogueGraph.Editor
                 Rect = node.GetPosition(),
                 LevelId = node.Q<LevelIdPopupField>().Value,
                 ButtonFilter = node.Q<ButtonFilterTextField>().value,
+                GrabProjectorImages = node.Q<Toggle>(AaGraphConstants.ProjectorImages).value,
             };
 
             var languageFields = node.Query<LanguagePopupField>().ToList();

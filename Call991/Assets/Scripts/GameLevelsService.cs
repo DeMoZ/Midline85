@@ -185,7 +185,11 @@ public class GameLevelsService : IDisposable
     {
         var result = new List<string>();
 
-        var newList = new List<AaNodeData> { _levelData.Value.GetEntryNode() };
+        var entryNodeData = _levelData.Value.GetEntryNode();
+        
+        if (!entryNodeData.GrabProjectorImages) return result;
+        
+        var newList = new List<AaNodeData> { entryNodeData };
         var data = _dialoguePm.FindNext(newList);
 
         while (data.Count > 0)

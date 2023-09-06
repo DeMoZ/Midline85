@@ -152,8 +152,10 @@ public class FilmProjector : MonoBehaviour
         _currentClickSlide = -1;
     }
 
-    public void OnClick()
+    private void OnClick()
     {
+        if (_clickSprites == null || _clickSprites.Count < 1) return;
+        
         _currentClickSlide++;
         _currentClickSlide = _currentClickSlide >= _clickSprites.Count ? 0 : _currentClickSlide;
         ShowSlide(_clickSprites[_currentClickSlide]);
