@@ -19,9 +19,6 @@ public class LevelScenePm : IDisposable
 {
     public struct Ctx
     {
-        public ReactiveCommand<List<AaNodeData>> FindNext;
-        public ReactiveCommand<List<AaNodeData>> OnNext;
-
         public DialogueService DialogueService;
         public GameLevelsService GameLevelsService;
         public MediaService MediaService;
@@ -40,16 +37,7 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<bool> OnClickPauseButton;
         public Blocker Blocker;
         public CursorSet CursorSettings;
-        public OverridenDialogue OverridenDialogue;
         public ReactiveCommand OnClickNextLevelButton;
-    }
-
-    private class NodeEvents
-    {
-        public List<EventVisualData> SoundEvents;
-        public List<EventVisualData> ObjectEvents;
-        public List<EventVisualData> MusicEvents;
-        public List<EventVisualData> RtpcEvents;
     }
 
     private Ctx _ctx;
@@ -70,7 +58,7 @@ public class LevelScenePm : IDisposable
         _disposables = new CompositeDisposable();
         _tokenSource = new CancellationTokenSource().AddTo(_disposables);
 
-        _ctx.OnNext.Subscribe(OnDialogue).AddTo(_disposables);
+        _ctx.GameLevelsService.onNext.Subscribe(OnDialogue).AddTo(_disposables);
         _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
@@ -131,14 +119,28 @@ public class LevelScenePm : IDisposable
         _isPhraseSkipped.Value = true;
     }
 
-    private void ExecuteDialogue()
+    private async void ExecuteDialogue()
     {
+        // Process dialogue in silence and Grab projector images.
+        var imagePaths = await _ctx.GameLevelsService.OnGetProjectorImages.Invoke();
+        if (_tokenSource.IsCancellationRequested) return;
+
+        var projectorSprites = new List<Sprite>();
+        foreach (var imagePath in imagePaths)
+        {
+            var sprite = await _ctx.ContentLoader.GetObjectAsync<Sprite>(imagePath);
+            projectorSprites.Add(sprite);
+            if (_tokenSource.IsCancellationRequested) return;
+        }
+
+        _ctx.MediaService.FilmProjector.AddSlides(projectorSprites);
+
         Debug.Log($"[{this}] _ctx.FindNext.Execute with no data");
-        _ctx.FindNext.Execute(new List<AaNodeData>());
+        _ctx.GameLevelsService.findNext.Execute(new List<AaNodeData>());
     }
 
     private List<AaNodeData> _next;
-    private List<ChoiceNodeData> _choices = new ();
+    private List<ChoiceNodeData> _choices = new();
     private ChoiceNodeData _choice;
 
     private async void OnDialogue(List<AaNodeData> data)
@@ -156,10 +158,10 @@ public class LevelScenePm : IDisposable
         var ends = data.OfType<EndNodeData>().ToList();
         var events = data.OfType<EventNodeData>().ToList();
         var newspapers = data.OfType<NewspaperNodeData>().ToList();
+        var nodeEvents = _ctx.GameLevelsService.GetEvents(data);
+
         _choices = data.OfType<ChoiceNodeData>().ToList();
         var observables = new IObservable<Unit>[] { };
-
-        GetEvents(out var nodeEvents, phrases, imagePhrases, ends, events, newspapers);
 
         var content = new Dictionary<string, object>();
 
@@ -226,7 +228,7 @@ public class LevelScenePm : IDisposable
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
-        if (newspapers.Any() && !_ctx.OverridenDialogue.SkipNewspaper)
+        if (newspapers.Any() && !_ctx.GameLevelsService.IsNewspaperSkipped)
         {
             var newspaper = newspapers.First();
             var routine = Observable.FromCoroutine(() => RunNewspaperNode(content[newspaper.Guid] as Sprite));
@@ -244,65 +246,11 @@ public class LevelScenePm : IDisposable
                 _next.Add(_choice);
                 if (_next.Any())
                 {
-                    _ctx.FindNext?.Execute(_next);
+                    _ctx.GameLevelsService.findNext?.Execute(_next);
                 }
 
                 ResourcesLoader.UnloadUnused(); // todo debatable
             }).AddTo(_disposables);
-    }
-
-    private void GetEvents(out NodeEvents nodeEvents,
-        IEnumerable<PhraseNodeData> phrases, IEnumerable<ImagePhraseNodeData> imagePhrases,
-        IEnumerable<EndNodeData> ends,
-        IEnumerable<EventNodeData> events, IEnumerable<NewspaperNodeData> newspapers)
-    {
-        var allEvents = new List<EventVisualData>();
-        nodeEvents = new NodeEvents
-        {
-            SoundEvents = new List<EventVisualData>(),
-            ObjectEvents = new List<EventVisualData>(),
-            MusicEvents = new List<EventVisualData>(),
-            RtpcEvents = new List<EventVisualData>()
-        };
-
-        foreach (var phrase in phrases.Where(phrase => phrase.EventVisualData.Any()))
-            allEvents.AddRange(phrase.EventVisualData);
-
-        foreach (var imagePhrase in imagePhrases.Where(iPhrase => iPhrase.EventVisualData.Any()))
-            allEvents.AddRange(imagePhrase.EventVisualData);
-
-        foreach (var end in ends.Where(end => end.EventVisualData.Any()))
-            allEvents.AddRange(end.EventVisualData);
-
-        foreach (var evt in events.Where(evt => evt.EventVisualData.Any()))
-            allEvents.AddRange(evt.EventVisualData);
-
-        foreach (var newspaper in newspapers.Where(newspaper => newspaper.EventVisualData.Any()))
-            allEvents.AddRange(newspaper.EventVisualData);
-
-        foreach (var anEvent in allEvents)
-        {
-            switch (anEvent.Type)
-            {
-                case PhraseEventType.Music:
-                    nodeEvents.MusicEvents.Add(anEvent);
-                    break;
-                case PhraseEventType.RTPC:
-                    nodeEvents.RtpcEvents.Add(anEvent);
-                    break;
-                case PhraseEventType.AudioClip:
-                    nodeEvents.SoundEvents.Add(anEvent);
-                    break;
-                case PhraseEventType.Projector:
-                case PhraseEventType.Image:
-                case PhraseEventType.VideoClip:
-                case PhraseEventType.GameObject:
-                    nodeEvents.ObjectEvents.Add(anEvent);
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-        }
     }
 
     private async Task<bool> LoadContent(Dictionary<string, object> content, List<EventVisualData> objectEvents,
