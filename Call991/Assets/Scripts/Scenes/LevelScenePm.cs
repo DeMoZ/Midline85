@@ -37,7 +37,6 @@ public class LevelScenePm : IDisposable
         public ReactiveCommand<bool> OnClickPauseButton;
         public Blocker Blocker;
         public CursorSet CursorSettings;
-        public OverridenDialogue OverridenDialogue;
         public ReactiveCommand OnClickNextLevelButton;
     }
 
@@ -227,7 +226,7 @@ public class LevelScenePm : IDisposable
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
-        if (newspapers.Any() && !_ctx.OverridenDialogue.SkipNewspaper)
+        if (newspapers.Any() && !_ctx.GameLevelsService.IsNewspaperSkipped)
         {
             var newspaper = newspapers.First();
             var routine = Observable.FromCoroutine(() => RunNewspaperNode(content[newspaper.Guid] as Sprite));

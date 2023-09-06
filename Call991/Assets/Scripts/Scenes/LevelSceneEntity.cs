@@ -23,7 +23,6 @@ public class LevelSceneEntity : IGameScene
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
-        public OverridenDialogue OverridenDialogue;
         public ReactiveProperty<bool> IsPauseAllowed;
         public DialogueLoggerPm DialogueLogger;
     }
@@ -69,7 +68,8 @@ public class LevelSceneEntity : IGameScene
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
 
         var levelSceneObjectsService = new LevelSceneObjectsService().AddTo(_disposables);
-        var levelData = _ctx.GameLevelsService.GetLevelData();
+        _ctx.GameLevelsService.InitDialogue();
+        var levelData = _ctx.GameLevelsService.LevelData;
         _ctx.LevelLanguages.Value = levelData.GetEntryNode().Languages;
 
         var contentLoader = new ContentLoader(new ContentLoader.Ctx
@@ -83,7 +83,6 @@ public class LevelSceneEntity : IGameScene
         var levelId = levelData.GetEntryNode().LevelId;
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
-            OverridenDialogue = _ctx.OverridenDialogue,
             OnSwitchScene = _ctx.OnSwitchScene,
             OnClickMenuButton = onClickMenuButton,
             OnClickNextLevelButton = onClickNextLevelButton,

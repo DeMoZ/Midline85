@@ -10,7 +10,7 @@ public class DialoguePm : IDisposable
 {
     public struct Ctx
     {
-        public LevelData LevelData;
+        public ReactiveProperty<LevelData> LevelData;
         public ReactiveCommand<List<AaNodeData>> OnNext;
         public ReactiveCommand<List<AaNodeData>> FindNext;
         public DialogueLoggerPm DialogueLogger;
@@ -25,12 +25,17 @@ public class DialoguePm : IDisposable
     {
         _ctx = ctx;
         _disposables = new CompositeDisposable();
-        var entryNode = _ctx.LevelData.GetEntryNode();
-        
-        _ctx.DialogueLogger.Init(entryNode.LevelId);
-
-        _currentNodes.Add(entryNode);
+        _ctx.LevelData.Subscribe(OnLevelData).AddTo(_disposables);
         _ctx.FindNext.Subscribe(OnFindNext).AddTo(_disposables);
+    }
+
+    private void OnLevelData(LevelData levelData)
+    {
+        if (levelData == null) return;
+        
+        var entryNode = _ctx.LevelData.Value.GetEntryNode();
+        _ctx.DialogueLogger.Init(entryNode.LevelId);
+        _currentNodes.Add(entryNode);
     }
 
     /// <summary>
@@ -71,7 +76,7 @@ public class DialoguePm : IDisposable
 
     private List<AaNodeData> GetNext(AaNodeData data)
     {
-        var links = _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == data.Guid);
+        var links = _ctx.LevelData.Value.Links.Where(l => l.BaseNodeGuid == data.Guid);
         var result = LinksToNodes(links);
         return result;
     }
@@ -82,7 +87,7 @@ public class DialoguePm : IDisposable
 
         foreach (var link in links)
         {
-            if (_ctx.LevelData.Nodes.TryGetValue(link.TargetNodeGuid, out var aaNodeData))
+            if (_ctx.LevelData.Value.Nodes.TryGetValue(link.TargetNodeGuid, out var aaNodeData))
             {
                 if (result.Contains(aaNodeData)) continue;
 
@@ -136,14 +141,14 @@ public class DialoguePm : IDisposable
         if (string.IsNullOrEmpty(exit))
         {
             var exitLinks =
-                _ctx.LevelData.Links.Where(l => l.BaseNodeGuid == data.Guid
+                _ctx.LevelData.Value.Links.Where(l => l.BaseNodeGuid == data.Guid
                                                 && string.IsNullOrEmpty(l.BaseExitName));
             return LinksToNodes(exitLinks);
         }
         else
         {
             var exitLinks =
-                _ctx.LevelData.Links.Where(l => l.BaseExitName == exit);
+                _ctx.LevelData.Value.Links.Where(l => l.BaseExitName == exit);
             return LinksToNodes(exitLinks);
         }
     }

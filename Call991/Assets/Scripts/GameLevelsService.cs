@@ -11,6 +11,7 @@ public class GameLevelsService : IDisposable
 
     private readonly GameSet _gameSet;
     private readonly OverridenDialogue _overridenDialogue;
+    private readonly DialogueLoggerPm _dialogueLogger;
 
     private readonly List<GameLevelsSo.LevelGroup> levelGroups;
     private readonly ReactiveProperty<DialogueContainer> playLevel;
@@ -18,38 +19,46 @@ public class GameLevelsService : IDisposable
     public readonly ReactiveCommand<List<AaNodeData>> findNext;
 
     private CompositeDisposable _disposables;
-    private readonly DialoguePm _dialoguePm;
+    private DialoguePm _dialoguePm;
+    private DialogueContainer _level;
+    private ReactiveProperty<LevelData> _levelData;
 
     private DialogueContainer PlayLevel => playLevel.Value;
+    public LevelData LevelData => _levelData.Value;
     public Func<List<string>> OnGetProjectorImages => GetProjectorImages;
+    public bool IsNewspaperSkipped => _overridenDialogue.SkipNewspaper;
     
     public GameLevelsService(GameSet gameSet, OverridenDialogue overridenDialogue, DialogueLoggerPm dialogueLogger)
     {
         _disposables = new CompositeDisposable();
         _gameSet = gameSet;
         _overridenDialogue = overridenDialogue;
+        _dialogueLogger = dialogueLogger;
         levelGroups = gameSet.GameLevels.LevelGroups;
         playLevel = new ReactiveProperty<DialogueContainer>(GetStartLevel()).AddTo(_disposables);
-        
+        _levelData = new ReactiveProperty<LevelData>().AddTo(_disposables);
+
         onNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
         findNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
-        
-        _dialoguePm = new DialoguePm(new DialoguePm.Ctx
-        {
-            LevelData = GetLevelData(),
-            FindNext = findNext,
-            OnNext = onNext,
-            DialogueLogger = dialogueLogger,
-        }).AddTo(_disposables);
     }
 
-    public LevelData GetLevelData()
+    public void InitDialogue()
     {
         var level = _overridenDialogue.Dialogue != null
             ? _overridenDialogue.Dialogue
             : PlayLevel;
         
-        return new LevelData(level.GetNodesData(), level.NodeLinks);    
+        _level = level;
+        _levelData.Value = new LevelData(_level.GetNodesData(), _level.NodeLinks);
+        
+        _dialoguePm?.Dispose();
+        _dialoguePm = new DialoguePm(new DialoguePm.Ctx
+        {
+            LevelData = _levelData,
+            FindNext = findNext,
+            OnNext = onNext,
+            DialogueLogger = _dialogueLogger,
+        }).AddTo(_disposables);
     }
     
     private DialogueContainer GetStartLevel()
@@ -73,7 +82,7 @@ public class GameLevelsService : IDisposable
 
         var result = new List<DialogueContainer>();
 
-        foreach (var levelGroup in levelGroups) 
+        foreach (var levelGroup in levelGroups)
             result.AddRange(levelGroup.Group);
 
         return result;
@@ -96,7 +105,7 @@ public class GameLevelsService : IDisposable
     {
         return TryGetNextLevel(playLevel.Value, out nextLevel, out isGameEnd);
     }
-    
+
     private bool TryGetNextLevel(DialogueContainer currentLevel, out DialogueContainer nextLevel, out bool isGameEnd)
     {
         nextLevel = null;
@@ -153,18 +162,18 @@ public class GameLevelsService : IDisposable
         var levels = GetLevels();
         playLevel.Value = levels[index];
     }
+
     public void SetLevel(DialogueContainer dialogue)
     {
         playLevel.Value = dialogue;
     }
-    
+
     private List<string> GetProjectorImages()
     {
         // look into level, pass all the way in silent mode, grab images from Projector events;
         var level = playLevel.Value;
         return new List<string>();
         //var a = level.
-
     }
 
     public void Dispose()

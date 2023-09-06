@@ -19,7 +19,6 @@ public class ScenesHandler : IDisposable
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
-        public OverridenDialogue OverridenDialogue;
         public ReactiveProperty<bool> IsPauseAllowed;
         public ReactiveProperty<List<string>> LevelLanguages;
         public DialogueLoggerPm DialogueLogger;
@@ -150,7 +149,6 @@ public class ScenesHandler : IDisposable
             OnSwitchScene = _ctx.OnSwitchScene,
             GameLevelsService = _ctx.GameLevelsService,
             MediaService = _ctx.MediaService,
-            OverridenDialogue = _ctx.OverridenDialogue,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
             IsPauseAllowed = _ctx.IsPauseAllowed,

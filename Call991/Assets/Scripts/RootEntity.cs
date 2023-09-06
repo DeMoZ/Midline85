@@ -117,7 +117,6 @@ public class RootEntity : IDisposable
             Blocker = blocker,
             ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,
-            OverridenDialogue = _ctx.OverridenDialogue,
             IsPauseAllowed = isPauseAllowed,
             LevelLanguages = levelLanguages,
             DialogueLogger = dialogueLoggerPm,
