@@ -510,7 +510,14 @@ public class LevelScenePm : IDisposable
     private void AutoChoice(List<ChoiceNodeData> data)
     {
         Debug.LogError($"[{this}] <color=yellow>choice time up!</color> Random choice!");
-
+        // check for force select
+        if (TryGetForceSelection(out var forceIndex, data))
+        {
+            _ctx.LevelSceneObjectsService.OnAutoSelectButton.Execute(forceIndex);
+            return;
+        }
+        
+        // random
         var cnt = data.Count;
         var isBlocked = true;
         var index = 0;
@@ -521,6 +528,21 @@ public class LevelScenePm : IDisposable
         }
 
         _ctx.LevelSceneObjectsService.OnAutoSelectButton.Execute(index);
+    }
+    
+    private bool TryGetForceSelection(out int index, List<ChoiceNodeData> data)
+    {
+        index = -1;
+        for (var i = 0; i < data.Count; i++)
+        {
+            if (data[i].ForceSelectOnRandom)
+            {
+                index = i;
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void OnClickChoiceButton(int index)

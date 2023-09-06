@@ -188,6 +188,7 @@ namespace AaDialogueGraph.Editor
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     Choice = node.Q<ChoicePopupField>().Value,
                     CaseData = caseData,
+                    ForceSelectOnRandom = node.Q<Toggle>(AaGraphConstants.ForceChoice).value,
                 });
             }
 
