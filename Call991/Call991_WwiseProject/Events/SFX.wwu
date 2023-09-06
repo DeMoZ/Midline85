@@ -355,6 +355,57 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="sfx_penhitdesk" ID="{A95B907C-F699-4C4F-8B08-CD59836AA9EE}">
+					<ChildrenList>
+						<Action Name="" ID="{7E2ABA09-5CB3-45F7-A5EB-FAB3E1FECF77}" ShortID="15402771">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_PenHitsDesk_001" ID="{ADF059CC-CF71-41DE-A542-D53A91B499D2}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_PenNoise" ID="{57304286-6833-4319-A907-B1AE1A474730}">
+					<ChildrenList>
+						<Action Name="" ID="{0E4C2396-B948-48EB-B2DB-0EBD2CE96385}" ShortID="745765281">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_PenNoise" ID="{FAAB19A0-9AFB-40D3-91E6-FB491F89B73C}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_HitTable" ID="{C2AA5048-8CEF-498A-98A8-9FB3A332BE78}">
+					<ChildrenList>
+						<Action Name="" ID="{FD92651F-63F2-4BC5-B518-2C46FA559BD5}" ShortID="881328770">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_HitTable1" ID="{6FDFA051-2EAE-498D-8205-DAB7FF68E5A9}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{1F7D603F-D085-4D35-8A16-F382AF083031}" ShortID="366903418">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_HitTable2" ID="{5500FC0A-1495-4D5D-A927-0E945F0C76C9}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_DropPhone" ID="{B6551155-2A49-470D-9734-3572C86897DC}">
+					<ChildrenList>
+						<Action Name="" ID="{773EB704-8C69-4994-8AD1-DCC79A7F00AD}" ShortID="103780113">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_DropPhone" ID="{65F06323-E357-40F6-80D5-E4F10229F1FD}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -10,5 +10,6 @@ namespace AaDialogueGraph
         public List<string> Languages = new();
         public string ButtonFilter;
         public string SoundAsset;
+        public bool GrabProjectorImages;
     }
 }
