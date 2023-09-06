@@ -4840,7 +4840,7 @@
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
-								<Value>0.3</Value>
+								<Value>-9.3</Value>
 							</ValueList>
 						</Property>
 					</PropertyList>
@@ -6244,6 +6244,11 @@
 						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="OverridePositioning" Type="bool" Value="True"/>
 						<Property Name="SpeakerPanning" Type="int16" Value="1"/>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-7.3</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="Conversion">
@@ -6295,13 +6300,18 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizzaep_elena_01" ID="{67149A32-7CC7-4F60-9573-E19916F687D2}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_elena_001" ID="{5D566437-3C01-4BD7-AF17-B39F5F693984}" Platform="Linked"/>
 								<ActiveSource Name="Sine" ID="{2F624EA5-F0E7-44F8-842F-2156970D6645}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_002" ID="{B058C1C9-2487-4C22-AB14-BF12AD78E420}" ShortID="746140912">
 							<PropertyList>
 								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.5</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
@@ -7018,7 +7028,7 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="pizzaep_elena_alt_001_1" ID="{0D9AE8E8-7A74-48C0-A242-8D1E050F5537}" Platform="Linked"/>
+								<ActiveSource Name="pizzaep_elena_alt_001" ID="{41042E07-B719-4B79-903B-48B940F46F27}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="pizzaep_elena_alt_002" ID="{13B8C027-6EBF-4B53-A160-D8B73381D659}" ShortID="1051883290">
@@ -7047,6 +7057,18 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<AudioFileSource Name="pizzaep_elena_alt_002_01" ID="{BAE49FC6-31CB-45EC-8825-6FC761BEC950}">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+									</ReferenceList>
+									<Language>Russian</Language>
+									<AudioFile>pizzaep_elena\pizzaep_elena_alt_002_1.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="801479333"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizzaep_elena_alt_002_1" ID="{405C12B4-7EB1-4DF7-B2EF-6F426B2880DD}">
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Voice" ID="{BD83D1BC-28A0-4212-9E50-2EE689DA9FEA}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
