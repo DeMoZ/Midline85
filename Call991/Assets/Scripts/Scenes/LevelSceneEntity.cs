@@ -14,7 +14,6 @@ public class LevelSceneEntity : IGameScene
     {
         public GameSet GameSet;
         public Container<Task> ConstructorTask;
-        public LevelData LevelData;
 
         public ReactiveProperty<List<string>> LevelLanguages;
         public ReactiveCommand<GameScenes> OnSwitchScene;
@@ -24,7 +23,6 @@ public class LevelSceneEntity : IGameScene
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
-        public OverridenDialogue OverridenDialogue;
         public ReactiveProperty<bool> IsPauseAllowed;
         public DialogueLoggerPm DialogueLogger;
     }
@@ -70,8 +68,9 @@ public class LevelSceneEntity : IGameScene
         var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
 
         var levelSceneObjectsService = new LevelSceneObjectsService().AddTo(_disposables);
-        
-        _ctx.LevelLanguages.Value = _ctx.LevelData.GetEntryNode().Languages;
+        _ctx.GameLevelsService.InitDialogue();
+        var levelData = _ctx.GameLevelsService.LevelData;
+        _ctx.LevelLanguages.Value = levelData.GetEntryNode().Languages;
 
         var contentLoader = new ContentLoader(new ContentLoader.Ctx
         {
@@ -80,23 +79,10 @@ public class LevelSceneEntity : IGameScene
         }).AddTo(_disposables);
 
         var phraseSkipper = new PhraseSkipper(dialogueService.OnSkipPhrase).AddTo(_disposables);
-
-        var onNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
-        var findNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
-        var dialoguePm = new DialoguePm(new DialoguePm.Ctx
-        {
-            LevelData = _ctx.LevelData,
-            FindNext = findNext,
-            OnNext = onNext,
-            DialogueLogger = _ctx.DialogueLogger,
-        }).AddTo(_disposables);
-
-        var levelId = _ctx.LevelData.GetEntryNode().LevelId;
+        
+        var levelId = levelData.GetEntryNode().LevelId;
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
-            FindNext = findNext,
-            OnNext = onNext,
-            OverridenDialogue = _ctx.OverridenDialogue,
             OnSwitchScene = _ctx.OnSwitchScene,
             OnClickMenuButton = onClickMenuButton,
             OnClickNextLevelButton = onClickNextLevelButton,

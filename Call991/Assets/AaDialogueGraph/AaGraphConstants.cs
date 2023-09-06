@@ -65,4 +65,5 @@ public static class AaGraphConstants
     public const string ProjectorField = "Projector";
 
     public const string EndNodeSkipSelectNextLevelButtons = "Skip Buttons";
+    public const string ForceChoice = "ForceChoice";
 }

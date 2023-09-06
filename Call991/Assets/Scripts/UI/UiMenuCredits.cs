@@ -24,7 +24,7 @@ namespace UI
             returnBtn.onButtonClick.AddListener(OnClickToMenu);
         }
 
-        private void Awake()
+        private void OnEnable()
         {
             foreach (Transform developer in panels)
                 Destroy(developer.gameObject);
