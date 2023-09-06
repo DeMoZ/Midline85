@@ -18,14 +18,15 @@ MonoBehaviour:
       serializedVersion: 2
       x: 42
       y: 198
-      width: 102
-      height: 165
+      width: 113
+      height: 183
     EventVisualData: []
     LevelId: L2_Tutor
     Languages:
     - Russian
     ButtonFilter: tut
     SoundAsset: 
+    GrabProjectorImages: 0
   PhraseNodeData:
   - Guid: 61003d42-6d97-4709-a909-6c6ee7810cf7
     Rect:
@@ -531,26 +532,6 @@ MonoBehaviour:
     PhraseSound: L2_Tutor/Mark/tutor_mark_031
     Phrases:
     - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_031.asset
-  - Guid: a06e2e9a-a856-4750-8455-7f6d3f39aa2a
-    Rect:
-      serializedVersion: 2
-      x: 8855
-      y: -196
-      width: 196
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "p.mark.032\L\L \u041F\u043E\u043B\u0438\u0446\u0438\u044F
-      \u0438 \u0441\u043A\u043E\u0440\u0430\u044F"
-    PersonVisualData:
-      Person: MARK
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    PhraseSound: L2_Tutor/Mark/tutor_mark_032
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_032.asset
   - Guid: 2c1d2e02-0854-4a19-ace9-aed189bd1e5e
     Rect:
       serializedVersion: 2
@@ -1752,33 +1733,6 @@ MonoBehaviour:
     PhraseSound: L2_Tutor/Mark/tutor_mark_alt_004
     Phrases:
     - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_alt_004.asset
-  - Guid: 6f2b2b84-cf52-41a6-97c4-32f4beee709f
-    Rect:
-      serializedVersion: 2
-      x: 8625
-      y: -40
-      width: 270
-      height: 96
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: Videos/L2_Tutor/p.mark.033 p.mark.036.mp4
-      Layer: 1
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    PhraseSketchText: "p.mark.033\L\L \u0411\u043B\u0435\u0441\u0442\u044F\u0449\u0435!
-      \u041F\u043E\u0440\u044F\u0434\u043A\u043E\u0432\u044B\u0439 \u043D\u043E\u043C\u0435\u0440"
-    PersonVisualData:
-      Person: MARK
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    PhraseSound: L2_Tutor/Mark/tutor_mark_033
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_033.asset
   - Guid: c1c6ad1a-ed79-4919-ac17-32c523c6eeef
     Rect:
       serializedVersion: 2
@@ -2156,6 +2110,53 @@ MonoBehaviour:
     PhraseSound: L2_Tutor/Mark/tutor_mark_011
     Phrases:
     - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_011.asset
+  - Guid: a06e2e9a-a856-4750-8455-7f6d3f39aa2a
+    Rect:
+      serializedVersion: 2
+      x: 8852
+      y: -196
+      width: 196
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "p.mark.032\L\L \u041F\u043E\u043B\u0438\u0446\u0438\u044F
+      \u0438 \u0441\u043A\u043E\u0440\u0430\u044F"
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L2_Tutor/Mark/tutor_mark_032
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_032.asset
+  - Guid: 6f2b2b84-cf52-41a6-97c4-32f4beee709f
+    Rect:
+      serializedVersion: 2
+      x: 8625
+      y: -40
+      width: 270
+      height: 96
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/p.mark.033 p.mark.036.mp4
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 3
+      Value: 0
+    PhraseSketchText: "p.mark.033\L\L \u0411\u043B\u0435\u0441\u0442\u044F\u0449\u0435!
+      \u041F\u043E\u0440\u044F\u0434\u043A\u043E\u0432\u044B\u0439 \u043D\u043E\u043C\u0435\u0440"
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L2_Tutor/Mark/tutor_mark_033
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_033.asset
   ImagePhraseNodeData: []
   ChoiceNodeData:
   - Guid: 2a941637-0af7-4e4e-a395-f875bafda642
@@ -2459,7 +2460,7 @@ MonoBehaviour:
       Words:
       - CaseType: 0
         OrKeys:
-        - btn.incendies.001
+        - btn.tutorial.022
       Ends: []
       Counts: []
     IsLocked: 0
