@@ -9,7 +9,7 @@ namespace AaDialogueGraph
         public string PhraseSketchText;
         public ImagePersonVisualData ImagePersonVisualData;
         public PhraseVisualData PhraseVisualData;
-        public List<EventVisualData> EventVisualData;
+
         public string PhraseSound;
         public List<string> Phrases;
     }

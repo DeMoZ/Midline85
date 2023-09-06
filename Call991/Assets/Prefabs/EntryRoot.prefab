@@ -61,7 +61,6 @@ MonoBehaviour:
   filmProjector: {fileID: 960097103235457954, guid: 63b9e0b3ca9f04f63a6cb0d7d8d01e22,
     type: 3}
   filmProjectorParent: {fileID: 2983424741026164866}
-  videoFade: {fileID: 5107530551928372236}
   screenFade: {fileID: 4009228356162583566}
   clicksParent: {fileID: 5439333299811802798}
 --- !u!1 &3271898927041813206
@@ -629,6 +628,7 @@ GameObject:
   - component: {fileID: 2983424741026164866}
   - component: {fileID: 8390269729591363848}
   - component: {fileID: 5088129791713416704}
+  - component: {fileID: 1037850315996297946}
   m_Layer: 0
   m_Name: FilmProjectorParent
   m_TagString: Untagged
@@ -700,6 +700,23 @@ MonoBehaviour:
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
   m_PresetInfoIsWorld: 0
+--- !u!114 &1037850315996297946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9187601682057919730}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
+  m_BlockingMask:
+    serializedVersion: 2
+    m_Bits: 55
 --- !u!1 &9187851714159099089
 GameObject:
   m_ObjectHideFlags: 0

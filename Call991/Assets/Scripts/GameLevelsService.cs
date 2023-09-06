@@ -1,28 +1,76 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using AaDialogueGraph;
 using Configs;
 using UniRx;
 
-public class GameLevelsService
+public class GameLevelsService : IDisposable
 {
+    public class NodeEvents
+    {
+        public List<EventVisualData> SoundEvents;
+        public List<EventVisualData> ObjectEvents;
+        public List<EventVisualData> MusicEvents;
+        public List<EventVisualData> RtpcEvents;
+    }
+
     private const string ConfigNotSetMsg = "Resources/GameLavels SO not properly set";
 
     private readonly GameSet _gameSet;
+    private readonly OverridenDialogue _overridenDialogue;
+    private readonly DialogueLoggerPm _dialogueLogger;
+
     private readonly List<GameLevelsSo.LevelGroup> levelGroups;
     private readonly ReactiveProperty<DialogueContainer> playLevel;
+    public readonly ReactiveCommand<List<AaNodeData>> onNext;
+    public readonly ReactiveCommand<List<AaNodeData>> findNext;
 
-    public DialogueContainer PlayLevel => playLevel.Value;
+    private CompositeDisposable _disposables;
+    public DialoguePm _dialoguePm;
+    private DialogueContainer _level;
+    private ReactiveProperty<LevelData> _levelData;
 
-    public GameLevelsService(GameSet gameSet)
+    private DialogueContainer PlayLevel => playLevel.Value;
+    public LevelData LevelData => _levelData.Value;
+    public Func<Task<List<string>>> OnGetProjectorImages => GetProjectorImages;
+    public bool IsNewspaperSkipped => _overridenDialogue.SkipNewspaper;
+
+    public GameLevelsService(GameSet gameSet, OverridenDialogue overridenDialogue, DialogueLoggerPm dialogueLogger)
     {
+        _disposables = new CompositeDisposable();
         _gameSet = gameSet;
+        _overridenDialogue = overridenDialogue;
+        _dialogueLogger = dialogueLogger;
         levelGroups = gameSet.GameLevels.LevelGroups;
-        playLevel = new ReactiveProperty<DialogueContainer>(GetStartLevel());
+        playLevel = new ReactiveProperty<DialogueContainer>(GetStartLevel()).AddTo(_disposables);
+        _levelData = new ReactiveProperty<LevelData>().AddTo(_disposables);
+
+        onNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
+        findNext = new ReactiveCommand<List<AaNodeData>>().AddTo(_disposables);
     }
 
-    public DialogueContainer GetStartLevel()
+    public void InitDialogue()
+    {
+        var level = _overridenDialogue.Dialogue != null
+            ? _overridenDialogue.Dialogue
+            : PlayLevel;
+
+        _level = level;
+        _levelData.Value = new LevelData(_level.GetNodesData(), _level.NodeLinks);
+
+        _dialoguePm?.Dispose();
+        _dialoguePm = new DialoguePm(new DialoguePm.Ctx
+        {
+            LevelData = _levelData,
+            FindNext = findNext,
+            OnNext = onNext,
+            DialogueLogger = _dialogueLogger,
+        }).AddTo(_disposables);
+    }
+
+    private DialogueContainer GetStartLevel()
     {
         if (levelGroups == null || levelGroups.Count < 1 || levelGroups[0].Group == null
             || levelGroups[0].Group.Count < 1 || levelGroups[0].Group[0] == null)
@@ -43,7 +91,7 @@ public class GameLevelsService
 
         var result = new List<DialogueContainer>();
 
-        foreach (var levelGroup in levelGroups) 
+        foreach (var levelGroup in levelGroups)
             result.AddRange(levelGroup.Group);
 
         return result;
@@ -66,8 +114,8 @@ public class GameLevelsService
     {
         return TryGetNextLevel(playLevel.Value, out nextLevel, out isGameEnd);
     }
-    
-    public bool TryGetNextLevel(DialogueContainer currentLevel, out DialogueContainer nextLevel, out bool isGameEnd)
+
+    private bool TryGetNextLevel(DialogueContainer currentLevel, out DialogueContainer nextLevel, out bool isGameEnd)
     {
         nextLevel = null;
         isGameEnd = false;
@@ -123,8 +171,84 @@ public class GameLevelsService
         var levels = GetLevels();
         playLevel.Value = levels[index];
     }
+
     public void SetLevel(DialogueContainer dialogue)
     {
         playLevel.Value = dialogue;
+    }
+
+    /// <summary>
+    /// Look into level file, pass all the way in silent mode, grab images from Projector events;
+    /// </summary>
+    /// <returns></returns>
+    private async Task<List<string>> GetProjectorImages()
+    {
+        var result = new List<string>();
+
+        var entryNodeData = _levelData.Value.GetEntryNode();
+        
+        if (!entryNodeData.GrabProjectorImages) return result;
+        
+        var newList = new List<AaNodeData> { entryNodeData };
+        var data = _dialoguePm.FindNext(newList);
+
+        while (data.Count > 0)
+        {
+            data = _dialoguePm.FindNext(data);
+            var allEvents = GetEvents(data);
+
+            result.AddRange(from evt in allEvents.ObjectEvents
+                where evt.Type == PhraseEventType.Projector
+                select evt.PhraseEvent);
+            await Task.Delay(1);
+        }
+
+        return result;
+    }
+
+    public void Dispose()
+    {
+        _disposables.Dispose();
+    }
+
+    public NodeEvents GetEvents(List<AaNodeData> data)
+    {
+        var allEvents = new List<EventVisualData>();
+        var nodeEvents = new NodeEvents
+        {
+            SoundEvents = new List<EventVisualData>(),
+            ObjectEvents = new List<EventVisualData>(),
+            MusicEvents = new List<EventVisualData>(),
+            RtpcEvents = new List<EventVisualData>()
+        };
+
+        foreach (var aaData in data.Where(phrase => phrase.EventVisualData.Any()))
+            allEvents.AddRange(aaData.EventVisualData);
+
+        foreach (var anEvent in allEvents)
+        {
+            switch (anEvent.Type)
+            {
+                case PhraseEventType.Music:
+                    nodeEvents.MusicEvents.Add(anEvent);
+                    break;
+                case PhraseEventType.RTPC:
+                    nodeEvents.RtpcEvents.Add(anEvent);
+                    break;
+                case PhraseEventType.AudioClip:
+                    nodeEvents.SoundEvents.Add(anEvent);
+                    break;
+                case PhraseEventType.Projector:
+                case PhraseEventType.Image:
+                case PhraseEventType.VideoClip:
+                case PhraseEventType.GameObject:
+                    nodeEvents.ObjectEvents.Add(anEvent);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        return nodeEvents;
     }
 }

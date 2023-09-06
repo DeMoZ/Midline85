@@ -8,8 +8,17 @@ namespace AaDialogueGraph.Editor
         public void Set(ChoiceNodeData data, string guid, List<string> choiceKeys)
         {
             Guid = guid;
-
             NodeType = AaNodeType.ChoiceNode;
+            
+            var forceChoice = new Toggle
+            {
+                text = "",
+                value = data?.ForceSelectOnRandom ?? false,
+                tooltip = "Force select this on auto select",
+                name = AaGraphConstants.ForceChoice,
+            };
+            titleContainer.Add(forceChoice);
+            
             titleContainer.Add(new ChoicePopupField(choiceKeys, data.Choice));
 
             CreateInPort();

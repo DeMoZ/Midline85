@@ -219,8 +219,8 @@ namespace AaDialogueGraph.Editor
             {
                 text = AaGraphConstants.HideOnEnd,
                 value = data?.HideOnEnd ?? false,
+                tooltip = "Person will be hidden after the phrase end",
             };
-            onEndToggle.tooltip = "Person will be hidden after the phrase end";
             toggleContainer.Add(onEndToggle);
             toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
             personContainer.contentContainer.Add(toggleContainer);

@@ -19,7 +19,6 @@ public class ScenesHandler : IDisposable
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
-        public OverridenDialogue OverridenDialogue;
         public ReactiveProperty<bool> IsPauseAllowed;
         public ReactiveProperty<List<string>> LevelLanguages;
         public DialogueLoggerPm DialogueLogger;
@@ -138,12 +137,6 @@ public class ScenesHandler : IDisposable
 
     private async Task<IGameScene> LoadLevel()
     {
-        var level = _ctx.OverridenDialogue.Dialogue != null
-            ? _ctx.OverridenDialogue.Dialogue
-            : _ctx.GameLevelsService.PlayLevel;
-
-        var levelData = new LevelData(level.GetNodesData(), level.NodeLinks);
-
         _ctx.MediaService.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();
@@ -151,13 +144,11 @@ public class ScenesHandler : IDisposable
         {
             GameSet = _ctx.GameSet,
             ConstructorTask = constructorTask,
-            LevelData = levelData,
             Profile = _ctx.Profile,
             ObjectEvents = _ctx.ObjectEvents,
             OnSwitchScene = _ctx.OnSwitchScene,
             GameLevelsService = _ctx.GameLevelsService,
             MediaService = _ctx.MediaService,
-            OverridenDialogue = _ctx.OverridenDialogue,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
             IsPauseAllowed = _ctx.IsPauseAllowed,
