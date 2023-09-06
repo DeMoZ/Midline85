@@ -42,8 +42,6 @@ public class RootEntity : IDisposable
         var clickImage = Resources.Load<GameObject>("ClickPointImage");
 
         _onStartApplicationSwitchScene = new ReactiveCommand().AddTo(_disposables);
-
-        var gameLevelsService = new GameLevelsService(gameSet);
         
         var levelLanguages = new ReactiveProperty<List<string>>().AddTo(_disposables);
         var isPauseAllowed = new ReactiveProperty<bool>(true).AddTo(_disposables);
@@ -104,9 +102,10 @@ public class RootEntity : IDisposable
             FilmProjector = filmProjector,
         });
 
-        var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
-
+        var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
+        var gameLevelsService = new GameLevelsService(gameSet, _ctx.OverridenDialogue, dialogueLoggerPm).AddTo(_disposables);
+        
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
         {
             GameSet = gameSet,
@@ -118,7 +117,6 @@ public class RootEntity : IDisposable
             Blocker = blocker,
             ObjectEvents = objectEvents,
             CursorSettings = cursorSettings,
-            OverridenDialogue = _ctx.OverridenDialogue,
             IsPauseAllowed = isPauseAllowed,
             LevelLanguages = levelLanguages,
             DialogueLogger = dialogueLoggerPm,

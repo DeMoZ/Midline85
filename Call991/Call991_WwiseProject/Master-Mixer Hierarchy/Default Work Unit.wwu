@@ -10,6 +10,11 @@
 								<Value>1.7</Value>
 							</ValueList>
 						</Property>
+						<Property Name="BypassEffect0" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
 					</PropertyList>
 					<ReferenceList>
 						<Reference Name="AudioDevice" PluginName="System" CompanyID="0" PluginID="174" PluginType="7">
@@ -93,19 +98,41 @@
 											</ValueList>
 										</Property>
 									</PropertyList>
-									<ReferenceList>
-										<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
-											<ObjectRef Name="In_My_Car" ID="{B6CE8691-D50C-4AC3-8314-6CB938FC8681}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
-										</Reference>
-									</ReferenceList>
+									<ReferenceList/>
 									<ChildrenList>
-										<Bus Name="Elena_Training" ID="{93FAAE94-8F23-41EC-9461-809B60506814}"/>
-										<Bus Name="Elena_Chapter One" ID="{5B008593-8E59-42E9-95EE-31D32A1A8CBC}"/>
+										<Bus Name="Elena_Training" ID="{93FAAE94-8F23-41EC-9461-809B60506814}">
+											<ReferenceList>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="In_My_Car" ID="{B6CE8691-D50C-4AC3-8314-6CB938FC8681}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</Bus>
+										<Bus Name="Elena_Chapter One" ID="{5B008593-8E59-42E9-95EE-31D32A1A8CBC}">
+											<ReferenceList>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="In_My_Car" ID="{B6CE8691-D50C-4AC3-8314-6CB938FC8681}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</Bus>
 										<Bus Name="Elena_Boss First" ID="{1A3CFE3C-1798-439A-9933-0F261A61C970}"/>
-										<Bus Name="Elena_Chapter Two" ID="{90F68053-71D6-4E79-B17B-AD6E144ECDA8}"/>
+										<Bus Name="Elena_Chapter Two" ID="{90F68053-71D6-4E79-B17B-AD6E144ECDA8}">
+											<ReferenceList>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="In_My_Car" ID="{B6CE8691-D50C-4AC3-8314-6CB938FC8681}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</Bus>
 										<Bus Name="Elena_Boss Two" ID="{0FF6CDC4-CC1E-4111-B9C4-B6BAA4B05AC4}"/>
-										<Bus Name="Elena_Psychotherapist" ID="{3A02B0D1-063C-457D-9583-AC9D98A9AF89}"/>
-										<Bus Name="Elena_Intro" ID="{20F990FC-85E4-40D4-84EE-4521D7C1ADD9}"/>
+										<Bus Name="Elena_Psychotherapist" ID="{3A02B0D1-063C-457D-9583-AC9D98A9AF89}">
+											<ReferenceList>
+												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+													<ObjectRef Name="In_My_Car" ID="{B6CE8691-D50C-4AC3-8314-6CB938FC8681}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+												</Reference>
+											</ReferenceList>
+										</Bus>
+										<Bus Name="Elena_Intro" ID="{20F990FC-85E4-40D4-84EE-4521D7C1ADD9}">
+											<ReferenceList/>
+										</Bus>
 									</ChildrenList>
 								</Bus>
 								<Bus Name="Mark" ID="{1EB2A9F9-C915-4060-8328-6235351CAD6E}">
@@ -142,7 +169,6 @@
 										<Property Name="Color" Type="int16" Value="10"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
-									<ReferenceList/>
 								</Bus>
 								<Bus Name="Lara" ID="{5AE4C209-07D2-4B0F-8A0E-02C9AC47B9CB}">
 									<PropertyList>

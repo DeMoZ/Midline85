@@ -38,6 +38,15 @@ namespace AaDialogueGraph.Editor
             {
                 value = data.ButtonFilter
             };
+            
+            var grabProjectorImages = new Toggle
+            {
+                text = AaGraphConstants.ProjectorImages,
+                value = data?.GrabProjectorImages ?? false,
+                tooltip = "Dialogue has projector images and \n  dont have loops. \n Interlude only",
+                name = AaGraphConstants.ProjectorImages,
+            };
+            contentContainer.Add(grabProjectorImages);
 
             var btnFilterLineGroup = new LineGroup(new VisualElement[] { btnLabel, buttonFilterField });
             contentContainer.Add(btnFilterLineGroup);
