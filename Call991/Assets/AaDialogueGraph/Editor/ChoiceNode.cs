@@ -8,8 +8,8 @@ namespace AaDialogueGraph.Editor
         public void Set(ChoiceNodeData data, string guid, List<string> choiceKeys)
         {
             Guid = guid;
-
             NodeType = AaNodeType.ChoiceNode;
+            
             var forceChoice = new Toggle
             {
                 text = "",
