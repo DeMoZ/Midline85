@@ -2140,6 +2140,11 @@
 									</MediaIDList>
 								</AudioFileSource>
 								<AudioFileSource Name="pizzaep_mark_004" ID="{5C0BDB9E-2578-4366-8985-C579C2566AA4}">
+									<PropertyList>
+										<Property Name="FadeOutDuration" Type="Real64" Value="0.341737695451314"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimEnd" Type="Real64" Value="3.08814185767591"/>
+									</PropertyList>
 									<Language>Russian</Language>
 									<AudioFile>pizzaep_mark_004.wav</AudioFile>
 									<MediaIDList>
@@ -2588,15 +2593,15 @@
 				</ActorMixer>
 				<ActorMixer Name="Mark_fireep" ID="{6500F73D-4418-44AB-9340-8DDEAF228C43}" ShortID="124969511">
 					<PropertyList>
-						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
-						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
-						<Property Name="OverrideEffect" Type="bool" Value="True"/>
-						<Property Name="OverrideOutput" Type="bool" Value="True"/>
-						<Property Name="RenderEffect0" Type="bool">
+						<Property Name="BypassEffect0" Type="bool">
 							<ValueList>
 								<Value>True</Value>
 							</ValueList>
 						</Property>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+						<Property Name="OverrideEffect" Type="bool" Value="True"/>
+						<Property Name="OverrideOutput" Type="bool" Value="True"/>
 						<Property Name="Volume" Type="Real64">
 							<ValueList>
 								<Value>-5</Value>
