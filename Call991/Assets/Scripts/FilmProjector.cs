@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using DG.Tweening;
-using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -23,9 +22,9 @@ public class FilmProjector : MonoBehaviour
     private int _currentClickSlide;
 
     private bool _isCalculated;
-    private Vector3 _toHideLocalPos;
-    private Vector3 _toShowLocalPos;
-    private Vector3 _showLocalPosition;
+    private float _hideLocalPos;
+    private float _appearLocalPos;
+
     private Sequence _sequence;
 
     public void Awake()
@@ -45,10 +44,6 @@ public class FilmProjector : MonoBehaviour
 
     public void ShowSlide(Sprite sprite, bool changeCurrentSlide = false)
     {
-        _currentNodeSlide ??= slide1;
-        _nextSlide ??= slide2;
-        _sequence?.Kill();
-
         if (!gameObject.activeSelf)
         {
             slide1.sprite = transparentSlide;
@@ -56,7 +51,12 @@ public class FilmProjector : MonoBehaviour
             gameObject.SetActive(true);
         }
 
-        if (!_isCalculated) CalculateSliderParameters();
+        _currentNodeSlide ??= slide1;
+        _nextSlide ??= slide2;
+        _sequence?.Kill();
+
+        if (!_isCalculated)
+            CalculateSliderParameters();
 
         _changeSlide = _currentNodeSlide;
         _currentNodeSlide = _nextSlide;
@@ -70,13 +70,13 @@ public class FilmProjector : MonoBehaviour
 
         _nextSlide.sprite = sprite;
 
-        _currentNodeSlide.rectTransform.localPosition = _showLocalPosition;
-        _nextSlide.rectTransform.localPosition = _toShowLocalPos;
+        _currentNodeSlide.rectTransform.localPosition = Vector3.zero;
+        _nextSlide.rectTransform.localPosition = Vector3.up * _appearLocalPos;
 
         _sequence = DOTween.Sequence();
         _sequence.SetEase(speedCurve);
-        _sequence.Join(_currentNodeSlide.transform.DOLocalMoveY(_toHideLocalPos.y, duration, true));
-        _sequence.Join(_nextSlide.transform.DOLocalMoveY(_showLocalPosition.y, duration, true));
+        _sequence.Append(_currentNodeSlide.transform.DOLocalMoveY(_hideLocalPos, duration, true));
+        _sequence.Join(_nextSlide.transform.DOLocalMoveY(0, duration, true));
     }
 
     public void HideSlide()
@@ -91,59 +91,12 @@ public class FilmProjector : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    [Button("Test Slide")]
-    private void TestSlide()
-    {
-        _currentNodeSlide ??= slide1;
-        _nextSlide ??= slide2;
-        _sequence?.Kill();
-
-        if (!gameObject.activeSelf)
-        {
-            slide1.sprite = transparentSlide;
-            slide2.sprite = transparentSlide;
-            gameObject.SetActive(true);
-        }
-
-        if (!_isCalculated) CalculateSliderParameters();
-
-        // if (changeCurrentSlide)
-        // {
-        //     _currentSlide.sprite = sprite;
-        //     return;
-        // }
-        //
-        // _nextSlide.sprite = sprite;
-        _changeSlide = _currentNodeSlide;
-        _currentNodeSlide = _nextSlide;
-        _nextSlide = _changeSlide;
-
-        _currentNodeSlide.rectTransform.localPosition = _showLocalPosition;
-        _nextSlide.rectTransform.localPosition = _toShowLocalPos;
-
-        _sequence = DOTween.Sequence();
-        _sequence.SetEase(speedCurve);
-        _sequence.Join(_currentNodeSlide.transform.DOLocalMoveY(_toHideLocalPos.y, duration, true));
-        _sequence.Join(_nextSlide.transform.DOLocalMoveY(_showLocalPosition.y, duration, true));
-    }
-
     private void CalculateSliderParameters()
     {
         _isCalculated = true;
-
-        var maskCorners = new Vector3[4];
-        var slideCorners = new Vector3[4];
-
-        slidesParent.GetWorldCorners(maskCorners);
-        slide1.rectTransform.GetWorldCorners(slideCorners);
-
-        var topLeftParentCorner = maskCorners[0];
-        var topLeftSlideCorner = maskCorners[0];
-        var maskHeight = topLeftParentCorner.y - slidesParent.position.y;
-        var slideHeight = topLeftSlideCorner.y - slide1.rectTransform.position.y;
-
-        _toHideLocalPos = new Vector3(0, (maskHeight + slideHeight) / 2, 0);
-        _toShowLocalPos = -_toHideLocalPos;
+        var sizeDeltaY = slide1.rectTransform.sizeDelta.y;
+        _hideLocalPos = sizeDeltaY;
+        _appearLocalPos = -sizeDeltaY;
     }
 
     public void AddSlides(List<Sprite> sprites)
@@ -155,7 +108,7 @@ public class FilmProjector : MonoBehaviour
     private void OnClick()
     {
         if (_clickSprites == null || _clickSprites.Count < 1) return;
-        
+
         _currentClickSlide++;
         _currentClickSlide = _currentClickSlide >= _clickSprites.Count ? 0 : _currentClickSlide;
         ShowSlide(_clickSprites[_currentClickSlide]);
