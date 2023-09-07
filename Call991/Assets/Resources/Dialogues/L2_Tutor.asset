@@ -260,66 +260,6 @@ MonoBehaviour:
     PhraseSound: L2_Tutor/Elena/tutor_elena_012
     Phrases:
     - Phrases/L2_Tutor/Russian/tutor_elena/tutor_elena_012.asset
-  - Guid: 47c8f3ed-3d74-4dd6-9c9d-b61fecdaf0a8
-    Rect:
-      serializedVersion: 2
-      x: 7976
-      y: -4
-      width: 209
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "p.mark.034\L \L\u0422\u043E\u0433\u0434\u0430 \u044F \u0431\u044B
-      \u043D\u0435 \u0441\u0442\u043E\u044F\u043B"
-    PersonVisualData:
-      Person: MARK
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    PhraseSound: L2_Tutor/Mark/tutor_mark_034
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_034.asset
-  - Guid: e8120193-e57e-4753-92c3-ddcb120df50c
-    Rect:
-      serializedVersion: 2
-      x: 7114
-      y: 263
-      width: 192
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "p.mark.041 \L\L\u0414\u0430. \u0420\u0443\u043A\u043E\u044F\u0442\u044C
-      \u043D\u043E\u0436\u0430"
-    PersonVisualData:
-      Person: MARK
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    PhraseSound: L2_Tutor/Mark/tutor_mark_041
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_041.asset
-  - Guid: 5d8d29d6-ca27-4319-af9e-9a63cedc57ae
-    Rect:
-      serializedVersion: 2
-      x: 7489
-      y: 193
-      width: 223
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "p.elena.024\L\L \u0421\u044D\u0440, \u043D\u0438 \u0432 \u043A\u043E\u0435\u043C
-      \u0441\u043B\u0443\u0447\u0430\u0435"
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 2
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    PhraseSound: L2_Tutor/Elena/tutor_elena_024
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_elena/tutor_elena_024.asset
   - Guid: 19b50406-f892-49fe-94ea-9b01fa47dc42
     Rect:
       serializedVersion: 2
@@ -707,52 +647,6 @@ MonoBehaviour:
     PhraseSound: L2_Tutor/Mark/tutor_mark_039_3
     Phrases:
     - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_039_3.asset
-  - Guid: 81c66d5c-e74f-4eba-ab44-4928da049376
-    Rect:
-      serializedVersion: 2
-      x: 8640
-      y: 420
-      width: 193
-      height: 96
-    EventVisualData:
-    - Type: 3
-      PhraseEvent: Videos/L2_Tutor/p.mark.050.mp4
-      Layer: 1
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    PhraseSketchText: "p.mark.050 \L\L\u0412 \u043A\u0430\u043A\u043E\u043C-\u0442\u043E
-      \u043F\u0430\u0440\u043A\u0435"
-    PersonVisualData:
-      Person: MARK
-      ScreenPlace: 5
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    PhraseSound: L2_Tutor/Mark/tutor_mark_050
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_050.asset
-  - Guid: 84cc8fa5-28b2-4736-8951-381253a49ec6
-    Rect:
-      serializedVersion: 2
-      x: 7489
-      y: 333
-      width: 148
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "p.elena.032\L\L \u0414\u0430. \u0420\u0435\u0437\u043A\u043E"
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 2
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    PhraseSound: L2_Tutor/Elena/tutor_elena_032
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_elena/tutor_elena_032.asset
   - Guid: 21880fbb-7cc8-4cfd-8873-c8abb38fb52d
     Rect:
       serializedVersion: 2
@@ -2110,6 +2004,147 @@ MonoBehaviour:
     PhraseSound: L2_Tutor/Mark/tutor_mark_011
     Phrases:
     - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_011.asset
+  - Guid: 47c8f3ed-3d74-4dd6-9c9d-b61fecdaf0a8
+    Rect:
+      serializedVersion: 2
+      x: 7975
+      y: -45
+      width: 209
+      height: 96
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/p.mark.034.mp4
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/line.mp4
+      Layer: 1
+      Loop: 1
+      Stop: 0
+      Delay: 8
+      Value: 0
+    PhraseSketchText: "p.mark.034\L \L\u0422\u043E\u0433\u0434\u0430 \u044F \u0431\u044B
+      \u043D\u0435 \u0441\u0442\u043E\u044F\u043B"
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L2_Tutor/Mark/tutor_mark_034
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_034.asset
+  - Guid: 81c66d5c-e74f-4eba-ab44-4928da049376
+    Rect:
+      serializedVersion: 2
+      x: 8640
+      y: 420
+      width: 193
+      height: 96
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/p.mark.050.mp4
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSketchText: "p.mark.050 \L\L\u0412 \u043A\u0430\u043A\u043E\u043C-\u0442\u043E
+      \u043F\u0430\u0440\u043A\u0435"
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L2_Tutor/Mark/tutor_mark_050
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_050.asset
+  - Guid: e8120193-e57e-4753-92c3-ddcb120df50c
+    Rect:
+      serializedVersion: 2
+      x: 7114
+      y: 263
+      width: 192
+      height: 96
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/p.mark.041.mp4
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 0.5
+      Value: 0
+    PhraseSketchText: "p.mark.041 \L\L\u0414\u0430. \u0420\u0443\u043A\u043E\u044F\u0442\u044C
+      \u043D\u043E\u0436\u0430"
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L2_Tutor/Mark/tutor_mark_041
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_041.asset
+  - Guid: 5d8d29d6-ca27-4319-af9e-9a63cedc57ae
+    Rect:
+      serializedVersion: 2
+      x: 7489
+      y: 193
+      width: 223
+      height: 96
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/line.mp4
+      Layer: 1
+      Loop: 1
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSketchText: "p.elena.024\L\L \u0421\u044D\u0440, \u043D\u0438 \u0432 \u043A\u043E\u0435\u043C
+      \u0441\u043B\u0443\u0447\u0430\u0435"
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L2_Tutor/Elena/tutor_elena_024
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_elena/tutor_elena_024.asset
+  - Guid: 84cc8fa5-28b2-4736-8951-381253a49ec6
+    Rect:
+      serializedVersion: 2
+      x: 7489
+      y: 333
+      width: 148
+      height: 96
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/line.mp4
+      Layer: 1
+      Loop: 1
+      Stop: 0
+      Delay: 0
+      Value: 0
+    PhraseSketchText: "p.elena.032\L\L \u0414\u0430. \u0420\u0435\u0437\u043A\u043E"
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L2_Tutor/Elena/tutor_elena_032
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_elena/tutor_elena_032.asset
   - Guid: a06e2e9a-a856-4750-8455-7f6d3f39aa2a
     Rect:
       serializedVersion: 2
@@ -2117,7 +2152,14 @@ MonoBehaviour:
       y: -196
       width: 196
       height: 96
-    EventVisualData: []
+    EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/p.mark.033 p.mark.036.mp4
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 1
+      Value: 0
     PhraseSketchText: "p.mark.032\L\L \u041F\u043E\u043B\u0438\u0446\u0438\u044F
       \u0438 \u0441\u043A\u043E\u0440\u0430\u044F"
     PersonVisualData:
@@ -2138,6 +2180,13 @@ MonoBehaviour:
       width: 270
       height: 96
     EventVisualData:
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/p.mark.033.mp4
+      Layer: 1
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
     - Type: 3
       PhraseEvent: Videos/L2_Tutor/p.mark.033 p.mark.036.mp4
       Layer: 1
@@ -2865,9 +2914,6 @@ MonoBehaviour:
   - BaseNodeGuid: 68c6281f-78ed-4c92-8867-ce66486e99c4
     BaseExitName: 
     TargetNodeGuid: a06e2e9a-a856-4750-8455-7f6d3f39aa2a
-  - BaseNodeGuid: a06e2e9a-a856-4750-8455-7f6d3f39aa2a
-    BaseExitName: 
-    TargetNodeGuid: 85c908b1-6ec0-4706-8d46-2ea11f9fe265
   - BaseNodeGuid: 2c1d2e02-0854-4a19-ace9-aed189bd1e5e
     BaseExitName: 
     TargetNodeGuid: f131b84f-cd1c-4359-9445-cf1704c99a9b
@@ -3045,9 +3091,6 @@ MonoBehaviour:
   - BaseNodeGuid: b5bf5e72-e60e-4869-bf52-7c385857d776
     BaseExitName: 
     TargetNodeGuid: 85c908b1-6ec0-4706-8d46-2ea11f9fe265
-  - BaseNodeGuid: 6f2b2b84-cf52-41a6-97c4-32f4beee709f
-    BaseExitName: 
-    TargetNodeGuid: 85c908b1-6ec0-4706-8d46-2ea11f9fe265
   - BaseNodeGuid: c1c6ad1a-ed79-4919-ac17-32c523c6eeef
     BaseExitName: 
     TargetNodeGuid: c49fcac4-7b84-40b9-8cce-2260971bd9d3
@@ -3096,6 +3139,12 @@ MonoBehaviour:
   - BaseNodeGuid: ea7fed43-4833-49bd-a82e-cc0df8f12f4b
     BaseExitName: 
     TargetNodeGuid: c9313d94-1ab3-4d75-b7ca-015a30a20e56
+  - BaseNodeGuid: a06e2e9a-a856-4750-8455-7f6d3f39aa2a
+    BaseExitName: 
+    TargetNodeGuid: 85c908b1-6ec0-4706-8d46-2ea11f9fe265
+  - BaseNodeGuid: 6f2b2b84-cf52-41a6-97c4-32f4beee709f
+    BaseExitName: 
+    TargetNodeGuid: 85c908b1-6ec0-4706-8d46-2ea11f9fe265
   - BaseNodeGuid: 2a941637-0af7-4e4e-a395-f875bafda642
     BaseExitName: 
     TargetNodeGuid: b7268794-0d12-4549-b892-a54bb14871d3
