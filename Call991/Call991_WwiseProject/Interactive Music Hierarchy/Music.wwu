@@ -2192,7 +2192,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-1.3</Value>
+												<Value>-12.3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -2752,16 +2752,11 @@
 												</ObjectList>
 											</ObjectLists>
 										</MusicSegment>
-										<MusicSegment Name="Leyer" ID="{A542FC3B-812F-4FAB-B469-1C5E6D7BC405}" ShortID="868960607">
+										<MusicSegment Name="mus_MusicPizza__Pizza Order_64_ver1" ID="{BEA9A3C6-57ED-444D-AC87-C17369CF5782}" ShortID="97044588">
 											<PropertyList>
 												<Property Name="EndPosition" Type="Real64" Value="97500"/>
 												<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
-												<Property Name="Tempo" Type="Real64" Value="129"/>
-												<Property Name="Volume" Type="Real64">
-													<ValueList>
-														<Value>-12</Value>
-													</ValueList>
-												</Property>
+												<Property Name="Tempo" Type="Real64" Value="64"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">
@@ -2772,23 +2767,23 @@
 												</Reference>
 											</ReferenceList>
 											<ChildrenList>
-												<MusicTrack Name="Leyer 1" ID="{EDAE7B41-C787-41B3-B941-9A6641B0AEA3}" ShortID="264621341">
+												<MusicTrack Name="mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver_1" ID="{9B26944D-AC3E-413A-86C4-97AA607FDA50}" ShortID="458173009">
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Leyer 1" ID="{4D302206-0C78-4000-9445-870D68234681}">
+														<AudioFileSource Name="mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver_1" ID="{FC30A062-D578-4F81-9AC4-C7B8BA69FF3C}">
 															<Language>SFX</Language>
-															<AudioFile>Leyer 1.wav</AudioFile>
+															<AudioFile>mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver.1.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="436930163"/>
+																<MediaID ID="360905447"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
-														<MusicTransition Name="Root" ID="{F3B12F9D-7116-4265-B710-0B57BFA3F7F4}">
+														<MusicTransition Name="Root" ID="{A5AA3A18-B423-48AA-AD7F-9184D2305BE7}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -2799,7 +2794,7 @@
 														<ObjectList Name="RTPC">
 															<Reference>
 																<Local>
-																	<RTPC Name="" ID="{40DCD6BD-55BF-4241-889E-6C87A271D32D}" ShortID="458911911">
+																	<RTPC Name="" ID="{DA76A034-2DB1-4763-AC9F-6D1B08394E0E}" ShortID="745264429">
 																		<PropertyList>
 																			<Property Name="PropertyName" Type="string" Value="Volume"/>
 																		</PropertyList>
@@ -2809,94 +2804,7 @@
 																			</Reference>
 																			<Reference Name="Curve">
 																				<Custom>
-																					<Curve Name="" ID="{BD53A168-8305-4C79-A986-859A65405966}">
-																						<PropertyList>
-																							<Property Name="Flags" Type="int32" Value="3"/>
-																						</PropertyList>
-																						<PointList>
-																							<Point>
-																								<XPos>0</XPos>
-																								<YPos>0</YPos>
-																								<Flags>5</Flags>
-																							</Point>
-																							<Point>
-																								<XPos>100</XPos>
-																								<YPos>0</YPos>
-																								<Flags>37</Flags>
-																							</Point>
-																						</PointList>
-																					</Curve>
-																				</Custom>
-																			</Reference>
-																		</ReferenceList>
-																	</RTPC>
-																</Local>
-															</Reference>
-														</ObjectList>
-														<ObjectList Name="Sequences">
-															<Reference>
-																<Local>
-																	<MusicTrackSequence Name="" ID="{A2256794-419C-415D-A57E-301819F3A99E}">
-																		<ObjectLists>
-																			<ObjectList Name="Clips">
-																				<Reference>
-																					<Local>
-																						<MusicClip Name="Leyer 1" ID="{67E459E1-2AE5-47D1-B890-9E9E47C97659}">
-																							<PropertyList>
-																								<Property Name="EndTrimOffset" Type="Real64" Value="90000"/>
-																								<Property Name="FadeInMode" Type="int16" Value="0"/>
-																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
-																							</PropertyList>
-																							<AudioSourceRef Name="Leyer 1" ID="{4D302206-0C78-4000-9445-870D68234681}"/>
-																						</MusicClip>
-																					</Local>
-																				</Reference>
-																			</ObjectList>
-																		</ObjectLists>
-																	</MusicTrackSequence>
-																</Local>
-															</Reference>
-														</ObjectList>
-													</ObjectLists>
-												</MusicTrack>
-												<MusicTrack Name="Leyer 2" ID="{548B846F-E7BB-4E54-9AB7-F3FAC483C1E8}" ShortID="308039622">
-													<ReferenceList>
-														<Reference Name="OutputBus">
-															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
-														</Reference>
-													</ReferenceList>
-													<ChildrenList>
-														<AudioFileSource Name="Leyer 2" ID="{AEECA9A7-B447-4406-98E2-9B138FD05904}">
-															<Language>SFX</Language>
-															<AudioFile>Leyer 2.wav</AudioFile>
-															<MediaIDList>
-																<MediaID ID="287954331"/>
-															</MediaIDList>
-														</AudioFileSource>
-													</ChildrenList>
-													<TransitionList>
-														<MusicTransition Name="Root" ID="{B3053AF8-27AC-46EA-8E55-31BD2BA659B7}">
-															<PropertyList>
-																<Property Name="IsFolder" Type="bool" Value="True"/>
-															</PropertyList>
-															<TransitionInfo/>
-														</MusicTransition>
-													</TransitionList>
-													<ObjectLists>
-														<ObjectList Name="RTPC">
-															<Reference>
-																<Local>
-																	<RTPC Name="" ID="{AA29C194-2C4B-4D51-9AAB-BB7175A4F848}" ShortID="727170296">
-																		<PropertyList>
-																			<Property Name="PropertyName" Type="string" Value="Volume"/>
-																		</PropertyList>
-																		<ReferenceList>
-																			<Reference Name="ControlInput">
-																				<ObjectRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
-																			</Reference>
-																			<Reference Name="Curve">
-																				<Custom>
-																					<Curve Name="" ID="{B7F553F5-08F0-44B1-90FE-22D5AE34D608}">
+																					<Curve Name="" ID="{808D022B-3770-4DF5-8490-CD3EA16220E8}">
 																						<PropertyList>
 																							<Property Name="Flags" Type="int32" Value="3"/>
 																						</PropertyList>
@@ -2907,6 +2815,17 @@
 																								<Flags>5</Flags>
 																							</Point>
 																							<Point>
+																								<XPos>55</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>0</Flags>
+																								<SegmentShape>SCurve</SegmentShape>
+																							</Point>
+																							<Point>
+																								<XPos>75</XPos>
+																								<YPos>-0</YPos>
+																								<Flags>0</Flags>
+																							</Point>
+																							<Point>
 																								<XPos>100</XPos>
 																								<YPos>0</YPos>
 																								<Flags>37</Flags>
@@ -2923,18 +2842,18 @@
 														<ObjectList Name="Sequences">
 															<Reference>
 																<Local>
-																	<MusicTrackSequence Name="" ID="{8B0DA664-7C37-424E-AB70-37B8162F0C99}">
+																	<MusicTrackSequence Name="" ID="{2DD27217-CE37-46D6-AEF3-094C17B20BCE}">
 																		<ObjectLists>
 																			<ObjectList Name="Clips">
 																				<Reference>
 																					<Local>
-																						<MusicClip Name="Leyer 2" ID="{F3F4F7BC-D208-4561-A842-13D3C765E26F}">
+																						<MusicClip Name="mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver_1" ID="{27E26F02-C146-49BA-AC6B-C6D596B0362E}">
 																							<PropertyList>
-																								<Property Name="EndTrimOffset" Type="Real64" Value="90000"/>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="97500"/>
 																								<Property Name="FadeInMode" Type="int16" Value="0"/>
 																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																							</PropertyList>
-																							<AudioSourceRef Name="Leyer 2" ID="{AEECA9A7-B447-4406-98E2-9B138FD05904}"/>
+																							<AudioSourceRef Name="mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver_1" ID="{FC30A062-D578-4F81-9AC4-C7B8BA69FF3C}"/>
 																						</MusicClip>
 																					</Local>
 																				</Reference>
@@ -2946,23 +2865,23 @@
 														</ObjectList>
 													</ObjectLists>
 												</MusicTrack>
-												<MusicTrack Name="Leyer 3" ID="{8F0DF542-EEEF-48ED-955E-0A243B2A7DE3}" ShortID="848678312">
+												<MusicTrack Name="mus_MusicPizza_Normal_Pizza Order_64_ver_1" ID="{EAF1F9C1-5C6D-4BB7-B9D9-5FBBCA3A456F}" ShortID="168117957">
 													<ReferenceList>
 														<Reference Name="OutputBus">
 															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Leyer 3" ID="{D3D4BB57-48D4-4C36-BB03-82BD6B56F6E7}">
+														<AudioFileSource Name="mus_MusicPizza_Normal_Pizza Order_64_ver_1" ID="{ED1FA39A-60BA-4E2A-B94D-07CE40F34B4C}">
 															<Language>SFX</Language>
-															<AudioFile>Leyer 3.wav</AudioFile>
+															<AudioFile>mus_MusicPizza_Normal_Pizza Order_64_ver.1.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="462566223"/>
+																<MediaID ID="397724990"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
-														<MusicTransition Name="Root" ID="{A930DEA7-E778-4FD7-8270-4123981E0A1E}">
+														<MusicTransition Name="Root" ID="{9F70D5F6-A579-466F-9BE9-997D8519CD75}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -2973,7 +2892,7 @@
 														<ObjectList Name="RTPC">
 															<Reference>
 																<Local>
-																	<RTPC Name="" ID="{38769122-5A7C-406B-8269-F098C49F3FE4}" ShortID="547509617">
+																	<RTPC Name="" ID="{B806AE9A-F20B-47B6-AA88-28F463CE69C7}" ShortID="557584983">
 																		<PropertyList>
 																			<Property Name="PropertyName" Type="string" Value="Volume"/>
 																		</PropertyList>
@@ -2983,19 +2902,30 @@
 																			</Reference>
 																			<Reference Name="Curve">
 																				<Custom>
-																					<Curve Name="" ID="{6F668C75-56B2-43A9-B63D-D29431DCF3ED}">
+																					<Curve Name="" ID="{E82C7B5F-0CD1-4E2F-AAAF-222D8FA985C1}">
 																						<PropertyList>
 																							<Property Name="Flags" Type="int32" Value="3"/>
 																						</PropertyList>
 																						<PointList>
 																							<Point>
 																								<XPos>0</XPos>
-																								<YPos>-5.33797</YPos>
+																								<YPos>0</YPos>
 																								<Flags>5</Flags>
 																							</Point>
 																							<Point>
-																								<XPos>100</XPos>
+																								<XPos>55</XPos>
 																								<YPos>0</YPos>
+																								<Flags>0</Flags>
+																								<SegmentShape>SCurve</SegmentShape>
+																							</Point>
+																							<Point>
+																								<XPos>75</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>0</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>100</XPos>
+																								<YPos>-200</YPos>
 																								<Flags>37</Flags>
 																							</Point>
 																						</PointList>
@@ -3010,18 +2940,18 @@
 														<ObjectList Name="Sequences">
 															<Reference>
 																<Local>
-																	<MusicTrackSequence Name="" ID="{AA1E2EFA-84DC-4FCC-B497-9485BEA9B4B0}">
+																	<MusicTrackSequence Name="" ID="{766C8676-3DDD-4176-9021-2EA0892A3414}">
 																		<ObjectLists>
 																			<ObjectList Name="Clips">
 																				<Reference>
 																					<Local>
-																						<MusicClip Name="Leyer 3" ID="{444F26E9-EC12-4095-9CFE-B2945235D55E}">
+																						<MusicClip Name="mus_MusicPizza_Normal_Pizza Order_64_ver_1" ID="{8B0EE8FC-7885-45A6-B761-B7004489421A}">
 																							<PropertyList>
 																								<Property Name="EndTrimOffset" Type="Real64" Value="90000"/>
 																								<Property Name="FadeInMode" Type="int16" Value="0"/>
 																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																							</PropertyList>
-																							<AudioSourceRef Name="Leyer 3" ID="{D3D4BB57-48D4-4C36-BB03-82BD6B56F6E7}"/>
+																							<AudioSourceRef Name="mus_MusicPizza_Normal_Pizza Order_64_ver_1" ID="{ED1FA39A-60BA-4E2A-B94D-07CE40F34B4C}"/>
 																						</MusicClip>
 																					</Local>
 																				</Reference>
@@ -3033,11 +2963,11 @@
 														</ObjectList>
 													</ObjectLists>
 												</MusicTrack>
-												<MusicTrack Name="Leyer 4" ID="{FC1D1E56-6E9A-4FF9-9E34-C1AA39F88174}" ShortID="931573720">
+												<MusicTrack Name="mus_MusicPizza_Suspicion+1_Pizza Order_64_ver_1" ID="{A1A2858B-9ABA-4AD3-A041-8759A675B99C}" ShortID="366622557">
 													<PropertyList>
 														<Property Name="Volume" Type="Real64">
 															<ValueList>
-																<Value>-4</Value>
+																<Value>-3.1</Value>
 															</ValueList>
 														</Property>
 													</PropertyList>
@@ -3047,16 +2977,16 @@
 														</Reference>
 													</ReferenceList>
 													<ChildrenList>
-														<AudioFileSource Name="Leyer 4" ID="{BA8EFB07-F79D-4770-9D74-E4202B1385D6}">
+														<AudioFileSource Name="mus_MusicPizza_Suspicion+1_Pizza Order_64_ver_1" ID="{534F07E7-5F56-49E0-8B14-FF7BEEABF633}">
 															<Language>SFX</Language>
-															<AudioFile>Leyer 4.wav</AudioFile>
+															<AudioFile>mus_MusicPizza_Suspicion+1_Pizza Order_64_ver.1.wav</AudioFile>
 															<MediaIDList>
-																<MediaID ID="770854726"/>
+																<MediaID ID="132825106"/>
 															</MediaIDList>
 														</AudioFileSource>
 													</ChildrenList>
 													<TransitionList>
-														<MusicTransition Name="Root" ID="{52DBC4E8-46EF-4DB7-B1B2-0AE5E361ABB0}">
+														<MusicTransition Name="Root" ID="{48B80A87-15A4-45E9-B46A-15FA3F8FEF42}">
 															<PropertyList>
 																<Property Name="IsFolder" Type="bool" Value="True"/>
 															</PropertyList>
@@ -3067,7 +2997,7 @@
 														<ObjectList Name="RTPC">
 															<Reference>
 																<Local>
-																	<RTPC Name="" ID="{CC1AB77F-2F88-4278-AAE2-522AC494C09D}" ShortID="214273322">
+																	<RTPC Name="" ID="{4D8B779B-AD62-41F5-8F75-446792323A23}" ShortID="675342228">
 																		<PropertyList>
 																			<Property Name="PropertyName" Type="string" Value="Volume"/>
 																		</PropertyList>
@@ -3077,7 +3007,7 @@
 																			</Reference>
 																			<Reference Name="Curve">
 																				<Custom>
-																					<Curve Name="" ID="{1B8BAFB7-8BD0-4FB6-825E-B07DFBFF302D}">
+																					<Curve Name="" ID="{B1B0A06B-BD39-4C13-B8CC-F113D6B32375}">
 																						<PropertyList>
 																							<Property Name="Flags" Type="int32" Value="3"/>
 																						</PropertyList>
@@ -3088,8 +3018,30 @@
 																								<Flags>5</Flags>
 																							</Point>
 																							<Point>
-																								<XPos>100</XPos>
+																								<XPos>10</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>0</Flags>
+																								<SegmentShape>SCurve</SegmentShape>
+																							</Point>
+																							<Point>
+																								<XPos>25</XPos>
+																								<YPos>0.0548</YPos>
+																								<Flags>0</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>55</XPos>
 																								<YPos>0</YPos>
+																								<Flags>0</Flags>
+																								<SegmentShape>SCurve</SegmentShape>
+																							</Point>
+																							<Point>
+																								<XPos>75</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>0</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>100</XPos>
+																								<YPos>-200</YPos>
 																								<Flags>37</Flags>
 																							</Point>
 																						</PointList>
@@ -3104,18 +3056,127 @@
 														<ObjectList Name="Sequences">
 															<Reference>
 																<Local>
-																	<MusicTrackSequence Name="" ID="{FC92D184-17C7-4A38-9335-DD2F8FA496F6}">
+																	<MusicTrackSequence Name="" ID="{B3212B5F-2F24-42E5-AFFA-688B10A91799}">
 																		<ObjectLists>
 																			<ObjectList Name="Clips">
 																				<Reference>
 																					<Local>
-																						<MusicClip Name="Leyer 4" ID="{9E5DB794-4C81-444B-BF13-2C00F11C2D77}">
+																						<MusicClip Name="mus_MusicPizza_Suspicion+1_Pizza Order_64_ver_1" ID="{19AA8581-6DE5-4969-8A3B-632B18BAE32A}">
 																							<PropertyList>
-																								<Property Name="EndTrimOffset" Type="Real64" Value="97500"/>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="90000"/>
 																								<Property Name="FadeInMode" Type="int16" Value="0"/>
 																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
 																							</PropertyList>
-																							<AudioSourceRef Name="Leyer 4" ID="{BA8EFB07-F79D-4770-9D74-E4202B1385D6}"/>
+																							<AudioSourceRef Name="mus_MusicPizza_Suspicion+1_Pizza Order_64_ver_1" ID="{534F07E7-5F56-49E0-8B14-FF7BEEABF633}"/>
+																						</MusicClip>
+																					</Local>
+																				</Reference>
+																			</ObjectList>
+																		</ObjectLists>
+																	</MusicTrackSequence>
+																</Local>
+															</Reference>
+														</ObjectList>
+													</ObjectLists>
+												</MusicTrack>
+												<MusicTrack Name="mus_MusicPizza_Suspition+2_Pizza Order_64_ver_1" ID="{28E3BCB9-02F2-4CD3-BFD1-8AF4A9C38C51}" ShortID="139831">
+													<ReferenceList>
+														<Reference Name="OutputBus">
+															<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+														</Reference>
+													</ReferenceList>
+													<ChildrenList>
+														<AudioFileSource Name="mus_MusicPizza_Suspition+2_Pizza Order_64_ver_1" ID="{806FA4D5-D9D7-4B8D-B8E5-88D31EB5F5CD}">
+															<Language>SFX</Language>
+															<AudioFile>mus_MusicPizza_Suspition+2_Pizza Order_64_ver.1.wav</AudioFile>
+															<MediaIDList>
+																<MediaID ID="916020269"/>
+															</MediaIDList>
+														</AudioFileSource>
+													</ChildrenList>
+													<TransitionList>
+														<MusicTransition Name="Root" ID="{BF8F863F-C9E7-4FD5-A3C8-2B59442442D5}">
+															<PropertyList>
+																<Property Name="IsFolder" Type="bool" Value="True"/>
+															</PropertyList>
+															<TransitionInfo/>
+														</MusicTransition>
+													</TransitionList>
+													<ObjectLists>
+														<ObjectList Name="RTPC">
+															<Reference>
+																<Local>
+																	<RTPC Name="" ID="{E3A1EDBE-A4D8-4B96-8238-613E1E657DAC}" ShortID="809683683">
+																		<PropertyList>
+																			<Property Name="PropertyName" Type="string" Value="Volume"/>
+																		</PropertyList>
+																		<ReferenceList>
+																			<Reference Name="ControlInput">
+																				<ObjectRef Name="PizzaRTPC" ID="{823DDB44-D2A5-4849-B059-B1D139C0D56F}" WorkUnitID="{8E20D5D3-5FA1-4CB4-A784-0485397ACF4D}"/>
+																			</Reference>
+																			<Reference Name="Curve">
+																				<Custom>
+																					<Curve Name="" ID="{F3D4BDC2-1E1F-48AB-BEF7-230F70463621}">
+																						<PropertyList>
+																							<Property Name="Flags" Type="int32" Value="3"/>
+																						</PropertyList>
+																						<PointList>
+																							<Point>
+																								<XPos>0</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>5</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>35</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>0</Flags>
+																								<SegmentShape>SCurve</SegmentShape>
+																							</Point>
+																							<Point>
+																								<XPos>50</XPos>
+																								<YPos>0</YPos>
+																								<Flags>0</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>55</XPos>
+																								<YPos>0</YPos>
+																								<Flags>0</Flags>
+																								<SegmentShape>SCurve</SegmentShape>
+																							</Point>
+																							<Point>
+																								<XPos>75</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>0</Flags>
+																							</Point>
+																							<Point>
+																								<XPos>100</XPos>
+																								<YPos>-200</YPos>
+																								<Flags>37</Flags>
+																							</Point>
+																						</PointList>
+																					</Curve>
+																				</Custom>
+																			</Reference>
+																		</ReferenceList>
+																	</RTPC>
+																</Local>
+															</Reference>
+														</ObjectList>
+														<ObjectList Name="Sequences">
+															<Reference>
+																<Local>
+																	<MusicTrackSequence Name="" ID="{CB9AA70D-17F4-45F5-9728-0AD742F0B2D7}">
+																		<ObjectLists>
+																			<ObjectList Name="Clips">
+																				<Reference>
+																					<Local>
+																						<MusicClip Name="mus_MusicPizza_Suspition+2_Pizza Order_64_ver_1" ID="{5582CF55-0632-4EDC-A76B-BB62943B5F7B}">
+																							<PropertyList>
+																								<Property Name="EndTrimOffset" Type="Real64" Value="90000"/>
+																								<Property Name="FadeInMode" Type="int16" Value="0"/>
+																								<Property Name="FadeOutMode" Type="int16" Value="0"/>
+																							</PropertyList>
+																							<AudioSourceRef Name="mus_MusicPizza_Suspition+2_Pizza Order_64_ver_1" ID="{806FA4D5-D9D7-4B8D-B8E5-88D31EB5F5CD}"/>
 																						</MusicClip>
 																					</Local>
 																				</Reference>
@@ -3132,15 +3193,15 @@
 												<ObjectList Name="Cues">
 													<Reference>
 														<Local>
-															<MusicCue Name="Entry Cue" ID="{3D9005AE-37F9-4588-ADC2-38B61F56AE4D}"/>
+															<MusicCue Name="Entry Cue" ID="{535E83EA-D5F1-44A2-BBDB-178A40089D17}"/>
 														</Local>
 													</Reference>
 													<Reference>
 														<Local>
-															<MusicCue Name="Exit Cue" ID="{CA6898AA-D077-4E8D-85C8-190B77523AC8}">
+															<MusicCue Name="Exit Cue" ID="{BD16E327-49A2-4E94-A3A5-DEDC62990C57}">
 																<PropertyList>
 																	<Property Name="CueType" Type="int16" Value="1"/>
-																	<Property Name="TimeMs" Type="Real64" Value="59534.8837209302"/>
+																	<Property Name="TimeMs" Type="Real64" Value="60000"/>
 																</PropertyList>
 															</MusicCue>
 														</Local>
@@ -3168,19 +3229,11 @@
 												<Property Name="LoopCount" Type="int16" Value="0"/>
 											</PropertyList>
 											<ChildrenList>
-												<MusicPlaylistItem Name="" ID="{BC785C18-70D9-48B3-A1D0-B5992449565E}" ShortID="973390199">
+												<MusicPlaylistItem Name="" ID="{B842C790-7D00-46F6-BB1C-D7E55913D74D}" ShortID="55981454">
 													<PropertyList>
-														<Property Name="LoopCount" Type="int16" Value="0"/>
 														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
 													</PropertyList>
-													<SegmentRef Name="DEMO ES_The Taste of Fear" ID="{D11B8A58-B13F-4012-B81E-1261148E0E7E}"/>
-												</MusicPlaylistItem>
-												<MusicPlaylistItem Name="" ID="{7CD38536-7A7A-4933-84D2-2B196D13BEF0}" ShortID="907200266">
-													<PropertyList>
-														<Property Name="LoopCount" Type="int16" Value="0"/>
-														<Property Name="PlaylistItemType" Type="int16" Value="1"/>
-													</PropertyList>
-													<SegmentRef Name="Leyer" ID="{A542FC3B-812F-4FAB-B469-1C5E6D7BC405}"/>
+													<SegmentRef Name="mus_MusicPizza__Pizza Order_64_ver1" ID="{BEA9A3C6-57ED-444D-AC87-C17369CF5782}"/>
 												</MusicPlaylistItem>
 											</ChildrenList>
 										</MusicPlaylistItem>
