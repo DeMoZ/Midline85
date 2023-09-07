@@ -9,7 +9,7 @@
 	</RootPaths>
 	<DialogueEvents/>
 	<SoundBanks>
-		<SoundBank Id="589682861" Type="User" Language="Russian">
+		<SoundBank Id="589682861" Type="User" Language="Russian" Hash="{07627572-BD91-8174-1918-D2C3DD470D24}">
 			<ShortName>L7_Psycho</ShortName>
 			<Path>Russian/L7_Psycho.bnk</Path>
 			<Media>
@@ -899,7 +899,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="589682861" Type="User" Language="English">
+		<SoundBank Id="589682861" Type="User" Language="English" Hash="{A9DF88AC-ACCD-73F9-D3C5-BBD0AD2E97BB}">
 			<ShortName>L7_Psycho</ShortName>
 			<Path>English/L7_Psycho.bnk</Path>
 			<Plugins>
@@ -1693,25 +1693,25 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="Russian">
+		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{65B3DAB2-13ED-A746-1C48-9EB9031D5FFB}">
 			<ShortName>L1_Intro</ShortName>
 			<Path>Russian/L1_Intro.bnk</Path>
 			<Media>
-				<File Id="383923104" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>2023_0823 Cinematic Intro.wav</ShortName>
-					<CachePath>Voices/Russian/2023_0823 Cinematic Intro_063BF901.wem</CachePath>
+				<File Id="189532610" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>Cinematic.wav</ShortName>
+					<CachePath>Voices/Russian/Cinematic_063BF901.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
 				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="131.02933" DurationMax="131.02933">
 					<MediaRefs>
-						<MediaRef Id="383923104"/>
+						<MediaRef Id="189532610"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="English">
+		<SoundBank Id="755876731" Type="User" Language="English" Hash="{0AAC6E9F-8B08-FEFC-E73B-CF1F28FED19C}">
 			<ShortName>L1_Intro</ShortName>
 			<Path>English/L1_Intro.bnk</Path>
 			<Plugins>
@@ -1730,10 +1730,13 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{EF21EF8A-A4BC-FB9C-5A30-3CBC56FC2FBF}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{158DF5CE-6E40-22D2-E3DD-EB3E804CBDC1}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<Custom>
+					<Plugin Id="17465365" Name="Bass_Remover_1 (Custom)" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</Custom>
 				<ShareSets>
 					<Plugin Id="59662939" Name="Dialog_Too_Quiet" LibName="Wwise Compressor" LibId="7077891"/>
 					<Plugin Id="1293178626" Name="In_My_Car" LibName="Wwise Parametric EQ" LibId="6881283"/>
@@ -1748,7 +1751,13 @@
 				<Bus Id="291106007" Name="Police"/>
 				<Bus Id="393239870" Name="SFX"/>
 				<Bus Id="473191071" Name="Lara"/>
-				<Bus Id="505272728" Name="Mark_Boss First"/>
+				<Bus Id="505272728" Name="Mark_Boss First">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="17465365"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="591301208" Name="Elena_Chapter Two">
 					<PluginRefs>
 						<ShareSets>
@@ -1850,7 +1859,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="Russian">
+		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{726C9168-A5EC-6C47-E529-5661562ED773}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>Russian/L2_Tutor.bnk</Path>
 			<Media>
@@ -2740,7 +2749,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="English">
+		<SoundBank Id="1579312270" Type="User" Language="English" Hash="{B6D48690-9602-1730-D811-2BAA1B7B4E24}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>English/L2_Tutor.bnk</Path>
 			<Media>
@@ -3499,7 +3508,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="Russian">
+		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{DDED9C47-0187-20E4-1D86-9633C883E6FD}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>Russian/L3_Pizza.bnk</Path>
 			<Media>
@@ -5702,7 +5711,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="English">
+		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{AF6FF845-CEAA-B42B-F654-095F4BDF7691}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>English/L3_Pizza.bnk</Path>
 			<Media>
@@ -7803,7 +7812,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="Russian">
+		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{24DB3009-26DC-C0AD-C7F3-24551559C278}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>Russian/L4_Interlude1.bnk</Path>
 			<Media>
@@ -7857,7 +7866,7 @@
 				</File>
 				<File Id="159969228" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_mark_004.wav</ShortName>
-					<CachePath>Voices/Russian/pizzaep_mark_004_FB46E035.wem</CachePath>
+					<CachePath>Voices/Russian/pizzaep_mark_004_27215D76.wem</CachePath>
 				</File>
 				<File Id="161273788" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>pizzaep_elena\pizzaep_elena_007.wav</ShortName>
@@ -8459,7 +8468,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="English">
+		<SoundBank Id="2282602939" Type="User" Language="English" Hash="{359CE9C8-A99D-7C80-D30F-21AB8C3E6378}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>English/L4_Interlude1.bnk</Path>
 			<Media>
@@ -9050,7 +9059,7 @@
 				<Event Id="992656823" Name="pizzaep_mark_alt_004" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2803898958" Type="User" Language="Russian">
+		<SoundBank Id="2803898958" Type="User" Language="Russian" Hash="{725601F3-852C-42D3-EECF-21637B68FE59}">
 			<ShortName>L6_Interlude2</ShortName>
 			<Path>Russian/L6_Interlude2.bnk</Path>
 			<Media>
@@ -9925,7 +9934,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2803898958" Type="User" Language="English">
+		<SoundBank Id="2803898958" Type="User" Language="English" Hash="{C4075E70-438F-3A25-C8A8-F649A698E0F5}">
 			<ShortName>L6_Interlude2</ShortName>
 			<Path>English/L6_Interlude2.bnk</Path>
 			<Media>
@@ -10770,7 +10779,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3128408567" Type="User" Language="Russian">
+		<SoundBank Id="3128408567" Type="User" Language="Russian" Hash="{7F96CE64-A63E-2D19-4E78-CF744422BEFC}">
 			<ShortName>L5_Fire</ShortName>
 			<Path>Russian/L5_Fire.bnk</Path>
 			<Media>
@@ -12335,7 +12344,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3128408567" Type="User" Language="English">
+		<SoundBank Id="3128408567" Type="User" Language="English" Hash="{DD592F37-1B24-40CD-C52E-FD4EB1E5AF66}">
 			<ShortName>L5_Fire</ShortName>
 			<Path>English/L5_Fire.bnk</Path>
 			<Plugins>
@@ -13729,49 +13738,193 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="SFX">
+		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{7EA16FEB-D95B-47AC-36DF-8D72689AD270}">
 			<ShortName>Master</ShortName>
 			<Path>Master.bnk</Path>
 			<Media>
+				<File Id="17829532" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_officeBG.wav</ShortName>
+					<CachePath>SFX/sfx_officeBG_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="33298220" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_policeshot.wav</ShortName>
+					<CachePath>SFX/sfx_policeshot_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="56981862" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_06.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_06_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="67360942" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_dooropen.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_dooropen_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="68940865" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_PenHitDesk.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_PenHitDesk_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="74460055" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_03.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_03_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="76419145" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_newspaper.wav</ShortName>
+					<CachePath>SFX/sfx_newspaper_5DEE2D56.wem</CachePath>
+				</File>
 				<File Id="111521760" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_06.wav</ShortName>
 					<CachePath>SFX/sfx_clock_06_5C601E52.wem</CachePath>
+				</File>
+				<File Id="130039209" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>fire.sfx.jackanger.wav</ShortName>
+					<CachePath>SFX/fire.sfx.jackanger_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="132825106" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicPizza_Suspicion+1_Pizza Order_64_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicPizza_Suspicion+1_Pizza Order_64_ver.1_DFD762D4.wem</CachePath>
+				</File>
+				<File Id="136195668" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_keyboard3.wav</ShortName>
+					<CachePath>SFX/sfx_keyboard3_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="145849073" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_park.wav</ShortName>
+					<CachePath>SFX/sfx_park_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="156641688" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_05.wav</ShortName>
 					<CachePath>SFX/sfx_clock_05_5AE31F0F.wem</CachePath>
 				</File>
-				<File Id="287954331" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Leyer 2.wav</ShortName>
-					<CachePath>SFX/Leyer 2_DFD762D4.wem</CachePath>
+				<File Id="179894230" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_chair.wav</ShortName>
+					<CachePath>SFX/sfx_chair_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="182409374" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_policemeet.wav</ShortName>
+					<CachePath>SFX/sfx_policemeet_59A51CDF.wem</CachePath>
+				</File>
+				<File Id="187391402" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_01.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_01_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="199880212" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_recordstart.wav</ShortName>
+					<CachePath>SFX/sfx_recordstart_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="240694961" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopen_01.wav</ShortName>
+					<CachePath>SFX/sfx_psychopen_01_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="258547841" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_keyboard1.wav</ShortName>
+					<CachePath>SFX/sfx_keyboard1_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="260632801" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_susup.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_susup_CAC08633.wem</CachePath>
+				</File>
+				<File Id="280131666" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_HitTable2.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_HitTable2_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="295073302" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Overlap.wav</ShortName>
 					<CachePath>SFX/UI_Overlap_476B91F2.wem</CachePath>
 				</File>
+				<File Id="306262422" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopen_04.wav</ShortName>
+					<CachePath>SFX/sfx_psychopen_04_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="319898978" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_jacket.wav</ShortName>
+					<CachePath>SFX/sfx_jacket_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="355210548" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_phone1.wav</ShortName>
+					<CachePath>SFX/sfx_phone1_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="360905447" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver.1_DFD762D4.wem</CachePath>
+				</File>
+				<File Id="372034663" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_MChwrite3.wav</ShortName>
+					<CachePath>SFX/sfx_MChwrite3_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="384327295" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_04.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_04_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="397724990" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicPizza_Normal_Pizza Order_64_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicPizza_Normal_Pizza Order_64_ver.1_DFD762D4.wem</CachePath>
+				</File>
+				<File Id="416248703" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopen_03.wav</ShortName>
+					<CachePath>SFX/sfx_psychopen_03_5DEE2D56.wem</CachePath>
+				</File>
 				<File Id="424267818" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_03.wav</ShortName>
 					<CachePath>SFX/sfx_clock_03_5C601E52.wem</CachePath>
 				</File>
-				<File Id="436930163" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Leyer 1.wav</ShortName>
-					<CachePath>SFX/Leyer 1_DFD762D4.wem</CachePath>
+				<File Id="436830072" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_08.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_08_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="441627385" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_rain.wav</ShortName>
+					<CachePath>SFX/sfx_rain_655D7E20.wem</CachePath>
+				</File>
+				<File Id="443049190" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_susdown.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_susdown_16EAD05A.wem</CachePath>
 				</File>
 				<File Id="460218632" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_02.wav</ShortName>
 					<CachePath>SFX/sfx_clock_02_5C601E52.wem</CachePath>
 				</File>
-				<File Id="462566223" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Leyer 3.wav</ShortName>
-					<CachePath>SFX/Leyer 3_DFD762D4.wem</CachePath>
-				</File>
 				<File Id="467409299" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_01.wav</ShortName>
 					<CachePath>SFX/sfx_clock_01_5AE31F0F.wem</CachePath>
 				</File>
+				<File Id="480612217" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_recordend.wav</ShortName>
+					<CachePath>SFX/sfx_recordend_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="486423130" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_death.wav</ShortName>
+					<CachePath>SFX/sfx_death_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="498593491" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_keyboard2.wav</ShortName>
+					<CachePath>SFX/sfx_keyboard2_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="511419751" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopaper_05.wav</ShortName>
+					<CachePath>SFX/sfx_psychopaper_05_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="520046083" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_keyboard4.wav</ShortName>
+					<CachePath>SFX/sfx_keyboard4_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="538165567" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_stab.wav</ShortName>
+					<CachePath>SFX/sfx_stab_5DEE2D56.wem</CachePath>
+				</File>
 				<File Id="558708138" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_03.wav</ShortName>
 					<CachePath>SFX/sfx_clock_03_5AE31F0F.wem</CachePath>
+				</File>
+				<File Id="561594164" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_MChwrite4.wav</ShortName>
+					<CachePath>SFX/sfx_MChwrite4_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="570625899" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_MChwrite1.wav</ShortName>
+					<CachePath>SFX/sfx_MChwrite1_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="586168541" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_smoking.wav</ShortName>
+					<CachePath>SFX/sfx_smoking_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="594848569" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>mus_MusicNewsPapper_Main_Tomorrow Calls_83_ver.3.wav</ShortName>
@@ -13781,21 +13934,57 @@
 					<ShortName>sfx_decidetime.wav</ShortName>
 					<CachePath>SFX/sfx_decidetime_F9660FE8.wem</CachePath>
 				</File>
+				<File Id="671453620" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopaper_02.wav</ShortName>
+					<CachePath>SFX/sfx_psychopaper_02_5DEE2D56.wem</CachePath>
+				</File>
 				<File Id="671663743" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_01.wav</ShortName>
 					<CachePath>SFX/sfx_clock_01_5C601E52.wem</CachePath>
+				</File>
+				<File Id="685225328" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_MChready.wav</ShortName>
+					<CachePath>SFX/sfx_MChready_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="686957990" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_09.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_09_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="691429476" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_3foot.wav</ShortName>
+					<CachePath>SFX/sfx_3foot_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="696658388" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_DropPhone.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_DropPhone_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="707059301" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_10.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_10_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="715546637" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_05.wav</ShortName>
 					<CachePath>SFX/sfx_clock_05_5C601E52.wem</CachePath>
 				</File>
-				<File Id="770854726" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Leyer 4.wav</ShortName>
-					<CachePath>SFX/Leyer 4_DFD762D4.wem</CachePath>
+				<File Id="748419818" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_grabphone.wav</ShortName>
+					<CachePath>SFX/sfx_grabphone_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="762767006" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_lighter.wav</ShortName>
+					<CachePath>SFX/sfx_lighter_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="768565459" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_07.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_07_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="773601455" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>mus_MusicTraining_Main_Training_70_ver.1.wav</ShortName>
 					<CachePath>SFX/mus_MusicTraining_Main_Training_70_ver.1_DFD762D4.wem</CachePath>
+				</File>
+				<File Id="795229607" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_05.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_05_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="798395727" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_04.wav</ShortName>
@@ -13809,21 +13998,85 @@
 					<ShortName>UI_Click_Game.wav</ShortName>
 					<CachePath>SFX/UI_Click_Game_86CBE55C.wem</CachePath>
 				</File>
+				<File Id="812127682" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>UI_Lock.wav</ShortName>
+					<CachePath>SFX/UI_Lock_8EE21B35.wem</CachePath>
+				</File>
+				<File Id="817989674" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_carfar.wav</ShortName>
+					<CachePath>SFX/sfx_carfar_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="821771776" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_dporbell.wav</ShortName>
+					<CachePath>SFX/sfx_dporbell_5DEE2D56.wem</CachePath>
+				</File>
 				<File Id="838611190" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Click_Menu.wav</ShortName>
 					<CachePath>SFX/UI_Click_Menu_3C3EA4DD.wem</CachePath>
+				</File>
+				<File Id="852712170" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_goout.wav</ShortName>
+					<CachePath>SFX/sfx_goout_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="854376089" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>mus_MusicMenu_Main_Broken Dreams_40_ver.1.wav</ShortName>
 					<CachePath>SFX/mus_MusicMenu_Main_Broken Dreams_40_ver.1_9CB3EEEB.wem</CachePath>
 				</File>
+				<File Id="869271244" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopen_05.wav</ShortName>
+					<CachePath>SFX/sfx_psychopen_05_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="901489510" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopaper_01.wav</ShortName>
+					<CachePath>SFX/sfx_psychopaper_01_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="903143902" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_MChwrite2.wav</ShortName>
+					<CachePath>SFX/sfx_MChwrite2_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="903472941" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopaper_04.wav</ShortName>
+					<CachePath>SFX/sfx_psychopaper_04_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="905122970" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopen_02.wav</ShortName>
+					<CachePath>SFX/sfx_psychopen_02_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="916020269" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicPizza_Suspition+2_Pizza Order_64_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicPizza_Suspition+2_Pizza Order_64_ver.1_DFD762D4.wem</CachePath>
+				</File>
+				<File Id="936319900" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_haveaseat.wav</ShortName>
+					<CachePath>SFX/sfx_haveaseat_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="1017381543" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_HitTable1.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_HitTable1_5DEE2D56.wem</CachePath>
+				</File>
 				<File Id="1022027099" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_06.wav</ShortName>
 					<CachePath>SFX/sfx_clock_06_5AE31F0F.wem</CachePath>
 				</File>
+				<File Id="1026165587" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_PenNoise.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_PenNoise_5DEE2D56.wem</CachePath>
+				</File>
 				<File Id="1029744961" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_02.wav</ShortName>
 					<CachePath>SFX/sfx_clock_02_5AE31F0F.wem</CachePath>
+				</File>
+				<File Id="1045783288" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_squadwalk_02.wav</ShortName>
+					<CachePath>SFX/sfx_squadwalk_02_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="1057008722" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_psychopaper_03.wav</ShortName>
+					<CachePath>SFX/sfx_psychopaper_03_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="1057984132" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>sfx_neon.wav</ShortName>
+					<CachePath>SFX/sfx_neon_5DEE2D56.wem</CachePath>
 				</File>
 			</Media>
 			<Plugins>
@@ -13832,6 +14085,11 @@
 				</ShareSets>
 			</Plugins>
 			<Events>
+				<Event Id="3188332174" Name="fire_sfx_jackanger" DurationType="OneShot" DurationMin="16.666666" DurationMax="16.666666">
+					<MediaRefs>
+						<MediaRef Id="130039209"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3991942870" Name="Music" DurationType="Infinite">
 					<SwitchContainers>
 						<SwitchContainer>
@@ -13843,10 +14101,10 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="1218626300"/>
 							<MediaRefs>
-								<MediaRef Id="287954331"/>
-								<MediaRef Id="436930163"/>
-								<MediaRef Id="462566223"/>
-								<MediaRef Id="770854726"/>
+								<MediaRef Id="132825106"/>
+								<MediaRef Id="360905447"/>
+								<MediaRef Id="397724990"/>
+								<MediaRef Id="916020269"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -13872,6 +14130,26 @@
 					<ActionSetState>
 						<ActionSetStateEntry GroupId="3237031728" Id="748895195" Name="None"/>
 					</ActionSetState>
+				</Event>
+				<Event Id="1434521176" Name="sfx_3foot" DurationType="OneShot" DurationMin="5.233333" DurationMax="5.233333">
+					<MediaRefs>
+						<MediaRef Id="691429476"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1557408868" Name="sfx_carfar" DurationType="OneShot" DurationMin="31.5" DurationMax="31.5">
+					<MediaRefs>
+						<MediaRef Id="817989674"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="46269824" Name="sfx_chair" DurationType="OneShot" DurationMin="1.2" DurationMax="1.2">
+					<MediaRefs>
+						<MediaRef Id="179894230"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="777164721" Name="sfx_death" DurationType="OneShot" DurationMin="5.6666665" DurationMax="5.6666665">
+					<MediaRefs>
+						<MediaRef Id="486423130"/>
+					</MediaRefs>
 				</Event>
 				<Event Id="488670904" Name="sfx_decidetime_end" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<ActionSetState>
@@ -13906,6 +14184,185 @@
 						<ActionSetStateEntry GroupId="1112948642" Id="3004330733" Name="Decide"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="607923225" Name="sfx_dooropen" DurationType="OneShot" DurationMin="3.9666667" DurationMax="3.9666667">
+					<MediaRefs>
+						<MediaRef Id="67360942"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="804835621" Name="sfx_dporbell" DurationType="OneShot" DurationMin="1.8666667" DurationMax="1.8666667">
+					<MediaRefs>
+						<MediaRef Id="821771776"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1279675442" Name="sfx_DropPhone" DurationType="OneShot" DurationMin="3.452875" DurationMax="3.452875">
+					<MediaRefs>
+						<MediaRef Id="696658388"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3890383301" Name="sfx_goout" DurationType="OneShot" DurationMin="12.632063" DurationMax="12.632063">
+					<MediaRefs>
+						<MediaRef Id="852712170"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1980266733" Name="sfx_grabphone" DurationType="OneShot" DurationMin="0.6333333" DurationMax="0.6333333">
+					<MediaRefs>
+						<MediaRef Id="748419818"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3591317195" Name="sfx_haveaseat" DurationType="OneShot" DurationMin="1.5666667" DurationMax="1.5666667">
+					<MediaRefs>
+						<MediaRef Id="936319900"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4071266252" Name="sfx_HitTable" DurationType="OneShot" DurationMin="2.9360626" DurationMax="2.9360626">
+					<MediaRefs>
+						<MediaRef Id="280131666"/>
+						<MediaRef Id="1017381543"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1717033963" Name="sfx_jacket" DurationType="OneShot" DurationMin="10.7" DurationMax="10.7">
+					<MediaRefs>
+						<MediaRef Id="319898978"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="606658506" Name="sfx_keyboard" DurationType="OneShot" DurationMin="2" DurationMax="4">
+					<MediaRefs>
+						<MediaRef Id="136195668"/>
+						<MediaRef Id="258547841"/>
+						<MediaRef Id="498593491"/>
+						<MediaRef Id="520046083"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="664138054" Name="sfx_lighter" DurationType="OneShot" DurationMin="5.6666665" DurationMax="5.6666665">
+					<MediaRefs>
+						<MediaRef Id="762767006"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="854511964" Name="sfx_MChready" DurationType="OneShot" DurationMin="1.2" DurationMax="1.2">
+					<MediaRefs>
+						<MediaRef Id="685225328"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3557751892" Name="sfx_MChwrite" DurationType="OneShot" DurationMin="2.1" DurationMax="2.7666667">
+					<MediaRefs>
+						<MediaRef Id="372034663"/>
+						<MediaRef Id="561594164"/>
+						<MediaRef Id="570625899"/>
+						<MediaRef Id="903143902"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1163018313" Name="sfx_neon" DurationType="OneShot" DurationMin="10" DurationMax="10">
+					<MediaRefs>
+						<MediaRef Id="1057984132"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1088540770" Name="sfx_newspaper" DurationType="OneShot" DurationMin="8.433333" DurationMax="8.433333">
+					<MediaRefs>
+						<MediaRef Id="76419145"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3060089236" Name="sfx_officeBG" DurationType="OneShot" DurationMin="76.608" DurationMax="76.608">
+					<MediaRefs>
+						<MediaRef Id="17829532"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1471701433" Name="sfx_park" DurationType="OneShot" DurationMin="12" DurationMax="12">
+					<MediaRefs>
+						<MediaRef Id="145849073"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4138501282" Name="sfx_penhitdesk" DurationType="OneShot" DurationMin="2.015875" DurationMax="2.015875">
+					<MediaRefs>
+						<MediaRef Id="68940865"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4190460212" Name="sfx_PenNoise" DurationType="OneShot" DurationMin="1.9810417" DurationMax="1.9810417">
+					<MediaRefs>
+						<MediaRef Id="1026165587"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="2432380812" Name="sfx_phone1" DurationType="OneShot" DurationMin="12.1" DurationMax="12.1">
+					<MediaRefs>
+						<MediaRef Id="355210548"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="152723650" Name="sfx_policemeet" DurationType="OneShot" DurationMin="52.359978" DurationMax="52.359978">
+					<MediaRefs>
+						<MediaRef Id="182409374"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1179265383" Name="sfx_policeshot" DurationType="OneShot" DurationMin="2.6666667" DurationMax="2.6666667">
+					<MediaRefs>
+						<MediaRef Id="33298220"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4094587569" Name="sfx_psychopaper" DurationType="OneShot" DurationMin="1.1" DurationMax="1.3">
+					<MediaRefs>
+						<MediaRef Id="511419751"/>
+						<MediaRef Id="671453620"/>
+						<MediaRef Id="901489510"/>
+						<MediaRef Id="903472941"/>
+						<MediaRef Id="1057008722"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1378855022" Name="sfx_psychopen" DurationType="OneShot" DurationMin="2.5" DurationMax="3.3666666">
+					<MediaRefs>
+						<MediaRef Id="240694961"/>
+						<MediaRef Id="306262422"/>
+						<MediaRef Id="416248703"/>
+						<MediaRef Id="869271244"/>
+						<MediaRef Id="905122970"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1904851423" Name="sfx_rain" DurationType="Infinite">
+					<MediaRefs>
+						<MediaRef Id="441627385"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="4264880993" Name="sfx_recordend" DurationType="OneShot" DurationMin="1.7" DurationMax="1.7">
+					<MediaRefs>
+						<MediaRef Id="480612217"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="655602002" Name="sfx_recordstart" DurationType="OneShot" DurationMin="14.9" DurationMax="14.9">
+					<MediaRefs>
+						<MediaRef Id="199880212"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3189685113" Name="sfx_smoking" DurationType="OneShot" DurationMin="1.6666666" DurationMax="1.6666666">
+					<MediaRefs>
+						<MediaRef Id="586168541"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3533977442" Name="sfx_squadwalk" DurationType="OneShot" DurationMin="5.2" DurationMax="5.2">
+					<MediaRefs>
+						<MediaRef Id="56981862"/>
+						<MediaRef Id="74460055"/>
+						<MediaRef Id="187391402"/>
+						<MediaRef Id="384327295"/>
+						<MediaRef Id="436830072"/>
+						<MediaRef Id="686957990"/>
+						<MediaRef Id="707059301"/>
+						<MediaRef Id="768565459"/>
+						<MediaRef Id="795229607"/>
+						<MediaRef Id="1045783288"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="415445313" Name="sfx_stab" DurationType="OneShot" DurationMin="2.6666667" DurationMax="2.6666667">
+					<MediaRefs>
+						<MediaRef Id="538165567"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3511803796" Name="sfx_susdown" DurationType="OneShot" DurationMin="1.8618518" DurationMax="1.8618518">
+					<MediaRefs>
+						<MediaRef Id="443049190"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="3115077999" Name="sfx_susup" DurationType="OneShot" DurationMin="1.3012598" DurationMax="1.3012598">
+					<MediaRefs>
+						<MediaRef Id="260632801"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="3815197131" Name="UI_Click_Game" DurationType="OneShot" DurationMin="1.3" DurationMax="1.3">
 					<MediaRefs>
 						<MediaRef Id="809737166"/>
@@ -13914,6 +14371,11 @@
 				<Event Id="574050428" Name="UI_Click_Menu" DurationType="OneShot" DurationMin="0.06971956" DurationMax="0.071349174">
 					<MediaRefs>
 						<MediaRef Id="838611190"/>
+					</MediaRefs>
+				</Event>
+				<Event Id="1315696227" Name="UI_Lock" DurationType="OneShot" DurationMin="0.29527083" DurationMax="0.29527083">
+					<MediaRefs>
+						<MediaRef Id="812127682"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="1463049803" Name="UI_Overlap" DurationType="OneShot" DurationMin="0.09828206" DurationMax="0.10174798">
@@ -13960,5 +14422,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{A91CE488-B62A-B989-2219-0DD9D214E19A}</FileHash>
+	<FileHash>{6B064ECD-26DB-2A67-5691-A9AC063CB05E}</FileHash>
 </SoundBanksInfo>
