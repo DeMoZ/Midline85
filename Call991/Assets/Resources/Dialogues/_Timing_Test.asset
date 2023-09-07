@@ -18,33 +18,16 @@ MonoBehaviour:
       serializedVersion: 2
       x: -49
       y: 203
-      width: 102
-      height: 165
-    LevelId: L2_Tutor
+      width: 113
+      height: 183
+    EventVisualData: []
+    LevelId: L4_Interlude1
     Languages:
     - Russian
     ButtonFilter: pizza
     SoundAsset: 
+    GrabProjectorImages: 0
   PhraseNodeData:
-  - Guid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
-    Rect:
-      serializedVersion: 2
-      x: 465
-      y: 77
-      width: 100
-      height: 96
-    PhraseSketchText: 
-    PersonVisualData:
-      Person: ELENA
-      ScreenPlace: 2
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 0
-      HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L2_Tutor/Mark/tutor_mark_alt_002
-    Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_alt_002.asset
   - Guid: 3903e821-8d76-448f-ae41-e5cf33e39aec
     Rect:
       serializedVersion: 2
@@ -52,18 +35,44 @@ MonoBehaviour:
       y: 67
       width: 100
       height: 96
+    EventVisualData: []
     PhraseSketchText: 
     PersonVisualData:
-      Person: UNKNOWN
-      ScreenPlace: 1
+      Person: MARK
+      ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
-    EventVisualData: []
-    PhraseSound: L2_Tutor/Mark/tutor_mark_028
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_043
     Phrases:
-    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_028.asset
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_043.asset
+  - Guid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+    Rect:
+      serializedVersion: 2
+      x: 464
+      y: 77
+      width: 343
+      height: 407
+    EventVisualData:
+    - Type: 2
+      PhraseEvent: SFX/sfx_lighter
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 1
+      Value: 0
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_042
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_042.asset
   ImagePhraseNodeData: []
   ChoiceNodeData: []
   ForkNodeData: []
@@ -129,6 +138,9 @@ MonoBehaviour:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
     TargetNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+  - BaseNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+    BaseExitName: 
+    TargetNodeGuid: 3903e821-8d76-448f-ae41-e5cf33e39aec
   - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
     BaseExitName: 
     TargetNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
@@ -138,6 +150,3 @@ MonoBehaviour:
   - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
     BaseExitName: 
     TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
-  - BaseNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
-    BaseExitName: 
-    TargetNodeGuid: 3903e821-8d76-448f-ae41-e5cf33e39aec
