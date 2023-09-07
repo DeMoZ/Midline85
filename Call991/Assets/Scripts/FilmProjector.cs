@@ -75,8 +75,8 @@ public class FilmProjector : MonoBehaviour
 
         _sequence = DOTween.Sequence();
         _sequence.SetEase(speedCurve);
-        _sequence.Join(_currentNodeSlide.transform.DOLocalMoveY(_toHideLocalPos.y, duration, true));
-        _sequence.Join(_nextSlide.transform.DOLocalMoveY(_showLocalPosition.y, duration, true));
+        _sequence.Append(_currentNodeSlide.transform.DOLocalMoveY(_toHideLocalPos.y, duration, true));
+        _sequence.Insert(0, _nextSlide.transform.DOLocalMoveY(_showLocalPosition.y, duration, true));
     }
 
     public void HideSlide()
@@ -123,8 +123,8 @@ public class FilmProjector : MonoBehaviour
 
         _sequence = DOTween.Sequence();
         _sequence.SetEase(speedCurve);
-        _sequence.Join(_currentNodeSlide.transform.DOLocalMoveY(_toHideLocalPos.y, duration, true));
-        _sequence.Join(_nextSlide.transform.DOLocalMoveY(_showLocalPosition.y, duration, true));
+        _sequence.Append(_currentNodeSlide.transform.DOLocalMoveY(_toHideLocalPos.y, duration, true));
+        _sequence.Insert(0, _nextSlide.transform.DOLocalMoveY(_showLocalPosition.y, duration, true));
     }
 
     private void CalculateSliderParameters()
@@ -142,7 +142,7 @@ public class FilmProjector : MonoBehaviour
         var maskHeight = topLeftParentCorner.y - slidesParent.position.y;
         var slideHeight = topLeftSlideCorner.y - slide1.rectTransform.position.y;
 
-        _toHideLocalPos = new Vector3(0, (maskHeight + slideHeight) / 2, 0);
+        _toHideLocalPos = new Vector3(0, -(maskHeight + slideHeight) / 2, 0);
         _toShowLocalPos = -_toHideLocalPos;
     }
 
