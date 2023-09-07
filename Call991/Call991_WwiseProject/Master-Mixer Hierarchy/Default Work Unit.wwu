@@ -32,6 +32,11 @@
 										<Value>-7.3</Value>
 									</ValueList>
 								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.2</Value>
+									</ValueList>
+								</Property>
 							</PropertyList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
@@ -78,7 +83,7 @@
 								<Property Name="RecoveryTime" Type="Real64" Value="0.3"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>5</Value>
+										<Value>3.1</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -98,9 +103,15 @@
 											</ValueList>
 										</Property>
 									</PropertyList>
-									<ReferenceList/>
 									<ChildrenList>
 										<Bus Name="Elena_Training" ID="{93FAAE94-8F23-41EC-9461-809B60506814}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-1.9</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 													<ObjectRef Name="In_My_Car" ID="{B6CE8691-D50C-4AC3-8314-6CB938FC8681}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
@@ -108,13 +119,28 @@
 											</ReferenceList>
 										</Bus>
 										<Bus Name="Elena_Chapter One" ID="{5B008593-8E59-42E9-95EE-31D32A1A8CBC}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.8</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
 													<ObjectRef Name="In_My_Car" ID="{B6CE8691-D50C-4AC3-8314-6CB938FC8681}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 												</Reference>
 											</ReferenceList>
 										</Bus>
-										<Bus Name="Elena_Boss First" ID="{1A3CFE3C-1798-439A-9933-0F261A61C970}"/>
+										<Bus Name="Elena_Boss First" ID="{1A3CFE3C-1798-439A-9933-0F261A61C970}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>0.6</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+										</Bus>
 										<Bus Name="Elena_Chapter Two" ID="{90F68053-71D6-4E79-B17B-AD6E144ECDA8}">
 											<ReferenceList>
 												<Reference Name="Effect0" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
@@ -130,9 +156,7 @@
 												</Reference>
 											</ReferenceList>
 										</Bus>
-										<Bus Name="Elena_Intro" ID="{20F990FC-85E4-40D4-84EE-4521D7C1ADD9}">
-											<ReferenceList/>
-										</Bus>
+										<Bus Name="Elena_Intro" ID="{20F990FC-85E4-40D4-84EE-4521D7C1ADD9}"/>
 									</ChildrenList>
 								</Bus>
 								<Bus Name="Mark" ID="{1EB2A9F9-C915-4060-8328-6235351CAD6E}">
@@ -141,14 +165,69 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>2.2</Value>
+												<Value>2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
 									<ChildrenList>
 										<Bus Name="Mark_Intro" ID="{F7602242-36FE-43E7-B031-102790538277}"/>
-										<Bus Name="Mark_Training" ID="{FA34CF53-186F-41A3-BD2E-F74DD9E7B67C}"/>
-										<Bus Name="Mark_Boss First" ID="{8E603697-E7F5-425B-A6B9-3B4ACEA7CE8F}"/>
+										<Bus Name="Mark_Training" ID="{FA34CF53-186F-41A3-BD2E-F74DD9E7B67C}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-2.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Effect2">
+													<Custom CreatedFrom="{D313DB05-6B33-4C1F-8C2F-F989052E8120}">
+														<Effect Name="Bass_Remover_1 (Custom)" ID="{EA206179-04EC-4726-BA4B-3D7CB395381A}" ShortID="827502656" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+															<PropertyList>
+																<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
+																<Property Name="FilterTypeBand2" Type="int32" Value="4"/>
+																<Property Name="FrequencyBand1" Type="Real32" Value="562"/>
+																<Property Name="FrequencyBand2" Type="Real32" Value="20000"/>
+																<Property Name="GainBand2" Type="Real32" Value="-24"/>
+																<Property Name="Inclusion" Type="bool">
+																	<ValueList>
+																		<Value>False</Value>
+																	</ValueList>
+																</Property>
+																<Property Name="OnOffBand1" Type="bool" Value="False"/>
+																<Property Name="OnOffBand3" Type="bool" Value="False"/>
+															</PropertyList>
+														</Effect>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+										</Bus>
+										<Bus Name="Mark_Boss First" ID="{8E603697-E7F5-425B-A6B9-3B4ACEA7CE8F}">
+											<PropertyList>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>-3.5</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Effect2">
+													<Custom CreatedFrom="{D313DB05-6B33-4C1F-8C2F-F989052E8120}">
+														<Effect Name="Bass_Remover_1 (Custom)" ID="{12C2E57A-D60C-411B-89B9-AD4EE61449CA}" ShortID="17465365" PluginName="Wwise Parametric EQ" CompanyID="0" PluginID="105" PluginType="3">
+															<PropertyList>
+																<Property Name="FilterTypeBand1" Type="int32" Value="1"/>
+																<Property Name="FilterTypeBand2" Type="int32" Value="4"/>
+																<Property Name="FrequencyBand1" Type="Real32" Value="60"/>
+																<Property Name="FrequencyBand2" Type="Real32" Value="4539"/>
+																<Property Name="GainBand2" Type="Real32" Value="-2"/>
+																<Property Name="OnOffBand1" Type="bool" Value="False"/>
+																<Property Name="OnOffBand3" Type="bool" Value="False"/>
+															</PropertyList>
+														</Effect>
+													</Custom>
+												</Reference>
+											</ReferenceList>
+										</Bus>
 										<Bus Name="Mark_Boss Two" ID="{5161EDB4-D6B7-4A18-A849-CBAE75D28827}"/>
 									</ChildrenList>
 								</Bus>
@@ -168,6 +247,11 @@
 									<PropertyList>
 										<Property Name="Color" Type="int16" Value="10"/>
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2.9</Value>
+											</ValueList>
+										</Property>
 									</PropertyList>
 								</Bus>
 								<Bus Name="Lara" ID="{5AE4C209-07D2-4B0F-8A0E-02C9AC47B9CB}">
@@ -188,7 +272,7 @@
 										<Property Name="OverrideColor" Type="bool" Value="True"/>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>-3</Value>
+												<Value>-4.2</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -243,7 +327,7 @@
 								<DuckItem>
 									<BusRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}"/>
 									<DuckingParam>
-										<Volume>-7.69999980926514</Volume>
+										<Volume>-5</Volume>
 										<FadeInTime>3.29999995231628</FadeInTime>
 										<FadeOutTime>0.600000023841858</FadeOutTime>
 										<FadeCurve>FadeSCurve</FadeCurve>

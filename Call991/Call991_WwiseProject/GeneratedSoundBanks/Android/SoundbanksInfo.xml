@@ -1693,25 +1693,25 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{82A740D1-AF3C-B00C-3841-319A5CF29B52}">
+		<SoundBank Id="755876731" Type="User" Language="Russian" Hash="{B613B128-7394-57A1-487F-744CA0030825}">
 			<ShortName>L1_Intro</ShortName>
 			<Path>Russian/L1_Intro.bnk</Path>
 			<Media>
-				<File Id="383923104" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>2023_0823 Cinematic Intro.wav</ShortName>
-					<CachePath>Voices/Russian/2023_0823 Cinematic Intro_063BF901.wem</CachePath>
+				<File Id="189532610" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>Cinematic.wav</ShortName>
+					<CachePath>Voices/Russian/Cinematic_063BF901.wem</CachePath>
 				</File>
 			</Media>
 			<Events>
 				<Event Id="707565644" Name="cinematic_01_end" DurationType="OneShot" DurationMin="0" DurationMax="0"/>
 				<Event Id="1409698991" Name="cinematic_01_start" DurationType="OneShot" DurationMin="131.02933" DurationMax="131.02933">
 					<MediaRefs>
-						<MediaRef Id="383923104"/>
+						<MediaRef Id="189532610"/>
 					</MediaRefs>
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="755876731" Type="User" Language="English" Hash="{AF54D377-0DE1-AB8D-B6C9-FECF57E5E4F2}">
+		<SoundBank Id="755876731" Type="User" Language="English" Hash="{0AAC6E9F-8B08-FEFC-E73B-CF1F28FED19C}">
 			<ShortName>L1_Intro</ShortName>
 			<Path>English/L1_Intro.bnk</Path>
 			<Plugins>
@@ -1730,10 +1730,13 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{04AE1DB6-7163-1A38-5C5E-2ED1FB6E5BBF}">
+		<SoundBank Id="1355168291" Type="User" Language="SFX" Hash="{5CC493B9-57CE-2135-4AE5-1DC581EA6E1C}">
 			<ShortName>Init</ShortName>
 			<Path>Init.bnk</Path>
 			<Plugins>
+				<Custom>
+					<Plugin Id="17465365" Name="Bass_Remover_1 (Custom)" LibName="Wwise Parametric EQ" LibId="6881283"/>
+				</Custom>
 				<ShareSets>
 					<Plugin Id="59662939" Name="Dialog_Too_Quiet" LibName="Wwise Compressor" LibId="7077891"/>
 					<Plugin Id="1293178626" Name="In_My_Car" LibName="Wwise Parametric EQ" LibId="6881283"/>
@@ -1748,7 +1751,13 @@
 				<Bus Id="291106007" Name="Police"/>
 				<Bus Id="393239870" Name="SFX"/>
 				<Bus Id="473191071" Name="Lara"/>
-				<Bus Id="505272728" Name="Mark_Boss First"/>
+				<Bus Id="505272728" Name="Mark_Boss First">
+					<PluginRefs>
+						<Custom>
+							<PluginRef Id="17465365"/>
+						</Custom>
+					</PluginRefs>
+				</Bus>
 				<Bus Id="591301208" Name="Elena_Chapter Two">
 					<PluginRefs>
 						<ShareSets>
@@ -3499,7 +3508,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{38C982DF-A868-0537-3885-2BF2CD441A55}">
+		<SoundBank Id="1779933725" Type="User" Language="Russian" Hash="{803915B9-3736-47D9-9CCD-53BFFE3BE68F}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>Russian/L3_Pizza.bnk</Path>
 			<Media>
@@ -5702,7 +5711,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{924556F7-2A5B-845B-3D18-FC05119D486B}">
+		<SoundBank Id="1779933725" Type="User" Language="English" Hash="{DB95DA07-58AF-FF2C-3E76-CFD1AF33C5D0}">
 			<ShortName>L3_Pizza</ShortName>
 			<Path>English/L3_Pizza.bnk</Path>
 			<Media>
@@ -10770,7 +10779,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3128408567" Type="User" Language="Russian" Hash="{4D16FB36-5F48-B07D-52F5-473B705E3849}">
+		<SoundBank Id="3128408567" Type="User" Language="Russian" Hash="{A9EA4923-89E2-95E1-9767-53ED591A50D7}">
 			<ShortName>L5_Fire</ShortName>
 			<Path>Russian/L5_Fire.bnk</Path>
 			<Media>
@@ -12335,7 +12344,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="3128408567" Type="User" Language="English" Hash="{47143E6B-12B7-7E79-2B72-8905817DF419}">
+		<SoundBank Id="3128408567" Type="User" Language="English" Hash="{DD592F37-1B24-40CD-C52E-FD4EB1E5AF66}">
 			<ShortName>L5_Fire</ShortName>
 			<Path>English/L5_Fire.bnk</Path>
 			<Plugins>
@@ -13729,7 +13738,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{A2B8D7FE-79B4-314A-43D9-FEEF79DDB26A}">
+		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{ABC1025B-E56F-2577-7DC5-705AAD1064AF}">
 			<ShortName>Master</ShortName>
 			<Path>Master.bnk</Path>
 			<Media>
@@ -13768,6 +13777,10 @@
 				<File Id="130039209" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>fire.sfx.jackanger.wav</ShortName>
 					<CachePath>SFX/fire.sfx.jackanger_0DF0D976.wem</CachePath>
+				</File>
+				<File Id="132825106" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicPizza_Suspicion+1_Pizza Order_64_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicPizza_Suspicion+1_Pizza Order_64_ver.1_DFD762D4.wem</CachePath>
 				</File>
 				<File Id="136195668" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_keyboard3.wav</ShortName>
@@ -13813,10 +13826,6 @@
 					<ShortName>SFX\sfx_HitTable2.wav</ShortName>
 					<CachePath>SFX/SFX/sfx_HitTable2_0DF0D976.wem</CachePath>
 				</File>
-				<File Id="287954331" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Leyer 2.wav</ShortName>
-					<CachePath>SFX/Leyer 2_DFD762D4.wem</CachePath>
-				</File>
 				<File Id="295073302" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Overlap.wav</ShortName>
 					<CachePath>SFX/UI_Overlap_476B91F2.wem</CachePath>
@@ -13833,6 +13842,10 @@
 					<ShortName>sfx_phone1.wav</ShortName>
 					<CachePath>SFX/sfx_phone1_0DF0D976.wem</CachePath>
 				</File>
+				<File Id="360905447" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicPizza_Corrupted(Sus+3)_Pizza Order_64_ver.1_DFD762D4.wem</CachePath>
+				</File>
 				<File Id="372034663" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_MChwrite3.wav</ShortName>
 					<CachePath>SFX/sfx_MChwrite3_0DF0D976.wem</CachePath>
@@ -13840,6 +13853,10 @@
 				<File Id="384327295" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_squadwalk_04.wav</ShortName>
 					<CachePath>SFX/sfx_squadwalk_04_0DF0D976.wem</CachePath>
+				</File>
+				<File Id="397724990" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicPizza_Normal_Pizza Order_64_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicPizza_Normal_Pizza Order_64_ver.1_DFD762D4.wem</CachePath>
 				</File>
 				<File Id="416248703" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_psychopen_03.wav</ShortName>
@@ -13853,10 +13870,6 @@
 					<ShortName>sfx_squadwalk_08.wav</ShortName>
 					<CachePath>SFX/sfx_squadwalk_08_0DF0D976.wem</CachePath>
 				</File>
-				<File Id="436930163" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Leyer 1.wav</ShortName>
-					<CachePath>SFX/Leyer 1_DFD762D4.wem</CachePath>
-				</File>
 				<File Id="441627385" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_rain.wav</ShortName>
 					<CachePath>SFX/sfx_rain_563341C0.wem</CachePath>
@@ -13868,10 +13881,6 @@
 				<File Id="460218632" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_02.wav</ShortName>
 					<CachePath>SFX/sfx_clock_02_5C601E52.wem</CachePath>
-				</File>
-				<File Id="462566223" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Leyer 3.wav</ShortName>
-					<CachePath>SFX/Leyer 3_DFD762D4.wem</CachePath>
 				</File>
 				<File Id="467409299" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_01.wav</ShortName>
@@ -13969,10 +13978,6 @@
 					<ShortName>sfx_squadwalk_07.wav</ShortName>
 					<CachePath>SFX/sfx_squadwalk_07_0DF0D976.wem</CachePath>
 				</File>
-				<File Id="770854726" Language="SFX" Streaming="false" Location="Memory">
-					<ShortName>Leyer 4.wav</ShortName>
-					<CachePath>SFX/Leyer 4_DFD762D4.wem</CachePath>
-				</File>
 				<File Id="773601455" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>mus_MusicTraining_Main_Training_70_ver.1.wav</ShortName>
 					<CachePath>SFX/mus_MusicTraining_Main_Training_70_ver.1_DFD762D4.wem</CachePath>
@@ -14037,6 +14042,10 @@
 					<ShortName>sfx_psychopen_02.wav</ShortName>
 					<CachePath>SFX/sfx_psychopen_02_0DF0D976.wem</CachePath>
 				</File>
+				<File Id="916020269" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>mus_MusicPizza_Suspition+2_Pizza Order_64_ver.1.wav</ShortName>
+					<CachePath>SFX/mus_MusicPizza_Suspition+2_Pizza Order_64_ver.1_DFD762D4.wem</CachePath>
+				</File>
 				<File Id="936319900" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_haveaseat.wav</ShortName>
 					<CachePath>SFX/sfx_haveaseat_0DF0D976.wem</CachePath>
@@ -14092,10 +14101,10 @@
 						<SwitchContainer>
 							<SwitchValue GroupType="Switch" GroupId="4206939811" Id="1218626300"/>
 							<MediaRefs>
-								<MediaRef Id="287954331"/>
-								<MediaRef Id="436930163"/>
-								<MediaRef Id="462566223"/>
-								<MediaRef Id="770854726"/>
+								<MediaRef Id="132825106"/>
+								<MediaRef Id="360905447"/>
+								<MediaRef Id="397724990"/>
+								<MediaRef Id="916020269"/>
 							</MediaRefs>
 						</SwitchContainer>
 						<SwitchContainer>
@@ -14413,5 +14422,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6C31D594-8620-20F4-5DFB-6C18B712685A}</FileHash>
+	<FileHash>{E0FB0428-5332-1BDA-DED2-F5982093A43F}</FileHash>
 </SoundBanksInfo>
