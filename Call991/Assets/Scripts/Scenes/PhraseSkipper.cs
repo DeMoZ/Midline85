@@ -13,13 +13,15 @@ public class PhraseSkipper : IDisposable
 #if UNITY_EDITOR
         var clickStream = Observable.EveryUpdate()
             .Where(_ => Input.GetMouseButtonDown(1));
-        
+
         /*clickStream.Buffer(clickStream.Throttle(TimeSpan.FromMilliseconds(250)))
             .Where(xs => xs.Count >= 2)
             .Subscribe(xs => Debug.Log("DoubleClick Detected! Count:" + xs.Count));*/
 
         clickStream.Subscribe(xs =>
         {
+            if (Time.timeScale == 0) return;
+
             onSkipPhrase.Execute();
         }).AddTo(_disposables);
 #endif
