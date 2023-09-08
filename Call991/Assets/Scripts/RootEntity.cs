@@ -119,7 +119,6 @@ public class RootEntity : IDisposable
             CursorSettings = cursorSettings,
             IsPauseAllowed = isPauseAllowed,
             LevelLanguages = levelLanguages,
-            DialogueLogger = dialogueLoggerPm,
             GameLevelsService = gameLevelsService,
         }).AddTo(_disposables);
 

@@ -116,7 +116,7 @@ public class DialogueLoggerPm : IDisposable
 
         var data = JsonConvert.SerializeObject(_savedCash);
         PlayerPrefs.SetString(GameProgress, data);
-        Debug.Log("-- <color=green>Progress saved</color> --");
+        Debug.Log($"[{this}] -- <color=green>Progress saved</color> -- {_currentLevelId}");
     }
 
     public List<LevelInfo> LoadLevelsInfo()
@@ -151,6 +151,8 @@ public class DialogueLoggerPm : IDisposable
     
     private void Load()
     {
+        //_savedCash.LevelProgress.Clear();
+
         _logCash = new Dictionary<string, string>();
         _choicesCash = new Dictionary<string, string>();
         _endsCash = new Dictionary<string, string>();
@@ -174,13 +176,14 @@ public class DialogueLoggerPm : IDisposable
             foreach (var pair in level.Value.EndsCash) _savedEnds[pair.Key] = pair.Value;
             foreach (var pair in level.Value.CountsCash) _savedCounts[pair.Key] = pair.Value;
         }
+        Debug.Log($"[{this}] -- <color=yellow>Progress loaded</color>");
     }
 
     public void Dispose()
     {
         if (!_isIntitialized) return; 
         
-        Save();
+        // Save();
     }
 }
 

@@ -15,7 +15,6 @@ namespace UI
             public ReactiveCommand OnClickNewGame;
             public PlayerProfile Profile;
             public WwiseAudio AudioManager;
-            public DialogueLoggerPm DialogueLogger;
             public GameLevelsService GameLevelsService;
         }
 
@@ -62,7 +61,6 @@ namespace UI
                 GameLevelsService = _ctx.GameLevelsService,
                 OnLevelPlay = _ctx.OnLevelPlay,
                 OnLevelSelect = _ctx.OnLevelSelect,
-                DialogueLogger = _ctx.DialogueLogger,
                 OnClickToMenu = _onClickToMenu,
             });
             
