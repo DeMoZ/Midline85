@@ -10,8 +10,6 @@ using UnityEngine;
 /// </summary>
 public class DialogueLoggerPm : IDisposable
 {
-    private const string GameProgress = "GameProgress";
-
     private Dictionary<string, string> _logCash;
     private Dictionary<string, string> _choicesCash;
     private Dictionary<string, string> _endsCash;
@@ -123,7 +121,7 @@ public class DialogueLoggerPm : IDisposable
     {
         List<LevelInfo> info = new List<LevelInfo>();
         
-        var stringData = PlayerPrefs.GetString(GameProgress, string.Empty);
+        var stringData = PlayerPrefs.GetString(AaConstants.GameProgress, string.Empty);
         var cash = string.IsNullOrEmpty(stringData)
             ? new GameContainer()
             : JsonConvert.DeserializeObject<GameContainer>(stringData);
@@ -162,7 +160,7 @@ public class DialogueLoggerPm : IDisposable
         _savedEnds = new Dictionary<string, string>();
         _savedCounts = new Dictionary<string, int>();
 
-        var stringData = PlayerPrefs.GetString(GameProgress, string.Empty);
+        var stringData = PlayerPrefs.GetString(AaConstants.GameProgress, string.Empty);
         _savedCash = string.IsNullOrEmpty(stringData)
             ? new GameContainer()
             : JsonConvert.DeserializeObject<GameContainer>(stringData);

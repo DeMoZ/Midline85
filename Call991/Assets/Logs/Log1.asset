@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02db67dd1f924826b554230aadea537d, type: 3}
+  m_Name: Log1
+  m_EditorClassIdentifier: 
+  dialogueLogs:
+  - dialogue: {fileID: 11400000, guid: cb4b81308a9f5d54ba78722becaaf1de, type: 2}
+    log:
+    - name: 
+      guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+      type: AaDialogueGraph.EventNodeData
+    - name: 
+      guid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
+      type: AaDialogueGraph.NewspaperNodeData
+    - name: 
+      guid: ee5149b1-7503-4918-af70-39ed506d7431
+      type: AaDialogueGraph.EventNodeData
+    - name: e1 911
+      guid: 7804c480-c760-4e2f-9274-457d75a39293
+      type: AaDialogueGraph.PhraseNodeData
+    - name: "gi1 \u0425\u043E\u0447\u0443 \u0437\u0430\u043A\u0430\u0437\u0430\u0442\u044C"
+      guid: d6a074bd-5875-4391-84d6-dd6f0b32429c
+      type: AaDialogueGraph.PhraseNodeData
+    decision: btn.pizza.001
+    decisionDescription: 
