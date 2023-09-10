@@ -9,7 +9,7 @@ using UnityEngine;
 using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = nameof(LogSo), menuName = "Aa/Configs/" + nameof(LogSo), order = 0)]
-public class LogSo : ScriptableObject
+public class LogSo : SerializedScriptableObject
 {
     [SerializeField] private List<DialogueLog> dialogueLogs;
 
@@ -20,11 +20,11 @@ public class LogSo : ScriptableObject
         PlayerPrefs.DeleteKey(AaConstants.GameProgress);
     }
 
-    [Button]
-    [HorizontalGroup("PrefsControl")]
-    public void LoadFromPrefs()
-    {
-    }
+    // [Button]
+    // [HorizontalGroup("PrefsControl")]
+    // public void LoadFromPrefs()
+    // {
+    // }
 
     [Button]
     [HorizontalGroup("PrefsControl")]
@@ -38,7 +38,11 @@ public class LogSo : ScriptableObject
 public class DialogueLog
 {
     public DialogueContainer dialogue;
-    [ReadOnly] public List<LogUnit> log = new();
+    [SerializeField] private bool showOnlyButtons = true;
+    private bool ShowAllLogs => !showOnlyButtons;
+
+    [ReadOnly, ShowIf("ShowAllLogs")] public List<LogUnit> allLog = new();
+    [ReadOnly, ShowIf("showOnlyButtons")] public List<LogUnit> choiceLog = new();
 
     private List<string> _choices = new();
     private List<ChoiceNodeData> _choicesData = new();
@@ -51,6 +55,8 @@ public class DialogueLog
     [ShowIf("HasChoices")] [BoxGroup("Choice Operations")] [ValueDropdown("_choices")]
     public string decision;
 
+    private bool dontHaveEndNode = true;
+    
     [ShowIf("HasChoices")]
     [Button]
     [BoxGroup("Choice Operations")]
@@ -62,7 +68,7 @@ public class DialogueLog
         var choice = _choicesData.FirstOrDefault(c => c.Choice == decision);
         if (choice != null)
         {
-            log.Add(new LogUnit
+            var log = new LogUnit
             {
                 system = new List<string>()
                 {
@@ -71,10 +77,24 @@ public class DialogueLog
                 },
 
                 data = new List<string> { choice.Choice, (LocalizedString)choice.Choice },
-            });
+            };
+            allLog.Add(log);
+            
+            log = new LogUnit
+            {
+                system = new List<string>()
+                {
+                    choice.Guid,
+                    choice.GetType().ToString()
+                },
+
+                data = new List<string> { choice.Choice, (LocalizedString)choice.Choice },
+            };
+            choiceLog.Add(log);
         }
 
         ClearChoices();
+        GetData();
     }
 
     private void ClearChoices()
@@ -90,10 +110,13 @@ public class DialogueLog
     [Button]
     public void ClearLog()
     {
-        log = new List<LogUnit>();
+        allLog = new List<LogUnit>();
+        choiceLog = new List<LogUnit>();
+        dontHaveEndNode = true;
         ClearChoices();
     }
 
+    [ShowIf("dontHaveEndNode")]
     [BoxGroup("Log Operations")]
     [Button]
     public void GetData()
@@ -113,55 +136,75 @@ public class DialogueLog
 
         List<AaNodeData> data;
         List<AaNodeData> newList;
-        if (log.Count < 1)
+        if (allLog.Count < 1)
         {
             var entryNodeData = levelData.Value.GetEntryNode();
             newList = new List<AaNodeData> { entryNodeData };
         }
         else
         {
-            newList = new List<AaNodeData> { new EventNodeData { Guid = log[^1].system[0] } };
+            newList = new List<AaNodeData> { new EventNodeData { Guid = allLog[^1].system[0] } };
         }
 
         data = newList;
 
         var hasChoices = false;
 
-        while (!hasChoices)
+        while (!hasChoices && dontHaveEndNode)
         {
             var cycleNexts = _dialoguePm.FindNext(data);
             data = new();
             _choicesData = new List<ChoiceNodeData>();
             foreach (var next in cycleNexts)
             {
-                if (next is ChoiceNodeData choice)
+                switch (next)
                 {
-                    hasChoices = true;
-                    _choices.Add(choice.Choice);
-                    _choicesData.Add(choice);
-                    _choicesText.Add($"{choice.Choice}:{(LocalizedString)choice.Choice}");
-                }
-                else
-                {
-                    data.Add(next);
-
-                    var sketchText = next switch
+                    case ChoiceNodeData choice:
                     {
-                        PhraseNodeData phrase => phrase.PhraseSketchText,
-                        ImagePhraseNodeData imagePhrase => imagePhrase.PhraseSketchText,
-                        _ => string.Empty
-                    };
-
-                    log.Add(new LogUnit
-                    {
-                        system = new List<string>()
+                        var isLocked = choice.IsLocked ? " [G] " : string.Empty;
+                        hasChoices = true;
+                        _choices.Add(choice.Choice);
+                        _choicesData.Add(choice);
+                        _choicesText.Add($"{choice.Choice}:{isLocked}{(LocalizedString)choice.Choice}");
+                        break;
+                    }
+                    case EndNodeData end:
+                        allLog.Add(new LogUnit
                         {
-                            next.Guid,
-                            next.GetType().ToString()
-                        },
+                            system = new List<string>()
+                            {
+                                next.Guid,
+                                next.GetType().ToString()
+                            },
 
-                        data = new List<string> { sketchText },
-                    });
+                            data = new List<string> { end.End },
+                        });
+
+                        dontHaveEndNode = false;
+                        break;
+                    default:
+                    {
+                        data.Add(next);
+
+                        var sketchText = next switch
+                        {
+                            PhraseNodeData phrase => phrase.PhraseSketchText,
+                            ImagePhraseNodeData imagePhrase => imagePhrase.PhraseSketchText,
+                            _ => string.Empty
+                        };
+
+                        allLog.Add(new LogUnit
+                        {
+                            system = new List<string>()
+                            {
+                                next.Guid,
+                                next.GetType().ToString()
+                            },
+
+                            data = new List<string> { sketchText },
+                        });
+                        break;
+                    }
                 }
             }
         }
@@ -178,7 +221,10 @@ public class LogUnit
 {
     public List<string> system;
     [ShowIf("HasData")] public List<string> data;
-    
+
+    [SerializeField] public Dictionary<string, string> dict = new Dictionary<string, string>()
+        { { "a1", "b1" }, { "a2", "b2" }, };
+
     private bool HasData() => data is { Count: > 0 };
 }
 

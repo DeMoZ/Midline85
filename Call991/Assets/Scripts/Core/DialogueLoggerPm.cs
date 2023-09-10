@@ -113,7 +113,7 @@ public class DialogueLoggerPm : IDisposable
         };
 
         var data = JsonConvert.SerializeObject(_savedCash);
-        PlayerPrefs.SetString(GameProgress, data);
+        PlayerPrefs.SetString(AaConstants.GameProgress, data);
         Debug.Log($"[{this}] -- <color=green>Progress saved</color> -- {_currentLevelId}");
     }
 
