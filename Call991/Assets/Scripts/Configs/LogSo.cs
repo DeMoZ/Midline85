@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using AaDialogueGraph;
 using I2.Loc;
+using Newtonsoft.Json;
 using Sirenix.OdinInspector;
 using UniRx;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 [CreateAssetMenu(fileName = nameof(LogSo), menuName = "Aa/Configs/" + nameof(LogSo), order = 0)]
 public class LogSo : SerializedScriptableObject
@@ -20,30 +20,41 @@ public class LogSo : SerializedScriptableObject
         PlayerPrefs.DeleteKey(AaConstants.GameProgress);
     }
 
-    // [Button]
-    // [HorizontalGroup("PrefsControl")]
-    // public void LoadFromPrefs()
-    // {
-    // }
-
     [Button]
     [HorizontalGroup("PrefsControl")]
-    public void SaveToPrefs()
+    public void SaveGameToPrefs()
     {
-        //PlayerPrefs.SetString(AaConstants.GameProgress, data);
+        var loggerService = new LoggerService();
+
+        // levels logs to game container
+        var gameContainer = new GameContainer();
+        foreach (var dialogue in dialogueLogs)
+        {
+            loggerService.AddLog(dialogue.AllNodesData);
+            var entryNode = dialogue.Dialogue.EntryNodeData;
+            gameContainer.LevelProgress[entryNode.LevelId] = loggerService.LevelContainer;
+        }
+        
+        var data = JsonConvert.SerializeObject(gameContainer);
+        PlayerPrefs.SetString(AaConstants.GameProgress, data);
+        Debug.Log($"[{this}] -- <color=green>Progress saved</color> -- for all levels in LogSo");
     }
 }
 
 [Serializable]
 public class DialogueLog
 {
-    public DialogueContainer dialogue;
+    [SerializeField] private DialogueContainer dialogue;
     [SerializeField] private bool showOnlyButtons = true;
     private bool ShowAllLogs => !showOnlyButtons;
+
+    public List<AaNodeData> AllNodesData => _allNodesData;
+    public DialogueContainer Dialogue => dialogue;
 
     [ReadOnly, ShowIf("ShowAllLogs")] public List<LogUnit> allLog = new();
     [ReadOnly, ShowIf("showOnlyButtons")] public List<LogUnit> choiceLog = new();
 
+    private List<AaNodeData> _allNodesData = new();
     private List<string> _choices = new();
     private List<ChoiceNodeData> _choicesData = new();
 
@@ -56,7 +67,8 @@ public class DialogueLog
     public string decision;
 
     private bool dontHaveEndNode = true;
-    
+    private LoggerService _loggerService;
+
     [ShowIf("HasChoices")]
     [Button]
     [BoxGroup("Choice Operations")]
@@ -79,7 +91,7 @@ public class DialogueLog
                 data = new List<string> { choice.Choice, (LocalizedString)choice.Choice },
             };
             allLog.Add(log);
-            
+
             log = new LogUnit
             {
                 system = new List<string>()
@@ -110,8 +122,9 @@ public class DialogueLog
     [Button]
     public void ClearLog()
     {
-        allLog = new List<LogUnit>();
-        choiceLog = new List<LogUnit>();
+        allLog.Clear();
+        choiceLog.Clear();
+        AllNodesData.Clear();
         dontHaveEndNode = true;
         ClearChoices();
     }
@@ -121,18 +134,24 @@ public class DialogueLog
     [Button]
     public void GetData()
     {
-        if (dialogue == null)
+        if (Dialogue == null)
         {
             Debug.LogError($"[{this}] dialogue not set for log object");
             return;
         }
 
+        _loggerService = new LoggerService();
+        _loggerService.AddLog(AllNodesData);
         ClearChoices();
 
-        var levelData = new ReactiveProperty<LevelData>(new LevelData(dialogue.GetNodesData(), dialogue.NodeLinks));
+        var levelData = new ReactiveProperty<LevelData>(new LevelData(Dialogue.GetNodesData(), Dialogue.NodeLinks));
         var findNext = new ReactiveCommand<List<AaNodeData>>();
         _dialoguePm = new DialoguePm(new DialoguePm.Ctx
-            { LevelData = levelData, DialogueLogger = new DialogueLoggerPm(), FindNext = findNext });
+        {
+            LevelData = levelData,
+            DialogueLogger = new DialogueLoggerPm(_loggerService),
+            FindNext = findNext
+        });
 
         List<AaNodeData> data;
         List<AaNodeData> newList;
@@ -153,6 +172,8 @@ public class DialogueLog
         while (!hasChoices && dontHaveEndNode)
         {
             var cycleNexts = _dialoguePm.FindNext(data);
+            AllNodesData.AddRange(cycleNexts);
+
             data = new();
             _choicesData = new List<ChoiceNodeData>();
             foreach (var next in cycleNexts)
@@ -221,13 +242,6 @@ public class LogUnit
 {
     public List<string> system;
     [ShowIf("HasData")] public List<string> data;
-
-    [SerializeField] public Dictionary<string, string> dict = new Dictionary<string, string>()
-        { { "a1", "b1" }, { "a2", "b2" }, };
-
+    [SerializeField] public Dictionary<string, string> dict = new();
     private bool HasData() => data is { Count: > 0 };
-}
-
-public enum Decision
-{
 }

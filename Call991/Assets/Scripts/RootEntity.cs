@@ -103,7 +103,8 @@ public class RootEntity : IDisposable
         });
 
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
-        var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
+        var logService = new LoggerService().AddTo(_disposables);
+        var dialogueLoggerPm = new DialogueLoggerPm(logService).AddTo(_disposables);
         var gameLevelsService = new GameLevelsService(gameSet, _ctx.OverridenDialogue, dialogueLoggerPm).AddTo(_disposables);
         
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
