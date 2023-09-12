@@ -2,6 +2,7 @@ using System;
 using System.Globalization;
 using System.Threading;
 using System.Threading.Tasks;
+using UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -12,6 +13,7 @@ public class SceneSwitcher : IDisposable
     {
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public ScenesHandler ScenesHandler;
+        public CursorSet CursorSettings;
     }
 
     private Ctx _ctx;
@@ -78,6 +80,7 @@ public class SceneSwitcher : IDisposable
         loadingSceneEntity.Exit();
         loadingSceneEntity.Dispose();
         onLoadingProcess.Dispose();
+        _ctx.CursorSettings.ApplyCursor(CursorType.Normal);
         _currentScene.Enter();
     }
     

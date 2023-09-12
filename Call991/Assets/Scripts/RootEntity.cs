@@ -127,6 +127,7 @@ public class RootEntity : IDisposable
         {
             ScenesHandler = scenesHandler,
             OnSwitchScene = onSwitchScene,
+            CursorSettings = cursorSettings,
         }).AddTo(_disposables);
 
         _onStartApplicationSwitchScene.Execute();

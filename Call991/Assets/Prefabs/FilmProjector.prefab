@@ -178,7 +178,7 @@ GameObject:
   - component: {fileID: 6687804700762250684}
   - component: {fileID: 7410008636559429217}
   - component: {fileID: 5801667068111450229}
-  - component: {fileID: 5991577084750425818}
+  - component: {fileID: 6248204651337186343}
   m_Layer: 0
   m_Name: SliderParent
   m_TagString: Untagged
@@ -247,7 +247,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &5991577084750425818
+--- !u!114 &6248204651337186343
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -256,7 +256,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3039584779476606476}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 1e9810b8fbd1427ca80b2581f8340924, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
@@ -291,6 +291,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+  cursorSet: {fileID: 11400000, guid: 851913ea44cfc4c96ba4f2c22ff0dfa4, type: 2}
 --- !u!1 &3789230756347186374
 GameObject:
   m_ObjectHideFlags: 0
@@ -423,7 +424,7 @@ MonoBehaviour:
   slide2: {fileID: 2378390516420995349}
   slidesParent: {fileID: 6687804700762250684}
   transparentSlide: {fileID: 21300000, guid: 385bc5c8eff4b481cbd131fe1ead895e, type: 3}
-  clickBtn: {fileID: 5991577084750425818}
+  clickBtn: {fileID: 6248204651337186343}
   duration: 1
   speedCurve:
     serializedVersion: 2
