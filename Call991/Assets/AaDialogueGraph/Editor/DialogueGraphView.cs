@@ -129,12 +129,6 @@ namespace AaDialogueGraph.Editor
 
         private List<string> GetLanguages() => contentContainer.Q<EntryNode>().GetLanguages() ?? new List<string>();
 
-        // private List<string> GetSoundAsset()
-        // {
-        //     var keys = contentContainer.Q<SoundAssetField>().GetSoundAsset();
-        //     return keys != null ? keys.Keys : new List<string>();
-        // }
-
         private Vector2 GetNewNodePosition()
         {
             var worldPosition = Event.current.mousePosition + Vector2.up * 100;
