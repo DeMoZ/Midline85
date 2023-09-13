@@ -97,7 +97,7 @@ namespace UI
             if (!interactable) return;
             
             Debug.Log($"[{this}] <color=yellow>Press</color> Button {name} clicked");
-            _lastClick = Time.time;
+            _lastClick = Time.unscaledTime;
             
             buttonAudioSettings.PlayClickSound();
             OnButtonClick();
@@ -118,9 +118,6 @@ namespace UI
             SetNormal();
         }
 
-        private bool InteractionDelay()
-        {
-            return _lastClick + _clickDelay < Time.time;
-        }
+        private bool InteractionDelay() => _lastClick + _clickDelay < Time.unscaledTime;
     }
 }
