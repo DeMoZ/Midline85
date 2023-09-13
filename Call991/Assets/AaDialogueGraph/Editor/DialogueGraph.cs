@@ -1,6 +1,9 @@
 using System.Collections.Generic;
+using System.Linq;
 using Configs;
+using Newtonsoft.Json;
 using UnityEditor;
+using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -75,7 +78,6 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.SaveData,
             };
             toolbar.Add(saveDataButton);
-
             toolbar.Add(new Label(AaGraphConstants.LineSpace));
 
             var loadDataButton = new Button(() => LoadData())
@@ -83,7 +85,13 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.LoadData,
             };
             toolbar.Add(loadDataButton);
-
+            toolbar.Add(new Label(AaGraphConstants.LineSpace));
+            
+            var loadPrefsLogButton = new Button(() => LoadPrefsLog())
+            {
+                text = AaGraphConstants.LoadPrefsLog,
+            };
+            toolbar.Add(loadPrefsLogButton);
             toolbar.Add(new Label(AaGraphConstants.LineSpace));
             
             var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode())
@@ -163,6 +171,42 @@ namespace AaDialogueGraph.Editor
             _fileNameTextField.MarkDirtyRepaint();
         }
 
+        private void LoadPrefsLog()
+        {
+            // get start node
+            var entryNode = _graphView.contentContainer.Q<EntryNode>();
+            if (entryNode == null) return;
+            
+            // get levelId
+            var levelId = entryNode.Q<LevelIdPopupField>().Value;
+            if (string.IsNullOrEmpty(levelId)) return;
+            
+            // read prefs and find records with the same levelId
+            var stringData = PlayerPrefs.GetString(AaConstants.GameProgress, string.Empty);
+            var cash = !string.IsNullOrEmpty(stringData)
+                ? JsonConvert.DeserializeObject<GameContainer>(stringData)
+                : null;
+
+            if (cash == null) return;
+            
+            LevelContainer levelContainer = null;
+            foreach (var level in cash.LevelProgress)
+            {
+                if (level.Key == levelId)
+                {
+                    levelContainer = level.Value;
+                    break;
+                }
+            }
+            if (levelContainer == null) return;
+            
+            var nodes = _graphView.contentContainer.Query<AaNode>().ToList();
+            foreach (var node in nodes.Where(node => levelContainer.LogCash.ContainsKey(node.Guid)))
+            {
+                node.AddToClassList("aa-Selected_extension-container");
+            }
+        }
+        
         private void OnDisable()
         {
             if (_graphView != null)

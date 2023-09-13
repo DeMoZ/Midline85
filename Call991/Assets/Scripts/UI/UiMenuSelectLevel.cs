@@ -12,7 +12,6 @@ namespace UI
         public struct Ctx
         {
             public GameLevelsService GameLevelsService;
-            public DialogueLoggerPm DialogueLogger;
             public ReactiveCommand<int> OnLevelSelect;
             public ReactiveCommand<int> OnLevelPlay;
             public ReactiveCommand OnClickToMenu;
@@ -43,7 +42,7 @@ namespace UI
             foreach (Transform child in buttonsParent)
                 Destroy(child.gameObject);
 
-            var progressData = _ctx.DialogueLogger.LoadLevelsInfo();
+            var progressData = _ctx.GameLevelsService.DialogueLogger.LoadLevelsInfo();
             _buttons = new List<AaMenuButton>();
             int lastFinished = -1;
 

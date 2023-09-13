@@ -584,6 +584,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.DialogueService.OnShowLevelUi?.Execute();
 
+        _ctx.CursorSettings.ApplyCursor(CursorType.Normal);
         _ctx.CursorSettings.EnableCursor(true);
     }
 

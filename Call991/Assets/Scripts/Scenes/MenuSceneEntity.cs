@@ -12,7 +12,6 @@ public class MenuSceneEntity : IGameScene
         public GameSet GameSet;
         public PlayerProfile Profile;
         public WwiseAudio AudioManager;
-        public DialogueLoggerPm DialogueLogger;
         public GameLevelsService GameLevelsService;
     }
 
@@ -71,7 +70,6 @@ public class MenuSceneEntity : IGameScene
             Profile = _ctx.Profile,
             AudioManager = _ctx.AudioManager,
             GameLevelsService = _ctx.GameLevelsService,
-            DialogueLogger = _ctx.DialogueLogger,
         });
     }
 

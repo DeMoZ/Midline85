@@ -16,6 +16,7 @@ public static class AaGraphConstants
 
     public const string SaveData = "Save";
     public const string LoadData = "Load";
+    public const string LoadPrefsLog = "LoadLog";
 
     public const string LineSpace = " | ";
     public const string InPortName = "in";

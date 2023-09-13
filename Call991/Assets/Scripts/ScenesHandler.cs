@@ -21,7 +21,6 @@ public class ScenesHandler : IDisposable
         public ObjectEvents ObjectEvents;
         public ReactiveProperty<bool> IsPauseAllowed;
         public ReactiveProperty<List<string>> LevelLanguages;
-        public DialogueLoggerPm DialogueLogger;
         public GameLevelsService GameLevelsService;
     }
 
@@ -127,7 +126,6 @@ public class ScenesHandler : IDisposable
             Profile = _ctx.Profile,
             AudioManager = _ctx.MediaService.AudioManager,
             ConstructorTask = constructorTask,
-            DialogueLogger = _ctx.DialogueLogger,
         }).AddTo(_disposables);
 
         _ctx.CursorSettings.EnableCursor(true);
@@ -153,7 +151,6 @@ public class ScenesHandler : IDisposable
             CursorSettings = _ctx.CursorSettings,
             IsPauseAllowed = _ctx.IsPauseAllowed,
             LevelLanguages = _ctx.LevelLanguages,
-            DialogueLogger = _ctx.DialogueLogger,
         }).AddTo(_disposables);
 
         await constructorTask.Value;

@@ -5,7 +5,6 @@ using Sirenix.OdinInspector;
 using UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 public class AaWindow : InputHandler
 {
