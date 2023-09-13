@@ -19,6 +19,9 @@ public class LoggerService : IDisposable
     {
         switch (data)
         {
+            case ImagePhraseNodeData nodeData:
+                AddNode(nodeData.Guid, nodeData.PhraseSketchText);
+                break;
             case PhraseNodeData nodeData:
                 AddNode(nodeData.Guid, nodeData.PhraseSketchText);
                 break;
@@ -33,8 +36,9 @@ public class LoggerService : IDisposable
                 AddCaseInCash(nodeData.End, LevelContainer.EndsCash);
                 AddNode(nodeData.Guid, nodeData.End);
                 break;
-            case EventNodeData:
-            case NewspaperNodeData:
+            // case EventNodeData:
+            // case NewspaperNodeData:
+            default:
                 AddNode(data.Guid, "");
                 break;
         }
