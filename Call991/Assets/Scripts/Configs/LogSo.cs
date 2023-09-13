@@ -80,6 +80,8 @@ public class DialogueLog
         var choice = _choicesData.FirstOrDefault(c => c.Choice == decision);
         if (choice != null)
         {
+            AllNodesData.Add(choice);
+            
             var log = new LogUnit
             {
                 system = new List<string>()
@@ -171,12 +173,11 @@ public class DialogueLog
 
         while (!hasChoices && dontHaveEndNode)
         {
-            var cycleNexts = _dialoguePm.FindNext(data);
-            AllNodesData.AddRange(cycleNexts);
+            var nextCycle = _dialoguePm.FindNext(data);
 
             data = new();
             _choicesData = new List<ChoiceNodeData>();
-            foreach (var next in cycleNexts)
+            foreach (var next in nextCycle)
             {
                 switch (next)
                 {
@@ -190,6 +191,7 @@ public class DialogueLog
                         break;
                     }
                     case EndNodeData end:
+                        AllNodesData.AddRange(nextCycle);
                         allLog.Add(new LogUnit
                         {
                             system = new List<string>()
@@ -200,11 +202,12 @@ public class DialogueLog
 
                             data = new List<string> { end.End },
                         });
-
+                        
                         dontHaveEndNode = false;
                         break;
                     default:
                     {
+                        AllNodesData.AddRange(nextCycle);
                         data.Add(next);
 
                         var sketchText = next switch
