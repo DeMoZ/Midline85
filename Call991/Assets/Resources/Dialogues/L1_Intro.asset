@@ -18,15 +18,92 @@ MonoBehaviour:
       serializedVersion: 2
       x: 67
       y: 200
-      width: 106.5
-      height: 186.5
+      width: 113
+      height: 181
+    EventVisualData: []
     LevelId: L1_Intro
     Languages:
     - Russian
-    - English
     ButtonFilter: tutorial
     SoundAsset: 
-  PhraseNodeData: []
+    GrabProjectorImages: 0
+  PhraseNodeData:
+  - Guid: 4a74706a-d654-4d0e-9407-7812cf6afad0
+    Rect:
+      serializedVersion: 2
+      x: 594.5
+      y: 352
+      width: 99.5
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: ELENA
+      ScreenPlace: 7
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: NONE
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_005.asset
+  - Guid: 7f744d24-3e72-4119-9ee4-9eb777cbbcab
+    Rect:
+      serializedVersion: 2
+      x: 356.5
+      y: 352
+      width: 123.5
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: elena something
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 7
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: NONE
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_001.asset
+  - Guid: d939a5b9-13d2-4858-a5e6-d5886f1fb7f3
+    Rect:
+      serializedVersion: 2
+      x: 495
+      y: 352
+      width: 99.5
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 7
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: NONE
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_011.asset
+  - Guid: 66a36f15-065f-4580-89b5-fcbf987e3f6b
+    Rect:
+      serializedVersion: 2
+      x: 708.5
+      y: 352
+      width: 99.5
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 7
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: NONE
+    Phrases:
+    - Phrases/L2_Tutor/Russian/tutor_mark/tutor_mark_039_3.asset
   ImagePhraseNodeData: []
   ChoiceNodeData: []
   ForkNodeData: []
@@ -35,48 +112,19 @@ MonoBehaviour:
   - Guid: bd32d768-2910-4efa-a053-aac758f3d11f
     Rect:
       serializedVersion: 2
-      x: 529
-      y: 200
-      width: 326
-      height: 207.5
-    End: End/Intro
+      x: 1057
+      y: 201
+      width: 92
+      height: 95
     EventVisualData: []
+    End: End/Intro
     SkipSelectNextLevelButtons: 1
   EventNodeData:
-  - Guid: 3eec4326-c7aa-4f96-abb6-12031481bd91
-    Rect:
-      serializedVersion: 2
-      x: 377
-      y: 200
-      width: 99.5
-      height: 107
-    EventVisualData:
-    - Type: 2
-      PhraseEvent: Cinematic/cinematic_01_end
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 4
-      PhraseEvent: Dialogues/EventPrefabs/BlockerHideAwaited.prefab
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
-    - Type: 3
-      PhraseEvent: 
-      Layer: 0
-      Loop: 0
-      Stop: 1
-      Delay: 0
-      Value: 0
   - Guid: c215f9e4-1666-453f-b032-46e85ca57a6e
     Rect:
       serializedVersion: 2
-      x: 251
-      y: 200
+      x: 202.5
+      y: 201
       width: 99.5
       height: 107
     EventVisualData:
@@ -101,6 +149,36 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
+  - Guid: 3eec4326-c7aa-4f96-abb6-12031481bd91
+    Rect:
+      serializedVersion: 2
+      x: 917
+      y: 201
+      width: 99.5
+      height: 107
+    EventVisualData:
+    - Type: 2
+      PhraseEvent: Cinematic/cinematic_01_end
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: 
+      Layer: 0
+      Loop: 0
+      Stop: 1
+      Delay: 0
+      Value: 0
+  - Guid: 1dfa77b4-116b-4adb-b0cb-3b682d03966c
+    Rect:
+      serializedVersion: 2
+      x: 708.5
+      y: 200
+      width: 99.5
+      height: 107
+    EventVisualData:
     - Type: 4
       PhraseEvent: Dialogues/EventPrefabs/BlockerShowAwaited.prefab
       Layer: 0
@@ -108,14 +186,44 @@ MonoBehaviour:
       Stop: 0
       Delay: 129
       Value: 0
+  - Guid: bf2be7ec-6c61-4120-9ae4-191e493b5808
+    Rect:
+      serializedVersion: 2
+      x: 384
+      y: 37
+      width: 99.5
+      height: 107
+    EventVisualData:
+    - Type: 4
+      PhraseEvent: 
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 15
+      Value: 0
   NewspaperNodeData: []
   NodeLinks:
   - BaseNodeGuid: dc2bfe2c-45f3-47ba-8288-383b7ba3e972
     BaseExitName: 
     TargetNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
+  - BaseNodeGuid: 4a74706a-d654-4d0e-9407-7812cf6afad0
+    BaseExitName: 
+    TargetNodeGuid: 66a36f15-065f-4580-89b5-fcbf987e3f6b
+  - BaseNodeGuid: d939a5b9-13d2-4858-a5e6-d5886f1fb7f3
+    BaseExitName: 
+    TargetNodeGuid: 4a74706a-d654-4d0e-9407-7812cf6afad0
+  - BaseNodeGuid: 66a36f15-065f-4580-89b5-fcbf987e3f6b
+    BaseExitName: 
+    TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
+  - BaseNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
+    BaseExitName: 
+    TargetNodeGuid: 7f744d24-3e72-4119-9ee4-9eb777cbbcab
   - BaseNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
     BaseExitName: 
     TargetNodeGuid: bd32d768-2910-4efa-a053-aac758f3d11f
-  - BaseNodeGuid: c215f9e4-1666-453f-b032-46e85ca57a6e
+  - BaseNodeGuid: 1dfa77b4-116b-4adb-b0cb-3b682d03966c
     BaseExitName: 
     TargetNodeGuid: 3eec4326-c7aa-4f96-abb6-12031481bd91
+  - BaseNodeGuid: 7f744d24-3e72-4119-9ee4-9eb777cbbcab
+    BaseExitName: 
+    TargetNodeGuid: d939a5b9-13d2-4858-a5e6-d5886f1fb7f3
