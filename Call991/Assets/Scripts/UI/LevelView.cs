@@ -23,11 +23,12 @@ namespace UI
         [SerializeField] private CanvasGroup choiceCanvasGroup;
         [SerializeField] private List<GameObject> buttonSplitters = default;
         [SerializeField] private List<PersonView> persons = default;
-        [SerializeField] private TextPersonView imagePersonText = default;
         [SerializeField] private List<ImagePersonView> imagePersons = default;
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
+        [SerializeField] private TextPersonView imagePersonText = default;
+        
         private Ctx _ctx;
         private CompositeDisposable _disposables;
 
