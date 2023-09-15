@@ -26,7 +26,7 @@ public class PersonView : BasePersonView
         description.text = string.Empty;
 
         _localize = data.PersonVisualData.Person;
-        personName.text = _localize;
+        personName.text = screenPlace == ScreenPlace.BottomLine? $"{_localize}:" : _localize;
         description.gameObject.SetActive(true);
 
         if (data.Phrase == null)

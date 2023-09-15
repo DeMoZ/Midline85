@@ -6,7 +6,8 @@ public enum ScreenPlace
     BottomLeft,
     TopRight,
     MiddleRight,
-    BottomRight
+    BottomRight,
+    BottomLine,
 }
 
 public enum PersonImageScreenPlace
