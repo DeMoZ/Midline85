@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using AaDialogueGraph;
 using UnityEngine;
 
@@ -9,7 +10,7 @@ public class LoggerService : IDisposable
 
     public void AddLog(List<AaNodeData> datas)
     {
-        foreach (var data in datas)
+        foreach (var data in datas.Where(data => data != null))
         {
             AddLog(data);
         }
