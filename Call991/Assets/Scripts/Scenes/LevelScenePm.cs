@@ -231,7 +231,7 @@ public class LevelScenePm : IDisposable
         if (newspapers.Any() && !_ctx.GameLevelsService.IsNewspaperSkipped)
         {
             var newspaper = newspapers.First();
-            var routine = Observable.FromCoroutine(() => RunNewspaperNode(content[newspaper.Guid] as GameObject));
+            var routine = Observable.FromCoroutine(() => RunNewspaperNode(content[newspaper.Guid] as CompositeNewspaper));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
@@ -553,14 +553,14 @@ public class LevelScenePm : IDisposable
         _isChoiceDone.Value = true;
     }
 
-    private IEnumerator RunNewspaperNode(GameObject content)
+    private IEnumerator RunNewspaperNode(CompositeNewspaper content)
     {
         Debug.Log($"[{this}] RunEventNode {content}");
 
         var container = new Container<bool>();
         if (content != null)
         {
-            _ctx.DialogueService.OnShowNewspaper?.Execute((container, content));
+            _ctx.DialogueService.OnShowNewspaper?.Execute((container, content.gameObject));
         }
         else
         {
