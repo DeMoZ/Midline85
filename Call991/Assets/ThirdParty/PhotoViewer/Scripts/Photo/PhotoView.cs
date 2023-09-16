@@ -2,7 +2,6 @@ using System;
 using DG.Tweening;
 using UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace PhotoViewer.Scripts.Photo
 {
@@ -20,7 +19,6 @@ namespace PhotoViewer.Scripts.Photo
         private RectTransform _backgroundTransform;
         private RectTransform _newspaperTransform;
 
-        private Vector2 _initialImageSize;
         private bool _zoomIn;
         private Sequence _zoomSequence;
         private Sequence _scrollSequence;
@@ -80,8 +78,6 @@ namespace PhotoViewer.Scripts.Photo
 
         public void SetNewspaper(GameObject content)
         {
-            _initialImageSize = ViewerSize;
-            
             if (content == null) return;
 
             Instantiate(content, newspaperContent);
@@ -98,27 +94,29 @@ namespace PhotoViewer.Scripts.Photo
 
             _zoomSequence?.Kill();
             _scrollSequence?.Kill();
-            
+
             _zoomSequence = DOTween.Sequence().SetEase(Ease.InOutCubic);
             _zoomSequence.SetUpdate(true);
-            
+
             _scrollSequence = DOTween.Sequence().SetEase(Ease.InOutCubic);
             _scrollSequence.SetUpdate(true).OnUpdate(() =>
             {
-                if(_zoomIn && _isScrolling)
+                if (_zoomIn && _isScrolling)
                     _scrollSequence.Kill();
             });
 
             // newspaperImage
-            var zoomSize = _zoomIn ? _initialImageSize * newspaperInputConfig.MaxZoom : _initialImageSize;
-            _zoomSequence.Append(_newspaperTransform.DOSizeDelta(zoomSize, newspaperInputConfig.ZoomTime));
+            var zoomSize = _zoomIn ? Vector2.one * newspaperInputConfig.MaxZoom : Vector2.one;
+            _zoomSequence.Append(_newspaperTransform.DOScale(zoomSize, newspaperInputConfig.ZoomTime));
 
             var position = _zoomIn ? CalculateNewspaperZoomPosition(clickPos) : Vector2.zero;
             _scrollSequence.Append(_newspaperTransform.DOLocalMove(position, newspaperInputConfig.ZoomTime));
 
             // backgroundImage
-            var backZoomSize = _zoomIn ? _initialImageSize * (newspaperInputConfig.MaxZoom * 0.5f) : _initialImageSize;
-            _zoomSequence.Insert(0, _backgroundTransform.DOSizeDelta(backZoomSize, newspaperInputConfig.ZoomTime));
+            var backZoomSize = _zoomIn
+                ? Vector2.one + Vector2.one * (newspaperInputConfig.MaxZoom * 0.2f)
+                : Vector2.one;
+            _zoomSequence.Insert(0, _backgroundTransform.DOScale(backZoomSize, newspaperInputConfig.ZoomTime));
 
             var backPosition = _zoomIn ? CalculateBackgroundZoomPosition(clickPos) : Vector2.zero;
             _scrollSequence.Insert(0, _backgroundTransform.DOLocalMove(backPosition, newspaperInputConfig.ZoomTime));
