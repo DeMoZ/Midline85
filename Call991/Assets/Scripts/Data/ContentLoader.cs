@@ -70,7 +70,7 @@ namespace Data
         {
             if (_ctx.LevelLanguages == null || _ctx.LevelLanguages.Count == 0) return null;
 
-            var index = _ctx.LevelLanguages.IndexOf(_ctx.Profile.AudioLanguage);
+            var index = _ctx.LevelLanguages.IndexOf(_ctx.Profile.TextLanguage);
 
             if (index == -1) return null;
 
