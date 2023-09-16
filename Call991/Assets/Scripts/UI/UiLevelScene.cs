@@ -165,9 +165,9 @@ namespace UI
             _isNewspaperActive = false;
         }
 
-        private void OnShowNewspaper((Container<bool> btnPressed, Sprite sprite) spriteData)
+        private void OnShowNewspaper((Container<bool> btnPressed, GameObject content) spriteData)
         {
-            newspaper.SetNewspaper(spriteData.sprite);
+            newspaper.SetNewspaper(spriteData.content);
             EnableUi(newspaper.GetType());
             YieldNewspaper(spriteData.btnPressed);
         }

@@ -141,7 +141,7 @@ namespace AaDialogueGraph.Editor
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
                     PhraseSound = phraseSound,
-                    Phrases = EditorNodeUtils.GetObjectPath(phrases),
+                    Phrases = EditorNodeUtils.GetPathByObjects(phrases),
                 });
             }
 
@@ -169,7 +169,7 @@ namespace AaDialogueGraph.Editor
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
                     PhraseSound = phraseSound,
-                    Phrases = EditorNodeUtils.GetObjectPath(phrases),
+                    Phrases = EditorNodeUtils.GetPathByObjects(phrases),
                 });
             }
 
@@ -282,14 +282,14 @@ namespace AaDialogueGraph.Editor
             foreach (var node in nodes)
             {
                 var eventsVisualData = GetEventsData(node);
-                var sprites = node.GetSprites().Cast<Object>().ToList();
+                var newspaper = node.Q<NewspaperAssetField>(AaGraphConstants.NewspaperObject).GetNewspaper();
 
                 data.Add(new NewspaperNodeData
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     EventVisualData = eventsVisualData,
-                    Sprites = EditorNodeUtils.GetObjectPath(sprites),
+                    NewspaperPrefab = EditorNodeUtils.GetPathByObject(newspaper),
                 });
             }
 

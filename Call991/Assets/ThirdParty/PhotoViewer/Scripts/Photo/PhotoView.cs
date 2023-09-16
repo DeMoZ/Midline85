@@ -11,8 +11,8 @@ namespace PhotoViewer.Scripts.Photo
         private const float MagicValue = 3000f;
 
         [SerializeField] private RectTransform viewTransform = default;
-        [Space] [SerializeField] private Image backgroundImage = default;
-        [SerializeField] private Image newspaperImage = default;
+        [Space] [SerializeField] private RectTransform backgroundImage = default;
+        [SerializeField] private RectTransform newspaperContent = default;
         [Space] [SerializeField] private AaMenuButton closeBtn = default;
         [SerializeField] private NewspaperInput newspaperInput = default;
         [SerializeField] private NewspaperInputSo newspaperInputConfig = default;
@@ -57,8 +57,8 @@ namespace PhotoViewer.Scripts.Photo
         protected override void OnEnable()
         {
             base.OnEnable();
-            _backgroundTransform = backgroundImage.rectTransform;
-            _newspaperTransform = newspaperImage.rectTransform;
+            _backgroundTransform = backgroundImage;
+            _newspaperTransform = newspaperContent;
 
             newspaperInput.Init(newspaperInputConfig);
 
@@ -78,27 +78,18 @@ namespace PhotoViewer.Scripts.Photo
             closeBtn.onButtonClick.RemoveAllListeners();
         }
 
-        public void SetNewspaper(Sprite sprite)
+        public void SetNewspaper(GameObject content)
         {
-            var imageData = new ImageData
-            {
-                Sprite = sprite,
-            };
+            _initialImageSize = ViewerSize;
+            
+            if (content == null) return;
 
-            ShowData(imageData);
+            Instantiate(content, newspaperContent);
         }
 
         private void Close()
         {
             OnClose?.Invoke();
-        }
-
-        private void ShowData(ImageData imageData)
-        {
-            if (newspaperImage)
-                newspaperImage.sprite = imageData.Sprite;
-
-            _initialImageSize = ViewerSize;
         }
 
         private void ZoomOnClick(Vector2 clickPos)
