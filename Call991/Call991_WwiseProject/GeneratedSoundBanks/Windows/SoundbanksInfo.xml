@@ -1859,7 +1859,7 @@
 				</SwitchGroup>
 			</SwitchGroups>
 		</SoundBank>
-		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{726C9168-A5EC-6C47-E529-5661562ED773}">
+		<SoundBank Id="1579312270" Type="User" Language="Russian" Hash="{B86ED0F8-F474-016B-3981-9501A3FACE1B}">
 			<ShortName>L2_Tutor</ShortName>
 			<Path>Russian/L2_Tutor.bnk</Path>
 			<Media>
@@ -1890,10 +1890,6 @@
 				<File Id="55043435" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_034_1.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_034_1_5DEE2D56.wem</CachePath>
-				</File>
-				<File Id="70431428" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>tutor_mark_052_1.wav</ShortName>
-					<CachePath>Voices/Russian/tutor_mark_052_1_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="126553975" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_021.wav</ShortName>
@@ -2059,10 +2055,6 @@
 					<ShortName>tutor_mark_030.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_030_5DEE2D56.wem</CachePath>
 				</File>
-				<File Id="434445227" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>tutor_mark_011_1.wav</ShortName>
-					<CachePath>Voices/Russian/tutor_mark_011_1_5DEE2D56.wem</CachePath>
-				</File>
 				<File Id="435896575" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_025.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_025_5DEE2D56.wem</CachePath>
@@ -2130,6 +2122,10 @@
 				<File Id="626825344" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_035.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_035_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="644822091" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>tutor_mark_011.wav</ShortName>
+					<CachePath>Voices/Russian/tutor_mark_011_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="665192992" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_028.wav</ShortName>
@@ -2203,6 +2199,10 @@
 					<ShortName>tutor_mark_043.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_043_5DEE2D56.wem</CachePath>
 				</File>
+				<File Id="874783359" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>tutor_mark_008_2.wav</ShortName>
+					<CachePath>Voices/Russian/tutor_mark_008_2_5DEE2D56.wem</CachePath>
+				</File>
 				<File Id="894486937" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_047.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_047_5DEE2D56.wem</CachePath>
@@ -2218,6 +2218,10 @@
 				<File Id="942627843" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_elena\tutor_elena_011.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_elena/tutor_elena_011_5DEE2D56.wem</CachePath>
+				</File>
+				<File Id="951136173" Language="Russian" Streaming="false" Location="Memory">
+					<ShortName>tutor_mark_052.wav</ShortName>
+					<CachePath>Voices/Russian/tutor_mark_052_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="959846920" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_039.wav</ShortName>
@@ -2246,10 +2250,6 @@
 				<File Id="1026663137" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_003.wav</ShortName>
 					<CachePath>Voices/Russian/tutor_mark_003_5DEE2D56.wem</CachePath>
-				</File>
-				<File Id="1027643913" Language="Russian" Streaming="false" Location="Memory">
-					<ShortName>tutor_mark_008_1.wav</ShortName>
-					<CachePath>Voices/Russian/tutor_mark_008_1_5DEE2D56.wem</CachePath>
 				</File>
 				<File Id="1050424490" Language="Russian" Streaming="false" Location="Memory">
 					<ShortName>tutor_mark_alt_005_1.wav</ShortName>
@@ -2467,9 +2467,9 @@
 						<MediaRef Id="790784609"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3589698504" Name="tutor_mark_008" DurationType="OneShot" DurationMin="12.533271" DurationMax="12.533271">
+				<Event Id="3589698504" Name="tutor_mark_008" DurationType="OneShot" DurationMin="5.5510206" DurationMax="5.5510206">
 					<MediaRefs>
-						<MediaRef Id="1027643913"/>
+						<MediaRef Id="874783359"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="3589698505" Name="tutor_mark_009" DurationType="OneShot" DurationMin="11.691771" DurationMax="11.691771">
@@ -2482,12 +2482,12 @@
 						<MediaRef Id="39321379"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3606476210" Name="tutor_mark_011" DurationType="OneShot" DurationMin="15.547334" DurationMax="15.547334">
+				<Event Id="3606476210" Name="tutor_mark_011" DurationType="OneShot" DurationMin="14.340646" DurationMax="14.340646">
 					<MediaRefs>
-						<MediaRef Id="434445227"/>
+						<MediaRef Id="644822091"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3606476209" Name="tutor_mark_012" DurationType="OneShot" DurationMin="13.007584" DurationMax="13.007584">
+				<Event Id="3606476209" Name="tutor_mark_012" DurationType="OneShot" DurationMin="5.0145" DurationMax="5.0145">
 					<MediaRefs>
 						<MediaRef Id="333730099"/>
 					</MediaRefs>
@@ -2497,12 +2497,12 @@
 						<MediaRef Id="680466032"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3606476215" Name="tutor_mark_014" DurationType="OneShot" DurationMin="10.825313" DurationMax="10.825313">
+				<Event Id="3606476215" Name="tutor_mark_014" DurationType="OneShot" DurationMin="7.107875" DurationMax="7.107875">
 					<MediaRefs>
 						<MediaRef Id="335573776"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3606476214" Name="tutor_mark_015" DurationType="OneShot" DurationMin="12.670062" DurationMax="12.670062">
+				<Event Id="3606476214" Name="tutor_mark_015" DurationType="OneShot" DurationMin="7.090979" DurationMax="7.090979">
 					<MediaRefs>
 						<MediaRef Id="198823486"/>
 					</MediaRefs>
@@ -2697,9 +2697,9 @@
 						<MediaRef Id="565384783"/>
 					</MediaRefs>
 				</Event>
-				<Event Id="3673586685" Name="tutor_mark_052" DurationType="OneShot" DurationMin="20.640396" DurationMax="20.640396">
+				<Event Id="3673586685" Name="tutor_mark_052" DurationType="OneShot" DurationMin="10.140354" DurationMax="10.140354">
 					<MediaRefs>
-						<MediaRef Id="70431428"/>
+						<MediaRef Id="951136173"/>
 					</MediaRefs>
 				</Event>
 				<Event Id="4110766029" Name="tutor_mark_alt_001" DurationType="OneShot" DurationMin="8.476396" DurationMax="8.476396">
@@ -7812,7 +7812,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{24DB3009-26DC-C0AD-C7F3-24551559C278}">
+		<SoundBank Id="2282602939" Type="User" Language="Russian" Hash="{CDEA6317-8389-6EE6-A60E-D01AF2DDBCBE}">
 			<ShortName>L4_Interlude1</ShortName>
 			<Path>Russian/L4_Interlude1.bnk</Path>
 			<Media>
@@ -14422,5 +14422,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{6B064ECD-26DB-2A67-5691-A9AC063CB05E}</FileHash>
+	<FileHash>{6E6D7618-E768-C2AE-F2CA-833A24A3FBE0}</FileHash>
 </SoundBanksInfo>
