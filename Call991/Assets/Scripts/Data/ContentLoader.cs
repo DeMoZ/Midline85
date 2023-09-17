@@ -66,7 +66,7 @@ namespace Data
             return await NodeUtils.GetObjectByPathAsync<Sprite>(path);
         }
         
-        public async Task<Sprite> GetNewspaperAsync(NewspaperNodeData data)
+        public async Task<CompositeNewspaper> GetNewspaperAsync(NewspaperNodeData data)
         {
             if (_ctx.LevelLanguages == null || _ctx.LevelLanguages.Count == 0) return null;
 
@@ -74,15 +74,8 @@ namespace Data
 
             if (index == -1) return null;
 
-            Sprite result = null;
-
-            result = await NodeUtils.GetObjectByPathAsync<Sprite>(data.Sprites[index]);
-
-            if (result == null)
-            {
-                result = await NodeUtils.GetObjectByPathAsync<Sprite>(data.Sprites[0]);
-            }
-
+            var result  = await NodeUtils.GetObjectByPathAsync<CompositeNewspaper>(data.NewspaperPrefab);
+            
             return result;
         }
 
