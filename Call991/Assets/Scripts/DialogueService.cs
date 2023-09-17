@@ -12,7 +12,7 @@ public class DialogueService : IDisposable
     public readonly ReactiveCommand<UiPhraseData> OnHidePhrase;
     public readonly ReactiveCommand<UiImagePhraseData> OnHideImagePhrase;
     
-    public readonly ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)> OnShowNewspaper;
+    public readonly ReactiveCommand<(Container<bool> btnPressed, GameObject content)> OnShowNewspaper;
     public readonly ReactiveCommand OnShowLevelUi;
     public readonly ReactiveCommand OnSkipPhrase;
 
@@ -25,7 +25,7 @@ public class DialogueService : IDisposable
         OnHidePhrase = new ReactiveCommand<UiPhraseData>().AddTo(_disposables);
         OnHideImagePhrase = new ReactiveCommand<UiImagePhraseData>().AddTo(_disposables);
         
-        OnShowNewspaper = new ReactiveCommand<(Container<bool> btnPressed, Sprite sprite)>().AddTo(_disposables);
+        OnShowNewspaper = new ReactiveCommand<(Container<bool> btnPressed, GameObject content)>().AddTo(_disposables);
         OnShowLevelUi = new ReactiveCommand(); // on newspaper done
         OnSkipPhrase = new ReactiveCommand().AddTo(_disposables);
     }
