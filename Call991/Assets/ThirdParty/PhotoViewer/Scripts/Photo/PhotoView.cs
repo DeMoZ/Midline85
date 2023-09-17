@@ -11,7 +11,9 @@ namespace PhotoViewer.Scripts.Photo
 
         [SerializeField] private RectTransform viewTransform = default;
         [Space] [SerializeField] private RectTransform backgroundImage = default;
+        [SerializeField] private RectTransform newspaperComposite = default;
         [SerializeField] private RectTransform newspaperContent = default;
+
         [Space] [SerializeField] private AaMenuButton closeBtn = default;
         [SerializeField] private NewspaperInput newspaperInput = default;
         [SerializeField] private NewspaperInputSo newspaperInputConfig = default;
@@ -56,7 +58,7 @@ namespace PhotoViewer.Scripts.Photo
         {
             base.OnEnable();
             _backgroundTransform = backgroundImage;
-            _newspaperTransform = newspaperContent;
+            _newspaperTransform = newspaperComposite;
 
             newspaperInput.Init(newspaperInputConfig);
 
@@ -79,6 +81,9 @@ namespace PhotoViewer.Scripts.Photo
         public void SetNewspaper(GameObject content)
         {
             if (content == null) return;
+
+            foreach (Transform child in newspaperContent) 
+                Destroy(child.gameObject);
 
             Instantiate(content, newspaperContent);
         }
