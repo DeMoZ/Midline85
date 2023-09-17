@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
 
@@ -7,39 +8,35 @@ namespace AaDialogueGraph.Editor
 {
     public class NewspaperNode : AaNode
     {
-        public void Set(NewspaperNodeData data, List<string> languages, string guid, SoundLists soundLists)
+        private CompositeNewspaper _objectField;
+
+        public void Set(NewspaperNodeData data, string guid, SoundLists soundLists)
         {
             Guid = guid;
             title = AaGraphConstants.NewspaperNode;
-            
+
             var contentFolder = new Foldout();
             contentFolder.value = false;
             extensionContainer.Add(contentFolder);
             contentFolder.AddToClassList("aa-NewspaperNode_extension-container");
-            
+
             var nodeEvents = new AaNodeEvents();
             nodeEvents.Set(data.EventVisualData, CheckNodeContent, soundLists);
             contentFolder.Add(nodeEvents);
+            
+            var label = new Label(AaGraphConstants.NewspaperObject);
+            label.AddToClassList("aa-BlackText");
+            
+            var compositeNewspaper = !string.IsNullOrEmpty(data.NewspaperPrefab)
+                ? NodeUtils.GetObjectByPath<CompositeNewspaper>(data.NewspaperPrefab)
+                : null;
 
-            var phraseContainer = new ElementsTable();
-            var phraseAssetsLabel = new Label("Images");
-            phraseAssetsLabel.AddToClassList("aa-BlackText");
-            phraseContainer.Add(phraseAssetsLabel);
-
-            for (var i = 0; i < languages.Count; i++)
-            {
-                var sprite = data.Sprites != null && data.Sprites.Count > i
-                    ? NodeUtils.GetObjectByPath<Sprite>(data.Sprites[i])
-                    : null;
-                
-                var field = new NewspaperElementsRowField();
-                field.Set(languages[i], sprite, CheckNodeContent);
-                phraseContainer.Add(field);
-            }
-
-            phraseContainer.contentContainer.AddToClassList("aa-PhraseAsset_content-container");
-
-            contentFolder.Add(phraseContainer);
+            var newspaperAsset = new NewspaperAssetField { name = AaGraphConstants.NewspaperObject };
+            newspaperAsset.Set(compositeNewspaper);
+            
+            var lineGroup = new LineGroup(new List<VisualElement> { label, newspaperAsset });
+            lineGroup.contentContainer.AddToClassList("aa-PhraseAsset_content-container");
+            contentFolder.Add(lineGroup);
 
             CreateInPort();
             CreateOutPort();
@@ -51,10 +48,6 @@ namespace AaDialogueGraph.Editor
 
         public void CheckNodeContent()
         {
-           
         }
-
-        public List<Sprite> GetSprites() =>
-            contentContainer.Query<SpriteField>().ToList().Select(field => field.GetSprite()).ToList();
     }
 }

@@ -1,0 +1,84 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: _TestCompositeNewspaper
+  m_EditorClassIdentifier: 
+  EntryNodeData:
+    Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    Rect:
+      serializedVersion: 2
+      x: -541
+      y: -255
+      width: 113
+      height: 207
+    EventVisualData: []
+    LevelId: L1_Intro
+    Languages:
+    - English
+    - English
+    ButtonFilter: 
+    SoundAsset: 
+    GrabProjectorImages: 0
+  PhraseNodeData:
+  - Guid: 01c6a733-7e61-4fa5-a900-7445ffba437f
+    Rect:
+      serializedVersion: 2
+      x: -319
+      y: -144
+      width: 128
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: Phrase Check 1
+    PersonVisualData:
+      Person: UNKNOWN
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: NONE
+    Phrases:
+    - 
+    - 
+  ImagePhraseNodeData: []
+  ChoiceNodeData: []
+  ForkNodeData: []
+  CountNodeData: []
+  EndNodeData:
+  - Guid: f4b45a0e-3636-41e5-b882-52c8d0446fb0
+    Rect:
+      serializedVersion: 2
+      x: -4
+      y: -255
+      width: 92
+      height: 95
+    EventVisualData: []
+    End: End/Intro
+    SkipSelectNextLevelButtons: 0
+  EventNodeData: []
+  NewspaperNodeData:
+  - Guid: 6cb723e4-b2a9-4bb3-aaf7-8dabf604d147
+    Rect:
+      serializedVersion: 2
+      x: -191
+      y: -255
+      width: 376
+      height: 210
+    EventVisualData: []
+    NewspaperPrefab: Newspapers/NewspaperContentBase.prefab
+  NodeLinks:
+  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    BaseExitName: 
+    TargetNodeGuid: 6cb723e4-b2a9-4bb3-aaf7-8dabf604d147
+  - BaseNodeGuid: 6cb723e4-b2a9-4bb3-aaf7-8dabf604d147
+    BaseExitName: 
+    TargetNodeGuid: f4b45a0e-3636-41e5-b882-52c8d0446fb0

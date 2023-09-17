@@ -2,7 +2,6 @@ using System;
 using DG.Tweening;
 using UI;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace PhotoViewer.Scripts.Photo
 {
@@ -11,8 +10,10 @@ namespace PhotoViewer.Scripts.Photo
         private const float MagicValue = 3000f;
 
         [SerializeField] private RectTransform viewTransform = default;
-        [Space] [SerializeField] private Image backgroundImage = default;
-        [SerializeField] private Image newspaperImage = default;
+        [Space] [SerializeField] private RectTransform backgroundImage = default;
+        [SerializeField] private RectTransform newspaperComposite = default;
+        [SerializeField] private RectTransform newspaperContent = default;
+
         [Space] [SerializeField] private AaMenuButton closeBtn = default;
         [SerializeField] private NewspaperInput newspaperInput = default;
         [SerializeField] private NewspaperInputSo newspaperInputConfig = default;
@@ -20,7 +21,6 @@ namespace PhotoViewer.Scripts.Photo
         private RectTransform _backgroundTransform;
         private RectTransform _newspaperTransform;
 
-        private Vector2 _initialImageSize;
         private bool _zoomIn;
         private Sequence _zoomSequence;
         private Sequence _scrollSequence;
@@ -57,8 +57,8 @@ namespace PhotoViewer.Scripts.Photo
         protected override void OnEnable()
         {
             base.OnEnable();
-            _backgroundTransform = backgroundImage.rectTransform;
-            _newspaperTransform = newspaperImage.rectTransform;
+            _backgroundTransform = backgroundImage;
+            _newspaperTransform = newspaperComposite;
 
             newspaperInput.Init(newspaperInputConfig);
 
@@ -78,27 +78,19 @@ namespace PhotoViewer.Scripts.Photo
             closeBtn.onButtonClick.RemoveAllListeners();
         }
 
-        public void SetNewspaper(Sprite sprite)
+        public void SetNewspaper(GameObject content)
         {
-            var imageData = new ImageData
-            {
-                Sprite = sprite,
-            };
+            if (content == null) return;
 
-            ShowData(imageData);
+            foreach (Transform child in newspaperContent) 
+                Destroy(child.gameObject);
+
+            Instantiate(content, newspaperContent);
         }
 
         private void Close()
         {
             OnClose?.Invoke();
-        }
-
-        private void ShowData(ImageData imageData)
-        {
-            if (newspaperImage)
-                newspaperImage.sprite = imageData.Sprite;
-
-            _initialImageSize = ViewerSize;
         }
 
         private void ZoomOnClick(Vector2 clickPos)
@@ -107,27 +99,29 @@ namespace PhotoViewer.Scripts.Photo
 
             _zoomSequence?.Kill();
             _scrollSequence?.Kill();
-            
+
             _zoomSequence = DOTween.Sequence().SetEase(Ease.InOutCubic);
             _zoomSequence.SetUpdate(true);
-            
+
             _scrollSequence = DOTween.Sequence().SetEase(Ease.InOutCubic);
             _scrollSequence.SetUpdate(true).OnUpdate(() =>
             {
-                if(_zoomIn && _isScrolling)
+                if (_zoomIn && _isScrolling)
                     _scrollSequence.Kill();
             });
 
             // newspaperImage
-            var zoomSize = _zoomIn ? _initialImageSize * newspaperInputConfig.MaxZoom : _initialImageSize;
-            _zoomSequence.Append(_newspaperTransform.DOSizeDelta(zoomSize, newspaperInputConfig.ZoomTime));
+            var zoomSize = _zoomIn ? Vector2.one * newspaperInputConfig.MaxZoom : Vector2.one;
+            _zoomSequence.Append(_newspaperTransform.DOScale(zoomSize, newspaperInputConfig.ZoomTime));
 
             var position = _zoomIn ? CalculateNewspaperZoomPosition(clickPos) : Vector2.zero;
             _scrollSequence.Append(_newspaperTransform.DOLocalMove(position, newspaperInputConfig.ZoomTime));
 
             // backgroundImage
-            var backZoomSize = _zoomIn ? _initialImageSize * (newspaperInputConfig.MaxZoom * 0.5f) : _initialImageSize;
-            _zoomSequence.Insert(0, _backgroundTransform.DOSizeDelta(backZoomSize, newspaperInputConfig.ZoomTime));
+            var backZoomSize = _zoomIn
+                ? Vector2.one + Vector2.one * (newspaperInputConfig.MaxZoom * 0.2f)
+                : Vector2.one;
+            _zoomSequence.Insert(0, _backgroundTransform.DOScale(backZoomSize, newspaperInputConfig.ZoomTime));
 
             var backPosition = _zoomIn ? CalculateBackgroundZoomPosition(clickPos) : Vector2.zero;
             _scrollSequence.Insert(0, _backgroundTransform.DOLocalMove(backPosition, newspaperInputConfig.ZoomTime));

@@ -77,22 +77,6 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-    public class NewspaperElementsRowField : VisualElement
-    {
-        public void Set(string language, Sprite sprite = null, Action onChange = null)
-        {
-            var label = new Label(language);
-            label.AddToClassList("aa-BlackText");
-            contentContainer.Add(label);
-
-            var spriteField = new SpriteField();
-            spriteField.Set(sprite, onChange);
-            contentContainer.Add(spriteField);
-
-            contentContainer.style.flexDirection = FlexDirection.Row;
-        }
-    }
-
     public class PhraseSoundField : VisualElement
     {
         private ObjectField _objectField;
@@ -138,6 +122,30 @@ namespace AaDialogueGraph.Editor
         public Phrase GetPhrase()
         {
             return _objectField.value as Phrase;
+        }
+    }
+    
+    public class NewspaperAssetField : VisualElement
+    {
+        private ObjectField _objectField;
+
+        public void Set(Object asset = null, Action onChange = null)
+        {
+            _objectField = new ObjectField
+            {
+                objectType = typeof(CompositeNewspaper),
+                allowSceneObjects = false,
+                value = asset,
+            };
+
+            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
+
+            contentContainer.Add(_objectField);
+        }
+
+        public CompositeNewspaper GetNewspaper()
+        {
+            return _objectField.value as CompositeNewspaper;
         }
     }
 
