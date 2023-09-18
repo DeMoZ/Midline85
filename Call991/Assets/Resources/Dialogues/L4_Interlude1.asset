@@ -99,29 +99,6 @@ MonoBehaviour:
     PhraseSound: NONE
     Phrases:
     - Phrases/NoTextTiming.asset
-  - Guid: 1bf7e51b-a2f7-489e-a2b1-3e28d54426a3
-    Rect:
-      serializedVersion: 2
-      x: -549
-      y: 203
-      width: 100
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "\u043F\u043E\u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F"
-    ImagePersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      Sprite: Images/Persons/Helen.png
-      ShowOnStart: 1
-      FocusOnStart: 0
-      UnfocusOnEnd: 0
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 1
-    PhraseSound: NONE
-    Phrases:
-    - Phrases/NoTextTiming.asset
   - Guid: bc04086e-a6c8-48a7-9dd2-0cb8ae92cc46
     Rect:
       serializedVersion: 2
@@ -1836,29 +1813,6 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_042
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_042.asset
-  - Guid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
-    Rect:
-      serializedVersion: 2
-      x: -393
-      y: 208
-      width: 131
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "alt 1 \u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435"
-    ImagePersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      Sprite: Images/Persons/Helen.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 1
-    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_alt_001
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_001_alt.asset
   - Guid: eaa241c0-459c-4314-91de-c6d2a1f535c9
     Rect:
       serializedVersion: 2
@@ -1919,6 +1873,52 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_021
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_021.asset
+  - Guid: 1bf7e51b-a2f7-489e-a2b1-3e28d54426a3
+    Rect:
+      serializedVersion: 2
+      x: -549
+      y: 203
+      width: 100
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "\u043F\u043E\u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F"
+    ImagePersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      Sprite: Images/Persons/Helen.png
+      ShowOnStart: 1
+      FocusOnStart: 0
+      UnfocusOnEnd: 0
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 1
+    PhraseSound: NONE
+    Phrases:
+    - Phrases/NoTextTiming.asset
+  - Guid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
+    Rect:
+      serializedVersion: 2
+      x: -393
+      y: 208
+      width: 131
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "alt 1 \u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435"
+    ImagePersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      Sprite: Images/Persons/Helen.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 1
+    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_alt_001
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_001_alt.asset
   ChoiceNodeData: []
   ForkNodeData:
   - Guid: 40e95a08-4b39-4e04-9f5b-73b643dd7e23
@@ -2302,6 +2302,9 @@ MonoBehaviour:
   - BaseNodeGuid: eaa241c0-459c-4314-91de-c6d2a1f535c9
     BaseExitName: 
     TargetNodeGuid: 3fe83d72-715c-467f-a323-3a6a24ddd134
+  - BaseNodeGuid: aae5efc7-c3dd-4f0e-8f22-e7e5f22ca012
+    BaseExitName: 
+    TargetNodeGuid: 1ab75811-6583-4492-a4b9-319b9113ebf3
   - BaseNodeGuid: 40e95a08-4b39-4e04-9f5b-73b643dd7e23
     BaseExitName: 
     TargetNodeGuid: ae5c305a-9358-40b9-bbad-13fcac70dcc4
@@ -2341,15 +2344,12 @@ MonoBehaviour:
   - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
     BaseExitName: 76f15703-4938-4e84-a10c-e992ad07d124
     TargetNodeGuid: b3bc293a-204a-4fa7-8a60-7fa778935806
+  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
+    BaseExitName: caf01790-a033-462b-ada5-985ede6b2a94
+    TargetNodeGuid: aae5efc7-c3dd-4f0e-8f22-e7e5f22ca012
   - BaseNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
     BaseExitName: 
     TargetNodeGuid: 1bf7e51b-a2f7-489e-a2b1-3e28d54426a3
   - BaseNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
     BaseExitName: 
     TargetNodeGuid: 2f2a22f3-591b-45fc-a399-1587d59b508b
-  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
-    BaseExitName: caf01790-a033-462b-ada5-985ede6b2a94
-    TargetNodeGuid: aae5efc7-c3dd-4f0e-8f22-e7e5f22ca012
-  - BaseNodeGuid: aae5efc7-c3dd-4f0e-8f22-e7e5f22ca012
-    BaseExitName: 
-    TargetNodeGuid: 1ab75811-6583-4492-a4b9-319b9113ebf3
