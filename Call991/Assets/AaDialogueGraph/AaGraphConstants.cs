@@ -12,6 +12,7 @@ public static class AaGraphConstants
     public const string CountNode = "Count";
     public const string EventNode = "Event";
     public const string NewspaperNode = "Newspaper";
+    public const string NewspaperObject = "Prefab";
     public const string EndNode = "End";
 
     public const string SaveData = "Save";

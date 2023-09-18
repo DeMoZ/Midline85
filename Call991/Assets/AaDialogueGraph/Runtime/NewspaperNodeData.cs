@@ -6,6 +6,6 @@ namespace AaDialogueGraph
     [Serializable]
     public class NewspaperNodeData : AaNodeData
     {
-        public List<string> Sprites;
+        public string NewspaperPrefab;
     }
 }
