@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using AaDialogueGraph;
 using Configs;
 using Data;
 using UI;
@@ -24,7 +23,6 @@ public class LevelSceneEntity : IGameScene
         public CursorSet CursorSettings;
         public ObjectEvents ObjectEvents;
         public ReactiveProperty<bool> IsPauseAllowed;
-        public DialogueLoggerPm DialogueLogger;
     }
 
     private Ctx _ctx;
@@ -57,7 +55,7 @@ public class LevelSceneEntity : IGameScene
         Debug.Log($"[{this}] Entered");
 
         _ui = Object.FindObjectOfType<UiLevelScene>();
-
+        
         var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
         var onClickNextLevelButton = new ReactiveCommand().AddTo(_disposables);
 
@@ -128,6 +126,7 @@ public class LevelSceneEntity : IGameScene
 
     public void Dispose()
     {
+        _ctx.GameLevelsService.DialogueLogger.Save();
         Resources.UnloadUnusedAssets();
         _disposables.Dispose();
     }

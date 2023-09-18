@@ -103,7 +103,8 @@ public class RootEntity : IDisposable
         });
 
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
-        var dialogueLoggerPm = new DialogueLoggerPm().AddTo(_disposables);
+        var logService = new LoggerService().AddTo(_disposables);
+        var dialogueLoggerPm = new DialogueLoggerPm(logService).AddTo(_disposables);
         var gameLevelsService = new GameLevelsService(gameSet, _ctx.OverridenDialogue, dialogueLoggerPm).AddTo(_disposables);
         
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
@@ -119,7 +120,6 @@ public class RootEntity : IDisposable
             CursorSettings = cursorSettings,
             IsPauseAllowed = isPauseAllowed,
             LevelLanguages = levelLanguages,
-            DialogueLogger = dialogueLoggerPm,
             GameLevelsService = gameLevelsService,
         }).AddTo(_disposables);
 
@@ -127,6 +127,7 @@ public class RootEntity : IDisposable
         {
             ScenesHandler = scenesHandler,
             OnSwitchScene = onSwitchScene,
+            CursorSettings = cursorSettings,
         }).AddTo(_disposables);
 
         _onStartApplicationSwitchScene.Execute();

@@ -26,7 +26,7 @@ namespace AaDialogueGraph.Editor
             return path;
         }
 
-        public static List<string> GetObjectPath(List<Object> objs)
+        public static List<string> GetPathByObjects(List<Object> objs)
         {
             return objs.Select(GetPathByObject).ToList();
         }

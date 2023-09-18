@@ -37,6 +37,8 @@ public class GameLevelsService : IDisposable
     public Func<Task<List<string>>> OnGetProjectorImages => GetProjectorImages;
     public bool IsNewspaperSkipped => _overridenDialogue.SkipNewspaper;
 
+    public DialogueLoggerPm DialogueLogger => _dialogueLogger;
+
     public GameLevelsService(GameSet gameSet, OverridenDialogue overridenDialogue, DialogueLoggerPm dialogueLogger)
     {
         _disposables = new CompositeDisposable();

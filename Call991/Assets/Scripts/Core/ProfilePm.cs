@@ -11,6 +11,7 @@ public class PlayerProfile : IDisposable
     private const string PlayerDataKey = "PlayerData";
 
     private const string DefaultTextLanguage = "English";
+    //private const string DefaultTextLanguage = "Russian";
 
     //private const string DefaultAudioLanguage = "English";
     private const string DefaultAudioLanguage = "Russian";

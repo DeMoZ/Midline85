@@ -121,19 +121,13 @@ namespace AaDialogueGraph.Editor
         {
             var languages = GetLanguages();
             var node = new NewspaperNode();
-            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString(),_soundLists);
+            node.Set(new NewspaperNodeData(), Guid.NewGuid().ToString(),_soundLists);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);
         }
 
         private List<string> GetLanguages() => contentContainer.Q<EntryNode>().GetLanguages() ?? new List<string>();
-
-        // private List<string> GetSoundAsset()
-        // {
-        //     var keys = contentContainer.Q<SoundAssetField>().GetSoundAsset();
-        //     return keys != null ? keys.Keys : new List<string>();
-        // }
 
         private Vector2 GetNewNodePosition()
         {
@@ -173,22 +167,10 @@ namespace AaDialogueGraph.Editor
                         node.CheckNodeContent();
                     }
 
-                    foreach (var node in newspaperNodes)
-                    {
-                        var tableContainer = node.Q<ElementsTable>();
-                        var field = new NewspaperElementsRowField();
-                        field.Set(AaKeys.LanguageKeys[0], onChange: node.CheckNodeContent);
-                        tableContainer?.Add(field);
-                        node.CheckNodeContent();
-                    }
-
                     break;
                 case LanguageOperationType.Change:
                     foreach (var node in phraseNodes) 
                         ChangeRow<PhraseElementsRowField>(node);
-
-                    foreach (var node in newspaperNodes) 
-                        ChangeRow<NewspaperElementsRowField>(node);
 
                     void ChangeRow<T>(AaNode node) where T : VisualElement
                     {
@@ -204,12 +186,6 @@ namespace AaDialogueGraph.Editor
                     foreach (var node in phraseNodes)
                     {
                         RemoveRow<PhraseElementsRowField>(node);
-                        node.CheckNodeContent();
-                    }
-
-                    foreach (var node in newspaperNodes)
-                    {
-                        RemoveRow<NewspaperElementsRowField>(node);
                         node.CheckNodeContent();
                     }
 

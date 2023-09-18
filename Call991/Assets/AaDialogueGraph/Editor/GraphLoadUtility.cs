@@ -174,12 +174,10 @@ namespace AaDialogueGraph.Editor
 
         private void CreateNewspaperNodes()
         {
-            var languages = _containerCash.EntryNodeData.Languages;
-
             foreach (var data in _containerCash.NewspaperNodeData)
             {
                 var node = new NewspaperNode();
-                node.Set(data, languages, data.Guid, _soundLists);
+                node.Set(data, data.Guid, _soundLists);
                 _targetGraphView.AddElement(node);
             }
         }

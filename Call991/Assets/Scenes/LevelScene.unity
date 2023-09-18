@@ -1481,18 +1481,6 @@ MonoBehaviour:
   m_RequiresDepthTexture: 0
   m_RequiresColorTexture: 0
   m_Version: 2
---- !u!114 &1406257046 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5132799130726798803, guid: c94dc38341782924cae4d53228eaedc7,
-    type: 3}
-  m_PrefabInstance: {fileID: 502224872}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32173d771ff24304ab7ccf25f83726c9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1415103727
 GameObject:
   m_ObjectHideFlags: 0
@@ -1953,7 +1941,7 @@ MonoBehaviour:
   levelTitleView: {fileID: 1440165627}
   levelView: {fileID: 20689716621083403}
   statisticView: {fileID: 491580436}
-  newspaper: {fileID: 1406257046}
+  newspaper: {fileID: 1766398414}
   levelPauseView: {fileID: 315485797}
   menuSettings: {fileID: 1613085213}
   levelWarning: {fileID: 485202310}
@@ -1978,6 +1966,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1766398414 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5132799130726798803, guid: c94dc38341782924cae4d53228eaedc7,
+    type: 3}
+  m_PrefabInstance: {fileID: 502224872}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32173d771ff24304ab7ccf25f83726c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1913857907
 PrefabInstance:
   m_ObjectHideFlags: 0

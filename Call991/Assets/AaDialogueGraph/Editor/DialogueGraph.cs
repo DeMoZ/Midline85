@@ -1,5 +1,7 @@
 using System.Collections.Generic;
+using System.Linq;
 using Configs;
+using Newtonsoft.Json;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -14,7 +16,7 @@ namespace AaDialogueGraph.Editor
         public List<string> Musics;
         public List<string> Rtcps;
     }
-    
+
     public class DialogueGraph : EditorWindow
     {
         private string _fileName = AaGraphConstants.DefaultFileName;
@@ -39,7 +41,7 @@ namespace AaDialogueGraph.Editor
         private void ConstructGraph()
         {
             _languageOperation = new();
-            
+
             var gameSet = Resources.Load<GameSet>("GameSet");
             var soundLists = new SoundLists
             {
@@ -48,7 +50,7 @@ namespace AaDialogueGraph.Editor
                 Musics = gameSet.MusicSwitchesKeys.GetKeys(),
                 Rtcps = gameSet.RtpcKeys.GetKeys(),
             };
-            
+
             _graphView = new DialogueGraphView(_languageOperation, soundLists)
             {
                 name = AaGraphConstants.DialogueGraph,
@@ -75,7 +77,6 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.SaveData,
             };
             toolbar.Add(saveDataButton);
-
             toolbar.Add(new Label(AaGraphConstants.LineSpace));
 
             var loadDataButton = new Button(() => LoadData())
@@ -83,9 +84,15 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.LoadData,
             };
             toolbar.Add(loadDataButton);
-
             toolbar.Add(new Label(AaGraphConstants.LineSpace));
-            
+
+            var loadPrefsLogButton = new Button(() => LoadPrefsLog())
+            {
+                text = AaGraphConstants.LoadPrefsLog,
+            };
+            toolbar.Add(loadPrefsLogButton);
+            toolbar.Add(new Label(AaGraphConstants.LineSpace));
+
             var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode())
             {
                 text = AaGraphConstants.PhraseNode,
@@ -115,19 +122,19 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.CountNode,
             };
             toolbar.Add(countCreateButton);
-            
+
             var eventCreateButton = new Button(() => _graphView.CreateEventNode())
             {
                 text = AaGraphConstants.EventNode,
             };
             toolbar.Add(eventCreateButton);
-            
+
             var endCreateButton = new Button(() => _graphView.CreateEndNode())
             {
                 text = AaGraphConstants.EndNode,
             };
             toolbar.Add(endCreateButton);
-            
+
             var newspaperCreateButton = new Button(() => _graphView.CreateNewspaperNode())
             {
                 text = AaGraphConstants.NewspaperNode,
@@ -161,6 +168,44 @@ namespace AaDialogueGraph.Editor
 
             _fileNameTextField.SetValueWithoutNotify(_fileName);
             _fileNameTextField.MarkDirtyRepaint();
+        }
+
+        private void LoadPrefsLog()
+        {
+            // get start node
+            var entryNode = _graphView.contentContainer.Q<EntryNode>();
+            if (entryNode == null) return;
+
+            // get levelId
+            var levelId = entryNode.Q<LevelIdPopupField>().Value;
+            if (string.IsNullOrEmpty(levelId)) return;
+
+            // read prefs and find records with the same levelId
+            var stringData = PlayerPrefs.GetString(AaConstants.GameProgress, string.Empty);
+            var cash = !string.IsNullOrEmpty(stringData)
+                ? JsonConvert.DeserializeObject<GameContainer>(stringData)
+                : null;
+
+            if (cash == null) return;
+
+            LevelContainer levelContainer = null;
+            foreach (var level in cash.LevelProgress)
+            {
+                if (level.Key == levelId)
+                {
+                    levelContainer = level.Value;
+                    break;
+                }
+            }
+
+            if (levelContainer == null) return;
+
+            var nodes = _graphView.contentContainer.Query<AaNode>().ToList();
+
+            foreach (var node in nodes.Where(node => levelContainer.LogCash.ContainsKey(node.Guid)))
+            {
+                node.AddToClassList("aa-Selected_extension-container");
+            }
         }
 
         private void OnDisable()

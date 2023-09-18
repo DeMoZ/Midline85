@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 namespace UI
 {
-    public abstract class AaButton : Selectable, IPointerEnterHandler, IPointerExitHandler, ISelectHandler, IDeselectHandler, IPointerClickHandler
+    public abstract class AaButton : Selectable, IPointerClickHandler
     {
         [SerializeField] private ButtonAudioSettings buttonAudioSettings = default;
         [SerializeField] private CursorSet cursorSettings = default;
@@ -34,6 +34,7 @@ namespace UI
                 onButtonSelect?.Invoke();
             }
             
+            cursorSettings.ApplyCursor(CursorType.CanClick);
             IsSelected = true;
         }
 
@@ -43,13 +44,15 @@ namespace UI
             IsMouseSelected = false;
             IsSelected = IsKeyboardSelected;
 
-            if (!InteractionDelay()) return;
+            //if (!InteractionDelay()) return;
             
             if (!IsSelected)
             {
                 OnButtonNormal();
                 onButtonNormal?.Invoke();
             }
+            
+            cursorSettings.ApplyCursor(CursorType.Normal);
         }
         
         public override void OnSelect(BaseEventData eventData)
@@ -94,7 +97,7 @@ namespace UI
             if (!interactable) return;
             
             Debug.Log($"[{this}] <color=yellow>Press</color> Button {name} clicked");
-            _lastClick = Time.time;
+            _lastClick = Time.unscaledTime;
             
             buttonAudioSettings.PlayClickSound();
             OnButtonClick();
@@ -103,7 +106,6 @@ namespace UI
         
         public void SetNormal()
         {
-            //cursorSettings?.ApplyCursor(CursorType.Normal);
             OnButtonNormal();
             onButtonNormal?.Invoke();
         }
@@ -116,9 +118,6 @@ namespace UI
             SetNormal();
         }
 
-        private bool InteractionDelay()
-        {
-            return _lastClick + _clickDelay < Time.time;
-        }
+        private bool InteractionDelay() => _lastClick + _clickDelay < Time.unscaledTime;
     }
 }

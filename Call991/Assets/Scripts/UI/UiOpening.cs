@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using Configs;
 using UniRx;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
@@ -20,7 +21,7 @@ namespace UI
         [SerializeField] private GameObject openingUi1 = default;
         [SerializeField] private GameObject openingUi2 = default;
         [SerializeField] private GameObject openingUi3 = default;
-        [SerializeField] private AaMenuButton startBtn = default;
+        [SerializeField] private Button startBtn = default;
         [SerializeField] private ClickAnyButton anyButton = default;
 
         [Space] [SerializeField] private AK.Wwise.Switch sceneMusic = default;
@@ -30,7 +31,7 @@ namespace UI
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            startBtn.onButtonClick.AddListener(OnClickStart);
+            startBtn.onClick.AddListener(OnClickStart);
             anyButton.OnClick += OnClickStart;
 
             openingUi1.gameObject.SetActive(false);
@@ -86,7 +87,7 @@ namespace UI
         {
             base.OnDestroy();
 
-            startBtn.onButtonClick.RemoveAllListeners();
+            startBtn.onClick.RemoveAllListeners();
             anyButton.OnClick -= OnClickStart;
         }
     }
