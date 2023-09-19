@@ -38,8 +38,28 @@ MonoBehaviour:
     ParentPath: Master-Mixer Hierarchy\Default Work Unit
     guid: cb9b2e92fcbdf9458d2f242ea3056917
     GuidInternal: 
-    m_lastTime: -8585075630082251145
+    m_lastTime: -8585064616887340011
     List:
+    - name: DecideTime
+      guid: 9c21a83731ab7644b3f20b8c62d293da
+      id: 1112948642
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cb9b2e92fcbdf9458d2f242ea3056917
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: 698f08f9326b1841a98334fbf265e61e
+      - ElementName: DecideTime
+        ObjectType: 2
+        guid: 9c21a83731ab7644b3f20b8c62d293da
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\DecideTime
     - name: Elena
       guid: 35e5c8beed253b409b0849f0c157ab52
       id: 1630005044
@@ -225,6 +245,26 @@ MonoBehaviour:
         ObjectType: 2
         guid: 94aefa93238fec419461809b60506814
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Voice\Elena\Elena_Training
+    - name: GameUI
+      guid: d71aeae93c1346438d07e18b20f0c253
+      id: 4209243497
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cb9b2e92fcbdf9458d2f242ea3056917
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: 698f08f9326b1841a98334fbf265e61e
+      - ElementName: GameUI
+        ObjectType: 2
+        guid: d71aeae93c1346438d07e18b20f0c253
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\GameUI
     - name: George
       guid: 9cd2058de1b2ba4c8f572e2b8ae47f45
       id: 4280654574
@@ -527,6 +567,29 @@ MonoBehaviour:
         ObjectType: 2
         guid: 698f08f9326b1841a98334fbf265e61e
       Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX
+    - name: UI_ClickGame
+      guid: c309e7a7de73bc4591cb16d38cf6900d
+      id: 1509714732
+      PathAndIcons:
+      - ElementName: Master-Mixer Hierarchy
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: Default Work Unit
+        ObjectType: 12
+        guid: cb9b2e92fcbdf9458d2f242ea3056917
+      - ElementName: Master Audio Bus
+        ObjectType: 2
+        guid: d8a41415a61d2a41a17e75ca0c2149f3
+      - ElementName: SFX
+        ObjectType: 2
+        guid: 698f08f9326b1841a98334fbf265e61e
+      - ElementName: GameUI
+        ObjectType: 2
+        guid: d71aeae93c1346438d07e18b20f0c253
+      - ElementName: UI_ClickGame
+        ObjectType: 2
+        guid: c309e7a7de73bc4591cb16d38cf6900d
+      Path: Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\SFX\GameUI\UI_ClickGame
     - name: Voice
       guid: 490578ee4c5ca4419e07ad7b89be0162
       id: 3170124113
@@ -556,7 +619,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: fcbd83871106814e89e3bdcbcfba4617
     GuidInternal: 
-    m_lastTime: -8585075630082225444
+    m_lastTime: -8585064712365568403
     List:
     - name: L1_Intro
       guid: 835be93c7152b74b869d5cd79a288a53
@@ -15332,7 +15395,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 4a6e6089b90cdb4ea9bd592f01a34db8
     GuidInternal: 
-    m_lastTime: -8585086512180023522
+    m_lastTime: -8585064752884235907
     List: []
   - PhysicalPath: Events\GameSyncs.wwu
     PathAndIcons:
@@ -15345,7 +15408,7 @@ MonoBehaviour:
     ParentPath: Events\GameSyncs
     guid: 31e6189c93a29145981b170cbff87971
     GuidInternal: 
-    m_lastTime: -8585093951464296394
+    m_lastTime: -8585064752884245909
     List:
     - name: Pause
       guid: a54730f552ed5543807d71eb83d7d8cb
@@ -16179,7 +16242,7 @@ MonoBehaviour:
     ParentPath: Events\UI
     guid: 4e454da051a5764a822eafd142169134
     GuidInternal: 
-    m_lastTime: -8585079118067027106
+    m_lastTime: -8585064616887290187
     List:
     - name: UI_Click_Game
       guid: 874e66795e86794eb2744fca307227ca
@@ -16246,6 +16309,40 @@ MonoBehaviour:
         ObjectType: 3
         guid: a0a99bebde3d394db95eebff201b49cc
       Path: Events\UI\UI_Overlap
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UI_Pause
+      guid: 7f9a8e74c683294fab1b5d55fb4e6565
+      id: 2792155208
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: UI
+        ObjectType: 12
+        guid: 4e454da051a5764a822eafd142169134
+      - ElementName: UI_Pause
+        ObjectType: 3
+        guid: 7f9a8e74c683294fab1b5d55fb4e6565
+      Path: Events\UI\UI_Pause
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UI_Resume
+      guid: 532868f9999b5446b2828e8ef1a10ace
+      id: 2391028579
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: UI
+        ObjectType: 12
+        guid: 4e454da051a5764a822eafd142169134
+      - ElementName: UI_Resume
+        ObjectType: 3
+        guid: 532868f9999b5446b2828e8ef1a10ace
+      Path: Events\UI\UI_Resume
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -16839,7 +16936,7 @@ MonoBehaviour:
         guid: 6cce73fe502f944b815c8277f06e8207
       Path: Triggers\Default Work Unit\TestTrigger
   ExpandedFileSystemItemIds: 
-  ExpandedWaapiItemIds: 
+  ExpandedWaapiItemIds: 5d0000005e000000
   AutoSyncSelection: 0
   autoPopulateEnabled: 1
   currentDataSource: 0
