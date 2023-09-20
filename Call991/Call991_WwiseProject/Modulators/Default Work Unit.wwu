@@ -10,6 +10,15 @@
 						<Property Name="EnvelopeReleaseTime" Type="Real64" Value="3"/>
 					</PropertyList>
 				</ModulatorEnvelope>
+				<ModulatorEnvelope Name="New Modulator Envelope" ID="{905AB321-4BEE-4CAF-82C8-E971B01CB31C}" ShortID="881313746">
+					<PropertyList>
+						<Property Name="EnvelopeAttackCurve" Type="Real64" Value="0"/>
+						<Property Name="EnvelopeAttackTime" Type="Real64" Value="0.095"/>
+						<Property Name="EnvelopeDecayTime" Type="Real64" Value="0.906"/>
+						<Property Name="EnvelopeReleaseTime" Type="Real64" Value="0.747"/>
+						<Property Name="EnvelopeSustainLevel" Type="Real64" Value="0"/>
+					</PropertyList>
+				</ModulatorEnvelope>
 			</ChildrenList>
 		</WorkUnit>
 	</Modulators>
