@@ -38,6 +38,59 @@
 									</ValueList>
 								</Property>
 							</PropertyList>
+							<ChildrenList>
+								<Bus Name="GameUI" ID="{E9EA1AD7-133C-4346-8D07-E18B20F0C253}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>-5</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+									<ChildrenList>
+										<Bus Name="UI_ClickGame" ID="{A7E709C3-73DE-45BC-91CB-16D38CF6900D}">
+											<PropertyList>
+												<Property Name="BusVolume" Type="Real64">
+													<ValueList>
+														<Value>2.2</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<DuckingList>
+												<DuckItem>
+													<BusRef Name="DecideTime" ID="{37A8219C-AB31-4476-B3F2-0B8C62D293DA}"/>
+													<DuckingParam>
+														<Volume>-96</Volume>
+														<FadeInTime>0</FadeInTime>
+														<FadeOutTime>6</FadeOutTime>
+														<FadeCurve>FadeLinear</FadeCurve>
+													</DuckingParam>
+												</DuckItem>
+											</DuckingList>
+										</Bus>
+									</ChildrenList>
+									<DuckingList>
+										<DuckItem>
+											<BusRef Name="Music" ID="{CF159062-B4FC-44EC-AC0E-37920A49EFBC}"/>
+											<DuckingParam>
+												<Volume>-6</Volume>
+												<FadeInTime>0.600000023841858</FadeInTime>
+												<FadeOutTime>0</FadeOutTime>
+												<FadeCurve>FadeSCurve</FadeCurve>
+											</DuckingParam>
+										</DuckItem>
+									</DuckingList>
+								</Bus>
+								<Bus Name="DecideTime" ID="{37A8219C-AB31-4476-B3F2-0B8C62D293DA}">
+									<PropertyList>
+										<Property Name="BusVolume" Type="Real64">
+											<ValueList>
+												<Value>1.8</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
+								</Bus>
+							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
 									<Reference>

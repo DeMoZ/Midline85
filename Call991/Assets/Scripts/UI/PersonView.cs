@@ -18,20 +18,24 @@ public class PersonView : BasePersonView
     {
         description.text = text;
     }
-    
+
     public override void ShowPhrase(UiPhraseData data)
     {
         ResetRoutines();
 
         description.text = string.Empty;
+        if (data.Phrase != null && data.Phrase.text == AaGraphConstants.None)
+        {
+            personName.text = string.Empty;
+            gameObject.SetActive(false);
+            return;
+        }
 
         _localize = data.PersonVisualData.Person;
-        personName.text = screenPlace == ScreenPlace.BottomLine? $"{_localize}:" : _localize;
+        personName.text = screenPlace == ScreenPlace.BottomLine ? $"{_localize}:" : _localize;
         description.gameObject.SetActive(true);
 
-        if (data.Phrase == null)
-            description.text = data.Description;
-        else
+        if (data.Phrase != null)
             ShowPhraseText(data);
 
         if (!gameObject.activeSelf)

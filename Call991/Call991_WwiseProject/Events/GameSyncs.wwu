@@ -93,6 +93,16 @@
 								</Reference>
 							</ReferenceList>
 						</Action>
+						<Action Name="" ID="{32F4DFBF-8B83-4982-81A5-1852EE48BDC6}" ShortID="31109682">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Pause" ID="{748E9A7F-83C6-4F29-AB1B-5D55FB4E6565}" WorkUnitID="{A04D454E-A551-4A76-822E-AFD142169134}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
 					</ChildrenList>
 				</Event>
 				<Event Name="Resume" ID="{FC70B6BD-D66F-4146-84DC-FD2F599F308F}">
@@ -182,6 +192,16 @@
 							<ReferenceList>
 								<Reference Name="Target">
 									<ObjectRef Name="None" ID="{6F07BEEF-C35A-4BC5-A905-58F59B626AF0}" WorkUnitID="{0F4DC913-1349-47EC-A474-140416FA3BE9}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+						<Action Name="" ID="{5F819567-5046-4313-BBB6-A7A1E0E36B74}" ShortID="1069152527">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="41"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="UI_Resume" ID="{F9682853-9B99-4654-B282-8E8EF1A10ACE}" WorkUnitID="{A04D454E-A551-4A76-822E-AFD142169134}"/>
 								</Reference>
 							</ReferenceList>
 						</Action>
