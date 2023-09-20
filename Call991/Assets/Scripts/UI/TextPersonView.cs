@@ -26,7 +26,7 @@ public class TextPersonView : BasePersonView
         _localize = data.PersonVisualData.Person;
         description.gameObject.SetActive(data.Phrase != null && data.Phrase.text != AaGraphConstants.None);
 
-        if (data.Phrase == null)
+        if (data.Phrase == null || data.Phrase.text == AaGraphConstants.None)
             description.text = string.Empty;
         else
             ShowPhraseText(data);
