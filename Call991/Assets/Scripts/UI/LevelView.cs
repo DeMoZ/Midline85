@@ -27,8 +27,6 @@ namespace UI
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
-        [SerializeField] private TextPersonView imagePersonText = default;
-        
         private Ctx _ctx;
         private CompositeDisposable _disposables;
 
@@ -59,12 +57,12 @@ namespace UI
             foreach (var person in imagePersons)
                 person.gameObject.SetActive(false);
 
-            imagePersonText.gameObject.SetActive(false);
             HideButtons();
-            
+
             _ctx.LevelSceneObjectsService.OnShowButtons.Subscribe(OnShowButtons).AddTo(_disposables);
             _ctx.LevelSceneObjectsService.OnHideButtons.Subscribe(_ => OnHideButtons()).AddTo(_disposables);
-            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_ => DisactiveButtonsStopTimer()).AddTo(_disposables);
+            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_ => DisactiveButtonsStopTimer())
+                .AddTo(_disposables);
             pauseButton.onClick.AddListener(OnClickPauseButton);
         }
 
@@ -90,7 +88,7 @@ namespace UI
 
         private void DisactiveButtonsStopTimer()
         {
-            foreach (var button in Buttons) 
+            foreach (var button in Buttons)
                 button.interactable = false;
 
             countDown.Stop();
@@ -152,9 +150,15 @@ namespace UI
                 Description = data.Description,
                 Phrase = data.Phrase,
                 PhraseVisualData = data.PhraseVisualData,
-                PersonVisualData = new PersonVisualData { Person = data.PersonVisualData.Person },
+                PersonVisualData = new PersonVisualData
+                {
+                    Person = data.PersonVisualData.Person, 
+                    ScreenPlace = ScreenPlace.BottomLine,
+                    HideOnEnd = data.PersonVisualData.HideOnEnd
+                },
             };
-            imagePersonText.ShowPhrase(phraseData);
+            
+            OnShowPhrase(phraseData);
         }
 
         public void OnHidePhrase(UiPhraseData data)
