@@ -79,6 +79,9 @@ namespace AaDialogueGraph.Editor
 
             var newspaperNodes = AaNodes.OfType<NewspaperNode>().ToList();
             dialogueContainer.NewspaperNodeData.AddRange(NewspaperNodesToData(newspaperNodes));
+            
+            var slideNodes = AaNodes.OfType<SlideNode>().ToList();
+            dialogueContainer.SlideNodeData.AddRange(SlideNodesToData(slideNodes));
 
             var assetName = $"Assets/Resources/{fileName}.asset";
             if (File.Exists(assetName))
@@ -290,6 +293,27 @@ namespace AaDialogueGraph.Editor
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     EventVisualData = eventsVisualData,
                     NewspaperPrefab = EditorNodeUtils.GetPathByObject(newspaper),
+                });
+            }
+
+            return data;
+        }
+
+        private List<SlideNodeData> SlideNodesToData(List<SlideNode> nodes)
+        {
+            var data = new List<SlideNodeData>();
+            foreach (var node in nodes)
+            {
+                var eventsVisualData = GetEventsData(node);
+                var slides = node.GetSlides().Cast<Object>().ToList();
+
+                data.Add(new SlideNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    
+                    EventVisualData = eventsVisualData,
+                    Slides = EditorNodeUtils.GetPathByObjects(slides),
                 });
             }
 

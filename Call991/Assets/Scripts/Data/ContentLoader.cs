@@ -61,6 +61,24 @@ namespace Data
             return result;
         }
         
+        public async Task<Sprite> GetSlideAsync(SlideNodeData data)
+        {
+            if (_ctx.LevelLanguages == null || _ctx.LevelLanguages.Count == 0) return null;
+
+            var index = _ctx.LevelLanguages.IndexOf(_ctx.Profile.TextLanguage);
+
+            if (index == -1) index = 0;
+
+            Sprite result = null;
+
+            result = await NodeUtils.GetObjectByPathAsync<Sprite>(data.Slides[index]);
+
+            if (result == null && index != 0) 
+                result = await NodeUtils.GetObjectByPathAsync<Sprite>(data.Slides[0]);
+
+            return result;
+        }
+        
         public async Task<Sprite> GetSpriteAsync(string path)
         {
             return await NodeUtils.GetObjectByPathAsync<Sprite>(path);

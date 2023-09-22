@@ -141,6 +141,12 @@ namespace AaDialogueGraph.Editor
             };
             toolbar.Add(newspaperCreateButton);
 
+            var slideCreateButton = new Button(() => _graphView.CreateSlideNode())
+            {
+                text = AaGraphConstants.SlideNode,
+            };
+            toolbar.Add(slideCreateButton);
+
             rootVisualElement.Add(toolbar);
         }
 
