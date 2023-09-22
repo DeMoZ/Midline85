@@ -16,6 +16,7 @@ namespace AaDialogueGraph
         public List<EndNodeData> EndNodeData = new();
         public List<EventNodeData> EventNodeData = new();
         public List<NewspaperNodeData> NewspaperNodeData = new();
+        public List<SlideNodeData> SlideNodeData = new();
         public List<NodeLinkData> NodeLinks = new();
 
         public Dictionary<string, AaNodeData> GetNodesData()
@@ -29,6 +30,7 @@ namespace AaDialogueGraph
             nodes.AddRange(EndNodeData);
             nodes.AddRange(EventNodeData);
             nodes.AddRange(NewspaperNodeData);
+            nodes.AddRange(SlideNodeData);
             nodes.Add(EntryNodeData);
 
             return nodes.ToDictionary(data => data.Guid);
