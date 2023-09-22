@@ -107,6 +107,7 @@ public class DialoguePm : IDisposable
                         result.Add(nodeData);
                         break;
                     }
+                    case SlideNodeData:
                     case NewspaperNodeData:
                     case EventNodeData:
                     case ImagePhraseNodeData:
