@@ -10,11 +10,11 @@ namespace AaDialogueGraph.Editor
     public class DialogueGraphView : GraphView
     {
         private SoundLists _soundLists;
-        
+
         public DialogueGraphView(AaReactive<LanguageOperation> languageOperation, SoundLists soundLists)
         {
             _soundLists = soundLists;
-            
+
             var backgroundStyle = (StyleSheet)EditorGUIUtility.Load("AaDialogueGraph/Styles/GraphViewStyle.uss");
             if (backgroundStyle)
                 styleSheets.Add(backgroundStyle);
@@ -121,7 +121,17 @@ namespace AaDialogueGraph.Editor
         {
             var languages = GetLanguages();
             var node = new NewspaperNode();
-            node.Set(new NewspaperNodeData(), Guid.NewGuid().ToString(),_soundLists);
+            node.Set(new NewspaperNodeData(), languages, Guid.NewGuid().ToString(), _soundLists);
+            node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
+
+            AddElement(node);
+        }
+
+        public void CreateSlideNode()
+        {
+            var languages = GetLanguages();
+            var node = new SlideNode();
+            node.Set(new SlideNodeData(), languages, Guid.NewGuid().ToString(), _soundLists);
             node.SetPosition(new Rect(GetNewNodePosition(), Vector2.zero));
 
             AddElement(node);
@@ -169,7 +179,7 @@ namespace AaDialogueGraph.Editor
 
                     break;
                 case LanguageOperationType.Change:
-                    foreach (var node in phraseNodes) 
+                    foreach (var node in phraseNodes)
                         ChangeRow<PhraseElementsRowField>(node);
 
                     void ChangeRow<T>(AaNode node) where T : VisualElement
