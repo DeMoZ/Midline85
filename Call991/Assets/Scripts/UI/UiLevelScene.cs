@@ -80,6 +80,7 @@ namespace UI
             var onClickPauseButton = new ReactiveCommand().AddTo(_disposables);
             var onClickUnPauseButton = new ReactiveCommand().AddTo(_disposables);
             var onClickSettingsButton = new ReactiveCommand().AddTo(_disposables);
+            var onClickSkipCinematicButton = new ReactiveCommand().AddTo(_disposables);
 
             statisticView.SetCtx(new StatisticsView.Ctx
             {
@@ -99,6 +100,7 @@ namespace UI
                 OnClickMenuButton = _ctx.OnClickMenuButton,
                 OnClickSettingsButton = onClickSettingsButton,
                 OnClickUnPauseButton = onClickUnPauseButton,
+                OnClickSkipCinematicButton = onClickSkipCinematicButton,
             });
 
             menuSettings.SetCtx(new UiMenuSettings.Ctx
@@ -121,6 +123,7 @@ namespace UI
             onClickPauseButton.Subscribe(_ => OnClickPauseButton(true));
             onClickUnPauseButton.Subscribe(_ => OnClickPauseButton(false));
             onClickSettingsButton.Subscribe(_ => EnableUi(menuSettings.GetType()));
+            onClickSkipCinematicButton.Subscribe(_ => _ctx.DialogueService.OnClickSkipCinematicButton.Execute());
         }
 
         private void Update()
