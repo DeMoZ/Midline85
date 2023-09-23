@@ -146,6 +146,10 @@ public class LevelScenePm : IDisposable
         _ctx.MediaService.FilmProjector.AddSlides(projectorSprites);
 
         Debug.Log($"[{this}] _ctx.FindNext.Execute with no data");
+        // enable skip level button in pause screen
+        var showSkipButtons = _ctx.GameLevelsService.LevelData.GetEntryNode().EnableSkipLevelButton; 
+        _ctx.DialogueService.OnShowSkipCinematicButton.Execute(showSkipButtons);
+        
         _ctx.GameLevelsService.findNext.Execute(new List<AaNodeData>());
     }
 

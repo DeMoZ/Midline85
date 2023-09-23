@@ -16,6 +16,7 @@ public class DialogueService : IDisposable
     public readonly ReactiveCommand OnShowLevelUi;
     public readonly ReactiveCommand OnSkipPhrase;
     public readonly ReactiveCommand OnClickSkipCinematicButton;
+    public readonly ReactiveCommand<bool> OnShowSkipCinematicButton;
 
     public DialogueService()
     {
@@ -30,6 +31,7 @@ public class DialogueService : IDisposable
         OnShowLevelUi = new ReactiveCommand().AddTo(_disposables); // on newspaper done
         OnSkipPhrase = new ReactiveCommand().AddTo(_disposables);
         OnClickSkipCinematicButton = new ReactiveCommand().AddTo(_disposables);
+        OnShowSkipCinematicButton = new ReactiveCommand<bool>().AddTo(_disposables);
     }
     
     public void Dispose()

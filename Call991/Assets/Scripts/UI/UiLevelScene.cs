@@ -101,6 +101,7 @@ namespace UI
                 OnClickSettingsButton = onClickSettingsButton,
                 OnClickUnPauseButton = onClickUnPauseButton,
                 OnClickSkipCinematicButton = onClickSkipCinematicButton,
+                OnShowSkipCinematicButton = _ctx.DialogueService.OnShowSkipCinematicButton,
             });
 
             menuSettings.SetCtx(new UiMenuSettings.Ctx

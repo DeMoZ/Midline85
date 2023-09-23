@@ -11,6 +11,7 @@ namespace UI
             public ReactiveCommand OnClickSettingsButton;
             public ReactiveCommand OnClickUnPauseButton;
             public ReactiveCommand OnClickSkipCinematicButton;
+            public ReactiveCommand<bool> OnShowSkipCinematicButton;
         }
 
         [SerializeField] private AaMenuButton continueButton = default;
@@ -24,12 +25,14 @@ namespace UI
         {
             _ctx = ctx;
 
+            _ctx.OnShowSkipCinematicButton.Subscribe(OnShowSkipCinematicButton);
+            
             continueButton.onButtonClick.AddListener(OnClickContinueHandler);
             settingsButton.onButtonClick.AddListener(OnClickSettingsButtonHandler);
             menuButton.onButtonClick.AddListener(OnClickMenuButtonHandler);
             skipCinematicButton.onButtonClick.AddListener(OnClickSkipCinematicButtonHandler);
         }
-
+        
         private void OnClickContinueHandler() => AnimateDisappear(OnClickContinue);
         private void OnClickSettingsButtonHandler() => AnimateDisappear(OnClickSettingsButton);
         private void OnClickMenuButtonHandler() => AnimateDisappear(OnClickMenuButton);
@@ -39,6 +42,9 @@ namespace UI
         private void OnClickSettingsButton() => _ctx.OnClickSettingsButton.Execute();
         private void OnClickMenuButton() => _ctx.OnClickMenuButton.Execute();
         private void OnClickSkipCinematicButton() => _ctx.OnClickSkipCinematicButton.Execute();
+        
+        private void OnShowSkipCinematicButton(bool show) => skipCinematicButton.gameObject.SetActive(show);
+
 
         public void Dispose()
         {
