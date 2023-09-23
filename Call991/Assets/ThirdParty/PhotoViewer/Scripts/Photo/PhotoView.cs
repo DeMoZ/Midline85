@@ -77,7 +77,7 @@ namespace PhotoViewer.Scripts.Photo
             newspaperInput.onClick -= ZoomOnClick;
             closeBtn.onButtonClick.RemoveAllListeners();
         }
-
+        
         public void SetNewspaper(GameObject content)
         {
             if (content == null) return;
@@ -88,7 +88,7 @@ namespace PhotoViewer.Scripts.Photo
             Instantiate(content, newspaperContent);
         }
 
-        private void Close()
+        public void Close()
         {
             OnClose?.Invoke();
         }
