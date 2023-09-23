@@ -33,7 +33,7 @@ public class GameLevelsService : IDisposable
     private DialoguePm _dialoguePm;
     private DialogueContainer _level;
 
-    private DialogueContainer PlayLevel => _playLevel.Value;
+    public DialogueContainer PlayLevel => _playLevel.Value;
     public LevelData LevelData => _levelData.Value;
     public Func<Task<List<SlideNodeData>>> OnGetProjectorImages => GetSliderNodes;
     public bool IsNewspaperSkipped => _overridenDialogue.SkipNewspaper;
