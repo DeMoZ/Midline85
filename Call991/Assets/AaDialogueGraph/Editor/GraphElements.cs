@@ -499,6 +499,9 @@ namespace AaDialogueGraph.Editor
                         objectEventVisual.Set(item, OnDeleteEvent, _onChange, GetEventFieldName(item.Type));
                         contentContainer.Add(objectEventVisual);
                         break;
+                    case PhraseEventType.Projector:
+                        // TODO Remove Enum option
+                        break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
