@@ -11,5 +11,6 @@ namespace AaDialogueGraph
         public string ButtonFilter;
         public string SoundAsset;
         public bool GrabProjectorImages;
+        public bool EnableSkipLevelButton;
     }
 }

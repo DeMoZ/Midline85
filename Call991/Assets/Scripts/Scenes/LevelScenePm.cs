@@ -60,6 +60,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.GameLevelsService.onNext.Subscribe(OnDialogue).AddTo(_disposables);
         _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
+        _ctx.DialogueService.OnClickSkipCinematicButton.Subscribe(_=> OnSkipCinematic()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
         _ctx.OnClickMenuButton.Subscribe(_ =>
@@ -74,7 +75,7 @@ public class LevelScenePm : IDisposable
         _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
         _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
-
+    
     private async void OnAfterEnter()
     {
         _ctx.DialogueService.OnShowLevelUi.Execute();
@@ -119,6 +120,14 @@ public class LevelScenePm : IDisposable
         _isPhraseSkipped.Value = true;
     }
 
+    private void OnSkipCinematic()
+    {
+        _tokenSource.Cancel();
+        var endNode = _ctx.GameLevelsService.PlayLevel.EndNodeData.FirstOrDefault();
+        
+        if(endNode!=null) RunEndNode(endNode);
+    }
+    
     private async void ExecuteDialogue()
     {
         // Process dialogue in silence and Grab projector images.
@@ -137,6 +146,10 @@ public class LevelScenePm : IDisposable
         _ctx.MediaService.FilmProjector.AddSlides(projectorSprites);
 
         Debug.Log($"[{this}] _ctx.FindNext.Execute with no data");
+        // enable skip level button in pause screen
+        var showSkipButtons = _ctx.GameLevelsService.LevelData.GetEntryNode().EnableSkipLevelButton; 
+        _ctx.DialogueService.OnShowSkipCinematicButton.Execute(showSkipButtons);
+        
         _ctx.GameLevelsService.findNext.Execute(new List<AaNodeData>());
     }
 
@@ -248,6 +261,8 @@ public class LevelScenePm : IDisposable
         Observable.WhenAll(observables)
             .Subscribe(_ =>
             {
+                if (_tokenSource.IsCancellationRequested) return;
+                
                 Debug.Log($"[{this}] All coroutines completed");
                 _next.AddRange(phrases);
                 _next.AddRange(imagePhrases);

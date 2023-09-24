@@ -116,6 +116,7 @@ namespace AaDialogueGraph.Editor
                 LevelId = node.Q<LevelIdPopupField>().Value,
                 ButtonFilter = node.Q<ButtonFilterTextField>().value,
                 GrabProjectorImages = node.Q<Toggle>(AaGraphConstants.ProjectorImages).value,
+                EnableSkipLevelButton = node.Q<Toggle>(AaGraphConstants.EnableSkipLevelButton).value,
             };
 
             var languageFields = node.Query<LanguagePopupField>().ToList();
