@@ -1,4 +1,3 @@
-using Configs;
 using UI;
 using UniRx;
 using UnityEngine;
@@ -7,7 +6,6 @@ public class OpenSceneEntity : IGameScene
 {
     public struct Ctx
     {
-        public GameSet GameSet;
         public ReactiveCommand<GameScenes> OnSwitchScene;
         public Blocker Blocker;
         public CursorSet CursorSettings;
@@ -42,7 +40,6 @@ public class OpenSceneEntity : IGameScene
         
         _ui.SetCtx(new UiOpening.Ctx
         {
-            GameSet = _ctx.GameSet,
             OnClickStartGame = onClickStartGame,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
