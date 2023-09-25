@@ -19,14 +19,16 @@ MonoBehaviour:
       x: -809
       y: 200
       width: 113
-      height: 180
+      height: 224
     EventVisualData: []
     LevelId: L4_Interlude1
     Languages:
     - Russian
+    - English
     ButtonFilter: 
     SoundAsset: 
     GrabProjectorImages: 1
+    EnableSkipLevelButton: 0
   PhraseNodeData: []
   ImagePhraseNodeData:
   - Guid: 1fea7848-bf9a-4ea0-a1b2-5cd477de20be
@@ -34,7 +36,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1379
       y: 444
-      width: 118.5
+      width: 128
       height: 96
     EventVisualData: []
     PhraseSketchText: "m13 \L\L\u041D\u0435 \u0431\u044B\u043B\u043E \u0432\u044B\u0431\u043E\u0440\u0430"
@@ -52,12 +54,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_013
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_013.asset
+    - 
   - Guid: 35318462-532e-4aad-8519-1760ffc208ba
     Rect:
       serializedVersion: 2
       x: 2109
       y: 444
-      width: 99.5
+      width: 105
       height: 96
     EventVisualData: []
     PhraseSketchText: "m16\L\L \u041D\u0435 \u0441\u043F\u0435\u0448\u0438\u0442\u0435"
@@ -75,12 +78,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_016
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_016.asset
+    - 
   - Guid: 24dc1391-4ceb-42b6-954b-e9295708209b
     Rect:
       serializedVersion: 2
       x: 2601
       y: 37
-      width: 132
+      width: 142
       height: 96
     EventVisualData: []
     PhraseSketchText: "e3 \L\L\u0414\u0430 \u0443\u0436, \u044D\u0442\u043E \u0442\u043E\u0447\u043D\u043E!.."
@@ -98,12 +102,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_003
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_003.asset
+    - 
   - Guid: 77daf570-6bc3-4072-866f-f905f76eece9
     Rect:
       serializedVersion: 2
       x: 2403
       y: 540
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "m20\L\L \u0425\u043E\u0442\u044F... \u041D\u0435\u0442"
@@ -121,12 +126,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_020
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_020.asset
+    - 
   - Guid: 0401a2e0-8f23-4f37-8220-a0a74420e1b4
     Rect:
       serializedVersion: 2
       x: 1592
       y: 327
-      width: 119.5
+      width: 129
       height: 96
     EventVisualData: []
     PhraseSketchText: "m17\L\L \u0416\u0430\u043B\u044C, \u043D\u0430\u0432\u0435\u0440\u043D\u043E\u0435"
@@ -144,12 +150,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_017
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_017.asset
+    - 
   - Guid: c9b66298-8998-4599-a7d2-b301581382e9
     Rect:
       serializedVersion: 2
       x: 2260
       y: 444
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "m17\L\L \u041D\u043E \u0438\u043C\u0435\u0439\u0442\u0435"
@@ -162,40 +169,18 @@ MonoBehaviour:
       UnfocusOnEnd: 1
       HideOnEnd: 0
     PhraseVisualData:
-      TextAppear: 2
+      TextAppear: 0
       HideOnEnd: 0
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_017
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_017.asset
-  - Guid: f073010f-fe58-421e-877f-ec902b5c5012
-    Rect:
-      serializedVersion: 2
-      x: 1219
-      y: 444
-      width: 113.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "e7 \L\L\u0423 \u043C\u0435\u043D\u044F \u043D\u0435 \u0431\u044B\u043B\u043E"
-    ImagePersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      Sprite: Images/Persons/Helen.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_007
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_007.asset
+    - 
   - Guid: 89cd6da9-65d9-4b34-b2b7-987ec231a6a5
     Rect:
       serializedVersion: 2
-      x: 1417.5
+      x: 1418
       y: 557
-      width: 149.5
+      width: 159
       height: 96
     EventVisualData: []
     PhraseSketchText: "m19\L\L \u0412\u043E\u0432\u0440\u0435\u043C\u044F \u0441\u043E\u043E\u0431\u0440\u0430\u0437\u0438\u043B\u0438"
@@ -213,12 +198,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_019
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_019.asset
+    - 
   - Guid: f703e8c6-4218-4bf4-ba5c-e032afdbd8a6
     Rect:
       serializedVersion: 2
       x: 1705
       y: 445
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "m14 \L\L\u0414\u0430, \u044F \u0437\u043D\u0430\u044E"
@@ -231,17 +217,18 @@ MonoBehaviour:
       UnfocusOnEnd: 1
       HideOnEnd: 0
     PhraseVisualData:
-      TextAppear: 2
+      TextAppear: 0
       HideOnEnd: 0
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_014
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_014.asset
+    - 
   - Guid: ddc9e694-a9ad-4dbc-8d20-d29efdd37bd8
     Rect:
       serializedVersion: 2
       x: 1526
       y: 444
-      width: 167.5
+      width: 177
       height: 96
     EventVisualData: []
     PhraseSketchText: "e8 \L\L\u0414\u0435\u0432\u0443\u0448\u043A\u0435 \u043D\u0430\\n
@@ -260,12 +247,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_008
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_008.asset
+    - 
   - Guid: c5010713-948f-4b22-abfd-982bd8bd237a
     Rect:
       serializedVersion: 2
       x: 1819
       y: 444
-      width: 158.5
+      width: 168
       height: 96
     EventVisualData: []
     PhraseSketchText: "m15\L\L \u041C\u044B - \u043D\u0435 \\n\u0442\u0435\u043B\u0435\u0444\u043E\u043D\u043D\u044B\u0435"
@@ -278,17 +266,18 @@ MonoBehaviour:
       UnfocusOnEnd: 1
       HideOnEnd: 0
     PhraseVisualData:
-      TextAppear: 2
+      TextAppear: 0
       HideOnEnd: 0
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_015
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_015.asset
+    - 
   - Guid: e7377876-2406-4be7-ac70-ce2b158aa638
     Rect:
       serializedVersion: 2
       x: 1986
       y: 444
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "e9\L\L \u041F\u043E\u043D\u044F\u043B\u0430"
@@ -306,35 +295,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_009
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_009.asset
-  - Guid: 4b43630f-bbfe-45cd-a9d9-6de8ad05d1ea
-    Rect:
-      serializedVersion: 2
-      x: 911.5
-      y: 445
-      width: 133.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "m12\L\L \u0412 \u043F\u0435\u0440\u0432\u0443\u044E \u043E\u0447\u0435\u0440\u0435\u0434\u044C"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_012
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_012.asset
+    - 
   - Guid: 201dcb5a-62db-4c9c-ad90-9a453f39da8a
     Rect:
       serializedVersion: 2
       x: 2130
       y: 755
-      width: 110
+      width: 120
       height: 96
     EventVisualData: []
     PhraseSketchText: "m26\L\L \u041D\u0430\u0448 \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440"
@@ -352,21 +319,15 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_026
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_026.asset
+    - 
   - Guid: 321eedfc-7180-48e9-8343-0db94913eefa
     Rect:
       serializedVersion: 2
       x: 2297
       y: 755
-      width: 125.5
+      width: 135
       height: 96
-    EventVisualData:
-    - Type: 6
-      PhraseEvent: Images/L4_Interlude1/slide_12.png
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
-      Value: 0
+    EventVisualData: []
     PhraseSketchText: "m27\L\L \u0417\u0430\u043A\u043E\u043D\u0447\u0438\u043B\u043E\u0441\u044C
       \u0432\u0441\u0451"
     ImagePersonVisualData:
@@ -383,12 +344,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_027
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_027.asset
+    - 
   - Guid: 05d79fa4-aa64-42f7-a523-ab899f7d1c57
     Rect:
       serializedVersion: 2
-      x: 1823.5
+      x: 1824
       y: 755
-      width: 104.5
+      width: 114
       height: 96
     EventVisualData: []
     PhraseSketchText: "m25\L\L \u041C\u044B \u0442\u0430\u043A \u0441\u0440\u0430\u0437\u0443"
@@ -406,12 +368,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_025
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_025.asset
+    - 
   - Guid: 8a837ff0-93dd-4011-8568-dee6dcadc6e9
     Rect:
       serializedVersion: 2
-      x: 1644.5
+      x: 1645
       y: 755
-      width: 121.5
+      width: 131
       height: 96
     EventVisualData: []
     PhraseSketchText: "m24 \L\L\u041C\u0443\u0436\u0447\u0438\u043D\u0430 \u0437\u0432\u043E\u043D\u0438\u043B"
@@ -429,12 +392,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_024
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_024.asset
+    - 
   - Guid: d4eff602-e9a7-422d-aef8-4711882ae86f
     Rect:
       serializedVersion: 2
       x: 1353
       y: 755
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "m23 \L\L\u0412 84\u043C"
@@ -452,12 +416,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_023
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_022.asset
+    - 
   - Guid: ff7e5bf9-50e5-4221-8134-bf05ba2555bc
     Rect:
       serializedVersion: 2
-      x: 1493.5
+      x: 1494
       y: 755
-      width: 99.5
+      width: 103
       height: 96
     EventVisualData: []
     PhraseSketchText: "e11 \L\L\u0420\u0430\u0441\u0441\u043A\u0430\u0436\u0438\u0442\u0435"
@@ -475,12 +440,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_011
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_011.asset
+    - 
   - Guid: 1ab75811-6583-4492-a4b9-319b9113ebf3
     Rect:
       serializedVersion: 2
-      x: 1091.5
+      x: 1092
       y: 756
-      width: 126.5
+      width: 136
       height: 96
     EventVisualData: []
     PhraseSketchText: "m22 \L\L\u041D\u0430 \u0432\u0441\u044F\u043A\u0438\u0439
@@ -499,12 +465,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_022
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_022.asset
+    - 
   - Guid: aae5efc7-c3dd-4f0e-8f22-e7e5f22ca012
     Rect:
       serializedVersion: 2
-      x: 959.5
+      x: 960
       y: 755
-      width: 99.5
+      width: 107
       height: 96
     EventVisualData: []
     PhraseSketchText: "m21\L\L \u0412 \u0447\u0430\u0441\u0442\u043D\u043E\u0441\u0442\u0438"
@@ -522,35 +489,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_021
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_021.asset
-  - Guid: 857669f6-11aa-4f67-9751-56129ab4d3be
-    Rect:
-      serializedVersion: 2
-      x: 2617
-      y: 200
-      width: 99.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "e6\L\L \u0414\u0430, \u041C\u0430\u0440\u043A."
-    ImagePersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      Sprite: Images/Persons/Helen.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_006
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_006.asset
+    - 
   - Guid: 0620d7dd-fc7c-4559-9ed9-605fe311dce5
     Rect:
       serializedVersion: 2
       x: 2287
       y: 200
-      width: 170.5
+      width: 180
       height: 96
     EventVisualData: []
     PhraseSketchText: "m10\L\L \u0416\u0443\u0440\u043D\u0430\u043B\u0438\u0441\u0442\u044B
@@ -564,40 +509,18 @@ MonoBehaviour:
       UnfocusOnEnd: 1
       HideOnEnd: 0
     PhraseVisualData:
-      TextAppear: 2
+      TextAppear: 0
       HideOnEnd: 0
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_010
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_010.asset
-  - Guid: 5b8c4c58-9e4a-4584-8097-59bc3c80b78e
-    Rect:
-      serializedVersion: 2
-      x: 2150
-      y: 200
-      width: 110
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "m9 \L\L\u041E\u0434\u043D\u0430\u043A\u043E, \u0431\u043E\u044E\u0441\u044C"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_009
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_009.asset
+    - 
   - Guid: 475aee74-f8b5-4e00-9af6-3963aeec83c6
     Rect:
       serializedVersion: 2
-      x: 1977.5
+      x: 1978
       y: 200
-      width: 147
+      width: 157
       height: 96
     EventVisualData: []
     PhraseSketchText: "e5\L\L \u0421\u043F\u0430\u0441\u0438\u0431\u043E... \u041D\u0430\u0432\u0435\u0440\u043D\u043E\u0435"
@@ -610,17 +533,18 @@ MonoBehaviour:
       UnfocusOnEnd: 1
       HideOnEnd: 0
     PhraseVisualData:
-      TextAppear: 2
+      TextAppear: 0
       HideOnEnd: 0
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_005
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_005.asset
+    - 
   - Guid: 642d6a42-87b2-43f0-8ce7-40fb078d878f
     Rect:
       serializedVersion: 2
-      x: 1848.5
+      x: 1849
       y: 200
-      width: 99.5
+      width: 108
       height: 96
     EventVisualData: []
     PhraseSketchText: "m8 \L\L\u041D\u043E \u0432\u044B, \u0415\u043B\u0435\u043D\u0430"
@@ -633,40 +557,18 @@ MonoBehaviour:
       UnfocusOnEnd: 1
       HideOnEnd: 0
     PhraseVisualData:
-      TextAppear: 2
+      TextAppear: 0
       HideOnEnd: 0
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_008
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_008.asset
-  - Guid: 9e9e2570-eee4-4451-9b01-2481f69c83fa
-    Rect:
-      serializedVersion: 2
-      x: 1719.5
-      y: 200
-      width: 99.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "m7 \L\L\u0415\u0441\u043B\u0438 \u043D\u0430 \u043D\u0430\u0441"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_007
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_007.asset
+    - 
   - Guid: 78675a1b-b75a-4e54-bdc8-f0d55c76f440
     Rect:
       serializedVersion: 2
       x: 2346
       y: 327
-      width: 114
+      width: 124
       height: 96
     EventVisualData: []
     PhraseSketchText: "alt m19\L\L \u0414\u0430 \u0447\u0435\u0433\u043E \u0433\u0430\u0434\u0430\u0442\u044C"
@@ -684,58 +586,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_019_v2
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_019_alt.asset
-  - Guid: f715ab8b-db90-4e52-af67-419ccce90fd5
-    Rect:
-      serializedVersion: 2
-      x: 1248.5
-      y: 200
-      width: 117.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "m6\L\L \u042F \u0434\u0430\u0436\u0435 \u043D\u0435 \u0437\u043D\u0430\u044E"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_006
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_006.asset
-  - Guid: 4493241e-2008-4d4e-b940-0893a4e1e4da
-    Rect:
-      serializedVersion: 2
-      x: 1102
-      y: 200
-      width: 128
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "e4\L\L \u0417\u043D\u0430\u044E, \u043F\u0440\u043E\u0441\u0442\u0438\u0442\u0435..."
-    ImagePersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      Sprite: Images/Persons/Helen.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_004
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_004.asset
+    - 
   - Guid: b3bc293a-204a-4fa7-8a60-7fa778935806
     Rect:
       serializedVersion: 2
-      x: 948.5
+      x: 949
       y: 200
-      width: 129.5
+      width: 139
       height: 96
     EventVisualData: []
     PhraseSketchText: "m5 \u0412\u044B... \u0423\u0441\u0442\u0440\u043E\u0438\u043B\u0438"
@@ -753,35 +610,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_005
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_005.asset
-  - Guid: bc04086e-a6c8-48a7-9dd2-0cb8ae92cc46
-    Rect:
-      serializedVersion: 2
-      x: 2482
-      y: 200
-      width: 119
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "p.mark.011 \L\L\u0422\u0435\u0430\u0442\u0440 - \u0442\u0435\u0430\u0442\u0440\u043E\u043C"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_011
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_011.asset
+    - 
   - Guid: 8d49ee82-01af-4d2e-a11f-ecd4ef673457
     Rect:
       serializedVersion: 2
-      x: 2187.5
+      x: 2188
       y: 327
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "e10 \L\L\u042F \u0440\u0435\u0448\u0438\u043B\u0430"
@@ -799,12 +634,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_010
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_010.asset
+    - 
   - Guid: d36bb9a7-4b46-4ccd-894c-fba7aa71f9d3
     Rect:
       serializedVersion: 2
       x: 1855
       y: 327
-      width: 186.5
+      width: 196
       height: 96
     EventVisualData: []
     PhraseSketchText: "m18 \L\L\u041D\u043E \u043F\u043E\u043F\u044B\u0442\u043A\u0430..
@@ -823,12 +659,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_018
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_018.asset
+    - 
   - Guid: 32f1d9d4-dda7-4bc1-ab09-37bbdcde2565
     Rect:
       serializedVersion: 2
       x: 2770
       y: 423
-      width: 104
+      width: 114
       height: 96
     EventVisualData: []
     PhraseSketchText: "m28\L\L \u0427\u0442\u043E \u043A\u0430\u0441\u0430\u0435\u0442\u0441\u044F"
@@ -846,12 +683,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_028
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_028.asset
+    - 
   - Guid: 4949f8f1-6a1b-4790-90de-19efc144681a
     Rect:
       serializedVersion: 2
       x: 4270
       y: 226
-      width: 99.5
+      width: 106
       height: 96
     EventVisualData: []
     PhraseSketchText: "m32\L\L \u0418 \u044D\u0442\u043E \u0432\u0438\u0434\u043D\u043E"
@@ -869,82 +707,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_032
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_032.asset
-  - Guid: 05d6d80f-83f0-46a8-9ff6-8703987a21ba
-    Rect:
-      serializedVersion: 2
-      x: 3272.5
-      y: 226
-      width: 161
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "m29 \L\L\u0413\u043B\u0430\u0432\u043D\u043E\u0435 - \u0432\u0441\u0435
-      \u043E\u0441\u0442\u0430\u043B\u0438\u0441\u044C"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_029
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_029.asset
-  - Guid: 79e1365a-f431-467c-8c4b-d8897632a686
-    Rect:
-      serializedVersion: 2
-      x: 3457.5
-      y: 226
-      width: 99.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "m30 \L\L\u0412\u044B \u0432\u044B\u0440\u0432\u0430\u043B\u0438"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_030
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_030.asset
-  - Guid: 0f4fcefe-ee69-4714-aa7e-9378ad0b04e1
-    Rect:
-      serializedVersion: 2
-      x: 3711.5
-      y: 226
-      width: 111
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "m31 \L\L\u0421\u0435\u043A\u0440\u0435\u0442 \u0432\u0430\u0448\u0435\u0433\u043E"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_031
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_031.asset
+    - 
   - Guid: 638324f3-0a16-4eba-84d2-5e499449e4a2
     Rect:
       serializedVersion: 2
       x: 3857
       y: 226
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "e12\L\L \u0421\u0442\u0430\u0440\u0430\u044E\u0441\u044C"
@@ -962,12 +731,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_012
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_012.asset
+    - 
   - Guid: 4ab7db89-42a3-479d-96b5-371857cb2182
     Rect:
       serializedVersion: 2
       x: 4977
       y: 501
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "\u0443\u0445\u043E\u0434\u0438\u0442"
@@ -985,12 +755,13 @@ MonoBehaviour:
     PhraseSound: NONE
     Phrases:
     - Phrases/ImagePhraseNoTextTiming.asset
+    - 
   - Guid: 15a2ca42-07a4-4c0f-995d-f521d13ba290
     Rect:
       serializedVersion: 2
       x: 4977
       y: 613
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "\u0443\u0445\u043E\u0434\u0438\u0442"
@@ -1008,12 +779,13 @@ MonoBehaviour:
     PhraseSound: NONE
     Phrases:
     - Phrases/ImagePhraseNoTextTiming.asset
+    - 
   - Guid: 85887f27-6842-45d1-8cd5-d05173716c3f
     Rect:
       serializedVersion: 2
       x: 4827
       y: 493
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "m44\L\L \u0421\u0432\u043E\u0431\u043E\u0434\u043D\u044B"
@@ -1031,12 +803,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_044
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_044.asset
+    - 
   - Guid: d6131284-f767-4091-8257-855d7ad886d4
     Rect:
       serializedVersion: 2
       x: 3272
       y: 355
-      width: 156
+      width: 166
       height: 96
     EventVisualData: []
     PhraseSketchText: "m33\L\L \u0427\u0442\u043E \u0436... \u041F\u043E\u043A\u0430
@@ -1055,12 +828,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_033
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_033.asset
+    - 
   - Guid: 343de06f-946b-4508-ba61-e45992acdd46
     Rect:
       serializedVersion: 2
-      x: 3457.5
+      x: 3458
       y: 355
-      width: 129
+      width: 139
       height: 96
     EventVisualData: []
     PhraseSketchText: "e13\L\L \u0410 \u0441 \u0442\u043E\u0439 \u0434\u0435\u0432\u0443\u0448\u043A\u043E\u0439"
@@ -1078,12 +852,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_013
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_013.asset
+    - 
   - Guid: 49db8990-d6be-43ff-a332-ee7111d65423
     Rect:
       serializedVersion: 2
-      x: 3613.5
+      x: 3614
       y: 355
-      width: 109.5
+      width: 119
       height: 96
     EventVisualData: []
     PhraseSketchText: "m34 \L\L\u041C\u043D\u043E\u0433\u043E \u043D\u0435 \u0437\u043D\u0430\u044E"
@@ -1101,12 +876,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_034
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_034.asset
+    - 
   - Guid: 2c1f0fa5-6ec0-4057-bac1-9c173d940394
     Rect:
       serializedVersion: 2
-      x: 3757.5
+      x: 3758
       y: 355
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "e14 \L\L\u041E \u0431\u043E\u0436\u0435..."
@@ -1124,12 +900,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_014
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_014.asset
+    - 
   - Guid: 592e7967-793e-49cd-9509-19b2f3283929
     Rect:
       serializedVersion: 2
       x: 3879
       y: 355
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: "m35 \L\L\u0421\u043F\u043E\u043A\u043E\u0439\u043D\u043E"
@@ -1147,12 +924,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_035
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_035.asset
+    - 
   - Guid: f139de86-f112-4ba0-a890-2546a24fc3f1
     Rect:
       serializedVersion: 2
-      x: 3151.5
+      x: 3152
       y: 684
-      width: 120.5
+      width: 130
       height: 96
     EventVisualData: []
     PhraseSketchText: "m45\L\L \u042D\u0442\u043E\u0442... \u041C\u043E\u043B\u043E\u0434\u043E\u0439"
@@ -1170,12 +948,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_045
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_045.asset
+    - 
   - Guid: 4e0d5831-ab53-4df0-b4d5-f17da0a75169
     Rect:
       serializedVersion: 2
       x: 3272
       y: 471
-      width: 145.5
+      width: 155
       height: 96
     EventVisualData: []
     PhraseSketchText: "m38\L\L \u041F\u043E\u043B\u0438\u0446\u0438\u0438 \u043D\u0435
@@ -1194,12 +973,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_038
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_038.asset
+    - 
   - Guid: 8c446fb4-363e-4c1b-9ce9-af2df36439e9
     Rect:
       serializedVersion: 2
-      x: 3550.5
+      x: 3551
       y: 471
-      width: 99.5
+      width: 105
       height: 96
     EventVisualData: []
     PhraseSketchText: "e15\L\L \u041E \u0431\u043E\u0436\u0435 \u043C\u043E\u0439"
@@ -1217,12 +997,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_015
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_015.asset
+    - 
   - Guid: 22384392-81de-43db-8c4e-9b2bd20d4f20
     Rect:
       serializedVersion: 2
-      x: 3664.5
+      x: 3665
       y: 471
-      width: 143
+      width: 153
       height: 96
     EventVisualData: []
     PhraseSketchText: "m39 \L\L\u041D\u0435\u043F\u0440\u0435\u0434\u0443\u043C\u044B\u0448\u043B\u0435\u043D\u043D\u043E\u0435"
@@ -1240,12 +1021,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_039
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_039.asset
+    - 
   - Guid: ae5c305a-9358-40b9-bbad-13fcac70dcc4
     Rect:
       serializedVersion: 2
       x: 4131
-      y: 470.5
-      width: 139
+      y: 471
+      width: 149
       height: 96
     EventVisualData: []
     PhraseSketchText: "m41 \L\L\u0423\u0432\u044B, \u0443\u0440\u043E\u0434 \u0441\u043E\u0440\u0432\u0430\u043B\u0441\u044F"
@@ -1263,12 +1045,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_041
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_041.asset
+    - 
   - Guid: a5233bce-9eef-4414-9d04-8088ea76b2b1
     Rect:
       serializedVersion: 2
       x: 3999
       y: 588
-      width: 157.5
+      width: 167
       height: 96
     EventVisualData: []
     PhraseSketchText: "m40 \L\L\u0412\u044B \u0431\u044B\u043B\u0438 \\n\u043F\u043E\u0441\u0442\u0430\u0432\u043B\u0435\u043D\u044B"
@@ -1286,12 +1069,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_040
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_040.asset
+    - 
   - Guid: 844cd302-9028-4ecf-a71c-975382f14cad
     Rect:
       serializedVersion: 2
       x: 4338
       y: 743
-      width: 99.5
+      width: 102
       height: 96
     EventVisualData:
     - Type: 2
@@ -1300,13 +1084,6 @@ MonoBehaviour:
       Loop: 0
       Stop: 0
       Delay: 1
-      Value: 0
-    - Type: 6
-      PhraseEvent: Images/L4_Interlude1/slide_14.png
-      Layer: 0
-      Loop: 0
-      Stop: 0
-      Delay: 0
       Value: 0
     PhraseSketchText: "m42\L\L \u0412\u044B \u043A\u0443\u0440\u0438\u0442\u0435?"
     ImagePersonVisualData:
@@ -1323,12 +1100,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_042
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_042.asset
+    - 
   - Guid: 7e666d0f-2526-4f20-86a9-3d1989f2598a
     Rect:
       serializedVersion: 2
-      x: 4454.5
+      x: 4455
       y: 743
-      width: 103
+      width: 113
       height: 96
     EventVisualData: []
     PhraseSketchText: "m43 \L\L\u041D\u0435 \u043D\u0430\u0447\u0438\u043D\u0430\u0439\u0442\u0435"
@@ -1346,12 +1124,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_043
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_043.asset
+    - 
   - Guid: 03075819-31cc-4af4-800a-4f72684ab7f0
     Rect:
       serializedVersion: 2
-      x: 3295.5
+      x: 3296
       y: 684
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: e16
@@ -1369,12 +1148,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_016
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_016.asset
+    - 
   - Guid: ff563214-2284-46e8-ab35-167b1bf20dc3
     Rect:
       serializedVersion: 2
-      x: 3417.5
+      x: 3418
       y: 684
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: m46
@@ -1392,12 +1172,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_046
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_046.asset
+    - 
   - Guid: 478b65ef-cb3b-4278-828d-49225569275a
     Rect:
       serializedVersion: 2
       x: 3537
       y: 684
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: m47
@@ -1415,12 +1196,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_047
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_047.asset
+    - 
   - Guid: d8fd8d27-929a-4b35-92b8-92ca44b20f25
     Rect:
       serializedVersion: 2
       x: 3658
       y: 684
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: e17
@@ -1438,12 +1220,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_017
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_017.asset
+    - 
   - Guid: fddf156e-6f98-4e83-af4b-702cd4c2aaa5
     Rect:
       serializedVersion: 2
-      x: 3899.5
+      x: 3900
       y: 684
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     PhraseSketchText: m48
@@ -1461,12 +1244,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_048
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_048.asset
+    - 
   - Guid: b1a50add-a31e-4c51-8e6f-88c5692d44a5
     Rect:
       serializedVersion: 2
-      x: 4115.5
+      x: 4116
       y: 355
-      width: 118
+      width: 128
       height: 96
     EventVisualData: []
     PhraseSketchText: "m36 \L\L\u0412\u0430\u0448 \u0441 \u0434\u0435\u0432\u0443\u0448\u043A\u043E\u0439"
@@ -1484,12 +1268,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_036
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_036.asset
+    - 
   - Guid: 1d67b5ec-2a82-4d71-bf02-b644853e03b4
     Rect:
       serializedVersion: 2
       x: 4270
       y: 355
-      width: 119
+      width: 129
       height: 96
     EventVisualData: []
     PhraseSketchText: "m37 \L\L\u041E\u0434\u043D\u0430 \u043C\u0430\u043B\u0435\u043D\u044C\u043A\u0430\u044F"
@@ -1507,12 +1292,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_037
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_037.asset
+    - 
   - Guid: 804cee7d-a4b3-49c9-ad3c-443a4e210bf9
     Rect:
       serializedVersion: 2
       x: 453
       y: 200
-      width: 126.5
+      width: 136
       height: 96
     EventVisualData: []
     PhraseSketchText: "alt m4 \u041F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u043C"
@@ -1530,12 +1316,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_alt_004
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_004_alt.asset
+    - 
   - Guid: 85d0d18a-da35-4716-9804-b7742b12b54f
     Rect:
       serializedVersion: 2
       x: 309
       y: 200
-      width: 124.5
+      width: 134
       height: 96
     EventVisualData: []
     PhraseSketchText: "alt m3 \u0415\u0441\u0442\u044C \u0442\u0430\u043A\u043E\u0435"
@@ -1548,17 +1335,18 @@ MonoBehaviour:
       UnfocusOnEnd: 0
       HideOnEnd: 0
     PhraseVisualData:
-      TextAppear: 2
+      TextAppear: 0
       HideOnEnd: 0
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_alt_003
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_003_alt.asset
+    - 
   - Guid: 4aaf75c5-6484-4c23-95ef-cfde3d6de67a
     Rect:
       serializedVersion: 2
       x: 175
       y: 200
-      width: 114.5
+      width: 124
       height: 96
     EventVisualData: []
     PhraseSketchText: "alt e2 \u0410 \u0441 \u044D\u0442\u0438\u043C\u0438"
@@ -1576,81 +1364,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Elena/pizzaep_elena_alt_002
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_002_alt.asset
-  - Guid: 3fe83d72-715c-467f-a323-3a6a24ddd134
-    Rect:
-      serializedVersion: 2
-      x: 59
-      y: 200
-      width: 99.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "alt m2 \u0418\u0442\u0430\u043A"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_alt_002
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_002_alt.asset
-  - Guid: eaa241c0-459c-4314-91de-c6d2a1f535c9
-    Rect:
-      serializedVersion: 2
-      x: -225
-      y: 200
-      width: 141.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "alt m1 \u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 0
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_alt_001
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_001_alt.asset
-  - Guid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
-    Rect:
-      serializedVersion: 2
-      x: -382
-      y: 200
-      width: 131
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "alt 1 \u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435"
-    ImagePersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      Sprite: Images/Persons/Helen.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_alt_001
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_001_alt.asset
+    - 
   - Guid: 2f2a22f3-591b-45fc-a399-1587d59b508b
     Rect:
       serializedVersion: 2
       x: -559
       y: 319
-      width: 161.5
+      width: 172
       height: 96
     EventVisualData: []
     PhraseSketchText: "\u043F\u043E\u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F
@@ -1669,12 +1389,13 @@ MonoBehaviour:
     PhraseSound: NONE
     Phrases:
     - Phrases/ImagePhraseNoTextTiming.asset
+    - 
   - Guid: 1bf7e51b-a2f7-489e-a2b1-3e28d54426a3
     Rect:
       serializedVersion: 2
       x: -526
       y: 200
-      width: 99.5
+      width: 109
       height: 96
     EventVisualData: []
     PhraseSketchText: "\u043F\u043E\u044F\u0432\u043B\u044F\u0435\u0442\u0441\u044F"
@@ -1692,37 +1413,13 @@ MonoBehaviour:
     PhraseSound: NONE
     Phrases:
     - Phrases/ImagePhraseNoTextTiming.asset
-  - Guid: b672718b-5667-4cf0-bd6f-1ba500b9d124
-    Rect:
-      serializedVersion: 2
-      x: 1073
-      y: 38
-      width: 290.5
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "m3 \u041D\u043E \u043F\u043E\u0434\u043E\u0431\u043D\u043E\u0435
-      \u0441\u043B\u0443\u0447\u0430\u0435\u0442\u0441\u044F\\n\u043D\u0435 \u0432
-      \u043F\u0435\u0440\u0432\u044B\u0439 \u0440\u0430\u0437"
-    ImagePersonVisualData:
-      Person: MARK
-      ScreenPlace: 6
-      Sprite: Images/Persons/Mark.png
-      ShowOnStart: 0
-      FocusOnStart: 0
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_003
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_003.asset
+    - 
   - Guid: 0c9f6254-774c-4444-8b7b-335d08cc21cb
     Rect:
       serializedVersion: 2
-      x: 1646.5
+      x: 1647
       y: 39
-      width: 114.5
+      width: 124
       height: 96
     EventVisualData: []
     PhraseSketchText: "m\L\L4 \u0411\u044B\u043B\u043E \u043D\u0435\u043B\u0435\u0433\u043A\u043E"
@@ -1740,35 +1437,13 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_004
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_004.asset
-  - Guid: e52a4fee-61ec-4e97-b260-141ec48eb1f5
-    Rect:
-      serializedVersion: 2
-      x: 1374
-      y: 39
-      width: 131
-      height: 96
-    EventVisualData: []
-    PhraseSketchText: "e2 \u0421\u043F\u0430\u0441\u0438\u0431\u043E, \u041C\u0430\u0440\u043A."
-    ImagePersonVisualData:
-      Person: ELENA
-      ScreenPlace: 1
-      Sprite: Images/Persons/Helen.png
-      ShowOnStart: 0
-      FocusOnStart: 1
-      UnfocusOnEnd: 1
-      HideOnEnd: 0
-    PhraseVisualData:
-      TextAppear: 2
-      HideOnEnd: 0
-    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_002
-    Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_002.asset
+    - 
   - Guid: 06744a57-26d3-4a30-bccb-7542a7c62ddc
     Rect:
       serializedVersion: 2
       x: 950
       y: 38
-      width: 99.5
+      width: 108
       height: 96
     EventVisualData: []
     PhraseSketchText: "m2 \L\L\u0421\u0440\u0430\u0437\u0443 \u043A \u0434\u0435\u043B\u0443"
@@ -1786,6 +1461,394 @@ MonoBehaviour:
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_002
     Phrases:
     - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_002.asset
+    - 
+  - Guid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
+    Rect:
+      serializedVersion: 2
+      x: -382
+      y: 200
+      width: 141
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "alt 1 \u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435"
+    ImagePersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      Sprite: Images/Persons/Helen.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_alt_001
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_001_alt.asset
+    - 
+  - Guid: eaa241c0-459c-4314-91de-c6d2a1f535c9
+    Rect:
+      serializedVersion: 2
+      x: -225
+      y: 200
+      width: 151
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "alt m1 \u0417\u0434\u0440\u0430\u0432\u0441\u0442\u0432\u0443\u0439\u0442\u0435"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 0
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_alt_001
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_001_alt.asset
+    - 
+  - Guid: 3fe83d72-715c-467f-a323-3a6a24ddd134
+    Rect:
+      serializedVersion: 2
+      x: 59
+      y: 200
+      width: 100
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "alt m2 \u0418\u0442\u0430\u043A"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_alt_002
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_002_alt.asset
+    - 
+  - Guid: b672718b-5667-4cf0-bd6f-1ba500b9d124
+    Rect:
+      serializedVersion: 2
+      x: 1067
+      y: 40
+      width: 300
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "m3 \u041D\u043E \u043F\u043E\u0434\u043E\u0431\u043D\u043E\u0435
+      \u0441\u043B\u0443\u0447\u0430\u0435\u0442\u0441\u044F\\n\u043D\u0435 \u0432
+      \u043F\u0435\u0440\u0432\u044B\u0439 \u0440\u0430\u0437"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_003
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_003.asset
+    - 
+  - Guid: e52a4fee-61ec-4e97-b260-141ec48eb1f5
+    Rect:
+      serializedVersion: 2
+      x: 1374
+      y: 39
+      width: 141
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "e2 \u0421\u043F\u0430\u0441\u0438\u0431\u043E, \u041C\u0430\u0440\u043A."
+    ImagePersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      Sprite: Images/Persons/Helen.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_002
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_002.asset
+    - 
+  - Guid: 05d6d80f-83f0-46a8-9ff6-8703987a21ba
+    Rect:
+      serializedVersion: 2
+      x: 3263
+      y: 226
+      width: 171
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "m29 \L\L\u0413\u043B\u0430\u0432\u043D\u043E\u0435 - \u0432\u0441\u0435
+      \u043E\u0441\u0442\u0430\u043B\u0438\u0441\u044C"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_029
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_029.asset
+    - 
+  - Guid: 79e1365a-f431-467c-8c4b-d8897632a686
+    Rect:
+      serializedVersion: 2
+      x: 3458
+      y: 226
+      width: 102
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "m30 \L\L\u0412\u044B \u0432\u044B\u0440\u0432\u0430\u043B\u0438"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_030
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_030.asset
+    - 
+  - Guid: 0f4fcefe-ee69-4714-aa7e-9378ad0b04e1
+    Rect:
+      serializedVersion: 2
+      x: 3712
+      y: 226
+      width: 121
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "m31 \L\L\u0421\u0435\u043A\u0440\u0435\u0442 \u0432\u0430\u0448\u0435\u0433\u043E"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_031
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_031.asset
+    - 
+  - Guid: 4493241e-2008-4d4e-b940-0893a4e1e4da
+    Rect:
+      serializedVersion: 2
+      x: 1102
+      y: 200
+      width: 138
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "e4\L\L \u0417\u043D\u0430\u044E, \u043F\u0440\u043E\u0441\u0442\u0438\u0442\u0435..."
+    ImagePersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      Sprite: Images/Persons/Helen.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_004
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_004.asset
+    - 
+  - Guid: f715ab8b-db90-4e52-af67-419ccce90fd5
+    Rect:
+      serializedVersion: 2
+      x: 1249
+      y: 200
+      width: 127
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "m6\L\L \u042F \u0434\u0430\u0436\u0435 \u043D\u0435 \u0437\u043D\u0430\u044E"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_006
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_006.asset
+    - 
+  - Guid: 9e9e2570-eee4-4451-9b01-2481f69c83fa
+    Rect:
+      serializedVersion: 2
+      x: 1720
+      y: 200
+      width: 101
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "m7 \L\L\u0415\u0441\u043B\u0438 \u043D\u0430 \u043D\u0430\u0441"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_007
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_007.asset
+    - 
+  - Guid: 5b8c4c58-9e4a-4584-8097-59bc3c80b78e
+    Rect:
+      serializedVersion: 2
+      x: 2150
+      y: 200
+      width: 120
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "m9 \L\L\u041E\u0434\u043D\u0430\u043A\u043E, \u0431\u043E\u044E\u0441\u044C"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_009
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_009.asset
+    - 
+  - Guid: 857669f6-11aa-4f67-9751-56129ab4d3be
+    Rect:
+      serializedVersion: 2
+      x: 2617
+      y: 200
+      width: 100
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "e6\L\L \u0414\u0430, \u041C\u0430\u0440\u043A."
+    ImagePersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      Sprite: Images/Persons/Helen.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_006
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_006.asset
+    - 
+  - Guid: bc04086e-a6c8-48a7-9dd2-0cb8ae92cc46
+    Rect:
+      serializedVersion: 2
+      x: 2482
+      y: 200
+      width: 129
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "p.mark.011 \L\L\u0422\u0435\u0430\u0442\u0440 - \u0442\u0435\u0430\u0442\u0440\u043E\u043C"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_011
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_011.asset
+    - 
+  - Guid: 4b43630f-bbfe-45cd-a9d9-6de8ad05d1ea
+    Rect:
+      serializedVersion: 2
+      x: 901
+      y: 444
+      width: 143
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "m12\L\L \u0412 \u043F\u0435\u0440\u0432\u0443\u044E \u043E\u0447\u0435\u0440\u0435\u0434\u044C"
+    ImagePersonVisualData:
+      Person: MARK
+      ScreenPlace: 6
+      Sprite: Images/Persons/Mark.png
+      ShowOnStart: 0
+      FocusOnStart: 0
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_012
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_012.asset
+    - 
+  - Guid: f073010f-fe58-421e-877f-ec902b5c5012
+    Rect:
+      serializedVersion: 2
+      x: 1219
+      y: 444
+      width: 123
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: "e7 \L\L\u0423 \u043C\u0435\u043D\u044F \u043D\u0435 \u0431\u044B\u043B\u043E"
+    ImagePersonVisualData:
+      Person: ELENA
+      ScreenPlace: 1
+      Sprite: Images/Persons/Helen.png
+      ShowOnStart: 0
+      FocusOnStart: 1
+      UnfocusOnEnd: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 0
+    PhraseSound: L4_Interlude1/Elena/pizzaep_elena_007
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_elena/pizzaep_elena_007.asset
+    - 
   ChoiceNodeData: []
   ForkNodeData:
   - Guid: 9ad569e4-bac4-4ab3-b646-4ffef4608719
@@ -1793,8 +1856,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 1059
       y: 444
-      width: 149
-      height: 126.5
+      width: 150
+      height: 127
     EventVisualData: []
     ForkCaseData:
     - Words:
@@ -1809,8 +1872,8 @@ MonoBehaviour:
       serializedVersion: 2
       x: 2929
       y: 423
-      width: 149
-      height: 178.5
+      width: 150
+      height: 179
     EventVisualData: []
     ForkCaseData:
     - Words: []
@@ -1837,10 +1900,10 @@ MonoBehaviour:
   - Guid: f2a28174-931e-42b5-8b4e-49cdb7904b24
     Rect:
       serializedVersion: 2
-      x: 1398.5
+      x: 1399
       y: 200
-      width: 149
-      height: 126.5
+      width: 150
+      height: 127
     EventVisualData: []
     ForkCaseData:
     - Words:
@@ -1853,10 +1916,10 @@ MonoBehaviour:
   - Guid: 40e95a08-4b39-4e04-9f5b-73b643dd7e23
     Rect:
       serializedVersion: 2
-      x: 3822.5
-      y: 470.5
-      width: 149
-      height: 126.5
+      x: 3823
+      y: 471
+      width: 150
+      height: 127
     EventVisualData: []
     ForkCaseData:
     - Words:
@@ -1869,10 +1932,10 @@ MonoBehaviour:
   - Guid: b76c6fbb-d6eb-4179-a631-db2d074d7980
     Rect:
       serializedVersion: 2
-      x: 599.5
+      x: 600
       y: 200
-      width: 149
-      height: 178.5
+      width: 150
+      height: 179
     EventVisualData: []
     ForkCaseData:
     - Words:
@@ -1904,7 +1967,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: 5128
       y: 501
-      width: 110
+      width: 111
       height: 95
     EventVisualData: []
     End: End/PizzaEP
@@ -1915,7 +1978,7 @@ MonoBehaviour:
       serializedVersion: 2
       x: -683
       y: 200
-      width: 99.5
+      width: 100
       height: 107
     EventVisualData:
     - Type: 0
@@ -1944,241 +2007,223 @@ MonoBehaviour:
   - Guid: c3f35ef8-1858-4755-b11b-d2ac10d825d1
     Rect:
       serializedVersion: 2
-      x: 1266.5
+      x: 1267
       y: 557
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_6.png
+    - Images/L4_Interlude1/slide_6_en.png
   - Guid: cc6f1ec2-fa38-465c-a4a0-ca39fcedbb34
     Rect:
       serializedVersion: 2
-      x: 790.5
+      x: 791
       y: 444
-      width: 99.5
-      height: 96
+      width: 242
+      height: 220
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_11.png
+    - Images/L4_Interlude1/slide_11_en.png
   - Guid: 6e4ac741-9879-4867-9372-5cb0d69d2e7b
     Rect:
       serializedVersion: 2
-      x: 1979.5
+      x: 1980
       y: 755
-      width: 99.5
-      height: 96
+      width: 242
+      height: 220
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_5.png
+    - Images/L4_Interlude1/slide_5_en.png
   - Guid: 9800e8a4-85a3-43bf-9cf8-1eca132c7f06
     Rect:
       serializedVersion: 2
       x: 1233
       y: 755
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_4.png
+    - Images/L4_Interlude1/slide_4_en.png
   - Guid: a76bdf57-c52f-491b-96fa-13061c68c4d9
     Rect:
       serializedVersion: 2
       x: 812
       y: 755
-      width: 99.5
-      height: 96
+      width: 242
+      height: 220
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_10.png
+    - Images/L4_Interlude1/slide_10_en.png
   - Guid: 659ccbe5-2c46-4cf6-a16d-b9ab0891827a
     Rect:
       serializedVersion: 2
-      x: 1575.5
+      x: 1576
       y: 200
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_8.png
+    - Images/L4_Interlude1/slide_8_en.png
   - Guid: b5f970b5-b81b-4c6b-b089-e56b1a446cd8
     Rect:
       serializedVersion: 2
       x: 812
       y: 200
-      width: 99.5
-      height: 96
+      width: 242
+      height: 220
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_7.png
+    - Images/L4_Interlude1/slide_7_en.png
   - Guid: b341a1ed-2838-4164-837a-ecdfaee3f22b
     Rect:
       serializedVersion: 2
       x: 3152
       y: 226
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_9.png
+    - Images/L4_Interlude1/slide_9_en.png
   - Guid: 99c969b4-9673-4d5d-b169-d607abb67032
     Rect:
       serializedVersion: 2
       x: 3582
       y: 226
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_15.png
+    - Images/L4_Interlude1/slide_15_en.png
   - Guid: 5d0c667a-4f9a-4d2b-b917-37f9bc2a3b7d
     Rect:
       serializedVersion: 2
       x: 3152
       y: 355
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_2.png
-  - Guid: 3acd1a0c-2903-4eac-bf7c-51808e905898
-    Rect:
-      serializedVersion: 2
-      x: 3999
-      y: 355
-      width: 99.5
-      height: 96
-    EventVisualData: []
-    Slides:
-    - Images/L4_Interlude1/slide_15.png
-  - Guid: bf30a3c4-1c65-4e10-b1ba-86e709aafd12
-    Rect:
-      serializedVersion: 2
-      x: 3152
-      y: 471
-      width: 99.5
-      height: 96
-    EventVisualData: []
-    Slides:
-    - Images/L4_Interlude1/slide_12.png
-  - Guid: b70b753e-5d05-4ce7-a107-a8210dbe3b0c
-    Rect:
-      serializedVersion: 2
-      x: 3433.5
-      y: 471
-      width: 99.5
-      height: 96
-    EventVisualData: []
-    Slides:
-    - Images/L4_Interlude1/slide_15.png
+    - Images/L4_Interlude1/slide_2_en.png
   - Guid: 58cb63db-6216-4f61-a86c-8261ea0b82a6
     Rect:
       serializedVersion: 2
       x: 3999
       y: 471
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_13.png
-  - Guid: d8f0a5fd-b8e1-4e1f-85a2-99c131aba0ef
-    Rect:
-      serializedVersion: 2
-      x: 3779.5
-      y: 684
-      width: 99.5
-      height: 96
-    EventVisualData: []
-    Slides:
-    - Images/L4_Interlude1/slide_15.png
+    - Images/L4_Interlude1/slide_13_en.png
   - Guid: 58cd0183-4cd2-4524-9841-b34fa6e23990
     Rect:
       serializedVersion: 2
       x: -66
       y: 200
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_0.png
+    - Images/L4_Interlude1/slide_0_en.png
   - Guid: 871b5be6-fa64-45b1-886b-8abc9df11c35
     Rect:
       serializedVersion: 2
       x: 812
       y: 38
-      width: 99.5
-      height: 96
+      width: 242
+      height: 220
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_1.png
+    - Images/L4_Interlude1/slide_1_en.png
   - Guid: 6197a592-acbd-4c65-bab3-205c5e761ec2
     Rect:
       serializedVersion: 2
       x: 1519
       y: 38
-      width: 99.5
+      width: 100
       height: 96
     EventVisualData: []
     Slides:
     - Images/L4_Interlude1/slide_3.png
+    - Images/L4_Interlude1/slide_3_en.png
+  - Guid: 3acd1a0c-2903-4eac-bf7c-51808e905898
+    Rect:
+      serializedVersion: 2
+      x: 3998
+      y: 355
+      width: 100
+      height: 96
+    EventVisualData: []
+    Slides:
+    - Images/L4_Interlude1/slide_15.png
+    - Images/L4_Interlude1/slide_15_en.png
+  - Guid: b70b753e-5d05-4ce7-a107-a8210dbe3b0c
+    Rect:
+      serializedVersion: 2
+      x: 3434
+      y: 471
+      width: 100
+      height: 96
+    EventVisualData: []
+    Slides:
+    - Images/L4_Interlude1/slide_15.png
+    - Images/L4_Interlude1/slide_15_en.png
+  - Guid: d8f0a5fd-b8e1-4e1f-85a2-99c131aba0ef
+    Rect:
+      serializedVersion: 2
+      x: 3780
+      y: 684
+      width: 100
+      height: 96
+    EventVisualData: []
+    Slides:
+    - Images/L4_Interlude1/slide_15.png
+    - Images/L4_Interlude1/slide_15_en.png
+  - Guid: bf30a3c4-1c65-4e10-b1ba-86e709aafd12
+    Rect:
+      serializedVersion: 2
+      x: 3152
+      y: 471
+      width: 100
+      height: 96
+    EventVisualData: []
+    Slides:
+    - Images/L4_Interlude1/slide_12.png
+    - Images/L4_Interlude1/slide_12_en.png
   NodeLinks:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
     TargetNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
-  - BaseNodeGuid: 2f2a22f3-591b-45fc-a399-1587d59b508b
-    BaseExitName: 
-    TargetNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
   - BaseNodeGuid: 1fea7848-bf9a-4ea0-a1b2-5cd477de20be
     BaseExitName: 
     TargetNodeGuid: ddc9e694-a9ad-4dbc-8d20-d29efdd37bd8
   - BaseNodeGuid: 35318462-532e-4aad-8519-1760ffc208ba
     BaseExitName: 
     TargetNodeGuid: c9b66298-8998-4599-a7d2-b301581382e9
-  - BaseNodeGuid: 4aaf75c5-6484-4c23-95ef-cfde3d6de67a
-    BaseExitName: 
-    TargetNodeGuid: 85d0d18a-da35-4716-9804-b7742b12b54f
-  - BaseNodeGuid: 85d0d18a-da35-4716-9804-b7742b12b54f
-    BaseExitName: 
-    TargetNodeGuid: 804cee7d-a4b3-49c9-ad3c-443a4e210bf9
-  - BaseNodeGuid: 804cee7d-a4b3-49c9-ad3c-443a4e210bf9
-    BaseExitName: 
-    TargetNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
   - BaseNodeGuid: 24dc1391-4ceb-42b6-954b-e9295708209b
     BaseExitName: 
     TargetNodeGuid: 32f1d9d4-dda7-4bc1-ab09-37bbdcde2565
   - BaseNodeGuid: 77daf570-6bc3-4072-866f-f905f76eece9
     BaseExitName: 
     TargetNodeGuid: 32f1d9d4-dda7-4bc1-ab09-37bbdcde2565
-  - BaseNodeGuid: b672718b-5667-4cf0-bd6f-1ba500b9d124
-    BaseExitName: 
-    TargetNodeGuid: e52a4fee-61ec-4e97-b260-141ec48eb1f5
   - BaseNodeGuid: 0401a2e0-8f23-4f37-8220-a0a74420e1b4
     BaseExitName: 
     TargetNodeGuid: d36bb9a7-4b46-4ccd-894c-fba7aa71f9d3
-  - BaseNodeGuid: eaa241c0-459c-4314-91de-c6d2a1f535c9
-    BaseExitName: 
-    TargetNodeGuid: 58cd0183-4cd2-4524-9841-b34fa6e23990
-  - BaseNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
-    BaseExitName: 
-    TargetNodeGuid: eaa241c0-459c-4314-91de-c6d2a1f535c9
-  - BaseNodeGuid: 1bf7e51b-a2f7-489e-a2b1-3e28d54426a3
-    BaseExitName: 
-    TargetNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
   - BaseNodeGuid: c9b66298-8998-4599-a7d2-b301581382e9
     BaseExitName: 
     TargetNodeGuid: b341a1ed-2838-4164-837a-ecdfaee3f22b
-  - BaseNodeGuid: 3fe83d72-715c-467f-a323-3a6a24ddd134
-    BaseExitName: 
-    TargetNodeGuid: 4aaf75c5-6484-4c23-95ef-cfde3d6de67a
-  - BaseNodeGuid: 0c9f6254-774c-4444-8b7b-335d08cc21cb
-    BaseExitName: 
-    TargetNodeGuid: 24dc1391-4ceb-42b6-954b-e9295708209b
-  - BaseNodeGuid: e52a4fee-61ec-4e97-b260-141ec48eb1f5
-    BaseExitName: 
-    TargetNodeGuid: 6197a592-acbd-4c65-bab3-205c5e761ec2
-  - BaseNodeGuid: 06744a57-26d3-4a30-bccb-7542a7c62ddc
-    BaseExitName: 
-    TargetNodeGuid: b672718b-5667-4cf0-bd6f-1ba500b9d124
   - BaseNodeGuid: f073010f-fe58-421e-877f-ec902b5c5012
     BaseExitName: 
     TargetNodeGuid: 1fea7848-bf9a-4ea0-a1b2-5cd477de20be
@@ -2239,18 +2284,9 @@ MonoBehaviour:
   - BaseNodeGuid: 642d6a42-87b2-43f0-8ce7-40fb078d878f
     BaseExitName: 
     TargetNodeGuid: 475aee74-f8b5-4e00-9af6-3963aeec83c6
-  - BaseNodeGuid: 9e9e2570-eee4-4451-9b01-2481f69c83fa
-    BaseExitName: 
-    TargetNodeGuid: 642d6a42-87b2-43f0-8ce7-40fb078d878f
   - BaseNodeGuid: 78675a1b-b75a-4e54-bdc8-f0d55c76f440
     BaseExitName: 
     TargetNodeGuid: 32f1d9d4-dda7-4bc1-ab09-37bbdcde2565
-  - BaseNodeGuid: f715ab8b-db90-4e52-af67-419ccce90fd5
-    BaseExitName: 
-    TargetNodeGuid: f2a28174-931e-42b5-8b4e-49cdb7904b24
-  - BaseNodeGuid: 4493241e-2008-4d4e-b940-0893a4e1e4da
-    BaseExitName: 
-    TargetNodeGuid: f715ab8b-db90-4e52-af67-419ccce90fd5
   - BaseNodeGuid: b3bc293a-204a-4fa7-8a60-7fa778935806
     BaseExitName: 
     TargetNodeGuid: 4493241e-2008-4d4e-b940-0893a4e1e4da
@@ -2269,15 +2305,6 @@ MonoBehaviour:
   - BaseNodeGuid: 4949f8f1-6a1b-4790-90de-19efc144681a
     BaseExitName: 
     TargetNodeGuid: 85887f27-6842-45d1-8cd5-d05173716c3f
-  - BaseNodeGuid: 05d6d80f-83f0-46a8-9ff6-8703987a21ba
-    BaseExitName: 
-    TargetNodeGuid: 79e1365a-f431-467c-8c4b-d8897632a686
-  - BaseNodeGuid: 79e1365a-f431-467c-8c4b-d8897632a686
-    BaseExitName: 
-    TargetNodeGuid: 0f4fcefe-ee69-4714-aa7e-9378ad0b04e1
-  - BaseNodeGuid: 0f4fcefe-ee69-4714-aa7e-9378ad0b04e1
-    BaseExitName: 
-    TargetNodeGuid: 638324f3-0a16-4eba-84d2-5e499449e4a2
   - BaseNodeGuid: 638324f3-0a16-4eba-84d2-5e499449e4a2
     BaseExitName: 
     TargetNodeGuid: 4949f8f1-6a1b-4790-90de-19efc144681a
@@ -2353,6 +2380,60 @@ MonoBehaviour:
   - BaseNodeGuid: 1d67b5ec-2a82-4d71-bf02-b644853e03b4
     BaseExitName: 
     TargetNodeGuid: 85887f27-6842-45d1-8cd5-d05173716c3f
+  - BaseNodeGuid: 804cee7d-a4b3-49c9-ad3c-443a4e210bf9
+    BaseExitName: 
+    TargetNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
+  - BaseNodeGuid: 85d0d18a-da35-4716-9804-b7742b12b54f
+    BaseExitName: 
+    TargetNodeGuid: 804cee7d-a4b3-49c9-ad3c-443a4e210bf9
+  - BaseNodeGuid: 4aaf75c5-6484-4c23-95ef-cfde3d6de67a
+    BaseExitName: 
+    TargetNodeGuid: 85d0d18a-da35-4716-9804-b7742b12b54f
+  - BaseNodeGuid: 2f2a22f3-591b-45fc-a399-1587d59b508b
+    BaseExitName: 
+    TargetNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
+  - BaseNodeGuid: 1bf7e51b-a2f7-489e-a2b1-3e28d54426a3
+    BaseExitName: 
+    TargetNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
+  - BaseNodeGuid: 0c9f6254-774c-4444-8b7b-335d08cc21cb
+    BaseExitName: 
+    TargetNodeGuid: 24dc1391-4ceb-42b6-954b-e9295708209b
+  - BaseNodeGuid: 06744a57-26d3-4a30-bccb-7542a7c62ddc
+    BaseExitName: 
+    TargetNodeGuid: b672718b-5667-4cf0-bd6f-1ba500b9d124
+  - BaseNodeGuid: 0b2bc551-91d2-4888-a1bf-c045bd147af0
+    BaseExitName: 
+    TargetNodeGuid: eaa241c0-459c-4314-91de-c6d2a1f535c9
+  - BaseNodeGuid: eaa241c0-459c-4314-91de-c6d2a1f535c9
+    BaseExitName: 
+    TargetNodeGuid: 58cd0183-4cd2-4524-9841-b34fa6e23990
+  - BaseNodeGuid: 3fe83d72-715c-467f-a323-3a6a24ddd134
+    BaseExitName: 
+    TargetNodeGuid: 4aaf75c5-6484-4c23-95ef-cfde3d6de67a
+  - BaseNodeGuid: b672718b-5667-4cf0-bd6f-1ba500b9d124
+    BaseExitName: 
+    TargetNodeGuid: e52a4fee-61ec-4e97-b260-141ec48eb1f5
+  - BaseNodeGuid: e52a4fee-61ec-4e97-b260-141ec48eb1f5
+    BaseExitName: 
+    TargetNodeGuid: 6197a592-acbd-4c65-bab3-205c5e761ec2
+  - BaseNodeGuid: 05d6d80f-83f0-46a8-9ff6-8703987a21ba
+    BaseExitName: 
+    TargetNodeGuid: 79e1365a-f431-467c-8c4b-d8897632a686
+  - BaseNodeGuid: 79e1365a-f431-467c-8c4b-d8897632a686
+    BaseExitName: 
+    TargetNodeGuid: 0f4fcefe-ee69-4714-aa7e-9378ad0b04e1
+  - BaseNodeGuid: 0f4fcefe-ee69-4714-aa7e-9378ad0b04e1
+    BaseExitName: 
+    TargetNodeGuid: 638324f3-0a16-4eba-84d2-5e499449e4a2
+  - BaseNodeGuid: 4493241e-2008-4d4e-b940-0893a4e1e4da
+    BaseExitName: 
+    TargetNodeGuid: f715ab8b-db90-4e52-af67-419ccce90fd5
+  - BaseNodeGuid: f715ab8b-db90-4e52-af67-419ccce90fd5
+    BaseExitName: 
+    TargetNodeGuid: f2a28174-931e-42b5-8b4e-49cdb7904b24
+  - BaseNodeGuid: 9e9e2570-eee4-4451-9b01-2481f69c83fa
+    BaseExitName: 
+    TargetNodeGuid: 642d6a42-87b2-43f0-8ce7-40fb078d878f
   - BaseNodeGuid: 9ad569e4-bac4-4ab3-b646-4ffef4608719
     BaseExitName: 
     TargetNodeGuid: f073010f-fe58-421e-877f-ec902b5c5012
@@ -2371,18 +2452,6 @@ MonoBehaviour:
   - BaseNodeGuid: 115e051c-a4da-4610-91b1-ad974dfcb6a5
     BaseExitName: 8d731d03-17ab-45eb-9637-80925fc93110
     TargetNodeGuid: bf30a3c4-1c65-4e10-b1ba-86e709aafd12
-  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
-    BaseExitName: 
-    TargetNodeGuid: 871b5be6-fa64-45b1-886b-8abc9df11c35
-  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
-    BaseExitName: 76f15703-4938-4e84-a10c-e992ad07d124
-    TargetNodeGuid: b5f970b5-b81b-4c6b-b089-e56b1a446cd8
-  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
-    BaseExitName: 1b9cbef2-6ff7-4eeb-84a6-26dfa0b52997
-    TargetNodeGuid: cc6f1ec2-fa38-465c-a4a0-ca39fcedbb34
-  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
-    BaseExitName: caf01790-a033-462b-ada5-985ede6b2a94
-    TargetNodeGuid: a76bdf57-c52f-491b-96fa-13061c68c4d9
   - BaseNodeGuid: f2a28174-931e-42b5-8b4e-49cdb7904b24
     BaseExitName: 56cff708-471e-45c3-822a-e8c457556a0a
     TargetNodeGuid: 0401a2e0-8f23-4f37-8220-a0a74420e1b4
@@ -2395,18 +2464,24 @@ MonoBehaviour:
   - BaseNodeGuid: 40e95a08-4b39-4e04-9f5b-73b643dd7e23
     BaseExitName: 
     TargetNodeGuid: 58cb63db-6216-4f61-a86c-8261ea0b82a6
+  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
+    BaseExitName: 
+    TargetNodeGuid: 871b5be6-fa64-45b1-886b-8abc9df11c35
+  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
+    BaseExitName: 76f15703-4938-4e84-a10c-e992ad07d124
+    TargetNodeGuid: b5f970b5-b81b-4c6b-b089-e56b1a446cd8
+  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
+    BaseExitName: 1b9cbef2-6ff7-4eeb-84a6-26dfa0b52997
+    TargetNodeGuid: cc6f1ec2-fa38-465c-a4a0-ca39fcedbb34
+  - BaseNodeGuid: b76c6fbb-d6eb-4179-a631-db2d074d7980
+    BaseExitName: caf01790-a033-462b-ada5-985ede6b2a94
+    TargetNodeGuid: a76bdf57-c52f-491b-96fa-13061c68c4d9
   - BaseNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
     BaseExitName: 
     TargetNodeGuid: 1bf7e51b-a2f7-489e-a2b1-3e28d54426a3
   - BaseNodeGuid: 4b3b73e6-d303-4b8d-a918-16244a5fcca1
     BaseExitName: 
     TargetNodeGuid: 2f2a22f3-591b-45fc-a399-1587d59b508b
-  - BaseNodeGuid: 871b5be6-fa64-45b1-886b-8abc9df11c35
-    BaseExitName: 
-    TargetNodeGuid: 06744a57-26d3-4a30-bccb-7542a7c62ddc
-  - BaseNodeGuid: 6197a592-acbd-4c65-bab3-205c5e761ec2
-    BaseExitName: 
-    TargetNodeGuid: 0c9f6254-774c-4444-8b7b-335d08cc21cb
   - BaseNodeGuid: c3f35ef8-1858-4755-b11b-d2ac10d825d1
     BaseExitName: 
     TargetNodeGuid: 89cd6da9-65d9-4b34-b2b7-987ec231a6a5
@@ -2452,3 +2527,9 @@ MonoBehaviour:
   - BaseNodeGuid: 58cd0183-4cd2-4524-9841-b34fa6e23990
     BaseExitName: 
     TargetNodeGuid: 3fe83d72-715c-467f-a323-3a6a24ddd134
+  - BaseNodeGuid: 871b5be6-fa64-45b1-886b-8abc9df11c35
+    BaseExitName: 
+    TargetNodeGuid: 06744a57-26d3-4a30-bccb-7542a7c62ddc
+  - BaseNodeGuid: 6197a592-acbd-4c65-bab3-205c5e761ec2
+    BaseExitName: 
+    TargetNodeGuid: 0c9f6254-774c-4444-8b7b-335d08cc21cb
