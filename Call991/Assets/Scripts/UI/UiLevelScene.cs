@@ -11,8 +11,6 @@ namespace UI
 {
     public class UiPhraseData
     {
-        public string Description;
-
         public Phrase Phrase;
         public PersonVisualData PersonVisualData;
         public PhraseVisualData PhraseVisualData;
@@ -20,8 +18,6 @@ namespace UI
 
     public class UiImagePhraseData
     {
-        public string Description;
-
         public Sprite Sprite;
         public Phrase Phrase;
         public ImagePersonVisualData PersonVisualData;

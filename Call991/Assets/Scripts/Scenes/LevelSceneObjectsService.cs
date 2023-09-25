@@ -15,6 +15,7 @@ public class LevelSceneObjectsService : IDisposable
     public ReactiveCommand<int> OnAutoSelectButton = new ();
     public ReactiveCommand<List<ChoiceNodeData>> OnShowButtons = new ();
     public ReactiveCommand OnHideButtons  = new ();
+    public ReactiveCommand OnBlockButtons = new ();
 
     public void Dispose()
     {

@@ -366,7 +366,6 @@ public class LevelScenePm : IDisposable
 
         var uiPhrase = new UiPhraseData
         {
-            Description = data.PhraseSketchText,
             PersonVisualData = data.PersonVisualData,
             PhraseVisualData = data.PhraseVisualData,
             Phrase = phrase,
@@ -396,7 +395,6 @@ public class LevelScenePm : IDisposable
 
         var uiPhrase = new UiImagePhraseData
         {
-            Description = data.PhraseSketchText,
             PersonVisualData = data.ImagePersonVisualData,
             PhraseVisualData = data.PhraseVisualData,
             Phrase = phrase,
@@ -519,6 +517,8 @@ public class LevelScenePm : IDisposable
 
         foreach (var t in Timer(_ctx.GameSet.choicesDuration, _isChoiceDone)) yield return t;
 
+        _ctx.LevelSceneObjectsService.OnBlockButtons.Execute();
+        
         if (!_isChoiceDone.Value) AutoChoice(data);
 
         _ctx.MediaService.AudioManager.StopTimerSfx();
