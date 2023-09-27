@@ -235,8 +235,7 @@ namespace AaDialogueGraph.Editor
         {
             if (data.Type != PhraseEventType.GameObject &&
                 data.Type != PhraseEventType.VideoClip &&
-                data.Type != PhraseEventType.Image &&
-                data.Type != PhraseEventType.Projector)
+                data.Type != PhraseEventType.Image)
                 return;
 
             Type = data.Type;
@@ -395,8 +394,6 @@ namespace AaDialogueGraph.Editor
             {
                 case PhraseEventType.Image:
                     return GetImageData();
-                case PhraseEventType.Projector:
-                    return GetProjectorData();
                 case PhraseEventType.VideoClip:
                     return GetVideoData();
                 case PhraseEventType.GameObject:
@@ -437,15 +434,6 @@ namespace AaDialogueGraph.Editor
                         objectType = typeof(Sprite),
                         allowSceneObjects = false,
                         value = imageAsset,
-                    };
-                    break;
-                case PhraseEventType.Projector:
-                    var projectorAsset = data.GetEventObject<Sprite>();
-                    _objectField = new ObjectField
-                    {
-                        objectType = typeof(Sprite),
-                        allowSceneObjects = false,
-                        value = projectorAsset,
                     };
                     break;
                 case PhraseEventType.VideoClip:

@@ -10,7 +10,7 @@ namespace AaDialogueGraph.Editor
     {
         private CompositeNewspaper _objectField;
 
-        public void Set(NewspaperNodeData data, string guid, SoundLists soundLists)
+        public void Set(NewspaperNodeData data, List<string> languages, string guid, SoundLists soundLists)
         {
             Guid = guid;
             title = AaGraphConstants.NewspaperNode;

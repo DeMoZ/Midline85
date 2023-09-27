@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using Configs;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
@@ -47,6 +46,15 @@ namespace AaDialogueGraph.Editor
                 name = AaGraphConstants.ProjectorImages,
             };
             contentContainer.Add(grabProjectorImages);
+            
+            var enableSkipButton = new Toggle
+            {
+                text = AaGraphConstants.EnableSkipLevelButton,
+                value = data?.EnableSkipLevelButton ?? false,
+                tooltip = "Dialogue will bi skipped to the end node \n used for cinematic only",
+                name = AaGraphConstants.EnableSkipLevelButton,
+            };
+            contentContainer.Add(enableSkipButton);
 
             var btnFilterLineGroup = new LineGroup(new VisualElement[] { btnLabel, buttonFilterField });
             contentContainer.Add(btnFilterLineGroup);

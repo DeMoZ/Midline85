@@ -103,7 +103,6 @@ public class ScenesHandler : IDisposable
     {
         var sceneEntity = new OpenSceneEntity(new OpenSceneEntity.Ctx
         {
-            GameSet = _ctx.GameSet,
             OnSwitchScene = _ctx.OnSwitchScene,
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,

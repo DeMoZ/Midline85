@@ -19,6 +19,7 @@ namespace UI
             public LevelSceneObjectsService LevelSceneObjectsService;
         }
 
+        [SerializeField] private GameObject choiceBlocker;
         [SerializeField] private Button pauseButton = default;
         [SerializeField] private CanvasGroup choiceCanvasGroup;
         [SerializeField] private List<GameObject> buttonSplitters = default;
@@ -27,8 +28,6 @@ namespace UI
         [SerializeField] private CountDownView countDown = default;
         [SerializeField] private CanvasGroup canvasGroup = default;
 
-        [SerializeField] private TextPersonView imagePersonText = default;
-        
         private Ctx _ctx;
         private CompositeDisposable _disposables;
 
@@ -59,18 +58,20 @@ namespace UI
             foreach (var person in imagePersons)
                 person.gameObject.SetActive(false);
 
-            imagePersonText.gameObject.SetActive(false);
             HideButtons();
-            
+
             _ctx.LevelSceneObjectsService.OnShowButtons.Subscribe(OnShowButtons).AddTo(_disposables);
+            _ctx.LevelSceneObjectsService.OnBlockButtons.Subscribe(_ => OnBlockButtons()).AddTo(_disposables);
             _ctx.LevelSceneObjectsService.OnHideButtons.Subscribe(_ => OnHideButtons()).AddTo(_disposables);
-            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_ => DisactiveButtonsStopTimer()).AddTo(_disposables);
+            _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(_ => DeactivateButtonsStopTimer())
+                .AddTo(_disposables);
             pauseButton.onClick.AddListener(OnClickPauseButton);
         }
 
         private void OnShowButtons(List<ChoiceNodeData> data)
         {
             HideButtons();
+            EnableChoicesBlocker(false);
             choiceCanvasGroup.alpha = 0;
             if (data == null) return;
             if (data.Count > 0)
@@ -88,13 +89,21 @@ namespace UI
             countDown.Show();
         }
 
-        private void DisactiveButtonsStopTimer()
+        private void EnableChoicesBlocker(bool enable) => choiceBlocker.SetActive(enable);
+
+        private void DeactivateButtonsStopTimer()
         {
-            foreach (var button in Buttons) 
+            foreach (var button in Buttons)
                 button.interactable = false;
 
             countDown.Stop();
         }
+        
+        /// <summary>
+        /// Hide buttons event have delay to show show click animation and blocker have to be shown strait awat.
+        /// Therefore it is separated.
+        /// </summary>
+        private void OnBlockButtons() => EnableChoicesBlocker(true);
 
         /// <summary>
         /// on hide buttons event
@@ -149,12 +158,17 @@ namespace UI
 
             var phraseData = new UiPhraseData
             {
-                Description = data.Description,
                 Phrase = data.Phrase,
                 PhraseVisualData = data.PhraseVisualData,
-                PersonVisualData = new PersonVisualData { Person = data.PersonVisualData.Person },
+                PersonVisualData = new PersonVisualData
+                {
+                    Person = data.PersonVisualData.Person, 
+                    ScreenPlace = ScreenPlace.BottomLine,
+                    HideOnEnd = data.PersonVisualData.HideOnEnd
+                },
             };
-            imagePersonText.ShowPhrase(phraseData);
+            
+            OnShowPhrase(phraseData);
         }
 
         public void OnHidePhrase(UiPhraseData data)

@@ -68,6 +68,7 @@ public class Blocker : IDisposable
     public void EnableScreenFade(bool enable, bool show = true)
     {
         Debug.Log($"[{this}] Screen fade enable {enable}; show {show}");
+        _tween?.Kill();
         _screenBlockerColor.a = show ? 1 : 0;
         _screenFade.color = _screenBlockerColor;
         _screenFade.gameObject.SetActive(enable);

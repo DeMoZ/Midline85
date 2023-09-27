@@ -12,6 +12,8 @@ public static class AaGraphConstants
     public const string CountNode = "Count";
     public const string EventNode = "Event";
     public const string NewspaperNode = "Newspaper";
+    public const string SlideNode = "Slide";
+    public const string Slides = "Slides";
     public const string NewspaperObject = "Prefab";
     public const string EndNode = "End";
 
@@ -69,4 +71,5 @@ public static class AaGraphConstants
     public const string EndNodeSkipSelectNextLevelButtons = "Skip Buttons";
     public const string ForceChoice = "ForceChoice";
     public const string ProjectorImages = "ProjectorImages";
+    public const string EnableSkipLevelButton = "SkipButton";
 }

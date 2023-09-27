@@ -32,7 +32,7 @@ public enum PhraseEventType
     VideoClip,
     GameObject,
     Image,
-    Projector,
+    Projector, // TODO Remove Enum option
 }
 
 public enum CaseType
