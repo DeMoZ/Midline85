@@ -4280,6 +4280,91 @@
 								</Sound>
 							</ChildrenList>
 						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="sfx_CameraSlider" ID="{4522067C-B07F-4474-8BFA-B7D079ADB8B7}" ShortID="640439221">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="sfx_CameraSlider_01" ID="{9A6FC696-F859-459A-9E4A-D664F41CE69D}" ShortID="578613147">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_CameraSlider_01-001" ID="{799C2F3A-99A0-4574-9A21-C44C74AFC686}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_CameraSlider_01-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="332724998"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_CameraSlider_01-001" ID="{799C2F3A-99A0-4574-9A21-C44C74AFC686}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_CameraSlider_02" ID="{22406283-C0B8-482F-B342-7034C86E65BA}" ShortID="248289518">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_CameraSlider_02-001" ID="{C3BA7106-7C63-4429-B6F8-98F1B730FB9E}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_CameraSlider_02-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="545904922"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_CameraSlider_02-001" ID="{C3BA7106-7C63-4429-B6F8-98F1B730FB9E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_CameraSlider_03" ID="{9E1993FA-BDD8-405A-91A7-131271245DD6}" ShortID="963320795">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_CameraSlider_03-001" ID="{D1C5195B-3638-47DE-8D6D-95A607FBD0C5}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_CameraSlider_03-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="241346890"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_CameraSlider_03-001" ID="{D1C5195B-3638-47DE-8D6D-95A607FBD0C5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Cinematics" ID="{1238FA84-D084-4078-AF63-9E38C5CDD4F3}" ShortID="571573429">

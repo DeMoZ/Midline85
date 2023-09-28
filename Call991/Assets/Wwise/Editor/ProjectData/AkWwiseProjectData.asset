@@ -619,7 +619,7 @@ MonoBehaviour:
     ParentPath: SoundBanks\Default Work Unit
     guid: fcbd83871106814e89e3bdcbcfba4617
     GuidInternal: 
-    m_lastTime: -8585057246076318469
+    m_lastTime: -8585056866120088129
     List:
     - name: L1_Intro
       guid: 835be93c7152b74b869d5cd79a288a53
@@ -15395,7 +15395,7 @@ MonoBehaviour:
     ParentPath: Events\Default Work Unit
     guid: 4a6e6089b90cdb4ea9bd592f01a34db8
     GuidInternal: 
-    m_lastTime: -8585064752884235907
+    m_lastTime: -8585056866120093329
     List: []
   - PhysicalPath: Events\GameSyncs.wwu
     PathAndIcons:
@@ -15519,7 +15519,7 @@ MonoBehaviour:
     ParentPath: Events\SFX
     guid: ee52e50aea7d36409b322b1686337b1c
     GuidInternal: 
-    m_lastTime: -8585076517117492613
+    m_lastTime: -8585056866120108369
     List:
     - name: fire_sfx_jackanger
       guid: 1d1884f1bb01624d8787f28fbc8347d6
@@ -15552,6 +15552,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: c71e35aa8c33c744b12a84305d61077a
       Path: Events\SFX\sfx_3foot
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: sfx_CameraSlider
+      guid: 1fc470d1d02ef1468adb517756ea912b
+      id: 2345651031
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: SFX
+        ObjectType: 12
+        guid: ee52e50aea7d36409b322b1686337b1c
+      - ElementName: sfx_CameraSlider
+        ObjectType: 3
+        guid: 1fc470d1d02ef1468adb517756ea912b
+      Path: Events\SFX\sfx_CameraSlider
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -15841,6 +15858,57 @@ MonoBehaviour:
         ObjectType: 3
         guid: c494ae064c20324abcffc9a129e0cbcf
       Path: Events\SFX\sfx_newspaper
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: sfx_newspaper_scroll
+      guid: 9113c6e269680a4d8857f3e996f6c9a8
+      id: 2348070326
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: SFX
+        ObjectType: 12
+        guid: ee52e50aea7d36409b322b1686337b1c
+      - ElementName: sfx_newspaper_scroll
+        ObjectType: 3
+        guid: 9113c6e269680a4d8857f3e996f6c9a8
+      Path: Events\SFX\sfx_newspaper_scroll
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: sfx_newspaper_ZoomIn
+      guid: 5fb6594c5c9c844da76cb8b01414e57c
+      id: 453325785
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: SFX
+        ObjectType: 12
+        guid: ee52e50aea7d36409b322b1686337b1c
+      - ElementName: sfx_newspaper_ZoomIn
+        ObjectType: 3
+        guid: 5fb6594c5c9c844da76cb8b01414e57c
+      Path: Events\SFX\sfx_newspaper_ZoomIn
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: sfx_newspaper_ZoomOut
+      guid: ea9aa3452661a141baa566a0f0383d68
+      id: 1194063512
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: SFX
+        ObjectType: 12
+        guid: ee52e50aea7d36409b322b1686337b1c
+      - ElementName: sfx_newspaper_ZoomOut
+        ObjectType: 3
+        guid: ea9aa3452661a141baa566a0f0383d68
+      Path: Events\SFX\sfx_newspaper_ZoomOut
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
@@ -16242,7 +16310,7 @@ MonoBehaviour:
     ParentPath: Events\UI
     guid: 4e454da051a5764a822eafd142169134
     GuidInternal: 
-    m_lastTime: -8585064616887290187
+    m_lastTime: -8585057187131858537
     List:
     - name: UI_Click_Game
       guid: 874e66795e86794eb2744fca307227ca
@@ -16309,6 +16377,23 @@ MonoBehaviour:
         ObjectType: 3
         guid: a0a99bebde3d394db95eebff201b49cc
       Path: Events\UI\UI_Overlap
+      maxAttenuation: 0
+      maxDuration: -1
+      minDuration: -1
+    - name: UI_Overlap_Level
+      guid: 88f5bac173717f4ba2db1c98952d0494
+      id: 3772810264
+      PathAndIcons:
+      - ElementName: Events
+        ObjectType: 5
+        guid: 00000000000000000000000000000000
+      - ElementName: UI
+        ObjectType: 12
+        guid: 4e454da051a5764a822eafd142169134
+      - ElementName: UI_Overlap_Level
+        ObjectType: 3
+        guid: 88f5bac173717f4ba2db1c98952d0494
+      Path: Events\UI\UI_Overlap_Level
       maxAttenuation: 0
       maxDuration: -1
       minDuration: -1
