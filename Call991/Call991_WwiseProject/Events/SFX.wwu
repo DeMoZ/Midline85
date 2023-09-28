@@ -406,6 +406,39 @@
 						</Action>
 					</ChildrenList>
 				</Event>
+				<Event Name="sfx_newspaper_scroll" ID="{E2C61391-6869-4D0A-8857-F3E996F6C9A8}">
+					<ChildrenList>
+						<Action Name="" ID="{4D30153E-C1A4-4FDB-86AB-2ED6938A19E7}" ShortID="586435959">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_newspaper_scroll" ID="{FC19F233-72B0-4FEE-92D2-9A5D7FE7E8EC}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_newspaper_ZoomIn" ID="{4C59B65F-9C5C-4D84-A76C-B8B01414E57C}">
+					<ChildrenList>
+						<Action Name="" ID="{B2077B5B-3222-4E52-B06E-4DDC9262E64F}" ShortID="515804075">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_newspaper_ZoomIn" ID="{C2EC6176-2CC8-47E6-9DE1-AC595A9A3C0B}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="sfx_newspaper_ZoomOut" ID="{45A39AEA-6126-41A1-BAA5-66A0F0383D68}">
+					<ChildrenList>
+						<Action Name="" ID="{033593B4-7132-45BD-8164-12EA8962EF72}" ShortID="809965044">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="sfx_newspaper_ZoomOut" ID="{3049A3F4-6B4F-4863-A6AB-EA6C50CD535D}" WorkUnitID="{19D40057-467E-4521-89BC-93372F8713A8}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

@@ -3828,6 +3828,458 @@
 								<ActiveSource Name="sfx_susup" ID="{966E59E8-6281-4348-A5C4-1F338EA21A6D}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<RandomSequenceContainer Name="sfx_newspaper_ZoomIn" ID="{C2EC6176-2CC8-47E6-9DE1-AC595A9A3C0B}" ShortID="777611899">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="sfx_newspaper_ZoomIn_01" ID="{4490750C-B400-4DE1-AA9D-CFCACDFB83F9}" ShortID="145213146">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_ZoomIn_01-002" ID="{54D1E472-6B68-4484-A9FC-5332EBB21E52}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_ZoomIn_01-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="453302141"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_ZoomIn_01-002" ID="{54D1E472-6B68-4484-A9FC-5332EBB21E52}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_ZoomIn_02" ID="{3CB81B07-AF86-4C2C-9836-E8225C29EB53}" ShortID="962076483">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_ZoomIn_02-002" ID="{D8CD946D-85A1-4BAC-883B-4DAB2F4C9FE5}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_ZoomIn_02-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1071775312"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_ZoomIn_02-002" ID="{D8CD946D-85A1-4BAC-883B-4DAB2F4C9FE5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_ZoomIn_03" ID="{68B5A3AB-CD6E-4B14-81C9-6C5ECDBD1F83}" ShortID="9325760">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_ZoomIn_03-002" ID="{CBEA1600-C47F-4B2C-BA83-FB83B30A5AEF}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_ZoomIn_03-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="238069193"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_ZoomIn_03-002" ID="{CBEA1600-C47F-4B2C-BA83-FB83B30A5AEF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="sfx_newspaper_ZoomOut" ID="{3049A3F4-6B4F-4863-A6AB-EA6C50CD535D}" ShortID="257367824">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="sfx_newspaper_ZoomOut_01" ID="{4DC57AA1-B118-4F88-9B88-610E27EB1FDA}" ShortID="820015522">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_ZoomOut_01-001" ID="{D305EB2A-3A45-4854-BD8F-077AF18F33FF}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_ZoomOut_01-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="969708536"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_ZoomOut_01-001" ID="{D305EB2A-3A45-4854-BD8F-077AF18F33FF}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_ZoomOut_02" ID="{1DADC54A-26CC-44B9-A5B8-FFE1753F13B1}" ShortID="233936695">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_ZoomOut_02-001" ID="{BAF33628-9B0B-44B5-881F-7F8398F59576}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_ZoomOut_02-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="508396879"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_ZoomOut_02-001" ID="{BAF33628-9B0B-44B5-881F-7F8398F59576}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_ZoomOut_03" ID="{776AD9B6-9104-4495-A86F-C11BABD8271F}" ShortID="1027359865">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_ZoomOut_03-001" ID="{FFE89179-D68C-4780-B39F-6B2DF055F740}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_ZoomOut_03-001.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="582620936"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_ZoomOut_03-001" ID="{FFE89179-D68C-4780-B39F-6B2DF055F740}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="sfx_newspaper_scroll" ID="{FC19F233-72B0-4FEE-92D2-9A5D7FE7E8EC}" ShortID="320070780">
+							<PropertyList>
+								<Property Name="MaxSoundPerInstance" Type="int16">
+									<ValueList>
+										<Value>3</Value>
+									</ValueList>
+								</Property>
+								<Property Name="RandomAvoidRepeatingCount" Type="int32" Value="4"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-27</Value>
+									</ValueList>
+									<ModifierList>
+										<ModifierInfo>
+											<Modifier Name="" ID="{33EE0A55-C847-449D-A1DF-2018D2EBDCDA}">
+												<PropertyList>
+													<Property Name="Enabled" Type="bool" Value="True"/>
+													<Property Name="Min" Type="Real64" Value="-3"/>
+												</PropertyList>
+											</Modifier>
+										</ModifierInfo>
+									</ModifierList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="sfx_newspaper_scroll_01" ID="{A74C92ED-BD00-4F7D-A9E8-368EE80316BC}" ShortID="759499246">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_01-002" ID="{9ADB7310-D00C-4D1D-A304-E63BAA323343}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_01-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="406081678"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_01-002" ID="{9ADB7310-D00C-4D1D-A304-E63BAA323343}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_02" ID="{FD6AF2FD-0BB0-4696-BB5B-500BD6FF357D}" ShortID="138028754">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_02-002" ID="{05F1F979-916F-4A82-A011-484768095638}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_02-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="534861255"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_02-002" ID="{05F1F979-916F-4A82-A011-484768095638}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_03" ID="{3298A74F-0A89-40B3-875F-6AD5A5190114}" ShortID="769669688">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_03-002" ID="{AA316757-F381-4A3B-A748-77D742EA8E51}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_03-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="648471118"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_03-002" ID="{AA316757-F381-4A3B-A748-77D742EA8E51}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_04" ID="{407F7C3D-2EA1-4902-BF0C-59B202B732FB}" ShortID="278656521">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_04-002" ID="{C9996076-2C3E-448B-BA0B-9C0AAC696E0D}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_04-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="895768187"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_04-002" ID="{C9996076-2C3E-448B-BA0B-9C0AAC696E0D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_05" ID="{5A78AD40-7717-4530-8F79-0C5A83C8AF77}" ShortID="347875739">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_05-002" ID="{C2481D48-EB53-4F93-A1CB-A810EAD35ABC}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_05-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="332373181"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_05-002" ID="{C2481D48-EB53-4F93-A1CB-A810EAD35ABC}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_06" ID="{64624E42-DBD8-4FE0-B102-A3101B1A54D0}" ShortID="263045910">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_06-002" ID="{16302358-8F8B-4AEC-A7A5-3ADD755F9C1A}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_06-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="370072663"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_06-002" ID="{16302358-8F8B-4AEC-A7A5-3ADD755F9C1A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_07" ID="{8CCE1432-B50E-4E2B-A012-B416B5B2D6E7}" ShortID="127897390">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_07-002" ID="{D83CD013-C6FA-423D-9D22-D1C6E9B7F34F}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_07-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="751996004"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_07-002" ID="{D83CD013-C6FA-423D-9D22-D1C6E9B7F34F}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_08" ID="{97C65386-99C6-488B-B176-AA623BF076D1}" ShortID="932088254">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_08-002" ID="{06EF569B-A91F-44B8-BABA-1E652F35BBC2}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_08-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="348893871"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_08-002" ID="{06EF569B-A91F-44B8-BABA-1E652F35BBC2}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_09" ID="{0EDD8F2A-C77B-4F2D-8001-A0EC9CAB4B3D}" ShortID="964142659">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_09-002" ID="{5EADB90F-EFF6-4E51-8DED-2E687A1343A5}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_09-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="809885072"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_09-002" ID="{5EADB90F-EFF6-4E51-8DED-2E687A1343A5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_10" ID="{FFA80B39-020F-4C85-BA72-21E9966B397E}" ShortID="1011934586">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_10-002" ID="{65576FC7-7FB0-41A0-A675-BD09F8C74F8A}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_10-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="1021109483"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_10-002" ID="{65576FC7-7FB0-41A0-A675-BD09F8C74F8A}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="sfx_newspaper_scroll_11" ID="{33AE8A5D-CB8F-455E-AACF-365D8E28FD6B}" ShortID="495000847">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="sfx_newspaper_scroll_11-002" ID="{0FA59F0E-2A81-44C6-9319-6B99E4D83AFB}">
+											<Language>SFX</Language>
+											<AudioFile>SFX\sfx_newspaper_scroll_11-002.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="168590962"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="sfx_newspaper_scroll_11-002" ID="{0FA59F0E-2A81-44C6-9319-6B99E4D83AFB}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
 					</ChildrenList>
 				</ActorMixer>
 				<ActorMixer Name="Cinematics" ID="{1238FA84-D084-4078-AF63-9E38C5CDD4F3}" ShortID="571573429">
