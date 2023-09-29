@@ -13741,7 +13741,7 @@
 				</Event>
 			</Events>
 		</SoundBank>
-		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{0B72D937-5CED-1C87-348D-4E6EF52E63EA}">
+		<SoundBank Id="4056684167" Type="User" Language="SFX" Hash="{8FE41096-9C59-5F82-FB62-6F37130F4CB8}">
 			<ShortName>Master</ShortName>
 			<Path>Master.bnk</Path>
 			<Media>
@@ -13769,6 +13769,10 @@
 					<ShortName>SFX\sfx_newspaper_ZoomIn_03-002.wav</ShortName>
 					<CachePath>SFX/SFX/sfx_newspaper_ZoomIn_03-002_CCAF7A5E.wem</CachePath>
 				</File>
+				<File Id="241346890" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_CameraSlider_03-001.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_CameraSlider_03-001_CCAF7A5E.wem</CachePath>
+				</File>
 				<File Id="251063637" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>UI_Pause.wav</ShortName>
 					<CachePath>SFX/UI_Pause_EBAAC015.wem</CachePath>
@@ -13788,6 +13792,10 @@
 				<File Id="332373181" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\sfx_newspaper_scroll_05-002.wav</ShortName>
 					<CachePath>SFX/SFX/sfx_newspaper_scroll_05-002_CCAF7A5E.wem</CachePath>
+				</File>
+				<File Id="332724998" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_CameraSlider_01-001.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_CameraSlider_01-001_CCAF7A5E.wem</CachePath>
 				</File>
 				<File Id="348893871" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\sfx_newspaper_scroll_08-002.wav</ShortName>
@@ -13832,6 +13840,10 @@
 				<File Id="534861255" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>SFX\sfx_newspaper_scroll_02-002.wav</ShortName>
 					<CachePath>SFX/SFX/sfx_newspaper_scroll_02-002_CCAF7A5E.wem</CachePath>
+				</File>
+				<File Id="545904922" Language="SFX" Streaming="false" Location="Memory">
+					<ShortName>SFX\sfx_CameraSlider_02-001.wav</ShortName>
+					<CachePath>SFX/SFX/sfx_CameraSlider_02-001_CCAF7A5E.wem</CachePath>
 				</File>
 				<File Id="558708138" Language="SFX" Streaming="false" Location="Memory">
 					<ShortName>sfx_clock_03.wav</ShortName>
@@ -13975,6 +13987,13 @@
 						<ActionSetStateEntry GroupId="3237031728" Id="748895195" Name="None"/>
 					</ActionSetState>
 				</Event>
+				<Event Id="2345651031" Name="sfx_CameraSlider" DurationType="OneShot" DurationMin="1.4364583" DurationMax="1.4364583">
+					<MediaRefs>
+						<MediaRef Id="241346890"/>
+						<MediaRef Id="332724998"/>
+						<MediaRef Id="545904922"/>
+					</MediaRefs>
+				</Event>
 				<Event Id="488670904" Name="sfx_decidetime_end" DurationType="OneShot" DurationMin="0" DurationMax="0">
 					<ActionSetState>
 						<ActionSetStateEntry GroupId="1112948642" Id="748895195" Name="None"/>
@@ -14108,5 +14127,5 @@
 			</Triggers>
 		</SoundBank>
 	</SoundBanks>
-	<FileHash>{267D7E65-1E9B-58D5-8FF1-BA462A497FFA}</FileHash>
+	<FileHash>{F58EECF7-815A-103A-2F1B-9FD39403F0B6}</FileHash>
 </SoundBanksInfo>
