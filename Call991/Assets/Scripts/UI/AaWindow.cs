@@ -144,7 +144,7 @@ public class AaWindow : InputHandler
     private void OnButtonNormal(AaButton button)
     {
         //Debug.Log($"[{this}] <color=red>Window</color> to OnUnSelect {obj.gameObject.ToStringEventSystem()}");
-        firstSelected = button;
+        //firstSelected = button;
 //        EventSystem.current.SetSelectedGameObject(null);
     }
 
