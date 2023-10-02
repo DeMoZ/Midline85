@@ -1,0 +1,2692 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{E32DBAD9-EB0D-4D2F-96F0-1877E7B0B790}" SchemaVersion="110" RootDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}" ParentDocumentID="{3FCE134D-6A1D-4399-96C7-13920D67DDCE}">
+	<AudioObjects>
+		<WorkUnit Name="George" ID="{E32DBAD9-EB0D-4D2F-96F0-1877E7B0B790}" OwnerID="{11BA779E-6EDC-4448-9831-CE7CD9B4405C}" PersistMode="Nested">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="10"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<ActorMixer Name="pizza_george" ID="{EFC75C24-95C5-4F0E-9BC6-64D55A131D0E}" ShortID="850624389">
+					<PropertyList>
+						<Property Name="EnableLoudnessNormalization" Type="bool" Value="True"/>
+						<Property Name="OverrideAnalysis" Type="bool" Value="True"/>
+						<Property Name="OverrideOutput" Type="bool" Value="True"/>
+						<Property Name="RenderEffect0" Type="bool">
+							<ValueList>
+								<Value>True</Value>
+							</ValueList>
+						</Property>
+						<Property Name="Volume" Type="Real64">
+							<ValueList>
+								<Value>-3.9</Value>
+							</ValueList>
+						</Property>
+					</PropertyList>
+					<ReferenceList>
+						<Reference Name="Conversion">
+							<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+						</Reference>
+						<Reference Name="Effect0" PluginName="Wwise Compressor" CompanyID="0" PluginID="108" PluginType="3">
+							<ObjectRef Name="Dialog_Leveler_Soft" ID="{9C1D0FCF-896E-4739-A8E8-B1E908F51CE6}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+						</Reference>
+						<Reference Name="OutputBus">
+							<ObjectRef Name="George" ID="{8D05D29C-B2E1-4CBA-8F57-2E2B8AE47F45}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+						</Reference>
+					</ReferenceList>
+					<ChildrenList>
+						<Sound Name="pizza_george_037" ID="{2F4025E5-B7B2-4A40-9B1B-5FAD98F34C8E}" ShortID="469058745">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_037" ID="{0363BBFB-7BEB-432D-AE41-FF64934D59D0}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_037.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="481412376"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{599AEFFD-E74A-4BAE-94D9-A880EB92334C}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_037.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="322455225"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{4689BC5C-15A6-45E4-AC05-AF3C2100B735}" ShortID="883360201" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{4689BC5C-15A6-45E4-AC05-AF3C2100B735}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{599AEFFD-E74A-4BAE-94D9-A880EB92334C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_034" ID="{C241B9DD-E231-4B63-9F90-1A58AB4F4E80}" ShortID="38800638">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>36</Value>
+									</ValueList>
+								</Property>
+								<Property Name="MakeUpGain" Type="Real64">
+									<ValueList>
+										<Value>1.1</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>4.1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_034" ID="{8841BCF2-5F4D-478D-9394-F0D845825629}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_034.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="572837543"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{17219035-80BC-4FA8-8786-7806FD146ED2}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_034.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="543730238"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{040DC380-5BAD-4638-B384-51F5A2E76C3E}" ShortID="435001717" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{17219035-80BC-4FA8-8786-7806FD146ED2}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{040DC380-5BAD-4638-B384-51F5A2E76C3E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_033" ID="{173C98BE-6B03-4039-9D62-1E2EAAAB024E}" ShortID="1021901977">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_033" ID="{76E3C24F-C919-4473-BC8A-95136C046A12}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_033.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="403145760"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_033a" ID="{805E861F-4183-4D75-B697-E7DFE492CF59}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.033.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="301966201"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{F5AC1C1B-BC75-4D54-8C5E-89CA7CADD145}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_033.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="250099394"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{93345340-2EE0-459B-A0B5-943B525784DA}" ShortID="612288391" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{F5AC1C1B-BC75-4D54-8C5E-89CA7CADD145}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{93345340-2EE0-459B-A0B5-943B525784DA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_036" ID="{B75E45FF-E59C-4F00-99AE-42C5FD0DD7BF}" ShortID="918663146">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_036" ID="{CBC37B07-EF4B-4E16-94F5-AA2925DD1EEC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_036.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="837982019"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{75203D80-6681-4C40-9993-043F388D86BE}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_036.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1004871219"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{EE4F27D3-A817-4923-9D85-CA0B93B3629D}" ShortID="4436121" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{75203D80-6681-4C40-9993-043F388D86BE}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{EE4F27D3-A817-4923-9D85-CA0B93B3629D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_035" ID="{AD35DAB0-E4E5-4BDC-9E04-8CF725FED8B7}" ShortID="472892200">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_035" ID="{63FBF42D-471C-4695-BA90-1C87B9E74A4D}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_035.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="885545609"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{C682799E-D5F5-485E-B289-092BAA189110}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_035.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="430342022"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{E4D36BBE-A882-4EA5-BD5E-4540EACE844C}" ShortID="97846254" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{C682799E-D5F5-485E-B289-092BAA189110}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{E4D36BBE-A882-4EA5-BD5E-4540EACE844C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_019" ID="{E7C78B3F-E21D-4E6A-81DE-1E9156809998}" ShortID="168558189">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_019" ID="{DD7F8B3F-378D-4D02-A7C4-683966591044}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="174642988"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{C3FD9B96-70A9-42D0-920A-AAB88F685D41}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_019.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="28734180"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{D5FB88AA-074D-4B4E-BC26-E0C6E2BDDD7B}" ShortID="529728356" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{C3FD9B96-70A9-42D0-920A-AAB88F685D41}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{D5FB88AA-074D-4B4E-BC26-E0C6E2BDDD7B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_024" ID="{BCFEFBFB-BA1C-4A26-9A3D-D1ED0234126C}" ShortID="188648277">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>23</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_024" ID="{0E763D3F-481E-4229-82DC-A71D292E1573}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_024.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="444756583"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{9B77315F-007C-48B2-A444-8035EC226560}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_024.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="745162451"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{8C73DD54-2D48-4BC4-87A7-1C4B728D8E7A}" ShortID="583599668" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{8C73DD54-2D48-4BC4-87A7-1C4B728D8E7A}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{9B77315F-007C-48B2-A444-8035EC226560}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_030" ID="{06DF65E5-6639-4703-8418-EDB38F4EC566}" ShortID="779698553">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_030" ID="{B57095F0-F1C4-4FCF-BDFA-CC9485C7A57D}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_030.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="151399939"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{A2DA4430-403D-46C4-8234-64F0380FA2B6}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_030.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="625499004"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{94554DAC-ACD6-44CE-AC05-2BB51313524E}" ShortID="237885521" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{A2DA4430-403D-46C4-8234-64F0380FA2B6}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{94554DAC-ACD6-44CE-AC05-2BB51313524E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_032" ID="{499BC154-01E3-404E-B27F-DCD5FDD38D73}" ShortID="215967984">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_032" ID="{51F15026-0BE8-4D69-8997-98FE89F63B40}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_032.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="956968461"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{9D5B73D1-C38E-41D4-A092-133F465CE119}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_032.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="113533141"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{FAFBB0CC-A0ED-4DD5-91B8-370FE5713B87}" ShortID="588114603" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{FAFBB0CC-A0ED-4DD5-91B8-370FE5713B87}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{9D5B73D1-C38E-41D4-A092-133F465CE119}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_020" ID="{4B79A6A8-7E3A-4FB3-9E98-DB48E42085D3}" ShortID="147380010">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_020" ID="{B3BC1E0F-843D-442B-9EFC-3C52B2269DA5}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_020.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="201464238"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{277DE3CB-80DD-46BA-917D-58B8BE147AD9}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_020.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1048995487"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{FE2BE3DE-0A4A-49DE-BA93-147294EFB748}" ShortID="183278605" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{277DE3CB-80DD-46BA-917D-58B8BE147AD9}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{FE2BE3DE-0A4A-49DE-BA93-147294EFB748}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_026" ID="{242D4869-08D7-4354-9BFF-9310F2DCD839}" ShortID="954706007">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2.8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_026" ID="{D8EFB8A8-FE6E-4298-A1F0-BC9FDEDE3D39}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_026.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="745412196"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{E98DAF29-6CBB-433E-9DB9-293DBEA803BF}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_026.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="413064787"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{0E7CA265-13F4-4452-87B8-81D3554F95D4}" ShortID="356943984" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{E98DAF29-6CBB-433E-9DB9-293DBEA803BF}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{0E7CA265-13F4-4452-87B8-81D3554F95D4}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_021" ID="{2EC42C76-6656-47AE-BB50-425125CB38BE}" ShortID="433226505">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_021" ID="{C20D3C09-60AB-42F8-84A6-E42845561B1F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_021.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="828848985"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{D9B7B5AE-D372-4E35-8F93-B7AECC49A062}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_021.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="174661468"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{F80375E8-90E8-41B5-9466-50A4C75DF922}" ShortID="653344264" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{D9B7B5AE-D372-4E35-8F93-B7AECC49A062}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{F80375E8-90E8-41B5-9466-50A4C75DF922}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_023" ID="{9716FD7D-D3AC-4F42-A7D6-C6942BB568FC}" ShortID="1052001210">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_023" ID="{03E0E56E-7D51-4DC8-872B-B122C4B7DA75}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_023.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="672872258"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{6419D71E-FEB2-458E-8EBC-9667E5F440BA}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_023.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1032386262"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{5BB51C6D-F21F-442C-ADFE-5C74AA35C97C}" ShortID="1046599008" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{6419D71E-FEB2-458E-8EBC-9667E5F440BA}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{5BB51C6D-F21F-442C-ADFE-5C74AA35C97C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_018" ID="{C5D9B46D-1BFE-4EF9-80BB-EFE40F1DC2E0}" ShortID="308574884">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_018" ID="{548D81C1-5364-4758-A6C5-4C4CDC3B4756}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_018.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="640644411"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{E918870B-5E0A-4572-8B72-1EB230CD849C}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_018.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="622298820"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{CA055059-3DC8-4950-90B1-3CF6DDF795B9}" ShortID="251778160" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{E918870B-5E0A-4572-8B72-1EB230CD849C}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{CA055059-3DC8-4950-90B1-3CF6DDF795B9}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_025" ID="{09A3F7AA-1EF5-48FD-ABF9-CED0AA7ECD21}" ShortID="825002603">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_025" ID="{DAB3C33E-8937-4E7C-974A-7BC7F3135414}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_025.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="267173013"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{9ECEFA30-B488-4649-BCDE-554C6985A714}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_025.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="895312641"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{27671429-3E39-4F75-A25F-60B67DE16CD5}" ShortID="253052448" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{27671429-3E39-4F75-A25F-60B67DE16CD5}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{9ECEFA30-B488-4649-BCDE-554C6985A714}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_027" ID="{D1341808-D781-4DAE-953F-75F741A4267C}" ShortID="165202402">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_027" ID="{105D28A2-0FB5-4598-A7AA-FCF8B7B6C49E}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_027.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="879012042"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{D3B533BC-2A06-4564-91AA-2831BA4EADD5}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_027.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="436528556"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{03F802AA-770C-41BD-90B1-56B047F406D4}" ShortID="278641775" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{03F802AA-770C-41BD-90B1-56B047F406D4}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{D3B533BC-2A06-4564-91AA-2831BA4EADD5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_028" ID="{A98DA040-3A30-4E67-85F1-11318AE9A47B}" ShortID="836500783">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>37</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.7</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_028" ID="{53E333FA-403B-48C2-9712-CA1C2844B048}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_028.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="90638888"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{3ADEFBB4-3528-4D07-842F-55EA3A9C1611}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_028.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="851020143"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{FC74B342-3D94-439B-9D18-94CBB0194FED}" ShortID="814533459" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{FC74B342-3D94-439B-9D18-94CBB0194FED}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{3ADEFBB4-3528-4D07-842F-55EA3A9C1611}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_029" ID="{CB8115D7-544F-4297-B0AA-3A58FCD83439}" ShortID="101631831">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_029" ID="{A57BCC45-A702-4DD8-B620-EA0A60ADC7F5}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_029.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="852143301"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{9EB475D1-0A9B-4C5C-9277-C08E2CEC6158}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_029.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="335433711"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{4EC6ABD8-8E61-42F1-9CA9-65D3F8C1B961}" ShortID="650831620" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{9EB475D1-0A9B-4C5C-9277-C08E2CEC6158}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{4EC6ABD8-8E61-42F1-9CA9-65D3F8C1B961}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_022" ID="{53505FD2-0042-48F4-A80B-D3E7C3D9B724}" ShortID="732476220">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.6</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_022" ID="{7DCF25DD-4D5A-4292-AAD1-7714B6076B22}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_022.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="505933694"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{680AB099-DF2A-4320-9548-463AA25B3E22}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_022.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="839447603"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{7B30BE36-5464-4822-90D2-DB662C2EFB8B}" ShortID="125937493" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{7B30BE36-5464-4822-90D2-DB662C2EFB8B}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{680AB099-DF2A-4320-9548-463AA25B3E22}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_031" ID="{65BCD31E-1C27-4165-BE63-81EE727348FD}" ShortID="504116155">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_031" ID="{BCE8CC7E-D02D-489D-B82B-36DA5EE13779}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_031.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="288085385"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{C8D7EEA6-1B8C-4B25-8B2E-7D8B778D780F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_031.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="578238410"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{F2E9DC97-3C70-4914-9D8F-3AD767273B97}" ShortID="635015246" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{F2E9DC97-3C70-4914-9D8F-3AD767273B97}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{C8D7EEA6-1B8C-4B25-8B2E-7D8B778D780F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_008" ID="{50C9CFD3-647A-4AB1-AB37-5B8B8AE7DACD}" ShortID="322212962">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_008" ID="{9DCCEBA6-D279-4FE4-87EA-FC41D7296748}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_008.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="780575128"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{2F6767E2-4080-4A0C-AC36-6DFF033AFFF5}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_008.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1051470988"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{1489C98B-2611-406F-BF50-F6FD98A750CC}" ShortID="861527868" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{1489C98B-2611-406F-BF50-F6FD98A750CC}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{2F6767E2-4080-4A0C-AC36-6DFF033AFFF5}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_002" ID="{E53D73F4-6FF9-4BB7-BEC7-C7550DD1EF26}" ShortID="687876441">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_002" ID="{1EBFA65A-200C-4424-B2BE-1CA8272C9BC2}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="297310387"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{6642F5F4-E132-4763-81C3-74B314F4E007}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_002.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="565361391"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{BD5F9F8A-37EB-4E83-AC24-E990507F2B96}" ShortID="736907010" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{BD5F9F8A-37EB-4E83-AC24-E990507F2B96}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{6642F5F4-E132-4763-81C3-74B314F4E007}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_006" ID="{DFB0EBA8-DF64-4355-A684-999F792F7263}" ShortID="497290411">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_006" ID="{160BDC2A-1276-489D-9D73-C989ADC35B2D}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="545035109"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{EE4F6822-4200-46CC-9BC0-0CAEA86FA161}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_006.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="568904575"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{8F7B2A20-EF3F-4815-8FE4-28D5EE71B857}" ShortID="535461211" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{8F7B2A20-EF3F-4815-8FE4-28D5EE71B857}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{EE4F6822-4200-46CC-9BC0-0CAEA86FA161}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_004" ID="{A6D695DB-A12D-4235-98DD-DF6EF8ECBE57}" ShortID="253676863">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_004" ID="{1FA8CE6D-0612-41C7-924D-E7033788492E}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="17032093"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{64F52C0B-1E26-4D29-B98C-34431C736251}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_004.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="144861073"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{C92868C1-48CA-4E16-8661-9D6664158D51}" ShortID="457497633" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{64F52C0B-1E26-4D29-B98C-34431C736251}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{C92868C1-48CA-4E16-8661-9D6664158D51}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_009" ID="{6BA6ABA4-28FC-46C9-A015-15480E15462E}" ShortID="734894855">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_009" ID="{B55D7BD2-B4C1-4AFA-9BB6-F663E2310AD8}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1066624077"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{FE217079-2FA0-42DB-94F2-FB8845D2089A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_009.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="230376589"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{89E26C67-D395-4895-8641-699168C124A2}" ShortID="294046084" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{89E26C67-D395-4895-8641-699168C124A2}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{FE217079-2FA0-42DB-94F2-FB8845D2089A}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_003" ID="{E67C96E0-83D4-4373-9DA1-062834EEE21D}" ShortID="254772109">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_003" ID="{E01411E2-6101-4851-BA1D-2614CCCCE600}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_003.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="306949"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{0C4C73D0-05CE-4D62-AB46-D5B432C0652B}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_003.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="811731706"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{6EE9F28F-57CC-4F39-9531-F6265CB5DE25}" ShortID="177129983" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{6EE9F28F-57CC-4F39-9531-F6265CB5DE25}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{0C4C73D0-05CE-4D62-AB46-D5B432C0652B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_010" ID="{16FB16E9-625B-4F4D-BFE3-3EDAEBE4BC6B}" ShortID="149991060">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_010" ID="{4FDAB7D6-4D0F-4270-B218-9C37F83081F4}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_010.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1006038678"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{DC418F9B-8331-40CD-8133-63DF2AAF9734}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_010.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="862695007"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{DA323F52-A008-41CB-ACA9-2D5F8A501824}" ShortID="43840681" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{DA323F52-A008-41CB-ACA9-2D5F8A501824}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{DC418F9B-8331-40CD-8133-63DF2AAF9734}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_011" ID="{5CA1524E-53A6-4520-B6D6-C790C91444E0}" ShortID="116622433">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_011" ID="{712B742C-99EE-4ACD-BB66-C73D63F9B416}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_011.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="409355315"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{30297C75-512E-4E16-B953-1512E0814ED6}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_011.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="877533453"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{EE4F7B18-B77E-42E3-9375-4EA7F6CDC72D}" ShortID="332988509" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{EE4F7B18-B77E-42E3-9375-4EA7F6CDC72D}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{30297C75-512E-4E16-B953-1512E0814ED6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_012" ID="{6039071B-4D3D-4855-BB80-020070505D3D}" ShortID="785658570">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_012" ID="{3C8B654B-0389-4753-B225-D92030A0348B}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_012.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="355072496"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{BFD3AF3D-8C7E-44FF-A3D6-CA66AFFD1318}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_012.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="645408301"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{53823BBD-9BC0-421B-9EF5-69333E5892C1}" ShortID="419752601" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{BFD3AF3D-8C7E-44FF-A3D6-CA66AFFD1318}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{53823BBD-9BC0-421B-9EF5-69333E5892C1}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_013" ID="{0D927E28-222B-4AF0-A1C9-D37FF6845374}" ShortID="147240129">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_013" ID="{93BDF224-A0A3-4F7D-991A-9539D20B7301}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_013.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="679361398"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{0BFAA2FD-92FA-4713-A651-428699D53363}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_013.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="297883555"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{2BFA7947-1161-4DCA-BA46-1D82B043EE98}" ShortID="475119049" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{2BFA7947-1161-4DCA-BA46-1D82B043EE98}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{0BFAA2FD-92FA-4713-A651-428699D53363}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_014" ID="{25EA9D4A-E1CB-449F-95E6-27282F104993}" ShortID="913404534">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_014" ID="{BD9E6761-BB0D-40C0-B9D2-5ADB6F85EAEC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_014.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1016261199"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{1FDC7269-3B1D-4E47-AFBA-EBD916ADADA0}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_014.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="307267572"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{2B89E4D8-0027-43D4-A7DE-DB5B755F95F6}" ShortID="355872209" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{1FDC7269-3B1D-4E47-AFBA-EBD916ADADA0}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{2B89E4D8-0027-43D4-A7DE-DB5B755F95F6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_007" ID="{2718D45E-D2B3-434B-ABD9-D260D10E24A9}" ShortID="539038630">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_007" ID="{5A4FB925-CF7E-451B-AF75-39815543AB31}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_007.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="892127386"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{B83A46DC-4B5D-41C1-B23B-34086792F26E}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_007.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1036250731"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{99B7EDBB-9D23-49C4-A7EE-8F3822F6E546}" ShortID="877201737" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{99B7EDBB-9D23-49C4-A7EE-8F3822F6E546}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{B83A46DC-4B5D-41C1-B23B-34086792F26E}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_015" ID="{D27D4CBE-B736-4B76-AA69-0A80526ECE46}" ShortID="336727738">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_015" ID="{C99B8583-F7BF-4C4E-99AA-7E6A630F7802}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_015.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="766801626"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{D0DF8F3E-5909-4B41-87AC-272C42A090CA}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_015.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="271812788"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{86834A20-7DB7-4F4E-AA94-3036850D97A0}" ShortID="734515375" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{86834A20-7DB7-4F4E-AA94-3036850D97A0}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{D0DF8F3E-5909-4B41-87AC-272C42A090CA}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_016" ID="{F4037BA5-9B9C-4CE5-B96E-6B7F5FBE0BE5}" ShortID="245529447">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_016" ID="{47ACB387-CFE3-4A51-AB1C-ABD2BB57ECB5}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="784350059"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_016a" ID="{03B3640D-B760-465D-B3C2-0FA905D3BB3A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="28034739"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{17CC2867-9DD2-4524-B243-723642A8728D}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_016.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="783457433"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{EFA5062F-6C83-46BC-BDB6-F1F6457F12E2}" ShortID="1046172695" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{EFA5062F-6C83-46BC-BDB6-F1F6457F12E2}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{17CC2867-9DD2-4524-B243-723642A8728D}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_017" ID="{136F2695-4024-412F-9CD2-2AC493DC1562}" ShortID="3861451">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_017" ID="{7E8CA46A-AF62-4F09-A112-2BCD34F6DEA3}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_017.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="398573696"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{B58A3840-2AE2-4307-81B9-46F5885FAA0F}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_017.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="193549838"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{A3729B35-4673-455F-B121-46CA05605B89}" ShortID="739011055" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{A3729B35-4673-455F-B121-46CA05605B89}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{B58A3840-2AE2-4307-81B9-46F5885FAA0F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_005" ID="{6BF1DD91-B47E-4E0E-A8ED-4BBD6FB83DA1}" ShortID="217639920">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_005" ID="{7C337257-D207-4180-99A9-14EB6EE1AAD2}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="508713720"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{1EFAA697-5C00-47AE-9EE3-63F8D6F87581}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_005.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="239613275"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{80BC522C-D37D-4060-8F0E-9723D629791F}" ShortID="388366209" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{80BC522C-D37D-4060-8F0E-9723D629791F}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{1EFAA697-5C00-47AE-9EE3-63F8D6F87581}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_040" ID="{D8CAF551-0927-4E4D-B768-5F4BF91BBD9B}" ShortID="284149234">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_040" ID="{452AD23D-50F3-48C4-A7B0-6061C822B1A8}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_040.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="477342701"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{052BFD59-4278-49B2-A4B7-08C7B3E058D3}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_040.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="779302631"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{8F4DE5C1-E2AA-4A02-A83C-432D11B84672}" ShortID="81601603" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{052BFD59-4278-49B2-A4B7-08C7B3E058D3}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{8F4DE5C1-E2AA-4A02-A83C-432D11B84672}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_038" ID="{5E649F9A-1447-4002-AADB-D3100B9A33B6}" ShortID="252347804">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_038" ID="{3C629021-FA66-4142-BB92-2D4542A4EF0C}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_038.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="657675841"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{17A82A78-4269-4826-8FAA-152771ACD381}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_038.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="736898734"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{E4C8D171-1391-4188-BDD7-3D0C1911AE77}" ShortID="991146417" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{E4C8D171-1391-4188-BDD7-3D0C1911AE77}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{17A82A78-4269-4826-8FAA-152771ACD381}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_044" ID="{05E6E2C8-8821-4640-951D-98A8B2F36319}" ShortID="308677521">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>37</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_044" ID="{107CFC36-5568-4799-8380-F09DD29BE949}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_044.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="777592857"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{437ECEB5-15FA-4FCF-B999-2A6B817CFC9C}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_044.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="891249880"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{63B93A6F-AB87-4653-965B-86D7A81A3F65}" ShortID="996287081" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{63B93A6F-AB87-4653-965B-86D7A81A3F65}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{437ECEB5-15FA-4FCF-B999-2A6B817CFC9C}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_042" ID="{F04B6133-7A45-4CC6-80A6-1A4C16DD3EFB}" ShortID="886892163">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>37</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_042" ID="{34E293B7-D0DA-4707-A158-A13B526564EC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_042.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="645659147"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{29AED3CC-01B8-4FEC-B49A-7D9E8D72C7E3}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_042.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="24229817"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{D61AD016-4AFF-4788-A548-D5B84D63FD3E}" ShortID="105716813" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{D61AD016-4AFF-4788-A548-D5B84D63FD3E}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{29AED3CC-01B8-4FEC-B49A-7D9E8D72C7E3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_045" ID="{622AACBE-79AC-4699-A232-B15BD37786C8}" ShortID="597385413">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_045" ID="{55E751B7-EE08-446F-8E79-7E934C9C75D7}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_045.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="959576132"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{A7EC10CD-2D94-4D67-910E-61B1E1A76145}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_045.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="954992900"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{FB20274D-BD8D-4290-B834-09DE83FE3EB9}" ShortID="1034272898" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{FB20274D-BD8D-4290-B834-09DE83FE3EB9}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{A7EC10CD-2D94-4D67-910E-61B1E1A76145}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_048" ID="{47DB250F-AECB-48ED-B27D-D96A1A9AC2C9}" ShortID="286095848">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_048" ID="{57CC91F8-2E00-4045-BA1A-D73EFB390586}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_048.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="430648684"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{66307DB2-5B42-438B-A2C7-135A0E701C01}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_048.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="657741779"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{2D774154-0884-418F-AAE3-0B3553C2B92E}" ShortID="538348946" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{2D774154-0884-418F-AAE3-0B3553C2B92E}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{66307DB2-5B42-438B-A2C7-135A0E701C01}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_041" ID="{44959213-DB24-44EC-A3C4-07B6AF8EBF58}" ShortID="964379531">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>35</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4.3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_041" ID="{14E88027-9A5D-49A8-A169-13F1EFE86351}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_041.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="513328826"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{44774F87-6AEA-426D-976F-E906073B5F65}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.041.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="68787579"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_02" ID="{3BE759DD-173F-405A-86D2-A31852D68C37}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_041.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="861649289"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{37DF3A99-7E36-4D54-BEA4-9CE6F5BB8648}" ShortID="643408247" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{37DF3A99-7E36-4D54-BEA4-9CE6F5BB8648}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_02" ID="{3BE759DD-173F-405A-86D2-A31852D68C37}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_047" ID="{F10B052C-BE29-4F76-9915-56FC47562337}" ShortID="199471480">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_047" ID="{8A673242-F2B5-430F-8531-29A9680D21C8}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_047.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="570026516"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{CB209D6C-5063-4B50-BBCD-69276F0E5458}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.252118178717599"/>
+										<Property Name="FadeInShape" Type="int16" Value="6"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_047.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="45844371"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{01F577CF-38F2-4129-A8AB-769699B3268F}" ShortID="92435756" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{CB209D6C-5063-4B50-BBCD-69276F0E5458}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{01F577CF-38F2-4129-A8AB-769699B3268F}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_050" ID="{43F96239-3028-409E-8C1E-40352F452AFC}" ShortID="187911800">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_050" ID="{668A1785-27B5-4A78-BDF5-AF6D808C5AC4}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_050.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="708646329"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{EAFF52AA-52EB-47FC-93AC-C525F69E6F1A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_050.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="992210139"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{8D23C2B2-8CC6-4CE4-9BB5-2A1F833A89AF}" ShortID="129857898" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{EAFF52AA-52EB-47FC-93AC-C525F69E6F1A}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{8D23C2B2-8CC6-4CE4-9BB5-2A1F833A89AF}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_051" ID="{1C54E1CD-F596-42D6-8243-A7AF31384D97}" ShortID="756540929">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-2.5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_051" ID="{9B41F10B-AE3D-4753-A1B4-380B045FCC3A}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_051.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="434580295"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{FD6B8D67-9773-4A90-B136-BF10F88E0E21}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_051.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="364988170"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{0E951EA7-54B8-4EB6-A879-0419057F9740}" ShortID="504432856" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{FD6B8D67-9773-4A90-B136-BF10F88E0E21}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{0E951EA7-54B8-4EB6-A879-0419057F9740}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_046" ID="{A1708A7C-CD2E-43E1-A746-F7B236B16B18}" ShortID="168349969">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_046" ID="{763562F7-6D1A-4203-B8F1-B82C702FD3F4}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_046.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1072552343"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{F360D874-CAC9-4A87-833E-079ECD5EC194}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_046.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="841649679"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{F1EC34E0-F7DE-4C2F-B915-A3807BF081A3}" ShortID="501681994" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{F360D874-CAC9-4A87-833E-079ECD5EC194}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{F1EC34E0-F7DE-4C2F-B915-A3807BF081A3}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_043" ID="{C29B259C-7AFE-4515-8A09-88493A3BCC68}" ShortID="570714357">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>37</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_043" ID="{C52FEAD1-3D9F-4E83-A65C-CF7CDC9C13C7}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_043.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="232209234"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{0023F7B3-438E-4016-A41E-20C4A38BA4E6}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_043.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="479039466"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{5279F6AB-46FB-43CB-9448-A116EA31A24B}" ShortID="1038596836" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{5279F6AB-46FB-43CB-9448-A116EA31A24B}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{0023F7B3-438E-4016-A41E-20C4A38BA4E6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_052" ID="{D8E47A3E-CC1B-4222-B12E-DFF5AC5AA9C5}" ShortID="162218472">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>26</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.1</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_052" ID="{C42310E4-B498-47E8-9E1F-A125247687A4}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_052.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="708466657"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{08200BC5-2C9C-4022-B120-DB8AB0C7CC60}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_052.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="398537021"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{1A9E66C4-AA2C-40F5-B951-15E898CEB8DD}" ShortID="145031620" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{1A9E66C4-AA2C-40F5-B951-15E898CEB8DD}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{08200BC5-2C9C-4022-B120-DB8AB0C7CC60}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_049" ID="{1AFA44DC-10CC-487A-89E8-B6993480AF6E}" ShortID="79298849">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-1.8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_049" ID="{ECD5B8A9-6221-461C-AE50-08EC9B1FC99B}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_049.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="697212372"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{77BF1ABC-2909-4B11-A59F-C671BFF6D425}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_049.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="189806756"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{2A1627C7-8B4D-4C56-A9C9-C5184B672254}" ShortID="640049970" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{77BF1ABC-2909-4B11-A59F-C671BFF6D425}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{2A1627C7-8B4D-4C56-A9C9-C5184B672254}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_039" ID="{8D2AAC85-DA54-44C3-BDB9-C80C8D3291D5}" ShortID="248122367">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_039" ID="{63DFD89A-82B2-4950-95D6-C1D319F33A23}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_039.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="622780221"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{F798B6B1-9199-4DC4-927C-FE46F3F1A308}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_039.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="510526910"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{3B666426-3EB2-40AF-8B42-9CA634EAD629}" ShortID="10840288" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{3B666426-3EB2-40AF-8B42-9CA634EAD629}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{F798B6B1-9199-4DC4-927C-FE46F3F1A308}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_047a" ID="{E259FD36-F65B-4B96-B23E-6A17D4E9B2CE}" ShortID="63254480">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_047a" ID="{3C1DDD4B-7758-490D-BCB9-5F82F595D0F9}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_047a.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="278873027"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_047a_01" ID="{2C227BE9-D0B5-4DD3-9721-7186B5B707BB}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_047a.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1040356526"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{56378BCB-431F-49D0-B6B1-0003DCC4ECC7}" ShortID="994185819" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{56378BCB-431F-49D0-B6B1-0003DCC4ECC7}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_047a_01" ID="{2C227BE9-D0B5-4DD3-9721-7186B5B707BB}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_053" ID="{9437D407-FDA2-4FE0-85D3-374301243F6C}" ShortID="190711655">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>20</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_053" ID="{AF87ADF5-567F-493D-B1BB-0A54FD985B58}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george_053.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="379507230"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{BCBC48F7-9C70-4468-9EAA-6BF36DC9767B}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_053.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="362394024"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{957F7E7E-EBE9-49EC-B707-331575BDF0BD}" ShortID="265234596" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{957F7E7E-EBE9-49EC-B707-331575BDF0BD}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{BCBC48F7-9C70-4468-9EAA-6BF36DC9767B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_054" ID="{BE05B622-B53D-4B3A-9894-7A429C6845BF}" ShortID="746061498">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>22</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-7.4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_054" ID="{CB2E93F8-4F1C-4E66-AFA8-AE4846EBCFFC}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.054.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="353583943"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{C06E1A21-067C-4D2B-9706-DF48DBF24BFB}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_054.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="54110131"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{67D3B15E-85D1-474B-8E9B-10068A295ADC}" ShortID="293136400" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="pizza_george_01" ID="{C06E1A21-067C-4D2B-9706-DF48DBF24BFB}" Platform="Linked"/>
+								<ActiveSource Name="Sine" ID="{67D3B15E-85D1-474B-8E9B-10068A295ADC}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_055" ID="{74325BD0-70E4-4FE3-BBAB-EA5C305FF0C2}" ShortID="604088094">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3.9</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_055" ID="{4B2E645A-F0AD-4E0F-8B8D-F17D50A032F7}">
+									<Language>Russian</Language>
+									<AudioFile>pizza.george.055.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="660466607"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<AudioFileSource Name="pizza_george_01" ID="{F57AA999-989E-4C28-AEF0-C416F5BCDEC6}">
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_055.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="403640142"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{012D3143-0912-48F3-92D5-6D44374ED022}" ShortID="859796958" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{012D3143-0912-48F3-92D5-6D44374ED022}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_01" ID="{F57AA999-989E-4C28-AEF0-C416F5BCDEC6}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+						<Sound Name="pizza_george_001" ID="{FAC9BB6F-B0D2-4029-A810-9B67008F5999}" ShortID="567509823">
+							<PropertyList>
+								<Property Name="IsVoice" Type="bool" Value="True"/>
+								<Property Name="Lowpass" Type="int16">
+									<ValueList>
+										<Value>32</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{03120532-7745-4C88-ABF3-3B39BE5C9BA8}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{922E9BCB-BDFC-45F9-8D2F-242EA3056917}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="pizza_george_001" ID="{EF72F36D-2BE4-4FFF-A9E3-837CEE2AB370}">
+									<PropertyList>
+										<Property Name="FadeInDuration" Type="Real64" Value="0.063574253865516"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+										<Property Name="TrimBegin" Type="Real64" Value="0.331745780757513"/>
+									</PropertyList>
+									<Language>Russian</Language>
+									<AudioFile>pizza_george\pizza_george_001.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="773315314"/>
+									</MediaIDList>
+								</AudioFileSource>
+								<SourcePlugin Name="Sine" ID="{40D4BD2E-5B1B-4765-8880-B28533B08BD9}" ShortID="213940310" PluginName="Wwise Sine" CompanyID="0" PluginID="100">
+									<PropertyList>
+										<Property Name="SineFrequency" Type="Real32" Value="355"/>
+										<Property Name="SineGain" Type="Real32" Value="-18"/>
+									</PropertyList>
+									<Language>English</Language>
+								</SourcePlugin>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="Sine" ID="{40D4BD2E-5B1B-4765-8880-B28533B08BD9}" Platform="Linked"/>
+								<ActiveSource Name="pizza_george_001" ID="{EF72F36D-2BE4-4FFF-A9E3-837CEE2AB370}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
+					</ChildrenList>
+				</ActorMixer>
+			</ChildrenList>
+		</WorkUnit>
+	</AudioObjects>
+</WwiseDocument>

@@ -1,0 +1,153 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: _Timing_Test
+  m_EditorClassIdentifier: 
+  EntryNodeData:
+    Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    Rect:
+      serializedVersion: 2
+      x: -49
+      y: 203
+      width: 113
+      height: 200
+    EventVisualData: []
+    LevelId: L3_Pizza
+    Languages:
+    - Russian
+    ButtonFilter: pizza
+    SoundAsset: 
+    GrabProjectorImages: 0
+    EnableSkipLevelButton: 0
+  PhraseNodeData:
+  - Guid: 3903e821-8d76-448f-ae41-e5cf33e39aec
+    Rect:
+      serializedVersion: 2
+      x: 596
+      y: 67
+      width: 100
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 2
+      HideOnEnd: 1
+    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_043
+    Phrases:
+    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_043.asset
+  - Guid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+    Rect:
+      serializedVersion: 2
+      x: 464
+      y: 75
+      width: 310
+      height: 381
+    EventVisualData:
+    - Type: 2
+      PhraseEvent: SFX/sfx_lighter
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 1
+      Value: 0
+    PhraseSketchText: 
+    PersonVisualData:
+      Person: MARK
+      ScreenPlace: 5
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: L3_Pizza/Elena/pizza_elena_079
+    Phrases:
+    - Phrases/L3_Pizza/Russian/pizza_elena/pizza_elena_079.asset
+  ImagePhraseNodeData: []
+  ChoiceNodeData: []
+  ForkNodeData: []
+  CountNodeData: []
+  EndNodeData: []
+  EventNodeData:
+  - Guid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+    Rect:
+      serializedVersion: 2
+      x: 66
+      y: 203
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: MusicLevels / MusicPizza
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    - Type: 3
+      PhraseEvent: Videos/L2_Tutor/background_with_lines.mp4
+      Layer: 0
+      Loop: 1
+      Stop: 0
+      Delay: 0
+      Value: 0
+  - Guid: ee5149b1-7503-4918-af70-39ed506d7431
+    Rect:
+      serializedVersion: 2
+      x: 286
+      y: 198
+      width: 100
+      height: 107
+    EventVisualData:
+    - Type: 1
+      PhraseEvent: NONE
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+  NewspaperNodeData:
+  - Guid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
+    Rect:
+      serializedVersion: 2
+      x: 178
+      y: 204
+      width: 100
+      height: 96
+    EventVisualData:
+    - Type: 0
+      PhraseEvent: NONE
+      Layer: 0
+      Loop: 0
+      Stop: 0
+      Delay: 0
+      Value: 0
+    NewspaperPrefab: 
+  SlideNodeData: []
+  NodeLinks:
+  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    BaseExitName: 
+    TargetNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+  - BaseNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+    BaseExitName: 
+    TargetNodeGuid: 3903e821-8d76-448f-ae41-e5cf33e39aec
+  - BaseNodeGuid: d663d4e3-932d-4090-8569-e79a35c2f1e1
+    BaseExitName: 
+    TargetNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
+  - BaseNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431
+    BaseExitName: 
+    TargetNodeGuid: 8e59b89b-e74d-41b4-890d-2aa157a6ae0b
+  - BaseNodeGuid: d328d0aa-47e2-4e7d-a6bd-130609bebfe6
+    BaseExitName: 
+    TargetNodeGuid: ee5149b1-7503-4918-af70-39ed506d7431

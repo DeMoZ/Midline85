@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using NUnit.Framework.Constraints;
 using Object = UnityEngine.Object;
 
 namespace AaDialogueGraph.Editor
@@ -27,9 +26,28 @@ namespace AaDialogueGraph.Editor
             return path;
         }
 
-        public static List<string> GetObjectPath(List<Object> objs)
+        public static List<string> GetPathByObjects(List<Object> objs)
         {
             return objs.Select(GetPathByObject).ToList();
+        }
+
+        public static List<string> GetButtons(string filtersInLine)
+        {
+            if (string.IsNullOrEmpty(filtersInLine)) return AaKeys.ChoiceKeys; 
+            
+            var buttons = new List<string>();
+            var filters = filtersInLine.Split(";").ToList();
+
+            foreach (var filter in filters)
+            {
+                var mutches = AaKeys.ChoiceKeys.Where(b => b.Contains(filter)).ToList();
+                if (mutches.Count > 0)
+                {
+                    buttons.AddRange(mutches);
+                }
+            }
+
+            return buttons;
         }
     }
 }

@@ -6,7 +6,6 @@ using UnityEditor.Experimental.GraphView;
 using UnityEditor.UIElements;
 using UnityEngine;
 using UnityEngine.UIElements;
-using UnityEngine.Video;
 using Button = UnityEngine.UIElements.Button;
 using Object = UnityEngine.Object;
 using Toggle = UnityEngine.UIElements.Toggle;
@@ -21,6 +20,9 @@ namespace AaDialogueGraph.Editor
         public static List<string> CountKeys => GetGameSet.CountKeys.Keys;
         public static List<string> ChoiceKeys => GetGameSet.ChoiceKeys.Keys;
         public static List<string> LanguageKeys => GetGameSet.LanguagesKeys.Keys;
+        public static List<string> RecordKeys => GetGameSet.RecordKeys.Keys;
+        public static List<string> LevelIdKeys => GetGameSet.LevelKeys.Keys;
+        public static PersonKeysList PersonsKeys => GetGameSet.PersonsKeys;
 
         private static GameSet GetGameSet
         {
@@ -34,50 +36,6 @@ namespace AaDialogueGraph.Editor
                 return _gameSet;
             }
         }
-    }
-
-    public static class AaGraphConstants
-    {
-        public const string AssetsResources = "Assets/Resources/";
-
-        public const string DefaultFileName = "NewDialogue";
-
-        public const string DialogueGraph = "Dialogue Graph";
-        public const string ChoiceNode = "Choices Node";
-        public const string PhraseNode = "Phrase Node";
-        public const string ForkNode = "Fork Node";
-        public const string CountNode = "Count Node";
-        public const string EndNode = "End Node";
-
-        public const string SaveData = "Save Data";
-        public const string LoadData = "Load Data";
-
-        public const string LineSpace = " | ";
-        public const string InPortName = "in";
-        public const string OutPortName = "out";
-
-        public const string AndWord = "+Word";
-        public const string NoWord = "-Word";
-
-        public const string AndEnd = "+End";
-        public const string NoEnd = "-End";
-
-        public const string And = "+";
-        public const string No = "-";
-
-        public const string Count = "Count";
-        public const string PlusCount = "+Count";
-        public const string Range = "Range";
-        public const string CountMin = "Min";
-
-        public const string HideOnEnd = "HideOnEnd";
-
-        public const string LoopToggleName = "Loop";
-        public const string StopToggleName = "Stop";
-
-        public const string DeleteName = "X";
-        public const string DeleteNameSmall = "x";
-        public const string OrName = "or";
     }
 
     public class LanguageOperation
@@ -99,20 +57,17 @@ namespace AaDialogueGraph.Editor
     /// <summary>
     /// Helper element to be able to find contaniter with phrases
     /// </summary>
-    public class PhraseElementsTable : VisualElement
+    public class ElementsTable : VisualElement
     {
     }
 
     public class PhraseElementsRowField : VisualElement
     {
-        public void Set(string language, Object clip = null, Phrase phrase = null, Action onChange = null)
+        public void Set(string language, Phrase phrase, Action onChange)
         {
             var label = new Label(language);
             label.AddToClassList("aa-BlackText");
             contentContainer.Add(label);
-            var soundField = new PhraseSoundField();
-            soundField.Set(clip, onChange);
-            contentContainer.Add(soundField);
 
             var assetField = new PhraseAssetField();
             assetField.Set(phrase, onChange);
@@ -170,6 +125,82 @@ namespace AaDialogueGraph.Editor
         }
     }
 
+    public class NewspaperAssetField : VisualElement
+    {
+        private ObjectField _objectField;
+
+        public void Set(Object asset = null, Action onChange = null)
+        {
+            _objectField = new ObjectField
+            {
+                objectType = typeof(CompositeNewspaper),
+                allowSceneObjects = false,
+                value = asset,
+            };
+
+            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
+
+            contentContainer.Add(_objectField);
+        }
+
+        public CompositeNewspaper GetNewspaper()
+        {
+            return _objectField.value as CompositeNewspaper;
+        }
+    }
+
+    public class SoundAssetField : VisualElement
+    {
+        private ObjectField _objectField;
+
+        public void Set(Object phraseAsset, Action onChange = null)
+        {
+            _objectField = new ObjectField
+            {
+                objectType = typeof(WwiseSoundsKeysList),
+                allowSceneObjects = false,
+                value = phraseAsset,
+            };
+
+            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
+
+            contentContainer.Add(_objectField);
+            contentContainer.AddToClassList("aa-SoundAsset_content-container");
+        }
+
+        public WwiseSoundsKeysList GetSoundAsset()
+        {
+            if (_objectField == null || _objectField.value == null)
+                return null;
+
+            return _objectField.value as WwiseSoundsKeysList;
+        }
+    }
+
+    public class SpriteField : VisualElement
+    {
+        private ObjectField _objectField;
+
+        public void Set(Object asset = null, Action onChange = null)
+        {
+            _objectField = new ObjectField
+            {
+                objectType = typeof(Sprite),
+                allowSceneObjects = false,
+                value = asset,
+            };
+
+            _objectField.RegisterValueChangedCallback(_ => { onChange?.Invoke(); });
+
+            contentContainer.Add(_objectField);
+        }
+
+        public Sprite GetSprite()
+        {
+            return _objectField.value as Sprite;
+        }
+    }
+
     public class PersonVisual : VisualElement
     {
         public void Set(PersonVisualData data = null, Action<string> onPersonChange = null)
@@ -181,9 +212,9 @@ namespace AaDialogueGraph.Editor
             var personContainer = new VisualElement();
             contentContainer.Add(personContainer);
 
-            var personOptions = Enum.GetValues(typeof(Person)).Cast<Person>().ToList();
-            var personPopup = new PopupField<Person>("", personOptions, data?.Person ?? personOptions[0],
-                (val) => OnPersonChange(val, onPersonChange));
+            var currentChoice = data?.Person ?? AaKeys.PersonsKeys.Keys[0];
+            var personPopup = new PersonPopupField(AaKeys.PersonsKeys.Keys, currentChoice, onPersonChange);
+            onPersonChange?.Invoke(currentChoice);
             personContainer.Add(personPopup);
 
             var positionOptions = Enum.GetValues(typeof(ScreenPlace)).Cast<ScreenPlace>().ToList();
@@ -196,8 +227,8 @@ namespace AaDialogueGraph.Editor
             {
                 text = AaGraphConstants.HideOnEnd,
                 value = data?.HideOnEnd ?? false,
+                tooltip = "Person will be hidden after the phrase end",
             };
-            onEndToggle.tooltip = "Person will be hidden after the phrase end";
             toggleContainer.Add(onEndToggle);
             toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
             personContainer.contentContainer.Add(toggleContainer);
@@ -207,19 +238,102 @@ namespace AaDialogueGraph.Editor
             contentContainer.AddToClassList("aa-PersonVisual_content-container");
         }
 
-        private string OnPersonChange(Person val, Action<string> onPersonChange = null)
-        {
-            onPersonChange?.Invoke(val.ToString());
-            return val.ToString();
-        }
-
         public PersonVisualData GetData()
         {
             return new PersonVisualData
             {
-                Person = contentContainer.Q<PopupField<Person>>().value,
+                Person = contentContainer.Q<PersonPopupField>().Value,
                 ScreenPlace = contentContainer.Q<PopupField<ScreenPlace>>().value,
                 HideOnEnd = contentContainer.Q<Toggle>().value,
+            };
+        }
+    }
+
+    public class AaToggle : Toggle
+    {
+        public AaToggle()
+        {
+            contentContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
+        }
+    }
+
+    public class ImagePersonVisual : VisualElement
+    {
+        public void Set(ImagePersonVisualData data = null, Action<string> onPersonChange = null)
+        {
+            var label = new Label("   Person");
+            label.AddToClassList("aa-BlackText");
+            contentContainer.Add(label);
+
+            var currentChoice = data?.Person ?? AaKeys.PersonsKeys.Keys[0];
+            var personPopup = new PersonPopupField(AaKeys.PersonsKeys.Keys, currentChoice, onPersonChange);
+            onPersonChange?.Invoke(currentChoice);
+
+            var positionOptions =
+                Enum.GetValues(typeof(PersonImageScreenPlace)).Cast<PersonImageScreenPlace>().ToList();
+            var positionPopup =
+                new PopupField<PersonImageScreenPlace>("", positionOptions, data?.ScreenPlace ?? positionOptions[1]);
+
+            var sprite = data is { Sprite: not null } ? NodeUtils.GetObjectByPath<Sprite>(data.Sprite) : null;
+            var spriteField = new SpriteField();
+            spriteField.Set(sprite, () => { });
+
+            var row1 = new LineGroup(new VisualElement[] { personPopup, positionPopup, spriteField });
+            contentContainer.Add(row1);
+
+            var show = new AaToggle
+            {
+                tooltip = "Person will be shown on phrase start",
+                name = AaGraphConstants.ShowOnStart,
+                text = AaGraphConstants.ShowOnStart,
+                value = data?.ShowOnStart ?? false,
+            };
+
+            var hide = new AaToggle
+            {
+                tooltip = "Person will be hidden after the phrase end",
+                name = AaGraphConstants.HideOnEnd,
+                text = AaGraphConstants.HideOnEnd,
+                value = data?.HideOnEnd ?? false,
+            };
+
+            var focus = new AaToggle
+            {
+                tooltip = "Person will be focused on phrase start",
+                name = AaGraphConstants.FocusOnStart,
+                text = AaGraphConstants.FocusOnStart,
+                value = data?.FocusOnStart ?? false,
+            };
+
+            var unfocus = new AaToggle
+            {
+                tooltip = "Person will be unfocused after the phrase end",
+                name = AaGraphConstants.UnfocusOnEnd,
+                text = AaGraphConstants.UnfocusOnEnd,
+                value = data?.UnfocusOnEnd ?? false,
+            };
+
+            var row2 = new LineGroup(new VisualElement[] { show, hide });
+            contentContainer.Add(row2);
+
+            var row3 = new LineGroup(new VisualElement[] { focus, unfocus });
+            contentContainer.Add(row3);
+            contentContainer.AddToClassList("aa-PersonVisual_content-container");
+        }
+
+        public ImagePersonVisualData GetData()
+        {
+            var spite = EditorNodeUtils.GetPathByObject(contentContainer.Q<SpriteField>().GetSprite());
+
+            return new ImagePersonVisualData
+            {
+                Person = contentContainer.Q<PersonPopupField>().Value,
+                ScreenPlace = contentContainer.Q<PopupField<PersonImageScreenPlace>>().value,
+                Sprite = spite,
+                ShowOnStart = contentContainer.Q<Toggle>(AaGraphConstants.ShowOnStart).value,
+                FocusOnStart = contentContainer.Q<Toggle>(AaGraphConstants.FocusOnStart).value,
+                UnfocusOnEnd = contentContainer.Q<Toggle>(AaGraphConstants.UnfocusOnEnd).value,
+                HideOnEnd = contentContainer.Q<Toggle>(AaGraphConstants.HideOnEnd).value,
             };
         }
     }
@@ -243,7 +357,7 @@ namespace AaDialogueGraph.Editor
             var onEndToggle = new Toggle
             {
                 text = AaGraphConstants.HideOnEnd,
-                value = data?.HideOnEnd ?? false,
+                value = data?.HideOnEnd ?? true,
             };
             onEndToggle.tooltip = "Phrase will be hidden after the phrase end";
             toggleContainer.contentContainer.AddToClassList("aa-Toggle_content-container");
@@ -265,13 +379,11 @@ namespace AaDialogueGraph.Editor
         }
     }
 
-    #region PhraseEvents
-
-    public class PhraseEvents : VisualElement
+    public class AaNodeEvents : VisualElement
     {
         private Action _onChange;
 
-        public void Set(List<EventVisualData> data, Action onChange)
+        public void Set(List<EventVisualData> data, Action onChange, SoundLists soundLists)
         {
             _onChange = onChange;
             var headerContent = new VisualElement();
@@ -279,242 +391,159 @@ namespace AaDialogueGraph.Editor
             contentContainer.Add(headerContent);
 
             var label = new Label(text: "Events");
-            //label.AddToClassList("aa-BlackText");
             headerContent.Add(label);
+
+            var addMusicEventAssetButton = new Button(() =>
+            {
+                // add music
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.Music, };
+                var eventVisual = new MusicEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, soundLists.Musics);
+                contentContainer.Add(eventVisual);
+                _onChange?.Invoke();
+            });
+            addMusicEventAssetButton.text = PhraseEventType.Music.ToString();
+
+            var addRtpcEventAssetButton = new Button(() =>
+            {
+                // add RTPC
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.RTPC, };
+                var eventVisual = new RtpcEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, soundLists.Rtcps);
+                contentContainer.Add(eventVisual);
+                _onChange?.Invoke();
+            });
+            addRtpcEventAssetButton.text = PhraseEventType.RTPC.ToString();
 
             var addSoundEventAssetButton = new Button(() =>
             {
                 // add sound
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.AudioClip, };
-                var eventVisual = new EventVisual();
-                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange);
+                var eventVisual = new SoundEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, soundLists.Sfxs);
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
             addSoundEventAssetButton.text = "Sound";
-            headerContent.Add(addSoundEventAssetButton);
+
+            var addImageEventAssetButton = new Button(() =>
+            {
+                // add image
+                var eventVisualData = new EventVisualData { Type = PhraseEventType.Image, };
+                var eventVisual = new ObjectEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, AaGraphConstants.ImageField);
+                contentContainer.Add(eventVisual);
+                _onChange?.Invoke();
+            });
+            addImageEventAssetButton.text = AaGraphConstants.ImageField;
 
             var addVideoEventAssetButton = new Button(() =>
             {
                 // add video
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.VideoClip, };
-                var eventVisual = new EventVisual();
-                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange);
+                var eventVisual = new ObjectEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, AaGraphConstants.VideoField);
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
-            addVideoEventAssetButton.text = "Video";
-            headerContent.Add(addVideoEventAssetButton);
+            addVideoEventAssetButton.text = AaGraphConstants.VideoField;
 
             var addObjectEventAssetButton = new Button(() =>
             {
                 // add prefab
                 var eventVisualData = new EventVisualData { Type = PhraseEventType.GameObject, };
-                var eventVisual = new EventVisual();
-                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange);
+                var eventVisual = new ObjectEventVisual();
+                eventVisual.Set(eventVisualData, OnDeleteEvent, _onChange, AaGraphConstants.ObjectField);
                 contentContainer.Add(eventVisual);
                 _onChange?.Invoke();
             });
-            addObjectEventAssetButton.text = "Object";
-            headerContent.Add(addObjectEventAssetButton);
+            addObjectEventAssetButton.text = AaGraphConstants.ObjectField;
+
+            var buttonsGroup = new VisualElement();
+            headerContent.Add(buttonsGroup);
+
+            var line1 = new LineGroup(new[]
+                { addMusicEventAssetButton, addRtpcEventAssetButton, addSoundEventAssetButton });
+            var line2 = new LineGroup(new[]
+                { addImageEventAssetButton, addVideoEventAssetButton, addObjectEventAssetButton });
+
+            buttonsGroup.Add(line1);
+            buttonsGroup.Add(line2);
 
             contentContainer.AddToClassList("aa-EventAsset_content-container");
 
             data?.ForEach(item =>
             {
-                var eventVisual = new EventVisual();
-                eventVisual.Set(item, OnDeleteEvent, _onChange);
-                contentContainer.Add(eventVisual);
+                switch (item.Type)
+                {
+                    case PhraseEventType.Music:
+                        var musicEventVisual = new MusicEventVisual();
+                        musicEventVisual.Set(item, OnDeleteEvent, _onChange, soundLists.Musics);
+                        contentContainer.Add(musicEventVisual);
+                        break;
+
+                    case PhraseEventType.RTPC:
+                        var rtpcventVisual = new RtpcEventVisual();
+                        rtpcventVisual.Set(item, OnDeleteEvent, _onChange, soundLists.Rtcps);
+                        contentContainer.Add(rtpcventVisual);
+                        break;
+                    case PhraseEventType.AudioClip:
+                        var soundEventVisual = new SoundEventVisual();
+                        soundEventVisual.Set(item, OnDeleteEvent, _onChange, soundLists.Sfxs);
+                        contentContainer.Add(soundEventVisual);
+                        break;
+                    case PhraseEventType.Image:
+                    case PhraseEventType.VideoClip:
+                    case PhraseEventType.GameObject:
+                        var objectEventVisual = new ObjectEventVisual();
+                        objectEventVisual.Set(item, OnDeleteEvent, _onChange, GetEventFieldName(item.Type));
+                        contentContainer.Add(objectEventVisual);
+                        break;
+                    case PhraseEventType.Projector:
+                        // TODO Remove Enum option
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
             });
         }
 
-        private void OnDeleteEvent(EventVisual eventVisual)
+        private string GetEventFieldName(PhraseEventType type)
+        {
+            switch (type)
+            {
+                case PhraseEventType.Image:
+                    return AaGraphConstants.ImageField;
+                case PhraseEventType.VideoClip:
+                    return AaGraphConstants.VideoField;
+                case PhraseEventType.GameObject:
+                    return AaGraphConstants.ObjectField;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private void OnDeleteEvent(VisualEvent eventVisual)
         {
             contentContainer.Remove(eventVisual);
             _onChange?.Invoke();
         }
     }
 
-    public class EventVisual : VisualElement
-    {
-        public void Set(EventVisualData data, Action<EventVisual> onDelete, Action onChange)
-        {
-            contentContainer.Add(new Button(() => { onDelete?.Invoke(this); })
-            {
-                text = "X",
-            });
-
-            var containerColumn = new VisualElement();
-            contentContainer.Add(containerColumn);
-
-            var containerRow1 = new VisualElement();
-            containerRow1.style.flexDirection = FlexDirection.Row;
-            containerColumn.Add(containerRow1);
-
-            var layerOptions = Enum.GetValues(typeof(PhraseEventLayer)).Cast<PhraseEventLayer>().ToList();
-            var layerPopup = new PopupField<PhraseEventLayer>("", layerOptions, data?.Layer ?? layerOptions[0],
-                val =>
-                {
-                    onChange?.Invoke();
-                    return val.ToString();
-                });
-            containerRow1.Add(layerPopup);
-
-            var field = new EventAssetField();
-            field.Set(data, onChange);
-            containerRow1.Add(field);
-
-            var containerRow2 = new VisualElement();
-            containerRow2.style.flexDirection = FlexDirection.Row;
-            containerColumn.Add(containerRow2);
-
-            var loopContainer = new VisualElement();
-            loopContainer.AddToClassList("aa-Toggle_content-container");
-            containerRow2.Add(loopContainer);
-
-            var loopToggle = new Toggle
-            {
-                name = AaGraphConstants.LoopToggleName,
-                text = AaGraphConstants.LoopToggleName,
-                value = data?.Loop ?? false,
-                //tooltip = "If "
-            };
-            loopContainer.Add(loopToggle);
-
-            var stopContainer = new VisualElement();
-            stopContainer.AddToClassList("aa-Toggle_content-container");
-            containerRow2.Add(stopContainer);
-            var stopToggle = new Toggle
-            {
-                name = AaGraphConstants.StopToggleName,
-                text = AaGraphConstants.StopToggleName,
-                value = data?.Stop ?? false,
-                tooltip = "If need to stop the same event started in different phrase node"
-            };
-            stopContainer.Add(stopToggle);
-
-            var delayContainer = new VisualElement();
-            delayContainer.AddToClassList("aa-Toggle_content-container");
-            delayContainer.style.flexDirection = FlexDirection.Row;
-            containerRow2.Add(delayContainer);
-            var delayLabel = new Label { text = "Delay" };
-            delayLabel.tooltip = "Time in seconds before the event happen";
-            delayContainer.Add(delayLabel);
-
-            var delay = new FloatField
-            {
-                value = data?.Delay ?? 0,
-            };
-            delayContainer.Add(delay);
-
-            contentContainer.style.flexDirection = FlexDirection.Row;
-            contentContainer.AddToClassList("aa-EventVisual_content-container");
-        }
-
-        public EventVisualData GetData()
-        {
-            var eventAssetField = contentContainer.Q<EventAssetField>();
-            return new EventVisualData
-            {
-                PhraseEvent = eventAssetField.GetEvent(),
-                Type = eventAssetField.Type,
-                Layer = contentContainer.Q<PopupField<PhraseEventLayer>>().value,
-                Loop = contentContainer.Q<Toggle>(name: AaGraphConstants.LoopToggleName).value,
-                Stop = contentContainer.Q<Toggle>(name: AaGraphConstants.StopToggleName).value,
-                Delay = contentContainer.Q<FloatField>().value,
-            };
-        }
-    }
-
-    public class EventAssetField : VisualElement
-    {
-        private ObjectField _objectField;
-        public PhraseEventType Type { get; private set; }
-
-        public void Set(EventVisualData data, Action onChange = null)
-        {
-            Type = data.Type;
-
-            switch (data.Type)
-            {
-                case PhraseEventType.AudioClip:
-                    var audioAsset = data.GetEventObject<AudioClip>();
-                    _objectField = new ObjectField
-                    {
-                        objectType = typeof(AudioClip),
-                        allowSceneObjects = false,
-                        value = audioAsset,
-                    };
-                    break;
-                case PhraseEventType.VideoClip:
-                    var videoAsset = data.GetEventObject<VideoClip>();
-                    _objectField = new ObjectField
-                    {
-                        objectType = typeof(VideoClip),
-                        allowSceneObjects = false,
-                        value = videoAsset,
-                    };
-                    break;
-                case PhraseEventType.GameObject:
-                    var objectAsset = data.GetEventObject<GameObject>();
-                    _objectField = new ObjectField
-                    {
-                        objectType = typeof(GameObject),
-                        allowSceneObjects = false,
-                        value = objectAsset,
-                    };
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-            _objectField.RegisterValueChangedCallback(_ => onChange?.Invoke());
-
-            contentContainer.Add(_objectField);
-        }
-
-        public string GetEvent()
-        {
-            return EditorNodeUtils.GetPathByObject(_objectField.value);
-        }
-    }
-
-    public class _EventAssetField<T> : VisualElement where T : Object
-    {
-        private ObjectField _objectField;
-
-        public _EventAssetField(T eventAsset = null, Action onChange = null)
-        {
-            _objectField = new ObjectField
-            {
-                objectType = typeof(T),
-                allowSceneObjects = false,
-                value = eventAsset,
-            };
-
-            _objectField.RegisterValueChangedCallback(_ => onChange?.Invoke());
-
-            contentContainer.Add(_objectField);
-        }
-
-        public PhraseEventSo GetEvent()
-        {
-            return _objectField.value as PhraseEventSo;
-        }
-    }
-
-    #endregion
-
     public class NoEnumPopup : VisualElement
     {
         public void Set(List<string> keys, string currentChoice = null, Action<string> onChange = null)
         {
-            contentContainer.Add(new PopupField<string>("", keys,
-                currentChoice ?? keys?[0], val =>
-                {
-                    onChange?.Invoke(val);
-                    return val;
-                }));
+            keys = keys == null || keys.Count < 1 ? new List<string> { AaGraphConstants.None } : keys;
+            currentChoice = string.IsNullOrEmpty(currentChoice) || !keys.Contains(currentChoice)
+                ? keys.Count > 0 ? keys[0] : AaGraphConstants.None
+                : currentChoice;
+
+            contentContainer.Add(new PopupField<string>("", keys, currentChoice, val =>
+            {
+                onChange?.Invoke(val);
+                return val;
+            }));
         }
     }
 
@@ -542,7 +571,7 @@ namespace AaDialogueGraph.Editor
 
     public class NodeTitleErrorField : VisualElement
     {
-        public Label Label { get;}
+        public Label Label { get; }
 
         public NodeTitleErrorField()
         {
@@ -554,5 +583,23 @@ namespace AaDialogueGraph.Editor
         {
             contentContainer.Add(Label);
         }
+    }
+
+    public class LineGroup : VisualElement
+    {
+        public LineGroup(IEnumerable<VisualElement> elements)
+        {
+            foreach (var element in elements)
+            {
+                contentContainer.Add(element);
+            }
+
+            contentContainer.style.flexDirection = FlexDirection.Row;
+            contentContainer.AddToClassList("aa-LineGroup_content-container");
+        }
+    }
+
+    public class ButtonFilterTextField : TextField
+    {
     }
 }

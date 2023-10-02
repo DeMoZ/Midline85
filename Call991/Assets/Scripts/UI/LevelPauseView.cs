@@ -7,39 +7,51 @@ namespace UI
     {
         public struct Ctx
         {
-            public ReactiveCommand onClickMenuButton;
-            public ReactiveCommand onClickSettingsButton;
-            public ReactiveCommand onClickUnPauseButton;
+            public ReactiveCommand OnClickMenuButton;
+            public ReactiveCommand OnClickSettingsButton;
+            public ReactiveCommand OnClickUnPauseButton;
+            public ReactiveCommand OnClickSkipCinematicButton;
+            public ReactiveCommand<bool> OnShowSkipCinematicButton;
         }
 
-        [SerializeField] private MenuButtonView continueButton = default;
-        [SerializeField] private MenuButtonView settingsButton = default;
-        [SerializeField] private MenuButtonView menuButton = default;
+        [SerializeField] private AaMenuButton continueButton = default;
+        [SerializeField] private AaMenuButton settingsButton = default;
+        [SerializeField] private AaMenuButton menuButton = default;
+        [SerializeField] private AaMenuButton skipCinematicButton = default;
 
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            menuButton.OnClick += OnClickMenuButton;
-            settingsButton.OnClick += OnClickSettingsButton;
-            continueButton.OnClick += OnClickContinue;
+
+            _ctx.OnShowSkipCinematicButton.Subscribe(OnShowSkipCinematicButton);
+            
+            continueButton.onButtonClick.AddListener(OnClickContinueHandler);
+            settingsButton.onButtonClick.AddListener(OnClickSettingsButtonHandler);
+            menuButton.onButtonClick.AddListener(OnClickMenuButtonHandler);
+            skipCinematicButton.onButtonClick.AddListener(OnClickSkipCinematicButtonHandler);
         }
+        
+        private void OnClickContinueHandler() => AnimateDisappear(OnClickContinue);
+        private void OnClickSettingsButtonHandler() => AnimateDisappear(OnClickSettingsButton);
+        private void OnClickMenuButtonHandler() => AnimateDisappear(OnClickMenuButton);
+        private void OnClickSkipCinematicButtonHandler() => AnimateDisappear(OnClickSkipCinematicButton);
 
-        private void OnClickSettingsButton() => 
-            _ctx.onClickSettingsButton.Execute();
+        public void OnClickContinue() => _ctx.OnClickUnPauseButton.Execute();
+        private void OnClickSettingsButton() => _ctx.OnClickSettingsButton.Execute();
+        private void OnClickMenuButton() => _ctx.OnClickMenuButton.Execute();
+        private void OnClickSkipCinematicButton() => _ctx.OnClickSkipCinematicButton.Execute();
+        
+        private void OnShowSkipCinematicButton(bool show) => skipCinematicButton.gameObject.SetActive(show);
 
-        private void OnClickMenuButton() => 
-            _ctx.onClickMenuButton.Execute();
-
-        public void OnClickContinue() => 
-            _ctx.onClickUnPauseButton.Execute();
 
         public void Dispose()
         {
-            menuButton.OnClick -= OnClickMenuButton;
-            settingsButton.OnClick -= OnClickSettingsButton;
-            continueButton.OnClick -= OnClickContinue;
+            menuButton.onButtonClick.RemoveAllListeners();
+            settingsButton.onButtonClick.RemoveAllListeners();
+            continueButton.onButtonClick.RemoveAllListeners();
+            skipCinematicButton.onButtonClick.RemoveAllListeners();
         }
     }
 }

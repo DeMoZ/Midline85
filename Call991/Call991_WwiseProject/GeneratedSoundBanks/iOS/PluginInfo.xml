@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PluginInfo Platform="iOS" BasePlatform="iOS">
+	<PluginLibs>
+		<PluginLib LibName="Wwise Sine" LibId="6553602" Type="Source" DLL="AkSineTone" StaticLib="AkSineSource"/>
+		<PluginLib LibName="Wwise Tone Generator" LibId="6684674" Type="Source" DLL="AkToneGen" StaticLib="AkToneSource"/>
+		<PluginLib LibName="Wwise Parametric EQ" LibId="6881283" Type="Effect" DLL="AkParametricEQ" StaticLib="AkParametricEQFX"/>
+		<PluginLib LibName="Wwise Compressor" LibId="7077891" Type="Effect" DLL="AkCompressor" StaticLib="AkCompressorFX"/>
+		<PluginLib LibName="Wwise Peak Limiter" LibId="7208963" Type="Effect" DLL="AkPeakLimiter" StaticLib="AkPeakLimiterFX"/>
+		<PluginLib LibName="System" LibId="11403271" Type="AudioDevice"/>
+		<PluginLib LibName="No Output" LibId="11862023" Type="AudioDevice"/>
+	</PluginLibs>
+	<FileHash>{48155E74-0EA5-1DCD-06F7-7757CF4D4ECC}</FileHash>
+</PluginInfo>

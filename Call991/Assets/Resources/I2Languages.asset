@@ -17,7 +17,15 @@ MonoBehaviour:
     UserAgreesToHaveItInsideThePluginsFolder: 0
     GoogleLiveSyncIsUptoDate: 1
     mTerms:
-    - Term: menu_middline
+    - Term: NONE
+      TermType: 0
+      Description: 
+      Languages:
+      - Not localized and not set
+      - "\u041D\u0435 \u0437\u0430\u0434\u0430\u043D \u0438 \u043D\u0435 \u043F\u0435\u0440\u0435\u0432\u0435\u0434\u0435\u043D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: menu/middline
       TermType: 0
       Description: 
       Languages:
@@ -25,15 +33,15 @@ MonoBehaviour:
       - Midline '85
       Flags: 0000
       Languages_Touch: []
-    - Term: menu_continue
+    - Term: menu/continue
       TermType: 0
       Description: 
       Languages:
-      - Continue
-      - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+      - Select Level
+      - "\u0412\u044B\u0431\u043E\u0440 \u0423\u0440\u043E\u0432\u043D\u0435\u0439"
       Flags: 0000
       Languages_Touch: []
-    - Term: menu_newGame
+    - Term: menu/newGame
       TermType: 0
       Description: 
       Languages:
@@ -41,7 +49,7 @@ MonoBehaviour:
       - "\u041D\u043E\u0432\u0430\u044F \u0418\u0433\u0440\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: menu_settings
+    - Term: menu/settings
       TermType: 0
       Description: 
       Languages:
@@ -49,7 +57,7 @@ MonoBehaviour:
       - "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B"
       Flags: 0000
       Languages_Touch: []
-    - Term: menu_exit
+    - Term: menu/exit
       TermType: 0
       Description: 
       Languages:
@@ -57,7 +65,7 @@ MonoBehaviour:
       - "\u0412\u044B\u0445\u043E\u0434"
       Flags: 0000
       Languages_Touch: []
-    - Term: menu_credits
+    - Term: menu/credits
       TermType: 0
       Description: 
       Languages:
@@ -65,7 +73,7 @@ MonoBehaviour:
       - "\u0422\u0438\u0442\u0440\u044B"
       Flags: 0000
       Languages_Touch: []
-    - Term: menu_enter
+    - Term: menu/enter
       TermType: 0
       Description: 
       Languages:
@@ -73,7 +81,15 @@ MonoBehaviour:
       - "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: set_phrase
+    - Term: menu/selectLevel
+      TermType: 0
+      Description: 
+      Languages:
+      - Select Level
+      - "\u0412\u044B\u0431\u043E\u0440 \u0423\u0440\u043E\u0432\u043D\u0435\u0439"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: settings/phrase
       TermType: 0
       Description: 
       Languages:
@@ -81,7 +97,7 @@ MonoBehaviour:
       - "\u041D\u0430\u0447\u0430\u0442\u044C \u0441"
       Flags: 0000
       Languages_Touch: []
-    - Term: set_back
+    - Term: settings/back
       TermType: 0
       Description: 
       Languages:
@@ -89,7 +105,7 @@ MonoBehaviour:
       - "\u041D\u0430\u0437\u0430\u0434"
       Flags: 0000
       Languages_Touch: []
-    - Term: set_textLang
+    - Term: settings/textLang
       TermType: 0
       Description: 
       Languages:
@@ -97,7 +113,7 @@ MonoBehaviour:
       - "\u042F\u0437\u044B\u043A \u0442\u0435\u043A\u0441\u0442\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: set_audioLang
+    - Term: settings/voiceLang
       TermType: 0
       Description: 
       Languages:
@@ -105,7 +121,39 @@ MonoBehaviour:
       - "\u042F\u0437\u044B\u043A \u043E\u0437\u0432\u0443\u0447\u0438\u0432\u0430\u043D\u0438\u044F"
       Flags: 0000
       Languages_Touch: []
-    - Term: level_pause
+    - Term: settings/masterVolume
+      TermType: 0
+      Description: 
+      Languages:
+      - Master Volume
+      - "\u041E\u0441\u043D\u043E\u0432\u043D\u0430\u044F \u0433\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: settings/voiceVolume
+      TermType: 0
+      Description: 
+      Languages:
+      - Dialogue Volume
+      - "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u0434\u0438\u0430\u043B\u043E\u0433\u043E\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: settings/musicVolume
+      TermType: 0
+      Description: 
+      Languages:
+      - Music Volume
+      - "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: settings/effectsVolume
+      TermType: 0
+      Description: 
+      Languages:
+      - Effects Volume
+      - "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u044D\u0444\u0444\u0435\u043A\u0442\u043E\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: level/pause
       TermType: 0
       Description: 
       Languages:
@@ -113,7 +161,7 @@ MonoBehaviour:
       - "\u041F\u0430\u0443\u0437\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: level_continue
+    - Term: level/continue
       TermType: 0
       Description: 
       Languages:
@@ -121,7 +169,7 @@ MonoBehaviour:
       - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: level_settings
+    - Term: level/settings
       TermType: 0
       Description: 
       Languages:
@@ -129,7 +177,7 @@ MonoBehaviour:
       - "\u041F\u0430\u0440\u0430\u043C\u0435\u0442\u0440\u044B"
       Flags: 0000
       Languages_Touch: []
-    - Term: level_backToMenu
+    - Term: level/backToMenu
       TermType: 0
       Description: 
       Languages:
@@ -137,12 +185,20 @@ MonoBehaviour:
       - "\u0412\u044B\u0445\u043E\u0434 \u0432 \u041C\u0435\u043D\u044E"
       Flags: 0000
       Languages_Touch: []
+    - Term: level/skipSinematic
+      TermType: 0
+      Description: 
+      Languages:
+      - SkipVideo
+      - "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u0432\u0438\u0434\u0435\u043E\u0440\u043E\u043B\u0438\u043A"
+      Flags: 0000
+      Languages_Touch: []
     - Term: loading_process
       TermType: 0
       Description: 
       Languages:
-      - LOADING
-      - "\u0417\u0410\u0413\u0420\u0423\u0417\u041A\u0410"
+      - Loading
+      - "\u0417\u0430\u0433\u0440\u0443\u0437\u043A\u0430"
       Flags: 0000
       Languages_Touch: []
     - Term: credits_title
@@ -153,28 +209,28 @@ MonoBehaviour:
       - "\u0422\u0438\u0442\u0440\u044B"
       Flags: 0000
       Languages_Touch: []
-    - Term: set_dialogueVolume
+    - Term: LANGUAGES
       TermType: 0
       Description: 
       Languages:
-      - Dialogue Volume
-      - "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u0434\u0438\u0430\u043B\u043E\u0433\u043E\u0432"
+      - 
+      - 
       Flags: 0000
       Languages_Touch: []
-    - Term: set_effectsVolume
+    - Term: English
       TermType: 0
       Description: 
       Languages:
-      - Effects Volume
-      - "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u044D\u0444\u0444\u0435\u043A\u0442\u043E\u0432"
+      - English
+      - "\u0410\u043D\u0433\u043B\u0438\u0439\u0441\u043A\u0438\u0439"
       Flags: 0000
       Languages_Touch: []
-    - Term: set_musicVolume
+    - Term: Russian
       TermType: 0
       Description: 
       Languages:
-      - Music Volume
-      - "\u0413\u0440\u043E\u043C\u043A\u043E\u0441\u0442\u044C \u043C\u0443\u0437\u044B\u043A\u0438"
+      - Russian
+      - "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
       Flags: 0000
       Languages_Touch: []
     - Term: NAMES
@@ -217,6 +273,70 @@ MonoBehaviour:
       - "\u0414\u0416\u0415\u041A"
       Flags: 0000
       Languages_Touch: []
+    - Term: MARK
+      TermType: 0
+      Description: 
+      Languages:
+      - MARK
+      - "\u041C\u0410\u0420\u041A"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: GIRL
+      TermType: 0
+      Description: 
+      Languages:
+      - GIRL
+      - "\u0414\u0415\u0412\u0423\u0428\u041A\u0410"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: GEORGE
+      TermType: 0
+      Description: 
+      Languages:
+      - GEORGE
+      - "\u0414\u0416\u041E\u0420\u0414\u0416"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: POLICE
+      TermType: 0
+      Description: 
+      Languages:
+      - POLICE
+      - "\u041F\u041E\u041B\u0418\u0426\u0418\u042F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: PSYCHOTHERAPIST
+      TermType: 0
+      Description: 
+      Languages:
+      - PSYCHOTHERAPIST
+      - "\u041F\u0421\u0418\u0425\u041E\u0422\u0415\u0420\u0410\u041F\u0415\u0412\u0422"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: CONSTANTINE
+      TermType: 0
+      Description: 
+      Languages:
+      - CONSTANTINE
+      - "\u041A\u041E\u041D\u0421\u0422\u0410\u041D\u0422\u0418\u041D"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: JOSHUA
+      TermType: 0
+      Description: 
+      Languages:
+      - JOSHUA
+      - "\u0414\u0416\u041E\u0428\u0423\u0410"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: WILLIAMS
+      TermType: 0
+      Description: 
+      Languages:
+      - M. WILLIAMS
+      - "\u041C. \u0423\u0418\u041B\u042C\u042F\u041C\u0421"
+      Flags: 0000
+      Languages_Touch: []
     - Term: DEVELOPERS
       TermType: 0
       Description: 
@@ -225,84 +345,196 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_sergeyVedenskiy
+    - Term: team/sergeyVedenskiy
       TermType: 0
       Description: 
       Languages:
-      - SERGEY VEDENSKY
-      - "\u0421\u0415\u0420\u0413\u0415\u0419 \u0412\u0415\u0414\u0415\u041D\u0421\u041A\u0418\u0419"
+      - Sergey Vedensky
+      - "\u0421\u0435\u0440\u0433\u0435\u0439 \u0412\u0435\u0434\u0435\u043D\u0441\u043A\u0438\u0439"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_danilaRomah
+    - Term: team/danilaRomah
       TermType: 0
       Description: 
       Languages:
-      - DANILA ROMAH
-      - "\u0414\u0410\u041D\u0418\u041B\u0410 \u0420\u041E\u041C\u0410\u0425"
+      - Danila Romah
+      - "\u0414\u0430\u043D\u0438\u043B\u0430 \u0420\u043E\u043C\u0430\u0445"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_romanKolychev
+    - Term: team/irinaMolodetskaya
       TermType: 0
       Description: 
       Languages:
-      - ROMAN KOLYCHEV
-      - "\u0420\u041E\u041C\u0410\u041D \u041A\u041E\u041B\u042B\u0427\u0415\u0412"
+      - Irina Molodetskaya
+      - "\u0418\u0440\u0438\u043D\u0430 \u041C\u043E\u043B\u043E\u0434\u0435\u0446\u043A\u0430\u044F"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_irinaMolodetskaya
+    - Term: team/arthurGilev
       TermType: 0
       Description: 
       Languages:
-      - IRINA MOLODETSKAYA
-      - "\u0418\u0420\u0418\u041D\u0410 \u041C\u041E\u041B\u041E\u0414\u0415\u0426\u041A\u0410\u042F"
+      - Arthur Gilev
+      - "\u0410\u0440\u0442\u0443\u0440 \u0413\u0438\u043B\u0435\u0432"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_arturGilev
+    - Term: team/yevgeniyPolyakov
       TermType: 0
       Description: 
       Languages:
-      - ARTUR GILEV
-      - "\u0410\u0420\u0422\u0423\u0420 \u0413\u0418\u041B\u0415\u0412"
+      - Yevgeniy Polyakov
+      - "\u0415\u0432\u0433\u0435\u043D\u0438\u0439 \u041F\u043E\u043B\u044F\u043A\u043E\u0432"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_geoffHartJones
+    - Term: team/mikhailFedorov
       TermType: 0
       Description: 
       Languages:
-      - GEOFF HART-JONES
-      - "\u0414\u0416\u0415\u0424\u0424 \u0425\u0410\u0420\u0422-\u0414\u0416\u041E\u041D\u0421"
+      - Mikhail Fedorov
+      - "\u041C\u0438\u0445\u0430\u0438\u043B \u0424\u0435\u0434\u043E\u0440\u043E\u0432"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_tagirAkhmadeev
+    - Term: team/leonFoster
       TermType: 0
       Description: 
       Languages:
-      - TAGIR AKHMADEEV
-      - "\u0422\u0410\u0413\u0418\u0420 \u0410\u0425\u041C\u0410\u0414\u0415\u0415\u0412"
+      - Leon Foster
+      - "\u041B\u0435\u043E\u043D \u0424\u043E\u0441\u0442\u0435\u0440"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_valeriaLevochskaya
+    - Term: team/anastasiaReviakina
       TermType: 0
       Description: 
       Languages:
-      - VALERIA LEVOCHSKAYA
-      - "\u0412\u0410\u041B\u0415\u0420\u0418\u042F \u041B\u0415\u0412\u041E\u0427\u0421\u041A\u0410\u042F"
+      - Anastasia Revyakina
+      - "\u0410\u043D\u0430\u0441\u0442\u0430\u0441\u0438\u044F \u0420\u0435\u0432\u044F\u043A\u0438\u043D\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_sergeyLedovsky
+    - Term: team/ivanDervoedov
       TermType: 0
       Description: 
       Languages:
-      - SERGEY LEDOVSKY
-      - "\u0421\u0415\u0420\u0413\u0415\u0419 \u041B\u0415\u0414\u041E\u0412\u0421\u041A\u0418\u0419"
+      - Ivan Dervoedov
+      - "\u0418\u0432\u0430\u043D \u0414\u0435\u0440\u0432\u043E\u0435\u0434\u043E\u0432"
       Flags: 0000
       Languages_Touch: []
-    - Term: dev_marishaProskurova
+    - Term: team/irinaBragina
       TermType: 0
       Description: 
       Languages:
-      - MARISHA PROSKUROVA
-      - "\u041C\u0410\u0420\u0418\u0428\u0410 \u041F\u0420\u041E\u0421\u041A\u0423\u0420\u041E\u0412\u0410"
+      - Irina Bragina
+      - "\u0418\u0440\u0438\u043D\u0430 \u0411\u0440\u0430\u0433\u0438\u043D\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/annaSmirnova
+      TermType: 0
+      Description: 
+      Languages:
+      - Anna Smirnova
+      - "\u0410\u043D\u043D\u0430 \u0421\u043C\u0438\u0440\u043D\u043E\u0432\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/konstantinMaksimov
+      TermType: 0
+      Description: 
+      Languages:
+      - Konstantin Maksimov
+      - "\u041A\u043E\u043D\u0441\u0442\u0430\u043D\u0442\u0438\u043D \u041C\u0430\u043A\u0441\u0438\u043C\u043E\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/olgaRomanova
+      TermType: 0
+      Description: 
+      Languages:
+      - Olga Romanova
+      - "\u041E\u043B\u044C\u0433\u0430 \u0420\u043E\u043C\u0430\u043D\u043E\u0432\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/dianaBogdanova
+      TermType: 0
+      Description: 
+      Languages:
+      - Diana Bogdanova
+      - "\u0414\u0438\u0430\u043D\u0430 \u0411\u043E\u0433\u0434\u0430\u043D\u043E\u0432\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/geoffHartJones
+      TermType: 0
+      Description: 
+      Languages:
+      - Geoff Hart-Jones
+      - "\u0414\u0436\u0435\u0444\u0444 \u0425\u0430\u0440\u0442-\u0414\u0436\u043E\u043D\u0441"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/tagirAkhmadeev
+      TermType: 0
+      Description: 
+      Languages:
+      - Tagir Akhmadeev
+      - "\u0422\u0430\u0433\u0438\u0440 \u0410\u0445\u043C\u0430\u0434\u0435\u0435\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/valeriaLevochskaya
+      TermType: 0
+      Description: 
+      Languages:
+      - Valeria Levochskaya
+      - "\u0412\u0430\u043B\u0435\u0440\u0438\u044F \u041B\u0435\u0432\u043E\u0447\u0441\u043A\u0430\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/sergeyLedovsky
+      TermType: 0
+      Description: 
+      Languages:
+      - Sergey Ledovsky
+      - "\u0421\u0435\u0440\u0433\u0435\u0439 \u041B\u0435\u0434\u043E\u0432\u0441\u043A\u0438\u0439"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/marishaProskurova
+      TermType: 0
+      Description: 
+      Languages:
+      - Marisha Proskurova
+      - "\u041C\u0430\u0440\u0438\u0448\u0430 \u041F\u0440\u043E\u0441\u043A\u0443\u0440\u043E\u0432\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/romanKolychev
+      TermType: 0
+      Description: 
+      Languages:
+      - Roman Kolychev
+      - "\u0420\u043E\u043C\u0430\u043D \u041A\u043E\u043B\u044B\u0447\u0435\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/vsevolodKhusid
+      TermType: 0
+      Description: 
+      Languages:
+      - Vsevolod Khusid
+      - "\u0412\u0441\u0435\u0432\u043E\u043B\u043E\u0434 \u0425\u0443\u0441\u0438\u0434"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/dmitryErmakov
+      TermType: 0
+      Description: 
+      Languages:
+      - Dmitry Ermakov
+      - "\u0414\u043C\u0438\u0442\u0440\u0438\u0439 \u0415\u0440\u043C\u0430\u043A\u043E\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/IrinaOrlova
+      TermType: 0
+      Description: 
+      Languages:
+      - Irina Orlova
+      - "\u0418\u0440\u0438\u043D\u0430 \u041E\u0440\u043B\u043E\u0432\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: team/sergeyRovny
+      TermType: 0
+      Description: 
+      Languages:
+      - Sergey Rovny
+      - "\u0421\u0435\u0440\u0433\u0435\u0439 \u0420\u043E\u0432\u043D\u044B\u0439"
       Flags: 0000
       Languages_Touch: []
     - Term: Loading warning
@@ -348,7 +580,7 @@ MonoBehaviour:
       - "\u041F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u043A \u0440\u0430\u0431\u043E\u0442\u0435"
       Flags: 0000
       Languages_Touch: []
-    - Term: Tutorials
+    - Term: NEWSPAPER
       TermType: 0
       Description: 
       Languages:
@@ -356,7 +588,344 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: tut_back
+    - Term: newspaper/all/title
+      TermType: 0
+      Description: 
+      Languages:
+      - Midline Life
+      - Midline Life
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/all/price
+      TermType: 0
+      Description: 
+      Languages:
+      - 75 cents
+      - "75 \u0446\u0435\u043D\u0442\u043E\u0432"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/all/voice
+      TermType: 0
+      Description: 
+      Languages:
+      - Your Town's Voice Since 1970
+      - "\u0413\u043E\u043B\u043E\u0441 \u0442\u0432\u043E\u0435\u0433\u043E \u0433\u043E\u0440\u043E\u0434\u0430
+        \u0441 1970"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/title_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Innovative tech, or what
+
+        our tax money buys'
+      - "\u0418\u0442\u043E\u0433\u0438 \u0438\u043D\u043D\u043E\u0432\u0430\u0446\u0438\u0439,
+        \u0438\u043B\u0438\n\u043D\u0430 \u0447\u0442\u043E \u0438\u0434\u0443\u0442
+        \u043D\u0430\u0448\u0438 \u043D\u0430\u043B\u043E\u0433\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/titile_date
+      TermType: 0
+      Description: 
+      Languages:
+      - April 5, 1985
+      - "5 \u0430\u043F\u0440\u0435\u043B\u044F, 1985"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/top_col_1
+      TermType: 0
+      Description: 
+      Languages:
+      - "    As we are all well aware,\n1985 is an important year\nfor Midline. The
+        Town Hall\nis looking to combat crime\nby taking a page from the ma-\njor
+        cities\u2019 book.                        \n    We, in turn, would rather
+        not\nexpress pessimism. However,\nat this moment, the initiative\nlooks like
+        change for the sake\nof change. Expensive hard-\nware, computers in every
+        of\nfice, increased police patrols,\nexpanded telephone opera-\ntions. Everything,
+        everywhere,"
+      - "    \u041A\u0430\u043A \u043D\u0430\u043C \u0441 \u0432\u0430\u043C\u0438
+        \u0434\u0430\u0432\u043D\u043E \u0438\u0437-\n\u0432\u0435\u0441\u0442\u043D\u043E,
+        1985 \u0433\u043E\u0434 \u0432\u0430\u0436\u0435\u043D \u0434\u043B\u044F\n\u041C\u0438\u0434\u043B\u0430\u0439\u043D\u0430.
+        \u041C\u044D\u0440\u0438\u044F, \u0437\u0430\u0440\u0443\u0447\u0438\u0432-\n\u0448\u0438\u0441\u044C
+        \u043E\u043F\u044B\u0442\u043E\u043C \u043C\u0435\u0433\u0430\u043F\u043E\u043B\u0438\u0441\u043E\u0432,\n\u0443\u0436\u0435
+        \u0441\u043E\u0441\u0442\u0430\u0432\u0438\u043B\u0430 \u043F\u043B\u0430\u043D
+        \u043F\u043E \u0431\u043E\u0440\u044C\u0431\u0435\n\u0441 \u0431\u0435\u0437\u0437\u0430\u043A\u043E\u043D\u0438\u0435\u043C
+        \u0438 \u0434\u0430\u0436\u0435 \u0443\u0441\u043F\u0435\u0448-\n\u043D\u043E
+        \u0435\u0433\u043E \u0440\u0435\u0430\u043B\u0438\u0437\u0443\u0435\u0442.                 
+        \n    \u041C\u044B, \u0432 \u0441\u0432\u043E\u044E \u043E\u0447\u0435\u0440\u0435\u0434\u044C,
+        \u043D\u0435 \u0445\u043E-\n\u0442\u0438\u043C \u0432\u044B\u0441\u043A\u0430\u0437\u044B\u0432\u0430\u0442\u044C
+        \u043F\u0435\u0441\u0441\u0438\u043C\u0438-\n\u0441\u0442\u0438\u0447\u043D\u044B\u0435
+        \u043C\u044B\u0441\u043B\u0438. \u041D\u043E \u043F\u043E\u043A\u0430 \u0447\u0442\u043E\n\u043F\u043E\u0434\u043E\u0431\u043D\u0430\u044F
+        \u0438\u043D\u0438\u0446\u0438\u0430\u0442\u0438\u0432\u043D\u043E\u0441\u0442\u044C\n\u0432\u044B\u0433\u043B\u044F\u0434\u0438\u0442,
+        \u043A\u0430\u043A \u0441\u0443\u0435\u0442\u0430 \u0440\u0430\u0434\u0438
+        \u0441\u0443-\n\u0435\u0442\u044B. \u0414\u043E\u0440\u043E\u0433\u043E\u0435
+        \u043E\u0431\u043E\u0440\u0443\u0434\u043E\u0432\u0430\u043D\u0438\u0435,\n\u0432\u0441\u0435\u043E\u0431\u0449\u0430\u044F
+        \u043A\u043E\u043C\u043F\u044C\u044E\u0442\u0435\u0440\u0438\u0437\u0430\u0446\u0438\u044F,\n\u0443\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u0438\u0435
+        \u043F\u043E\u043B\u0438\u0446\u0435\u0439\u0441\u043A\u0438\u0445 \u043F\u0430-"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/top_col_2
+      TermType: 0
+      Description: 
+      Languages:
+      - "all at once \u2014 but is it going\nto work? Can crime be defeat-\ned by
+        sheer numbers alone,\nor do we need something be-\nsides police officers
+        and a new\nmodel radio instead of a gun?   \n    With strong-willed peo-\nple
+        who are capable of making\ntough choices are at the helm\nof such initiatives,
+        there still\nis a chance.                         \n    Although Mark Wallace,\nthe
+        current head of the depart-\nment, previously a field oper-\native rather
+        than an adminis-"
+      - "\u0442\u0440\u0443\u043B\u0435\u0439 \u043D\u0430 \u0434\u043E\u0440\u043E\u0433\u0430\u0445,
+        \u0440\u0430\u0441\u0448\u0438-\n\u0440\u0435\u043D\u0438\u0435 \u0448\u0442\u0430\u0442\u0430
+        \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u043E\u0432 \u0442\u0435-\n\u043B\u0435\u0444\u043E\u043D\u043D\u044B\u0445
+        \u0441\u043B\u0443\u0436\u0431. \u0412\u0441\u0451, \u0432\u0435\u0437\u0434\u0435\n\u0438
+        \u0441\u0440\u0430\u0437\u0443 \u2014 \u0430 \u0441\u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442
+        \u043B\u0438?\n\u041C\u043E\u0436\u043D\u043E \u043B\u0438 \u0437\u0430\u043A\u0440\u044B\u0442\u044C
+        \u0432\u043E\u043F\u0440\u043E\u0441\n\u0441 \u043F\u0440\u0435\u0441\u0442\u0443\u043F\u043D\u043E\u0441\u0442\u044C\u044E
+        \u0447\u0438\u0441\u043B\u043E\u043C, \u0438\u043B\u0438\n\u043D\u0430\u043C
+        \u043D\u0443\u0436\u043D\u043E \u0447\u0442\u043E-\u0442\u043E \u0431\u043E\u043B\u044C\u0448\u0435\u0435,\n\u0447\u0435\u043C
+        \u043E\u0444\u0438\u0446\u0435\u0440\u044B \u0441 \u043D\u043E\u0432\u043E\u043C\u043E\u0434\u043D\u043E\u0439\n\u0440\u0430\u0446\u0438\u0435\u0439
+        \u0432\u043C\u0435\u0441\u0442\u043E \u043F\u0438\u0441\u0442\u043E\u043B\u0435\u0442\u0430?
+        \n    \u0428\u0430\u043D\u0441\u044B \u0435\u0441\u0442\u044C, \u043F\u043E\u043A\u0430
+        \u0443 \u0438\u0437\u0433\u043E-\n\u043B\u043E\u0432\u044C\u044F \u0432\u0441\u0435\u0445
+        \u0438\u043D\u0438\u0446\u0438\u0430\u0442\u0438\u0432 \u0431\u0443\u0434\u0443\u0442\n\u043D\u0430\u0445\u043E\u0434\u0438\u0442\u044C\u0441\u044F
+        \u0432\u043E\u043B\u0435\u0432\u044B\u0435 \u043B\u044E\u0434\u0438,\n\u0433\u043E\u0442\u043E\u0432\u044B\u0435
+        \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0442\u044C \u0441\u043B\u043E\u0436\u043D\u044B\u0435\n\u0440\u0435\u0448\u0435\u043D\u0438\u044F.                              
+        \n    \u0418 \u0445\u043E\u0442\u044C \u041C\u0430\u0440\u043A \u0412\u043E\u043B\u043B\u044D\u0441,
+        \u043D\u044B-"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/top_col_3
+      TermType: 0
+      Description: 
+      Languages:
+      - "trator, is refusing interviews\nat the moment, our editorial\nstaff can
+        merely wish him good\nluck from the paper\u2019s pages.\nWe will continue
+        to look into\nand comment on any more up-\ncoming innovations to keep\nyou
+        informed.                        "
+      - "\u043D\u0435\u0448\u043D\u0438\u0439 \u043D\u0430\u0447\u0430\u043B\u044C\u043D\u0438\u043A
+        \u0448\u0442\u0430\u0431\u0430,\n\u0432 \u043F\u0440\u043E\u0448\u043B\u043E\u043C
+        \u2014 \u0440\u0430\u0431\u043E\u0442\u043D\u0438\u043A \u043F\u043E-\n\u043B\u0435\u0439,
+        \u0430 \u043D\u0435 \u0430\u0434\u043C\u0438\u043D\u0438\u0441\u0442\u0440\u0430\u0446\u0438\u0438,
+        \u043E\u0442-\n\u043A\u0430\u0437\u044B\u0432\u0430\u0435\u0442\u0441\u044F
+        \u0434\u0430\u0432\u0430\u0442\u044C \u0438\u043D\u0442\u0435\u0440\u0432\u044C\u044E,\n\u043C\u044B
+        \u043B\u0438\u0448\u044C \u043C\u043E\u0436\u0435\u043C \u043F\u043E\u0436\u0435\u043B\u0430\u0442\u044C\n\u0441\u043E
+        \u0441\u0442\u0440\u043E\u043A \u043D\u0430\u0448\u0435\u0439 \u0434\u043E\u0440\u043E\u0433\u043E\u0439
+        \u0433\u0430-\n\u0437\u0435\u0442\u044B \u0443\u0434\u0430\u0447\u0438 \u0435\u043C\u0443
+        \u0432 \u044D\u0442\u043E\u043C \u043D\u0435\u043F\u0440\u043E-\n\u0441\u0442\u043E\u043C
+        \u0434\u0435\u043B\u0435. \u041C\u044B \u0431\u0443\u0434\u0435\u043C \u043F\u043E\u0433\u043B\u044F-\n\u0434\u044B\u0432\u0430\u0442\u044C
+        \u0438 \u043A\u043E\u043C\u043C\u0435\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C\n\u0432\u0441\u0435
+        \u0433\u0440\u043E\u043C\u043E\u0433\u043B\u0430\u0441\u043D\u044B\u0435
+        \u0438\u043D\u043D\u043E\u0432\u0430\u0446\u0438\u0438\n\u0438 \u0434\u0435\u0440\u0436\u0430\u0442\u044C
+        \u0432\u0430\u0441 \u0432 \u043A\u0443\u0440\u0441\u0435\n\u0441\u043E\u0431\u044B\u0442\u0438\u0439.                                 "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/top_author
+      TermType: 0
+      Description: 
+      Languages:
+      - By Carlos Cerro
+      - "\u0410\u0432\u0442\u043E\u0440: \u041A\u0430\u0440\u043B\u043E\u0441 \u0421\u0435\u0440\u0440\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/mid_col_1
+      TermType: 0
+      Description: 
+      Languages:
+      - '    The dumping ground near
+
+        Midline has been growing
+
+        since
+        1974: rusting cars, bro-
+
+        ken appliances, plastic refuse.
+
+        The
+        Town Hall has addressed
+
+        its residents once more: recy-
+
+        cling
+        efforts, major fines, calls
+
+        for ecological responsibility.
+
+        However,
+        is it possible that
+
+        some of the higher-ups simply
+
+        benefits
+        from having the dump
+
+        nearby?..                                '
+      - "    \u0421 1974 \u0433\u043E\u0434\u0430 \u043F\u043E\u0434 \u041C\u0438\u0434\u043B\u0430\u0439-\n\u043D\u043E\u043C
+        \u0440\u0430\u0441\u0442\u0451\u0442 \u0441\u0432\u0430\u043B\u043A\u0430:
+        \u0440\u0436\u0430\u0432\u044B\u0435\n\u0430\u0432\u0442\u043E, \u0441\u043B\u043E\u043C\u0430\u043D\u043D\u0430\u044F
+        \u0431\u044B\u0442\u043E\u0432\u0430\u044F \u0442\u0435\u0445-\n\u043D\u0438\u043A\u0430,
+        \u043F\u043B\u0430\u0441\u0442\u0438\u043A. \u041C\u044D\u0440\u0438\u044F
+        \u0432\u043D\u043E\u0432\u044C\n\u043E\u0431\u0440\u0430\u0442\u0438\u043B\u0430\u0441\u044C
+        \u043A \u0436\u0438\u0442\u0435\u043B\u044F\u043C \u0433\u043E\u0440\u043E-\n\u0434\u0430:
+        \u043E\u0431\u044F\u0437\u0430\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u0430
+        \u043F\u043E \u0443\u0442\u0438\u043B\u0438-\n\u0437\u0430\u0446\u0438\u0438,
+        \u0441\u0435\u0440\u044C\u0451\u0437\u043D\u044B\u0435 \u0448\u0442\u0440\u0430\u0444\u044B,\n\u043F\u0440\u0438\u0437\u044B\u0432\u044B
+        \u043E\u0442\u0432\u0435\u0447\u0430\u0442\u044C \u0437\u0430 \u044D\u043A\u043E\u043B\u043E-\n\u0433\u0438\u044E.
+        \u041D\u043E, \u0431\u044B\u0442\u044C \u043C\u043E\u0436\u0435\u0442, \u043A\u043E\u043C\u0443-\u0442\u043E\n\u0438\u0437
+        \u0432\u044B\u0448\u0435\u0441\u0442\u043E\u044F\u0449\u0438\u0445 \u043F\u0440\u043E\u0441\u0442\u043E
+        \u0432\u044B-\n\u0433\u043E\u0434\u043D\u043E \u0434\u0435\u0440\u0436\u0430\u0442\u044C
+        \u0441\u0432\u0430\u043B\u043A\u0443 \u043F\u043E\u0434 \u0440\u0443-\n\u043A\u043E\u0439?..                                       "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/mid_col_2
+      TermType: 0
+      Description: 
+      Languages:
+      - "    The unfinished hotel build-\ning that has been the favored\nmeeting
+        place for Midline\u2019s\nundesirables, is finally about\nto be demolished!
+        The Town\nHall announced it at yester-\nday\u2019s town meeting. Vehi-\ncles
+        and personnel are ready,\nall the documents are signed,\nand the \u201Ctenants\u201D
+        are fore-\nwarned. One question remains:"
+      - "    \u041D\u0435\u0434\u043E\u0441\u0442\u0440\u043E\u0435\u043D\u043D\u043E\u0435
+        \u0437\u0434\u0430\u043D\u0438\u0435 \u043E\u0442-\n\u0435\u043B\u044F, \u043C\u0435\u0441\u0442\u043E
+        \u0441\u0445\u043E\u0434\u043E\u043A \u043C\u0430\u0440\u0433\u0438\u043D\u0430\u043B\u044C-\n\u043D\u044B\u0445
+        \u043B\u0438\u0447\u043D\u043E\u0441\u0442\u0435\u0439 \u041C\u0438\u0434\u043B\u0430\u0439\u043D\u0430,\n\u043D\u0430\u043A\u043E\u043D\u0435\u0446-\u0442\u043E
+        \u0441\u043D\u0435\u0441\u0443\u0442! \u0412\u0447\u0435\u0440\u0430 \u043C\u044D-\n\u0440\u0438\u044F
+        \u043E\u0431\u044A\u044F\u0432\u0438\u043B\u0430 \u043E\u0431 \u044D\u0442\u043E\u043C
+        \u043D\u0430 \u0433\u043E-\n\u0440\u043E\u0434\u0441\u043A\u043E\u043C \u0441\u043E\u0431\u0440\u0430\u043D\u0438\u0438.
+        \u041F\u043E\u0434\u0433\u043E-\n\u0442\u043E\u0432\u043B\u0435\u043D\u044B
+        \u043C\u0430\u0448\u0438\u043D\u044B \u0438 \u043F\u0435\u0440\u0441\u043E\u043D\u0430\u043B,\n\u0434\u043E\u043A\u0443\u043C\u0435\u043D\u0442\u044B
+        \u043F\u043E\u0434\u043F\u0438\u0441\u0430\u043D\u044B, \xAB\u043F\u043E-\n\u0441\u0442\u043E\u044F\u043B\u044C\u0446\u044B\xBB
+        \u043F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0436\u0434\u0435\u043D\u044B.\n   
+        \u041E\u0441\u0442\u0430\u0451\u0442\u0441\u044F \u043E\u0442\u043A\u0440\u044B\u0442\u044B\u043C
+        \u0432\u043E-\n\u043F\u0440\u043E\u0441: \u0431\u0443\u0434\u0443\u0442 \u043B\u0438
+        \u043D\u0430 \u043E\u0444\u0438\u0446\u0438\u0430\u043B\u044C-"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/mid_col_3
+      TermType: 0
+      Description: 
+      Languages:
+      - "will the officials take any steps\nto ensure the building\u2019s home-\nless
+        still have a roof over their\nheads?                                   \n   
+        We remind you that Midline\nLife is collecting donations for\nthe less fortunate.
+        You will find\nall relevant contacts and ad-\ndresses on the final page.
+        Please\ndon\u2019t stay indifferent!                "
+      - "\u043D\u043E\u043C \u0443\u0440\u043E\u0432\u043D\u0435 \u043F\u0440\u0435\u0434\u043F\u0440\u0438\u043D\u044F\u0442\u044B\n\u043C\u0435\u0440\u044B,
+        \u0447\u0442\u043E\u0431\u044B \u043E\u0431\u0435\u0441\u043F\u0435\u0447\u0438\u0442\u044C
+        \u0442\u0430-\n\u043C\u043E\u0448\u043D\u0438\u0445 \u0431\u0435\u0437\u0434\u043E\u043C\u043D\u044B\u0445
+        \u043D\u043E\u0432\u043E\u0439\n\u043A\u0440\u044B\u0448\u0435\u0439 \u043D\u0430\u0434
+        \u0433\u043E\u043B\u043E\u0432\u043E\u0439?         \n    \u041D\u0430\u043F\u043E\u043C\u0438\u043D\u0430\u0435\u043C,
+        \u0447\u0442\u043E \u0438\u0437\u0434\u0430-\n\u0442\u0435\u043B\u044C\u0441\u0442\u0432\u043E
+        Midline Life \u0441\u043E\u0431\u0438-\n\u0440\u0430\u0435\u0442 \u043F\u043E\u0436\u0435\u0440\u0442\u0432\u043E\u0432\u0430\u043D\u0438\u044F
+        \u0434\u043B\u044F \u043C\u0430-\n\u043B\u043E\u0438\u043C\u0443\u0449\u0438\u0445.
+        \u0412\u0441\u0435 \u043A\u043E\u043D\u0442\u0430\u043A\u0442\u044B\n\u0438
+        \u0430\u0434\u0440\u0435\u0441\u0430 \u0443\u043A\u0430\u0437\u0430\u043D\u044B
+        \u043D\u0430 \u043F\u043E\u0441\u043B\u0435\u0434-\n\u043D\u0435\u0439 \u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435.
+        \u041D\u0435 \u043E\u0441\u0442\u0430\u0432\u0430\u0439\u0442\u0435\u0441\u044C\n\u0440\u0430\u0432\u043D\u043E\u0434\u0443\u0448\u043D\u044B\u043C\u0438.                     "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/mid_col_4
+      TermType: 0
+      Description: 
+      Languages:
+      - "    The short answer\nis yes, a child could\ntell you that. But\nhow do
+        drugs make\ntheir way into Midline?\nAre they being grown\nand packaged right
+        here,\nor is there an estab-\nlished import pathway?\nFind out from our re-\nporter
+        Ethan Miller\u2019s ar-\nticle on page 4.            "
+      - "    \u041A\u043E\u0440\u043E\u0442\u043A\u0438\u0439 \u043E\u0442\u0432\u0435\u0442
+        \u2014\n\u0434\u0430, \u044D\u0442\u043E \u044F\u0441\u043D\u043E \u0438
+        \u0440\u0435\u0431\u0451\u043D\u043A\u0443.\n\u041D\u043E \u043A\u0430\u043A
+        \u0432 \u041C\u0438\u0434\u043B\u0430\u0439\u043D\u0435 \u043F\u043E-\n\u044F\u0432\u043B\u044F\u044E\u0442\u0441\u044F
+        \u043D\u0430\u0440\u043A\u043E\u0442\u0438\u043A\u0438?\n\u0412\u044B\u0440\u0430\u0449\u0438\u0432\u0430\u044E\u0442\u0441\u044F
+        \u0438 \u0444\u0430-\n\u0441\u0443\u044E\u0442\u0441\u044F \u043F\u0440\u044F\u043C\u043E
+        \u0437\u0434\u0435\u0441\u044C,\n\u0432 \u0433\u043E\u0440\u043E\u0434\u0435,
+        \u0438\u043B\u0438 \u0440\u0435\u0447\u044C \u0438\u0434\u0451\u0442\n\u043E
+        \u043D\u0430\u043B\u0430\u0436\u0435\u043D\u043D\u044B\u0445 \u043F\u0435\u0440\u0435\u0432\u043E\u0437-\n\u043A\u0430\u0445?
+        \u041D\u0430\u0448 \u043A\u043E\u0440\u0440\u0435\u0441\u043F\u043E\u043D-\n\u0434\u0435\u043D\u0442,
+        \u0418\u0442\u0430\u043D \u041C\u0438\u043B\u043B\u0435\u0440,\n\u043F\u043E\u0434\u0433\u043E\u0442\u043E\u0432\u0438\u043B
+        \u0431\u043E\u043B\u044C\u0448\u043E\u0439\n\u043C\u0430\u0442\u0435\u0440\u0438\u0430\u043B
+        \u043D\u0430 \u0447\u0435\u0442\u0432\u0451\u0440\u0442\u043E\u0439\n\u0441\u0442\u0440\u0430\u043D\u0438\u0446\u0435.                      "
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/mid_title_1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Town dump expanding!
+
+        Town hall goes back
+
+        on its word again!'
+      - "\u0413\u043E\u0440\u043E\u0434\u0441\u043A\u0430\u044F \u0441\u0432\u0430\u043B\u043A\u0430\n\u0440\u0430\u0437\u0440\u0430\u0441\u0442\u0430\u0435\u0442\u0441\u044F!
+        \u041C\u044D\u0440\u0438\u044F\n\u0441\u043D\u043E\u0432\u0430 \u0434\u0430\u0435\u0442
+        \u0441\u043B\u043E\u0432\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/mid_title_2
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Tomorrow: condemned general street building
+
+        to be demolished'
+      - "\u0423\u0436\u0435 \u0437\u0430\u0432\u0442\u0440\u0430: \u0421\u043D\u043E\u0441
+        \u0437\u0430\u0431\u0440\u043E\u0448\u0435\u043D\u043D\u043E\u0433\u043E
+        \u0437\u0434\u0430\u043D\u0438\u044F\n\u043D\u0430 \u0414\u0436\u0435\u043D\u0435\u0440\u0430\u043B-\u0421\u0442\u0440\u0438\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: newspaper/pizza/mid_title_3
+      TermType: 0
+      Description: 
+      Languages:
+      - "Midline life\ninvestigates: drag \ntraffic in Midline"
+      - "\u0420\u0430\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u0435\nMidline
+        life: \u0415\u0441\u0442\u044C\n\u043B\u0438 \u0432 \u043D\u0430\u0448\u0435\u043C
+        \u0433\u043E\u0440\u043E\u0434\u0435\n\u043D\u0430\u0440\u043A\u043E\u0442\u0440\u0430\u0444\u0438\u043A?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: Hints
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/enter
+      TermType: 0
+      Description: 
+      Languages:
+      - Enter
+      - "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/newspaperEnter
+      TermType: 0
+      Description: 
+      Languages:
+      - Continue
+      - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/mwu
+      TermType: 0
+      Description: 
+      Languages:
+      - Scroll
+      - "\u041F\u0435\u0440\u0435\u043C\u0435\u0441\u0442\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/scroll
+      TermType: 0
+      Description: 
+      Languages:
+      - Scroll
+      - Scroll
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/esc
       TermType: 0
       Description: 
       Languages:
@@ -364,15 +933,7 @@ MonoBehaviour:
       - "\u041D\u0430\u0437\u0430\u0434"
       Flags: 0000
       Languages_Touch: []
-    - Term: tut_select
-      TermType: 0
-      Description: 
-      Languages:
-      - Select
-      - "\u0412\u044B\u0431\u0440\u0430\u0442\u044C"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: tut_zoom
+    - Term: hint/lkm
       TermType: 0
       Description: 
       Languages:
@@ -380,12 +941,28 @@ MonoBehaviour:
       - "\u041F\u0440\u0438\u0431\u043B\u0438\u0437\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: tut_move
+    - Term: hint/zoom
+      TermType: 0
+      Description: 
+      Languages:
+      - Zoom
+      - "\u041F\u0440\u0438\u0431\u043B\u0438\u0436\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/move
       TermType: 0
       Description: 
       Languages:
       - Move
-      - "\u041F\u0435\u0440\u0435\u043C\u0435\u0441\u0442\u0438\u0442\u044C"
+      - "\u041F\u0435\u0440\u0435\u0434\u0432\u0438\u0433\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: hint/lbm
+      TermType: 0
+      Description: 
+      Languages:
+      - Lbm
+      - "\u041B\u041A\u041C"
       Flags: 0000
       Languages_Touch: []
     - Term: Opening
@@ -396,47 +973,60 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: opening_anybuton
+    - Term: opening/warning
       TermType: 0
       Description: 
       Languages:
-      - Press any button to start
-      - "\u041D\u0430\u0436\u043C\u0438\u0442\u0435 \u043D\u0430 \u043B\u044E\u0431\u0443\u044E
-        \u043A\u043B\u0430\u0432\u0438\u0448\u0443 \u0447\u0442\u043E\u0431\u044B
-        \u043D\u0430\u0447\u0430\u0442\u044C"
+      - Atention!
+      - "\u0412\u043D\u0438\u043C\u0430\u043D\u0438\u0435!"
       Flags: 0000
       Languages_Touch: []
-    - Term: opening_warning
+    - Term: opening/warningDecription
       TermType: 0
       Description: 
       Languages:
-      - Some flashing images or light patterns may  cause epileptic symptoms in a
-        small percentage of people.  This is also possible in those who have not
-        previously been exposed to epileptic seizures. If you are experiencing any
-        form of dizziness, twitching or other discomfort during  playing time, stop
-        playing immediately and consult a doctor.
-      - "\u041D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u043C\u0438\u0433\u0430\u044E\u0449\u0438\u0435
-        \u0438\u0437\u043E\u0431\u0440\u0430\u0436\u0435\u043D\u0438\u044F \u0438\u043B\u0438
-        \u0441\u0432\u0435\u0442\u043E\u0432\u044B\u0435 \u0440\u0438\u0441\u0443\u043D\u043A\u0438
-        \u043C\u043E\u0433\u0443\u0442 \u0432\u044B\u0437\u044B\u0432\u0430\u0442\u044C
-        \u044D\u043F\u0438\u043B\u0435\u043F\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0435
-        \u0441\u0438\u043C\u043F\u0442\u043E\u043C\u044B \u0443 \u043D\u0435\u0431\u043E\u043B\u044C\u0448\u043E\u0433\u043E
-        \u043F\u0440\u043E\u0446\u0435\u043D\u0442\u0430 \u043B\u044E\u0434\u0435\u0439.
-        \u042D\u0442\u043E \u0432\u043E\u0437\u043C\u043E\u0436\u043D\u043E \u0438
-        \u0443 \u0442\u0435\u0445, \u043A\u0442\u043E \u0440\u0430\u043D\u0435\u0435
-        \u043D\u0435 \u043F\u043E\u0434\u0432\u0435\u0440\u0433\u0430\u043B\u0441\u044F 
-        \u0432\u043E\u0437\u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044E \u044D\u043F\u0438\u043B\u0435\u043F\u0442\u0438\u0447\u0435\u0441\u043A\u0438\u0445
-        \u043F\u0440\u0438\u0441\u0442\u0443\u043F\u043E\u0432. \u0415\u0441\u043B\u0438
-        \u0432\u044B \u0438\u0441\u043F\u044B\u0442\u044B\u0432\u0430\u0435\u0442\u0435
-        \u043A\u0430\u043A\u0438\u0435-\u043B\u0438\u0431\u043E \u0444\u043E\u0440\u043C\u044B
-        \u0433\u043E\u043B\u043E\u0432\u043E\u043A\u0440\u0443\u0436\u0435\u043D\u0438\u044F,
-        \u043F\u043E\u0434\u0435\u0440\u0433\u0438\u0432\u0430\u043D\u0438\u044F
-        \u0438\u043B\u0438 \u0434\u0440\u0443\u0433\u0438\u0435 \u043D\u0435\u043F\u0440\u0438\u044F\u0442\u043D\u044B\u0435
-        \u043E\u0449\u0443\u0449\u0435\u043D\u0438\u044F \u0432\u043E \u0432\u0440\u0435\u043C\u044F
-        \u0438\u0433\u0440\u044B, \u043D\u0435\u043C\u0435\u0434\u043B\u0435\u043D\u043D\u043E
-        \u043F\u0440\u0435\u043A\u0440\u0430\u0442\u0438\u0442\u0435  \u0438\u0433\u0440\u0430\u0442\u044C
-        \u0438 \u043E\u0431\u0440\u0430\u0442\u0438\u0442\u0435\u0441\u044C \u043A
-        \u0432\u0440\u0430\u0447\u0443."
+      - 'The game contains descriptions of scenes of violence, human cruelty and
+        vices. Some events of Midline ''85 are inspired by real calls to emergency
+        services, but are not their interpretation. Please remember that our game
+        is a work of art.
+
+
+        Trust your and other people''s lives only to
+        specialists. Don''t be afraid to ask for help if you need it.'
+      - "\u0418\u0433\u0440\u0430 \u0441\u043E\u0434\u0435\u0440\u0436\u0438\u0442
+        \u043E\u043F\u0438\u0441\u0430\u043D\u0438\u044F \u0441\u0446\u0435\u043D
+        \u043D\u0430\u0441\u0438\u043B\u0438\u044F, \u0447\u0435\u043B\u043E\u0432\u0435\u0447\u0435\u0441\u043A\u043E\u0439
+        \u0436\u0435\u0441\u0442\u043E\u043A\u043E\u0441\u0442\u0438 \u0438 \u043F\u043E\u0440\u043E\u043A\u043E\u0432.
+        \u041D\u0435\u043A\u043E\u0442\u043E\u0440\u044B\u0435 \u0441\u043E\u0431\u044B\u0442\u0438\u044F
+        Midline '85 \u0432\u0434\u043E\u0445\u043D\u043E\u0432\u043B\u0435\u043D\u044B
+        \u0440\u0435\u0430\u043B\u044C\u043D\u044B\u043C\u0438 \u0437\u0432\u043E\u043D\u043A\u0430\u043C\u0438
+        \u0432 \u044D\u043A\u0441\u0442\u0440\u0435\u043D\u043D\u044B\u0435 \u0441\u043B\u0443\u0436\u0431\u044B,
+        \u043D\u043E \u043D\u0435 \u044F\u0432\u043B\u044F\u044E\u0442\u0441\u044F
+        \u0438\u0445 \u0438\u043D\u0442\u0435\u0440\u043F\u0440\u0435\u0442\u0430\u0446\u0438\u0435\u0439.
+        \u041F\u043E\u043C\u043D\u0438\u0442\u0435, \u0447\u0442\u043E \u043D\u0430\u0448\u0430
+        \u0438\u0433\u0440\u0430 \u2014 \u0445\u0443\u0434\u043E\u0436\u0435\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0435
+        \u043F\u0440\u043E\u0438\u0437\u0432\u0435\u0434\u0435\u043D\u0438\u0435.\n\n\u0414\u043E\u0432\u0435\u0440\u044F\u0439\u0442\u0435
+        \u0441\u0432\u043E\u044E \u0438 \u0447\u0443\u0436\u0438\u0435 \u0436\u0438\u0437\u043D\u0438
+        \u0442\u043E\u043B\u044C\u043A\u043E \u0441\u043F\u0435\u0446\u0438\u0430\u043B\u0438\u0441\u0442\u0430\u043C.
+        \u041D\u0435 \u0431\u043E\u0439\u0442\u0435\u0441\u044C \u043E\u0431\u0440\u0430\u0442\u0438\u0442\u044C\u0441\u044F
+        \u0437\u0430 \u043F\u043E\u043C\u043E\u0449\u044C\u044E, \u0435\u0441\u043B\u0438
+        \u0432 \u043D\u0435\u0439 \u043D\u0443\u0436\u0434\u0430\u0435\u0442\u0435\u0441\u044C."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: opening/anybuton
+      TermType: 0
+      Description: 
+      Languages:
+      - Start Game
+      - "\u041D\u0430\u0447\u0430\u0442\u044C \u0438\u0433\u0440\u0443"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: opening/allRights
+      TermType: 0
+      Description: 
+      Languages:
+      - 2023 NADSAT ALL RIGHTS RESERVED.
+      - "NADSAT, 2023, \u0412\u0421\u0415 \u041F\u0420\u0410\u0412\u0410 \u0417\u0410\u0429\u0418\u0429\u0415\u041D\u042B."
       Flags: 0000
       Languages_Touch: []
     - Term: CHAPTER TITLES
@@ -463,6 +1053,86 @@ MonoBehaviour:
       - INCENDIES
       Flags: 0000
       Languages_Touch: []
+    - Term: chapter1_chapter
+      TermType: 0
+      Description: 
+      Languages:
+      - 'CHAPTER 1:'
+      - "\u0413\u041B\u0410\u0412\u0410 1:"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: chapter1_title
+      TermType: 0
+      Description: 
+      Languages:
+      - TUTORIAL
+      - TUTORIAL
+      Flags: 0000
+      Languages_Touch: []
+    - Term: LEVELS
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: L1_Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - INTRO
+      - "\u0418\u041D\u0422\u0420\u041E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: L2_Tutor
+      TermType: 0
+      Description: 
+      Languages:
+      - BEFORE WE START
+      - "\u041F\u0420\u0415\u0416\u0414\u0415 \u0427\u0415\u041C \u041C\u042B \u041D\u0410\u0427\u041D\u0415\u041C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: L3_Pizza
+      TermType: 0
+      Description: 
+      Languages:
+      - 30 MINUTES RULE
+      - "\u041F\u0420\u0410\u0412\u0418\u041B\u041E 30 \u041C\u0418\u041D\u0423\u0422"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: L4_Interlude1
+      TermType: 0
+      Description: 
+      Languages:
+      - INTERLUDE 1
+      - "\u0418\u041D\u0422\u0415\u0420\u041B\u042E\u0414\u0418\u042F 1"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: L5_Fire
+      TermType: 0
+      Description: 
+      Languages:
+      - FIRE
+      - "\u041F\u041E\u0416\u0410\u0420"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: L6_Interlude2
+      TermType: 0
+      Description: 
+      Languages:
+      - INTERLUDE 2
+      - "\u0418\u041D\u0422\u0415\u0420\u041B\u042E\u0414\u0418\u042F 2"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: L7_Psycho
+      TermType: 0
+      Description: 
+      Languages:
+      - PSYCHOTERAPIST
+      - "\u041F\u0421\u0418\u0425\u041E\u0422\u0415\u0420\u0410\u041F\u0415\u0412\u0422"
+      Flags: 0000
+      Languages_Touch: []
     - Term: CHAPTER 7 ACHIEVEMENTS
       TermType: 0
       Description: 
@@ -471,7 +1141,15 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: achive_backToMenu
+    - Term: achiveUi/continue
+      TermType: 0
+      Description: 
+      Languages:
+      - Continue
+      - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: achiveUi/backToMenu
       TermType: 0
       Description: 
       Languages:
@@ -479,102 +1157,7 @@ MonoBehaviour:
       - "\u0412\u044B\u0439\u0442\u0438 \u0432 \u043C\u0435\u043D\u044E"
       Flags: 0000
       Languages_Touch: []
-    - Term: achive_title_7
-      TermType: 0
-      Description: 
-      Languages:
-      - 'CHAPTER 7: Incendies'
-      - "\u0413\u043B\u0430\u0432\u0430 7: Incendies"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_unknown
-      TermType: 0
-      Description: 
-      Languages:
-      - Unknown
-      - "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_locked
-      TermType: 0
-      Description: 
-      Languages:
-      - UNKNOWN
-      - "\u041D\u0415\u0418\u0417\u0412\u0415\u0421\u0422\u041D\u041E"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_saveKids
-      TermType: 0
-      Description: 
-      Languages:
-      - The kids survived! You and <color=green>42% other players</color> managed
-        to guide the fire brigade to their rescue.
-      - "\u0414\u0435\u0442\u0438 \u0436\u0438\u0432\u044B! \u0412\u044B \u0438 <color=green>42%
-        \u0438\u0433\u0440\u043E\u043A\u043E\u0432</color> \u0441\u043C\u043E\u0433\u043B\u0438
-        \u0441\u043E\u0440\u0438\u0435\u043D\u0442\u0438\u0440\u043E\u0432\u0430\u0442\u044C
-        \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u0445."
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_killJack
-      TermType: 0
-      Description: 
-      Languages:
-      - You and <color=red>67% other players</color> failed to stop Jack from acting
-        rashly/carelessly.
-      - "\u0412\u0430\u043C \u0438 <color=red>67% \u0438\u0433\u0440\u043E\u043A\u043E\u0432</color>
-        \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C
-        \u0414\u0436\u0435\u043A\u0430 \u043E\u0442 \u043D\u0435\u043E\u0431\u0434\u0443\u043C\u0430\u043D\u043D\u044B\u0445
-        \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u0439."
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_findArsonist
-      TermType: 0
-      Description: 
-      Languages:
-      - You and <color=green>18% other players</color> learned who started the fire,
-        helping the investigation.
-      - "\u0412\u044B \u0438 <color=green>18% \u0438\u0433\u0440\u043E\u043A\u043E\u0432</color>
-        \u0441\u043C\u043E\u0433\u043B\u0438 \u0443\u0437\u043D\u0430\u0442\u044C
-        \u043E \u043F\u043E\u0434\u0436\u0438\u0433\u0430\u0442\u0435\u043B\u0435
-        \u0438 \u043F\u043E\u043C\u043E\u0433\u043B\u0438 \u0441\u043B\u0435\u0434\u0441\u0442\u0432\u0438\u044E."
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_killKids
-      TermType: 0
-      Description: 
-      Languages:
-      - You and <color=red>58% other players</color> failed to save the kids. The
-        fire brigade never found them.
-      - "\u0412\u0430\u043C \u0438 <color=red>58% \u0438\u0433\u0440\u043E\u043A\u043E\u0432</color>
-        \u043D\u0435 \u0443\u0434\u0430\u043B\u043E\u0441\u044C \u0441\u043F\u0430\u0441\u0442\u0438
-        \u0434\u0435\u0442\u0435\u0439. \u041F\u043E\u0436\u0430\u0440\u043D\u044B\u0435
-        \u043D\u0435 \u0443\u0441\u043F\u0435\u043B\u0438 \u0438\u0445 \u043E\u0431\u043D\u0430\u0440\u0443\u0436\u0438\u0442\u044C."
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_saveJack
-      TermType: 0
-      Description: 
-      Languages:
-      - Jack listened to you and <color=green>33% other players</color> and stayed
-        alive.
-      - "\u0414\u0436\u0435\u043A \u043F\u043E\u0441\u043B\u0443\u0448\u0430\u043B
-        \u0432\u0430\u0441 \u0432\u043C\u0435\u0441\u0442\u0435 \u0441 <color=green>33%
-        \u0438\u0433\u0440\u043E\u043A\u043E\u0432</color> \u0438 \u043E\u0441\u0442\u0430\u043B\u0441\u044F
-        \u0432 \u0436\u0438\u0432\u044B\u0445."
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_lostArsonist
-      TermType: 0
-      Description: 
-      Languages:
-      - 'You and <color=red>82% other players</color> failed to help the fire investigation. '
-      - "\u0412\u044B \u0438 <color=red>82% \u0438\u0433\u0440\u043E\u043A\u043E\u0432</color>
-        \u043D\u0435 \u0441\u043C\u043E\u0433\u043B\u0438 \u043F\u043E\u043C\u043E\u0447\u044C
-        \u0440\u0430\u0441\u0441\u043B\u0435\u0434\u043E\u0432\u0430\u043D\u0438\u044E
-        \u043E \u043F\u0440\u0438\u0447\u0438\u043D\u0435 \u043F\u043E\u0436\u0430\u0440\u0430."
-      Flags: 0000
-      Languages_Touch: []
-    - Term: achive_statistics
+    - Term: achiveUi/statistics
       TermType: 0
       Description: 
       Languages:
@@ -582,12 +1165,247 @@ MonoBehaviour:
       - "\u0421\u0442\u0430\u0442\u0438\u0441\u0442\u0438\u043A\u0430 \u0443\u0440\u043E\u0432\u043D\u044F"
       Flags: 0000
       Languages_Touch: []
-    - Term: achive_transcript
+    - Term: achiveUi/transcript
       TermType: 0
       Description: 
       Languages:
       - transcript
       - "\u0421\u0442\u0435\u043D\u043E\u0433\u0440\u0430\u043C\u043C\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Intro
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Tutorial/Good
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Mark appreciated Elena''s eagerness
+
+        to arrive at her first shift
+        early.
+
+        After their short conversation,
+
+        Miss Hayward is
+        ready to start her new duties.
+
+        She must show what she has learned
+        in the Academy.'
+      - "\u041C\u0430\u0440\u043A \u0432\u044B\u0441\u043E\u043A\u043E \u043E\u0446\u0435\u043D\u0438\u043B
+        \u0440\u0432\u0435\u043D\u0438\u0435 \u0415\u043B\u0435\u043D\u044B \u043E\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F\n\u043D\u0430
+        \u0441\u0432\u043E\u0435\u0439 \u043F\u0435\u0440\u0432\u043E\u0439 \u0440\u0430\u0431\u043E\u0447\u0435\u0439
+        \u0441\u043C\u0435\u043D\u0435 \u043F\u043E\u0440\u0430\u043D\u044C\u0448\u0435\n\u041F\u043E\u0441\u043B\u0435
+        \u0438\u0445 \u043A\u043E\u0440\u043E\u0442\u043A\u043E\u0433\u043E \u0440\u0430\u0437\u0433\u043E\u0432\u043E\u0440\u0430
+        \u043C\u0438\u0441\u0441 \u0425\u0435\u0439\u0432\u043E\u0440\u0434\n\u0433\u043E\u0442\u043E\u0432\u0430
+        \u043F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u043A \u0441\u0432\u043E\u0438\u043C
+        \u043D\u043E\u0432\u044B\u043C \u043E\u0431\u044F\u0437\u0430\u043D\u043D\u043E\u0441\u0442\u044F\u043C.\n\u041E\u043D\u0430
+        \u0434\u043E\u043B\u0436\u043D\u0430 \u043F\u043E\u043A\u0430\u0437\u0430\u0442\u044C,
+        \u043D\u0430 \u0447\u0442\u043E \u0443\u0448\u043B\u0438 \u0433\u043E\u0434\u044B
+        \u0432 \u0410\u043A\u0430\u0434\u0435\u043C\u0438\u0438."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Pizza/Fine
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Elena did not find the prank funny.
+
+        Phone pranks are a distraction
+        from work,
+
+        and every minute lost on idle chatter about pizza
+
+        is
+        a minute taken away from someone in trouble.'
+      - "\u0415\u043B\u0435\u043D\u0430 \u043D\u0435 \u0443\u0432\u0438\u0434\u0435\u043B\u0430
+        \u043D\u0438\u0447\u0435\u0433\u043E \u0441\u043C\u0435\u0448\u043D\u043E\u0433\u043E
+        \u0432 \u0434\u0443\u0440\u0430\u0446\u043A\u043E\u0439 \u0448\u0443\u0442\u043A\u0435.\n\u0422\u0435\u043B\u0435\u0444\u043E\u043D\u043D\u044B\u0435
+        \u0440\u043E\u0437\u044B\u0433\u0440\u044B\u0448\u0438 \u043E\u0442\u0432\u043B\u0435\u043A\u0430\u044E\u0442
+        \u043E\u0442 \u0440\u0430\u0431\u043E\u0442\u044B,\n\u0438 \u043A\u0430\u0436\u0434\u0430\u044F
+        \u043F\u043E\u0442\u0435\u0440\u044F\u043D\u043D\u0430\u044F \u043D\u0430
+        \u043F\u0443\u0441\u0442\u043E\u0439 \u0442\u0440\u0451\u043F \u043E \u043F\u0438\u0446\u0446\u0435
+        \u043C\u0438\u043D\u0443\u0442\u0430 \u2014\n\u044D\u0442\u043E \u043C\u0438\u043D\u0443\u0442\u0430,
+        \u0437\u0430\u0431\u0440\u0430\u043D\u043D\u0430\u044F \u0443 \u0447\u0435\u043B\u043E\u0432\u0435\u043A\u0430
+        \u0432 \u0431\u0435\u0434\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Pizza/Bad
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Although the officers arrived at the correct address,
+
+        they were
+        late: an agitated man beat his girlfriend to death.
+
+        The police arrested
+        the drunk at the scene of the crime,
+
+        he will be tried and imprisoned...
+
+        However,
+        the girl''s life is already gone.'
+      - "\u0425\u043E\u0442\u044C \u043E\u0444\u0438\u0446\u0435\u0440\u044B \u0438
+        \u043F\u0440\u0438\u0435\u0445\u0430\u043B\u0438 \u043F\u043E \u0432\u0435\u0440\u043D\u043E\u043C\u0443
+        \u0430\u0434\u0440\u0435\u0441\u0443,\n\u043E\u043D\u0438 \u043E\u043F\u043E\u0437\u0434\u0430\u043B\u0438:
+        \u0432\u0437\u0432\u0438\u043D\u0447\u0435\u043D\u043D\u044B\u0439 \u043F\u0430\u0440\u0435\u043D\u044C
+        \u0437\u0430\u0431\u0438\u043B \u0441\u0432\u043E\u044E \u0434\u0435\u0432\u0443\u0448\u043A\u0443
+        \u0434\u043E \u0441\u043C\u0435\u0440\u0442\u0438.\n\u041F\u043E\u043B\u0438\u0446\u0438\u044F
+        \u0437\u0430\u0434\u0435\u0440\u0436\u0430\u043B\u0430 \u043F\u044C\u044F\u043D\u0438\u0446\u0443
+        \u043D\u0430 \u043C\u0435\u0441\u0442\u0435 \u043F\u0440\u0435\u0441\u0442\u0443\u043F\u043B\u0435\u043D\u0438\u044F,\n\u0435\u0433\u043E
+        \u0436\u0434\u0451\u0442 \u0441\u0443\u0434 \u0438 \u0442\u044E\u0440\u044C\u043C\u0430\u2026\n\u041E\u0434\u043D\u0430\u043A\u043E
+        \u0436\u0438\u0437\u043D\u044C \u0434\u0435\u0432\u0443\u0448\u043A\u0438
+        \u044D\u0442\u043E \u0443\u0436\u0435 \u043D\u0435 \u0432\u0435\u0440\u043D\u0451\u0442."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Pizza/Neut1
+      TermType: 0
+      Description: 
+      Languages:
+      - 'The officers arrived at the address and found a man
+
+        with a knife
+        in an extremely aggressive state.
+
+        The police were forced to open
+        fire.
+
+        The man was killed during the arrest.
+
+        The girl who
+        called 911 is fine, but she is ready to sue the Midlane Police Department.'
+      - "\u041E\u0444\u0438\u0446\u0435\u0440\u044B \u043F\u0440\u0438\u0431\u044B\u043B\u0438
+        \u043D\u0430 \u0430\u0434\u0440\u0435\u0441 \u0438 \u0437\u0430\u0441\u0442\u0430\u043B\u0438
+        \u043F\u0430\u0440\u043D\u044F\n\u0441 \u043D\u043E\u0436\u043E\u043C \u0432
+        \u043A\u0440\u0430\u0439\u043D\u0435 \u0430\u0433\u0440\u0435\u0441\u0441\u0438\u0432\u043D\u043E\u043C
+        \u0441\u043E\u0441\u0442\u043E\u044F\u043D\u0438\u0438.\n\u041F\u043E\u043B\u0438\u0446\u0438\u044F
+        \u0431\u044B\u043B\u0430 \u0432\u044B\u043D\u0443\u0436\u0434\u0435\u043D\u0430
+        \u043E\u0442\u043A\u0440\u044B\u0442\u044C \u043E\u0433\u043E\u043D\u044C.\n
+        \u041C\u0443\u0436\u0447\u0438\u043D\u0430 \u043F\u043E\u0433\u0438\u0431
+        \u043F\u0440\u0438 \u0437\u0430\u0434\u0435\u0440\u0436\u0430\u043D\u0438\u0438.\n\u041F\u043E\u0437\u0432\u043E\u043D\u0438\u0432\u0448\u0430\u044F
+        \u0432 911 \u0434\u0435\u0432\u0443\u0448\u043A\u0430 \u0432 \u043F\u043E\u0440\u044F\u0434\u043A\u0435,\n\u043D\u043E
+        \u0433\u043E\u0442\u043E\u0432\u0430 \u0441\u0443\u0434\u0438\u0442\u044C\u0441\u044F
+        \u0441 \u043F\u043E\u043B\u0438\u0446\u0435\u0439\u0441\u043A\u0438\u043C
+        \u043E\u0442\u0434\u0435\u043B\u0435\u043D\u0438\u0435\u043C \u041C\u0438\u0434\u043B\u0430\u0439\u043D\u0430."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Pizza/Neut2
+      TermType: 0
+      Description: 
+      Languages:
+      - "The police arrived at the very last moment:\n the man had already managed
+        to inflict several blows on the poor girl,\n but the beatings did not lead
+        to a fatal outcome. \nThe offender has been detained, he is awaiting a sentence.
+        \nThe girl was taken to the hospital, she will be fine."
+      - "\u041F\u043E\u043B\u0438\u0446\u0438\u044F \u043F\u0440\u0438\u0431\u044B\u043B\u0430
+        \u0432 \u0441\u0430\u043C\u044B\u0439 \u043F\u043E\u0441\u043B\u0435\u0434\u043D\u0438\u0439
+        \u043C\u043E\u043C\u0435\u043D\u0442: \n\u043F\u0430\u0440\u0435\u043D\u044C
+        \u0443\u0436\u0435 \u0443\u0441\u043F\u0435\u043B \u043D\u0430\u043D\u0435\u0441\u0442\u0438
+        \u043D\u0435\u0441\u043A\u043E\u043B\u044C\u043A\u043E \u0443\u0434\u0430\u0440\u043E\u0432
+        \u043F\u043E \u0431\u0435\u0434\u043D\u043E\u0439 \u0434\u0435\u0432\u0443\u0448\u043A\u0435,
+        \n\u043E\u0434\u043D\u0430\u043A\u043E \u043F\u043E\u0431\u043E\u0438 \u043E\u0431\u043E\u0448\u043B\u0438\u0441\u044C
+        \u0431\u0435\u0437 \u043B\u0435\u0442\u0430\u043B\u044C\u043D\u043E\u0433\u043E
+        \u0438\u0441\u0445\u043E\u0434\u0430.\n \u041F\u0440\u0435\u0441\u0442\u0443\u043F\u043D\u0438\u043A
+        \u0437\u0430\u0434\u0435\u0440\u0436\u0430\u043D, \u0435\u0433\u043E \u043E\u0436\u0438\u0434\u0430\u0435\u0442
+        \u0441\u0440\u043E\u043A. \n\u0414\u0435\u0432\u0443\u0448\u043A\u0430 \u043F\u043E\u0441\u0442\u0443\u043F\u0438\u043B\u0430
+        \u0432 \u0431\u043E\u043B\u044C\u043D\u0438\u0446\u0443, \u0441 \u043D\u0435\u0439
+        \u0432\u0441\u0451 \u0431\u0443\u0434\u0435\u0442 \u0432 \u043F\u043E\u0440\u044F\u0434\u043A\u0435."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Pizza/Good
+      TermType: 0
+      Description: 
+      Languages:
+      - 'Thanks to Elena''s responsible approach, the man did not resort to violence.
+
+        Both
+        he and the girl who called 911 are fine.
+
+        Both, along with the officers,
+
+        went
+        to the police station for further investigation.'
+      - "\u0411\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u044F \u043E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u043C\u0443
+        \u043F\u043E\u0434\u0445\u043E\u0434\u0443 \u0415\u043B\u0435\u043D\u044B
+        \u043F\u0430\u0440\u0435\u043D\u044C \u043D\u0435 \u043F\u0440\u0438\u0431\u0435\u0433\u043D\u0443\u043B
+        \u043A \u0440\u0443\u043A\u043E\u043F\u0440\u0438\u043A\u043B\u0430\u0434\u0441\u0442\u0432\u0443.
+        \n\u0418 \u043E\u043D, \u0438 \u043F\u043E\u0437\u0432\u043E\u043D\u0438\u0432\u0448\u0430\u044F
+        \u0432 911 \u0434\u0435\u0432\u0443\u0448\u043A\u0430 \u0432 \u043F\u043E\u043B\u043D\u043E\u043C
+        \u043F\u043E\u0440\u044F\u0434\u043A\u0435.\n\u041E\u0431\u0430 \u0432\u043C\u0435\u0441\u0442\u0435
+        \u0441 \u043E\u0444\u0438\u0446\u0435\u0440\u0430\u043C\u0438 \u043E\u0442\u043F\u0440\u0430\u0432\u0438\u043B\u0438\u0441\u044C
+        \u0432 \u043F\u043E\u043B\u0438\u0446\u0435\u0439\u0441\u043A\u0438\u0439
+        \u0443\u0447\u0430\u0441\u0442\u043E\u043A \n\u0434\u043B\u044F \u0434\u0430\u043B\u044C\u043D\u0435\u0439\u0448\u0438\u0445
+        \u0440\u0430\u0437\u0431\u0438\u0440\u0430\u0442\u0435\u043B\u044C\u0441\u0442\u0432."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/PizzaEP
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Fire/Bad
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Fire/Neut1
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Fire/Neut2
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Fire/Good
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/FireEP
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Psycho1/Bad
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: End/Psycho1/Good
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
       Flags: 0000
       Languages_Touch: []
     - Term: 7LVL CHOICES
@@ -598,23 +1416,23 @@ MonoBehaviour:
       - 
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.001
+    - Term: btn.incendies.001
       TermType: 0
       Description: 
       Languages:
-      - Make a guess
-      - "\u041F\u0440\u0435\u0434\u043F\u043E\u043B\u043E\u0436\u0438\u0442\u044C"
+      - Guess
+      - "\u0414\u043E\u0433\u0430\u0434\u043A\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.002
+    - Term: btn.incendies.002
       TermType: 0
       Description: 
       Languages:
-      - Ask to repeat
-      - "\u041F\u043E\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
+      - Repeat
+      - "\u041F\u043E\u0432\u0442\u043E\u0440\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.003
+    - Term: btn.incendies.003
       TermType: 0
       Description: 
       Languages:
@@ -622,72 +1440,71 @@ MonoBehaviour:
       - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.004
+    - Term: btn.incendies.004
       TermType: 0
       Description: 
       Languages:
-      - Lara's safety
-      - "\u0411\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C
-        \u041B\u0430\u0440\u044B"
+      - Safety
+      - "\u0411\u0435\u0437\u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.005
+    - Term: btn.incendies.005
       TermType: 0
       Description: 
       Languages:
-      - Observation
-      - "\u041D\u0430\u0431\u043B\u044E\u0434\u0435\u043D\u0438\u0435"
+      - What can you see?
+      - "\u0427\u0442\u043E \u0432\u0438\u0434\u043D\u043E?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.006
+    - Term: btn.incendies.006
       TermType: 0
       Description: 
       Languages:
-      - Who is inside?
+      - Who is in the house?
       - "\u041A\u0442\u043E \u0432 \u0434\u043E\u043C\u0435?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.007
+    - Term: btn.incendies.007
       TermType: 0
       Description: 
       Languages:
-      - Ask about the suspect
-      - "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043E \u043F\u043E\u0434\u043E\u0437\u0440\u0435\u0432\u0430\u0435\u043C\u043E\u043C"
+      - Are there any suspects?
+      - "\u0415\u0441\u0442\u044C \u043F\u043E\u0434\u043E\u0437\u0440\u0435\u0432\u0430\u0435\u043C\u044B\u0435?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.008
+    - Term: btn.incendies.008
       TermType: 0
       Description: 
       Languages:
-      - Ask about the owners
-      - "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043E \u0436\u0438\u043B\u044C\u0446\u0430\u0445"
+      - Who lives there?
+      - "\u041A\u0442\u043E \u043F\u0440\u043E\u0436\u0438\u0432\u0430\u0435\u0442?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.009
+    - Term: btn.incendies.009
       TermType: 0
       Description: 
       Languages:
-      - Ask about the firemen
-      - "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043E \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u0445"
+      - Changes
+      - "\u0418\u0437\u043C\u0435\u043D\u0435\u043D\u0438\u044F"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.010
+    - Term: btn.incendies.010
       TermType: 0
       Description: 
       Languages:
-      - Are the kids with him?
-      - "\u0414\u0435\u0442\u0438 \u0441 \u043D\u0438\u043C?"
+      - Children?
+      - "\u0414\u0435\u0442\u0438?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.011
+    - Term: btn.incendies.011
       TermType: 0
       Description: 
       Languages:
-      - 'What is he doing? '
-      - "\u0427\u0442\u043E \u043E\u043D \u0434\u0435\u043B\u0430\u0435\u0442?"
+      - What is he doing?
+      - "\u0427\u0442\u043E \u0434\u0435\u043B\u0430\u0435\u0442?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.013
+    - Term: btn.incendies.012
       TermType: 0
       Description: 
       Languages:
@@ -695,7 +1512,7 @@ MonoBehaviour:
       - "\u041F\u0435\u0440\u0435\u0441\u043F\u0440\u043E\u0441\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.014
+    - Term: btn.incendies.013
       TermType: 0
       Description: 
       Languages:
@@ -703,56 +1520,47 @@ MonoBehaviour:
       - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.015
+    - Term: btn.incendies.014
       TermType: 0
       Description: 
       Languages:
-      - The firemen's work
-      - "\u0420\u0430\u0431\u043E\u0442\u0430 \u043F\u043E\u0436\u0430\u0440\u043D\u044B\u0445"
+      - Where are the children?
+      - "\u0413\u0434\u0435 \u0434\u0435\u0442\u0438?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.016
-      TermType: 0
-      Description: 
-      Languages:
-      - Where might the kids be?
-      - "\u0413\u0434\u0435 \u043C\u043E\u0433\u0443\u0442 \u0431\u044B\u0442\u044C
-        \u0434\u0435\u0442\u0438?"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: c.word.017
-      TermType: 0
-      Description: 
-      Languages:
-      - Clarify
-      - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: c.word.018
-      TermType: 0
-      Description: 
-      Languages:
-      - One bathroom?
-      - "\u0412\u0430\u043D\u043D\u0430\u044F \u043E\u0434\u043D\u0430?"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: c.word.019
+    - Term: btn.incendies.015
       TermType: 0
       Description: 
       Languages:
       - Make sure
-      - "\u0423\u0434\u043E\u0441\u0442\u043E\u0432\u0435\u0440\u0438\u0442\u044C\u0441\u044F"
+      - "\u0423\u0431\u0435\u0434\u0438\u0442\u044C\u0441\u044F"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.020
+    - Term: btn.incendies.016
       TermType: 0
       Description: 
       Languages:
-      - Ask for children's age
-      - "\u0412\u043E\u0437\u0440\u0430\u0441\u0442 \u0434\u0435\u0442\u0435\u0439"
+      - How old are children?
+      - "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u043B\u0435\u0442 \u0434\u0435\u0442\u044F\u043C?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.020.1
+    - Term: btn.incendies.017
+      TermType: 0
+      Description: 
+      Languages:
+      - Is there only one bathroom?
+      - "\u0412\u0430\u043D\u043D\u0430\u044F \u043E\u0434\u043D\u0430?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.018
+      TermType: 0
+      Description: 
+      Languages:
+      - Verify
+      - "\u0423\u0434\u043E\u0441\u0442\u043E\u0432\u0435\u0440\u0438\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.019
       TermType: 0
       Description: 
       Languages:
@@ -760,7 +1568,7 @@ MonoBehaviour:
       - "\u0414\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.021
+    - Term: btn.incendies.020
       TermType: 0
       Description: 
       Languages:
@@ -768,15 +1576,15 @@ MonoBehaviour:
       - "\u041D\u0435\u0442"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.022
+    - Term: btn.incendies.021
       TermType: 0
       Description: 
       Languages:
       - Explain
-      - "\u041E\u0431\u044C\u044F\u0441\u043D\u0438\u0442\u044C"
+      - "\u041E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.023
+    - Term: btn.incendies.022
       TermType: 0
       Description: 
       Languages:
@@ -784,7 +1592,7 @@ MonoBehaviour:
       - "\u041F\u0440\u0438\u043A\u0430\u0437\u0430\u0442\u044C \u043E\u0441\u0442\u0430\u0442\u044C\u0441\u044F"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.024
+    - Term: btn.incendies.023
       TermType: 0
       Description: 
       Languages:
@@ -793,39 +1601,7 @@ MonoBehaviour:
         \u043E\u0431 \u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.025
-      TermType: 0
-      Description: 
-      Languages:
-      - Explain
-      - "\u041E\u0431\u044C\u044F\u0441\u043D\u0438\u0442\u044C"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: c.word.026
-      TermType: 0
-      Description: 
-      Languages:
-      - Calm him
-      - "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: c.word.027
-      TermType: 0
-      Description: 
-      Languages:
-      - Taking the measures
-      - "\u041F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u043C \u043C\u0435\u0440\u044B"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: c.word.028
-      TermType: 0
-      Description: 
-      Languages:
-      - Give a promise
-      - "\u0414\u0430\u0442\u044C \u043E\u0431\u0435\u0449\u0430\u043D\u0438\u0435"
-      Flags: 0000
-      Languages_Touch: []
-    - Term: c.word.029
+    - Term: btn.incendies.024
       TermType: 0
       Description: 
       Languages:
@@ -833,7 +1609,23 @@ MonoBehaviour:
       - "\u041E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.030
+    - Term: btn.incendies.025
+      TermType: 0
+      Description: 
+      Languages:
+      - Calm down
+      - "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.026
+      TermType: 0
+      Description: 
+      Languages:
+      - Explain
+      - "\u041E\u0431\u044C\u044F\u0441\u043D\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.027
       TermType: 0
       Description: 
       Languages:
@@ -842,39 +1634,119 @@ MonoBehaviour:
         \u043E\u0431 \u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.031
+    - Term: btn.incendies.028
       TermType: 0
       Description: 
       Languages:
-      - Calm him
+      - We are taking measures
+      - "\u041C\u044B \u043F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u043C \u043C\u0435\u0440\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.029
+      TermType: 0
+      Description: 
+      Languages:
+      - I promise
+      - "\u041E\u0431\u0435\u0449\u0430\u044E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.030
+      TermType: 0
+      Description: 
+      Languages:
+      - Calm down
       - "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.032
+    - Term: btn.incendies.031
       TermType: 0
       Description: 
       Languages:
-      - Observation
-      - "\u041D\u0430\u0431\u043B\u044E\u0434\u0435\u043D\u0438\u0435"
+      - What does he see?
+      - "\u0427\u0442\u043E \u0432\u0438\u0434\u0438\u0442?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.033
+    - Term: btn.incendies.032
+      TermType: 0
+      Description: 
+      Languages:
+      - How many bathrooms are there?
+      - "\u0421\u043A\u043E\u043B\u044C\u043A\u043E \u0432\u0430\u043D\u043D\u044B\u0445?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.033
+      TermType: 0
+      Description: 
+      Languages:
+      - Clarify about the children
+      - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u043F\u0440\u043E \u0434\u0435\u0442\u0435\u0439"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.034
+      TermType: 0
+      Description: 
+      Languages:
+      - What does he see?
+      - "\u0427\u0442\u043E \u0432\u0438\u0434\u0438\u0442?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.035
       TermType: 0
       Description: 
       Languages:
       - Stop him
-      - "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435 \u0435\u0433\u043E"
+      - "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u044C"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.034
+    - Term: btn.incendies.036
       TermType: 0
       Description: 
       Languages:
-      - "They won\u2019t let him in"
-      - "\u0415\u0433\u043E \u043D\u0435 \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u044F\u0442"
+      - He will be stopped
+      - "\u0415\u0433\u043E \u043E\u0441\u0442\u0430\u043D\u043E\u0432\u044F\u0442"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.035
+    - Term: btn.incendies.037
+      TermType: 0
+      Description: 
+      Languages:
+      - Ask about the unknown person
+      - "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043F\u0440\u043E \u043D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E\u0433\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.038
+      TermType: 0
+      Description: 
+      Languages:
+      - What is the situation?
+      - "\u041A\u0430\u043A\u043E\u0432\u0430 \u0441\u0438\u0442\u0443\u0430\u0446\u0438\u044F?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.039
+      TermType: 0
+      Description: 
+      Languages:
+      - Let him speak
+      - "\u041F\u0443\u0441\u0442\u044C \u0433\u043E\u0432\u043E\u0440\u0438\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.040
+      TermType: 0
+      Description: 
+      Languages:
+      - Looked in the windows?
+      - "\u0421\u043C\u043E\u0442\u0440\u0435\u043B \u0432 \u043E\u043A\u043D\u0430?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.041
+      TermType: 0
+      Description: 
+      Languages:
+      - Looked for the address?
+      - "\u0418\u0441\u043A\u0430\u043B \u0430\u0434\u0440\u0435\u0441?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.incendies.042
       TermType: 0
       Description: 
       Languages:
@@ -882,223 +1754,1783 @@ MonoBehaviour:
       - "\u0414\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.036
+    - Term: btn.incendies.043
       TermType: 0
       Description: 
       Languages:
-      - "What\u2019s going on?"
+      - What is going on?
       - "\u0427\u0442\u043E \u043F\u0440\u043E\u0438\u0441\u0445\u043E\u0434\u0438\u0442?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.037
+    - Term: btn.tutorial.001
       TermType: 0
       Description: 
       Languages:
-      - Remind of a suspect
-      - "\u041D\u0430\u043F\u043E\u043C\u043D\u0438\u0442\u044C \u043E \u043F\u043E\u0434\u043E\u0437\u0440\u0435\u0432\u0430\u0435\u043C\u043E\u043C"
+      - Yes
+      - "\u0414\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.038
+    - Term: btn.tutorial.002
       TermType: 0
       Description: 
       Languages:
-      - Observation
-      - "\u041D\u0430\u0431\u043B\u044E\u0434\u0435\u043D\u0438\u0435"
+      - No
+      - "\u041D\u0435\u0442"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.039
+    - Term: btn.tutorial.003
       TermType: 0
       Description: 
       Languages:
-      - Continue
-      - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439\u0442\u0435"
+      - Start training
+      - "\u041D\u0430\u0447\u0430\u0442\u044C \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.040
+    - Term: btn.tutorial.004
       TermType: 0
       Description: 
       Languages:
-      - Looked in the windows?
-      - "\u0421\u043C\u043E\u0442\u0440\u0435\u043B \u0432 \u043E\u043A\u043D\u0430?"
+      - Skip training
+      - "\u041F\u0440\u043E\u043F\u0443\u0441\u0442\u0438\u0442\u044C \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.041
+    - Term: btn.tutorial.005
       TermType: 0
       Description: 
       Languages:
-      - Searched the address?
-      - "\u0418\u0441\u043A\u0430\u043B \u0430\u0434\u0440\u0435\u0441?"
+      - Continue training
+      - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0438\u0442\u044C \u043E\u0431\u0443\u0447\u0435\u043D\u0438\u0435"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.042
+    - Term: btn.tutorial.006
       TermType: 0
       Description: 
       Languages:
-      - Explain
-      - "\u041E\u0431\u044C\u044F\u0441\u043D\u0438\u0442\u044C"
+      - Start the game
+      - "\u041F\u0440\u0438\u0441\u0442\u0443\u043F\u0438\u0442\u044C \u043A \u0438\u0433\u0440\u0435"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.043
+    - Term: btn.tutorial.007
       TermType: 0
       Description: 
       Languages:
-      - 'Order to stay '
-      - "\u041F\u0440\u0438\u043A\u0430\u0437\u0430\u0442\u044C \u043E\u0441\u0442\u0430\u0442\u044C\u0441\u044F"
+      - Address?
+      - "\u0410\u0434\u0440\u0435\u0441?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.044
+    - Term: btn.tutorial.008
       TermType: 0
       Description: 
       Languages:
-      - Warn of danger
-      - "\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0434\u0438\u0442\u044C
-        \u043E\u0431 \u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
+      - What does he/she see?
+      - "\u0427\u0442\u043E \u0432\u0438\u0434\u0438\u0442?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.045
+    - Term: btn.tutorial.009
       TermType: 0
       Description: 
       Languages:
-      - Explain
-      - "\u041E\u0431\u044C\u044F\u0441\u043D\u0438\u0442\u044C"
+      - Who is nearby?
+      - "\u041A\u0442\u043E \u0440\u044F\u0434\u043E\u043C?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.046
+    - Term: btn.tutorial.010
       TermType: 0
       Description: 
       Languages:
-      - Calm him
-      - "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C"
+      - Who is nearby?
+      - "\u041A\u0442\u043E \u0440\u044F\u0434\u043E\u043C?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.047
+    - Term: btn.tutorial.011
       TermType: 0
       Description: 
       Languages:
-      - Explain
-      - "\u041E\u0431\u044A\u044F\u0441\u043D\u0438\u0442\u044C"
+      - Booth?
+      - "\u0411\u0443\u0434\u043A\u0430?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.048
+    - Term: btn.tutorial.012
       TermType: 0
       Description: 
       Languages:
-      - Taking the measures
-      - "\u041F\u0440\u0438\u043D\u0438\u043C\u0430\u0435\u043C \u043C\u0435\u0440\u044B"
+      - Signboard?
+      - "\u0412\u044B\u0432\u0435\u0441\u043A\u0430?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.049
+    - Term: btn.tutorial.013
       TermType: 0
       Description: 
       Languages:
-      - Give a promise
-      - "\u0414\u0430\u0442\u044C \u043E\u0431\u0435\u0449\u0430\u043D\u0438\u0435"
+      - Route?
+      - "\u041C\u0430\u0440\u0448\u0440\u0443\u0442?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.050
+    - Term: btn.tutorial.014
       TermType: 0
       Description: 
       Languages:
-      - Warn of danger
-      - "\u041F\u0440\u0435\u0434\u0443\u043F\u0440\u0435\u0434\u0438\u0442\u044C
-        \u043E\u0431 \u043E\u043F\u0430\u0441\u043D\u043E\u0441\u0442\u0438"
+      - Yes
+      - "\u0414\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.051
+    - Term: btn.tutorial.015
       TermType: 0
       Description: 
       Languages:
-      - Calm him
-      - "\u0423\u0441\u043F\u043E\u043A\u043E\u0438\u0442\u044C"
+      - No
+      - "\u041D\u0435\u0442"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.052
+    - Term: btn.tutorial.016
       TermType: 0
       Description: 
       Languages:
-      - Observation
-      - "\u041D\u0430\u0431\u043B\u044E\u0434\u0435\u043D\u0438\u0435"
+      - Attack?
+      - "\u041D\u0430\u043F\u0430\u0434\u0435\u043D\u0438\u0435?"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.053
+    - Term: btn.tutorial.017
       TermType: 0
       Description: 
       Languages:
-      - Clarify about the kids
-      - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u043F\u0440\u043E \u0434\u0435\u0442\u0435\u0439"
+      - No way
+      - "\u041D\u0438 \u0432 \u043A\u043E\u0435\u043C \u0441\u043B\u0443\u0447\u0430\u0435"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.054
+    - Term: btn.tutorial.018
       TermType: 0
       Description: 
       Languages:
-      - Stop him
-      - "\u041E\u0441\u0442\u0430\u043D\u043E\u0432\u0438\u0442\u0435 \u0435\u0433\u043E"
+      - Yes
+      - "\u0414\u0430"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.055
+    - Term: btn.tutorial.019
       TermType: 0
       Description: 
       Languages:
-      - "They won\u2019t let him in"
-      - "\u0415\u0433\u043E \u043D\u0435 \u043F\u0440\u043E\u043F\u0443\u0441\u0442\u044F\u0442"
+      - Attacker
+      - "\u041D\u0430\u043F\u0430\u0434\u0430\u044E\u0449\u0438\u0439"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.056
+    - Term: btn.tutorial.020
       TermType: 0
       Description: 
       Languages:
-      - Observation
-      - "\u041D\u0430\u0431\u043B\u044E\u0434\u0435\u043D\u0438\u0435"
+      - Scene of action
+      - "\u041C\u0435\u0441\u0442\u043E \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044F"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.057
+    - Term: btn.tutorial.021
       TermType: 0
       Description: 
       Languages:
-      - How many bathrooms?
+      - Thank him
+      - "\u041F\u043E\u0431\u043B\u0430\u0433\u043E\u0434\u0430\u0440\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.tutorial.022
+      TermType: 0
+      Description: 
+      Languages:
+      - Ask about rule #4
+      - "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043F\u0440\u043E \u0447\u0435\u0442\u0432\u0451\u0440\u0442\u043E\u0435
+        \u043F\u0440\u0430\u0432\u0438\u043B\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.tutorial.023
+      TermType: 0
+      Description: 
+      Languages:
+      - Goodbye
+      - "\u041F\u043E\u043F\u0440\u043E\u0449\u0430\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.tutorial.024
+      TermType: 0
+      Description: 
+      Languages:
+      - Rule #4
+      - "\u041D\u0430\u043F\u043E\u043C\u043D\u0438\u0442\u044C \u043F\u0440\u043E
+        4 \u043F\u0440\u0430\u0432\u0438\u043B\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.001
+      TermType: 0
+      Description: 
+      Languages:
+      - Introduce yourself again
+      - "\u0421\u043D\u043E\u0432\u0430 \u043F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.002
+      TermType: 0
+      Description: 
+      Languages:
+      - Ask a direct question
+      - "\u0417\u0430\u0434\u0430\u0442\u044C \u043F\u0440\u044F\u043C\u043E\u0439
+        \u0432\u043E\u043F\u0440\u043E\u0441"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.003
+      TermType: 0
+      Description: 
+      Languages:
+      - Play along
+      - "\u041F\u043E\u0434\u044B\u0433\u0440\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.004
+      TermType: 0
+      Description: 
+      Languages:
+      - Phone prank?
+      - "\u0422\u0435\u043B\u0435\u0444\u043E\u043D\u043D\u044B\u0439 \u0440\u043E\u0437\u044B\u0433\u0440\u044B\u0448?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.005
+      TermType: 0
+      Description: 
+      Languages:
+      - Wrong number?
+      - "\u041E\u0448\u0438\u0431\u043B\u0438\u0441\u044C \u043D\u043E\u043C\u0435\u0440\u043E\u043C?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.006
+      TermType: 0
+      Description: 
+      Languages:
+      - "Ask a direct question\u2026"
+      - "\u0417\u0430\u0434\u0430\u0442\u044C \u043F\u0440\u044F\u043C\u043E\u0439
+        \u0432\u043E\u043F\u0440\u043E\u0441..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.007
+      TermType: 0
+      Description: 
+      Languages:
+      - Summarize (RESET)
+      - "\u0421\u0431\u0440\u043E\u0441\u0438\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.008
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - "\u041F\u0443\u0441\u0442\u044C \u0434\u0430\u0441\u0442 \u0441\u0438\u0433\u043D\u0430\u043B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.009
+      TermType: 0
+      Description: 
+      Languages:
+      - Ask for address
+      - "\u0421\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u0430\u0434\u0440\u0435\u0441"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.010
+      TermType: 0
+      Description: 
+      Languages:
+      - Degree of threat
+      - "\u0421\u0442\u0435\u043F\u0435\u043D\u044C \u0443\u0433\u0440\u043E\u0437\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.011
+      TermType: 0
+      Description: 
+      Languages:
+      - Clarify the number of people
       - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
-        \u0432\u0430\u043D\u043D"
+        \u043B\u044E\u0434\u0435\u0439"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.058
+    - Term: btn.pizza.012
       TermType: 0
       Description: 
       Languages:
-      - Observation
-      - "\u041D\u0430\u0431\u043B\u044E\u0434\u0435\u043D\u0438\u0435"
+      - Clarify the address
+      - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u0430\u0434\u0440\u0435\u0441"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.059
+    - Term: btn.pizza.013
       TermType: 0
       Description: 
       Languages:
-      - Continue
-      - "\u041F\u0440\u043E\u0434\u043E\u043B\u0436\u0430\u0439\u0442\u0435"
+      - Degree of threat
+      - "\u0421\u0442\u0435\u043F\u0435\u043D\u044C \u0443\u0433\u0440\u043E\u0437\u044B"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.060
+    - Term: btn.pizza.014
       TermType: 0
       Description: 
       Languages:
-      - Remind about the suspect
-      - "\u041D\u0430\u043F\u043E\u043C\u043D\u0438\u0442\u044C \u043E \u043F\u043E\u0434\u043E\u0437\u0440\u0435\u0432\u0430\u0435\u043C\u043E\u043C"
+      - Clarify the address
+      - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u0430\u0434\u0440\u0435\u0441"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.061
+    - Term: btn.pizza.015
       TermType: 0
       Description: 
       Languages:
-      - Looked in the windows?
-      - "\u0421\u043C\u043E\u0442\u0440\u0435\u043B \u0432 \u043E\u043A\u043D\u0430?"
+      - 
+      - "\u041F\u0443\u0441\u0442\u044C \u0432\u044B\u0434\u0443\u043C\u0430\u0435\u0442
+        \u0437\u0430\u043A\u0430\u0437"
       Flags: 0000
       Languages_Touch: []
-    - Term: c.word.062
+    - Term: btn.pizza.016
       TermType: 0
       Description: 
       Languages:
-      - Searched the address?
-      - "\u0418\u0441\u043A\u0430\u043B \u0430\u0434\u0440\u0435\u0441?"
+      - Husband?
+      - "\u041C\u0443\u0436?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.017
+      TermType: 0
+      Description: 
+      Languages:
+      - Father?
+      - "\u041E\u0442\u0435\u0446?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.018
+      TermType: 0
+      Description: 
+      Languages:
+      - Robber?
+      - "\u0413\u0440\u0430\u0431\u0438\u0442\u0435\u043B\u044C?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.019
+      TermType: 0
+      Description: 
+      Languages:
+      - Refuse
+      - "\u041E\u0442\u043A\u0430\u0437\u0430\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.020
+      TermType: 0
+      Description: 
+      Languages:
+      - Agree
+      - "\u0421\u043E\u0433\u043B\u0430\u0441\u0438\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.021
+      TermType: 0
+      Description: 
+      Languages:
+      - Talk about pizza
+      - "\u0413\u043E\u0432\u043E\u0440\u0438\u0442\u044C \u043F\u0440\u043E \u043F\u0438\u0446\u0446\u0443"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.022a
+      TermType: 0
+      Description: 
+      Languages:
+      - Specify the apartment number
+      - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u043D\u043E\u043C\u0435\u0440
+        \u043A\u0432\u0430\u0440\u0442\u0438\u0440\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.022
+      TermType: 0
+      Description: 
+      Languages:
+      - Coffee
+      - "\u041A\u043E\u0444\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.023
+      TermType: 0
+      Description: 
+      Languages:
+      - Beer
+      - "\u041F\u0438\u0432\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.024
+      TermType: 0
+      Description: 
+      Languages:
+      - Soda
+      - "\u0413\u0430\u0437\u0438\u0440\u043E\u0432\u043A\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.025
+      TermType: 0
+      Description: 
+      Languages:
+      - Say goodbye and hang up the phone
+      - "\u041F\u043E\u043F\u0440\u0430\u0449\u0430\u0442\u044C\u0441\u044F \u0438
+        \u043F\u043E\u0432\u0435\u0441\u0438\u0442\u044C \u0442\u0440\u0443\u0431\u043A\u0443"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.026
+      TermType: 0
+      Description: 
+      Languages:
+      - Wait for the police
+      - "\u0414\u043E\u0436\u0434\u0430\u0442\u044C\u0441\u044F \u043F\u043E\u043B\u0438\u0446\u0438\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.027a
+      TermType: 0
+      Description: 
+      Languages:
+      - Lie
+      - "\u0421\u043E\u043B\u0433\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.027
+      TermType: 0
+      Description: 
+      Languages:
+      - 911
+      - 911
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.028a
+      TermType: 0
+      Description: 
+      Languages:
+      - Confess
+      - "\u041F\u0440\u0438\u0437\u043D\u0430\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.028
+      TermType: 0
+      Description: 
+      Languages:
+      - Pizzeria
+      - "\u041F\u0438\u0446\u0446\u0435\u0440\u0438\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.029
+      TermType: 0
+      Description: 
+      Languages:
+      - "Sir\u2026"
+      - "\u0421\u044D\u0440..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.030
+      TermType: 0
+      Description: 
+      Languages:
+      - "George\u2026"
+      - "\u0414\u0436\u043E\u0440\u0434\u0436..."
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.031
+      TermType: 0
+      Description: 
+      Languages:
+      - By the rules
+      - "\u041F\u043E \u043F\u0440\u0430\u0432\u0438\u043B\u0430\u043C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.032
+      TermType: 0
+      Description: 
+      Languages:
+      - Threaten
+      - "\u0423\u0433\u0440\u043E\u0436\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.033
+      TermType: 0
+      Description: 
+      Languages:
+      - Insist
+      - "\u041D\u0430\u0441\u0442\u043E\u044F\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.034
+      TermType: 0
+      Description: 
+      Languages:
+      - Give in
+      - "\u0423\u0441\u0442\u0443\u043F\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.035
+      TermType: 0
+      Description: 
+      Languages:
+      - Identify
+      - "\u041E\u043F\u043E\u0437\u043D\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.036
+      TermType: 0
+      Description: 
+      Languages:
+      - Wait for the police
+      - "\u0414\u043E\u0436\u0434\u0430\u0442\u044C\u0441\u044F \u043F\u043E\u043B\u0438\u0446\u0438\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.037
+      TermType: 0
+      Description: 
+      Languages:
+      - Hang up the phone
+      - "\u041F\u043E\u0432\u0435\u0441\u0438\u0442\u044C \u0442\u0440\u0443\u0431\u043A\u0443"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.038
+      TermType: 0
+      Description: 
+      Languages:
+      - Play along
+      - "\u041F\u043E\u0434\u044B\u0433\u0440\u0430\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.039
+      TermType: 0
+      Description: 
+      Languages:
+      - Agree on something
+      - "\u0414\u043E\u0433\u043E\u0432\u043E\u0440\u0438\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.040
+      TermType: 0
+      Description: 
+      Languages:
+      - 911
+      - 911
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.041
+      TermType: 0
+      Description: 
+      Languages:
+      - Handcliffs and company
+      - "\u0425\u044D\u043D\u0434\u043A\u043B\u0438\u0444\u0444\u0441 \u0438 \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.042
+      TermType: 0
+      Description: 
+      Languages:
+      - Pizza on time!
+      - "\xAB\u041F\u0438\u0446\u0446\u0430 \u0432 \u0441\u0440\u043E\u043A!\xBB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.043
+      TermType: 0
+      Description: 
+      Languages:
+      - Look out the window
+      - "\u0421\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0432 \u043E\u043A\u043D\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.044
+      TermType: 0
+      Description: 
+      Languages:
+      - Justice
+      - "\u0421\u043F\u0440\u0430\u0432\u0435\u0434\u043B\u0438\u0432\u043E\u0441\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.045
+      TermType: 0
+      Description: 
+      Languages:
+      - Turn away
+      - "\u041E\u0442\u0432\u0435\u0440\u043D\u0438\u0442\u0435\u0441\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.046
+      TermType: 0
+      Description: 
+      Languages:
+      - Look further
+      - "\u0421\u043C\u043E\u0442\u0440\u0438\u0442\u0435 \u0434\u0430\u043B\u044C\u0448\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.047
+      TermType: 0
+      Description: 
+      Languages:
+      - Slow down
+      - "\u0421\u0431\u0430\u0432\u0438\u0442\u044C \u043E\u0431\u043E\u0440\u043E\u0442\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.048
+      TermType: 0
+      Description: 
+      Languages:
+      - Finish off
+      - "\u0414\u043E\u0431\u0438\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.049
+      TermType: 0
+      Description: 
+      Languages:
+      - Summarize (reset)
+      - "\u0421\u0431\u0440\u043E\u0441\u0438\u0442\u044C \u0437\u0432\u043E\u043D\u043E\u043A"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.050
+      TermType: 0
+      Description: 
+      Languages:
+      - "Clarify the \u201Cspiciness\u201D"
+      - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \xAB\u043E\u0441\u0442\u0440\u043E\u0442\u0443\xBB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.051
+      TermType: 0
+      Description: 
+      Languages:
+      - Clarify the number of people
+      - "\u0423\u0442\u043E\u0447\u043D\u0438\u0442\u044C \u043A\u043E\u043B\u0438\u0447\u0435\u0441\u0442\u0432\u043E
+        \u043B\u044E\u0434\u0435\u0439"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.052
+      TermType: 0
+      Description: 
+      Languages:
+      - Coffee
+      - "\u041A\u043E\u0444\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.053
+      TermType: 0
+      Description: 
+      Languages:
+      - Soda
+      - "\u0413\u0430\u0437\u0438\u0440\u043E\u0432\u043A\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.054
+      TermType: 0
+      Description: 
+      Languages:
+      - Beer
+      - "\u041F\u0438\u0432\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.055
+      TermType: 0
+      Description: 
+      Languages:
+      - 911
+      - 911
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.056
+      TermType: 0
+      Description: 
+      Languages:
+      - Handcliffs and company
+      - "\xAB\u0425\u044D\u043D\u0434\u043A\u043B\u0438\u0444\u0444\u0441 \u0438
+        \u043A\u043E\u043C\u043F\u0430\u043D\u0438\u044F\xBB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.057
+      TermType: 0
+      Description: 
+      Languages:
+      - Pizza on time!
+      - "\xAB\u041F\u0438\u0446\u0446\u0430 \u0432 \u0441\u0440\u043E\u043A!\xBB"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.058
+      TermType: 0
+      Description: 
+      Languages:
+      - Say goodbye and hang up the phone
+      - "\u041F\u043E\u043F\u0440\u043E\u0449\u0430\u0442\u044C\u0441\u044F \u0438
+        \u043F\u043E\u0432\u0435\u0441\u0438\u0442\u044C \u0442\u0440\u0443\u0431\u043A\u0443"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.059
+      TermType: 0
+      Description: 
+      Languages:
+      - Wait for the police
+      - "\u0414\u043E\u0436\u0434\u0430\u0442\u044C\u0441\u044F \u043F\u043E\u043B\u0438\u0446\u0438\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.060
+      TermType: 0
+      Description: 
+      Languages:
+      - Delivery rating
+      - "\u041E\u0446\u0435\u043D\u043A\u0430 \u0434\u043E\u0441\u0442\u0430\u0432\u043A\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.pizza.061
+      TermType: 0
+      Description: 
+      Languages:
+      - Operator rating
+      - "\u041E\u0446\u0435\u043D\u043A\u0430 \u043E\u043F\u0435\u0440\u0430\u0442\u043E\u0440\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.001
+      TermType: 0
+      Description: 
+      Languages:
+      - Introduce oneself
+      - "\u041F\u0440\u0435\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u044C\u0441\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.002
+      TermType: 0
+      Description: 
+      Languages:
+      - Who is this?
+      - "\u041A\u0442\u043E \u044D\u0442\u043E?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.003
+      TermType: 0
+      Description: 
+      Languages:
+      - Mutual
+      - "\u0412\u0437\u0430\u0438\u043C\u043D\u043E"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.004
+      TermType: 0
+      Description: 
+      Languages:
+      - To the point
+      - "\u041A \u0434\u0435\u043B\u0443"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.005
+      TermType: 0
+      Description: 
+      Languages:
+      - Psychoanalyst?
+      - "\u041F\u0441\u0438\u0445\u043E\u0430\u043D\u0430\u043B\u0438\u0442\u0438\u043A?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.006
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - "\u0414\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.007
+      TermType: 0
+      Description: 
+      Languages:
+      - Not quite
+      - "\u041D\u0435 \u0441\u043E\u0432\u0441\u0435\u043C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.008
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - "\u0414\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.009
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u041D\u0435\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.010
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - "\u0414\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.011
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u041D\u0435\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.012
+      TermType: 0
+      Description: 
+      Languages:
+      - Coffee
+      - "\u041A\u043E\u0444\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.013
+      TermType: 0
+      Description: 
+      Languages:
+      - Debt
+      - "\u0414\u043E\u043B\u0433"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.014
+      TermType: 0
+      Description: 
+      Languages:
+      - Power
+      - "\u0412\u043B\u0430\u0441\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.015
+      TermType: 0
+      Description: 
+      Languages:
+      - Willingness to help
+      - "\u0416\u0435\u043B\u0430\u043D\u0438\u0435 \u043F\u043E\u043C\u043E\u0447\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.016
+      TermType: 0
+      Description: 
+      Languages:
+      - Responsibility
+      - "\u041E\u0442\u0432\u0435\u0442\u0441\u0442\u0432\u0435\u043D\u043D\u043E\u0441\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.017
+      TermType: 0
+      Description: 
+      Languages:
+      - Limitations
+      - "\u041E\u0433\u0440\u0430\u043D\u0438\u0447\u0435\u043D\u0438\u044F"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.018
+      TermType: 0
+      Description: 
+      Languages:
+      - People
+      - "\u041B\u044E\u0434\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.019
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - "\u0414\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.020
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u041D\u0435\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.021
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - "\u0414\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1022
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u041D\u0435\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.023
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - "\u0414\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.024
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u041D\u0435\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.025
+      TermType: 0
+      Description: 
+      Languages:
+      - I can do better
+      - "\u041C\u043E\u0433\u0443 \u043B\u0443\u0447\u0448\u0435"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.026
+      TermType: 0
+      Description: 
+      Languages:
+      - Options
+      - "\u041E\u043F\u0446\u0438\u0439"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.027
+      TermType: 0
+      Description: 
+      Languages:
+      - Determination
+      - "\u0420\u0435\u0448\u0438\u0442\u0435\u043B\u044C\u043D\u043E\u0441\u0442\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.028
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - "\u0414\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.029
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u041D\u0435\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.030
+      TermType: 0
+      Description: 
+      Languages:
+      - Countermeasures
+      - "\u041E\u0442\u0432\u0435\u0442\u043D\u044B\u0435 \u043C\u0435\u0440\u044B"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.031
+      TermType: 0
+      Description: 
+      Languages:
+      - Justice
+      - "\u0421\u043F\u0440\u0430\u0432\u0435\u0434\u043B\u0438\u0432\u043E\u0441\u0442\u044C"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.032
+      TermType: 0
+      Description: 
+      Languages:
+      - No
+      - "\u041D\u0435\u0442"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.033
+      TermType: 0
+      Description: 
+      Languages:
+      - Yes
+      - "\u0414\u0430"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.034
+      TermType: 0
+      Description: 
+      Languages:
+      - Is this a hint?
+      - "\u042D\u0442\u043E \u043D\u0430\u043C\u0451\u043A?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.035
+      TermType: 0
+      Description: 
+      Languages:
+      - What will happen next?
+      - "\u0427\u0442\u043E \u0431\u0443\u0434\u0435\u0442 \u0434\u0430\u043B\u044C\u0448\u0435?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.036
+      TermType: 0
+      Description: 
+      Languages:
+      - What about me?
+      - "\u0427\u0442\u043E \u0441\u043E \u043C\u043D\u043E\u0439?"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.psycho_1.037
+      TermType: 0
+      Description: 
+      Languages:
+      - Ask for help
+      - "\u041F\u043E\u043F\u0440\u043E\u0441\u0438\u0442\u044C \u043E \u043F\u043E\u043C\u043E\u0449\u0438"
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/001
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/002
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/003
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/004
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/005
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/006
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/007
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/008
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/009
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/010
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/011
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/012
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/013
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/014
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/015
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/016
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/017
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/018
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/019
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/020
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/021
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/022
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/023
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/024
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/025
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/026
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/027
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/028
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/029
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/030
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/031
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/032
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/033
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/034
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/035
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/036
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/037
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/038
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/039
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/040
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/041
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/042
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/043
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/044
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/045
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/046
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/047
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/048
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/049
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/050
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/051
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/052
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/053
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/054
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/055
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/056
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/057
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/058
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/059
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/060
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/061
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/062
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/063
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/064
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/065
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/066
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/067
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/068
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/069
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/070
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/071
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/072
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/073
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/074
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/075
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/076
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/077
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/078
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/079
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/080
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/081
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/082
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/083
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/084
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/085
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/086
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/087
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/088
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/089
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/090
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/091
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/092
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/093
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/094
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
+      Flags: 0000
+      Languages_Touch: []
+    - Term: btn.test/095
+      TermType: 0
+      Description: 
+      Languages:
+      - 
+      - 
       Flags: 0000
       Languages_Touch: []
     CaseInsensitiveTerms: 0
@@ -1108,15 +3540,15 @@ MonoBehaviour:
     - Name: English
       Code: en
       Flags: 0
+    - Name: Russian
       Code: ru
-    - Name: "\u0420\u0443\u0441\u0441\u043A\u0438\u0439"
       Flags: 0
     IgnoreDeviceLanguage: 0
     _AllowUnloadingLanguages: 0
     Google_WebServiceURL: https://script.google.com/macros/s/AKfycbyuDtsXqSvvvROoyPIAtO4mVneXSClKXBucqDheC5OLRBSTKaz4MU27H03WP-OLVpbhQQ/exec
     Google_SpreadsheetKey: 1hJDO9cAPuAlG-i--w7FxsNHVdgzTOp9uLvr9L1nbWqE
     Google_SpreadsheetName: I2Loc Midline85 Localization
-    Google_LastUpdatedVersion: 1676907179637
+    Google_LastUpdatedVersion: 1695565857795
     Google_Password: change_this
     GoogleUpdateFrequency: 1
     GoogleInEditorCheckFrequency: 1

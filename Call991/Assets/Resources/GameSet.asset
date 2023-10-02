@@ -20,78 +20,7 @@ MonoBehaviour:
     Prefab: {fileID: 0}
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
-    SerializationNodes:
-    - Name: musics
-      Entry: 7
-      Data: 0|System.Collections.Generic.Dictionary`2[[System.String, mscorlib],[System.Collections.Generic.List`1[[System.String,
-        mscorlib]], mscorlib]], mscorlib
-    - Name: comparer
-      Entry: 7
-      Data: 1|System.Collections.Generic.GenericEqualityComparer`1[[System.String,
-        mscorlib]], mscorlib
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: Intro
-    - Name: $v
-      Entry: 7
-      Data: 2|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 1
-    - Name: 
-      Entry: 1
-      Data: Intro, Main Menu
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 1
-      Data: 7_lvl
-    - Name: $v
-      Entry: 7
-      Data: 3|System.Collections.Generic.List`1[[System.String, mscorlib]], mscorlib
-    - Name: 
-      Entry: 12
-      Data: 2
-    - Name: 
-      Entry: 1
-      Data: 7 Chapter_ 1 Track
-    - Name: 
-      Entry: 1
-      Data: 7 Chapter_ 2 Track
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 13
-      Data: 
-    - Name: 
-      Entry: 8
-      Data: 
+    SerializationNodes: []
   logoFadeInTime: 1
   logoHoldTime: 3
   logoFadeOutTime: 2
@@ -101,18 +30,25 @@ MonoBehaviour:
   startFadeInTime: 1
   openingLineAppearTime: 1.4
   startGameOpeningHoldTime: 2
-  choicesDuration: 5
+  choicesDuration: 6
   buttonsAppearDuration: 0.2
-  fastButtonFadeDuration: 0.5
-  slowButtonFadeDuration: 1.2
+  buttonsShowSelectionDuration: 0.5
+  buttonsDisappearDuration: 1.2
   levelIntroDelay: 4
-  levelEndLevelUiDisappearTime: 3
   levelEndStatisticsUiFadeTime: 3
-  titleVideoSoName: LoadingTitleSo
+  shortFadeTime: 0.5
+  levelWarningTotalDelay: 4
+  levelWarningLineDelay: 1
+  levelWarningLineFadeTime: 1
+  GameLevels: {fileID: 11400000, guid: d08f32a45231449a5a9e083c995210b4, type: 2}
+  VoicesSet: {fileID: 11400000, guid: f5425141141a54870ba02dd59ed62b9e, type: 2}
+  SfxsSet: {fileID: 11400000, guid: f6210de0c0f7f4b94b53e08275f099e9, type: 2}
+  MusicSwitchesKeys: {fileID: 11400000, guid: 4e510a074eec1473f9307f836e4fa64d, type: 2}
+  RtpcKeys: {fileID: 11400000, guid: bc69440e1cbfb4939810c0d30e5db709, type: 2}
+  LevelKeys: {fileID: 11400000, guid: 8adddc4b76ef0443c9fb881cb6024388, type: 2}
+  PersonsKeys: {fileID: 11400000, guid: af1d88aa36cdf4677afe88a34bbf67c9, type: 2}
   CountKeys: {fileID: 11400000, guid: 049005449400c44bba455d342b8a0950, type: 2}
-  EndsKeys: {fileID: 11400000, guid: a87d7112db2fe45beac093bee4c6aaa8, type: 2}
+  EndsKeys: {fileID: 11400000, guid: 059b7b207824e4fab89dd37122bf8631, type: 2}
   ChoiceKeys: {fileID: 11400000, guid: 81300f0b351674292bc7dab5bbaf88cd, type: 2}
+  RecordKeys: {fileID: 11400000, guid: fcd3358d3d45c4502867adfecc723f77, type: 2}
   LanguagesKeys: {fileID: 11400000, guid: 7f4d295b642754f96828b9777e79bb40, type: 2}
-  menuBtnClip: {fileID: 8300000, guid: b63efbf08679d4166be409eb719e9efc, type: 3}
-  choiceBtnClip: {fileID: 8300000, guid: 4d4ca62941c0447759ccb067db85419b, type: 3}
-  timerClip: {fileID: 8300000, guid: ad3596a16c761438e866522f314dc1b4, type: 3}

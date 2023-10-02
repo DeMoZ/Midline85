@@ -1,4 +1,5 @@
 using System.Threading.Tasks;
+using Configs;
 using UI;
 using UniRx;
 
@@ -6,39 +7,42 @@ public class MenuSceneEntity : IGameScene
 {
     public struct Ctx
     {
-        public Container<Task> constructorTask;
-        public ReactiveCommand<GameScenes> onSwitchScene;
-        public PlayerProfile profile;
-        public AudioManager audioManager;
-        public VideoManager videoManager;
+        public Container<Task> ConstructorTask;
+        public ReactiveCommand<GameScenes> OnSwitchScene;
+        public GameSet GameSet;
+        public PlayerProfile Profile;
+        public WwiseAudio AudioManager;
+        public GameLevelsService GameLevelsService;
     }
 
     private Ctx _ctx;
     private UiMenuScene _ui;
 
-    private ReactiveCommand _onClickPlayGame;
+    private ReactiveCommand<int> _onLevelSelect;
+    private ReactiveCommand<int> _onLevelPlay;
     private ReactiveCommand _onClickNewGame;
 
     public MenuSceneEntity(Ctx ctx)
     {
         _ctx = ctx;
 
-        _onClickPlayGame = new ReactiveCommand();
+        _onLevelPlay = new ReactiveCommand<int>();
+        _onLevelSelect = new ReactiveCommand<int>();
         _onClickNewGame = new ReactiveCommand();
         AsyncConstructor();
     }
 
     private void AsyncConstructor()
     {
-        _ctx.constructorTask.Value = ConstructorTask();
+        _ctx.ConstructorTask.Value = ConstructorTask();
     }
 
     private async Task ConstructorTask()
     {
         // await Task.Yield();
         await Task.Delay(10);
-        await _ctx.audioManager.PlayMusic("Intro");
-        // todo load from addressables black screen above the scene;
+        // TODO Wwise await _ctx.AudioManager.PlayMusic("Intro");
+       
         // scene doesnt exist here
         // so just load and show on enter. Is it instant?
     }
@@ -47,22 +51,25 @@ public class MenuSceneEntity : IGameScene
     {
         var menuScenePm = new MenuScenePm(new MenuScenePm.Ctx
         {
-            onClickPlayGame = _onClickPlayGame,
-            onClickNewGame = _onClickNewGame,
-            onSwitchScene = _ctx.onSwitchScene,
-            profile = _ctx.profile,
+            OnLevelPlay = _onLevelPlay,
+            OnLevelSelect = _onLevelSelect,
+            OnClickNewGame = _onClickNewGame,
+            
+            GameLevelsService = _ctx.GameLevelsService,
+            OnSwitchScene = _ctx.OnSwitchScene,
+            Profile = _ctx.Profile,
         });
         
-        // Find UI or instantiate from Addressable
-        // _ui = Addressable.Instantiate();
         _ui = UnityEngine.GameObject.FindObjectOfType<UiMenuScene>();
-        
+
         _ui.SetCtx(new UiMenuScene.Ctx
         {
-            onClickPlayGame = _onClickPlayGame,
-            onClickNewGame = _onClickNewGame,
-            profile = _ctx.profile,
-            audioManager = _ctx.audioManager,
+            OnLevelSelect = _onLevelSelect,
+            OnLevelPlay = _onLevelPlay,
+            OnClickNewGame = _onClickNewGame,
+            Profile = _ctx.Profile,
+            AudioManager = _ctx.AudioManager,
+            GameLevelsService = _ctx.GameLevelsService,
         });
     }
 

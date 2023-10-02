@@ -1,6 +1,4 @@
-using System.Linq;
 using I2.Loc;
-using TMPro;
 using UniRx;
 using UnityEngine;
 
@@ -10,45 +8,46 @@ namespace UI
     {
         public struct Ctx
         {
-            public ReactiveCommand onClickToMenu;
-            public PlayerProfile profile;
-            public AudioManager audioManager;
+            public ReactiveCommand OnClickToMenu;
+            public PlayerProfile Profile;
         }
 
-        [SerializeField] private MenuButtonView toMenuBtn = default;
-        [SerializeField] private MenuButtonView toMenuTutorialBtn = default;
-        [SerializeField] private TMP_InputField inputId = default;
-        [SerializeField] private TextMeshProUGUI inputIdText = default;
-        [SerializeField] private SettingsVolumeView dialogueVolume = default;
-        [SerializeField] private SettingsVolumeView effectsVolume = default;
-        [SerializeField] private SettingsVolumeView musicVolume = default;
+        [SerializeField] private AaMenuButton toMenuTutorialBtn = default;
 
         [Space] [SerializeField] private LanguageDropdown textLanguage = default;
-        [SerializeField] private LanguageDropdown audioLanguage = default;
+        [SerializeField] private LanguageDropdown voiceLanguage = default;
+        
+        [Space] [SerializeField] private AaVolumeSlider masterVolume = default;
+        [SerializeField] private AaVolumeSlider voiceVolume = default;
+        [SerializeField] private AaVolumeSlider musicVolume = default;
+        [SerializeField] private AaVolumeSlider sfxVolume = default;
 
         private Ctx _ctx;
-        private Dialogues _dialogues;
-        
+
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            inputId.text = _ctx.profile.CheatPhrase;
             SetTextDropdown();
             SetAudioDropdown();
 
-            dialogueVolume.Init(_ctx.profile.onVolumeSet, _ctx.profile.PhraseVolume);
-            effectsVolume.Init(_ctx.profile.onVolumeSet, _ctx.profile.UiVolume);
-            musicVolume.Init(_ctx.profile.onVolumeSet, _ctx.profile.MusicVolume);
+            masterVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.MasterVolume);
+            voiceVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.VoiceVolume);
+            musicVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.MusicVolume);
+            sfxVolume.Init(_ctx.Profile.OnVolumeSet, _ctx.Profile.SfxVolume);
 
-            toMenuBtn.OnClick += OnClickToMenu;
-            toMenuTutorialBtn.OnClick += OnClickToMenu;
-            inputId.onValueChanged.AddListener(OnInputId);
+            toMenuTutorialBtn.onButtonClick.AddListener(OnClickToMenu);
+        }
+
+        protected override void OnDestroy()
+        {
+            base.OnDestroy();
+
+            toMenuTutorialBtn.onButtonClick.RemoveAllListeners();
         }
 
         public void OnClickToMenu()
         {
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
-            _ctx.onClickToMenu.Execute();
+            AnimateDisappear(() => { _ctx.OnClickToMenu.Execute(); });
         }
 
         private void SetTextDropdown()
@@ -75,12 +74,12 @@ namespace UI
 
             var languages = LocalizationManager.GetAllLanguages();
 
-            audioLanguage.ClearOptions();
-            audioLanguage.AddOptions(languages);
+            voiceLanguage.ClearOptions();
+            voiceLanguage.AddOptions(languages);
 
-            audioLanguage.Value(1); //languages.IndexOf(currentLanguage);
-            audioLanguage.OnValueChanged.RemoveListener(OnAudioLanguageSelected);
-            audioLanguage.OnValueChanged.AddListener(OnAudioLanguageSelected);
+            voiceLanguage.Value(1); //languages.IndexOf(currentLanguage);
+            voiceLanguage.OnValueChanged.RemoveListener(OnAudioLanguageSelected);
+            voiceLanguage.OnValueChanged.AddListener(OnAudioLanguageSelected);
         }
 
         private void OnAudioLanguageSelected(int index)
@@ -98,30 +97,7 @@ namespace UI
             var text = textLanguage.Options[index].text;
             LocalizationManager.CurrentLanguage = text;
 
-            _ctx.profile.TextLanguage = text switch
-            {
-                "English" => Language.EN,
-                "Русский" => Language.RU,
-                _ => Language.EN
-            };
-        }
-
-        private void OnInputId(string value)
-        {
-            if (_dialogues == null) return;
-
-            var phrase = _dialogues.phrases.FirstOrDefault(p => p.phraseId == value);
-
-            inputIdText.color = phrase == null ? Color.red : Color.blue;
-            _ctx.profile.CheatPhrase = phrase == null ? null : phrase.phraseId;
-        }
-
-        protected override async void OnEnable()
-        {
-            base.OnEnable();
-
-            var compositeDialogue = await ResourcesLoader.LoadAsync<ChapterSet>("7_lvl/7_lvl_Total"); // TODO: warning
-            _dialogues = await compositeDialogue.LoadDialogues(Language.RU, "7_lvl"); // TODO: warning
+            _ctx.Profile.TextLanguage = text;
         }
     }
 }

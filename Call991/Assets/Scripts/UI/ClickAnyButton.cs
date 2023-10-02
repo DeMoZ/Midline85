@@ -30,7 +30,7 @@ namespace UI
             }
             else if (Input.anyKeyDown)
             {
-                if (Input.GetMouseButton(0) || Input.GetMouseButton(0))
+                if (Input.GetMouseButton(0))
                     return;
 
                 if (onlyFirstSelection && EventSystem.current.firstSelectedGameObject)

@@ -59,6 +59,9 @@ namespace AaDialogueGraph.Editor
             var phraseNodes = AaNodes.OfType<PhraseNode>().ToList();
             dialogueContainer.PhraseNodeData.AddRange(PhraseNodesToData(phraseNodes));
 
+            var imagePhraseNodes = AaNodes.OfType<ImagePhraseNode>().ToList();
+            dialogueContainer.ImagePhraseNodeData.AddRange(ImagePhraseNodesToData(imagePhraseNodes));
+
             var choiceNodes = AaNodes.OfType<ChoiceNode>().ToList();
             dialogueContainer.ChoiceNodeData.AddRange(ChoiceNodesToData(choiceNodes));
 
@@ -71,13 +74,37 @@ namespace AaDialogueGraph.Editor
             var endNodes = AaNodes.OfType<EndNode>().ToList();
             dialogueContainer.EndNodeData.AddRange(EndNodesToData(endNodes));
 
-            CreateFolders(fileName);
+            var eventNodes = AaNodes.OfType<EventNode>().ToList();
+            dialogueContainer.EventNodeData.AddRange(EventNodesToData(eventNodes));
 
-            AssetDatabase.CreateAsset(dialogueContainer, $"Assets/Resources/{fileName}.asset");
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
+            var newspaperNodes = AaNodes.OfType<NewspaperNode>().ToList();
+            dialogueContainer.NewspaperNodeData.AddRange(NewspaperNodesToData(newspaperNodes));
+            
+            var slideNodes = AaNodes.OfType<SlideNode>().ToList();
+            dialogueContainer.SlideNodeData.AddRange(SlideNodesToData(slideNodes));
 
-            Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
+            var assetName = $"Assets/Resources/{fileName}.asset";
+            if (File.Exists(assetName))
+            {
+                var theFile = Resources.Load<DialogueContainer>(fileName);
+                EditorUtility.SetDirty(theFile);
+                EditorUtility.CopySerialized(dialogueContainer, theFile);
+                theFile.name = Path.GetFileName(fileName);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+
+                Debug.Log($"Dialogue <color=yellow>{fileName}</color> <color=green>Refreshed</color>. {DateTime.Now}");
+            }
+            else
+            {
+                CreateFolders(fileName);
+
+                AssetDatabase.CreateAsset(dialogueContainer, assetName);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+
+                Debug.Log($"Dialogue <color=yellow>{fileName}</color> Saved. {DateTime.Now}");
+            }
         }
 
         private EntryNodeData EntryNodeToData(EntryNode node)
@@ -85,14 +112,18 @@ namespace AaDialogueGraph.Editor
             var data = new EntryNodeData
             {
                 Guid = node.Guid,
-                Rect = node.GetPosition()
+                Rect = node.GetPosition(),
+                LevelId = node.Q<LevelIdPopupField>().Value,
+                ButtonFilter = node.Q<ButtonFilterTextField>().value,
+                GrabProjectorImages = node.Q<Toggle>(AaGraphConstants.ProjectorImages).value,
+                EnableSkipLevelButton = node.Q<Toggle>(AaGraphConstants.EnableSkipLevelButton).value,
             };
 
             var languageFields = node.Query<LanguagePopupField>().ToList();
             data.Languages = languageFields.Select(field => field.Value).ToList();
             return data;
         }
-        
+
         private List<PhraseNodeData> PhraseNodesToData(List<PhraseNode> nodes)
         {
             var data = new List<PhraseNodeData>();
@@ -100,8 +131,8 @@ namespace AaDialogueGraph.Editor
             {
                 var personVisualData = node.GetPersonVisual().GetData();
                 var phraseVisualData = node.GetPhraseVisual().GetData();
-                var eventsVisualData = node.GetEventsVisual().Select(evt => evt.GetData()).ToList();
-                var phraseSounds = node.GetPhraseSounds().Cast<Object>().ToList();
+                var eventsVisualData = GetEventsData(node);
+                var phraseSound = node.GetPhraseSound();
                 var phrases = node.GetPhrases().Cast<Object>().ToList();
 
                 data.Add(new PhraseNodeData
@@ -113,8 +144,36 @@ namespace AaDialogueGraph.Editor
                     PersonVisualData = personVisualData,
                     PhraseVisualData = phraseVisualData,
                     EventVisualData = eventsVisualData,
-                    PhraseSounds = EditorNodeUtils.GetObjectPath(phraseSounds),
-                    Phrases = EditorNodeUtils.GetObjectPath(phrases),
+                    PhraseSound = phraseSound,
+                    Phrases = EditorNodeUtils.GetPathByObjects(phrases),
+                });
+            }
+
+            return data;
+        }
+        
+        private List<ImagePhraseNodeData> ImagePhraseNodesToData(List<ImagePhraseNode> nodes)
+        {
+            var data = new List<ImagePhraseNodeData>();
+            foreach (var node in nodes)
+            {
+                var personVisualData = node.GetImagePersonVisual().GetData();
+                var phraseVisualData = node.GetPhraseVisual().GetData();
+                var eventsVisualData = GetEventsData(node);
+                var phraseSound = node.GetPhraseSound();
+                var phrases = node.GetPhrases().Cast<Object>().ToList();
+
+                data.Add(new ImagePhraseNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+
+                    PhraseSketchText = node.PhraseSketchText,
+                    ImagePersonVisualData = personVisualData,
+                    PhraseVisualData = phraseVisualData,
+                    EventVisualData = eventsVisualData,
+                    PhraseSound = phraseSound,
+                    Phrases = EditorNodeUtils.GetPathByObjects(phrases),
                 });
             }
 
@@ -134,6 +193,7 @@ namespace AaDialogueGraph.Editor
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     Choice = node.Q<ChoicePopupField>().Value,
                     CaseData = caseData,
+                    ForceSelectOnRandom = node.Q<Toggle>(AaGraphConstants.ForceChoice).value,
                 });
             }
 
@@ -187,15 +247,83 @@ namespace AaDialogueGraph.Editor
             var data = new List<EndNodeData>();
             foreach (var node in nodes)
             {
+                var eventsVisualData = GetEventsData(node);
+
                 data.Add(new EndNodeData
                 {
                     Guid = node.Guid,
                     Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
                     End = node.Q<EndPopupField>().Value,
+                    EventVisualData = eventsVisualData,
+                    SkipSelectNextLevelButtons = node.Q<Toggle>(AaGraphConstants.EndNodeSkipSelectNextLevelButtons).value
+                    //Records = node.GetRecords(),
                 });
             }
 
             return data;
+        }
+
+        private List<EventNodeData> EventNodesToData(List<EventNode> nodes)
+        {
+            var data = new List<EventNodeData>();
+            foreach (var node in nodes)
+            {
+                var eventsVisualData = GetEventsData(node);
+                data.Add(new EventNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    EventVisualData = eventsVisualData,
+                });
+            }
+
+            return data;
+        }
+
+        private List<NewspaperNodeData> NewspaperNodesToData(List<NewspaperNode> nodes)
+        {
+            var data = new List<NewspaperNodeData>();
+            foreach (var node in nodes)
+            {
+                var eventsVisualData = GetEventsData(node);
+                var newspaper = node.Q<NewspaperAssetField>(AaGraphConstants.NewspaperObject).GetNewspaper();
+
+                data.Add(new NewspaperNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    EventVisualData = eventsVisualData,
+                    NewspaperPrefab = EditorNodeUtils.GetPathByObject(newspaper),
+                });
+            }
+
+            return data;
+        }
+
+        private List<SlideNodeData> SlideNodesToData(List<SlideNode> nodes)
+        {
+            var data = new List<SlideNodeData>();
+            foreach (var node in nodes)
+            {
+                var eventsVisualData = GetEventsData(node);
+                var slides = node.GetSlides().Cast<Object>().ToList();
+
+                data.Add(new SlideNodeData
+                {
+                    Guid = node.Guid,
+                    Rect = new Rect(node.GetPosition().position, node.GetPosition().size),
+                    
+                    EventVisualData = eventsVisualData,
+                    Slides = EditorNodeUtils.GetPathByObjects(slides),
+                });
+            }
+
+            return data;
+        }
+
+        private static List<EventVisualData> GetEventsData(AaNode node)
+        {
+            return node.GetEventsVisual().ToList().Select(evt => evt.GetData()).ToList();
         }
 
         private void CreateFolders(string fileName)

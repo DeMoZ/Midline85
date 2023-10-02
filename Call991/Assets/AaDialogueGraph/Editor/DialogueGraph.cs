@@ -1,3 +1,7 @@
+using System.Collections.Generic;
+using System.Linq;
+using Configs;
+using Newtonsoft.Json;
 using UnityEditor;
 using UnityEditor.UIElements;
 using UnityEngine;
@@ -5,6 +9,14 @@ using UnityEngine.UIElements;
 
 namespace AaDialogueGraph.Editor
 {
+    public struct SoundLists
+    {
+        public List<string> Voices;
+        public List<string> Sfxs;
+        public List<string> Musics;
+        public List<string> Rtcps;
+    }
+
     public class DialogueGraph : EditorWindow
     {
         private string _fileName = AaGraphConstants.DefaultFileName;
@@ -30,7 +42,16 @@ namespace AaDialogueGraph.Editor
         {
             _languageOperation = new();
 
-            _graphView = new DialogueGraphView(_languageOperation)
+            var gameSet = Resources.Load<GameSet>("GameSet");
+            var soundLists = new SoundLists
+            {
+                Voices = gameSet.VoicesSet.GetKeys(),
+                Sfxs = gameSet.SfxsSet.GetKeys(),
+                Musics = gameSet.MusicSwitchesKeys.GetKeys(),
+                Rtcps = gameSet.RtpcKeys.GetKeys(),
+            };
+
+            _graphView = new DialogueGraphView(_languageOperation, soundLists)
             {
                 name = AaGraphConstants.DialogueGraph,
             };
@@ -56,7 +77,6 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.SaveData,
             };
             toolbar.Add(saveDataButton);
-
             toolbar.Add(new Label(AaGraphConstants.LineSpace));
 
             var loadDataButton = new Button(() => LoadData())
@@ -64,14 +84,26 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.LoadData,
             };
             toolbar.Add(loadDataButton);
-
             toolbar.Add(new Label(AaGraphConstants.LineSpace));
-            
+
+            var loadPrefsLogButton = new Button(() => LoadPrefsLog())
+            {
+                text = AaGraphConstants.LoadPrefsLog,
+            };
+            toolbar.Add(loadPrefsLogButton);
+            toolbar.Add(new Label(AaGraphConstants.LineSpace));
+
             var phraseCreateButton = new Button(() => _graphView.CreatePhraseNode())
             {
                 text = AaGraphConstants.PhraseNode,
             };
             toolbar.Add(phraseCreateButton);
+
+            var imagePhraseCreateButton = new Button(() => _graphView.CreateImagePhraseNode())
+            {
+                text = AaGraphConstants.ImagePhraseNode,
+            };
+            toolbar.Add(imagePhraseCreateButton);
 
             var choiceCreateButton = new Button(() => _graphView.CreateChoiceNode())
             {
@@ -90,12 +122,30 @@ namespace AaDialogueGraph.Editor
                 text = AaGraphConstants.CountNode,
             };
             toolbar.Add(countCreateButton);
-            
+
+            var eventCreateButton = new Button(() => _graphView.CreateEventNode())
+            {
+                text = AaGraphConstants.EventNode,
+            };
+            toolbar.Add(eventCreateButton);
+
             var endCreateButton = new Button(() => _graphView.CreateEndNode())
             {
                 text = AaGraphConstants.EndNode,
             };
             toolbar.Add(endCreateButton);
+
+            var newspaperCreateButton = new Button(() => _graphView.CreateNewspaperNode())
+            {
+                text = AaGraphConstants.NewspaperNode,
+            };
+            toolbar.Add(newspaperCreateButton);
+
+            var slideCreateButton = new Button(() => _graphView.CreateSlideNode())
+            {
+                text = AaGraphConstants.SlideNode,
+            };
+            toolbar.Add(slideCreateButton);
 
             rootVisualElement.Add(toolbar);
         }
@@ -118,12 +168,50 @@ namespace AaDialogueGraph.Editor
 
             if (!saveUtility.LoadGraph(ref _fileName))
             {
-                Debug.LogError("Some error while loading graph");
+                Debug.LogError($"[{this}] Some error while loading graph");
                 return;
             }
 
             _fileNameTextField.SetValueWithoutNotify(_fileName);
             _fileNameTextField.MarkDirtyRepaint();
+        }
+
+        private void LoadPrefsLog()
+        {
+            // get start node
+            var entryNode = _graphView.contentContainer.Q<EntryNode>();
+            if (entryNode == null) return;
+
+            // get levelId
+            var levelId = entryNode.Q<LevelIdPopupField>().Value;
+            if (string.IsNullOrEmpty(levelId)) return;
+
+            // read prefs and find records with the same levelId
+            var stringData = PlayerPrefs.GetString(AaConstants.GameProgress, string.Empty);
+            var cash = !string.IsNullOrEmpty(stringData)
+                ? JsonConvert.DeserializeObject<GameContainer>(stringData)
+                : null;
+
+            if (cash == null) return;
+
+            LevelContainer levelContainer = null;
+            foreach (var level in cash.LevelProgress)
+            {
+                if (level.Key == levelId)
+                {
+                    levelContainer = level.Value;
+                    break;
+                }
+            }
+
+            if (levelContainer == null) return;
+
+            var nodes = _graphView.contentContainer.Query<AaNode>().ToList();
+
+            foreach (var node in nodes.Where(node => levelContainer.LogCash.ContainsKey(node.Guid)))
+            {
+                node.AddToClassList("aa-Selected_extension-container");
+            }
         }
 
         private void OnDisable()

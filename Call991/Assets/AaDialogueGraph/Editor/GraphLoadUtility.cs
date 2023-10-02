@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Configs;
 using UnityEditor;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
@@ -11,6 +12,8 @@ namespace AaDialogueGraph.Editor
 {
     public partial class GraphSaveUtility
     {
+        private SoundLists _soundLists;
+
         public bool LoadGraph(ref string path)
         {
             var fileName = EditorUtility.OpenFilePanel("Dialogue Graph", "Assets/Resources/", "asset");
@@ -22,6 +25,7 @@ namespace AaDialogueGraph.Editor
             }
 
             path = Path.GetDirectoryName(fileName);
+            path = path.Replace("\\", "/");
             var onlyFileName = Path.GetFileNameWithoutExtension(fileName);
 
             var split = path.Split("Resources/");
@@ -36,13 +40,26 @@ namespace AaDialogueGraph.Editor
                 return false;
             }
 
+            var gameSet = Resources.Load<GameSet>("GameSet");
+            _soundLists = new SoundLists
+            {
+                Voices = gameSet.VoicesSet.GetKeys(),
+                Sfxs = gameSet.SfxsSet.GetKeys(),
+                Musics = gameSet.MusicSwitchesKeys.GetKeys(),
+                Rtcps = gameSet.RtpcKeys.GetKeys(),
+            };
+
             ClearGraph();
             CreateEntryNode();
             CreatePhraseNodes();
+            CreateImagePhraseNodes();
             CreateChoiceNodes();
             CreateForkNodes();
             CreateCountNodes();
             CreateEndNodes();
+            CreateEventNodes();
+            CreateNewspaperNodes();
+            CreateSlideNodes();
 
             ConnectNodes();
             SetPositions();
@@ -63,7 +80,7 @@ namespace AaDialogueGraph.Editor
         private void CreateEntryNode()
         {
             var node = new EntryNode();
-            node.Set(_languageOperation, _containerCash.EntryNodeData.Guid);
+            node.Set(_languageOperation, _containerCash.EntryNodeData);
             _targetGraphView.AddElement(node);
 
             foreach (var language in _containerCash.EntryNodeData.Languages)
@@ -74,22 +91,44 @@ namespace AaDialogueGraph.Editor
             }
         }
 
+        // private List<string> GetWwiseSoundsFromStartNode()
+        // {
+        //     return (string.IsNullOrEmpty(_containerCash.EntryNodeData.SoundAsset) ? null : 
+        //         NodeUtils.GetObjectByPath<WwiseSoundsKeysList>(_containerCash.EntryNodeData.SoundAsset))?.Keys;
+        // }
+
         private void CreatePhraseNodes()
         {
+            var languages = _containerCash.EntryNodeData.Languages;
+
             foreach (var data in _containerCash.PhraseNodeData)
             {
                 var node = new PhraseNode();
-                node.Set(data, _containerCash.EntryNodeData.Languages, data.Guid);
+                node.Set(data, languages, _soundLists, data.Guid);
+                _targetGraphView.AddElement(node);
+            }
+        }
+
+        private void CreateImagePhraseNodes()
+        {
+            var languages = _containerCash.EntryNodeData.Languages;
+
+            foreach (var data in _containerCash.ImagePhraseNodeData)
+            {
+                var node = new ImagePhraseNode();
+                node.Set(data, languages, _soundLists, data.Guid);
                 _targetGraphView.AddElement(node);
             }
         }
 
         private void CreateChoiceNodes()
         {
+            var choiceKeys = EditorNodeUtils.GetButtons(_containerCash.EntryNodeData.ButtonFilter);
+
             foreach (var data in _containerCash.ChoiceNodeData)
             {
                 var node = new ChoiceNode();
-                node.Set(data, data.Guid);
+                node.Set(data, data.Guid, choiceKeys);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -119,7 +158,41 @@ namespace AaDialogueGraph.Editor
             foreach (var data in _containerCash.EndNodeData)
             {
                 var node = new EndNode();
-                node.Set(data, data.Guid);
+                node.Set(data, data.Guid, _soundLists);
+                _targetGraphView.AddElement(node);
+            }
+        }
+
+        private void CreateEventNodes()
+        {
+            foreach (var data in _containerCash.EventNodeData)
+            {
+                var node = new EventNode();
+                node.Set(data, data.Guid, _soundLists);
+                _targetGraphView.AddElement(node);
+            }
+        }
+
+        private void CreateNewspaperNodes()
+        {
+            var languages = _containerCash.EntryNodeData.Languages;
+            
+            foreach (var data in _containerCash.NewspaperNodeData)
+            {
+                var node = new NewspaperNode();
+                node.Set(data, languages, data.Guid, _soundLists);
+                _targetGraphView.AddElement(node);
+            }
+        } 
+        
+        private void CreateSlideNodes()
+        {
+            var languages = _containerCash.EntryNodeData.Languages;
+            
+            foreach (var data in _containerCash.SlideNodeData)
+            {
+                var node = new SlideNode();
+                node.Set(data, languages, data.Guid, _soundLists);
                 _targetGraphView.AddElement(node);
             }
         }
@@ -166,10 +239,14 @@ namespace AaDialogueGraph.Editor
             var nodes = new List<AaNodeData>();
 
             nodes.AddRange(_containerCash.PhraseNodeData);
+            nodes.AddRange(_containerCash.ImagePhraseNodeData);
             nodes.AddRange(_containerCash.ChoiceNodeData);
             nodes.AddRange(_containerCash.ForkNodeData);
             nodes.AddRange(_containerCash.CountNodeData);
+            nodes.AddRange(_containerCash.EventNodeData);
             nodes.AddRange(_containerCash.EndNodeData);
+            nodes.AddRange(_containerCash.NewspaperNodeData);
+            nodes.AddRange(_containerCash.SlideNodeData);
             nodes.Add(_containerCash.EntryNodeData);
 
             // foreach (var node in AaNodes)
@@ -182,7 +259,7 @@ namespace AaDialogueGraph.Editor
 
             foreach (var node in AaNodes)
             {
-                if (nodesDict.TryGetValue(node.Guid ,  out var data))
+                if (nodesDict.TryGetValue(node.Guid, out var data))
                 {
                     node.SetPosition(data.Rect);
                 }

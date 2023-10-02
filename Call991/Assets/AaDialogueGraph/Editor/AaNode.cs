@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using UnityEditor.Experimental.GraphView;
+using UnityEngine.UIElements;
 
 namespace AaDialogueGraph.Editor
 {
@@ -7,11 +9,26 @@ namespace AaDialogueGraph.Editor
         public string Guid;
         protected AaNodeType NodeType;
         
-        public bool EntryPoint => NodeType == AaNodeType.EntryPoint;
+        public bool EntryPoint => NodeType == AaNodeType.EntryNode;
 
         public AaNode()
         {
             titleContainer.Remove(titleButtonContainer);
+        }
+
+        public virtual List<VisualEvent> GetEventsVisual()
+        {
+            var musics = contentContainer.Query<MusicEventVisual>().ToList();
+            var rtpcs = contentContainer.Query<RtpcEventVisual>().ToList();
+            var sounds = contentContainer.Query<SoundEventVisual>().ToList();
+            var objects = contentContainer.Query<ObjectEventVisual>().ToList();
+            var events = new List<VisualEvent>();
+            events.AddRange(musics);
+            events.AddRange(rtpcs);
+            events.AddRange(sounds);
+            events.AddRange(objects);
+
+            return events;
         }
 
         protected void CreateInPort(string toolTip = null)

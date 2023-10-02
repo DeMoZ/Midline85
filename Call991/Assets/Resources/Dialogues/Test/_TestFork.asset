@@ -1,0 +1,307 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ab3ce56783441abbfffc5856856bea, type: 3}
+  m_Name: _TestFork
+  m_EditorClassIdentifier: 
+  EntryNodeData:
+    Guid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    Rect:
+      serializedVersion: 2
+      x: -541
+      y: -255
+      width: 113
+      height: 207
+    EventVisualData: []
+    LevelId: L1_Intro
+    Languages:
+    - English
+    - English
+    ButtonFilter: 
+    SoundAsset: 
+    GrabProjectorImages: 0
+  PhraseNodeData:
+  - Guid: 01c6a733-7e61-4fa5-a900-7445ffba437f
+    Rect:
+      serializedVersion: 2
+      x: -392
+      y: -255
+      width: 128
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: Phrase Check 1
+    PersonVisualData:
+      Person: UNKNOWN
+      ScreenPlace: 2
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 0
+    PhraseSound: NONE
+    Phrases:
+    - 
+    - 
+  - Guid: 147981ca-5284-4a14-877b-dc3f4e54bf4b
+    Rect:
+      serializedVersion: 2
+      x: -235
+      y: -255
+      width: 128
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: Phrase check 2
+    PersonVisualData:
+      Person: UNKNOWN
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: NONE
+    Phrases:
+    - 
+    - 
+  - Guid: ffe73329-be4c-4165-b69a-6f5c47baf106
+    Rect:
+      serializedVersion: 2
+      x: 552
+      y: -290
+      width: 105
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: counted 0
+    PersonVisualData:
+      Person: UNKNOWN
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: NONE
+    Phrases:
+    - 
+    - 
+  - Guid: dc1427d6-d82a-4b48-b3ca-8a0704e4f69f
+    Rect:
+      serializedVersion: 2
+      x: 552
+      y: -159
+      width: 105
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: counted 1
+    PersonVisualData:
+      Person: UNKNOWN
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: NONE
+    Phrases:
+    - 
+    - 
+  - Guid: 47b46ed6-908f-403f-a86e-ff0b0af2b866
+    Rect:
+      serializedVersion: 2
+      x: 552
+      y: -19
+      width: 105
+      height: 96
+    EventVisualData: []
+    PhraseSketchText: counted 2
+    PersonVisualData:
+      Person: UNKNOWN
+      ScreenPlace: 1
+      HideOnEnd: 0
+    PhraseVisualData:
+      TextAppear: 0
+      HideOnEnd: 1
+    PhraseSound: NONE
+    Phrases:
+    - 
+    - 
+  ImagePhraseNodeData: []
+  ChoiceNodeData:
+  - Guid: b2954950-e957-4161-8f48-38437399ee4f
+    Rect:
+      serializedVersion: 2
+      x: 702
+      y: -241
+      width: 156
+      height: 98
+    EventVisualData: []
+    Choice: btn.incendies.016
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+    ForceSelectOnRandom: 0
+  - Guid: af59d1db-475a-4db5-8e69-1f6bda65c2dc
+    Rect:
+      serializedVersion: 2
+      x: -54
+      y: -304
+      width: 156
+      height: 98
+    EventVisualData: []
+    Choice: btn.incendies.001
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+    ForceSelectOnRandom: 0
+  - Guid: 90655016-063a-47ba-a8e8-f8f653634918
+    Rect:
+      serializedVersion: 2
+      x: -54
+      y: -182
+      width: 158
+      height: 98
+    EventVisualData: []
+    Choice: btn.incendies.002
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+    ForceSelectOnRandom: 0
+  - Guid: 800d8e30-8b43-463f-82cb-ead27891ae7e
+    Rect:
+      serializedVersion: 2
+      x: -54
+      y: -63
+      width: 158
+      height: 98
+    EventVisualData: []
+    Choice: btn.incendies.003
+    CaseData:
+      Words: []
+      Ends: []
+      Counts: []
+    IsLocked: 0
+    ShowUnlock: 0
+    ForceSelectOnRandom: 0
+  ForkNodeData:
+  - Guid: 4bedd0c7-d07b-4a4c-83b5-8fb9b17bdad5
+    Rect:
+      serializedVersion: 2
+      x: 358
+      y: -255
+      width: 349
+      height: 229
+    EventVisualData: []
+    ForkCaseData:
+    - Words: []
+      Ends: []
+      Counts:
+      - CountType: 0
+        CountKey: FIRE.EMOTIONS
+        Range: {x: 1, y: 2}
+      ForkExitName: 208c0bbd-0bcc-489c-ad09-91d55ea035b6
+    - Words: []
+      Ends: []
+      Counts:
+      - CountType: 0
+        CountKey: PIZZA.EMOTIONS
+        Range: {x: 2, y: 3}
+      ForkExitName: 594acc81-9b09-49d9-8276-4bef4dc00bd6
+  CountNodeData:
+  - Guid: 9087901f-9590-4005-a533-3b37e85b6176
+    Rect:
+      serializedVersion: 2
+      x: 154
+      y: -66
+      width: 129
+      height: 96
+    EventVisualData: []
+    Choice: FIRE.EMOTIONS
+    Value: 2
+  - Guid: 252638c2-4f4f-4f44-9f28-66bb98afc2d4
+    Rect:
+      serializedVersion: 2
+      x: 146
+      y: -194
+      width: 137
+      height: 96
+    EventVisualData: []
+    Choice: PIZZA.EMOTIONS
+    Value: 1
+  EndNodeData:
+  - Guid: f4b45a0e-3636-41e5-b882-52c8d0446fb0
+    Rect:
+      serializedVersion: 2
+      x: 890
+      y: -241
+      width: 92
+      height: 95
+    EventVisualData: []
+    End: End/Intro
+    SkipSelectNextLevelButtons: 0
+  EventNodeData: []
+  NewspaperNodeData: []
+  NodeLinks:
+  - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
+    BaseExitName: 
+    TargetNodeGuid: 01c6a733-7e61-4fa5-a900-7445ffba437f
+  - BaseNodeGuid: 01c6a733-7e61-4fa5-a900-7445ffba437f
+    BaseExitName: 
+    TargetNodeGuid: 147981ca-5284-4a14-877b-dc3f4e54bf4b
+  - BaseNodeGuid: 147981ca-5284-4a14-877b-dc3f4e54bf4b
+    BaseExitName: 
+    TargetNodeGuid: af59d1db-475a-4db5-8e69-1f6bda65c2dc
+  - BaseNodeGuid: 147981ca-5284-4a14-877b-dc3f4e54bf4b
+    BaseExitName: 
+    TargetNodeGuid: 90655016-063a-47ba-a8e8-f8f653634918
+  - BaseNodeGuid: 147981ca-5284-4a14-877b-dc3f4e54bf4b
+    BaseExitName: 
+    TargetNodeGuid: 800d8e30-8b43-463f-82cb-ead27891ae7e
+  - BaseNodeGuid: ffe73329-be4c-4165-b69a-6f5c47baf106
+    BaseExitName: 
+    TargetNodeGuid: b2954950-e957-4161-8f48-38437399ee4f
+  - BaseNodeGuid: dc1427d6-d82a-4b48-b3ca-8a0704e4f69f
+    BaseExitName: 
+    TargetNodeGuid: b2954950-e957-4161-8f48-38437399ee4f
+  - BaseNodeGuid: 47b46ed6-908f-403f-a86e-ff0b0af2b866
+    BaseExitName: 
+    TargetNodeGuid: b2954950-e957-4161-8f48-38437399ee4f
+  - BaseNodeGuid: b2954950-e957-4161-8f48-38437399ee4f
+    BaseExitName: 
+    TargetNodeGuid: f4b45a0e-3636-41e5-b882-52c8d0446fb0
+  - BaseNodeGuid: af59d1db-475a-4db5-8e69-1f6bda65c2dc
+    BaseExitName: 
+    TargetNodeGuid: 4bedd0c7-d07b-4a4c-83b5-8fb9b17bdad5
+  - BaseNodeGuid: 90655016-063a-47ba-a8e8-f8f653634918
+    BaseExitName: 
+    TargetNodeGuid: 252638c2-4f4f-4f44-9f28-66bb98afc2d4
+  - BaseNodeGuid: 800d8e30-8b43-463f-82cb-ead27891ae7e
+    BaseExitName: 
+    TargetNodeGuid: 9087901f-9590-4005-a533-3b37e85b6176
+  - BaseNodeGuid: 4bedd0c7-d07b-4a4c-83b5-8fb9b17bdad5
+    BaseExitName: 
+    TargetNodeGuid: ffe73329-be4c-4165-b69a-6f5c47baf106
+  - BaseNodeGuid: 4bedd0c7-d07b-4a4c-83b5-8fb9b17bdad5
+    BaseExitName: 208c0bbd-0bcc-489c-ad09-91d55ea035b6
+    TargetNodeGuid: dc1427d6-d82a-4b48-b3ca-8a0704e4f69f
+  - BaseNodeGuid: 4bedd0c7-d07b-4a4c-83b5-8fb9b17bdad5
+    BaseExitName: 594acc81-9b09-49d9-8276-4bef4dc00bd6
+    TargetNodeGuid: 47b46ed6-908f-403f-a86e-ff0b0af2b866
+  - BaseNodeGuid: 9087901f-9590-4005-a533-3b37e85b6176
+    BaseExitName: 
+    TargetNodeGuid: 4bedd0c7-d07b-4a4c-83b5-8fb9b17bdad5
+  - BaseNodeGuid: 252638c2-4f4f-4f44-9f28-66bb98afc2d4
+    BaseExitName: 
+    TargetNodeGuid: 4bedd0c7-d07b-4a4c-83b5-8fb9b17bdad5

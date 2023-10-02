@@ -1,9 +1,8 @@
-using System.Collections.Generic;
-using DG.Tweening;
+using System.Threading.Tasks;
 using I2.Loc;
+using TMPro;
 using UniRx;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace UI
 {
@@ -11,73 +10,44 @@ namespace UI
     {
         public struct Ctx
         {
-            public ReactiveCommand onClickMenuButton;
+            public ReactiveCommand OnClickMenuButton;
+            public ReactiveCommand OnClickNextLevelButton;
         }
 
-        [SerializeField] private MenuButtonView menuButton = default;
-        [SerializeField] private GameObject statisticsObjects = default;
-        [SerializeField] private Image fadeImage = default;
-        [Space] [SerializeField] private LocalizedString lockedTextKey = default;
+        [SerializeField] private TMP_Text title = default;
+        [SerializeField] private AaMenuButton menuButton = default;
+        [SerializeField] private AaMenuButton nextLevelButton = default;
 
-        [Space] [SerializeField] private List<StatisticsCellView> cells = default;
+        [SerializeField] private TMP_Text textField = default;
 
         private Ctx _ctx;
-        private Color fadeImageColor;
-
-        private void Awake()
-        {
-            gameObject.SetActive(false);
-        }
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            menuButton.OnClick += OnClickMenu;
-
-            fadeImageColor = fadeImage.color;
+            menuButton.onButtonClick.AddListener(OnClickMenu);
+            nextLevelButton.onButtonClick.AddListener(OnClickNextLevel);
         }
+
+        private void OnClickNextLevel() =>
+            _ctx.OnClickNextLevelButton.Execute();
 
         private void OnClickMenu() =>
-            _ctx.onClickMenuButton.Execute();
+            _ctx.OnClickMenuButton.Execute();
 
-        public void PopulateCells(List<StatisticElement> statisticElements)
+        public async Task SetStatistic(StatisticsData data)
         {
-            for (var i = 0; i < cells.Count; i++)
-            {
-                var cell = cells[i];
-                if (statisticElements.Count > i && statisticElements[i].isReceived)
-                {
-                    cell.image.sprite = statisticElements[i].sprite;
-                    cell.text.text = statisticElements[i].isReceived ? statisticElements[i].description : lockedTextKey;
-                    cell.arrow.SetActive(statisticElements[i].isReceived);
-                    cell.gameObject.SetActive(true);
-                }
-                else
-                {
-                    cell.gameObject.SetActive(false);
-                }
-            }
+            nextLevelButton.gameObject.SetActive(data.NextLevelExists);
+            textField.text = new LocalizedString(data.EndKey);
+            title.text = new LocalizedString(data.LevelKey);
+            await Task.Delay(1);
         }
 
-        public void Fade(float time)
+        protected override void OnDestroy()
         {
-            statisticsObjects.SetActive(false);
-            fadeImageColor.a = 0;
-            fadeImage.color = fadeImageColor;
-            gameObject.SetActive(true);
-            fadeImage.gameObject.SetActive(true);
-            fadeImage.DOFade(1, time / 2).OnComplete(() => OnBlackScreenOn(time));
-        }
-
-        private void OnBlackScreenOn(float time)
-        {
-            statisticsObjects.SetActive(true);
-            fadeImage.DOFade(0, time / 2).OnComplete(() => OnBlackScreenOff());
-        }
-
-        private void OnBlackScreenOff()
-        {
-            fadeImage.gameObject.SetActive(false);
+            base.OnDestroy();
+            menuButton.onButtonClick.RemoveAllListeners();
+            nextLevelButton.onButtonClick.RemoveAllListeners();
         }
     }
 }

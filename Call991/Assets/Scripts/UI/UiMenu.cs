@@ -7,71 +7,53 @@ namespace UI
     {
         public struct Ctx
         {
-            public AudioManager audioManager;
-            public ReactiveCommand onClickPlayGame;
-            public ReactiveCommand onClickNewGame;
-            public ReactiveCommand onClickSettings;
-            public ReactiveCommand onClickCredits;
+            public ReactiveCommand OnClickContinue;
+            public ReactiveCommand OnClickNewGame;
+            public ReactiveCommand OnClickSettings;
+            public ReactiveCommand OnClickCredits;
         }
 
-        [SerializeField] private MenuButtonView playBtn = default;
-        [SerializeField] private MenuButtonView newGameBtn = default;
-        [SerializeField] private MenuButtonView settingsBtn = default;
-        [SerializeField] private MenuButtonView creditsBtn = default;
-        [SerializeField] private MenuButtonView exitBtn = default;
-        
+        [SerializeField] private AaMenuButton selectLevelBtn = default;
+        [SerializeField] private AaMenuButton newGameBtn = default;
+        [SerializeField] private AaMenuButton settingsBtn = default;
+        [SerializeField] private AaMenuButton creditsBtn = default;
+        [SerializeField] private AaMenuButton exitBtn = default;
+
         private Ctx _ctx;
 
         public void SetCtx(Ctx ctx)
         {
             _ctx = ctx;
-            playBtn.OnClick += OnClickPlay;
-            newGameBtn.OnClick += OnClickNewGame;
-            settingsBtn.OnClick += OnClickSettings;
-            creditsBtn.OnClick += OnClickCredits;
-            exitBtn.OnClick += OnClickExit;
+            selectLevelBtn.onButtonClick.AddListener(OnClickSelectLevelHandler);
+            selectLevelBtn.onButtonClick.AddListener(OnClickSelectLevelHandler);
+            newGameBtn.onButtonClick.AddListener(OnClickNewGameHandler);
+            settingsBtn.onButtonClick.AddListener(OnClickSettingsHandler);
+            creditsBtn.onButtonClick.AddListener(OnClickCreditsHandler);
+            exitBtn.onButtonClick.AddListener(OnClickExitHandler);
         }
         
-        private void OnClickPlay()
+        protected override void OnDestroy()
         {
-            Debug.Log("[UiMenuScene] OnClickPlay");
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
-            _ctx.onClickPlayGame.Execute();
-        }
-        
-        private void OnClickNewGame()
-        {
-            Debug.Log("[UiMenuScene] OnClickNewGame");
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
-            _ctx.onClickNewGame.Execute();
+            base.OnDestroy();
+
+            selectLevelBtn.onButtonClick.RemoveAllListeners();
+            newGameBtn.onButtonClick.RemoveAllListeners();
+            settingsBtn.onButtonClick.RemoveAllListeners();
+            creditsBtn.onButtonClick.RemoveAllListeners();
+            exitBtn.onButtonClick.RemoveAllListeners();
         }
 
-        private void OnClickSettings()
-        {
-            Debug.Log("[UiMenuScene] OnClickSettings");
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
-            _ctx.onClickSettings.Execute();
-        }
+        private void OnClickSelectLevelHandler() => AnimateDisappear(OnClickSelectLevel);
+        private void OnClickNewGameHandler() => AnimateDisappear(OnClickNewGame);
+        private void OnClickSettingsHandler() => AnimateDisappear(OnClickSettings);
+        private void OnClickCreditsHandler() => AnimateDisappear(OnClickCredits);
+        private void OnClickExitHandler() => AnimateDisappear(OnClickExit);
 
-        private void OnClickCredits()
-        {
-            Debug.Log("[UiMenuScene] OnClickCredits");
-            _ctx.audioManager.PlayUiSound(SoundUiTypes.MenuButton);
-            _ctx.onClickCredits.Execute();
-        }
+        private void OnClickSelectLevel() => _ctx.OnClickContinue.Execute();
+        private void OnClickNewGame() => _ctx.OnClickNewGame.Execute();
+        private void OnClickSettings() => _ctx.OnClickSettings.Execute();
+        private void OnClickCredits() => _ctx.OnClickCredits.Execute();
 
-        private void OnClickExit()
-        {
-            Application.Quit();
-        }
-
-        public void OnDestroy()
-        {
-            playBtn.OnClick -= OnClickPlay;
-            newGameBtn.OnClick -= OnClickNewGame;
-            settingsBtn.OnClick -= OnClickSettings;
-            creditsBtn.OnClick -= OnClickCredits;
-            exitBtn.OnClick -= OnClickExit;
-        }
+        private void OnClickExit() => Application.Quit();
     }
 }

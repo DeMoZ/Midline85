@@ -1,144 +1,128 @@
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Threading.Tasks;
-using Configs;
+using AaDialogueGraph;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Video;
+
+[Serializable]
+public class VideoSet
+{
+    public PhraseEventLayer Layer;
+    public float Delay;
+    public bool Loop;
+    public bool Stop;
+    public VideoClip Clip;
+}
 
 public class VideoManager : MonoBehaviour
 {
     public struct Ctx
     {
-        public GameSet gameSet;
-        public string videoPath;
-
-        public string levelFolder;
     }
 
-    [SerializeField] private VideoPlayer videoPlayer = default;
-    [SerializeField] private VideoPlayer vfxPlayer = default;
-
-    [SerializeField] private RawImage videoImage = default;
-    [SerializeField] private RawImage vfxImage = default;
+    [SerializeField] private List<VideoPlayer> videoPlayers = default;
+    
+    private List<bool> _pausedPlayers;
 
     private Ctx _ctx;
-    private string _currentVideoPath;
-    private VideoClip _currentVideoClip;
 
     public void SetCtx(Ctx ctx)
     {
-    }
-
-    public async Task LoadVideoSoToPrepareVideo(string eventId)
-    {
-        var config = await LoadConfig(eventId);
-        if (config == null)
-        {
-            Debug.LogError($"[{this}] sound event SO wasn't found: A PATH /{eventId}");
-            return;
-        }
-
-        if (config.clip)
-        {
-            await PrepareVideo(config.videoClip);
-        }
-        else
-        {
-            var streamingPath = "file:///" + Path.Combine(Application.streamingAssetsPath, "Videos/EventVideos");
-            var videoPath = Path.Combine(streamingPath, config.videoName + ".mp4");
-            await PrepareVideo(videoPath);
-        }
-    }
-
-    public async Task PrepareVideo(string url)
-    {
-        videoPlayer.Stop();
-        videoPlayer.clip = null;
-        videoPlayer.url = url;
-
-        await PrepareVideo();
-    }
-
-    public async Task PrepareVideo(VideoClip clip)
-    {
-        videoPlayer.Stop();
-        videoPlayer.url = null;
-        videoPlayer.clip = clip;
-
-        await PrepareVideo();
+        _ctx = ctx;
+        _pausedPlayers = new List<bool>(new bool[videoPlayers.Count]);
     }
 
     private async Task PrepareVideo()
     {
-        videoPlayer.Stop();
-        videoPlayer.Prepare();
-
-        while (!videoPlayer.isPrepared)
-            await Task.Yield();
+        await Task.Delay(1);
+        // videoPlayer.Stop();
+        // videoPlayer.Prepare();
+        //
+        // while (!videoPlayer.isPrepared)
+        //     await Task.Yield();
     }
 
     public void PlayPreparedVideo()
     {
-        videoPlayer.Play();
-        videoPlayer.isLooping = true;
+        // videoPlayer.Play();
+        // videoPlayer.isLooping = true;
     }
 
-    public void PlayVideo(string sceneVideoUrl, PhraseEventTypes phraseEventTypes)
+    public void StopPlayers()
     {
-        switch (phraseEventTypes)
+        foreach (var player in videoPlayers) 
+            StopVideo(player);
+
+        for (var i = 0; i < _pausedPlayers.Count; i++) 
+            _pausedPlayers[i] = false;
+    }
+    
+    public void PlayVideo(VideoSet data)
+    {
+        var layer = Mathf.Clamp((int)data.Layer, 0, videoPlayers.Count - 1);
+        var player = videoPlayers[layer];
+
+        if (data.Stop)
         {
-            case PhraseEventTypes.Video:
-                break;
-            case PhraseEventTypes.Vfx:
-                vfxPlayer.url = sceneVideoUrl;
-                vfxPlayer.isLooping = false;
-                break;
-            case PhraseEventTypes.LoopVfx:
-                videoPlayer.url = sceneVideoUrl;
-                videoPlayer.isLooping = true;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(phraseEventTypes), phraseEventTypes, null);
+            StopVideo(player);
+        }
+        else
+        {
+            player.clip = data.Clip;
+            player.isLooping = data.Loop;
+            player.gameObject.SetActive(true);
+            player.Play();
         }
     }
 
-    public void PlayVideo(VideoClip clip, PhraseEventTypes phraseEventTypes)
+    public void PlayVideo(EventVisualData data, VideoClip videoClip)
     {
-        switch (phraseEventTypes)
+        var layer = Mathf.Clamp((int)data.Layer, 0, videoPlayers.Count - 1);
+        var player = videoPlayers[layer];
+
+        if (data.Stop)
         {
-            case PhraseEventTypes.Video:
-                break;
-            case PhraseEventTypes.Vfx:
-                vfxPlayer.clip = clip;
-                videoPlayer.isLooping = false;
-                break;
-            case PhraseEventTypes.LoopVfx:
-                videoPlayer.clip = clip;
-                videoPlayer.isLooping = true;
-                break;
-            default:
-                throw new ArgumentOutOfRangeException(nameof(phraseEventTypes), phraseEventTypes, null);
+            StopVideo(player);
+        }
+        else
+        {
+            player.clip = videoClip;
+            player.isLooping = data.Loop;
+            player.gameObject.SetActive(true);
+            player.Play();
+        }
+    }
+    
+    private void StopVideo(VideoPlayer player)
+    {
+        Debug.Log($"[{this}] Stop videoPlayer {player.gameObject.name}");
+        player.Stop();
+        player.gameObject.SetActive(false);
+        player.clip = null;
+
+        var texture = (RenderTexture) player.GetComponent<RawImage>().texture;
+        texture.Release();
+    }
+
+    public void PauseVideoPlayer()
+    {
+        for (var i = 0; i < videoPlayers.Count; i++)
+        {
+            if (!videoPlayers[i].isPlaying) continue;
+            videoPlayers[i].Pause();
+            _pausedPlayers[i] = true;
         }
     }
 
-    public void EnableVideo(bool enable)
+    public void ResumeVideoPlayer()
     {
-        videoImage.gameObject.SetActive(enable);
-    }
-
-    public void EnableVideoPlayer(bool isActive)
-    {
-        videoPlayer.gameObject.SetActive(isActive);
-        vfxPlayer.gameObject.SetActive(isActive);
-        videoImage.gameObject.SetActive(isActive);
-        vfxImage.gameObject.SetActive(isActive);
-    }
-
-    private async Task<PhraseVfxEventSo> LoadConfig(string eventId)
-    {
-        //var soFile = Path.Combine(_ctx.eventSoPath, eventId);
-        var conf = await ResourcesLoader.LoadAsync<PhraseVfxEventSo>(eventId);
-        return conf;
+        for (var i = 0; i < videoPlayers.Count; i++)
+        {
+            if (!_pausedPlayers[i]) continue;
+            videoPlayers[i].Play();
+            _pausedPlayers[i] = false;
+        }
     }
 }

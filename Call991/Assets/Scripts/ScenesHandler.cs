@@ -1,8 +1,7 @@
 using System;
-using System.IO;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using Configs;
-using Data;
 using UI;
 using UniRx;
 using UnityEngine;
@@ -11,23 +10,27 @@ public class ScenesHandler : IDisposable
 {
     public struct Ctx
     {
-        public string startApplicationSceneName;
-        public ReactiveCommand onStartApplicationSwitchScene;
-        public ReactiveCommand<GameScenes> onSwitchScene;
-        public PlayerProfile profile;
-        public AudioManager audioManager;
-        public GameSet gameSet;
-        public VideoManager videoManager;
-        public Blocker blocker;
-        public CursorSet cursorSettings;
+        public string StartApplicationSceneName;
+        public ReactiveCommand OnStartApplicationSwitchScene;
+        public ReactiveCommand<GameScenes> OnSwitchScene;
+        public PlayerProfile Profile;
+        public MediaService MediaService;
+        public GameSet GameSet;
+        public Blocker Blocker;
+        public CursorSet CursorSettings;
+        public ObjectEvents ObjectEvents;
+        public ReactiveProperty<bool> IsPauseAllowed;
+        public ReactiveProperty<List<string>> LevelLanguages;
+        public GameLevelsService GameLevelsService;
     }
 
     private const string ROOT_SCENE = "1_RootScene";
     private const string SWITCH_SCENE = "2_SwitchScene";
     private const string MENU_SCENE = "MenuScene";
     private const string LEVEL_SCENE = "LevelScene";
+    private const string LEVEL_TEST_SCENE = "LevelTestScene";
     private const string OPEN_SCENE = "OpenScene";
-    
+
     private Ctx _ctx;
     private CompositeDisposable _disposables;
 
@@ -35,23 +38,24 @@ public class ScenesHandler : IDisposable
     public string MenuScene => MENU_SCENE;
     public string SwitchScene => SWITCH_SCENE;
     public string LevelScene => LEVEL_SCENE;
+    public string LevelTestScene => LEVEL_TEST_SCENE;
     public string OpenScene => OPEN_SCENE;
 
     public ScenesHandler(Ctx ctx)
     {
         _ctx = ctx;
         _disposables = new CompositeDisposable();
-        _ctx.onStartApplicationSwitchScene.Subscribe(_ => SelectSceneForStartApplication()).AddTo(_disposables);
-        _ctx.cursorSettings.ApplyCursor();
+        _ctx.OnStartApplicationSwitchScene.Subscribe(_ => SelectSceneForStartApplication()).AddTo(_disposables);
+        _ctx.CursorSettings.ApplyCursor();
     }
 
 
     private void SelectSceneForStartApplication()
     {
-        switch (_ctx.startApplicationSceneName)
+        switch (_ctx.StartApplicationSceneName)
         {
             case ROOT_SCENE:
-                _ctx.onSwitchScene.Execute(GameScenes.OpenScene);
+                _ctx.OnSwitchScene.Execute(GameScenes.OpenScene);
                 break;
             // case MENU_SCENE:
             //     _ctx.onSwitchScene.Execute(GameScenes.Menu);
@@ -61,10 +65,11 @@ public class ScenesHandler : IDisposable
             //     break;
 
             case LEVEL_SCENE:
-                _ctx.onSwitchScene.Execute(GameScenes.Level1);
+            case LEVEL_TEST_SCENE:
+                _ctx.OnSwitchScene.Execute(GameScenes.Level);
                 break;
             default:
-                _ctx.onSwitchScene.Execute(GameScenes.Menu);
+                _ctx.OnSwitchScene.Execute(GameScenes.Menu);
                 break;
         }
     }
@@ -75,7 +80,7 @@ public class ScenesHandler : IDisposable
         {
             GameScenes.OpenScene => OpenScene,
             GameScenes.Menu => MenuScene,
-            GameScenes.Level1 => LevelScene,
+            GameScenes.Level => LevelScene,
             _ => throw new ArgumentOutOfRangeException(nameof(scene), scene, null)
         };
     }
@@ -86,7 +91,7 @@ public class ScenesHandler : IDisposable
         {
             GameScenes.OpenScene => LoadOpenScene(),
             GameScenes.Menu => await LoadMenu(),
-            GameScenes.Level1 => await LoadLevel7(),
+            GameScenes.Level => await LoadLevel(),
             _ => await LoadMenu()
         };
 
@@ -98,78 +103,53 @@ public class ScenesHandler : IDisposable
     {
         var sceneEntity = new OpenSceneEntity(new OpenSceneEntity.Ctx
         {
-            gameSet = _ctx.gameSet,
-            onSwitchScene = _ctx.onSwitchScene,
-            blocker = _ctx.blocker,
-            cursorSettings = _ctx.cursorSettings,
+            OnSwitchScene = _ctx.OnSwitchScene,
+            Blocker = _ctx.Blocker,
+            CursorSettings = _ctx.CursorSettings,
+            AudioManager = _ctx.MediaService.AudioManager,
         }).AddTo(_disposables);
-        
+
         return sceneEntity;
     }
 
     private async Task<IGameScene> LoadMenu()
     {
-        _ctx.audioManager.OnSceneSwitch();
+        _ctx.MediaService.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();
         var sceneEntity = new MenuSceneEntity(new MenuSceneEntity.Ctx
         {
-            onSwitchScene = _ctx.onSwitchScene,
-            profile = _ctx.profile,
-            audioManager = _ctx.audioManager,
-            videoManager = _ctx.videoManager,
-            constructorTask = constructorTask,
+            GameLevelsService = _ctx.GameLevelsService,
+            OnSwitchScene = _ctx.OnSwitchScene,
+            GameSet = _ctx.GameSet,
+            Profile = _ctx.Profile,
+            AudioManager = _ctx.MediaService.AudioManager,
+            ConstructorTask = constructorTask,
         }).AddTo(_disposables);
 
-        _ctx.cursorSettings.EnableCursor(true);
+        _ctx.CursorSettings.EnableCursor(true);
         await constructorTask.Value;
         return sceneEntity;
     }
 
-    private async Task<IGameScene> LoadLevel7()
+    private async Task<IGameScene> LoadLevel()
     {
-        var tLanguage = _ctx.profile.TextLanguage;
-        var aLanguage = _ctx.profile.AudioLanguage;
-        var levelFolder = "7_lvl";
-        var chapterSet = await ResourcesLoader.LoadAsync<ChapterSet>(levelFolder + "/7_lvl_Total");
-        var dialogues = await chapterSet.LoadDialogues(tLanguage, levelFolder);
-        var videoPathBuilder = new VideoPathBuilder();
-        //var phraseSoundPath = "Sounds/"+aLanguage+"/"+aLanguage+"_7_P";
-        var phraseSoundStreamingPath = "Sounds/Ru/RU_7_P";
-        //var phraseSoundResourcesPath = Path.Combine("Sounds", tLanguage.ToString(), levelFolder);
-        var phraseSoundResourcesPath = Path.Combine("Sounds/Ru", levelFolder);
-        var achievementsSo = await ResourcesLoader.LoadAsync<AchievementsSo>(levelFolder + "/7_lvl_achievements");
-        var endLevelConfigsPath = levelFolder;
-        var newspaperPath = Path.Combine(tLanguage.ToString(), levelFolder, "newspaper");
-        var newspaperSprite = await ResourcesLoader.LoadAsync<Sprite>(newspaperPath);
-        _ctx.audioManager.OnSceneSwitch();
-
-        var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
-        {
-            eventSoPath = levelFolder,
-            videoManager = _ctx.videoManager,
-            streamingPath = "Videos/EventVideos",
-        }).AddTo(_disposables);
+        _ctx.MediaService.AudioManager.OnSceneSwitch();
 
         var constructorTask = new Container<Task>();
         var sceneEntity = new LevelSceneEntity(new LevelSceneEntity.Ctx
         {
-            gameSet = _ctx.gameSet,
-            constructorTask = constructorTask,
-            profile = _ctx.profile,
-            chapterSet = chapterSet,
-            dialogues = dialogues,
-            onSwitchScene = _ctx.onSwitchScene,
-            achievementsSo = achievementsSo,
-            phraseSoundStreamingPath = phraseSoundStreamingPath,
-            phraseSoundResourcesPath = phraseSoundResourcesPath,
-            endLevelConfigsPath = endLevelConfigsPath,
-            audioManager = _ctx.audioManager,
-            videoManager = _ctx.videoManager,
-            newspaperSprite = newspaperSprite,
-            phraseEventVideoLoader = phraseEventVideoLoader,
-            blocker = _ctx.blocker,
-            cursorSettings = _ctx.cursorSettings,
+            GameSet = _ctx.GameSet,
+            ConstructorTask = constructorTask,
+            Profile = _ctx.Profile,
+            ObjectEvents = _ctx.ObjectEvents,
+            OnSwitchScene = _ctx.OnSwitchScene,
+            GameLevelsService = _ctx.GameLevelsService,
+            MediaService = _ctx.MediaService,
+            Blocker = _ctx.Blocker,
+            CursorSettings = _ctx.CursorSettings,
+            IsPauseAllowed = _ctx.IsPauseAllowed,
+            LevelLanguages = _ctx.LevelLanguages,
         }).AddTo(_disposables);
 
         await constructorTask.Value;
@@ -184,25 +164,31 @@ public class ScenesHandler : IDisposable
 
     public IGameScene LoadingSceneEntity(ReactiveProperty<string> onLoadingProcess, GameScenes scene)
     {
-        _ctx.videoManager.EnableVideo(false);
+        _ctx.MediaService.VideoManager.StopPlayers();
+        _ctx.MediaService.ImageManager.HideImages();
 
-        var toLevelScene = scene == GameScenes.Level1;
-
-        var phraseEventVideoLoader = new PhraseEventVideoLoader(new PhraseEventVideoLoader.Ctx
-        {
-            videoManager = _ctx.videoManager,
-            streamingPath = "Videos/EventVideos",
-        }).AddTo(_disposables);
+        var toLevelScene = scene == GameScenes.Level;
 
         var switchSceneEntity = new LoadingSceneEntity(new LoadingSceneEntity.Ctx
         {
-            onLoadingProcess = onLoadingProcess,
-            toLevelScene = toLevelScene,
-            firstLoad = scene == GameScenes.OpenScene,
-            blocker = _ctx.blocker,
-            gameSet = _ctx.gameSet,
+            OnLoadingProcess = onLoadingProcess,
+            ToLevelScene = toLevelScene,
+            FirstLoad = scene == GameScenes.OpenScene,
+            Blocker = _ctx.Blocker,
         }).AddTo(_disposables);
 
         return switchSceneEntity;
+    }
+
+    public async Task<LoadingSceneEntity> CreateLoadingSceneEntity(bool toLevelScene, ReactiveProperty<string> onLoadingProcess)
+    {
+        await Task.Yield();
+        return new LoadingSceneEntity(new LoadingSceneEntity.Ctx
+        {
+            OnLoadingProcess = onLoadingProcess, // onLoadingProcess, TODO possible need a number.ToString()
+            ToLevelScene = toLevelScene,
+            FirstLoad = toLevelScene,
+            Blocker = _ctx.Blocker,
+        }).AddTo(_disposables);
     }
 }

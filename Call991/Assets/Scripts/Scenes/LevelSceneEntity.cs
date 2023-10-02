@@ -1,38 +1,34 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Configs;
-using Core;
 using Data;
 using UI;
 using UniRx;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class LevelSceneEntity : IGameScene
 {
     public struct Ctx
     {
-        public GameSet gameSet;
-        public Container<Task> constructorTask;
-        public ChapterSet chapterSet;
-        public Dialogues dialogues;
-        public ReactiveCommand<GameScenes> onSwitchScene;
-        public PlayerProfile profile;
-        public AchievementsSo achievementsSo;
-        public string phraseSoundStreamingPath;
-        public string phraseSoundResourcesPath;
-        public string endLevelConfigsPath;
-        public AudioManager audioManager;
-        public VideoManager videoManager;
-        public Sprite newspaperSprite;
-        public PhraseEventVideoLoader phraseEventVideoLoader;
-        public Blocker blocker;
-        public CursorSet cursorSettings;
+        public GameSet GameSet;
+        public Container<Task> ConstructorTask;
+
+        public ReactiveProperty<List<string>> LevelLanguages;
+        public ReactiveCommand<GameScenes> OnSwitchScene;
+        public PlayerProfile Profile;
+        public GameLevelsService GameLevelsService;
+        public MediaService MediaService;
+        public Blocker Blocker;
+        public CursorSet CursorSettings;
+        public ObjectEvents ObjectEvents;
+        public ReactiveProperty<bool> IsPauseAllowed;
     }
 
     private Ctx _ctx;
     private UiLevelScene _ui;
     private CompositeDisposable _disposables;
-    
+
     public LevelSceneEntity(Ctx ctx)
     {
         _ctx = ctx;
@@ -43,14 +39,13 @@ public class LevelSceneEntity : IGameScene
 
     private void AsyncConstructor()
     {
-        _ctx.constructorTask.Value = ConstructorTask();
+        _ctx.ConstructorTask.Value = ConstructorTask();
     }
 
     private async Task ConstructorTask()
     {
         await Task.Delay(10);
-        await _ctx.audioManager.PlayMusic("7_lvl");
-        // todo load from addressables black screen above the scene;
+
         // scene doesnt exist here
         // so just load and show on enter. Is it instant?
     }
@@ -58,104 +53,67 @@ public class LevelSceneEntity : IGameScene
     public async void Enter()
     {
         Debug.Log($"[{this}] Entered");
-        // from prefab, or find, or addressable
+
         _ui = Object.FindObjectOfType<UiLevelScene>();
-        var uiPool = new Pool(new GameObject("uiPool").transform);
-
-        var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
-        var onPhraseSoundEvent = new ReactiveCommand<PhraseEvent>().AddTo(_disposables);
-        var onShowPhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
-        var onHidePhrase = new ReactiveCommand<PhraseSet>().AddTo(_disposables);
-        var onShowIntro = new ReactiveCommand<bool>().AddTo(_disposables);
-        var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
-
-        var onPopulateStatistics = new ReactiveCommand<List<StatisticElement>>().AddTo(_disposables);
-        var onPhraseLevelEndEvent = new ReactiveCommand<string>().AddTo(_disposables);
-        var onHideLevelUi = new ReactiveCommand<float>().AddTo(_disposables);
-        var onShowStatisticUi = new ReactiveCommand<float>().AddTo(_disposables);
-        var onShowNewspaper = new ReactiveCommand<(Container<Task> task, Sprite sprite)>().AddTo(_disposables);
-        var onSkipPhrase = new ReactiveCommand().AddTo(_disposables);
-        var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
-        var buttons = _ui.Buttons;
-        var countDown = _ui.CountDown;
-
-        var phraseSoundPm = new PhraseSoundPlayer(new PhraseSoundPlayer.Ctx
-        {
-            streamingPath = _ctx.phraseSoundStreamingPath,
-            resourcesPath = _ctx.phraseSoundResourcesPath,
-            audioSource = _ui.PhraseAudioSource,
-        }).AddTo(_disposables);
-
-        _ctx.audioManager.SetPhraseAudioSource(_ui.PhraseAudioSource);
-
-        var phraseEventSoundLoader = new PhraseEventSoundLoader(new PhraseEventSoundLoader.Ctx
-        {
-            audioManager = _ctx.audioManager,
-            eventSoPath = "PhraseSFX",
-            streamingPath = "Sounds/EventSounds",
-            resourcesPath = "Sounds/EventSounds",
-        }).AddTo(_disposables);
-
-        var phraseSkipper = new PhraseSkipper(onSkipPhrase).AddTo(_disposables);
         
-        var levelEndPm = new LevelEndPm(new LevelEndPm.Ctx
+        var onClickMenuButton = new ReactiveCommand().AddTo(_disposables);
+        var onClickNextLevelButton = new ReactiveCommand().AddTo(_disposables);
+
+        var dialogueService = new DialogueService().AddTo(_disposables);
+
+        var onAfterEnter = new ReactiveCommand().AddTo(_disposables);
+        var onLevelEnd = new ReactiveCommand<StatisticsData>().AddTo(_disposables);
+        var onClickPauseButton = new ReactiveCommand<bool>().AddTo(_disposables);
+
+        var levelSceneObjectsService = new LevelSceneObjectsService().AddTo(_disposables);
+        _ctx.GameLevelsService.InitDialogue();
+        var levelData = _ctx.GameLevelsService.LevelData;
+        _ctx.LevelLanguages.Value = levelData.GetEntryNode().Languages;
+
+        var contentLoader = new ContentLoader(new ContentLoader.Ctx
         {
-            gameSet = _ctx.gameSet,
-            onHideLevelUi = onHideLevelUi,
-            achievementsSo = _ctx.achievementsSo,
-            profile = _ctx.profile,
-            onShowStatisticUi = onShowStatisticUi,
-            onPhraseLevelEndEvent = onPhraseLevelEndEvent,
-            endLevelConfigsPath = _ctx.endLevelConfigsPath,
-            phraseEventSoundLoader = phraseEventSoundLoader,
-            phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
-            onPopulateStatistics = onPopulateStatistics,
+            LevelLanguages = _ctx.LevelLanguages.Value,
+            Profile = _ctx.Profile,
         }).AddTo(_disposables);
 
+        var phraseSkipper = new PhraseSkipper(dialogueService.OnSkipPhrase).AddTo(_disposables);
+        
+        var levelId = levelData.GetEntryNode().LevelId;
         var scenePm = new LevelScenePm(new LevelScenePm.Ctx
         {
-            profile = _ctx.profile,
-            dialogues = _ctx.dialogues,
-            onSwitchScene = _ctx.onSwitchScene,
-            onClickMenuButton = onClickMenuButton,
-            onPhraseSoundEvent = onPhraseSoundEvent,
-            onShowPhrase = onShowPhrase,
-            onHidePhrase = onHidePhrase,
-            onAfterEnter = onAfterEnter,
-            gameSet = _ctx.gameSet,
-            buttons = buttons,
-            countDown = countDown,
-            phraseSoundPlayer = phraseSoundPm,
-            phraseEventSoundLoader = phraseEventSoundLoader,
-            audioManager = _ctx.audioManager,
-            onShowIntro = onShowIntro,
-            onPhraseLevelEndEvent = onPhraseLevelEndEvent,
-            newspaperSprite = _ctx.newspaperSprite,
-            onShowNewspaper = onShowNewspaper,
-            chapterSet = _ctx.chapterSet,
-            phraseEventVideoLoader = _ctx.phraseEventVideoLoader,
-            onSkipPhrase = onSkipPhrase,
-            onClickPauseButton = onClickPauseButton,
-            videoManager = _ctx.videoManager,
-            blocker = _ctx.blocker,
-            cursorSettings = _ctx.cursorSettings,
+            OnSwitchScene = _ctx.OnSwitchScene,
+            OnClickMenuButton = onClickMenuButton,
+            OnClickNextLevelButton = onClickNextLevelButton,
+
+            ContentLoader = contentLoader,
+            ObjectEvents = _ctx.ObjectEvents,
+
+            OnAfterEnter = onAfterEnter,
+            GameSet = _ctx.GameSet,
+            LevelId = levelId,
+            LevelSceneObjectsService = levelSceneObjectsService,
+            DialogueService = dialogueService,
+            GameLevelsService = _ctx.GameLevelsService,
+            MediaService = _ctx.MediaService,
+            OnLevelEnd = onLevelEnd,
+            OnClickPauseButton = onClickPauseButton,
+            Blocker = _ctx.Blocker,
+            CursorSettings = _ctx.CursorSettings,
         }).AddTo(_disposables);
 
         _ui.SetCtx(new UiLevelScene.Ctx
         {
-            onClickMenuButton = onClickMenuButton,
-            onPhraseSoundEvent = onPhraseSoundEvent,
-            onShowPhrase = onShowPhrase,
-            onHidePhrase = onHidePhrase,
-            onShowIntro = onShowIntro,
-            onHideLevelUi = onHideLevelUi,
-            onPopulateStatistics = onPopulateStatistics,
-            onShowStatisticUi = onShowStatisticUi,
-            onShowNewspaper = onShowNewspaper,
-            onClickPauseButton = onClickPauseButton,
-            pool = uiPool,
-            audioManager = _ctx.audioManager,
-            profile = _ctx.profile,
+            GameSet = _ctx.GameSet,
+            LevelSceneObjectsService = levelSceneObjectsService,
+            OnClickMenuButton = onClickMenuButton,
+            OnClickNextLevelButton = onClickNextLevelButton,
+            DialogueService = dialogueService,
+            OnShowTitle = _ctx.ObjectEvents.EventsGroup.OnShowTitle,
+            OnShowWarning = _ctx.ObjectEvents.EventsGroup.OnShowWarning,
+            OnLevelEnd = onLevelEnd,
+            OnClickPauseButton = onClickPauseButton,
+            Profile = _ctx.Profile,
+            IsPauseAllowed = _ctx.IsPauseAllowed,
         });
 
         onAfterEnter.Execute();
@@ -168,6 +126,7 @@ public class LevelSceneEntity : IGameScene
 
     public void Dispose()
     {
+        _ctx.GameLevelsService.DialogueLogger.Save();
         Resources.UnloadUnusedAssets();
         _disposables.Dispose();
     }

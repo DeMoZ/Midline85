@@ -6,16 +6,21 @@ public enum ScreenPlace
     BottomLeft,
     TopRight,
     MiddleRight,
-    BottomRight
+    BottomRight,
+    BottomLine,
 }
 
-public enum Person
+public enum PersonImageScreenPlace
 {
-    UNKNOWN,
-    ELENA,
-    LARA,
-    JACK,
+    Center,
+    Left1,
+    Left2,
+    Left3,
+    Right3,
+    Right2,
+    Right1,
 }
+
 
 public enum TextAppear
 {
@@ -36,7 +41,6 @@ public enum SoundUiTypes
 {
     ChoiceButton,
     MenuButton,
-    Timer
 }
 
 public enum PhraseEventTypes
