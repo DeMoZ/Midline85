@@ -19,14 +19,15 @@ MonoBehaviour:
       x: -49
       y: 203
       width: 113
-      height: 183
+      height: 200
     EventVisualData: []
-    LevelId: L4_Interlude1
+    LevelId: L3_Pizza
     Languages:
     - Russian
     ButtonFilter: pizza
     SoundAsset: 
     GrabProjectorImages: 0
+    EnableSkipLevelButton: 0
   PhraseNodeData:
   - Guid: 3903e821-8d76-448f-ae41-e5cf33e39aec
     Rect:
@@ -42,7 +43,7 @@ MonoBehaviour:
       ScreenPlace: 5
       HideOnEnd: 0
     PhraseVisualData:
-      TextAppear: 0
+      TextAppear: 2
       HideOnEnd: 1
     PhraseSound: L4_Interlude1/Mark/pizzaep_mark_043
     Phrases:
@@ -51,9 +52,9 @@ MonoBehaviour:
     Rect:
       serializedVersion: 2
       x: 464
-      y: 77
-      width: 343
-      height: 407
+      y: 75
+      width: 310
+      height: 381
     EventVisualData:
     - Type: 2
       PhraseEvent: SFX/sfx_lighter
@@ -70,9 +71,9 @@ MonoBehaviour:
     PhraseVisualData:
       TextAppear: 0
       HideOnEnd: 1
-    PhraseSound: L4_Interlude1/Mark/pizzaep_mark_042
+    PhraseSound: L3_Pizza/Elena/pizza_elena_079
     Phrases:
-    - Phrases/L4_Interlude1/Russian/pizzaep_mark/pizzaep_mark_042.asset
+    - Phrases/L3_Pizza/Russian/pizza_elena/pizza_elena_079.asset
   ImagePhraseNodeData: []
   ChoiceNodeData: []
   ForkNodeData: []
@@ -132,8 +133,8 @@ MonoBehaviour:
       Stop: 0
       Delay: 0
       Value: 0
-    Sprites:
-    - 
+    NewspaperPrefab: 
+  SlideNodeData: []
   NodeLinks:
   - BaseNodeGuid: 5329c7fd-aa50-4a53-b7b2-40be5ad27168
     BaseExitName: 
