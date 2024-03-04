@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using ContentDelivery;
 using I2.Loc;
 using UniRx;
 using UnityEngine;
@@ -17,12 +18,12 @@ namespace UI
             public ReactiveCommand OnClickToMenu;
         }
 
-        [SerializeField] private AaMenuButton levelButtonPrefab;
+        [SerializeField] private AaMenuProgressButton levelButtonPrefab;
         [SerializeField] private RectTransform buttonsParent;
         [SerializeField] private AaMenuButton toMenuHintBtn = default;
 
         private Ctx _ctx;
-        private List<AaMenuButton> _buttons;
+        private List<AaButton> _buttons;
         private LocalizedString _localize;
 
         // every time the screen is shown i need to repopulate the levels buttons with correct state
@@ -43,7 +44,7 @@ namespace UI
                 Destroy(child.gameObject);
 
             var progressData = _ctx.GameLevelsService.DialogueLogger.LoadLevelsInfo();
-            _buttons = new List<AaMenuButton>();
+            _buttons = new List<AaButton>();
             int lastFinished = -1;
 
             var levels = _ctx.GameLevelsService.GetLevels();
@@ -101,7 +102,7 @@ namespace UI
             toMenuHintBtn.onButtonClick.RemoveAllListeners();
         }
 
-        private void SetButtonDisabled(AaMenuButton btn)
+        private void SetButtonDisabled(AaButton btn)
         {
 #if !UNITY_EDITOR
 //            btn.SetDisabled();
@@ -110,16 +111,19 @@ namespace UI
 
         private void OnLevelClick(int index)
         {
+            // todo roman check for content loaded for the level and if not, download
             AnimateDisappear(() =>
             {
-                Debug.LogWarning($"Level {index} clicked");
+               // Debug.LogWarning($"Level {index} clicked");
                 _ctx.OnLevelPlay?.Execute(index);
             });
         }
 
         private void OnLevelSelect(int index)
         {
-            Debug.LogWarning($"Level {index} selected");
+            //Debug.LogWarning($"Level {index} selected");
+            // todo roman check for content loaded for the level and if not, dont animate
+            //AddressableDownloader.
             _ctx.OnLevelSelect?.Execute(index);
         }
     }
