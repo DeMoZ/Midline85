@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AaDialogueGraph;
 using Configs;
+using ContentDelivery;
 using UniRx;
 
 public class GameLevelsService : IDisposable
@@ -32,20 +33,24 @@ public class GameLevelsService : IDisposable
 
     private DialoguePm _dialoguePm;
     private DialogueContainer _level;
+    private AddressableDownloader _addressableDownloader;
 
     public DialogueContainer PlayLevel => _playLevel.Value;
     public LevelData LevelData => _levelData.Value;
     public Func<Task<List<SlideNodeData>>> OnGetProjectorImages => GetSliderNodes;
     public bool IsNewspaperSkipped => _overridenDialogue.SkipNewspaper;
+    public AddressableDownloader AddressableDownloader => _addressableDownloader;
 
     public DialogueLoggerPm DialogueLogger => _dialogueLogger;
 
-    public GameLevelsService(GameSet gameSet, OverridenDialogue overridenDialogue, DialogueLoggerPm dialogueLogger)
+    public GameLevelsService(GameSet gameSet, OverridenDialogue overridenDialogue,
+        DialogueLoggerPm dialogueLogger, AddressableDownloader addressableDownloader)
     {
         _disposables = new CompositeDisposable();
         _gameSet = gameSet;
         _overridenDialogue = overridenDialogue;
         _dialogueLogger = dialogueLogger;
+        _addressableDownloader = addressableDownloader;
         _levelGroups = gameSet.GameLevels.LevelGroups;
         _playLevel = new ReactiveProperty<DialogueContainer>(GetStartLevel()).AddTo(_disposables);
         _levelData = new ReactiveProperty<LevelData>().AddTo(_disposables);
@@ -169,6 +174,11 @@ public class GameLevelsService : IDisposable
         return _gameSet.GameLevels.ShowAllLevels ? GetAllLevels() : GetOnlyLevels();
     }
 
+    public string GetLevelId(int index)
+    {
+        return GetLevels()[index].EntryNodeData.LevelId;
+    }
+
     public void SetLevel(int index)
     {
         var levels = GetLevels();
@@ -221,7 +231,7 @@ public class GameLevelsService : IDisposable
             SoundEvents = new List<EventVisualData>(),
             ObjectEvents = new List<EventVisualData>(),
             MusicEvents = new List<EventVisualData>(),
-            RtpcEvents = new List<EventVisualData>()
+            RtpcEvents = new List<EventVisualData>(),
         };
 
         foreach (var aaData in data.Where(phrase => phrase.EventVisualData.Any()))

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using Configs;
+using ContentDelivery;
 using Core;
 using I2.Loc;
 using UI;
@@ -105,7 +106,9 @@ public class RootEntity : IDisposable
         var startApplicationSceneName = SceneManager.GetActiveScene().name;
         var logService = new LoggerService().AddTo(_disposables);
         var dialogueLoggerPm = new DialogueLoggerPm(logService).AddTo(_disposables);
-        var gameLevelsService = new GameLevelsService(gameSet, _ctx.OverridenDialogue, dialogueLoggerPm).AddTo(_disposables);
+        var addressableDownloader = new AddressableDownloader().AddTo(_disposables);
+        var gameLevelsService = new GameLevelsService(gameSet, _ctx.OverridenDialogue, dialogueLoggerPm,
+            addressableDownloader).AddTo(_disposables);
         
         var scenesHandler = new ScenesHandler(new ScenesHandler.Ctx
         {

@@ -12,8 +12,9 @@ namespace ContentDelivery
         Task<T> DownloadAsync<T>(string name, Action<float> onProgress, CancellationToken cancellationToken);
     }
 
-    public class AddressableDownloader : IAddressableDownloader
+    public class AddressableDownloader : IAddressableDownloader, IDisposable
     {
+
         public async Task<T> DownloadAsync<T>(string name, Action<float> onProgress,
             CancellationToken cancellationToken)
         {
@@ -24,6 +25,36 @@ namespace ContentDelivery
             return await DownloadAssetAsync<T>(name, onProgress, cancellationToken);
         }
 
+        public async Task<bool> IsDownloadedAsync(string name, CancellationToken cancellationToken)
+        {
+            var isExists = await IsLocationExistsAsync(name, cancellationToken);
+            if (!isExists)
+                return false;
+            
+            var handle = Addressables.GetDownloadSizeAsync(name);
+            cancellationToken.Register(() =>
+            {
+                if (handle.IsDone)
+                    return;
+
+                Addressables.Release(handle);
+                Debug.Log($"{nameof(AddressableDownloader)} {name} check location was cancelled.");
+            });
+
+            try
+            {
+                await handle.Task;
+            }
+            catch (OperationCanceledException)
+            {
+                Debug.Log($"{nameof(AddressableDownloader)} {name} check downloaded was cancelled.");
+                return false;
+            }
+            
+            Debug.Log($"{nameof(AddressableDownloader)} name {name} is Downloaded {handle.Result <= 0}");
+            return handle.Result <= 0;
+        }
+        
         private async Task<bool> IsLocationExistsAsync(string name, CancellationToken cancellationToken)
         {
             var handle = Addressables.LoadResourceLocationsAsync(name);
@@ -48,7 +79,7 @@ namespace ContentDelivery
 
             var isExists = handle.Status == AsyncOperationStatus.Succeeded && handle.Result.Count > 0;
             if (!isExists)
-                Debug.LogWarning($"{nameof(AddressableDownloader)} {name} Failed to check exists: {handle.Status}");
+                Debug.LogWarning($"{nameof(AddressableDownloader)} {name} does not exists: {handle.Status}");
 
             return isExists;
         }
@@ -86,6 +117,11 @@ namespace ContentDelivery
             Debug.LogError(
                 $"{nameof(AddressableDownloader)} Failed to load {name}: {handle.Status}; {handle.OperationException}");
             return default;
+        }
+
+        public void Dispose()
+        {
+            
         }
     }
 }
