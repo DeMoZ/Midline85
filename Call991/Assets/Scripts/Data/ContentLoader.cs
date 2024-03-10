@@ -1,8 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.Threading;
 using System.Threading.Tasks;
 using AaDialogueGraph;
+using ContentDelivery;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Data
 {
@@ -12,6 +15,7 @@ namespace Data
         {
             public List<string> LevelLanguages;
             public PlayerProfile Profile;
+            public AddressableDownloader AddressableDownloader;
         }
 
         private Ctx _ctx;
@@ -99,10 +103,19 @@ namespace Data
 
         public async Task<T> GetObjectAsync<T>(string eventDataPhraseEvent) where T : UnityEngine.Object
         {
-            var result = await NodeUtils.GetObjectByPathAsync<T>(eventDataPhraseEvent);
-            return result;
+            return await NodeUtils.GetObjectByPathAsync<T>(eventDataPhraseEvent);
         }
 
+        public async Task<object> GetAddressableAsync<T>(string key, Action<float> onProgress, CancellationToken token)
+        {
+            return await _ctx.AddressableDownloader.DownloadAsync<T>(key, onProgress, token);
+        }
+
+        public void ReleaseAddressable(UnityEngine.Object obj)
+        {
+           Addressables.Release(obj);
+        }
+        
         public void Dispose()
         {
         }
