@@ -10,6 +10,7 @@ public class OpenSceneEntity : IGameScene
         public Blocker Blocker;
         public CursorSet CursorSettings;
         public WwiseAudio AudioManager;
+        public GameLevelsService GameLevelsService;
     }
 
     private readonly Ctx _ctx;
@@ -44,6 +45,7 @@ public class OpenSceneEntity : IGameScene
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
             AudioManager = _ctx.AudioManager,
+            GameLevelsService = _ctx.GameLevelsService,
         });
     }
 
