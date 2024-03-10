@@ -32,18 +32,21 @@ namespace UI
         [Space] [SerializeField] private OpeningTimeSettings timeSettings = default;
         [Space] [SerializeField] private GameObject openingUi1 = default;
         [SerializeField] private GameObject openingUi2 = default;
+        
         [SerializeField] private GameObject openingUi3 = default;
         [SerializeField] private Button startBtn = default;
         [SerializeField] private GameObject startTxt = default;
         [SerializeField] private ClickAnyButton anyButton = default;
+
         [SerializeField] private ProgressBar progressBar;
 
         [Space] [SerializeField] private AK.Wwise.Switch sceneMusic = default;
 
         private Ctx _ctx;
-        private OpeningState _openingState = 0;
+        private int _openingState = 0;
         private Coroutine _openingRoutine;
         private CancellationTokenSource _tokenSource;
+        private bool _isStartClicked;
 
         public void SetCtx(Ctx ctx)
         {
@@ -61,28 +64,37 @@ namespace UI
 
         public void OnSkip()
         {
-            if (_openingState == OpeningState.PlayButton)
+            if (_openingState >= 2)
                 return;
 
-            if (_openingRoutine != null) StopCoroutine(_openingRoutine);
+            if (_openingRoutine != null)
+                StopCoroutine(_openingRoutine);
 
             _ctx.Blocker.EnableScreenFade(true);
             _openingState++;
 
-            if ((int)_openingState < Enum.GetNames(typeof(OpeningState)).Length)
-                _openingRoutine = StartCoroutine(OpeningRoutine());
+            _openingRoutine = StartCoroutine(OpeningRoutine());
         }
 
         private IEnumerator OpeningRoutine()
         {
-            openingUi1.SetActive(_openingState == OpeningState.Logo);
-            openingUi2.SetActive(_openingState == OpeningState.Warning);
-            openingUi3.SetActive(_openingState == OpeningState.PlayButton);
+            openingUi1.SetActive(_openingState == (int)OpeningState.Logo);
+            openingUi2.SetActive(_openingState == (int)OpeningState.Warning);
+            openingUi3.SetActive(_openingState == (int)OpeningState.PlayButton);
 
+            if (_openingState == (int)OpeningState.PlayButton)
+            {
+                progressBar.Set(0, "");
+                startTxt.SetActive(false);
+                startBtn.gameObject.SetActive(false);
+                progressBar.gameObject.SetActive(true);
+            }
+            
             _ctx.Blocker.FadeScreenBlocker(false, timeSettings.fadeInTime).Forget();
             yield return new WaitForSeconds(timeSettings.fadeInTime);
 
-            switch (_openingState)
+            var openingState = (OpeningState)_openingState;
+            switch (openingState)
             {
                 case OpeningState.Logo:
                     yield return new WaitForSeconds(timeSettings.logoHoldTime);
@@ -91,7 +103,6 @@ namespace UI
                     yield return new WaitForSeconds(timeSettings.warningHoldTime);
                     break;
                 case OpeningState.PlayButton:
-                    progressBar.Set(0, "");
                     PressToPlayScreen().Forget();
                     yield break;
             }
@@ -105,10 +116,6 @@ namespace UI
 
         private async Task PressToPlayScreen()
         {
-            startTxt.SetActive(false);
-            startBtn.gameObject.SetActive(false);
-            progressBar.gameObject.SetActive(true);
-
             _tokenSource = new CancellationTokenSource();
             var levels = _ctx.GameLevelsService.GetLevels();
             var currentProgress = 0f;
@@ -127,15 +134,20 @@ namespace UI
                 Addressables.Release(levelData);
             }
 
+            progressBar.gameObject.SetActive(false);
             startBtn.gameObject.SetActive(true);
             startTxt.SetActive(true);
-            progressBar.gameObject.SetActive(false);
+
             _ctx.CursorSettings.ApplyCursor();
             _ctx.CursorSettings.EnableCursor(true);
         }
 
         public void OnClickStart()
         {
+            if (_isStartClicked)
+                return;
+
+            _isStartClicked = true;
             OnClickStartAsync().Forget();
         }
 
