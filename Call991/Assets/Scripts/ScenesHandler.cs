@@ -107,6 +107,7 @@ public class ScenesHandler : IDisposable
             Blocker = _ctx.Blocker,
             CursorSettings = _ctx.CursorSettings,
             AudioManager = _ctx.MediaService.AudioManager,
+            GameLevelsService = _ctx.GameLevelsService,
         }).AddTo(_disposables);
 
         return sceneEntity;
@@ -185,7 +186,7 @@ public class ScenesHandler : IDisposable
         await Task.Yield();
         return new LoadingSceneEntity(new LoadingSceneEntity.Ctx
         {
-            OnLoadingProcess = onLoadingProcess, // onLoadingProcess, TODO possible need a number.ToString()
+            OnLoadingProcess = onLoadingProcess,
             ToLevelScene = toLevelScene,
             FirstLoad = toLevelScene,
             Blocker = _ctx.Blocker,

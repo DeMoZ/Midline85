@@ -1,8 +1,6 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
-using Core;
 using I2.Loc;
 using UniRx;
 using UnityEngine;
@@ -19,14 +17,13 @@ namespace UI
             public ReactiveCommand OnClickToMenu;
         }
 
-        [SerializeField] private AaMenuProgressButton levelButtonPrefab;
+        [SerializeField] private AaMenuButton levelButtonPrefab;
         [SerializeField] private RectTransform buttonsParent;
         [SerializeField] private AaMenuButton toMenuHintBtn = default;
 
         private Ctx _ctx;
-        private List<AaButton> _buttons;
+        private List<AaMenuButton> _buttons;
         private LocalizedString _localize;
-        private List<string> loadingIds = new List<string>();
 
         // every time the screen is shown i need to repopulate the levels buttons with correct state
         public void SetCtx(Ctx ctx)
@@ -46,7 +43,7 @@ namespace UI
                 Destroy(child.gameObject);
 
             var progressData = _ctx.GameLevelsService.DialogueLogger.LoadLevelsInfo();
-            _buttons = new List<AaButton>();
+            _buttons = new List<AaMenuButton>();
             int lastFinished = -1;
 
             var levels = _ctx.GameLevelsService.GetLevels();
@@ -90,7 +87,7 @@ namespace UI
 
             firstSelected = _buttons[0];
         }
-        
+
         protected override void OnDestroy()
         {
             base.OnDestroy();
@@ -104,7 +101,7 @@ namespace UI
             toMenuHintBtn.onButtonClick.RemoveAllListeners();
         }
 
-        private void SetButtonDisabled(AaButton btn)
+        private void SetButtonDisabled(AaMenuButton btn)
         {
 #if !UNITY_EDITOR
 //            btn.SetDisabled();
@@ -113,49 +110,16 @@ namespace UI
 
         private void OnLevelClick(int index)
         {
-            OnLevelClickAsync(index).Forget();
-        }
-
-        private async Task OnLevelClickAsync(int index)
-        {
-            // todo roman check for content loaded for the level and if not, download
-            var levelId = _ctx.GameLevelsService.GetLevelId(index);
-            if (loadingIds.Contains(levelId))
-                return;
-
-            loadingIds.Add(levelId);
-            var tokenSource = new CancellationTokenSource();
-            var isDownloaded = await _ctx.GameLevelsService.AddressableDownloader.IsDownloadedAsync(levelId, tokenSource.Token);
-
-            ((AaMenuProgressButton)_buttons[index]).EnableProgress(!isDownloaded);
-            if (!isDownloaded)
-            {
-                await _ctx.GameLevelsService.AddressableDownloader.DownloadAsync<Object>(levelId, value => OnProgress(value, index), tokenSource.Token);
-                return;
-            }
-
-            return;
             AnimateDisappear(() =>
             {
-               // Debug.LogWarning($"Level {index} clicked");
+                Debug.LogWarning($"Level {index} clicked");
                 _ctx.OnLevelPlay?.Execute(index);
             });
         }
 
-        private void OnProgress(float value, int index)
-        {
-            if (!gameObject.activeInHierarchy)
-                return;
-
-            var button = (AaMenuProgressButton)_buttons[index];
-            button.SetProgress(value);
-        }
-
         private void OnLevelSelect(int index)
         {
-            //Debug.LogWarning($"Level {index} selected");
-            // todo roman check for content loaded for the level and if not, dont animate
-            //AddressableDownloader.
+            Debug.LogWarning($"Level {index} selected");
             _ctx.OnLevelSelect?.Execute(index);
         }
     }

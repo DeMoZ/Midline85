@@ -91,8 +91,7 @@ public class GameLevelsService : IDisposable
     /// Returns all levels and ints child sequences
     /// </summary>
     /// <returns></returns>
-    /// <exception cref="SystemException"></exception>
-    private List<DialogueContainer> GetAllLevels()
+    public List<DialogueContainer> GetAllLevels()
     {
         if (!CheckConfig())
             throw new SystemException(ConfigNotSetMsg);
