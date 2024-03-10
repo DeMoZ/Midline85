@@ -60,7 +60,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.GameLevelsService.onNext.Subscribe(OnDialogue).AddTo(_disposables);
         _ctx.DialogueService.OnSkipPhrase.Subscribe(_ => OnSkipPhrase()).AddTo(_disposables);
-        _ctx.DialogueService.OnClickSkipCinematicButton.Subscribe(_=> OnSkipCinematic()).AddTo(_disposables);
+        _ctx.DialogueService.OnClickSkipCinematicButton.Subscribe(_ => OnSkipCinematic()).AddTo(_disposables);
         _ctx.OnClickPauseButton.Subscribe(SetPause).AddTo(_disposables);
 
         _ctx.OnClickMenuButton.Subscribe(_ =>
@@ -75,7 +75,7 @@ public class LevelScenePm : IDisposable
         _ctx.LevelSceneObjectsService.OnClickChoiceButton.Subscribe(OnClickChoiceButton).AddTo(_disposables);
         _ctx.OnAfterEnter.Subscribe(_ => OnAfterEnter()).AddTo(_disposables);
     }
-    
+
     private async void OnAfterEnter()
     {
         _ctx.DialogueService.OnShowLevelUi.Execute();
@@ -124,32 +124,36 @@ public class LevelScenePm : IDisposable
     {
         _tokenSource.Cancel();
         var endNode = _ctx.GameLevelsService.PlayLevel.EndNodeData.FirstOrDefault();
-        
-        if(endNode!=null) RunEndNode(endNode);
+
+        if (endNode != null) 
+            RunEndNode(endNode);
     }
-    
+
     private async void ExecuteDialogue()
     {
         // Process dialogue in silence and Grab projector images.
         var sliderNodes = await _ctx.GameLevelsService.OnGetProjectorImages.Invoke();
-        if (_tokenSource.IsCancellationRequested) return;
+        if (_tokenSource.IsCancellationRequested) 
+            return;
 
         var projectorSprites = new List<Sprite>();
-        
+
         foreach (var sliderNode in sliderNodes)
         {
             var slide = await _ctx.ContentLoader.GetSlideAsync(sliderNode);
             projectorSprites.Add(slide);
-            if (_tokenSource.IsCancellationRequested) return;   
+            
+            if (_tokenSource.IsCancellationRequested) 
+                return;
         }
 
         _ctx.MediaService.FilmProjector.AddSlides(projectorSprites);
 
         Debug.Log($"[{this}] _ctx.FindNext.Execute with no data");
         // enable skip level button in pause screen
-        var showSkipButtons = _ctx.GameLevelsService.LevelData.GetEntryNode().EnableSkipLevelButton; 
+        var showSkipButtons = _ctx.GameLevelsService.LevelData.GetEntryNode().EnableSkipLevelButton;
         _ctx.DialogueService.OnShowSkipCinematicButton.Execute(showSkipButtons);
-        
+
         _ctx.GameLevelsService.findNext.Execute(new List<AaNodeData>());
     }
 
@@ -173,7 +177,7 @@ public class LevelScenePm : IDisposable
         var events = data.OfType<EventNodeData>().ToList();
         var newspapers = data.OfType<NewspaperNodeData>().ToList();
         var slides = data.OfType<SlideNodeData>().ToList();
-        
+
         var nodeEvents = _ctx.GameLevelsService.GetEvents(data);
 
         _choices = data.OfType<ChoiceNodeData>().ToList();
@@ -182,7 +186,8 @@ public class LevelScenePm : IDisposable
         var content = new Dictionary<string, object>();
 
         // load content with cancellation token. Return on Cancel.
-        if (await LoadContent(content, nodeEvents.ObjectEvents, phrases, imagePhrases, newspapers, slides)) return;
+        if (await LoadContent(content, nodeEvents.ObjectEvents, phrases, imagePhrases, newspapers, slides))
+            return;
 
         if (nodeEvents.ObjectEvents.Count > 0)
         {
@@ -238,7 +243,7 @@ public class LevelScenePm : IDisposable
             var routine = Observable.FromCoroutine(() => RunSlide(slide));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
-        
+
         foreach (var eventData in events)
         {
             var routine = Observable.FromCoroutine(() => RunEventNode(eventData));
@@ -254,26 +259,39 @@ public class LevelScenePm : IDisposable
         if (newspapers.Any() && !_ctx.GameLevelsService.IsNewspaperSkipped)
         {
             var newspaper = newspapers.First();
-            var routine = Observable.FromCoroutine(() => RunNewspaperNode(content[newspaper.Guid] as CompositeNewspaper));
+            var routine =
+                Observable.FromCoroutine(() => RunNewspaperNode(content[newspaper.Guid] as CompositeNewspaper));
             observables = observables.Concat(new[] { routine }).ToArray();
         }
 
         Observable.WhenAll(observables)
             .Subscribe(_ =>
             {
-                if (_tokenSource.IsCancellationRequested) return;
+                if (_tokenSource.IsCancellationRequested) 
+                    return;
                 
-                Debug.Log($"[{this}] All coroutines completed");
+                Debug.Log($"[{nameof(LevelScenePm)}] All coroutines completed");
+                
+                content.Where(item => item.Value is VideoClip)
+                    .Select(item => item.Value)
+                    .ToList()
+                    .ForEach(item => _ctx.ContentLoader.ReleaseAddressable((Object)item));
+                
+                foreach (var key in content.Keys.ToList())
+                    content[key] = null;
+                
+                ResourcesLoader.UnloadUnused();
+                
                 _next.AddRange(phrases);
                 _next.AddRange(imagePhrases);
                 _next.AddRange(events);
                 _next.AddRange(newspapers);
                 _next.AddRange(slides);
                 _next.Add(_choice);
-                
-                if (_next.Any()) _ctx.GameLevelsService.findNext?.Execute(_next);
 
-                ResourcesLoader.UnloadUnused(); // todo debatable
+                if (_next.Any())
+                    _ctx.GameLevelsService.findNext?.Execute(_next);
+                
             }).AddTo(_disposables);
     }
 
@@ -290,7 +308,8 @@ public class LevelScenePm : IDisposable
                     content[eventContent.PhraseEvent] = sprite;
                     break;
                 case PhraseEventType.VideoClip:
-                    var video = await _ctx.ContentLoader.GetObjectAsync<VideoClip>(eventContent.PhraseEvent);
+                    var video = await _ctx.ContentLoader.GetAddressableAsync<VideoClip>
+                        (eventContent.PhraseEvent, _ => { }, _tokenSource.Token);
                     content[eventContent.PhraseEvent] = video;
                     break;
                 case PhraseEventType.GameObject:
@@ -339,7 +358,7 @@ public class LevelScenePm : IDisposable
 
             if (_tokenSource.IsCancellationRequested) return true;
         }
-        
+
         // slide graphics
         foreach (var data in slides)
         {
@@ -518,7 +537,7 @@ public class LevelScenePm : IDisposable
         foreach (var t in Timer(_ctx.GameSet.choicesDuration, _isChoiceDone)) yield return t;
 
         _ctx.LevelSceneObjectsService.OnBlockButtons.Execute();
-        
+
         if (!_isChoiceDone.Value) AutoChoice(data);
 
         _ctx.MediaService.AudioManager.StopTimerSfx();
@@ -538,7 +557,7 @@ public class LevelScenePm : IDisposable
             _ctx.LevelSceneObjectsService.OnAutoSelectButton.Execute(forceIndex);
             return;
         }
-        
+
         // random
         var cnt = data.Count;
         var isBlocked = true;
@@ -551,7 +570,7 @@ public class LevelScenePm : IDisposable
 
         _ctx.LevelSceneObjectsService.OnAutoSelectButton.Execute(index);
     }
-    
+
     private bool TryGetForceSelection(out int index, List<ChoiceNodeData> data)
     {
         index = -1;
@@ -609,7 +628,7 @@ public class LevelScenePm : IDisposable
         _ctx.CursorSettings.ApplyCursor(CursorType.Normal);
         _ctx.CursorSettings.EnableCursor(true);
     }
-    
+
     private IEnumerator RunSlide(Sprite slide)
     {
         //     if (data.Stop)
@@ -618,12 +637,12 @@ public class LevelScenePm : IDisposable
         //         break;
         //     }
         //
-        
+
         if (slide == null) yield break;
-        
+
         _ctx.MediaService.FilmProjector.ShowSlide(slide);
     }
-    
+
     private void RunEndNode(EndNodeData data)
     {
         Debug.Log($"[{this}] level end {data}");

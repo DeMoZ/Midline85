@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using Configs;
+using ContentDelivery;
 using Data;
 using UI;
 using UniRx;
@@ -74,6 +75,7 @@ public class LevelSceneEntity : IGameScene
         {
             LevelLanguages = _ctx.LevelLanguages.Value,
             Profile = _ctx.Profile,
+            AddressableDownloader = _ctx.GameLevelsService.AddressableDownloader,
         }).AddTo(_disposables);
 
         var phraseSkipper = new PhraseSkipper(dialogueService.OnSkipPhrase).AddTo(_disposables);
